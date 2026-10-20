@@ -45,3 +45,23 @@ games/s, roughly 28x that old end-to-end rate.
 
 New entries must include unsuccessful attempts and exact output paths/commits.
 No paid training has been started for this new implementation at journal creation.
+
+### Initial CPU validation (2026-10-20)
+
+Host Intel i7-1165G7 (4 cores / 8 threads), PyTorch 2.2.0+cu121, Node22.22.2.
+Environment-only random-action benchmark: 64 rollouts, 61 terminal/3 cutoffs,
+7,223 joint steps /29,222 active transitions in 0.3947s (162.14 rollouts/s).
+Command: `python arena/benchmark_environment.py --site SITE --games 64 --workers 4`.
+This is only a simulator/transport ceiling, not MuZero training throughput.
+
+P002 scalar-vs-batched search parity passes at 20 simulations, including static
+search loops needed for CUDA graphs. P003/P004 exact float32 observation, alive,
+reward and termination parity passes against existing JSON bridge over40steps.
+A reduced 4-game/16-step CPU integration smoke run performed4optimizer updates;
+all4cut off. It cannot be used as evidence for the10,000-game speed target.
+
+Planned GPU run: RTX5090 or comparable, at most $5 incremental GPU cost and45minutes
+allocation. Preserve256decision cutoff,153actions,11seats (legacy seat10 asymmetry),
+64-observation history,8MCTS simulations,5-step training unroll,one Adam update/game,
+batch32. New implementation has no depth3 cap; this differs from the old pilot.
+Record TF32 and CUDA graph choices. No policy quality claim from throughput.

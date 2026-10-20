@@ -51,3 +51,21 @@ implemented. Legal masks apply only at the real root.
 [Training performance journal](docs/training-performance.md) records the 10,000-game/
 10-minute target, methods, measurements, hardware and tradeoffs. Unmeasured ideas
 are explicitly marked. No game rules or rewards are changed to meet the target.
+
+## Current arena training
+
+`arena/train.py` imports the canonical website TypeScript physics through Node22
+rather than reimplementing the game in Python. The Python model/training is ours.
+Pass an existing website checkout as `--site`; no account keys are needed:
+
+```sh
+python arena/train.py --site /path/to/clarkwhitehead --output runs/arena \
+  --games 10000 --parallel 128 --workers 8 --cuda-graph --max-seconds 600
+```
+
+`--cuda-graph` requires CUDA; omit it on CPU. Defaults use64observation history,
+153actions,8search simulations,5-step unroll,one optimizer update/game, and batch32.
+A rollout ends naturally or at the unchanged256decision cutoff; logs separate both.
+The600second guard is checked between batches, so the final batch can overshoot;
+the report uses measured wall time and never claims success from a projection.
+Saved NPZ weights are inference snapshots, not full optimizer/replay resume files.

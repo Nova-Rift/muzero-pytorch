@@ -11,8 +11,8 @@
   "change": "Retain 12 self-play blocks instead of 3; unchanged model and winner-only reward",
   "result": "Verified cached source and runtime; remote subprocess deadline installed",
   "candidate": "H",
-  "evaluation_label": "development: H 512 vs initial",
-  "updated_at": "2026-10-21T06:30:17.776183+00:00",
+  "evaluation_label": "development: H 512 vs E1024",
+  "updated_at": "2026-10-21T06:30:59.885462+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

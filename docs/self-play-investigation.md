@@ -260,3 +260,14 @@ Etrace0 first2games replayed exactly for256steps against canonical homepage-cade
 physics; all observation/reward arrays matched, valid policy distributions sum1.
 Trace hash and command stored trace-audit-E-0.json. No final seeds or agent3.
 Latest full local suite with ARENA_SITE:19run,17passed,2CUDA-only skipped.
+
+## Selection rule before E evaluations
+
+For E's prelisted512/1024/2048checkpoints, select highest development win count
+(out of32), then lowest cutoff count, then earliestcheckpoint. Freeze selected
+checksum/config before using any42000000final seeds. If no candidate exceeds
+60%development wins with<=20%cutoffs, do not run a confirmatory claim or add agent3.
+A second independent training seed is required even if one final evaluation passes.
+D2048seat breakdown:seat0 7wins6loss3cutoffs;seat1 9wins6loss1cutoff, so its50%overall
+score is not simply always winning from one seat. Bpolicy-v-initialsearch:
+seat0 13wins0loss3cutoffs;seat1 12wins0loss4cutoffs (different evaluation mode).

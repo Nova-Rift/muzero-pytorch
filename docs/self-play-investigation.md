@@ -192,3 +192,14 @@ final-observation bootstrap at true truncations. No reward shaping. Original
 identified arithmetic bug. MuZero used final outcomes for board games and10step
 returns forAtari: https://arxiv.org/html/1911.08265v2 (AppendixG).
 Do not claim this variant improved anything before a registered comparison.
+
+## Entry 010 — evaluation launch overhead
+
+C512development32-game evaluation still running after75s;32-search eager Python
+tree traversal launches many smallGPU operations, whereas training captured the
+same tensor graph. Interrupted that evaluation before any report was written;
+no score inferred. Registered exact-output graph optimization, not a new policy.
+FrozenSearch has no RNG inside capture; root noise/candidate sampling stays outside.
+CPU parity tested; require CUDA parity before rerunning the SAME pending development
+evaluations. Future reports include helper hash and full-process elapsed time in
+addition to rollout time. Preserve interruption in private next.log. No final seeds.

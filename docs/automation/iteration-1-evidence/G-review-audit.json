@@ -1,0 +1,11 @@
+{
+  "npz_count": 48,
+  "hash_mismatches": [],
+  "completed_games": 2944,
+  "completed_updates": 2944,
+  "natural_endings": 2587,
+  "training_timeouts": 357,
+  "first_block_entropy": 1.0301260931883007,
+  "last_complete_block_entropy": 1.1600743848830462,
+  "development_results_present": false
+}

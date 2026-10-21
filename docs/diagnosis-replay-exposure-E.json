@@ -1,0 +1,122 @@
+{
+  "scope": "saved first two games per128-game collection, not complete replay buffer",
+  "unroll": 5,
+  "batch": 32,
+  "traces": [
+    {
+      "trace": "trace-0.npz",
+      "valid_starts": 418,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.4607700073849739
+    },
+    {
+      "trace": "trace-128.npz",
+      "valid_starts": 308,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.34777432985737045
+    },
+    {
+      "trace": "trace-256.npz",
+      "valid_starts": 250,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.2708192040014181
+    },
+    {
+      "trace": "trace-384.npz",
+      "valid_starts": 654,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.6107448437974099
+    },
+    {
+      "trace": "trace-512.npz",
+      "valid_starts": 250,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.2708192040014181
+    },
+    {
+      "trace": "trace-640.npz",
+      "valid_starts": 428,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.46928903650875514
+    },
+    {
+      "trace": "trace-768.npz",
+      "valid_starts": 488,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.5155352758156553
+    },
+    {
+      "trace": "trace-896.npz",
+      "valid_starts": 626,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.5973159702913071
+    },
+    {
+      "trace": "trace-1024.npz",
+      "valid_starts": 1024,
+      "starts_with_win_reward": 0,
+      "positive_reward_targets": 0,
+      "prob_no_positive_in_batch32": 1.0
+    },
+    {
+      "trace": "trace-1152.npz",
+      "valid_starts": 200,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.19371148445850087
+    },
+    {
+      "trace": "trace-1280.npz",
+      "valid_starts": 472,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.5039637066482914
+    },
+    {
+      "trace": "trace-1408.npz",
+      "valid_starts": 282,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.31494408981917615
+    },
+    {
+      "trace": "trace-1536.npz",
+      "valid_starts": 372,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.41811926745507716
+    },
+    {
+      "trace": "trace-1664.npz",
+      "valid_starts": 716,
+      "starts_with_win_reward": 5,
+      "positive_reward_targets": 5,
+      "prob_no_positive_in_batch32": 0.7991172572021464
+    },
+    {
+      "trace": "trace-1792.npz",
+      "valid_starts": 306,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.3453417667265244
+    },
+    {
+      "trace": "trace-1920.npz",
+      "valid_starts": 336,
+      "starts_with_win_reward": 10,
+      "positive_reward_targets": 10,
+      "prob_no_positive_in_batch32": 0.38028248719274477
+    }
+  ],
+  "total_starts": 7130,
+  "total_starts_with_win_reward": 145,
+  "pooled_probability_no_positive_in_batch32": 0.5181555796759685
+}

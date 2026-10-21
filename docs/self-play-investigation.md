@@ -299,3 +299,54 @@ Allocation2,503.73s at$3.99/hour estimates$2.77497 compute, plus earlier$1.28350
 This bounded GPU pass is stopped. Preserve development/final split and original
 negative results. Further research needs a bounded hypothesis and independent-seed
 replication; adding agents remains gated.
+
+## Entry 015 — read-only reward and replay audit; bounded next probe
+
+Previous goal turn made progress: experimental E1024 preview published as v49,
+with fixed-candidate Python/WASM parity; all GPU resources deleted.
+Read-only CPU audit of all saved first-two-game Etraces (7,130 active transitions,
+29 immediate wins) shows E1024 predicted reward on wins mean.00649 vs target1;
+E2048 mean.00838. These are conditional sampled outcomes, not proof each expected
+reward should equal1 in a stochastic multi-agent process. Zero predictions exceed.5.
+Aggregate reward MSE~.004 hides the rare positives. E2048 root-value MSE.08498
+beats pooled constant.09869 despite weaker development play, so root-value MSE
+alone is an inadequate checkpoint selector. Data are training-derived, mixed policy
+versions, and only two of each128games; no held-out performance claim.
+
+A five-step replay segment contains a win for145/7130 valid starts. Under pooled
+uniform sampling, probability a32sample batch contains none is51.82%. Actual
+trainer samples one of its lastthree blocks first; this pooled estimate is NOT an
+exact reconstruction of every minibatch. No causal explanation established yet.
+Evidence: diagnosis-reward-E.json, diagnosis-replay-exposure-E.json;
+reproduce reward audit with scripts/audit_reward_signal.py RUN NEW_OUTPUT.
+
+Register bounded CPU reward-only fit probe before results: freeze E1024
+representation/dynamics/policy/value and fit copies of its reward head only.
+First12saved trace files are fitting data, last4 diagnostic data (already observed,
+not a pristine final holdout). Two arms: uniform replay versus halfuniform/
+halfpositive replay, using exact inverse-probability weights1/(N*p) so expected
+objective/reward remains identical. Three matched RNG seeds123/456/789,
+512Adam steps perarm, batch32, lr3e-4, weight_decay1e-4, same original supportCE.
+Report pre/post rewardMSE, separate positive/zero predictions and fitting/probe
+counts. No tactical shaping, opponent, environment or model.py change; no policy
+learning or new final seeds. This isolates whether rare reward supervision is
+learnable with frozen features and lower sampling variance, not whether it improves
+control. A later full self-play experiment requires separate registered criteria.
+
+## Entry 016 — frozen-feature reward replay probe outcome
+
+All six registered CPU runs completed. Uniform arms saw65/65/77 positive samples;
+importance-corrected arms8322/8318/8382. Neither learned strong positive reward
+prediction: diagnostic seven winning transitions remain mean<.001 in everyarm.
+Fitting22win predictions also remain<.006. Diagnostic aggregateMSE~.004045 is
+mostly zero rewards. This falsifies the simple claim that exposing the fixed
+reward head to more positive samples with unchanged expected objective is enough
+in this512step setup. It does NOT prove representation irrecoverable, rewards
+unlearnable, or reward error caused poorer policy. Frozen features, tiny positive
+count, chronological/mixed-policy split and already-seen diagnostics limit inference.
+No original weights changed; copied rewardheads discarded. No paidcompute or
+newgames. Next bounded diagnostic should examine feature separability/optimization
+before paying for a full prioritized-replay training run. Rawstates and latent
+features can be compared on identical stored transition labels with a separately
+registered fitting protocol; do not reinterpret diagnostic results as finalpolicy
+validation. Evidence reward-replay-probe-E.json and scripts/probe_reward_replay.py.

@@ -95,3 +95,23 @@ Benchmark allocation deleted after recovery; estimated$0.63883. Recorded cumulat
 compute through setup failures+benchmark~$6.43339/$50 (not accountwide billing).
 Initial failed setups cost$0.62640+$0.38020 and remain logged rather than hidden.
 Fullmatrix is separately registered above and not yet complete in this entry.
+
+## Inventory and figure preparation
+
+Strict-loaded checkpoint inventory: Lana3,358,684parameters;
+legacyMuZero3,440,323;unofficialDreamer4 3,305,300;independentMuZero3,226,691.
+Sizes are within~6.6% across families, but historical training budgets, activeagent
+counts and planning costs differ. Do not equate similar sizes with a controlled
+training comparison. Public safe inventory: tournament-model-inventory.json.
+`tournament/report.py` exports pairwise win/time-limit matrices and matched-initial
+win fractions with descriptiveWilson intervals (PNG/SVG/PDF), plus CSV/JSON.
+Partial-matrix rendering was inspected as a generated plot, never a screenshot;
+partial reports explicitly suppress aggregate rankings. Final charts stillawait
+all91pairs. Plot labels distinguish percentages and fractions.
+
+A single conditional resume is prepared: only after firstallocation recovery+
+verified deletion and a timeout, reuse the exact protocol/output/source/weights,
+skip completedbatches, <=30min/$2 allocation with25minuteprocess bound. Do not
+resume successful91paircompletion or blindly retry another error. This raises the
+maximum two-allocation tournamentbudget to$5, within original$50totalcap, without
+changing match count/seeds or optimizing policies against observed scores.

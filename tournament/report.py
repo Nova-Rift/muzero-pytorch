@@ -23,8 +23,8 @@ def report(directory):
  with (directory/'pairwise.csv').open('w') as f:
   writer=csv.DictWriter(f,fieldnames=list(rows[0]) if rows else []);writer.writeheader();writer.writerows(rows)
  plt.rcParams.update({'font.family':'DejaVu Sans','font.size':9,'pdf.fonttype':42,'ps.fonttype':42})
- fig,axes=plt.subplots(1,2,figsize=(18,10),layout='constrained')
- for ax,data,label,cmap in [(axes[0],win,'Row model wins / all games','viridis'),(axes[1],cut,'Time-limit fraction','magma')]:
+ fig,axes=plt.subplots(1,2,figsize=(18,8.5),layout='constrained')
+ for ax,data,label,cmap in [(axes[0],win,'Row model wins / all games (cells: %)' ,'viridis'),(axes[1],cut,'Time-limit fraction (cells: %)' ,'magma')]:
   im=ax.imshow(data,vmin=0,vmax=1,cmap=cmap)
   ax.set_xticks(range(n),ids,rotation=65,ha='right');ax.set_yticks(range(n),ids)
   ax.set_title(label)
@@ -35,6 +35,24 @@ def report(directory):
  fig.suptitle(title+'\n128-game pairs; equal seats; fixed geometry; terminal winner reward only' if protocol['games']==128 else title)
  for suffix in ['pdf','svg','png']:fig.savefig(directory/('comparison.'+suffix),dpi=180)
  plt.close(fig)
+ matches={'lana-100':'lana-untrained','lana-1000':'lana-untrained','muzero-100':'muzero-untrained','muzero-1000':'muzero-untrained','dreamer4-100':'dreamer4-untrained','dreamer4-1000':'dreamer4-untrained','independent-10000':'independent8-untrained','selfplay-E1024':'selfplay32-untrained','selfplay-F1024':'selfplay32-untrained'}
+ matched=[]
+ for trained,initial in matches.items():
+  for row in rows:
+   if {row['a'],row['b']}=={trained,initial}:
+    side='a' if row['a']==trained else 'b';other='b' if side=='a' else 'a'
+    matched.append((trained,row['wins_'+side]/row['games'],row['wilson95_'+side],f"{row['wins_'+side]}W / {row['wins_'+other]}L / {row['cutoffs']}T / {row['draws']}D"))
+ if matched:
+  fig,ax=plt.subplots(figsize=(10,5),layout='constrained')
+  for i,(name,rate,bounds,counts) in enumerate(matched):
+   ax.errorbar(rate,i,xerr=[[rate-bounds[0]],[bounds[1]-rate]],fmt='o',color='#245d80',capsize=3)
+   ax.text(1.02,i,counts,va='center',fontsize=8)
+  ax.set_yticks(range(len(matched)),[m[0] for m in matched]);ax.invert_yaxis();ax.set_xlim(0,1);ax.axvline(.5,color='gray',linestyle='--',linewidth=.8)
+  ax.set_xlabel('Win fraction against matching initialization; descriptive 95% Wilson interval')
+  ax.set_title(('Matched initialization comparisons' if complete else 'INCOMPLETE matched initialization comparisons')+'\nTimeouts earn zero; T = time limit, D = simultaneous draw')
+  ax.grid(axis='x',alpha=.2)
+  for suffix in ['pdf','svg','png']:fig.savefig(directory/('matched-initializations.'+suffix),dpi=180,bbox_inches='tight')
+  plt.close(fig)
  table=[]
  if complete:
   for name,t in totals.items():table.append(dict(model=name,**t,win_rate=t['wins']/t['games'],cutoff_rate=t['cutoffs']/t['games']))

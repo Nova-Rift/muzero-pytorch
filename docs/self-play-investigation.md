@@ -492,3 +492,10 @@ untested hypothesis, not a claim that scaling fixes the problem. Runtime budget
 Cached training now verifies a source receipt/hash map, avoiding old .git metadata
 left in a persistent workspace. Local and stagedreceipt verification plus changed
 file rejection test passed; current running tournament source remains untouched.
+
+Clarification of Entry021 terminal-value language: recurrent nextvalues are
+predictions made BEFORE observing the transition outcome, not values supplied
+a terminal flag and then ignoring it. Nonzero predictions on realized terminal
+samples can partly reflect stochastic opponent actions/partialinformation.
+The audit is an error-stratification diagnostic, not proof of a simulator,
+termination-target, or causal planning bug. Agent execution still ends correctly.

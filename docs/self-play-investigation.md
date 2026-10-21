@@ -129,3 +129,20 @@ Btrainedsearch vsinitialpolicy and Btrainedpolicy vsinitialsearch. Evaluate only
 no optimizer updates. This isolates one side's behavior change. Add evaluator and
 checkpoint hashes to future reports. Preserve earlier reports without retroactive
 claims that they contained those fields. Both tests remain development data.
+
+## Entry 007 — fixed-opponent cross-mode evidence
+
+Btrainedsearch vsinitialpolicy:31wins1loss0cutoffs.
+Btrainedpolicy vsinitialsearch:25wins0loss7cutoffs.
+SameBtrainedsearch vsinitialsearch fromEntry006:0wins0loss32cutoffs.
+Thus against a fixed initial SEARCH opponent, changing only the trained decision
+rule to sample its policy improved this32-game development outcome. Search is
+not universally harmful: against initialPOLICY, trainedsearch won31/32.
+This is opponent-dependent failure with one seed, NOT proof that removing all
+planning is the correct solution. No final seeds used; two-agent gate not passed.
+
+A separate CPU32-search initial-state audit at seed40000000 confirmed1root action
+visited for each active agent, with root values1.1704/1.1555 despite maximum true
+discounted game return1. This is initial model optimism, not necessarily a trained
+value error. Low-compute search can spend all expansions along one path; increasing
+8→32 did not by itself guarantee comparing root alternatives in these states.

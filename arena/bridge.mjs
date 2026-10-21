@@ -1,7 +1,8 @@
 // Binary transport around the unchanged canonical TypeScript arena.
 import {pathToFileURL} from 'node:url'
 import path from 'node:path'
-const site=process.argv[2]
+const site=process.argv[2],agents=Number(process.argv[3]??11)
+if(!Number.isInteger(agents)||agents<2||agents>11)throw Error('Invalid agent count')
 if(!site)throw Error('Pass canonical website checkout path')
 const {newWorld,stepWorld}=await import(pathToFileURL(path.join(site,'src/sandboxCombat.ts')))
 const {observation}=await import(pathToFileURL(path.join(site,'src/lana/observation.ts')))
@@ -23,7 +24,7 @@ function request(bytes){
  const operation=bytes.readInt32LE(0),count=bytes.readInt32LE(4)
  if(operation===0){
   if(count<1||count>1024||bytes.length!==8+4*count)throw Error('Invalid reset')
-  worlds=Array.from({length:count},(_,i)=>{const w=newWorld(0,bytes.readInt32LE(8+i*4));w.phase='playing';return w})
+  worlds=Array.from({length:count},(_,i)=>{const w=newWorld(0,bytes.readInt32LE(8+i*4));if(agents<11)for(const f of w.fighters)if(f.id>=agents)f.hp=0;w.phase='playing';return w})
  }else if(operation===1){
   if(count!==worlds.length||bytes.length!==8+count*44)throw Error('Invalid step')
   worlds.forEach((w,i)=>{

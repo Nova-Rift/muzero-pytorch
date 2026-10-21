@@ -15,6 +15,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from model import Config,MuZero
 from batched_search import search_batch
 from arena.environment import Pool
+from arena.history import DeviceHistory
 
 
 class Search:
@@ -53,7 +54,7 @@ def history(observations,actions,times,agents,context):
     return np.concatenate((obs.reshape(len(times),-1),previous),-1).astype(np.float32)
 
 
-def collect(pool,model,seeds,limit,context,searcher):
+def collect(pool,model,seeds,limit,context,searcher,device_history=False):
     state=pool.reset(seeds);games=len(seeds);count=games*11
     obs=np.zeros((limit+1,count,64),np.float32)
     actions=np.zeros((limit,count),np.int64)
@@ -64,14 +65,16 @@ def collect(pool,model,seeds,limit,context,searcher):
     terminal=np.zeros((limit,count),bool)
     finished=np.zeros(games,bool);joint_steps=0;timings={'search':0.,'environment':0.,'history':0.}
     device=next(model.parameters()).device
+    cache=DeviceHistory(count,context,device) if device_history else None
     for t in range(limit):
         obs[t]=state['observation'].reshape(count,64)
         valid[t]=(state['alive']&~finished[:,None]).reshape(-1)
         joint_steps+=int((~finished).sum())
         start=time.perf_counter()
-        x=history(obs,actions,np.full(count,t),np.arange(count),context)
+        x=cache.observe(obs[t]) if cache else torch.from_numpy(history(obs,actions,np.full(count,t),np.arange(count),context)).to(device)
         timings['history']+=time.perf_counter()-start;start=time.perf_counter()
-        act,pol,value=searcher(torch.from_numpy(x).to(device))
+        act,pol,value=searcher(x)
+        if cache:cache.acted(act)
         timings['search']+=time.perf_counter()-start
         actions[t],policies[t],values[t]=act,pol,value
         commands=act.reshape(games,11).copy();commands[finished]=-1
@@ -126,7 +129,7 @@ def main():
     p.add_argument('--limit',type=int,default=256);p.add_argument('--updates-per-game',type=int,default=1)
     p.add_argument('--seed',type=int,default=28000000);p.add_argument('--max-seconds',type=float,default=600)
     p.add_argument('--device',default='cuda' if torch.cuda.is_available() else 'cpu')
-    p.add_argument('--cuda-graph',action='store_true');p.add_argument('--tf32',action='store_true')
+    p.add_argument('--device-history',action='store_true');p.add_argument('--cuda-graph',action='store_true');p.add_argument('--tf32',action='store_true')
     a=p.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(1);torch.manual_seed(a.seed);rng=np.random.default_rng(a.seed)
     torch.backends.cuda.matmul.allow_tf32=a.tf32
@@ -142,7 +145,7 @@ def main():
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
             if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph)
-            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher)
+            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history)
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):
                 chosen=replay[int(rng.integers(len(replay)))]

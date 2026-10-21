@@ -84,3 +84,14 @@ This meets the throughput target, not a policy-quality benchmark. The
 [performance journal](docs/training-performance.md) includes raw evidence, all
 optimizations, hardware, cost estimates and unsuccessful attempts. No website
 model has been replaced by this checkpoint.
+
+## Self-play learning investigation
+
+[Investigation journal](docs/self-play-investigation.md) records the observed
+policy collapse, confirmed integration timing bug, controlled attempts and
+evaluation gates. Training uses only self-play from random initialization:
+no demonstrations, scripted opponents or tactical reward shaping.
+The curriculum starts with two agents; increasing the count requires a recorded
+held-out performance gate. A speed result is not a policy-quality result.
+`arena/train_selfplay.py` is the isolated investigation trainer; original
+`arena/train.py` and `model.py` remain preserved for historical reproduction.

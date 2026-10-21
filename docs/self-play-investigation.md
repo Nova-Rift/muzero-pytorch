@@ -70,3 +70,14 @@ initial vs each selected intermediate using independent action RNG/seat swaps.
 Pilot hypothesis: floor preserves exploration; it might NOT improve win rate.
 Further trials require a new log entry, not silent hyperparameter tuning.
 CPU smoke2games/8steps/hidden32 only validates the new pipeline, not policy quality.
+
+## Recording standard (Clark's follow-up)
+
+Each trial must distinguish learning-quality, implementation correctness, sample
+efficiency, GPU throughput, environment transport, memory, and evaluation limits.
+Retain failed approaches. Record the exact symptom, hypothesis, changed variable,
+source revision/config/seed, metric and units, resource cost, causal strength,
+and reusable lesson. Hypotheses do not become causes solely because a later run
+improves. No claim of a leading-lab affiliation or superhuman performance.
+Pilot001 provisioned one H10080GB at reported$3.99/hour with a$4/45-minute
+maximum allocation guard (whichever is sooner); preserve actual receipts privately.

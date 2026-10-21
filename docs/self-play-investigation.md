@@ -435,3 +435,48 @@ No trainingprocess remains from F. Do not equate371.96s versus E415s with a pure
 batchspeedup: rollout lengths, host and timing variation also differ. Actualgames
 and all workcounts retained. Next research remains open; inspect uncertainty and
 planning evidence before another architectural or replay change.
+
+## Entry 021 — fast evaluation and terminal-value diagnosis
+
+GPU batch32→128 benchmark completed768games over3workloads; all384 matched
+records (outcome and length) exactly equal. Speedups1.151x/2.861x/3.881x; full
+hardware/setup/cost records in docs/tournament-001.md and benchmarkJSON.
+Full14entry/91pair/11648game exploratory tournament now running, not complete.
+No promotion or training outcome inferred from partial standings.
+
+Read-only Etrace value-equivalence audit:7,130 valid transitions,58terminal,
+7,066 surviving-next and6cutoff transitions. E1024 recurrent value after actual
+terminal transition averages.294074 versus target0; E2048.246219. E1024 surviving
+nextvalue MSE.002189 versus encoded-next-value variance.003608. Thus aggregate
+one-step agreement masks terminal failures. Reward at winning transitions also
+remains weak per prior audit. This is training-derived data, stochastic opponent
+and partial state information; not an independent test or proof of a target bug.
+Evidence scripts/audit_value_consistency.py and docs/value-consistency-E.json.
+
+Copied-network learnability probe starts from E1024, same frozen saved data:
+first12traces fit (5400transitions/44terminal/22wins), last4 diagnostic
+(1730/14/7). Full model gradients, unroll1, batch32, Adam3e-4/wd1e-4, clip10,
+seed0; no new games or deployment, original weights/hash unchanged. This is not
+an online policy experiment and does not reuse finalworld seeds.
+128steps uniform vs50%-terminal sampling: balanced fit winreward.791 and terminal
+value.117, versus uniform.00111/.266. But diagnostic other-reward mean.0674 and
+rewardMSE.02588 versus uniform.00404: biased sampling raises false predictions.
+512step follow-up adds exact importance correction (terminal weight2p, other
+weight2(1-p), p=44/5400). Uncorrected balanced fit reward.880/terminalvalue.00687
+but diagnostic winreward.00217/terminalvalue.288: strong memorization, no durable
+transfer. Corrected diagnostic winreward.01707/terminalvalue.48682; uniform
+.00760/.62387. Neither yields a demonstrated useful predictor or policy fix.
+Probe times128steps arms4.19/4.08s;512steps22.81/23.42/26.63s, localCPU,$0paid.
+Tiny7positive diagnosticset and chronological policyshift limit inference.
+Reports terminal-fit-probe-E.json and terminal-fit-probe-E-corrected.json;
+scriptprobe_terminal_fit.py now reproduces uniform/balanced/corrected arms with
+--steps(default128). Initial128 report predates addition of corrected thirdarm;
+firsttwo arm algorithms retained. Do not promote probe weights (not saved).
+
+Interpretation: the architecture can fit a small terminal sample, but this alone
+does not solve generalization or calibration. Do not simply oversample endings
+and call it a fix. No model.py, reward, planner, environment, or live policy edits.
+A source review considered EfficientZero's auxiliary consistency training
+(https://arxiv.org/abs/2111.00210), but no such architectural/loss extension is
+implemented or justified by these diagnostics alone. Next online trial still
+needs a bounded registered design; finish current comparison first.

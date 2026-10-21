@@ -1,0 +1,154 @@
+{
+  "scope": "Bounded copied-network fit diagnostic; no policy deployment or new games.\n\nUniform versus 50% terminal-transition sampling intentionally changes the fitting\nmeasure. This is a learnability probe, NOT an unbiased replay-policy comparison.\n",
+  "checkpoint_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+  "trace_hashes": {
+    "trace-0.npz": "1fede39316abb1db7a9df56847076889bb530db676b4e3a7803634082d3cc6c9",
+    "trace-128.npz": "fc830cff3101a7a8f5dc5e71a1cbacff6194c5bbe9fb3b233741ef52809b2727",
+    "trace-256.npz": "d091430ad8101472c3ad7826cdeec3f3db396190b429f93b1b2258c5ff802bd3",
+    "trace-384.npz": "2a62d58be34c03f876bca531bdb0602fa208438e36ef7c3c048fb5ff0ea28e92",
+    "trace-512.npz": "20c8c8c99389ea2a06f1f32e6b4fb5239443f4406d3bc235e9afb9615b13492b",
+    "trace-640.npz": "f166fbf58e1a77f4ee4b2ce51356ee03766fdf5e02a301b84c2fc17f804d677a",
+    "trace-768.npz": "82844e552107cc8a0c5f32a30e6d63d7d9b34ff9e8c0740b3457da7305e1286d",
+    "trace-896.npz": "d9195e8d79f985f06673eda35ef647753373cf76f93fcfef17712ccfe86343a6",
+    "trace-1024.npz": "d3da43ac173c03503d73c00a7ef7af5635c435033d15d7795f37aa7dc47f9f0c",
+    "trace-1152.npz": "397a800594634f69981a6b78b33cecad6c13727426a81c03566142a65dda45ff",
+    "trace-1280.npz": "1b8fa82a05c9718d7023cc3cd2884a29db0614099b417b9c20a748c69a69a071",
+    "trace-1408.npz": "8be7dd2a9bc7315907425ba0a007bed5b27b1a2a1183b66ad96ffdfd0c6c7e6b",
+    "trace-1536.npz": "00fc1c8f362ea615cd4f7442851768b6932a4ff72dbf90e8f830aa95599d682d",
+    "trace-1664.npz": "6cb0a5f6cbc666367f67733b292d5dd27572a7e95735ca9c238962c59e2fbd36",
+    "trace-1792.npz": "06f1367b9597acc13318b24fbb84926c63faea25c3e9fb22d4d80337e9d00449",
+    "trace-1920.npz": "5356bd209e1bac30242d5a861603f36bc4a593a58b532ae9072daf2bb9013be4"
+  },
+  "fit_files": [
+    "trace-0.npz",
+    "trace-128.npz",
+    "trace-256.npz",
+    "trace-384.npz",
+    "trace-512.npz",
+    "trace-640.npz",
+    "trace-768.npz",
+    "trace-896.npz",
+    "trace-1024.npz",
+    "trace-1152.npz",
+    "trace-1280.npz",
+    "trace-1408.npz"
+  ],
+  "diagnostic_files": [
+    "trace-1536.npz",
+    "trace-1664.npz",
+    "trace-1792.npz",
+    "trace-1920.npz"
+  ],
+  "steps": 512,
+  "batch": 32,
+  "seed": 0,
+  "learning_rate": 0.0003,
+  "unroll": 1,
+  "arms": {
+    "uniform": {
+      "seconds": 22.81069050868973,
+      "evaluation": [
+        {
+          "rows": 5400,
+          "terminals": 44,
+          "wins": 22,
+          "terminal_value_mean": 0.3994258940219879,
+          "terminal_value_mse": 0.2192913442850113,
+          "win_reward_mean": 0.011038172990083694,
+          "win_reward_mse": 0.9780951142311096,
+          "other_reward_mean": 0.002778121270239353,
+          "reward_mse": 0.004007949493825436
+        },
+        {
+          "rows": 1730,
+          "terminals": 14,
+          "wins": 7,
+          "terminal_value_mean": 0.6238670349121094,
+          "terminal_value_mse": 0.39764994382858276,
+          "win_reward_mean": 0.00760241923853755,
+          "win_reward_mse": 0.9848586916923523,
+          "other_reward_mean": 0.0052303108386695385,
+          "reward_mse": 0.004026773851364851
+        }
+      ]
+    },
+    "half_terminal": {
+      "seconds": 23.419026545248926,
+      "evaluation": [
+        {
+          "rows": 5400,
+          "terminals": 44,
+          "wins": 22,
+          "terminal_value_mean": 0.006872272118926048,
+          "terminal_value_mse": 0.00016619914094917476,
+          "win_reward_mean": 0.8800174593925476,
+          "win_reward_mse": 0.019487746059894562,
+          "other_reward_mean": 0.0033482578583061695,
+          "reward_mse": 0.0007532699964940548
+        },
+        {
+          "rows": 1730,
+          "terminals": 14,
+          "wins": 7,
+          "terminal_value_mean": 0.28821679949760437,
+          "terminal_value_mse": 0.10943707078695297,
+          "win_reward_mean": 0.002174598863348365,
+          "win_reward_mse": 0.9956648945808411,
+          "other_reward_mean": 0.004102623555809259,
+          "reward_mse": 0.004269510041922331
+        }
+      ]
+    },
+    "half_terminal_corrected": {
+      "seconds": 26.632025081664324,
+      "evaluation": [
+        {
+          "rows": 5400,
+          "terminals": 44,
+          "wins": 22,
+          "terminal_value_mean": 0.3568963408470154,
+          "terminal_value_mse": 0.15483182668685913,
+          "win_reward_mean": 0.018648244440555573,
+          "win_reward_mse": 0.9631716012954712,
+          "other_reward_mean": 0.004726282320916653,
+          "reward_mse": 0.003989106509834528
+        },
+        {
+          "rows": 1730,
+          "terminals": 14,
+          "wins": 7,
+          "terminal_value_mean": 0.4868234097957611,
+          "terminal_value_mse": 0.24842163920402527,
+          "win_reward_mean": 0.017074022442102432,
+          "win_reward_mse": 0.9662032723426819,
+          "other_reward_mean": 0.007144104223698378,
+          "reward_mse": 0.004018082749098539
+        }
+      ]
+    }
+  },
+  "initial": [
+    {
+      "rows": 5400,
+      "terminals": 44,
+      "wins": 22,
+      "terminal_value_mean": 0.30556556582450867,
+      "terminal_value_mse": 0.0948457419872284,
+      "win_reward_mean": 0.00842619501054287,
+      "win_reward_mse": 0.9832523465156555,
+      "other_reward_mean": 0.005342881660908461,
+      "reward_mse": 0.00405970960855484
+    },
+    {
+      "rows": 1730,
+      "terminals": 14,
+      "wins": 7,
+      "terminal_value_mean": 0.2579570412635803,
+      "terminal_value_mse": 0.06656432151794434,
+      "win_reward_mean": 0.0004000323242507875,
+      "win_reward_mse": 0.999200165271759,
+      "other_reward_mean": 0.0015512326499447227,
+      "reward_mse": 0.004052199423313141
+    }
+  ]
+}

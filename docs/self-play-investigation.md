@@ -231,3 +231,20 @@ to tests RUN, including skips. Exact latest local result:19run,16passed,3skipped
 (CUDA-only2 and opt-in legacy bridge1). Separate H100 frozen-search suite:
 2run,2passed. Full-shape graph/eager check separately passed. No skipped test is
 claimed as executed. This clarification governs earlier shorthand.
+
+## Entry 012 — checkpoint audit and next registered probe
+
+Read-only checkpoint-series audit saved diagnosis-two-agent-A/B/C/D.json.
+At2048,A/Cinitial-state policies essentiallyonehot; Bmaxprob~.95; Dmaxprob~.03,
+entropy~4.79. Thus coverage intervention prevented the inspected collapse.
+Cvalue estimates differ strongly byseat(~0vs.966) while policy chooses86inboth;
+a correct-looking seat value is not evidence of a useful policy improvement.
+Ddevelopment512:12wins13loss7cutoffs;1024:12/14/6. No gate passed.
+
+Conditional next E: ifD2048development also fails the registered gate-level
+threshold (>60%wins,<=20%cutoffs), run2048games with identical Dsettings/seed and
+ONLY return_mode='episode' instead of'nstep'. Source now additionally records
+behavior metrics/traces, which do not change RNG or optimization targets.
+This tests propagation of actual terminal win information, retaining discount.99
+and truncation bootstrap; no human data or tactical reward. Evaluate512/1024/2048
+on the same development suite; final seeds remain unused until selection frozen.

@@ -78,7 +78,7 @@ def main():
             run(['python','scripts/evaluate_selfplay.py','--site',a.site,'--run',a.output,'--challenger','H2048.npz','--reference',opponent+'.npz','--games','64','--seed',str(seed),'--output',str(path),'--device','cuda'])
         status(stage='evaluate',title='I versus frozen H',evaluation_label='development: selected I vs H2048',wins=0,evaluation_games=0,timeouts=0)
         run(['python','scripts/evaluate_selfplay.py','--site',a.site,'--run',a.output,'--challenger',f'checkpoint-{epoch}.npz','--reference','H2048.npz','--games','64','--seed','62030000','--output',str(out/'control-I-vs-H.json'),'--device','cuda'])
-        result['status']='completed' 
+        result['status']='completed'
     except BaseException as e:
         result.update(status='failed',error=f'{type(e).__name__}: {e}');raise
     finally:exitfile.write_text(json.dumps(result,indent=2))

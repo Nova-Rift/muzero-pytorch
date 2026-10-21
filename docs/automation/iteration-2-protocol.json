@@ -87,7 +87,7 @@
     "scripts/evaluate_selfplay.py": "fddd3486f08a9650159b120ff3adc8a7dba4c9fd3fc50c03bf082dad29c2be7f",
     "arena/environment.py": "83703665a2e045d43b2d6294b0c4a66bf1a537e8fc31701cbcbe9fabf3dac64d",
     "arena/returns.py": "6fc1497a56b422094f8ff77fbc3d578dcc2a177db2a770605a1febfd6d0c7c22",
-    "scripts/run_iteration_i.py": "734088034f3c484c602283998bd7212f92761e2124d2cf7090c21b96cf3f1d16"
+    "scripts/run_iteration_i.py": "24ab3de69460350e5bdd5a130d2ee3f089130568e32f64dd2a551064c44d0da7"
   },
   "environment_sha256": {
     "src/sandboxCombat.ts": "8041163035515c13d1645ada2df72bdf482408dc9f467f220b5429da43e8685a",

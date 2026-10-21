@@ -13,14 +13,15 @@ import numpy as np
 import torch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from model import Config,MuZero
-from batched_search import search_batch
+from batched_search_exploration import search_batch
 from arena.environment import Pool
 from arena.history import DeviceHistory
 
 
 class Search:
-    def __init__(self,model,count,graph=False,agents=2):
+    def __init__(self,model,count,graph=False,agents=2,root_candidates=0):
         self.indices=torch.tensor([g*11+a for g in range(count//11) for a in range(agents)],device=next(model.parameters()).device)
+        self.candidates=torch.zeros((len(self.indices),root_candidates),dtype=torch.long,device=self.indices.device) if root_candidates else None
         self.total=count
         count=len(self.indices)
         self.model=model;self.graph=None;self.entropies=[]
@@ -30,19 +31,23 @@ class Search:
             if self.input.device.type!='cuda':raise ValueError('CUDA graph requires CUDA')
             stream=torch.cuda.Stream();stream.wait_stream(torch.cuda.current_stream())
             with torch.cuda.stream(stream):
-                for _ in range(2):search_batch(model,self.input,root_noise=self.noise,static=True)
+                for _ in range(2):search_batch(model,self.input,root_noise=self.noise,static=True,root_candidates=self.candidates)
             torch.cuda.current_stream().wait_stream(stream)
             self.graph=torch.cuda.CUDAGraph()
             with torch.cuda.graph(self.graph):
-                self.result=search_batch(model,self.input,root_noise=self.noise,static=True)
+                self.result=search_batch(model,self.input,root_noise=self.noise,static=True,root_candidates=self.candidates)
 
     @torch.no_grad()
     def __call__(self,inputs):
         self.input.copy_(inputs[self.indices])
         self.noise.copy_(torch.distributions.Dirichlet(torch.full_like(self.noise,self.model.config.dirichlet_alpha)).sample())
+        if self.candidates is not None:
+            _,logits,_=self.model.initial(self.input)
+            prior=(1-self.model.config.exploration_fraction)*logits.softmax(-1)+self.model.config.exploration_fraction*self.noise
+            self.candidates.copy_(torch.multinomial(prior,self.candidates.shape[1],replacement=False))
         if self.graph:
             self.graph.replay();policies,values=self.result
-        else:policies,values=search_batch(self.model,self.input,root_noise=self.noise)
+        else:policies,values=search_batch(self.model,self.input,root_noise=self.noise,root_candidates=self.candidates)
         actions=torch.multinomial(policies,1).squeeze(-1)
         full_actions=np.zeros(self.total,dtype=np.int64);full_policies=np.zeros((self.total,self.model.config.actions),dtype=np.float32);full_values=np.zeros(self.total,dtype=np.float32)
         ids=self.indices.cpu().numpy();full_actions[ids]=actions.cpu().numpy();full_policies[ids]=policies.cpu().numpy();full_values[ids]=values.cpu().numpy()
@@ -138,6 +143,7 @@ def main():
     p.add_argument('--workers',type=int,default=8);p.add_argument('--hidden',type=int,default=384)
     p.add_argument('--context',type=int,default=64);p.add_argument('--simulations',type=int,default=8)
     p.add_argument('--batch',type=int,default=32);p.add_argument('--unroll',type=int,default=5)
+    p.add_argument('--root-candidates',type=int,default=0)
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
@@ -156,11 +162,11 @@ def main():
     pool=Pool(a.site,a.workers,agents=a.agents,cadence=a.cadence);replay=deque(maxlen=3);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
     try:
         np.savez_compressed(out/'initial.npz',**{k:v.detach().cpu().numpy() for k,v in model.state_dict().items()})
-        searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents);setup=time.perf_counter()-started
+        searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents,a.root_candidates);setup=time.perf_counter()-started
         for offset in range(0,a.games,a.parallel):
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
-            if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents)
+            if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
             block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history)
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):

@@ -96,3 +96,21 @@ Regression asserts55px; model.py/environment physics and rewards unchanged.
 PilotsA/B underway use LEGACY cadence and are valid only as an algorithm pair;
 do not call them compatible homepage checkpoints. Subsequent pilots use homepage
 cadence and document this separately. No causal claim that timing caused collapse.
+
+## Entry 005 — A development evaluation and next registered pair
+
+A2048:1929/2048natural training ends, but frozen evaluation vsinitial32games,
+seed41000000,seat-swapped:0wins/0losses/32cutoffs. No pass, no agent addition.
+Training search uses root noise; evaluation does not. Need distinguish search
+degeneracy from learned competence. Add diagnostic policy-only/noisy-search modes;
+these are clearly separate evaluators, not substitute scores for the original gate.
+
+Next C/D matched pair: homepage cadence,2048games,seed40000000,32simulations,
+otherwise same as A. Cstandard search; Dfirst8root visits reserved for8distinct
+actions sampled WITHOUT replacement from mixed network/noise prior; remaining24
+standard tree expansions. No policy-floor. Dtests root coverage, not tactics.
+This is an independently written exploratory variant, NOT full Gumbel MuZero.
+Motivation: Danihelka etal2022 documents low-simulation root-coverage failures:
+https://openreview.net/pdf?id=bERaNdoegnO . Their guarantees require correctly
+evaluated action values and do not prove our learned model is accurate.
+Tests verify default parity and forced candidate visitation despite peaked prior.

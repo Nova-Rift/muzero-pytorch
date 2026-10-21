@@ -1,8 +1,9 @@
-import unittest
+import unittest,os
 from pathlib import Path
 import numpy as np
 from arena.environment import Pool
-SITE=Path('/home/clark/research-lab/code/sites-trial')
+SITE=os.environ.get('ARENA_SITE')
+@unittest.skipUnless(SITE,'Set ARENA_SITE to canonical website checkout')
 class Curriculum(unittest.TestCase):
  def test_two_agents_and_legacy(self):
   for count in (2,3,11):

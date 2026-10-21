@@ -480,3 +480,15 @@ A source review considered EfficientZero's auxiliary consistency training
 (https://arxiv.org/abs/2111.00210), but no such architectural/loss extension is
 implemented or justified by these diagnostics alone. Next online trial still
 needs a bounded registered design; finish current comparison first.
+
+## Entry 022 — next trial registered, not launched
+
+Prepared selfplay-G-protocol.md: only F requestedgames/updates2048→8192; same
+from-scratch seed/config,3 developmentcheckpoints,existing fixed successgate and
+reserved untouched finalseeds. Fullmodel tournament finishes first. No replayloss
+change inferred from terminalfit probes. Additional data/optimization is an
+untested hypothesis, not a claim that scaling fixes the problem. Runtime budget
+45min/$3 within remaining cap; conditional independent-seed replication explicit.
+Cached training now verifies a source receipt/hash map, avoiding old .git metadata
+left in a persistent workspace. Local and stagedreceipt verification plus changed
+file rejection test passed; current running tournament source remains untouched.

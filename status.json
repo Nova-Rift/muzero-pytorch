@@ -2,7 +2,7 @@
   "schema": 1,
   "stage": "train",
   "iteration": 2,
-  "completed_games": 128,
+  "completed_games": 512,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
@@ -12,7 +12,7 @@
   "result": "Verified cached source and runtime; remote subprocess deadline installed",
   "candidate": "I",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-21T06:45:33.477496+00:00",
+  "updated_at": "2026-10-21T06:46:31.701209+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

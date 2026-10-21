@@ -1,0 +1,16 @@
+{
+  "trial": "E",
+  "checkpoint": "checkpoint-1024.npz",
+  "sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+  "rule": "highest development wins, then lowest cutoffs, then earliest checkpoint",
+  "wins": 18,
+  "losses": 12,
+  "cutoffs": 2,
+  "games": 32,
+  "seed": 41000000,
+  "status": "development-selected experimental homepage candidate; no success gate passed",
+  "final_seeds_used": false,
+  "agents": 2,
+  "simulations": 32,
+  "root_candidates": 8
+}

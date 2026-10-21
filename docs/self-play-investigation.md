@@ -271,3 +271,31 @@ A second independent training seed is required even if one final evaluation pass
 D2048seat breakdown:seat0 7wins6loss3cutoffs;seat1 9wins6loss1cutoff, so its50%overall
 score is not simply always winning from one seat. Bpolicy-v-initialsearch:
 seat0 13wins0loss3cutoffs;seat1 12wins0loss4cutoffs (different evaluation mode).
+
+## Entry 014 — E results and requested experimental homepage release
+
+E completed 2,048 games / 2,048 updates in 415.00 seconds on H100 80GB HBM3:
+1,894 natural endings, 154 cutoffs, 242,401 joint steps / 484,802 active transitions.
+Development checkpoint512: 16 wins / 11 losses / 5 cutoffs; 1024: 18/12/2;
+2048: 9/12/11. All32 games use seed41000000, swapped fixed-layout seats,
+noise-free 32-simulation search with eight prior-sampled distinct root candidates.
+Registered selection chooses1024 (hash in selfplay-E/selection.json). Later training
+worsened this development score; no monotonic learning claim. E1024 scored higher
+than D2048's16wins, but this small development comparison does not prove superiority.
+No candidate passed >60%wins, so no final suite, confirmation claim, or agent3.
+
+Clark requested the best model on the homepage. Export E1024 as explicitly
+experimental, default two agents, preserve older selectable models. This is an
+interactive research preview, not promotion based on a passed success gate.
+Browser deployment uses sampled actions and prior-weighted sampling without
+replacement for candidates; per-agent PRNG differs from PyTorch. Fixed-candidate
+Python/WASM search parity passes. No model.py edits, human demonstrations, scripted
+opponents, tactical reward shaping, or paid website inference.
+
+All A–E checkpoints recovered to private local storage before pod deletion.
+Pod sg87iusfa5it3r deleted; subsequent authenticated inventory shows zero pods.
+Allocation2,503.73s at$3.99/hour estimates$2.77497 compute, plus earlier$1.28350
+=~$4.05846 total recorded compute (not reconciled account-wide billing).
+This bounded GPU pass is stopped. Preserve development/final split and original
+negative results. Further research needs a bounded hypothesis and independent-seed
+replication; adding agents remains gated.

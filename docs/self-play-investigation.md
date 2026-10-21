@@ -203,3 +203,11 @@ FrozenSearch has no RNG inside capture; root noise/candidate sampling stays outs
 CPU parity tested; require CUDA parity before rerunning the SAME pending development
 evaluations. Future reports include helper hash and full-process elapsed time in
 addition to rollout time. Preserve interruption in private next.log. No final seeds.
+
+Entry010 correction: the first targeted stop found C512had already finished.
+Its REAL report is retained:0wins0loss32cutoffs,124.2634s rollout.
+The subsequent C1024process was stopped instead (no completed report).
+The completed C512evaluation will be rerun with captured search under a separate
+filename to measure exact end-to-end score/trajectory parity and speed; never
+overwrite the original. This correction supersedes the premature interruption
+description above. Preserved next.log is the authority on actual completion.

@@ -2,7 +2,9 @@
 
 A readable implementation written for Nova-Rift from the MuZero paper. This is
 **unofficial, newly implemented, and not a reproduction of published scores**.
-No third-party model implementation is cloned, imported, or vendored.
+The core model and training implementation do not import third-party model code.
+Optional historical comparisons load separately preserved baseline evaluators
+from a website checkout; those baselines are identified in the tournament protocol.
 
 ## Read the model
 
@@ -45,6 +47,12 @@ support size and all dimensions are configurable. Uniform replay examples,
 optimizer schedule and default sizes are engineering choices, not paper settings.
 Prioritized replay, reanalysis, image encoders and benchmark reproduction are not
 implemented. Legal masks apply only at the real root.
+
+## Measured lessons
+
+[What slowed learning and evaluation](docs/training-lessons.md) explains the timing
+defect, measured GPU batch speedups, rare-event fitting failures, and why one
+untrained opponent is insufficient evidence of strength.
 
 ## Speed work
 

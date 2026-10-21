@@ -41,3 +41,21 @@ Then freeze fulltournamentsize from measuredthroughput/cap before seeing tournam
 scores. Candidate128games/pair=11648games (64perseat/pair), benchmarkdoesnot
 count towardranking. Tournamentseeds51000000+, separate from MuZerofinal42000000.
 No modelselection fordeployment or thirdagentpromotion from this exploratorymatrix.
+
+## GPU setup diagnosis and persistent cache
+
+The first GPU benchmark failed before any complete game. A successor captured
+stderr and identified an unnecessary `safetensors` import from the legacy Lana
+executable evaluator. The NPZ inference adapter now imports only inference
+components and preserves the original controller's action logic. Four decisions
+across two fixed CPU streams exactly matched the original controller. No package
+installation, architecture edit, weight change or training occurred.
+
+A private 10 GB persistent Runpod volume is now authorized at approximately
+$0.70/month. Private setup tools stage before GPU allocation, rsync only changed
+files, resume interrupted transfers, and verify SHA256. A measured second sync
+verified 555 cached files in 5.614 seconds and resent no checkpoint weights
+(~200 KB protocol/bytecode traffic versus ~174 MB payload). Python bytecode is now
+excluded. This measures payload reuse, not total pod cold-start or game speed.
+Shared storage rejects chown; rsync deliberately does not preserve ownership.
+Collectors now retain stderr and partial results before deleting GPU resources.

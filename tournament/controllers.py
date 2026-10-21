@@ -11,7 +11,35 @@ def legacy_types(site):
  if str(scripts) not in sys.path:sys.path.insert(0,str(scripts))
  from baselines.muzero import MuZero as LegacyMu,Controller as MuController
  from baselines.dreamer4 import Dreamer4,Controller as DreamController
- lana=runpy.run_path(str(scripts/'evaluate-lana-100.py'))
+ # Import inference dependencies only; the old executable also imports
+ # safetensors for training-checkpoint I/O, which this NPZ evaluator never uses.
+ source=Path(site)/'.training/lana-hybrid-003/source'
+ if str(source) not in sys.path:sys.path.insert(0,str(source))
+ from lana_large import create_model
+ from lana_batched_planning import BatchedController,section,stack,take,batched_mcts
+ from survival_agent.hybrid.model import PlannerConfig
+ class EvaluationController(BatchedController):
+  def __init__(self,model,labels):
+   super().__init__(model,PlannerConfig(simulations=8,horizon=3,root_noise=0.),count=len(labels))
+   self.rng=[np.random.default_rng(23000000+seed*11+seat) for seed,seat in labels]
+  @torch.no_grad()
+  def decide(self,observations,alive):
+   ids=[i for i,yes in enumerate(alive) if yes]
+   if not ids:return [0]*self.count
+   device=self.state.deter.device;obs=torch.tensor(observations,dtype=torch.float32,device=device);parts=[]
+   for offset in range(0,self.count,32):
+    end=min(offset+32,self.count)
+    part,_,_=self.model.world_model.observe_step(section(self.state,offset,end),self.previous[offset:end],obs[offset:end],torch.full((end-offset,),self.first,dtype=torch.bool,device=device),stochastic=False)
+    parts.append(part)
+   self.state=stack(parts);self.first=False
+   visits=batched_mcts(self.model,[take(self.state,i) for i in ids],self.config).numpy()
+   actions=[0]*self.count
+   for i,row in zip(ids,visits):
+    probabilities=row.astype(np.float64)/row.sum()
+    actions[i]=int(self.rng[i].choice(len(row),p=probabilities))
+   self.previous=torch.tensor(actions,device=device,dtype=torch.long)
+   return actions
+ lana={'create_model':create_model,'EvaluationController':EvaluationController}
  return {'lana':(lana['create_model'],lana['EvaluationController']),
          'legacy_muzero':(LegacyMu,MuController),'dreamer4_unofficial':(Dreamer4,DreamController)}
 

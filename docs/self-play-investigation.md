@@ -114,3 +114,18 @@ Motivation: Danihelka etal2022 documents low-simulation root-coverage failures:
 https://openreview.net/pdf?id=bERaNdoegnO . Their guarantees require correctly
 evaluated action values and do not prove our learned model is accurate.
 Tests verify default parity and forced candidate visitation despite peaked prior.
+
+## Entry 006 — behavior/evaluation interaction, not yet a causal conclusion
+
+Frozen2048 checkpoints vs owninitial,32developmentgames,swappedseats:
+Astandard: policy-only0wins17losses15cutoffs; noisy-searchsame totals;
+noise-free search0/0/32.
+Bsmoothing: policy-only30wins2losses0cutoffs; noisy-search29/3/0;
+noise-free search0/0/32.
+These are preliminary ONE-seed development results on legacy cadence, not final.
+Changing evaluation mode also changes the opponent, so this alone DOES NOT prove
+search harms the trained agent. Register fixed-opponent cross-mode test:
+Btrainedsearch vsinitialpolicy and Btrainedpolicy vsinitialsearch. Evaluate only,
+no optimizer updates. This isolates one side's behavior change. Add evaluator and
+checkpoint hashes to future reports. Preserve earlier reports without retroactive
+claims that they contained those fields. Both tests remain development data.

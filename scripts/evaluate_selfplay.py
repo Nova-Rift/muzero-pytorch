@@ -1,5 +1,5 @@
 """Frozen checkpoint tournament, no training; both sides are learned policies."""
-import sys,json,argparse,time
+import sys,json,argparse,time,hashlib
 from pathlib import Path
 import numpy as np,torch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -10,6 +10,7 @@ from arena.history import DeviceHistory
 p=argparse.ArgumentParser()
 p.add_argument('--site',required=True);p.add_argument('--run',type=Path,required=True)
 p.add_argument('--challenger',required=True);p.add_argument('--reference',default='initial.npz')
+p.add_argument('--reference-decision',choices=['search','noisy-search','policy'])
 p.add_argument('--decision',choices=['search','noisy-search','policy'],default='search')
 p.add_argument('--games',type=int,default=32);p.add_argument('--seed',type=int,default=41000000)
 p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
@@ -30,18 +31,19 @@ try:
  with torch.no_grad():
   for t in range(256):
    x=history.observe(s['observation'].reshape(-1,64))
-   for m,ids in zip(models,indices):
+   for side,(m,ids) in enumerate(zip(models,indices)):
+    decision=(a.reference_decision or a.decision) if side else a.decision
     inputs=x[torch.as_tensor(ids,device=a.device)]
     _,logits,_=m.initial(inputs);prior=logits.softmax(-1)
     candidates=meta['arguments'].get('root_candidates',0)
     roots=torch.multinomial(prior,candidates,replacement=False) if candidates else None
-    pol,_=search_batch(m,inputs,explore=a.decision=='noisy-search',root_candidates=roots)
-    if a.decision=='policy':pol=prior
+    pol,_=search_batch(m,inputs,explore=decision=='noisy-search',root_candidates=roots)
+    if decision=='policy':pol=prior
     actions.reshape(-1)[ids]=torch.multinomial(pol,1).squeeze(-1).cpu().numpy()
    history.acted(actions.reshape(-1));commands=actions.copy();commands[finished]=-1
    steps+=~finished;s=pool.step(commands);finished|=s['finished']
    if finished.all():break
  win=finished&(s['winner']==seats);loss=finished&(s['winner']==1-seats)
- result=dict(decision=a.decision,challenger=a.challenger,reference=a.reference,seed=a.seed,games=a.games,wins=int(win.sum()),losses=int(loss.sum()),cutoffs=int((~finished).sum()),draws=int((finished&~win&~loss).sum()),mean_steps=float(steps.mean()),seconds=time.perf_counter()-started,seat_swapped=True,records=[dict(seat=int(seats[i]),winner=int(s['winner'][i]),finished=bool(finished[i]),steps=int(steps[i])) for i in range(a.games)])
+ result=dict(evaluator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),checkpoint_sha256=hashlib.sha256((a.run/a.challenger).read_bytes()).hexdigest(),reference_decision=a.reference_decision or a.decision,decision=a.decision,challenger=a.challenger,reference=a.reference,seed=a.seed,games=a.games,wins=int(win.sum()),losses=int(loss.sum()),cutoffs=int((~finished).sum()),draws=int((finished&~win&~loss).sum()),mean_steps=float(steps.mean()),seconds=time.perf_counter()-started,seat_swapped=True,records=[dict(seat=int(seats[i]),winner=int(s['winner'][i]),finished=bool(finished[i]),steps=int(steps[i])) for i in range(a.games)])
  a.output.write_text(json.dumps(result,indent=2));print(json.dumps({k:v for k,v in result.items() if k!='records'}))
 finally:pool.close()

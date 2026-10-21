@@ -11,8 +11,8 @@
   "change": "Discount 0.99 to 1.0; matched seed, three-block replay and budget",
   "result": "2048 training games complete: 1782 natural endings, 266 timeouts. Development evaluation underway; no confirmation result.",
   "candidate": "J",
-  "evaluation_label": "development: J 512 vs E1024",
-  "updated_at": "2026-10-21T07:20:47.276527+00:00",
+  "evaluation_label": "development: J 512 vs F1024",
+  "updated_at": "2026-10-21T07:21:40.166023+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

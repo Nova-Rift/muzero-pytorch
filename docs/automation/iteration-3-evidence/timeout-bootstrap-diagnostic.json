@@ -1,0 +1,103 @@
+{
+  "scope": "Training-derived first-two-game traces only; surviving streams at 256-action truncation with zero observed rewards. No evaluation data or optimizer steps.",
+  "timeout_streams": 16,
+  "mean_initial_target": 0.46897654235363007,
+  "samples": [
+    {
+      "trace": "trace-0.npz",
+      "stream": 0,
+      "initial_target": 0.34455299377441406,
+      "last_target": 0.34455299377441406
+    },
+    {
+      "trace": "trace-0.npz",
+      "stream": 1,
+      "initial_target": 0.3237614631652832,
+      "last_target": 0.3237614631652832
+    },
+    {
+      "trace": "trace-128.npz",
+      "stream": 11,
+      "initial_target": 0.4473534822463989,
+      "last_target": 0.4473534822463989
+    },
+    {
+      "trace": "trace-128.npz",
+      "stream": 12,
+      "initial_target": 0.49550485610961914,
+      "last_target": 0.49550485610961914
+    },
+    {
+      "trace": "trace-1408.npz",
+      "stream": 0,
+      "initial_target": 0.7824500799179077,
+      "last_target": 0.7824500799179077
+    },
+    {
+      "trace": "trace-1408.npz",
+      "stream": 1,
+      "initial_target": 0.2251349687576294,
+      "last_target": 0.2251349687576294
+    },
+    {
+      "trace": "trace-1536.npz",
+      "stream": 11,
+      "initial_target": 0.5333530902862549,
+      "last_target": 0.5333530902862549
+    },
+    {
+      "trace": "trace-1536.npz",
+      "stream": 12,
+      "initial_target": 0.4582735300064087,
+      "last_target": 0.4582735300064087
+    },
+    {
+      "trace": "trace-1792.npz",
+      "stream": 11,
+      "initial_target": 0.792171835899353,
+      "last_target": 0.792171835899353
+    },
+    {
+      "trace": "trace-1792.npz",
+      "stream": 12,
+      "initial_target": 0.2586113214492798,
+      "last_target": 0.2586113214492798
+    },
+    {
+      "trace": "trace-1920.npz",
+      "stream": 11,
+      "initial_target": 0.7402092218399048,
+      "last_target": 0.7402092218399048
+    },
+    {
+      "trace": "trace-1920.npz",
+      "stream": 12,
+      "initial_target": 0.4210852384567261,
+      "last_target": 0.4210852384567261
+    },
+    {
+      "trace": "trace-640.npz",
+      "stream": 11,
+      "initial_target": 0.5187740325927734,
+      "last_target": 0.5187740325927734
+    },
+    {
+      "trace": "trace-640.npz",
+      "stream": 12,
+      "initial_target": 0.38283467292785645,
+      "last_target": 0.38283467292785645
+    },
+    {
+      "trace": "trace-768.npz",
+      "stream": 11,
+      "initial_target": 0.4289119243621826,
+      "last_target": 0.4289119243621826
+    },
+    {
+      "trace": "trace-768.npz",
+      "stream": 12,
+      "initial_target": 0.35064196586608887,
+      "last_target": 0.35064196586608887
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "initial_tensors_identical_to_I": true,
+  "J_sha256": "886df1eb575283c10e3fe5a482d981d5aa42f5e885d3810073e38b0299ecbbf6",
+  "I_sha256": "886df1eb575283c10e3fe5a482d981d5aa42f5e885d3810073e38b0299ecbbf6",
+  "scope": "Weights identical; initial search discount differs by registered intervention."
+}

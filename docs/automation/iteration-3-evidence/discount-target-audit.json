@@ -1,0 +1,151 @@
+{
+  "scope": "Training-derived first-two-game samples only; no evaluation or optimization",
+  "winning_samples": 24,
+  "all_pre_win_targets_exactly_one": true,
+  "samples": [
+    {
+      "trace": "trace-256.npz",
+      "stream": 11,
+      "winning_step": 50,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-256.npz",
+      "stream": 1,
+      "winning_step": 200,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1664.npz",
+      "stream": 12,
+      "winning_step": 74,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1664.npz",
+      "stream": 1,
+      "winning_step": 161,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-896.npz",
+      "stream": 11,
+      "winning_step": 62,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-896.npz",
+      "stream": 0,
+      "winning_step": 226,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-768.npz",
+      "stream": 0,
+      "winning_step": 251,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-384.npz",
+      "stream": 0,
+      "winning_step": 153,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-384.npz",
+      "stream": 12,
+      "winning_step": 186,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1280.npz",
+      "stream": 12,
+      "winning_step": 82,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1280.npz",
+      "stream": 1,
+      "winning_step": 128,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1024.npz",
+      "stream": 11,
+      "winning_step": 73,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1024.npz",
+      "stream": 0,
+      "winning_step": 225,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1536.npz",
+      "stream": 1,
+      "winning_step": 45,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1920.npz",
+      "stream": 1,
+      "winning_step": 39,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1792.npz",
+      "stream": 0,
+      "winning_step": 30,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-0.npz",
+      "stream": 11,
+      "winning_step": 71,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1408.npz",
+      "stream": 11,
+      "winning_step": 231,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-640.npz",
+      "stream": 0,
+      "winning_step": 152,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-128.npz",
+      "stream": 0,
+      "winning_step": 75,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1152.npz",
+      "stream": 12,
+      "winning_step": 27,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-1152.npz",
+      "stream": 0,
+      "winning_step": 122,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-512.npz",
+      "stream": 12,
+      "winning_step": 134,
+      "initial_target": 1.0
+    },
+    {
+      "trace": "trace-512.npz",
+      "stream": 1,
+      "winning_step": 197,
+      "initial_target": 1.0
+    }
+  ]
+}

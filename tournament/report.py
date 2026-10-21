@@ -1,12 +1,15 @@
 """Paper-style comparison figures from completed frozen tournament batches."""
-import argparse,csv,json
+import argparse,csv,json,sys
 from pathlib import Path
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from tournament.audit import audit
 
 def report(directory):
+ integrity=audit(directory)
  protocol=json.loads((directory/'protocol.json').read_text())
  rows=json.loads((directory/'summary.json').read_text())
  ids=[m['id'] for m in protocol['models']];index={name:i for i,name in enumerate(ids)}
@@ -18,7 +21,7 @@ def report(directory):
   cut[a,b]=cut[b,a]=row['cutoffs']/games
   for name,key in [(row['a'],'wins_a'),(row['b'],'wins_b')]:
    totals[name]['wins']+=row[key];totals[name]['games']+=games;totals[name]['cutoffs']+=row['cutoffs']
- complete=len(rows)==n*(n-1)//2 and all(r['games']==protocol['games'] for r in rows)
+ complete=integrity['complete']
  title='Frozen two-agent comparison' if complete else 'INCOMPLETE frozen comparison — no overall ranking'
  with (directory/'pairwise.csv').open('w') as f:
   writer=csv.DictWriter(f,fieldnames=list(rows[0]) if rows else []);writer.writeheader();writer.writerows(rows)

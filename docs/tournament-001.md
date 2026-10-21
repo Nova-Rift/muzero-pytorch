@@ -115,3 +115,15 @@ skip completedbatches, <=30min/$2 allocation with25minuteprocess bound. Do not
 resume successful91paircompletion or blindly retry another error. This raises the
 maximum two-allocation tournamentbudget to$5, within original$50totalcap, without
 changing match count/seeds or optimizing policies against observed scores.
+
+## Independent record audit before final reporting
+
+`tournament/audit.py` independently recounts every saved game's outcome, checks
+expected unique seed/seat order, batchsize, valid termination/timeout length,
+summary totals and timing arithmetic. Optional `--stage` verifies the preserved
+payload manifest, protocol code/physics hashes and all checkpoint hashes.
+Report generation now requires this record audit; it cannot call a duplicate or
+incomplete summary list a complete matrix. Verified against the completed128game
+independent benchmark and its260file preservedstage/45protocol hashchecks.
+This is artifact integrity, not an independent reproduction of every gameplay
+trajectory or proof of learning. Fullmatrix audit follows recovery, not live files.

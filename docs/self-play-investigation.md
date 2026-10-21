@@ -499,3 +499,16 @@ a terminal flag and then ignoring it. Nonzero predictions on realized terminal
 samples can partly reflect stochastic opponent actions/partialinformation.
 The audit is an error-stratification diagnostic, not proof of a simulator,
 termination-target, or causal planning bug. Agent execution still ends correctly.
+
+## Entry023 — partial tournament reveals matchup specificity
+
+Three already completed128game comparisons: Lana100 vsLana-init123–5/0timeouts;
+Lana-init vslegacyMuZero-init77–4/47timeouts; legacyMuZero-init vsLana10060–2/
+66timeouts. These are pair-specific advantages, not an overall tournamentranking
+or a formal population nontransitivity proof. They show why one initialization
+opponent is insufficient evidence of general competitive strength.
+Before G training starts, amended protocol to retain original selection/baseline
+confirmation and additionally require two frozen independentMuZero selfplay
+anchors E/F on new fixed200game seedsets for each of2trainingseeds. No checkpoint,
+policy or training change from these results; new finalseeds remain unused.
+No thirdagent promotion until these stronger preregistered checks pass.

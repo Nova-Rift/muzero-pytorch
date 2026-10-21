@@ -57,3 +57,31 @@ and requires a fresh bounded allocation record, not idle background compute.
 Use new verified source receipt from tools/runpod/cache.py; do not identify cached
 code from stale .git metadata. Runtime/package versions and exact physics hashes
 must match or differences must be disclosed. No new packages are required.
+
+## Pre-training robustness amendment
+
+Added BEFORE G starts, based on completed exploratory matchup evidence:
+Lana100 beats its initialization123–5 (0timeouts); that initialization beats
+legacyMuZero initialization77–4 (47timeouts); legacyMuZero initialization beats
+Lana10060–2 (66timeouts). Thus matched-initialization success alone can hide
+opponent-specific behavior. This does not tune any policy or use reserved seeds.
+
+Keep the checkpoint-selection rule unchanged. Before thirdagent promotion,
+require each independently selected G policy also to pass two frozen-own-policy
+anchors: E1024 SHA18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532
+and F1024 SHA4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7.
+Both anchors are existing independently implemented, from-scratch self-play
+policies, not scripted opponents or human demonstrations. Evaluation only;
+G training remains unchanged latest-policy self-play.
+
+200balanced-seat games per anchor, no root noise, same32search/8candidate
+inference. First trainingseed uses new seed bases43000000 (E) and43010000 (F);
+replication uses43020000/43030000. Freeze selectedhashes before opening any of
+these tests. Require each win-fraction95%Wilson lowerbound>.5 and <=20%timeouts,
+as well as the previously registered matching-initialization confirmations.
+Report all tests, including failures; no reselection/tuning on these seeds.
+If allocationtime is insufficient, recover/delete and register a separate bounded
+confirmation allocation within remaining$50; never silently extend a live guard.
+This strengthens the success criterion before the experiment; it is not a claim
+that either earlier candidate already passes or that passing proves superhuman
+play/generalization beyond this fixed-layout arena.

@@ -1,6 +1,7 @@
 # Self-play G — longer data/optimization budget, registered before training
 
-Status: prepared, NOT started. Finish the active frozen all-model tournament first.
+Status: started October 21, 2026 UTC after full tournament recovery, audit and
+GPU deletion. The registered settings and gates below are unchanged.
 
 Question: can additional from-scratch self-play and optimizer work improve the
 unchanged independent MuZero, without a new loss, architecture, or reward?

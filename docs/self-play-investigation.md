@@ -512,3 +512,34 @@ confirmation and additionally require two frozen independentMuZero selfplay
 anchors E/F on new fixed200game seedsets for each of2trainingseeds. No checkpoint,
 policy or training change from these results; new finalseeds remain unused.
 No thirdagent promotion until these stronger preregistered checks pass.
+
+## Entry 024 — complete frozen all-model comparison
+
+Completed 91 pairs / 11,648 games, equal seats, fixed two-agent geometry. Audited
+all records and frozen payload hashes, preserving the original 50 batches across
+a bounded allocation resume. Both comparison GPUs deleted after recovery. Full
+data and paper-style plots: [tournament report](tournament-001.md). There were
+5,391 timeouts and five simultaneous draws; timeout outcomes remain zero reward.
+E1024 vs initialization: 61 wins / 46 losses / 21 timeouts; F1024: 51 / 54 / 23.
+E vs F: 53 / 31 / 44. Neither qualifies for the registered success claim. The old
+10,000-episode checkpoint won zero games against the collection; reaching a
+throughput target did not establish learning. No model or third-agent promotion.
+
+## Entry 025 — registered longer-training G launched
+
+After Entry024, launched the unchanged registered 8,192-game/8,192-update trial
+on H100 SXM80GB at $3.99/hour with 45-minute/$3 allocation guard, 2,100-second
+training bound and automatic recovery/deletion. Reused the verified prepared
+275-file source/weight payload: approximately 174 MB cache, 96 KB transferred.
+No new package, model.py edit, reward change, scripted policy or human data.
+Cumulative completed compute estimate before G: $10.22923/$50; separately
+authorized cache $0.70/month. Final confirmation seeds remain untouched.
+
+Early observation at 256 games: F and G both have 212 natural endings/44 cutoffs
+and loss 4.2194437980651855. This is only an early aggregate check. Expanded the
+prefix auditor to compare every saved observation/action/target/validity array
+through game2,048, alongside checkpoints, counts and action histograms. Saved
+traces cover two games per collection block, not every training game. A regression
+checks that reordered actions with identical histograms are detected; eight
+selection/provenance/tournament/prefix tests passed, plus all16 F self-comparison
+trace blocks. G training and development evaluations remain in progress.

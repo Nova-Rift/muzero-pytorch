@@ -122,7 +122,7 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_
     absorbing[1:length+1]=np.maximum.accumulate(terminal[:length],axis=0)
     indices=np.argwhere(valid[:length])
     block=dict(observation=obs[:length+1],actions=actions[:length],rewards=rewards[:length],policies=policies[:length+1],targets=targets[:length+1],valid=valid[:length+1],absorbing=absorbing[:length+1],indices=indices)
-    stats=dict(action_counts=action_counts.tolist(),hits=round(hits),movement_pixels=movement,completed_search_return_mse=search_return_mse,games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
+    stats=dict(collection_steps=length,padded_search_roots=length*len(searcher.indices),action_counts=action_counts.tolist(),hits=round(hits),movement_pixels=movement,completed_search_return_mse=search_return_mse,games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
     return block,stats
 
 

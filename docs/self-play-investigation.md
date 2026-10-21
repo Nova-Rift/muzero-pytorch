@@ -211,3 +211,17 @@ The completed C512evaluation will be rerun with captured search under a separate
 filename to measure exact end-to-end score/trajectory parity and speed; never
 overwrite the original. This correction supersedes the premature interruption
 description above. Preserved next.log is the authority on actual completion.
+
+## Entry 011 — evaluation timing result
+
+C512same32developmentmatches: eager rollout124.263s; captured rollout39.997s,
+full captured process43.939s. Same reported0/0/32 andmean256steps; this does NOT
+prove full trajectory identity because old run did not record action hashes.
+Separate CPU/GPU tensor parity tests pass. Roughly3.1x rollout speedup on this
+case, not a universal GPU speedup. Recovered C/D checkpoints locally; initialization
+tensors identical across C/D.
+
+Additional performance limitation identified in code: synchronous collection
+keeps calculating actions for completed/dead rows until the whole batch ends.
+Future logs add padded_search_roots versus active_transitions, so utilization is
+measurable before an async-reset optimization. No async-reset change implemented.

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "stage": "queued",
+  "iteration": 0,
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Research pilot queued",
+  "change": "Reviewing the previous self-play evidence",
+  "result": "No new result yet",
+  "candidate": "Not selected",
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-21T06:15:13.106065+00:00",
+  "max_iterations": 3,
+  "reward": {
+    "win": 1,
+    "other": 0
+  },
+  "pilot_gpu_cap_usd": 9.0
+}

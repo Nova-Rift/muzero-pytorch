@@ -15,3 +15,12 @@ class Curriculum(unittest.TestCase):
     self.assertEqual(state['alive'].sum(),count)
     self.assertEqual(float(state['reward'].sum()),0)
    finally:p.close()
+
+ def test_homepage_cadence_exactly_five_frames(self):
+  p=Pool(SITE,agents=2,cadence='homepage')
+  try:
+   state=p.reset([41000002]);start=state['observation'][0,0,0]
+   actions=np.full((1,11),4);actions[0,0]=5
+   state=p.step(actions)
+   self.assertAlmostEqual(float((state['observation'][0,0,0]-start)*1000),55,places=4)
+  finally:p.close()

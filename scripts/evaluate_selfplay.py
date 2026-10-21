@@ -14,13 +14,13 @@ p.add_argument('--games',type=int,default=32);p.add_argument('--seed',type=int,d
 p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
 a=p.parse_args();torch.set_num_threads(1);torch.manual_seed(a.seed)
 if a.output.exists():raise ValueError('Preserve existing evaluation')
-c=Config(**json.loads((a.run/'manifest.json').read_text())['config'])
+meta=json.loads((a.run/'manifest.json').read_text());c=Config(**meta['config'])
 models=[]
 for file in [a.challenger,a.reference]:
  m=MuZero(c).to(a.device).eval()
  with np.load(a.run/file,allow_pickle=False) as z:m.load_state_dict({k:torch.from_numpy(z[k]) for k in z.files})
  models.append(m)
-pool=Pool(a.site,workers=1,agents=2);s=pool.reset(range(a.seed,a.seed+a.games))
+pool=Pool(a.site,workers=1,agents=2,cadence=meta['arguments'].get('cadence','legacy'));s=pool.reset(range(a.seed,a.seed+a.games))
 history=DeviceHistory(a.games*11,64,a.device)
 seats=np.arange(a.games)%2;finished=np.zeros(a.games,bool);steps=np.zeros(a.games,int)
 actions=np.zeros((a.games,11),np.int64);started=time.perf_counter()

@@ -138,6 +138,7 @@ def main():
     p.add_argument('--workers',type=int,default=8);p.add_argument('--hidden',type=int,default=384)
     p.add_argument('--context',type=int,default=64);p.add_argument('--simulations',type=int,default=8)
     p.add_argument('--batch',type=int,default=32);p.add_argument('--unroll',type=int,default=5)
+    p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
     p.add_argument('--limit',type=int,default=256);p.add_argument('--updates-per-game',type=int,default=1)
@@ -152,7 +153,7 @@ def main():
     site=Path(a.site); source={str(x.relative_to(site)):hashlib.sha256(x.read_bytes()).hexdigest() for x in [site/'src/sandboxCombat.ts',site/'src/sandboxMotion.ts',site/'src/lana/observation.ts']}
     manifest=dict(arguments=vars(a),config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
-    pool=Pool(a.site,a.workers,agents=a.agents);replay=deque(maxlen=3);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
+    pool=Pool(a.site,a.workers,agents=a.agents,cadence=a.cadence);replay=deque(maxlen=3);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
     try:
         np.savez_compressed(out/'initial.npz',**{k:v.detach().cpu().numpy() for k,v in model.state_dict().items()})
         searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents);setup=time.perf_counter()-started

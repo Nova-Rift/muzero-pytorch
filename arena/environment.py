@@ -8,10 +8,11 @@ import numpy as np
 STRIDE=729
 
 class Pool:
-    def __init__(self,site,workers=1,node='node',agents=11):
+    def __init__(self,site,workers=1,node='node',agents=11,cadence='legacy'):
+        if cadence not in ('legacy','homepage'): raise ValueError('Invalid cadence')
         if agents not in range(2,12): raise ValueError('agents must be 2–11')
         self.pool=ThreadPoolExecutor(max_workers=workers)
-        self.processes=[subprocess.Popen([node,'--experimental-strip-types',str(Path(__file__).with_name('bridge.mjs')),str(Path(site).resolve()),str(agents)],stdin=subprocess.PIPE,stdout=subprocess.PIPE) for _ in range(workers)]
+        self.processes=[subprocess.Popen([node,'--experimental-strip-types',str(Path(__file__).with_name('bridge.mjs')),str(Path(site).resolve()),str(agents),cadence],stdin=subprocess.PIPE,stdout=subprocess.PIPE) for _ in range(workers)]
 
     @staticmethod
     def read(stream,size):

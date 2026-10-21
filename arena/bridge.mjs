@@ -1,7 +1,7 @@
 // Binary transport around the unchanged canonical TypeScript arena.
 import {pathToFileURL} from 'node:url'
 import path from 'node:path'
-const site=process.argv[2],agents=Number(process.argv[3]??11)
+const site=process.argv[2],agents=Number(process.argv[3]??11),cadence=process.argv[4]??'legacy'
 if(!Number.isInteger(agents)||agents<2||agents>11)throw Error('Invalid agent count')
 if(!site)throw Error('Pass canonical website checkout path')
 const {newWorld,stepWorld}=await import(pathToFileURL(path.join(site,'src/sandboxCombat.ts')))
@@ -32,7 +32,12 @@ function request(bytes){
    if(actions[0]===-1)return
    if(actions.some(a=>a<0||a>=153))throw Error('Invalid action')
    const controller=(_,id)=>{const a=actions[id],move=a%9,aim=Math.floor(a/9),angle=(aim-1)*Math.PI/8;return {dx:move%3-1,dy:Math.floor(move/3)-1,fire:aim>0,aimX:Math.cos(angle),aimY:Math.sin(angle)}}
-   do{stepWorld(w,.05,0,0,controller,true)}while(w.phase!=='finished'&&w.decisionClock>0)
+   if(cadence==='homepage'){
+    w.decisionClock=0
+    for(let frame=0;frame<5;frame++)stepWorld(w,.05,0,0,controller,true)
+   }else{
+    do{stepWorld(w,.05,0,0,controller,true)}while(w.phase!=='finished'&&w.decisionClock>0)
+   }
   })
  }else throw Error('Unknown operation')
  respond()

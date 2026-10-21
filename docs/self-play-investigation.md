@@ -81,3 +81,18 @@ and reusable lesson. Hypotheses do not become causes solely because a later run
 improves. No claim of a leading-lab affiliation or superhuman performance.
 Pilot001 provisioned one H10080GB at reported$3.99/hour with a$4/45-minute
 maximum allocation guard (whichever is sooner); preserve actual receipts privately.
+
+## Entry 004 — confirmed integration timing discrepancy
+
+The original bridge do/while(decisionClock>0) takes6frames because subtracting
+.05 five times from.25 leaves a positive floating remainder. Headless homepage
+explicitly takes5frames and resets its decision clock. One unobstructed right
+move measured65.9999996px in bridge versus expected55px in homepage.
+Older transport test compared against another bridge with the SAME cadence,
+so it missed this discrepancy. Lesson: cross-check the actual consumer loop,
+not only two transport implementations sharing an assumption.
+New explicit cadence='homepage' takes exactly5frames; legacy remains reproducible.
+Regression asserts55px; model.py/environment physics and rewards unchanged.
+PilotsA/B underway use LEGACY cadence and are valid only as an algorithm pair;
+do not call them compatible homepage checkpoints. Subsequent pilots use homepage
+cadence and document this separately. No causal claim that timing caused collapse.

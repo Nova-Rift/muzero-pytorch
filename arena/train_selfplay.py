@@ -159,6 +159,7 @@ def main():
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
+    p.add_argument('--discount',type=float,default=.99,choices=[.99,1.0])
     p.add_argument('--limit',type=int,default=256);p.add_argument('--updates-per-game',type=int,default=1)
     p.add_argument('--seed',type=int,default=28000000);p.add_argument('--max-seconds',type=float,default=600)
     p.add_argument('--device',default='cuda' if torch.cuda.is_available() else 'cpu')
@@ -166,7 +167,7 @@ def main():
     a=p.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(1);torch.manual_seed(a.seed);rng=np.random.default_rng(a.seed)
     torch.backends.cuda.matmul.allow_tf32=a.tf32
-    model=MuZero(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=.99,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
+    model=MuZero(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=a.discount,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
     optimizer=torch.optim.Adam(model.parameters(),lr=3e-4,weight_decay=1e-4)
     site=Path(a.site); source={str(x.relative_to(site)):hashlib.sha256(x.read_bytes()).hexdigest() for x in [site/'src/sandboxCombat.ts',site/'src/sandboxMotion.ts',site/'src/lana/observation.ts']}
     provenance=capture_source(Path(__file__).resolve().parents[1])

@@ -1,0 +1,108 @@
+{
+  "id": "arena-loop-001-J",
+  "iteration": 3,
+  "hypothesis": "Undiscounted value/search targets may better align with win probability than favoring early wins; greater error propagation remains a risk.",
+  "basis": "I failed all development gates. 27 winning sampled streams had median winning step 102 and mean initial discounted target 0.388 despite reward 1.",
+  "change": "Discount .99 to 1.0 only; three-block replay, same seed/budget. Frozen E/F/I retain .99 search discount.",
+  "training": {
+    "seed": 51000000,
+    "games": 2048,
+    "updates": 2048,
+    "parallel": 128,
+    "workers": 4,
+    "batch": 256,
+    "context": 64,
+    "hidden": 448,
+    "simulations": 32,
+    "root_candidates": 8,
+    "unroll": 5,
+    "return_mode": "episode",
+    "replay_blocks": 3,
+    "max_seconds": 900,
+    "agents": 2,
+    "cadence": "5 x 0.05 seconds",
+    "reward": {
+      "winner": 1,
+      "other": 0
+    },
+    "from_scratch": true,
+    "discount": 1.0
+  },
+  "development": {
+    "checkpoints": [
+      512,
+      1024,
+      2048
+    ],
+    "games_per_opponent": 64,
+    "opponents": [
+      "initial",
+      "E1024",
+      "F1024"
+    ],
+    "seed_bases": [
+      72000000,
+      72010000,
+      72020000
+    ],
+    "balanced_seats": true,
+    "selection": "highest minimum opponent win fraction, then aggregate wins, then fewer total timeouts, then earliest checkpoint",
+    "gate": "strictly >60% wins and <=20% timeouts against EACH opponent"
+  },
+  "confirmation": {
+    "games_per_opponent": 200,
+    "seed_bases": [
+      73000000,
+      73010000,
+      73020000
+    ],
+    "only_after": "complete training/development and frozen selected hash passing development gate",
+    "gate": "95% Wilson lower win fraction >0.5 and <=20% timeouts against EACH opponent",
+    "no_reselection": true
+  },
+  "replication": {
+    "training_seed": 74000000,
+    "development_seed_bases": [
+      75000000,
+      75010000,
+      75020000
+    ],
+    "confirmation_seed_bases": [
+      76000000,
+      76010000,
+      76020000
+    ],
+    "status": "separate later bounded iteration only if first seed passes; required before promotion"
+  },
+  "bounds": {
+    "allocations": 1,
+    "gpu_usd": 3,
+    "hourly_usd": 4,
+    "allocation_seconds": 2700,
+    "remote_subprocess_seconds": 2200
+  },
+  "scope": "Fixed arena; seeds vary sampling not layouts. No promotion or homepage replacement in this iteration. Confirmation remains unopened unless gate passes.",
+  "source_sha256": {
+    "model.py": "c546948594aa70456b9361ccd4e5acc82fa2790b3d3c9d069fb769f095888e17",
+    "arena/train_selfplay.py": "f1cc4d7392ed27de005f209921975197d9f1b34332b89a9dd7f3ae371a7e49aa",
+    "scripts/evaluate_selfplay.py": "73975397ef56bf46bfc35284e0da95b90caa16ae2a736ecd44fb2f3884908a41",
+    "arena/environment.py": "83703665a2e045d43b2d6294b0c4a66bf1a537e8fc31701cbcbe9fabf3dac64d",
+    "arena/returns.py": "6fc1497a56b422094f8ff77fbc3d578dcc2a177db2a770605a1febfd6d0c7c22",
+    "scripts/run_iteration_j.py": "1cfa942540d6e340bc25b9a79dacda3dcf8747ad8d265bd292fff460b0de0cd9"
+  },
+  "environment_sha256": {
+    "src/sandboxCombat.ts": "8041163035515c13d1645ada2df72bdf482408dc9f467f220b5429da43e8685a",
+    "src/sandboxMotion.ts": "bff13f8b38d4d59b40271f60fb1fda57ae5c1a752c5763cbe2a9fb383910811c",
+    "src/lana/observation.ts": "1867ab292e924e5708eac81924efc4d1fe7200f294e4d20de804d0955d2a8947"
+  },
+  "opponent_sha256": {
+    "E1024": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "F1024": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "I1024": "da52c6658398b468c02a82fa804610de7b46249b5fc62bad92383f5044202ad2"
+  },
+  "paired_control": {
+    "checkpoint": "I1024",
+    "sha256": "da52c6658398b468c02a82fa804610de7b46249b5fc62bad92383f5044202ad2",
+    "description": "I1024 at original discount .99 against initial/E/F on same fresh development samples; selected J vs I on 72030000, 64 balanced games. Diagnostic only."
+  }
+}

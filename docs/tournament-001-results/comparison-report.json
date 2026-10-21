@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "completed_pairs": 91,
+  "expected_pairs": 91,
+  "games": 11648,
+  "aggregate": [
+    {
+      "model": "dreamer4-100",
+      "wins": 702,
+      "games": 1664,
+      "cutoffs": 478,
+      "win_rate": 0.421875,
+      "cutoff_rate": 0.28725961538461536
+    },
+    {
+      "model": "lana-untrained",
+      "wins": 641,
+      "games": 1664,
+      "cutoffs": 577,
+      "win_rate": 0.38521634615384615,
+      "cutoff_rate": 0.3467548076923077
+    },
+    {
+      "model": "dreamer4-untrained",
+      "wins": 631,
+      "games": 1664,
+      "cutoffs": 508,
+      "win_rate": 0.3792067307692308,
+      "cutoff_rate": 0.30528846153846156
+    },
+    {
+      "model": "selfplay32-untrained",
+      "wins": 612,
+      "games": 1664,
+      "cutoffs": 513,
+      "win_rate": 0.36778846153846156,
+      "cutoff_rate": 0.3082932692307692
+    },
+    {
+      "model": "selfplay-F1024",
+      "wins": 587,
+      "games": 1664,
+      "cutoffs": 542,
+      "win_rate": 0.3527644230769231,
+      "cutoff_rate": 0.32572115384615385
+    },
+    {
+      "model": "selfplay-E1024",
+      "wins": 518,
+      "games": 1664,
+      "cutoffs": 661,
+      "win_rate": 0.3112980769230769,
+      "cutoff_rate": 0.3972355769230769
+    },
+    {
+      "model": "lana-1000",
+      "wins": 478,
+      "games": 1664,
+      "cutoffs": 920,
+      "win_rate": 0.28725961538461536,
+      "cutoff_rate": 0.5528846153846154
+    },
+    {
+      "model": "dreamer4-1000",
+      "wins": 461,
+      "games": 1664,
+      "cutoffs": 702,
+      "win_rate": 0.2770432692307692,
+      "cutoff_rate": 0.421875
+    },
+    {
+      "model": "muzero-untrained",
+      "wins": 424,
+      "games": 1664,
+      "cutoffs": 789,
+      "win_rate": 0.2548076923076923,
+      "cutoff_rate": 0.47415865384615385
+    },
+    {
+      "model": "independent8-untrained",
+      "wins": 390,
+      "games": 1664,
+      "cutoffs": 833,
+      "win_rate": 0.234375,
+      "cutoff_rate": 0.5006009615384616
+    },
+    {
+      "model": "lana-100",
+      "wins": 377,
+      "games": 1664,
+      "cutoffs": 1031,
+      "win_rate": 0.2265625,
+      "cutoff_rate": 0.6195913461538461
+    },
+    {
+      "model": "muzero-100",
+      "wins": 219,
+      "games": 1664,
+      "cutoffs": 1110,
+      "win_rate": 0.13161057692307693,
+      "cutoff_rate": 0.6670673076923077
+    },
+    {
+      "model": "muzero-1000",
+      "wins": 212,
+      "games": 1664,
+      "cutoffs": 1088,
+      "win_rate": 0.12740384615384615,
+      "cutoff_rate": 0.6538461538461539
+    },
+    {
+      "model": "independent-10000",
+      "wins": 0,
+      "games": 1664,
+      "cutoffs": 1030,
+      "win_rate": 0.0,
+      "cutoff_rate": 0.6189903846153846
+    }
+  ],
+  "limits": [
+    "Exploratory fixed-layout comparison; not a held-out promotion test.",
+    "One training run per entry; unequal historical training budgets.",
+    "Cutoffs score zero and are reported separately from actual draws.",
+    "Win rates are against this fixed opponent collection; no superhuman claim."
+  ]
+}

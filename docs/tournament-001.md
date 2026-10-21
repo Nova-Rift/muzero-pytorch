@@ -127,3 +127,42 @@ incomplete summary list a complete matrix. Verified against the completed128game
 independent benchmark and its260file preservedstage/45protocol hashchecks.
 This is artifact integrity, not an independent reproduction of every gameplay
 trajectory or proof of learning. Fullmatrix audit follows recovery, not live files.
+
+## Completed results — October 21, 2026 UTC
+
+All 91 pairs / 11,648 games completed. Independent record audit passed every
+record, all 261 staged payload files and 57 protocol hash checks. The 50 batches
+completed before the allocation timeout were reused byte-for-byte; protocol
+unchanged. Both GPU allocations were deleted after artifact recovery.
+
+[Pairwise matrix](tournament-001-results/comparison.svg) ·
+[Trained vs matching initialization](tournament-001-results/matched-initializations.svg) ·
+[CSV](tournament-001-results/pairwise.csv) ·
+[All game records](tournament-001-results/games.jsonl) ·
+[Protocol](tournament-001-results/protocol.json) ·
+[Audit](tournament-001-results/audit.json). PDF versions are beside the SVGs.
+
+Across all games, 5,391 (46.3%) reached the time limit; only five were simultaneous
+draws. This remains a major limitation. Unofficial Dreamer4-100 had the highest
+aggregate win fraction against this particular collection (42.2%), but tied its
+matching untrained model 55–55 with 18 timeouts. That does not demonstrate a
+training benefit. Lana-100 beat its initialization 123–5, yet its aggregate win
+fraction was only 22.7% with 62.0% timeouts. Opponent-specific success is not
+general competence. Historical models also differ in training budgets and agent
+counts, so this is not a controlled architecture ranking.
+
+Independent E1024 scored 61 wins / 46 losses / 21 timeouts against initialization;
+F1024 scored 51 / 54 / 23. E beat F 53 / 31 with 44 timeouts, even though F had a
+higher collection-wide win fraction. Neither earns promotion under our registered
+gates. The old independent 10,000-episode checkpoint won zero of 1,664 games;
+its historical throughput target did not produce a useful policy. All negative
+checkpoints and evidence remain preserved. No final confirmation seeds were used.
+
+Full tournament allocation estimates: $2.71537 + $1.08047 = **$3.79584**, including
+startup/recovery time. Cumulative recorded investigation compute ~$10.22923/$50;
+these are elapsed-time estimates, not a reconciled invoice. Persistent cache
+$0.70/month is separate. No claim of superhuman or continual-learning performance.
+
+The next experiment remains the already registered G duration comparison. These
+exploratory scores do not change its architecture, loss, seed, checkpoint selection
+rule, confirmation seeds or promotion gates.

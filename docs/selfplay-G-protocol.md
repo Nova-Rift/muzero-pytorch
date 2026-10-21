@@ -1,7 +1,9 @@
 # Self-play G — longer data/optimization budget, registered before training
 
-Status: started October 21, 2026 UTC after full tournament recovery, audit and
-GPU deletion. The registered settings and gates below are unchanged.
+Status: PAUSED at user request October 21, 2026 UTC. G stopped after 2,944
+completed games; partial checkpoints recovered, validated and GPU deleted.
+No development selection or final tests ran; the registered full run is incomplete.
+The original protocol below is preserved, not retroactively relaxed.
 
 Question: can additional from-scratch self-play and optimizer work improve the
 unchanged independent MuZero, without a new loss, architecture, or reward?

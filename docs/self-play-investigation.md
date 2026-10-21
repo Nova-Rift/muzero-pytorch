@@ -559,3 +559,22 @@ G took427.89s to2,048 versus F371.96s tofinish2,048 including its final save;
 identical results can still have runtime variation. No hardware-cause claim from
 this single comparison. G remains live and is now continuing the registered
 additional training. No checkpoint selection, final evaluation or promotion yet.
+
+## Entry 027 — user-requested stop and result visualization
+
+User requested ending after approximately three hours and viewing the data.
+Stopped G at2,944 completed games before the8,192 target;48NPZfiles recovered
+and validated finite, all existing checkpoints preserved. Wrapper exit-15 is
+the deliberate stop signal, not a spontaneous training defect. No development
+selection/finaltests ran and no candidate is promoted. Full requested training
+is incomplete; saved weights are not a full optimizer/replay/RNG resume.
+
+GPU deleted; authenticated pod inventory is empty. G allocation estimate$0.80638;
+cumulative recorded compute$11.03561/$50, not reconciled account invoice.
+Storage remains separately authorized$0.70/month. Active goal paused at user's
+request; do not resume training without a new instruction.
+
+[Visual summary](tournament-001-results/research-summary.png) combines trained-vs-
+initialization outcomes and measured batch speedups. PDF/SVG exports and the full
+91-pair matrix/data are in the same directory. It distinguishes speed gains from
+learning, which remains unproven for the newer independent MuZero candidates.

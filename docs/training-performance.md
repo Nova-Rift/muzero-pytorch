@@ -65,3 +65,35 @@ allocation. Preserve256decision cutoff,153actions,11seats (legacy seat10 asymmet
 64-observation history,8MCTS simulations,5-step training unroll,one Adam update/game,
 batch32. New implementation has no depth3 cap; this differs from the old pilot.
 Record TF32 and CUDA graph choices. No policy quality claim from throughput.
+
+### H100 baseline and identified bottleneck (2026-10-20)
+
+Source824c9a4, H10080GB HBM3 (81,559MiB reported,700W), CUDA12.8,
+PyTorch2.8.0+cu128, driver595.91.07; allocation28vCPUs/251GB RAM, $3.99/hour.
+128games:123natural terminal,5cutoffs;14,941joint steps/59,471active transitions;
+128optimizer updates,4,096training examples. Hidden448,3,226,691parameters,
+64-frame history,8searches,256decision cutoff,unroll5,batch32,TF32,CUDA graphs.
+Training-loop13.5229s (9.4654games/s);including checkpoint14.0133s.
+Breakdown: setup0.5169s, history6.7574s, search3.0419s, environments0.6753s,
+updates2.2787s. This misses the target; a projection is not a10k result.
+
+P007: device-resident histories, source22b8802. Transfer each current observation
+once, retain64-frame history on GPU. CPU tests verify padding, prior-action
+alignment and rollover against replay history at contexts1/4/64. No model/reward
+change. A larger-batch benchmark follows; changing batch size also changes policy
+lag and is not a controlled one-factor speed comparison.
+
+Earlier allocation001 was explicitly terminated at Clark's pause. Its benchmark
+report was not recovered. Keep the failed CUDA scalar-assignment capture attempt
+in history: fixed by creating the assignment tensor on-device; GPU parity passed.
+
+### Device histories +256parallel games
+
+Source22b8802, same H100/settings except256parallel games and device histories.
+256games (247terminal,9cutoff),29,724joint steps/118,694active transitions;
+256updates/8,192training examples. Loop11.1342s (22.9923games/s), including
+checkpoint11.6436s. Setup0.5117s, search2.6621s, environment1.0824s, CPU enqueue
+for device history0.0654s, updates6.3332s. GPU history execution is synchronized
+inside the search interval, so these component times are not independent CUDA
+measurements. Combined change is2.43x the128game loop throughput, not proof of
+that factor for history alone. Proceed to frozen10k run protocol; no target claim yet.

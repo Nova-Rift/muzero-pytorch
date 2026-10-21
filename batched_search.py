@@ -63,7 +63,7 @@ def search_batch(model, observations, *, explore=False, legal=None, root_noise=N
         hidden[:,simulation] = h
         reward[:,simulation] = scalar(r)
         priors[:,simulation] = p.softmax(-1)
-        children[rows,parents,selected] = simulation
+        children[rows,parents,selected] = torch.full_like(selected,simulation)
         backed = scalar(v)
         visits[:,simulation] = 1
         value_sum[:,simulation] = backed

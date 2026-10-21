@@ -543,3 +543,19 @@ traces cover two games per collection block, not every training game. A regressi
 checks that reordered actions with identical histograms are detected; eight
 selection/provenance/tournament/prefix tests passed, plus all16 F self-comparison
 trace blocks. G training and development evaluations remain in progress.
+
+## Entry 026 — exact G/F prefix verified before interpreting extension
+
+G reached game2,048; read-only snapshot captured the immutable checkpoint, initial
+weights, manifest, first16 metrics rows and first-two-game traces from all16
+collection blocks. [Prefix audit](selfplay-G-prefix-audit.json): initial weights
+and checkpoint2,048 SHA256 match F exactly; maximum tensor difference0, maximum
+loss difference0, all work counts/action histograms equal, all saved trace arrays
+equal. Physics hashes, model config, PyTorch version and GPU model match. Only
+arguments differing are requested games, output path and wall-time bound. This
+validates the repeated prefix, not every unsaved trajectory or learning quality.
+
+G took427.89s to2,048 versus F371.96s tofinish2,048 including its final save;
+identical results can still have runtime variation. No hardware-cause claim from
+this single comparison. G remains live and is now continuing the registered
+additional training. No checkpoint selection, final evaluation or promotion yet.

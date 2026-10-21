@@ -1,0 +1,1509 @@
+{
+  "through_games": 2048,
+  "argument_differences": {
+    "games": [
+      2048,
+      8192
+    ],
+    "max_seconds": [
+      900.0,
+      2100.0
+    ],
+    "output": [
+      "/workspace/selfplay-F",
+      "/workspace/selfplay-G"
+    ]
+  },
+  "unexpected_learning_argument_differences": {},
+  "config_equal": true,
+  "physics_hashes_equal": true,
+  "torch_equal": true,
+  "gpu_equal": true,
+  "initial_equal": true,
+  "prefix_work_counts_equal": true,
+  "prefix_action_histograms_equal": true,
+  "checkpoint_hash_equal": true,
+  "checkpoint_max_abs_difference": 0.0,
+  "reference_checkpoint_sha256": "337dbec9043265d81851decb13b5530e8a33f5d0661c6a4bed0ea3f9b3ec343f",
+  "challenger_checkpoint_sha256": "337dbec9043265d81851decb13b5530e8a33f5d0661c6a4bed0ea3f9b3ec343f",
+  "loss_max_abs_difference": 0.0,
+  "scope": "Prefix repeatability and setup audit, not learning improvement.",
+  "saved_trace_comparison": {
+    "all_equal": true,
+    "blocks": [
+      {
+        "file": "trace-0.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-128.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-256.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-384.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-512.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-640.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-768.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-896.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1024.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1152.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1280.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1408.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1536.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1664.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1792.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      },
+      {
+        "file": "trace-1920.npz",
+        "all_fields_equal": true,
+        "fields": {
+          "observation": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              64
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              64
+            ],
+            "max_abs_difference": 0.0
+          },
+          "actions": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "rewards": {
+            "equal": true,
+            "reference_shape": [
+              256,
+              22
+            ],
+            "challenger_shape": [
+              256,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "policies": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22,
+              153
+            ],
+            "challenger_shape": [
+              257,
+              22,
+              153
+            ],
+            "max_abs_difference": 0.0
+          },
+          "targets": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ],
+            "max_abs_difference": 0.0
+          },
+          "valid": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          },
+          "absorbing": {
+            "equal": true,
+            "reference_shape": [
+              257,
+              22
+            ],
+            "challenger_shape": [
+              257,
+              22
+            ]
+          }
+        }
+      }
+    ],
+    "scope": "Saved first two games (22 slots) per 128-game collection; not every training trajectory."
+  }
+}

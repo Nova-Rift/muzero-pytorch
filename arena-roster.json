@@ -1,5 +1,28 @@
 {
   "schema": 1,
-  "revision": "bundled-v69",
-  "entries": []
+  "revision": "bundled-v69-J-verified",
+  "entries": [
+    {
+      "slot": 9,
+      "name": "MuZero J \u00b7 2,048 games \u00b7 experimental",
+      "architecture": "MuZero",
+      "planner": {
+        "discount": 1,
+        "simulations": 32,
+        "rootCandidates": 8
+      },
+      "models": {
+        "initial": {
+          "bytes": 10186632,
+          "sha256": "150c59e0b7c2b735299286d218e17e561ff3433c9f3cb3cbabf5274abc985bdf",
+          "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/98ce41f760ab9c7e65a383a03eaecc69270e05b8/models/150c59e0b7c2b735299286d218e17e561ff3433c9f3cb3cbabf5274abc985bdf.onnx"
+        },
+        "recurrent": {
+          "bytes": 4656580,
+          "sha256": "262de5d10e2781fdc9de13f0458d9f035d97ba0e5659ecbde33176e54cc679d0",
+          "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/98ce41f760ab9c7e65a383a03eaecc69270e05b8/models/262de5d10e2781fdc9de13f0458d9f035d97ba0e5659ecbde33176e54cc679d0.onnx"
+        }
+      }
+    }
+  ]
 }

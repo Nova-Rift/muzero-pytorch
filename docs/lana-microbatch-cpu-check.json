@@ -1,0 +1,16 @@
+{
+  "checkpoint_sha256": "95b7f65cc903a32b0df9cf9409718277968d1ebd1e3e609c878d6a9711abdf94",
+  "parameter_buffer_bytes_unchanged": true,
+  "streams": 65,
+  "decisions": 4,
+  "actions_exact": true,
+  "invalid_state_cases_rejected": [
+    "NaN after first32rows",
+    "invalid history length",
+    "mismatched leading dimensions",
+    "batch129 exceeds128bound",
+    "training mode"
+  ],
+  "torch": "2.2.0+cu121",
+  "scope": "CPU numerical/contract check; GPU game parity and speed not measured"
+}

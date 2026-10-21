@@ -101,3 +101,19 @@ Timeouts earn zero and are shown separately from simultaneous draws. See the
 None of these alone demonstrates continual learning, broad generalization, or
 superhuman play. The current evidence has not met the registered learning-success
 gate. Preserving failures and exact artifacts is part of finding a real fix.
+
+## Lana inference batch limit (October 21, 2026 UTC)
+
+A naive increase from 32 to 128 failed with `Invalid latent tensors`: the preserved
+legacy model validates a maximum batch of 32. Its neural calculations are batched,
+but its state contract blocks larger calls. We did not edit `model.py`. An opt-in
+evaluation adapter validates every 32-row slice through the original validator,
+checks matching leading dimensions and an explicit larger total bound, and refuses
+training mode. The planning helper now accepts a batch size; its default stays 32.
+
+A real Lana-100 CPU check compared 65 streams over four decisions at batch sizes
+32 and 128: sampled actions matched exactly and all parameter/buffer bytes stayed
+unchanged. Invalid states after row 32, mismatched dimensions, excess batches and
+training mode were rejected. Evidence: [CPU check](lana-microbatch-cpu-check.json).
+This is not yet a GPU speed measurement or full-game parity test. The running
+91-pair tournament retains its frozen original code and batch size.

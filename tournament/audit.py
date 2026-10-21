@@ -46,6 +46,7 @@ def audit(directory,stage=None):
    path=(stage/name).resolve()
    if not path.is_relative_to(stage.resolve()) or sha(path)!=digest:raise ValueError('Staged payload changed: '+name)
   checks={'catalog.json':protocol['catalog_sha256'],'model/tournament/run.py':protocol['source_sha256'],'model/tournament/controllers.py':protocol['controller_sha256']}
+  if 'lana_batch_adapter_sha256' in protocol:checks['model/tournament/lana_batch.py']=protocol['lana_batch_adapter_sha256']
   checks.update({'site/'+n:h for n,h in protocol['environment'].items()});checks.update({'site/'+n:h for n,h in protocol['legacy_sources'].items()})
   checks.update({'weights/'+m['id']+'.npz':m['sha256'] for m in models})
   for name,digest in checks.items():

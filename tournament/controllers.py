@@ -1,10 +1,11 @@
 """Frozen policy adapters; no optimizer or scripted opponent."""
-import json,runpy,sys
+import json,runpy,sys,inspect
 from pathlib import Path
 import numpy as np,torch
 from model import MuZero,Config
 from arena.history import DeviceHistory
 from arena.frozen_search import FrozenSearch
+from tournament.lana_batch import allow_large_batch
 
 def legacy_types(site):
  scripts=Path(site)/'scripts'
@@ -19,7 +20,12 @@ def legacy_types(site):
  from lana_batched_planning import BatchedController,section,stack,take,batched_mcts
  from survival_agent.hybrid.model import PlannerConfig
  class EvaluationController(BatchedController):
-  def __init__(self,model,labels):
+  def __init__(self,model,labels,neural_batch=32):
+   if neural_batch<1:raise ValueError("Positive neural batch required")
+   self.neural_batch=neural_batch
+   if neural_batch>32:
+    if "max_batch" not in inspect.signature(batched_mcts).parameters:raise ValueError("Baseline helper lacks adjustable neural batches")
+    allow_large_batch(model.world_model,neural_batch)
    super().__init__(model,PlannerConfig(simulations=8,horizon=3,root_noise=0.),count=len(labels))
    self.rng=[np.random.default_rng(23000000+seed*11+seat) for seed,seat in labels]
   @torch.no_grad()
@@ -27,12 +33,13 @@ def legacy_types(site):
    ids=[i for i,yes in enumerate(alive) if yes]
    if not ids:return [0]*self.count
    device=self.state.deter.device;obs=torch.tensor(observations,dtype=torch.float32,device=device);parts=[]
-   for offset in range(0,self.count,32):
-    end=min(offset+32,self.count)
+   for offset in range(0,self.count,self.neural_batch):
+    end=min(offset+self.neural_batch,self.count)
     part,_,_=self.model.world_model.observe_step(section(self.state,offset,end),self.previous[offset:end],obs[offset:end],torch.full((end-offset,),self.first,dtype=torch.bool,device=device),stochastic=False)
     parts.append(part)
    self.state=stack(parts);self.first=False
-   visits=batched_mcts(self.model,[take(self.state,i) for i in ids],self.config).numpy()
+   kwargs={} if self.neural_batch==32 else {"max_batch":self.neural_batch}
+   visits=batched_mcts(self.model,[take(self.state,i) for i in ids],self.config,**kwargs).numpy()
    actions=[0]*self.count
    for i,row in zip(ids,visits):
     probabilities=row.astype(np.float64)/row.sum()
@@ -74,6 +81,7 @@ class IndependentController:
   self.history.acted(actions)
   return actions
 
-def controller(entry,model,labels,site):
+def controller(entry,model,labels,site,lana_microbatch=32):
  if entry['family']=='independent_muzero':return IndependentController(model,labels,entry.get('root_candidates',0))
- return legacy_types(site)[entry['family']][1](model,labels)
+ factory=legacy_types(site)[entry['family']][1]
+ return factory(model,labels,neural_batch=lana_microbatch) if entry['family']=='lana' else factory(model,labels)

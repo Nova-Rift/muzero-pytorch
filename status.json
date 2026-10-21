@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "J 2048: development",
   "change": "Discount 0.99 to 1.0; matched seed, three-block replay and budget",
-  "result": "2048 training games complete: 1782 natural endings, 266 timeouts. Development evaluation underway; no confirmation result.",
+  "result": "All three checkpoints fail at least one development gate. Completing registered controls; no confirmation or promotion.",
   "candidate": "J",
-  "evaluation_label": "development: J 2048 vs initial",
-  "updated_at": "2026-10-21T07:24:55.388156+00:00",
+  "evaluation_label": "development: J 2048 vs E1024",
+  "updated_at": "2026-10-21T07:26:00.170666+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

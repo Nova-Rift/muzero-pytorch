@@ -76,3 +76,22 @@ recorded compute spend is approximately$5.795 plus current boundedbenchmark;
 this allocation fits the original$50totalcap. Storage$0.70/month is separately
 explicitly authorized. Full matrix remains exploratory, not promotion evidence;
 reserved MuZero confirmation seeds42000000 are untouched.
+
+## Measured throughput result
+
+H100 SXM80GB (81559MiB), driver595.91.07, 700W power limit; PyTorch2.8.0+cu128,
+4 Node workers, identical128games per workload, one measured run per width.
+- Lana100/Dreamer4-1000:32parallel70.094s;128parallel60.877s;1.151x.
+- LegacyMuZero100/E1024:102.718s→35.900s;2.861x.
+- Independentuntrained32/E1024:169.602s→43.700s;3.881x.
+ALL384 paired game records (seed/seat/winner/termination/length) exactly match
+between widths. Total768 fullbenchmarkgames; smoke games excluded. These are
+workload-specific wall times, not a universal GPU speedup. One GPU spot sample
+showed82%utilization,1093MiB allocated,137.13W; not a time-averaged measurement.
+Lana's smaller gain leaves CPU tree work as a profiling candidate, not a proven
+sole bottleneck. Public compact data: tournament-benchmark-001.json.
+
+Benchmark allocation deleted after recovery; estimated$0.63883. Recorded cumulative
+compute through setup failures+benchmark~$6.43339/$50 (not accountwide billing).
+Initial failed setups cost$0.62640+$0.38020 and remain logged rather than hidden.
+Fullmatrix is separately registered above and not yet complete in this entry.

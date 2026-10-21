@@ -1,0 +1,44 @@
+[
+  {
+    "pair": [
+      "lana-100",
+      "dreamer4-1000"
+    ],
+    "seconds32": 70.09363025400671,
+    "seconds128": 60.877471605999744,
+    "speedup": 1.151388656671784,
+    "identical_game_records": true,
+    "different_records": 0,
+    "wins_a": 5,
+    "wins_b": 18,
+    "cutoffs": 105
+  },
+  {
+    "pair": [
+      "muzero-100",
+      "selfplay-E1024"
+    ],
+    "seconds32": 102.71771163000085,
+    "seconds128": 35.90042096099933,
+    "speedup": 2.861184044097671,
+    "identical_game_records": true,
+    "different_records": 0,
+    "wins_a": 4,
+    "wins_b": 19,
+    "cutoffs": 105
+  },
+  {
+    "pair": [
+      "selfplay32-untrained",
+      "selfplay-E1024"
+    ],
+    "seconds32": 169.60182011201687,
+    "seconds128": 43.70041526401474,
+    "speedup": 3.881011635412904,
+    "identical_game_records": true,
+    "different_records": 0,
+    "wins_a": 45,
+    "wins_b": 61,
+    "cutoffs": 22
+  }
+]

@@ -11,8 +11,8 @@
   "change": "Replay retention 12 to 3; matched H training seed and budget",
   "result": "256 development games complete. I512 wins: initial 25/64, E 11/64, F 32/64. I1024 vs initial: 20/64. No checkpoint passes yet.",
   "candidate": "I",
-  "evaluation_label": "development: I 2048 vs initial",
-  "updated_at": "2026-10-21T06:57:26.551238+00:00",
+  "evaluation_label": "development: I 2048 vs E1024",
+  "updated_at": "2026-10-21T06:58:19.912222+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

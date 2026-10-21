@@ -160,3 +160,16 @@ Ctraining late batches finish all128games in7decisions. This can reflect a
 degenerate shared-policy interaction; do not infer competence from this speedup.
 Held-out frozen-opponent evaluation is still required. Throughput comparisons must
 report actual transitions and episode length, not justgames/sec.
+
+## Entry 008 — implementation checks and evidence recovery
+
+A/B initial tensors compared equal exactly after downloading both full runs.
+All18NPZ files per arm (initial,16periodic,final) plus reports/logs recovered
+privately in .local/runpod/muzero-selfplay-001/artifacts/. Public JSON evidence
+copied under docs/selfplay-evidence/. No raw weights committed.
+H100 CUDA-graph/eager parity passed for forced-root search, including after weight
+updates (small regression), and full448hidden/153action/32search/256active-root
+test: maximum policy difference0.0. This rules out that suspected fast-path
+mismatch on tested inputs, not every possible GPU issue. Test stdout retained
+privately full-parity.log. Droot entropy~2.08nats early vsC0 confirms intervention
+changes coverage; quality still awaits frozen-opponent evaluation.

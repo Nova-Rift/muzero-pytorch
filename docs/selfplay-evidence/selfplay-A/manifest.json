@@ -1,0 +1,47 @@
+{
+  "arguments": {
+    "site": "../site",
+    "output": "/workspace/selfplay-A",
+    "games": 2048,
+    "parallel": 128,
+    "workers": 4,
+    "hidden": 448,
+    "context": 64,
+    "simulations": 8,
+    "batch": 32,
+    "unroll": 5,
+    "agents": 2,
+    "policy_floor": 0.0,
+    "noise_fraction": 0.25,
+    "limit": 256,
+    "updates_per_game": 1,
+    "seed": 40000000,
+    "max_seconds": 600.0,
+    "device": "cuda",
+    "device_history": true,
+    "cuda_graph": true,
+    "tf32": true
+  },
+  "config": {
+    "observations": 4159,
+    "actions": 153,
+    "hidden": 448,
+    "support": 10,
+    "discount": 0.99,
+    "simulations": 8,
+    "pb_c_base": 19652.0,
+    "pb_c_init": 1.25,
+    "dirichlet_alpha": 0.3,
+    "exploration_fraction": 0.25
+  },
+  "parameters": 3226691,
+  "torch": "2.8.0+cu128",
+  "python": "3.12.3",
+  "environment": {
+    "src/sandboxCombat.ts": "8041163035515c13d1645ada2df72bdf482408dc9f467f220b5429da43e8685a",
+    "src/sandboxMotion.ts": "bff13f8b38d4d59b40271f60fb1fda57ae5c1a752c5763cbe2a9fb383910811c",
+    "src/lana/observation.ts": "1867ab292e924e5708eac81924efc4d1fe7200f294e4d20de804d0955d2a8947"
+  },
+  "source_commit": "6bd7cb06ef6133671e480061b0694785693ecfb8",
+  "gpu": "NVIDIA H100 80GB HBM3"
+}

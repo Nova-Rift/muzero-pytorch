@@ -1,117 +1,162 @@
 # MuZero training performance journal
 
-## Target and counting contract
+## Completed result
 
-Clark requested 10,000 epochs in at most 600 seconds. Pending any clarification,
-one epoch means one complete arena rollout, matching earlier usage. Report natural
-terminal games and time-limit cutoffs separately: a cutoff is not a completed win.
-Always report joint steps, active-agent transitions, optimizer updates, examples
-trained, batch size, search budget, parameters, precision, and wall time. Never
-rename updates into games or reduce game duration to claim the target.
+**10,000 capped training episodes and 10,000 optimizer updates completed in
+314.907 seconds (5 minutes 15 seconds), including the full Python process.**
+The H100 was terminated after local checkpoint verification; the account pod list
+then contained zero pods.
 
-Latest game: canonical `clarkwhitehead` arena (`sandboxCombat.ts` plus `lana/arena.ts`).
-Reward: winner 1, all others 0. Physics, observations, agent capabilities and cutoff
-must be pinned in the run manifest. No new survival-environment substitution.
+- 2,191 episodes ended naturally; 7,809 hit the unchanged time limit.
+- 2,259,249 joint decisions and 20,855,529 active-agent transitions were collected.
+- 320,000 replay sequences were sampled for optimization (batch 32 × 10,000).
+- Training plus checkpoint writing took 311.603 s; full process took 314.907 s.
+- Checkpoint SHA-256: `914ab929002ea50707b5becd71b72ef8318b22441a70e9d373eeb35e96bf2811`.
+- Trained source: `51f835c`; protocol: `muzero-speed-10000-002`.
 
-## Measurement protocol
+The speed target is met **for capped episodes**, not 10,000 natural game endings.
+Later batches all reached the cutoff, so this is not evidence of strong play.
+The checkpoint has not been deployed to the homepage or evaluated as a stronger
+policy against held-out opponents. Finite weights and decreasing loss alone do
+not establish useful learning.
 
-- Separate cold startup/compilation, collection, search, replay preparation, updates,
-  checkpoint writes, and total end-to-end elapsed time.
-- Record GPU model/VRAM, driver/CUDA/PyTorch, CPU model/core count, GPU hourly price,
-  model parameter count, exact code SHA and command.
-- Warm up explicitly; include cold start in total and report steady-state separately.
-- Benchmark on development seeds; freeze model selection before fresh held-out tests.
-- A faster job is not evidence of a better policy. Benchmark equivalence first.
+[Report](benchmarks/muzero-speed-10000-002/report.json) ·
+[Full-process timing](benchmarks/muzero-speed-10000-002/process-timing.json) ·
+[Raw metrics](benchmarks/muzero-speed-10000-002/metrics.jsonl) ·
+[Manifest](benchmarks/muzero-speed-10000-002/manifest.json) ·
+[Checkpoint/work-count audit](benchmarks/muzero-speed-10000-002/audit.json) ·
+[Compute estimate](benchmarks/muzero-speed-10000-002/compute-cost.json)
+
+Weights are retained locally at `runs/muzero-speed-10000-002/weights.npz` in the
+researcher's checkout; large weights are not committed to this repository.
+
+## Target and counting
+
+**10,000 arena episodes and 10,000 optimizer updates in at most 600 seconds.**
+An epoch here means one arena rollout, consistent with the previous arena runs.
+Episodes end naturally or at the unchanged 256-decision cutoff. We report both
+counts: a cutoff is not a naturally completed game or a win.
+
+The final timing includes the training Python process, initialization, collection,
+search, updates, checkpoint writing and worker cleanup. Cloud provisioning and
+software installation are reported separately from training. Projections and short
+benchmarks do not establish that the full target was met.
+
+The latest game remains the canonical website arena (`sandboxCombat.ts` and its
+observation module). Reward is 1 for the winner and 0 otherwise. There are 11 agent
+slots, including the existing slot-10 size/fire-rate asymmetry. No physics, action
+space, observation information, reward or cutoff was changed for speed.
+
+## Hardware
+
+| Item | Actual configuration |
+|---|---|
+| GPU | One NVIDIA H100 80GB HBM3, 81,559 MiB reported |
+| Power | 700 W configured limit; not measured consumption |
+| Driver / CUDA / PyTorch | 595.91.07 / 12.8 / 2.8.0+cu128 |
+| Host CPU | Intel Xeon Platinum 8480+ |
+| Allocated CPU / RAM | 28 vCPUs / 251 GB; host-wide CPU count is not the allocation |
+| Listed GPU price | $3.99/hour; storage and final invoice are separate |
+| Model | 3,226,691 parameters, hidden width 448, 64-observation history |
+| Training | Batch 32, unroll 5, one Adam update per episode |
+| Search | 8 MCTS simulations per decision; no fixed depth-3 cap |
+| Parallelism | 256 worlds, 8 canonical JavaScript environment workers |
+| Numerics | FP32 tensors with TF32 matrix multiplication enabled |
+
+The new implementation is independently written, not the earlier third-party
+MuZero network. Similar parameter counts do not make earlier results directly
+comparable. No paper-score reproduction or useful-policy claim is implied.
 
 ## Optimization ledger
 
-| ID | Change | Status | Behavior / tradeoff | Evidence |
-|---|---|---|---|---|
-| P001 | Batch independent games and independent agents in neural calls | Planned | More throughput; larger policy lag if updates happen between game batches | Pending |
-| P002 | Tensor-backed batched MCTS, no per-agent Python tree objects | Planned | Preserve search budget and single-player reward backup | Pending |
-| P003 | Parallel canonical JS environment workers | Planned | Same rules; avoid Python physics reimplementation | Pending |
-| P004 | Binary observations instead of JSON float arrays | Planned | Same float32 observations; measure transport parity | Pending |
-| P005 | Large replay batches and vectorized unroll targets | Planned | Report optimizer steps and examples, not just games | Pending |
-| P006 | GPU mixed precision / compile | Not enabled | Numerical and compilation cost; needs parity checks first | Pending |
+| ID | Method | Status / evidence | Tradeoff or limitation |
+|---|---|---|---|
+| P001 | Batch independent worlds and agents in model calls | Implemented; 128- and 256-world measurements below | Policy stays fixed while each world batch is collected |
+| P002 | Tensor-backed batched MCTS | Matches the scalar reference in tests, including independent streams and visit counts | Same search budget; not an independent speed ablation |
+| P003 | Parallel canonical JS workers | Implemented; binary and original JSON bridge matched through 256 steps | Imports exact game rules; no Python physics fork |
+| P004 | Binary float32 transport | Observations, rewards, alive flags and termination matched | Float32 observation contract retained |
+| P005 | Larger replay training batches | Not enabled: batch remains 32 | More games per collection batch does not mean larger optimizer batches |
+| P006 | CUDA graphs and TF32 | GPU graph parity passes, including changed model weights | TF32 changes arithmetic precision; no separate accuracy ablation |
+| P007 | Keep histories on the model device | Padding, previous actions and rollover match replay histories at contexts 1/4/64 | Transfer each current observation once; no history information removed |
 
-No measured speedup or 10-minute success is claimed yet. Previous MuZero pilot used
-third-party network code and is historical context only: 1,000 games in 1,682.29 s
-on RTX4090, about 0.594 games/s, with 8 searches/depth3 and one update/game. That
-cannot be directly compared to this independently written implementation without
-matching architecture, data, search and update budgets. Target requires 16.667
-games/s, roughly 28x that old end-to-end rate.
+Component timings are CPU wall times. GPU history operations finish at a later
+synchronization inside search, so those components are not independent CUDA-event
+measurements. Whole-process throughput is the deciding metric.
 
-## Append-only benchmark records
+## Measured runs
 
-New entries must include unsuccessful attempts and exact output paths/commits.
-No paid training has been started for this new implementation at journal creation.
+| Run | Episodes / updates | Natural ends / cutoffs | Loop time | With checkpoint | Loop throughput |
+|---|---:|---:|---:|---:|---:|
+| Initial H100, CPU histories, 128 parallel | 128 / 128 | 123 / 5 | 13.5229 s | 14.0133 s | 9.47 episodes/s |
+| Device histories, 256 parallel | 256 / 256 | 247 / 9 | 11.1342 s | 11.6436 s | 22.99 episodes/s |
 
-### Initial CPU validation (2026-10-20)
+Raw records: [initial 128](benchmarks/benchmark-128.json),
+[device histories + 256](benchmarks/benchmark-history-256.json).
+The combined change improved short-run loop throughput by 2.43x. This is not a
+one-factor measurement of history placement alone, and neither run completed 10k.
 
-Host Intel i7-1165G7 (4 cores / 8 threads), PyTorch 2.2.0+cu121, Node22.22.2.
-Environment-only random-action benchmark: 64 rollouts, 61 terminal/3 cutoffs,
-7,223 joint steps /29,222 active transitions in 0.3947s (162.14 rollouts/s).
-Command: `python arena/benchmark_environment.py --site SITE --games 64 --workers 4`.
-This is only a simulator/transport ceiling, not MuZero training throughput.
+The first run spent 6.7574 s preparing/transferring histories, 3.0419 s in search,
+0.6753 s in environments and 2.2787 s in updates, plus 0.5169 s setup. The second
+spent 0.0654 s enqueueing device histories, 2.6621 s in search, 1.0824 s in
+environments and 6.3332 s in updates, plus 0.5117 s setup.
 
-P002 scalar-vs-batched search parity passes at 20 simulations, including static
-search loops needed for CUDA graphs. P003/P004 exact float32 observation, alive,
-reward and termination parity passes against existing JSON bridge over40steps.
-A reduced 4-game/16-step CPU integration smoke run performed4optimizer updates;
-all4cut off. It cannot be used as evidence for the10,000-game speed target.
+A separate laptop environment-only test ran 64 random-action episodes in 0.3947 s:
+61 natural ends, 3 cutoffs, 7,223 joint steps and 29,222 active transitions. Host:
+Intel i7-1165G7, 4 cores/8 threads, Node 22.22.2. This is a simulator/transport
+ceiling, **not neural training throughput**.
 
-Planned GPU run: RTX5090 or comparable, at most $5 incremental GPU cost and45minutes
-allocation. Preserve256decision cutoff,153actions,11seats (legacy seat10 asymmetry),
-64-observation history,8MCTS simulations,5-step training unroll,one Adam update/game,
-batch32. New implementation has no depth3 cap; this differs from the old pilot.
-Record TF32 and CUDA graph choices. No policy quality claim from throughput.
+```sh
+python arena/benchmark_environment.py --site SITE --games 64 --workers 4
+```
 
-### H100 baseline and identified bottleneck (2026-10-20)
+Historical context only: the earlier third-party-network pilot took 1,682.29 s for
+1,000 games on RTX 4090, with 8 searches/depth 3 and one update/game. Architecture,
+search and pipeline differ, so no controlled speedup is claimed against it.
 
-Source824c9a4, H10080GB HBM3 (81,559MiB reported,700W), CUDA12.8,
-PyTorch2.8.0+cu128, driver595.91.07; allocation28vCPUs/251GB RAM, $3.99/hour.
-128games:123natural terminal,5cutoffs;14,941joint steps/59,471active transitions;
-128optimizer updates,4,096training examples. Hidden448,3,226,691parameters,
-64-frame history,8searches,256decision cutoff,unroll5,batch32,TF32,CUDA graphs.
-Training-loop13.5229s (9.4654games/s);including checkpoint14.0133s.
-Breakdown: setup0.5169s, history6.7574s, search3.0419s, environments0.6753s,
-updates2.2787s. This misses the target; a projection is not a10k result.
+## Corrections and unsuccessful attempts
 
-P007: device-resident histories, source22b8802. Transfer each current observation
-once, retain64-frame history on GPU. CPU tests verify padding, prior-action
-alignment and rollover against replay history at contexts1/4/64. No model/reward
-change. A larger-batch benchmark follows; changing batch size also changes policy
-lag and is not a controlled one-factor speed comparison.
+- The RTX 5090 allocation failed. A read-only account check confirmed no pod had
+  been created before selecting H100.
+- The first CUDA graph capture failed on a CPU scalar used in indexed assignment.
+  Creating that assignment tensor on-device fixed it; GPU parity then passed.
+- The first H100 allocation was deleted at Clark's explicit pause. Its benchmark
+  report was not recovered and is not counted as a result.
+- `/usr/bin/time` was absent in the container. That launch failed before training;
+  a Python subprocess timer now records full-process wall time and exit code.
+- The preliminary 10k run was deliberately interrupted for the terminal-target
+  correction below. Its [completed-batch logs](benchmarks/preliminary-interrupted.json)
+  are retained. It is not a completed 10k result.
 
-Earlier allocation001 was explicitly terminated at Clark's pause. Its benchmark
-report was not recovered. Keep the failed CUDA scalar-assignment capture attempt
-in history: fixed by creating the assignment tensor on-device; GPU parity passed.
+## Training fidelity correction
 
-### Device histories +256parallel games
+The preliminary loss masked value/reward targets after true termination. MuZero
+expects terminal states to be absorbing during training ([paper, Appendix A](https://arxiv.org/html/1911.08265v2)).
+The corrected replay supplies zero future reward/value targets after termination,
+while leaving unavailable time-limit continuations masked. Policy targets are
+present only at actual decision states. Tests distinguish terminal and truncated
+extensions and verify that the model uses the masks.
 
-Source22b8802, same H100/settings except256parallel games and device histories.
-256games (247terminal,9cutoff),29,724joint steps/118,694active transitions;
-256updates/8,192training examples. Loop11.1342s (22.9923games/s), including
-checkpoint11.6436s. Setup0.5117s, search2.6621s, environment1.0824s, CPU enqueue
-for device history0.0654s, updates6.3332s. GPU history execution is synchronized
-inside the search interval, so these component times are not independent CUDA
-measurements. Combined change is2.43x the128game loop throughput, not proof of
-that factor for history alone. Proceed to frozen10k run protocol; no target claim yet.
+This is a fidelity correction, not a speed optimization or a proven explanation
+for policy collapse. The preliminary run eventually produced all-cutoff batches
+despite decreasing loss. That negative evidence is preserved: low loss does not
+establish useful play.
 
-### Training fidelity correction before final checkpoint
+[Protocol 001](muzero-speed-10000-001.json) preserves the interrupted design.
+[Protocol 002](muzero-speed-10000-002.json) freezes the corrected run with fresh
+training seed 30000000 and otherwise unchanged hardware, model and work budgets.
+No held-out policy-quality assessment or checkpoint selection is performed here.
 
-The preliminary10k attempt (protocol001) was interrupted deliberately after the
-absorbing-state review; retain its completed-batch logs in
-`benchmarks/preliminary-interrupted.json`. It is not a completed10k run.
-True terminal extensions previously had their value/reward losses masked out.
-Now terminal extensions train zero future reward/value, while time-limit cutoffs
-remain unknown continuation and are masked. Actual policy targets are separate.
-Reference: MuZero paper Appendix A, terminal nodes
-(https://arxiv.org/html/1911.08265v2). Tests cover terminal vs cutoff targets and
-verify the model consumes the absorbing masks. This is a fidelity correction,
-not a speed optimization or a proven explanation for the observed policy collapse.
+## Reproduce and audit
 
-The preliminary run eventually produced all-cutoff batches despite decreasing
-loss. Preserve that negative evidence; low fitting loss does not imply good play.
-Protocol002 freezes the corrected rerun with fresh training seed30000000 and
-otherwise identical hardware/budget/architecture. No held-out quality claims.
+```sh
+python arena/train.py --site SITE --output runs/speed-002 \
+  --games 10000 --parallel 256 --workers 8 --hidden 448 \
+  --cuda-graph --tf32 --device-history --seed 30000000 --max-seconds 600
+python scripts/audit_run.py runs/speed-002 --expected-games 10000
+```
+
+The time guard is checked between batches and may overshoot. A success claim uses
+actual elapsed time, not the configured limit. Save an external process timer as
+`process-timing.json` alongside the report for the strict full-process audit.
+NPZ files contain inference weights, not optimizer/replay resume state. Checkpoint
+hashes, finite tensors, parameter counts and cumulative work counts are audited.

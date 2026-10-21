@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "games": 10000,
+  "natural_terminal": 2191,
+  "cutoffs": 7809,
+  "optimizer_updates": 10000,
+  "parameters": 3226691,
+  "training_seconds": 311.60311955900397,
+  "process_wall_seconds": 314.9067728170048,
+  "full_process_target_met": true,
+  "checkpoint_sha256": "914ab929002ea50707b5becd71b72ef8318b22441a70e9d373eeb35e96bf2811",
+  "zero_input_value_sanity": [
+    0.0015245676040649414,
+    0.0015245676040649414
+  ],
+  "claim": "Integrity and throughput audit only; no policy quality assessment"
+}

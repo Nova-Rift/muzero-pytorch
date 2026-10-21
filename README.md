@@ -75,3 +75,12 @@ Time-limit extensions are masked and retain the actual final-observation bootstr
 for preceding n-step targets. Policy targets only exist at real decision states.
 The first speed pilot lacked absorbing extensions; its logs are retained and
 clearly marked in the performance journal.
+
+## Recorded speed result
+
+The corrected arena run processed **10,000 capped episodes and 10,000 optimizer
+updates in 5m15s on one H100**. Only 2,191 episodes ended naturally; 7,809 timed out.
+This meets the throughput target, not a policy-quality benchmark. The
+[performance journal](docs/training-performance.md) includes raw evidence, all
+optimizations, hardware, cost estimates and unsuccessful attempts. No website
+model has been replaced by this checkpoint.

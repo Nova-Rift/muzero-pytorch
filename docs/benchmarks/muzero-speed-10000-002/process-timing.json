@@ -1,0 +1,27 @@
+{
+  "process_wall_seconds": 314.9067728170048,
+  "exit_code": 0,
+  "command": [
+    "/usr/local/bin/python",
+    "arena/train.py",
+    "--site",
+    "/workspace/experiment/site",
+    "--output",
+    "/workspace/muzero-speed-10000-002",
+    "--games",
+    "10000",
+    "--parallel",
+    "256",
+    "--workers",
+    "8",
+    "--hidden",
+    "448",
+    "--cuda-graph",
+    "--tf32",
+    "--device-history",
+    "--seed",
+    "30000000",
+    "--max-seconds",
+    "600"
+  ]
+}

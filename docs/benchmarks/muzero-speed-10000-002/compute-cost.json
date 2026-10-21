@@ -1,0 +1,21 @@
+{
+  "allocations": [
+    {
+      "allocation": "muzero-independent-001",
+      "gpu": "H100 80GB HBM3",
+      "hourly_rate_usd": 3.99,
+      "allocated_seconds": 199.52313017845154,
+      "estimated_gpu_usd": 0.22113813594778378
+    },
+    {
+      "allocation": "muzero-independent-002",
+      "gpu": "H100 80GB HBM3",
+      "hourly_rate_usd": 3.99,
+      "allocated_seconds": 958.51789021492,
+      "estimated_gpu_usd": 1.0623573283215364
+    }
+  ],
+  "total_estimated_gpu_usd": 1.2834954642693202,
+  "excludes": "storage, taxes and invoice adjustments; not an account-wide bill",
+  "remaining_pods_verified": 0
+}

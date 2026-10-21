@@ -12,7 +12,7 @@ class Tests(unittest.TestCase):
         try:
             state=pool.reset([27000000,27000001]);expected=request(dict(type='reset',seeds=[27000000,27000001]))
             rng=np.random.default_rng(67)
-            for step in range(40):
+            for step in range(256):
                 np.testing.assert_array_equal(state['observation'],np.asarray([x['observations'] for x in expected],np.float32))
                 np.testing.assert_array_equal(state['alive'],[x['alive'] for x in expected])
                 np.testing.assert_array_equal(state['reward'],[x['rewards'] for x in expected])

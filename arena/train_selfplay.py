@@ -17,6 +17,7 @@ from batched_search_exploration import search_batch
 from arena.environment import Pool
 from arena.history import DeviceHistory
 from arena.returns import episode_returns
+from arena.provenance import capture_source
 
 
 class Search:
@@ -167,7 +168,8 @@ def main():
     model=MuZero(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=.99,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
     optimizer=torch.optim.Adam(model.parameters(),lr=3e-4,weight_decay=1e-4)
     site=Path(a.site); source={str(x.relative_to(site)):hashlib.sha256(x.read_bytes()).hexdigest() for x in [site/'src/sandboxCombat.ts',site/'src/sandboxMotion.ts',site/'src/lana/observation.ts']}
-    manifest=dict(arguments=vars(a),config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
+    provenance=capture_source(Path(__file__).resolve().parents[1])
+    manifest=dict(arguments=vars(a),config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
     pool=Pool(a.site,a.workers,agents=a.agents,cadence=a.cadence);replay=deque(maxlen=3);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
     try:

@@ -1,0 +1,9 @@
+{
+  "trace": "trace-0.npz",
+  "sha256": "1fede39316abb1db7a9df56847076889bb530db676b4e3a7803634082d3cc6c9",
+  "games": 2,
+  "steps": 256,
+  "observation_reward_alignment": "exact",
+  "policy_sums": "pass",
+  "command": "python scripts/audit_trace.py --site SITE --run RUN --trace trace-0.npz"
+}

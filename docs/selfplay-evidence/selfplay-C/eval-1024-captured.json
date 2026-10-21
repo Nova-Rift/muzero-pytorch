@@ -1,0 +1,213 @@
+{
+  "total_seconds": 43.108807885000715,
+  "frozen_search_sha256": "dabcad37da568cfcb4c91701f75e484d8d0d8988d604113f7811f221c992a43f",
+  "evaluator_sha256": "fddd3486f08a9650159b120ff3adc8a7dba4c9fd3fc50c03bf082dad29c2be7f",
+  "checkpoint_sha256": "3cb943a773288f48d337cdafcdacff787193b4ef0bebac1963332190aaf6fd9b",
+  "reference_decision": "search",
+  "decision": "search",
+  "challenger": "checkpoint-1024.npz",
+  "reference": "initial.npz",
+  "seed": 41000000,
+  "games": 32,
+  "wins": 0,
+  "losses": 0,
+  "cutoffs": 32,
+  "draws": 0,
+  "mean_steps": 256.0,
+  "seconds": 39.60473968699807,
+  "seat_swapped": true,
+  "records": [
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 0,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    },
+    {
+      "seat": 1,
+      "winner": -1,
+      "finished": false,
+      "steps": 256
+    }
+  ]
+}

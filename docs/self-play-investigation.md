@@ -248,3 +248,15 @@ behavior metrics/traces, which do not change RNG or optimization targets.
 This tests propagation of actual terminal win information, retaining discount.99
 and truncation bootstrap; no human data or tactical reward. Evaluate512/1024/2048
 on the same development suite; final seeds remain unused until selection frozen.
+
+## Entry 013 — D outcome and E alignment check
+
+D2048development16wins12loss4cutoffs: insufficient for gate; conditional Etriggered.
+Eepisode-return run started fromscratch with registeredDmatched settings.
+First128games match D's initial collection totals102natural26cutoffs and identical
+search entropy1.030126093; target loss differs as expected. This is a useful
+control check, not proof of every trajectory matching.
+Etrace0 first2games replayed exactly for256steps against canonical homepage-cadence
+physics; all observation/reward arrays matched, valid policy distributions sum1.
+Trace hash and command stored trace-audit-E-0.json. No final seeds or agent3.
+Latest full local suite with ARENA_SITE:19run,17passed,2CUDA-only skipped.

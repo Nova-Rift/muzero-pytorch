@@ -173,3 +173,22 @@ test: maximum policy difference0.0. This rules out that suspected fast-path
 mismatch on tested inputs, not every possible GPU issue. Test stdout retained
 privately full-parity.log. Droot entropy~2.08nats early vsC0 confirms intervention
 changes coverage; quality still awaits frozen-opponent evaluation.
+
+## Entry 009 — instrumentation and prepared return-target probe
+
+Ccompleted2048games:1869natural179cutoffs,273.68s.
+Dcompleted2048games:1764natural284cutoffs,404.80s. Both32search,homepage cadence.
+Dmaintained root diversity but this is NOT yet strength; frozen evaluations running.
+Future trainer additionally records153action counts,hits,movement pixels,
+search-value MSE against realized discounted returns in completed episodes.
+First2games per collection batch save private replay traces(observations,actions,
+policies,rewards,targets,masks); this is a sample, NOT all raw trajectories.
+Instrumentation-only CPU smoke2games passed;17tests pass,2skipped locally.
+
+Prepared OPTIONAL episode-return target variant (not yet a GPU trial):
+propagate actual self-play terminal outcomes through completed episodes, retaining
+final-observation bootstrap at true truncations. No reward shaping. Original
+10-step targets remain default. This is a credit-assignment hypothesis, not an
+identified arithmetic bug. MuZero used final outcomes for board games and10step
+returns forAtari: https://arxiv.org/html/1911.08265v2 (AppendixG).
+Do not claim this variant improved anything before a registered comparison.

@@ -16,6 +16,7 @@ from model import Config,MuZero
 from batched_search_exploration import search_batch
 from arena.environment import Pool
 from arena.history import DeviceHistory
+from arena.returns import episode_returns
 
 
 class Search:
@@ -65,7 +66,7 @@ def history(observations,actions,times,agents,context):
     return np.concatenate((obs.reshape(len(times),-1),previous),-1).astype(np.float32)
 
 
-def collect(pool,model,seeds,limit,context,searcher,device_history=False):
+def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep"):
     state=pool.reset(seeds);games=len(seeds);count=games*11
     obs=np.zeros((limit+1,count,64),np.float32)
     actions=np.zeros((limit,count),np.int64)
@@ -74,6 +75,7 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False):
     values=np.zeros((limit+1,count),np.float32)
     valid=np.zeros((limit+1,count),bool)
     terminal=np.zeros((limit,count),bool)
+    action_counts=np.zeros(153,np.int64);hits=0;movement=0.
     finished=np.zeros(games,bool);joint_steps=0;timings={'search':0.,'environment':0.,'history':0.}
     device=next(model.parameters()).device
     cache=DeviceHistory(count,context,device) if device_history else None
@@ -87,10 +89,13 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False):
         act,pol,value=searcher(x)
         if cache:cache.acted(act)
         timings['search']+=time.perf_counter()-start
+        action_counts+=np.bincount(act[valid[t]],minlength=153)
         actions[t],policies[t],values[t]=act,pol,value
         commands=act.reshape(games,11).copy();commands[finished]=-1
         start=time.perf_counter();following=pool.step(commands);timings['environment']+=time.perf_counter()-start
         rewards[t]=following['reward'].reshape(-1)*valid[t]
+        hits+=float(np.maximum(0,state['observation'][:,:,2]-following['observation'][:,:,2]).sum()*3)
+        movement+=float(np.linalg.norm((following['observation'][:,:,:2]-state['observation'][:,:,:2])*np.array([1000,460]),axis=-1)[valid[t].reshape(games,11)].sum())
         terminal[t]=(~following['alive']|following['finished'][:,None]).reshape(-1)
         finished|=following['finished'];state=following
         if finished.all():break
@@ -109,11 +114,15 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False):
         for j in range(t,end):
             targets[t]+=weight*rewards[j];weight*=model.config.discount*(~terminal[j])
         targets[t]+=weight*values[end]
+    actual_returns=episode_returns(rewards[:length],terminal[:length],values[length],model.config.discount)
+    if return_mode=='episode':targets[:length]=actual_returns[:length]
+    completed=valid[:length]&np.repeat(finished,11)[None]
+    search_return_mse=float(np.mean((values[:length][completed]-actual_returns[:length][completed])**2)) if completed.any() else None
     absorbing=np.zeros_like(valid)
     absorbing[1:length+1]=np.maximum.accumulate(terminal[:length],axis=0)
     indices=np.argwhere(valid[:length])
     block=dict(observation=obs[:length+1],actions=actions[:length],rewards=rewards[:length],policies=policies[:length+1],targets=targets[:length+1],valid=valid[:length+1],absorbing=absorbing[:length+1],indices=indices)
-    stats=dict(games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
+    stats=dict(action_counts=action_counts.tolist(),hits=round(hits),movement_pixels=movement,completed_search_return_mse=search_return_mse,games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
     return block,stats
 
 
@@ -143,6 +152,7 @@ def main():
     p.add_argument('--workers',type=int,default=8);p.add_argument('--hidden',type=int,default=384)
     p.add_argument('--context',type=int,default=64);p.add_argument('--simulations',type=int,default=8)
     p.add_argument('--batch',type=int,default=32);p.add_argument('--unroll',type=int,default=5)
+    p.add_argument('--return-mode',choices=['nstep','episode'],default='nstep')
     p.add_argument('--root-candidates',type=int,default=0)
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
@@ -167,7 +177,8 @@ def main():
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
             if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
-            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history)
+            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode)
+            np.savez_compressed(out/f'trace-{offset}.npz',**{k:v[:,:22] for k,v in block.items() if k!='indices'})
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):
                 chosen=replay[int(rng.integers(len(replay)))]

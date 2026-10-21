@@ -14,11 +14,12 @@
   "evaluation_label": "Development: selected J2048 vs E1024",
   "updated_at": "2026-10-21T07:36:05.664829+00:00",
   "timing": {
-    "measured_at": "2026-10-21T00:39:51.769406-07:00",
+    "measured_at": "2026-10-21T00:40:53.209149-07:00",
     "steps": [
       {
         "step": 1,
         "state": "finished",
+        "updated_at": "2026-10-21T07:19:17.498233+00:00",
         "elapsed_seconds": 443,
         "completed": 2048,
         "total": 2048,
@@ -29,6 +30,7 @@
       {
         "step": 2,
         "state": "finished",
+        "updated_at": "2026-10-21T07:35:50.768991+00:00",
         "elapsed_seconds": 993,
         "completed": 64,
         "total": null,
@@ -39,6 +41,7 @@
       {
         "step": 3,
         "state": "finished",
+        "updated_at": "2026-10-21T07:09:59.515497+00:00",
         "elapsed_seconds": 124,
         "completed": null,
         "total": null,
@@ -49,6 +52,7 @@
       {
         "step": 4,
         "state": "finished",
+        "updated_at": "2026-10-21T07:11:54.164457+00:00",
         "elapsed_seconds": 115,
         "completed": null,
         "total": null,

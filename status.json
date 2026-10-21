@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "I 1024: development",
   "change": "Replay retention 12 to 3; matched H training seed and budget",
-  "result": "Training complete: 2048 games/updates in 370 seconds; 250 training timeouts. Registered development evaluations now running.",
+  "result": "256 development games complete. I512 wins: initial 25/64, E 11/64, F 32/64. I1024 vs initial: 20/64. No checkpoint passes yet.",
   "candidate": "I",
-  "evaluation_label": "development: I 1024 vs E1024",
-  "updated_at": "2026-10-21T06:55:22.142022+00:00",
+  "evaluation_label": "development: I 1024 vs F1024",
+  "updated_at": "2026-10-21T06:56:15.866370+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

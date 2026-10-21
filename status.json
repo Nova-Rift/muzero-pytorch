@@ -11,8 +11,8 @@
   "change": "Replay retention 12 to 3; matched H training seed and budget",
   "result": "Training complete: 2048 games/updates in 370 seconds; 250 training timeouts. Registered development evaluations now running.",
   "candidate": "I",
-  "evaluation_label": "development: I 512 vs E1024",
-  "updated_at": "2026-10-21T06:53:04.288274+00:00",
+  "evaluation_label": "development: I 512 vs F1024",
+  "updated_at": "2026-10-21T06:54:11.314155+00:00",
   "max_iterations": 3,
   "reward": {
     "win": 1,

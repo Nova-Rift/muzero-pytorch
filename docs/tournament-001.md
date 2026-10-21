@@ -1,0 +1,43 @@
+# Arena tournament 001 — protocol and implementation log
+
+Requested: many fast simulations comparing all named models, including untrained.
+Scope frozen before results:9homepage choices, latestF1024candidate, matching
+untrained legacyMuZero/unofficialDreamer4/independent8search/independent32search.
+Lanauntrained alreadyin9. Total14entries/91unorderedpairs. Intermediatecheckpoint
+archives are preserved but not distinct released entries. No scriptedopponents,
+human demonstrations or training in this tournament. Dreamer4 is unofficial;
+legacyMuZero uses the preserved older upstream-derived implementation. Neither is
+misrepresented as new independentDreamer3 or the current independentMuZero.
+
+All two-agent games use current canonicalJS homepage physics,5*.05sframes/decision,
+256decisioncutoff. Trained and untrained within each family use identicalinference
+settings. InitialLana digest matches browsermanifest; oldMuZero/Dreamer4/independent8
+initializations reconstructed from their originalseed, labeled accordingly. E/F
+use saved initialcheckpoint. Privatecatalog pins14weightfiles/SHA256; publicprotocol
+omits paths. Modelsource and physics hashes pinned at invocation. PCG64 separately
+seeded pergame/seat, independent of batching. Seeds change sampling, not spawnlayout.
+One frozen trainingrun perentry; this evaluates fixed-layout two-agent behavior,
+not population generalization, continuallearning or superhumanperformance.
+
+Runner saves atomicperpair batches and refuses a changedprotocol onresume. Reports
+wins forbothmodels, actualdraws, timeouts, 95%Wilson descriptive intervals, setup/
+rollout/inference/environment seconds andgames/sec. Cutoffs earn0, not .5drawcredit.
+Model loading/serialization is not included in batchthroughput; fullallocationcost
+will also be reported. No significanceclaim from ranking many pairwisecomparisons.
+
+Local validation before GPU: all14NPZweights strictload; all6pairings among4family
+untrainedrepresentatives completed two-stepCPU smoketests. Those artificial2step
+cutoffs are correctnesschecks, NEVER benchmarkwins or speedclaims. Three-step
+batched-vs-single-stream sampledaction parity passed for each4familyrepresentative.
+Existing independentsearchPython/WASM parity preserved; no inferencealgorithmschanged.
+
+Next bounded throughputbenchmark (not started in this entry): H100<=4/hour,
+<=20minuteallocation/$1.34, auto-stop. Three pairs representing workloads:
+lana-100 vsdreamer4-1000; muzero-100 vsselfplay-E1024;
+selfplay32-untrained vsselfplay-E1024. Each128games atparallel32 and128,
+seed49020000; samepair-specific benchmarkseeds across widths. Limit256.
+First profile; do not extrapolate2step smoke. Preserve allresults, even slowfailures.
+Then freeze fulltournamentsize from measuredthroughput/cap before seeing tournament
+scores. Candidate128games/pair=11648games (64perseat/pair), benchmarkdoesnot
+count towardranking. Tournamentseeds51000000+, separate from MuZerofinal42000000.
+No modelselection fordeployment or thirdagentpromotion from this exploratorymatrix.

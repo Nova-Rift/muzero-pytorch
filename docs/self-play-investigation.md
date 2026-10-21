@@ -225,3 +225,9 @@ Additional performance limitation identified in code: synchronous collection
 keeps calculating actions for completed/dead rows until the whole batch ends.
 Future logs add padded_search_roots versus active_transitions, so utilization is
 measurable before an async-reset optimization. No async-reset change implemented.
+
+Test-count clarification: earlier phrases such as "17tests pass,2skipped" referred
+to tests RUN, including skips. Exact latest local result:19run,16passed,3skipped
+(CUDA-only2 and opt-in legacy bridge1). Separate H100 frozen-search suite:
+2run,2passed. Full-shape graph/eager check separately passed. No skipped test is
+claimed as executed. This clarification governs earlier shorthand.

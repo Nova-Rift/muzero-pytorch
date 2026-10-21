@@ -1,0 +1,11 @@
+{
+  "checkpoint": "checkpoint-1024.npz",
+  "sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+  "wins": 16,
+  "losses": 13,
+  "cutoffs": 3,
+  "games": 32,
+  "rule": "most wins, fewest cutoffs, earliest checkpoint",
+  "gate_passed": false,
+  "final_seeds_used": false
+}

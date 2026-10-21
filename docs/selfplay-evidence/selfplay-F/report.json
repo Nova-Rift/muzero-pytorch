@@ -1,0 +1,15 @@
+{
+  "games": 2048,
+  "natural_terminal": 1769,
+  "cutoffs": 279,
+  "joint_steps": 276321,
+  "active_transitions": 552642,
+  "optimizer_updates": 2048,
+  "training_examples": 524288,
+  "elapsed_seconds": 371.96393719498883,
+  "checkpoint_seconds": 0.5309788099984871,
+  "requested_run_completed": true,
+  "target_10000_under_600_met": false,
+  "checkpoint_sha256": "337dbec9043265d81851decb13b5530e8a33f5d0661c6a4bed0ea3f9b3ec343f",
+  "claim": "Training throughput only; no policy quality or research reproduction claim"
+}

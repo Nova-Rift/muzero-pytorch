@@ -396,3 +396,42 @@ allocationguard. Prior recordedestimatedcompute$4.05846, totalcap$50. Allocation
 has NOT started in this entry. If capacity/rate unavailable, do not silently
 expand limits. First recover checkpoints and logs, then delete; accountwidebilling
 is not inferred from recorded runtimecosts.
+
+## Entry 019 — F running, matched-start check
+
+F manifest comparison against E: only outputdirectory and batch32→256 differ;
+model config and all environment module hashes identical. First128game collection
+before any optimizer update exactly matches E's naturalends/cutoffs/jointsteps/
+active transitions, action histogram, and search entropy. This supports matched
+initial conditions for the intended one-variable training comparison. Reported
+firsttwo updateblocks take2.97/3.19seconds versus~21.6seconds search percollection;
+GPU spotcheck95%utilization/1285MiB. Do not confuse GPUutilization with useful
+active-root utilization; paddedfinishedgames remain a known waste. Full run and
+policy evaluations still pending at this entry. Pod and guarded collector handles
+are in private handoff; no success claim or extra agent.
+
+## Entry 020 — F complete, negative larger-batch result
+
+F completed2,048games/updates,524,288replayexamples,276,321jointsteps/552,642active
+transitions in371.96s;1,769naturalends/279cutoffs. Development512:15wins/15loss/2cutoffs;
+1024:16/13/3;2048:16/9/6 plus1draw. Registered tiebreak selects1024 (fewercutoffs),
+SHA4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7. No candidate
+passes >60%wins. No confirmation/finalseeds, replication, thirdagent or sitereplacement.
+Larger replaybatch alone did not improve this tested development comparison;
+this is one matched trainingseed and small32game scores, not proof it neverhelps.
+E selected18wins remains the current homepageexperimental model.
+
+Offline Fcheckpoint audit uses EXACTLY E's7,130saved transitions/29wins (tracehashes
+match); report diagnosis-reward-F-on-E.json. F1024 win-reward mean.01076 versus
+E1024.00649, F2048.00243 versus E2048.00838: stillmostly nearzero. Aggregate reward
+MSE~.004 masks rare positives. Ebehavior returntargets are offpolicy for F, so root
+valueMSE here is a descriptive fit diagnostic, not an unbiased Fvaluequalityscore.
+
+All F NPZs recovered and checkedfinite before deletion; archivechecksum inprivate
+recovered.json. Podple0re8b6cgeg4 deleted; authenticated inventoryzero pods.
+Allocation658.19s at$3.99/h estimated$0.72950; recorded runningtotal~$4.78796/$50cap
+(not account-wide reconciled billing). No packages/model.py/physics/reward changes.
+No trainingprocess remains from F. Do not equate371.96s versus E415s with a pure
+batchspeedup: rollout lengths, host and timing variation also differ. Actualgames
+and all workcounts retained. Next research remains open; inspect uncertainty and
+planning evidence before another architectural or replay change.

@@ -1,0 +1,207 @@
+{
+  "scope": "training-derived saved two-game traces; no new games, updates, or final seeds",
+  "trace_hashes": {
+    "trace-0.npz": "1fede39316abb1db7a9df56847076889bb530db676b4e3a7803634082d3cc6c9",
+    "trace-128.npz": "fc830cff3101a7a8f5dc5e71a1cbacff6194c5bbe9fb3b233741ef52809b2727",
+    "trace-256.npz": "d091430ad8101472c3ad7826cdeec3f3db396190b429f93b1b2258c5ff802bd3",
+    "trace-384.npz": "2a62d58be34c03f876bca531bdb0602fa208438e36ef7c3c048fb5ff0ea28e92",
+    "trace-512.npz": "20c8c8c99389ea2a06f1f32e6b4fb5239443f4406d3bc235e9afb9615b13492b",
+    "trace-640.npz": "f166fbf58e1a77f4ee4b2ce51356ee03766fdf5e02a301b84c2fc17f804d677a",
+    "trace-768.npz": "82844e552107cc8a0c5f32a30e6d63d7d9b34ff9e8c0740b3457da7305e1286d",
+    "trace-896.npz": "d9195e8d79f985f06673eda35ef647753373cf76f93fcfef17712ccfe86343a6",
+    "trace-1024.npz": "d3da43ac173c03503d73c00a7ef7af5635c435033d15d7795f37aa7dc47f9f0c",
+    "trace-1152.npz": "397a800594634f69981a6b78b33cecad6c13727426a81c03566142a65dda45ff",
+    "trace-1280.npz": "1b8fa82a05c9718d7023cc3cd2884a29db0614099b417b9c20a748c69a69a071",
+    "trace-1408.npz": "8be7dd2a9bc7315907425ba0a007bed5b27b1a2a1183b66ad96ffdfd0c6c7e6b",
+    "trace-1536.npz": "00fc1c8f362ea615cd4f7442851768b6932a4ff72dbf90e8f830aa95599d682d",
+    "trace-1664.npz": "6cb0a5f6cbc666367f67733b292d5dd27572a7e95735ca9c238962c59e2fbd36",
+    "trace-1792.npz": "06f1367b9597acc13318b24fbb84926c63faea25c3e9fb22d4d80337e9d00449",
+    "trace-1920.npz": "5356bd209e1bac30242d5a861603f36bc4a593a58b532ae9072daf2bb9013be4"
+  },
+  "checkpoints": {
+    "initial.npz": {
+      "sha256": "952b6ae2938014f2cf7bdddbe130276ae26426b0b6e4f096f052a83324c71613",
+      "root_value": {
+        "count": 7130,
+        "prediction_mean": 0.21867819130420685,
+        "target_mean": 0.2521117627620697,
+        "mse": 0.10496750473976135,
+        "constant_mean_mse": 0.09868746995925903,
+        "prediction_std": 0.07453356683254242,
+        "prediction_min": -0.028063416481018066,
+        "prediction_max": 0.43561744689941406
+      },
+      "reward": {
+        "count": 7130,
+        "prediction_mean": 0.10855194181203842,
+        "target_mean": 0.004067321307957172,
+        "mse": 0.01536412350833416,
+        "constant_mean_mse": 0.004050778690725565,
+        "prediction_std": 0.017225418239831924,
+        "prediction_min": 0.053113460540771484,
+        "prediction_max": 0.1635187864303589
+      },
+      "winning_transition_reward": {
+        "count": 29,
+        "prediction_mean": 0.09630854427814484,
+        "target_mean": 1.0,
+        "mse": 0.8168805241584778,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.014906563796103,
+        "prediction_min": 0.07092666625976562,
+        "prediction_max": 0.13362395763397217
+      },
+      "other_transition_reward": {
+        "count": 7101,
+        "prediction_mean": 0.10860194265842438,
+        "target_mean": 0.0,
+        "mse": 0.01209078636020422,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.017216406762599945,
+        "prediction_min": 0.053113460540771484,
+        "prediction_max": 0.1635187864303589
+      },
+      "policy_entropy_mean": 5.019196033477783,
+      "winning_reward_above_half": 0,
+      "nonwinning_reward_above_half": 0
+    },
+    "checkpoint-512.npz": {
+      "sha256": "8bb7e151fe21b48444cb78c685c1ba09c9634cc9890c29c064fe3ec231c09d30",
+      "root_value": {
+        "count": 7130,
+        "prediction_mean": 0.13140913844108582,
+        "target_mean": 0.2521117627620697,
+        "mse": 0.11147455871105194,
+        "constant_mean_mse": 0.09868746995925903,
+        "prediction_std": 0.023713331669569016,
+        "prediction_min": 0.062308549880981445,
+        "prediction_max": 0.20686304569244385
+      },
+      "reward": {
+        "count": 7130,
+        "prediction_mean": 0.0006445195758715272,
+        "target_mean": 0.004067321307957172,
+        "mse": 0.004061552230268717,
+        "constant_mean_mse": 0.004050778690725565,
+        "prediction_std": 0.00035821442725136876,
+        "prediction_min": 9.34600830078125e-05,
+        "prediction_max": 0.0024791955947875977
+      },
+      "winning_transition_reward": {
+        "count": 29,
+        "prediction_mean": 0.0007759990403428674,
+        "target_mean": 1.0,
+        "mse": 0.9984486699104309,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.0003583368088584393,
+        "prediction_min": 0.00021266937255859375,
+        "prediction_max": 0.0018824338912963867
+      },
+      "other_transition_reward": {
+        "count": 7101,
+        "prediction_mean": 0.0006439826684072614,
+        "target_mean": 0.0,
+        "mse": 5.429599241324468e-07,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.00035811495035886765,
+        "prediction_min": 9.34600830078125e-05,
+        "prediction_max": 0.0024791955947875977
+      },
+      "policy_entropy_mean": 4.521711349487305,
+      "winning_reward_above_half": 0,
+      "nonwinning_reward_above_half": 0
+    },
+    "checkpoint-1024.npz": {
+      "sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+      "root_value": {
+        "count": 7130,
+        "prediction_mean": 0.256330281496048,
+        "target_mean": 0.2521117627620697,
+        "mse": 0.09717266261577606,
+        "constant_mean_mse": 0.09868746995925903,
+        "prediction_std": 0.08414851874113083,
+        "prediction_min": 0.0921257734298706,
+        "prediction_max": 0.5388200283050537
+      },
+      "reward": {
+        "count": 7130,
+        "prediction_mean": 0.00579815311357379,
+        "target_mean": 0.004067321307957172,
+        "mse": 0.004041999112814665,
+        "constant_mean_mse": 0.004050778690725565,
+        "prediction_std": 0.005348958075046539,
+        "prediction_min": 0.00021266937255859375,
+        "prediction_max": 0.034237027168273926
+      },
+      "winning_transition_reward": {
+        "count": 29,
+        "prediction_mean": 0.010762863792479038,
+        "target_mean": 1.0,
+        "mse": 0.978649377822876,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.007699971087276936,
+        "prediction_min": 0.0020017623901367188,
+        "prediction_max": 0.029877305030822754
+      },
+      "other_transition_reward": {
+        "count": 7101,
+        "prediction_mean": 0.005777877755463123,
+        "target_mean": 0.0,
+        "mse": 6.176886381581426e-05,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.005327756982296705,
+        "prediction_min": 0.00021266937255859375,
+        "prediction_max": 0.034237027168273926
+      },
+      "policy_entropy_mean": 4.5830583572387695,
+      "winning_reward_above_half": 0,
+      "nonwinning_reward_above_half": 0
+    },
+    "checkpoint-2048.npz": {
+      "sha256": "337dbec9043265d81851decb13b5530e8a33f5d0661c6a4bed0ea3f9b3ec343f",
+      "root_value": {
+        "count": 7130,
+        "prediction_mean": 0.18429970741271973,
+        "target_mean": 0.2521117627620697,
+        "mse": 0.08998250961303711,
+        "constant_mean_mse": 0.09868746995925903,
+        "prediction_std": 0.08170197904109955,
+        "prediction_min": 0.05262422561645508,
+        "prediction_max": 0.40648603439331055
+      },
+      "reward": {
+        "count": 7130,
+        "prediction_mean": 0.0013856576988473535,
+        "target_mean": 0.004067321307957172,
+        "mse": 0.004051025025546551,
+        "constant_mean_mse": 0.004050778690725565,
+        "prediction_std": 0.0012454168172553182,
+        "prediction_min": -2.586841583251953e-05,
+        "prediction_max": 0.008096814155578613
+      },
+      "winning_transition_reward": {
+        "count": 29,
+        "prediction_mean": 0.0024299744982272387,
+        "target_mean": 1.0,
+        "mse": 0.995146632194519,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.0008403270621784031,
+        "prediction_min": 0.001166701316833496,
+        "prediction_max": 0.004628777503967285
+      },
+      "other_transition_reward": {
+        "count": 7101,
+        "prediction_mean": 0.0013813929399475455,
+        "target_mean": 0.0,
+        "mse": 3.458287665125681e-06,
+        "constant_mean_mse": 0.0,
+        "prediction_std": 0.0012450065696612,
+        "prediction_min": -2.586841583251953e-05,
+        "prediction_max": 0.008096814155578613
+      },
+      "policy_entropy_mean": 4.85374116897583,
+      "winning_reward_above_half": 0,
+      "nonwinning_reward_above_half": 0
+    }
+  }
+}

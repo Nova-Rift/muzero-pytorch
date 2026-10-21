@@ -146,3 +146,17 @@ visited for each active agent, with root values1.1704/1.1555 despite maximum tru
 discounted game return1. This is initial model optimism, not necessarily a trained
 value error. Low-compute search can spend all expansions along one path; increasing
 8→32 did not by itself guarantee comparing root alternatives in these states.
+
+## Evaluation scope clarification
+
+Canonical newWorld seeds initialize legacy brain RNG, but our external controller
+replaces that brain. Spawn positions themselves are fixed. Evaluation seeds here
+therefore vary learned-policy sampling, NOT initial arena layouts. Seat-swapping
+controls the two selected starting positions only. A passed gate would establish
+progress on this fixed-layout two-agent task, not generalization to new maps,
+human-level performance or larger populations. Do not label these new worlds.
+
+Ctraining late batches finish all128games in7decisions. This can reflect a
+degenerate shared-policy interaction; do not infer competence from this speedup.
+Held-out frozen-opponent evaluation is still required. Throughput comparisons must
+report actual transitions and episode length, not justgames/sec.

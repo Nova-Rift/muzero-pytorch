@@ -1,0 +1,84 @@
+{
+  "scope": "already observed training-derived diagnostic data; no policy score",
+  "checkpoint_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+  "fitting": [
+    "trace-0.npz",
+    "trace-128.npz",
+    "trace-256.npz",
+    "trace-384.npz",
+    "trace-512.npz",
+    "trace-640.npz",
+    "trace-768.npz",
+    "trace-896.npz",
+    "trace-1024.npz",
+    "trace-1152.npz",
+    "trace-1280.npz",
+    "trace-1408.npz"
+  ],
+  "diagnostic": [
+    "trace-1536.npz",
+    "trace-1664.npz",
+    "trace-1792.npz",
+    "trace-1920.npz"
+  ],
+  "ridge": 1,
+  "arms": {
+    "current_and_action": {
+      "dimensions": 217,
+      "fitting": {
+        "count": 5400,
+        "positive": 22,
+        "auc": 0.9926975218905304,
+        "positive_mean": 0.9023198685991674,
+        "negative_mean": 0.09768013140083091,
+        "balanced_mse": 0.04882394644523977
+      },
+      "diagnostic": {
+        "count": 1730,
+        "positive": 7,
+        "auc": 0.8077273857889063,
+        "positive_mean": 0.3956157111249092,
+        "negative_mean": 0.07576973419987743,
+        "balanced_mse": 0.25155500205735126
+      }
+    },
+    "last4_and_action": {
+      "dimensions": 409,
+      "fitting": {
+        "count": 5400,
+        "positive": 22,
+        "auc": 0.9972024071131546,
+        "positive_mean": 0.9187686737493138,
+        "negative_mean": 0.08123132625068316,
+        "balanced_mse": 0.040541603409772906
+      },
+      "diagnostic": {
+        "count": 1730,
+        "positive": 7,
+        "auc": 0.8459497554099992,
+        "positive_mean": 0.4221693994305126,
+        "negative_mean": 0.06555317314430767,
+        "balanced_mse": 0.22975311394230924
+      }
+    },
+    "frozen_recurrent": {
+      "dimensions": 448,
+      "fitting": {
+        "count": 5400,
+        "positive": 22,
+        "auc": 0.9877446837283208,
+        "positive_mean": 0.858288211002468,
+        "negative_mean": 0.14171178899753098,
+        "balanced_mse": 0.06215458745641521
+      },
+      "diagnostic": {
+        "count": 1730,
+        "positive": 7,
+        "auc": 0.8042450874720173,
+        "positive_mean": 0.5097811478720427,
+        "negative_mean": 0.17616323437241238,
+        "balanced_mse": 0.21222004111263765
+      }
+    }
+  }
+}

@@ -350,3 +350,49 @@ before paying for a full prioritized-replay training run. Rawstates and latent
 features can be compared on identical stored transition labels with a separately
 registered fitting protocol; do not reinterpret diagnostic results as finalpolicy
 validation. Evidence reward-replay-probe-E.json and scripts/probe_reward_replay.py.
+
+## Entry 017 — registered frozen-feature linear probe
+
+Previous turn completed requested homepage speed controls (Sitesv50); no new
+research outcome in that site-only work. Resume next diagnostic now.
+Before results: compare raw current observation+onehot action (217dimensions),
+last4observations+onehot action (409), and frozen E1024 raw recurrent feature(448).
+Use the same first12trace fitting / last4trace diagnostic split as Entry016.
+Fit class-balanced ridge least squares with fitting-only standardization, unpenalized
+intercept, fixed regularization1 (sum weighted loss, weights sumN). Report all arms,
+AUROC with ties, positive/negative score means and class-balanced MSE, on bothsets.
+This is a linear separability diagnostic; scores are not calibrated rewards and
+never enter search/training. Only22positive fitting/7diagnostic examples, chronological
+mixed-policy traces, and unequal feature widths prohibit broad generalization or
+architecture claims. Current and last4 observations do not span all64historyinputs.
+No new game, reward alteration, optimizer update to agent, paidcompute or finalseed.
+
+## Entry 018 — separability evidence and bounded larger-batch next trial
+
+All three registered linear probes completed. Diagnostic AUROC current.8077,
+last4.8459, recurrent.8042; fitting.9927/.9972/.9877. Balanced diagnosticMSE
+.2516/.2298/.2122 respectively. These are uncalibrated class-balanced linear
+scores, not the agent's reward predictions. Learned features retain some signal;
+this contradicts a blanket claim they contain no information about immediatewins.
+Tiny7positive diagnosticset, different dimensions, alreadyobserved traces and
+chronological policyshift prevent robust architecture comparisons. No replacing
+model.py or switching toTransformer is justified by this probe alone.
+Evidence feature-separability-E.json and scripts/probe_feature_separability.py.
+
+Next registered trial F: same E from-scratch settings, ONLY batch32→256.
+Retain2048games/2048optimizersteps, lr3e-4, discount.99, episode targets,
+rootcoverage8/search32, hidden448, selfplayseed40000000, homepagecadence and2agents.
+This uses8x more replayexamples, not matched compute/data; report that explicitly.
+Hypothesis: larger batches reduce sparse reward/gradient noise while updating
+features jointly; frozen-head corrected-replay failure means success is uncertain.
+No new shaping, demonstrations, opponent policy, or architecture. Evaluate listed
+512/1024/2048 checkpoints on existing32game developmentseed41000000, rankwins then
+fewestcutoffs thenearliest. Same >60%wins/<=20%cutoffs trigger before fresh final
+suite plus independent training-seed confirmation. No finalseeds or thirdagent
+unless that protocolpasses. Preserve E and websitev50 regardless of Fresult.
+Authorize within existing usergoal/budget one <=20minute H100 allocation at
+<=4.00/hour (ceiling$1.34), trainingmax900s thenevaluate/recover/delete; automated
+allocationguard. Prior recordedestimatedcompute$4.05846, totalcap$50. Allocation
+has NOT started in this entry. If capacity/rate unavailable, do not silently
+expand limits. First recover checkpoints and logs, then delete; accountwidebilling
+is not inferred from recorded runtimecosts.

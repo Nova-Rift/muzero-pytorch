@@ -1,0 +1,10 @@
+{
+  "source_environment_opponents_verified": true,
+  "model_training_environment_evaluator_unchanged": true,
+  "tests": {
+    "run": 30,
+    "passed": 28,
+    "skipped": 2
+  },
+  "commit": "8adea2178523f6cbf744df282f17ca748d2172ef"
+}

@@ -1,0 +1,197 @@
+{
+  "scope": "Training-derived first-two-game trace samples only; descriptive, not selection or confirmation. No optimization.",
+  "winning_samples": 27,
+  "median_steps_to_win": 102.0,
+  "mean_initial_target": 0.3881025275698415,
+  "samples": [
+    {
+      "trace": "trace-0.npz",
+      "stream": 1,
+      "winning_step": 50,
+      "initial_target": 0.6050060987472534,
+      "discounted_win": 0.6050060671375364
+    },
+    {
+      "trace": "trace-0.npz",
+      "stream": 12,
+      "winning_step": 229,
+      "initial_target": 0.10010582953691483,
+      "discounted_win": 0.10010587426148955
+    },
+    {
+      "trace": "trace-1024.npz",
+      "stream": 0,
+      "winning_step": 62,
+      "initial_target": 0.5362681746482849,
+      "discounted_win": 0.536268225207185
+    },
+    {
+      "trace": "trace-1024.npz",
+      "stream": 11,
+      "winning_step": 99,
+      "initial_target": 0.36972957849502563,
+      "discounted_win": 0.36972963764972644
+    },
+    {
+      "trace": "trace-1152.npz",
+      "stream": 12,
+      "winning_step": 131,
+      "initial_target": 0.26804670691490173,
+      "discounted_win": 0.2680467169168741
+    },
+    {
+      "trace": "trace-128.npz",
+      "stream": 0,
+      "winning_step": 174,
+      "initial_target": 0.17398980259895325,
+      "discounted_win": 0.173989828476264
+    },
+    {
+      "trace": "trace-128.npz",
+      "stream": 11,
+      "winning_step": 83,
+      "initial_target": 0.4342312514781952,
+      "discounted_win": 0.43423132679181164
+    },
+    {
+      "trace": "trace-1280.npz",
+      "stream": 0,
+      "winning_step": 170,
+      "initial_target": 0.1811269223690033,
+      "discounted_win": 0.18112695312597024
+    },
+    {
+      "trace": "trace-1280.npz",
+      "stream": 11,
+      "winning_step": 182,
+      "initial_target": 0.1605481505393982,
+      "discounted_win": 0.16054819111089647
+    },
+    {
+      "trace": "trace-1408.npz",
+      "stream": 1,
+      "winning_step": 185,
+      "initial_target": 0.15577970445156097,
+      "discounted_win": 0.15577974928671173
+    },
+    {
+      "trace": "trace-1536.npz",
+      "stream": 1,
+      "winning_step": 125,
+      "initial_target": 0.28470778465270996,
+      "discounted_win": 0.28470777327319546
+    },
+    {
+      "trace": "trace-1664.npz",
+      "stream": 0,
+      "winning_step": 83,
+      "initial_target": 0.4342312514781952,
+      "discounted_win": 0.43423132679181164
+    },
+    {
+      "trace": "trace-1664.npz",
+      "stream": 12,
+      "winning_step": 153,
+      "initial_target": 0.21487443149089813,
+      "discounted_win": 0.2148744477060795
+    },
+    {
+      "trace": "trace-1792.npz",
+      "stream": 0,
+      "winning_step": 76,
+      "initial_target": 0.46588072180747986,
+      "discounted_win": 0.46588077516979337
+    },
+    {
+      "trace": "trace-1792.npz",
+      "stream": 11,
+      "winning_step": 35,
+      "initial_target": 0.7034476399421692,
+      "discounted_win": 0.7034476949995692
+    },
+    {
+      "trace": "trace-1920.npz",
+      "stream": 1,
+      "winning_step": 119,
+      "initial_target": 0.3024044334888458,
+      "discounted_win": 0.30240443566902153
+    },
+    {
+      "trace": "trace-1920.npz",
+      "stream": 11,
+      "winning_step": 35,
+      "initial_target": 0.7034476399421692,
+      "discounted_win": 0.7034476949995692
+    },
+    {
+      "trace": "trace-256.npz",
+      "stream": 0,
+      "winning_step": 116,
+      "initial_target": 0.3116610646247864,
+      "discounted_win": 0.3116610814491425
+    },
+    {
+      "trace": "trace-256.npz",
+      "stream": 11,
+      "winning_step": 38,
+      "initial_target": 0.6825545430183411,
+      "discounted_win": 0.682554595010387
+    },
+    {
+      "trace": "trace-384.npz",
+      "stream": 11,
+      "winning_step": 112,
+      "initial_target": 0.3244454860687256,
+      "discounted_win": 0.3244455298634257
+    },
+    {
+      "trace": "trace-512.npz",
+      "stream": 0,
+      "winning_step": 102,
+      "initial_target": 0.3587482273578644,
+      "discounted_win": 0.3587482976818919
+    },
+    {
+      "trace": "trace-512.npz",
+      "stream": 11,
+      "winning_step": 45,
+      "initial_target": 0.6361854672431946,
+      "discounted_win": 0.6361854860638709
+    },
+    {
+      "trace": "trace-640.npz",
+      "stream": 1,
+      "winning_step": 158,
+      "initial_target": 0.20434343814849854,
+      "discounted_win": 0.2043434617462395
+    },
+    {
+      "trace": "trace-640.npz",
+      "stream": 11,
+      "winning_step": 83,
+      "initial_target": 0.4342312514781952,
+      "discounted_win": 0.43423132679181164
+    },
+    {
+      "trace": "trace-768.npz",
+      "stream": 12,
+      "winning_step": 52,
+      "initial_target": 0.5929664969444275,
+      "discounted_win": 0.5929664464014994
+    },
+    {
+      "trace": "trace-896.npz",
+      "stream": 1,
+      "winning_step": 229,
+      "initial_target": 0.10010582953691483,
+      "discounted_win": 0.10010587426148955
+    },
+    {
+      "trace": "trace-896.npz",
+      "stream": 11,
+      "winning_step": 30,
+      "initial_target": 0.7397003173828125,
+      "discounted_win": 0.7397003733882802
+    }
+  ]
+}

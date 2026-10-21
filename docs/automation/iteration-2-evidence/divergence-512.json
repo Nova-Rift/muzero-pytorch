@@ -1,0 +1,5 @@
+{
+  "checkpoint": 512,
+  "max_parameter_difference": 0.04683251306414604,
+  "expected_retention_divergence": true
+}

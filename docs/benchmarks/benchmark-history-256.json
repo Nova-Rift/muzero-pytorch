@@ -1,0 +1,41 @@
+[
+  {
+    "games": 256,
+    "natural_terminal": 247,
+    "cutoffs": 9,
+    "joint_steps": 29724,
+    "active_transitions": 118694,
+    "optimizer_updates": 256,
+    "training_examples": 8192,
+    "elapsed_seconds": 11.134170343997539,
+    "setup_seconds": 0.5116589440003736,
+    "batch_seconds": {
+      "games": 256,
+      "natural_terminal": 247,
+      "cutoffs": 9,
+      "joint_steps": 29724,
+      "active_transitions": 118694,
+      "search": 2.6620787289284635,
+      "environment": 1.0824431749497307,
+      "history": 0.06535343706491403
+    },
+    "training_seconds": 6.333243632005178,
+    "loss": 4.924748420715332,
+    "games_per_second": 22.99228340241896
+  },
+  {
+    "games": 256,
+    "natural_terminal": 247,
+    "cutoffs": 9,
+    "joint_steps": 29724,
+    "active_transitions": 118694,
+    "optimizer_updates": 256,
+    "training_examples": 8192,
+    "elapsed_seconds": 11.6436040809931,
+    "checkpoint_seconds": 0.5059026599919889,
+    "requested_run_completed": true,
+    "target_10000_under_600_met": false,
+    "checkpoint_sha256": "ec9006cc61917e4eef89fc6aba9f3ad3a7c49d7a8d5117c5e4348cf4c63af2c0",
+    "claim": "Training throughput only; no policy quality or research reproduction claim"
+  }
+]

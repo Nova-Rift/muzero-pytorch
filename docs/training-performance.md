@@ -97,3 +97,21 @@ for device history0.0654s, updates6.3332s. GPU history execution is synchronized
 inside the search interval, so these component times are not independent CUDA
 measurements. Combined change is2.43x the128game loop throughput, not proof of
 that factor for history alone. Proceed to frozen10k run protocol; no target claim yet.
+
+### Training fidelity correction before final checkpoint
+
+The preliminary10k attempt (protocol001) was interrupted deliberately after the
+absorbing-state review; retain its completed-batch logs in
+`benchmarks/preliminary-interrupted.json`. It is not a completed10k run.
+True terminal extensions previously had their value/reward losses masked out.
+Now terminal extensions train zero future reward/value, while time-limit cutoffs
+remain unknown continuation and are masked. Actual policy targets are separate.
+Reference: MuZero paper Appendix A, terminal nodes
+(https://arxiv.org/html/1911.08265v2). Tests cover terminal vs cutoff targets and
+verify the model consumes the absorbing masks. This is a fidelity correction,
+not a speed optimization or a proven explanation for the observed policy collapse.
+
+The preliminary run eventually produced all-cutoff batches despite decreasing
+loss. Preserve that negative evidence; low fitting loss does not imply good play.
+Protocol002 freezes the corrected rerun with fresh training seed30000000 and
+otherwise identical hardware/budget/architecture. No held-out quality claims.

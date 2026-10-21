@@ -69,3 +69,9 @@ A rollout ends naturally or at the unchanged256decision cutoff; logs separate bo
 The600second guard is checked between batches, so the final batch can overshoot;
 the report uses measured wall time and never claims success from a projection.
 Saved NPZ weights are inference snapshots, not full optimizer/replay resume files.
+
+Terminal replay extensions train zero future reward/value (absorbing states).
+Time-limit extensions are masked and retain the actual final-observation bootstrap
+for preceding n-step targets. Policy targets only exist at real decision states.
+The first speed pilot lacked absorbing extensions; its logs are retained and
+clearly marked in the performance journal.

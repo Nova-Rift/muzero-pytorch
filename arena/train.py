@@ -98,8 +98,10 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False):
         for j in range(t,end):
             targets[t]+=weight*rewards[j];weight*=model.config.discount*(~terminal[j])
         targets[t]+=weight*values[end]
+    absorbing=np.zeros_like(valid)
+    absorbing[1:length+1]=np.maximum.accumulate(terminal[:length],axis=0)
     indices=np.argwhere(valid[:length])
-    block=dict(observation=obs[:length+1],actions=actions[:length],rewards=rewards[:length],policies=policies[:length+1],targets=targets[:length+1],valid=valid[:length+1],indices=indices)
+    block=dict(observation=obs[:length+1],actions=actions[:length],rewards=rewards[:length],policies=policies[:length+1],targets=targets[:length+1],valid=valid[:length+1],absorbing=absorbing[:length+1],indices=indices)
     stats=dict(games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
     return block,stats
 
@@ -113,10 +115,14 @@ def replay_batch(block,rng,batch,context,unroll,device):
     v=block['targets'][safe,agents[:,None]]
     p=block['policies'][safe,agents[:,None]]
     valid=block['valid'][safe,agents[:,None]]&(positions<length)
+    absorbing=block['absorbing'][safe,agents[:,None]]
+    value_valid=valid|absorbing
+    reward_valid=valid[:,:-1]|absorbing[:,:-1]
     positions=positions[:,:-1];safe=positions.clip(max=length-1)
     a=block['actions'][safe,agents[:,None]]
+    a=np.where(absorbing[:,:-1],rng.integers(153,size=a.shape),a)
     r=block['rewards'][safe,agents[:,None]]*(positions<length)
-    return tuple(torch.from_numpy(np.ascontiguousarray(z)).to(device) for z in (x,a,r,v,p,valid.astype(np.float32)))
+    return tuple(torch.from_numpy(np.ascontiguousarray(z)).to(device) for z in (x,a,r,v,p,valid.astype(np.float32),value_valid.astype(np.float32),reward_valid.astype(np.float32)))
 
 
 def main():

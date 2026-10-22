@@ -4,19 +4,19 @@
   "iteration": 6,
   "completed_games": 4096,
   "target_games": 4096,
-  "wins": 14,
-  "evaluation_games": 27,
+  "wins": 24,
+  "evaluation_games": 44,
   "timeouts": 0,
   "title": "Evaluating L1024 against F1024",
   "change": "Duration comparison unchanged; adapting fresh runtime transfer and deadlines",
   "result": "3,200 games/updates confirmed and 25 real loss samples published. Training continues during checkpoint recovery.",
   "candidate": "L",
   "evaluation_label": "development: L1024 vs F1024",
-  "updated_at": "2026-10-22T04:15:37.325368+00:00",
+  "updated_at": "2026-10-22T04:15:46.875118+00:00",
   "matchup": {
     "challenger": "MuZero L \u00b7 1024 games",
     "opponent": "MuZero F1024",
-    "opponent_wins": 13,
+    "opponent_wins": 20,
     "draws": 0
   },
   "training_metrics": {
@@ -252,7 +252,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:15:37.361646-07:00",
+    "measured_at": "2026-10-21T21:15:46.914738-07:00",
     "steps": [
       {
         "step": 1,
@@ -268,12 +268,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T04:15:37.325368+00:00",
-        "elapsed_seconds": 179,
-        "completed": 27,
+        "updated_at": "2026-10-22T04:15:46.875118+00:00",
+        "elapsed_seconds": 189,
+        "completed": 44,
         "total": null,
         "task": "development: L1024 vs F1024",
-        "eta_seconds": 676,
+        "eta_seconds": 666,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -299,18 +299,18 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1341,
-    "eta_seconds": 102,
+    "elapsed_seconds": 1350,
+    "eta_seconds": 93,
     "eta_basis": "5 previous completed iteration(s)"
   },
-  "max_iterations": 8,
+  "max_iterations": 13,
   "reward": {
     "win": 1,
     "other": 0
   },
-  "pilot_gpu_cap_usd": 15,
+  "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 9.0,
+    "remaining_usd": 24.0,
     "reserved_usd": 6.0,
     "reset_at": "2026-10-22T07:00:00+00:00"
   }

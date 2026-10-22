@@ -14,7 +14,7 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T22:35:33.958127+00:00",
   "timing": {
-    "measured_at": "2026-10-22T15:35:34.005107-07:00",
+    "measured_at": "2026-10-22T15:35:54.231953-07:00",
     "steps": [
       {
         "step": 1,
@@ -53,16 +53,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-22T22:35:33.958127+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 20,
         "completed": null,
         "total": null,
         "task": "Testing rebuilt M package",
-        "eta_seconds": 101,
+        "eta_seconds": 81,
         "eta_basis": "5 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 104,
-    "eta_seconds": 1455,
+    "elapsed_seconds": 125,
+    "eta_seconds": 1434,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

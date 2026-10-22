@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "failed",
   "iteration": 10,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Preparing registered H100 evaluation runtime",
+  "title": "Setup timeout defect; pod deleted, research paused",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "Pod receipt registered at $3.99/hour; transferring verified evaluator and frozen checkpoints. No completed evaluation games yet.",
+  "result": "Outer 180-second transfer limit conflicted with 420-second setup budget. Fixed/tested locally; zero research games. No retry; $24 allowance remains.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:21:50.491915+00:00",
+  "updated_at": "2026-10-22T23:25:44.389796+00:00",
   "revision": {
     "summary": "Remote supervisor bridge prepared; local renewal and cleanup checks passed.",
     "reason": "Enables selected-match cycles on one pod while keeping fixed assistant-session and renewable lease guards.",
@@ -40,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:24:56.772379-07:00",
+    "measured_at": "2026-10-22T16:25:44.617581-07:00",
     "steps": [
       {
         "step": 1,
@@ -77,18 +77,18 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-22T23:21:50.491915+00:00",
-        "elapsed_seconds": 274,
+        "state": "interrupted",
+        "updated_at": "2026-10-22T23:25:44.389796+00:00",
+        "elapsed_seconds": 321,
         "completed": null,
         "total": null,
         "task": "Preparing registered H100 evaluation runtime",
-        "eta_seconds": 0,
-        "eta_basis": "7 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 644,
-    "eta_seconds": 915,
+    "elapsed_seconds": 692,
+    "eta_seconds": null,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,

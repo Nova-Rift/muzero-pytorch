@@ -14,17 +14,17 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T22:36:08.683822+00:00",
   "timing": {
-    "measured_at": "2026-10-22T15:37:01.746413-07:00",
+    "measured_at": "2026-10-22T15:38:05.739123-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-22T22:36:08.683822+00:00",
-        "elapsed_seconds": 53,
+        "elapsed_seconds": 117,
         "completed": 0,
         "total": 2048,
         "task": "Launching reviewed M experiment",
-        "eta_seconds": 376,
+        "eta_seconds": 312,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 192,
-    "eta_seconds": 1367,
+    "elapsed_seconds": 256,
+    "eta_seconds": 1303,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "edit",
   "iteration": 4,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 4: reviewing evidence",
-  "change": "Runpod research: $15 per day; two-agent MuZero",
-  "result": "Shared GPU efficiency protocol configured. Prior evidence and cost records preserved.",
-  "candidate": "J",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T02:37:23.469931+00:00",
+  "title": "Preparing fixed-trajectory training-count comparison",
+  "change": "Compare 1024, 2048 and 4096 games with all learning settings fixed",
+  "result": "Historical runs failed development gates; no improvement assumed",
+  "candidate": "K",
+  "evaluation_label": "Planned development: identical balanced games versus initialization, E and F",
+  "updated_at": "2026-10-22T02:39:14.329253+00:00",
   "timing": {
-    "measured_at": "2026-10-21T19:38:27.158295-07:00",
+    "measured_at": "2026-10-21T19:39:14.362491-07:00",
     "steps": [
       {
         "step": 1,
@@ -41,12 +41,12 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-22T02:37:23.469931+00:00",
-        "elapsed_seconds": 64,
+        "updated_at": "2026-10-22T02:39:14.329253+00:00",
+        "elapsed_seconds": 111,
         "completed": null,
         "total": null,
-        "task": "Iteration 4: reviewing evidence",
-        "eta_seconds": 53,
+        "task": "Preparing fixed-trajectory training-count comparison",
+        "eta_seconds": 6,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 64,
-    "eta_seconds": 1379,
+    "elapsed_seconds": 111,
+    "eta_seconds": 1332,
     "eta_basis": "3 previous completed iteration(s)"
   },
   "max_iterations": 8,

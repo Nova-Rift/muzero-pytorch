@@ -4,19 +4,19 @@
   "iteration": 6,
   "completed_games": 4096,
   "target_games": 4096,
-  "wins": 25,
-  "evaluation_games": 64,
-  "timeouts": 15,
-  "title": "Evaluating L2048 against F1024",
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Evaluating L4096 against initial",
   "change": "Duration comparison unchanged; adapting fresh runtime transfer and deadlines",
   "result": "3,200 games/updates confirmed and 25 real loss samples published. Training continues during checkpoint recovery.",
   "candidate": "L",
-  "evaluation_label": "development: L2048 vs F1024",
-  "updated_at": "2026-10-22T04:18:35.094023+00:00",
+  "evaluation_label": "development: L4096 vs initial",
+  "updated_at": "2026-10-22T04:18:44.573978+00:00",
   "matchup": {
-    "challenger": "MuZero L \u00b7 2048 games",
-    "opponent": "MuZero F1024",
-    "opponent_wins": 24,
+    "challenger": "MuZero L \u00b7 4096 games",
+    "opponent": "MuZero initial",
+    "opponent_wins": 0,
     "draws": 0
   },
   "training_metrics": {
@@ -252,7 +252,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:18:35.134044-07:00",
+    "measured_at": "2026-10-21T21:18:44.610756-07:00",
     "steps": [
       {
         "step": 1,
@@ -268,12 +268,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T04:18:35.094023+00:00",
-        "elapsed_seconds": 357,
-        "completed": 64,
+        "updated_at": "2026-10-22T04:18:44.573978+00:00",
+        "elapsed_seconds": 366,
+        "completed": 0,
         "total": null,
-        "task": "development: L2048 vs F1024",
-        "eta_seconds": 498,
+        "task": "development: L4096 vs initial",
+        "eta_seconds": 489,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -299,7 +299,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1518,
+    "elapsed_seconds": 1528,
     "eta_seconds": 0,
     "eta_basis": "5 previous completed iteration(s)"
   },

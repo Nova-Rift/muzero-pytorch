@@ -39,7 +39,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:54:03.917264-07:00",
+    "measured_at": "2026-10-22T16:54:52.962997-07:00",
     "steps": [
       {
         "step": 1,
@@ -67,7 +67,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-22T23:54:03.854869+00:00",
-        "elapsed_seconds": 143,
+        "elapsed_seconds": 192,
         "completed": null,
         "total": null,
         "task": "Audit fixed-horizon cutoff evidence",
@@ -86,8 +86,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 143,
-    "eta_seconds": 1300,
+    "elapsed_seconds": 192,
+    "eta_seconds": 1251,
     "eta_basis": "9 previous completed iteration(s)"
   },
   "workload_status": {

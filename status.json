@@ -1,31 +1,31 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "failed",
   "iteration": 7,
   "completed_games": 0,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Training M from scratch",
+  "title": "M stopped after execution failure",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
-  "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
+  "result": "Execution failed; recovered available artifacts and stopped. See iteration report.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:38:42.391758+00:00",
+  "updated_at": "2026-10-22T04:38:54.697393+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:38:42.445055-07:00",
+    "measured_at": "2026-10-21T21:38:54.739791-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-22T04:38:42.391758+00:00",
-        "elapsed_seconds": 171,
+        "state": "interrupted",
+        "updated_at": "2026-10-22T04:38:54.697393+00:00",
+        "elapsed_seconds": 183,
         "completed": 0,
         "total": 2048,
         "task": "Training M from scratch",
-        "eta_seconds": 258,
-        "eta_basis": "4 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 749,
-    "eta_seconds": 810,
+    "elapsed_seconds": 761,
+    "eta_seconds": null,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 13,

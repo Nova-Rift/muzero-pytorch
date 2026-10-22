@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "evaluate",
   "iteration": 11,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 21,
+  "wins": 27,
   "evaluation_games": 128,
-  "timeouts": 50,
-  "title": "Selecting next measured matchup",
+  "timeouts": 53,
+  "title": "Completed lana-100 vs selfplay-J2048",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "Recovered 0 active loop(s); GPU overlap disabled. Completed jobs: 5",
+  "result": "Exact historical evaluator; 64 games per seat. Full raw results recovered and audited.",
   "candidate": "J",
   "evaluation_label": "Completed frozen ladder matchup",
-  "updated_at": "2026-10-22T23:43:50.814958+00:00",
+  "updated_at": "2026-10-22T23:43:57.781259+00:00",
   "revision": {
     "summary": "New runner uses one shared SetupDeadline directly for all setup stages.",
     "reason": "Prevents the earlier nested 180-second timeout; smaller initial payload reduces setup cost.",
@@ -25,28 +25,28 @@
     "updated_at": "2026-10-22T23:33:10.823769+00:00"
   },
   "matchup": {
-    "challenger": "muzero-100",
+    "challenger": "lana-100",
     "opponent": "MuZero J \u00b7 2,048 games",
-    "opponent_wins": 57,
+    "opponent_wins": 48,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
     "evaluation_label": "Completed frozen ladder matchup",
-    "wins": 21,
+    "wins": 27,
     "evaluation_games": 128,
-    "timeouts": 50,
+    "timeouts": 53,
     "matchup": {
-      "challenger": "muzero-100",
+      "challenger": "lana-100",
       "opponent": "MuZero J \u00b7 2,048 games",
-      "opponent_wins": 57,
+      "opponent_wins": 48,
       "draws": 0
     },
-    "updated_at": "2026-10-22T23:41:36.389822+00:00"
+    "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:43:50.861098-07:00",
+    "measured_at": "2026-10-22T16:43:57.834430-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,25 +61,25 @@
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:43:50.814958+00:00",
+        "state": "active",
+        "updated_at": "2026-10-22T23:43:57.781259+00:00",
         "elapsed_seconds": 207,
         "completed": 128,
         "total": null,
         "task": "Completed frozen ladder matchup",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "eta_seconds": 648,
+        "eta_basis": "5 previous iteration(s)"
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:43:50.814958+00:00",
-        "elapsed_seconds": 373,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:43:57.781259+00:00",
+        "elapsed_seconds": 380,
         "completed": null,
         "total": null,
         "task": "Selecting next measured matchup",
-        "eta_seconds": 0,
-        "eta_basis": "8 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -93,13 +93,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 808,
-    "eta_seconds": 751,
+    "elapsed_seconds": 815,
+    "eta_seconds": 744,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792712630.46149,
+    "updated_at": 1792712637.147225,
     "fresh": true,
     "loops": [
       {

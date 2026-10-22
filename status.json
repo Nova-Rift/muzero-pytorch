@@ -3,18 +3,18 @@
   "stage": "failed",
   "iteration": 4,
   "completed_games": 0,
-  "target_games": 0,
+  "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "K stopped after execution failure",
-  "change": "Compare 1024, 2048 and 4096 games with all learning settings fixed",
-  "result": "Execution failed; recovered available artifacts and stopped. See iteration report.",
+  "title": "Iteration 4 failed: Runpod allocation returned HTTP 500",
+  "change": "Fixed-trajectory 1024/2048/4096 comparison prepared and tested",
+  "result": "No pod returned; authenticated inventory empty. No training/evaluation. $3 reservation retained, pilot paused, no retry.",
   "candidate": "K",
-  "evaluation_label": "576 development games; conditional frozen confirmation only if all gates pass",
-  "updated_at": "2026-10-22T02:42:29.522448+00:00",
+  "evaluation_label": "Not started: 576 registered development games versus initial/E/F",
+  "updated_at": "2026-10-22T02:44:10.104629+00:00",
   "timing": {
-    "measured_at": "2026-10-21T19:43:45.715043-07:00",
+    "measured_at": "2026-10-21T19:44:10.135203-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 382,
+    "elapsed_seconds": 407,
     "eta_seconds": null,
     "eta_basis": "3 previous completed iteration(s)"
   },

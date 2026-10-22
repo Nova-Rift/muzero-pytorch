@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Validating checkpoint retention and cycle reuse",
+  "title": "Recovery checks complete; remote reuse integration next",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "Diagnose timeout outcomes and preserve versioned full-state recovery before selecting the next costed GPU hypothesis.",
+  "result": "11 tests and exact tiny CPU resume passed. No paid training or promotion. Zero pods; $27 daily allowance remains.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:11:08.145003+00:00",
+  "updated_at": "2026-10-22T23:11:57.899198+00:00",
   "revision": {
     "summary": "Implemented immutable full-state milestones and a serial cycle helper.",
     "reason": "Preserves intermediate optimizer/replay/RNG snapshots and orders recovery/final reporting before selecting the next task.",
@@ -40,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:11:12.545167-07:00",
+    "measured_at": "2026-10-22T16:11:57.993344-07:00",
     "steps": [
       {
         "step": 1,
@@ -78,17 +78,17 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-22T23:11:08.145003+00:00",
-        "elapsed_seconds": 4,
+        "updated_at": "2026-10-22T23:11:57.899198+00:00",
+        "elapsed_seconds": 50,
         "completed": null,
         "total": null,
-        "task": "Validating checkpoint retention and cycle reuse",
-        "eta_seconds": 80,
+        "task": "Recovery checks complete; remote reuse integration next",
+        "eta_seconds": 34,
         "eta_basis": "6 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 227,
-    "eta_seconds": 1448,
+    "elapsed_seconds": 272,
+    "eta_seconds": 1403,
     "eta_basis": "7 previous completed iteration(s)"
   },
   "max_iterations": 17,

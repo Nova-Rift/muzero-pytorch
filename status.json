@@ -46,7 +46,7 @@
     "updated_at": "2026-10-22T23:41:36.389822+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:41:44.825770-07:00",
+    "measured_at": "2026-10-22T16:42:00.253775-07:00",
     "steps": [
       {
         "step": 1,
@@ -74,7 +74,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-22T23:41:44.768004+00:00",
-        "elapsed_seconds": 327,
+        "elapsed_seconds": 342,
         "completed": null,
         "total": null,
         "task": "Selecting next measured matchup",
@@ -93,13 +93,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 682,
-    "eta_seconds": 877,
+    "elapsed_seconds": 697,
+    "eta_seconds": 862,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792712504.4228258,
+    "updated_at": 1792712517.9699454,
     "fresh": true,
     "loops": [
       {

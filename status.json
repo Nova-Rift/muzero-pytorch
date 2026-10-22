@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "review",
   "iteration": 11,
   "completed_games": 0,
   "target_games": 0,
   "wins": 46,
   "evaluation_games": 128,
   "timeouts": 34,
-  "title": "Evaluating frozen ladder matchup",
+  "title": "Selecting next measured matchup",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "Recovered 1 active loop(s); GPU overlap disabled. Completed jobs: 3",
+  "result": "Recovered 0 active loop(s); GPU overlap disabled. Completed jobs: 4",
   "candidate": "J",
   "evaluation_label": "Completed frozen ladder matchup",
-  "updated_at": "2026-10-22T23:40:25.058520+00:00",
+  "updated_at": "2026-10-22T23:40:51.667243+00:00",
   "revision": {
     "summary": "New runner uses one shared SetupDeadline directly for all setup stages.",
     "reason": "Prevents the earlier nested 180-second timeout; smaller initial payload reduces setup cost.",
@@ -46,7 +46,7 @@
     "updated_at": "2026-10-22T23:39:20.658546+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:40:25.124466-07:00",
+    "measured_at": "2026-10-22T16:40:51.722244-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,25 +61,25 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-22T23:40:25.058520+00:00",
-        "elapsed_seconds": 92,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:40:51.667243+00:00",
+        "elapsed_seconds": 119,
         "completed": 128,
         "total": null,
         "task": "Completed frozen ladder matchup",
-        "eta_seconds": 763,
-        "eta_basis": "5 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:40:25.058520+00:00",
+        "state": "active",
+        "updated_at": "2026-10-22T23:40:51.667243+00:00",
         "elapsed_seconds": 282,
         "completed": null,
         "total": null,
         "task": "Selecting next measured matchup",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "eta_seconds": 0,
+        "eta_basis": "8 previous iteration(s)"
       },
       {
         "step": 4,
@@ -93,19 +93,19 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 602,
-    "eta_seconds": 957,
+    "elapsed_seconds": 629,
+    "eta_seconds": 930,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792712424.6562066,
+    "active_loops": 0,
+    "updated_at": 1792712451.2239642,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
-        "state": "active",
+        "state": "done",
         "job_id": "bout-004"
       },
       {

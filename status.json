@@ -1,34 +1,28 @@
 {
   "schema": 1,
-  "stage": "complete",
+  "stage": "queued",
   "iteration": 3,
-  "completed_games": 2048,
-  "target_games": 2048,
-  "wins": 20,
-  "evaluation_games": 64,
-  "timeouts": 11,
-  "title": "Bounded pilot complete",
-  "change": "Discount 0.99 to 1.0; matched seed, three-block replay and budget",
-  "result": "832 development/control games complete. J2048 wins: 33/64 initial, 20/64 E, 26/64 F. No confirmation/promotion. Pod deleted; estimated cost $1.333. All 3 pilot slots consumed.",
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Fresh daily research allowance ready",
+  "change": "Runpod research: $15 per day; two-agent MuZero",
+  "result": "Shared GPU efficiency protocol configured. Prior evidence and cost records preserved.",
   "candidate": "J",
-  "evaluation_label": "Development: selected J2048 vs E1024",
-  "updated_at": "2026-10-21T08:07:26.450839+00:00",
-  "matchup": {
-    "challenger": "MuZero J \u00b7 2,048 training games",
-    "opponent": "MuZero E \u00b7 1,024 training games",
-    "opponent_wins": 33,
-    "draws": 0
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-22T02:36:47.706769+00:00",
   "timing": {
-    "measured_at": "2026-10-21T19:36:07.688658-07:00",
+    "measured_at": "2026-10-21T19:37:13.630981-07:00",
     "steps": [
       {
         "step": 1,
         "state": "finished",
-        "updated_at": "2026-10-21T07:19:17.498233+00:00",
+        "updated_at": "2026-10-22T02:36:47.706769+00:00",
         "elapsed_seconds": 443,
-        "completed": 2048,
-        "total": 2048,
+        "completed": 0,
+        "total": null,
         "task": "Training J from scratch",
         "eta_seconds": null,
         "eta_basis": "unavailable"
@@ -36,11 +30,11 @@
       {
         "step": 2,
         "state": "finished",
-        "updated_at": "2026-10-21T07:35:50.768991+00:00",
+        "updated_at": "2026-10-22T02:36:47.706769+00:00",
         "elapsed_seconds": 993,
-        "completed": 64,
+        "completed": 0,
         "total": null,
-        "task": "Development: selected J2048 vs E1024",
+        "task": "No new evaluation",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -67,14 +61,19 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3571,
+    "elapsed_seconds": 70132,
     "eta_seconds": null,
     "eta_basis": "2 previous completed iteration(s)"
   },
-  "max_iterations": 3,
+  "max_iterations": 8,
   "reward": {
     "win": 1,
     "other": 0
   },
-  "pilot_gpu_cap_usd": 9.0
+  "pilot_gpu_cap_usd": 15,
+  "daily_budget": {
+    "remaining_usd": 15,
+    "reserved_usd": 0,
+    "reset_at": "2026-10-22T07:00:00+00:00"
+  }
 }

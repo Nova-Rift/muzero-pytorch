@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "paused",
+  "stage": "queued",
   "iteration": 5,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Overseer chose to wait",
-  "change": "Reviewed continuation; prepared duration comparison remains unexecuted",
-  "result": "Wait for owner resume and a fresh eligible hardware/preflight check; current prepared cache-region offers cannot meet the hourly cap. No new reservation; $12 remains.",
+  "title": "Cross-region MuZero run queued",
+  "change": "Eligible H100 offers found outside the cache region",
+  "result": "Fresh-transfer plan estimates 40 minutes and $2.66 GPU cost; final preflight required. No GPU allocated; $12 remains.",
   "candidate": "K",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T03:41:31.255505+00:00",
+  "updated_at": "2026-10-22T03:51:10.538385+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:50:36.828913-07:00",
+    "measured_at": "2026-10-21T20:51:10.581124-07:00",
     "steps": [
       {
         "step": 1,
@@ -40,7 +40,7 @@
       },
       {
         "step": 3,
-        "state": "interrupted",
+        "state": "finished",
         "updated_at": "2026-10-22T03:41:25.478731+00:00",
         "elapsed_seconds": 64,
         "completed": null,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 616,
+    "elapsed_seconds": 649,
     "eta_seconds": null,
     "eta_basis": "4 previous completed iteration(s)"
   },

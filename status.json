@@ -4,19 +4,19 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 0,
-  "evaluation_games": 0,
+  "wins": 5,
+  "evaluation_games": 7,
   "timeouts": 0,
   "title": "Evaluating M512 against F1024",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development: M512 vs F1024",
-  "updated_at": "2026-10-22T22:48:32.486930+00:00",
+  "updated_at": "2026-10-22T22:48:43.817872+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 512 games",
     "opponent": "MuZero F1024",
-    "opponent_wins": 0,
+    "opponent_wins": 2,
     "draws": 0
   },
   "training_metrics": {
@@ -139,8 +139,23 @@
       }
     ]
   },
+  "latest_comparison": {
+    "iteration": 8,
+    "candidate": "M",
+    "evaluation_label": "development: M512 vs F1024",
+    "wins": 5,
+    "evaluation_games": 7,
+    "timeouts": 0,
+    "matchup": {
+      "challenger": "MuZero M \u00b7 512 games",
+      "opponent": "MuZero F1024",
+      "opponent_wins": 2,
+      "draws": 0
+    },
+    "updated_at": "2026-10-22T22:48:43.817872+00:00"
+  },
   "timing": {
-    "measured_at": "2026-10-22T15:48:32.540796-07:00",
+    "measured_at": "2026-10-22T15:48:43.875777-07:00",
     "steps": [
       {
         "step": 1,
@@ -156,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:48:32.486930+00:00",
-        "elapsed_seconds": 173,
-        "completed": 0,
+        "updated_at": "2026-10-22T22:48:43.817872+00:00",
+        "elapsed_seconds": 185,
+        "completed": 7,
         "total": null,
         "task": "development: M512 vs F1024",
-        "eta_seconds": 599,
+        "eta_seconds": 587,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -187,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 883,
-    "eta_seconds": 676,
+    "elapsed_seconds": 894,
+    "eta_seconds": 665,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

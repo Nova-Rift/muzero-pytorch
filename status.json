@@ -1,18 +1,29 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 11,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 11: reviewing evidence",
+  "title": "Shared setup deadline validated; preparing E/J bout",
   "change": "Review timeout evidence and full-state retention before next experiment",
   "result": "Outer 180-second transfer limit conflicted with 420-second setup budget. Fixed/tested locally; zero research games. No retry; $24 allowance remains.",
-  "candidate": "M",
+  "candidate": "J",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:30:23.108499+00:00",
+  "updated_at": "2026-10-22T23:33:10.823773+00:00",
+  "revision": {
+    "summary": "New runner uses one shared SetupDeadline directly for all setup stages.",
+    "reason": "Prevents the earlier nested 180-second timeout; smaller initial payload reduces setup cost.",
+    "changes": [
+      "Direct readiness, upload, unpack and hash verification share one absolute/monotonic deadline.",
+      "Current supervisor and workload_reporting.py staged together.",
+      "Frozen historical evaluator and explicit J checkpoint preserved."
+    ],
+    "test_plan": "4 shared transport tests plus 3 staged wiring tests pass. Exact historical evaluator smoke already passed; verify runtime remotely before evaluation.",
+    "updated_at": "2026-10-22T23:33:10.823769+00:00"
+  },
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
@@ -29,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:32:26.490909-07:00",
+    "measured_at": "2026-10-22T16:33:10.874720-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,29 +66,29 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:30:23.108499+00:00",
-        "elapsed_seconds": 123,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:33:10.823773+00:00",
+        "elapsed_seconds": 168,
         "completed": null,
         "total": null,
         "task": "Iteration 11: reviewing evidence",
-        "eta_seconds": 1,
-        "eta_basis": "8 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T23:33:10.823773+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Shared setup deadline validated; preparing E/J bout",
+        "eta_seconds": 67,
+        "eta_basis": "7 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 123,
-    "eta_seconds": 1436,
+    "elapsed_seconds": 168,
+    "eta_seconds": 1391,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,

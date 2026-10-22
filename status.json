@@ -7,14 +7,14 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Validating recovery and evaluation counters",
+  "title": "Preflight passed: bounded 4096-game comparison",
   "change": "Compare 1024, 2048 and 4096 games with all learning settings fixed",
-  "result": "32 unit tests passed with two CUDA-only skips; running checkpoint resume and evaluator checks",
+  "result": "Frozen protocol and local checks complete. Conservative estimate 40.6 minutes / $2.70 including contingency; one $3 reservation.",
   "candidate": "K",
-  "evaluation_label": "Planned 576 development games across three training counts",
-  "updated_at": "2026-10-22T02:41:22.258570+00:00",
+  "evaluation_label": "576 development games; conditional frozen confirmation only if all gates pass",
+  "updated_at": "2026-10-22T02:42:26.610020+00:00",
   "timing": {
-    "measured_at": "2026-10-21T19:41:39.915601-07:00",
+    "measured_at": "2026-10-21T19:42:26.645271-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,17 +52,17 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-22T02:41:22.258570+00:00",
-        "elapsed_seconds": 18,
+        "updated_at": "2026-10-22T02:42:26.610020+00:00",
+        "elapsed_seconds": 64,
         "completed": null,
         "total": null,
-        "task": "Validating recovery and evaluation counters",
-        "eta_seconds": 97,
+        "task": "Preflight passed: bounded 4096-game comparison",
+        "eta_seconds": 51,
         "eta_basis": "3 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 256,
-    "eta_seconds": 1187,
+    "elapsed_seconds": 303,
+    "eta_seconds": 1140,
     "eta_basis": "3 previous completed iteration(s)"
   },
   "max_iterations": 8,

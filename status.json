@@ -14,17 +14,17 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T03:56:07.065547+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:56:07.098724-07:00",
+    "measured_at": "2026-10-21T20:56:30.664321-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-22T03:56:07.065547+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 24,
         "completed": 0,
         "total": 4096,
         "task": "Allocating bounded cross-region H100",
-        "eta_seconds": 416,
+        "eta_seconds": 392,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 170,
-    "eta_seconds": 1273,
+    "elapsed_seconds": 194,
+    "eta_seconds": 1249,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,
@@ -72,8 +72,8 @@
   },
   "pilot_gpu_cap_usd": 15,
   "daily_budget": {
-    "remaining_usd": 12.0,
-    "reserved_usd": 3.0,
+    "remaining_usd": 9.0,
+    "reserved_usd": 6.0,
     "reset_at": "2026-10-22T07:00:00+00:00"
   }
 }

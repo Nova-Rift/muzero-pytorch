@@ -2,7 +2,7 @@
   "schema": 1,
   "stage": "train",
   "iteration": 8,
-  "completed_games": 0,
+  "completed_games": 128,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
@@ -12,20 +12,20 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:38:48.848883+00:00",
+  "updated_at": "2026-10-22T22:39:25.322040+00:00",
   "timing": {
-    "measured_at": "2026-10-22T15:39:13.749026-07:00",
+    "measured_at": "2026-10-22T15:39:25.379252-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T22:38:48.848883+00:00",
-        "elapsed_seconds": 185,
-        "completed": 0,
+        "updated_at": "2026-10-22T22:39:25.322040+00:00",
+        "elapsed_seconds": 197,
+        "completed": 128,
         "total": 2048,
         "task": "Training M from scratch",
-        "eta_seconds": 244,
-        "eta_basis": "4 previous iteration(s)"
+        "eta_seconds": 2955,
+        "eta_basis": "observed training rate"
       },
       {
         "step": 2,
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 324,
-    "eta_seconds": 1235,
+    "elapsed_seconds": 336,
+    "eta_seconds": 1223,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

@@ -1,144 +1,18 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 8,
-  "completed_games": 2048,
-  "target_games": 2048,
-  "wins": 25,
-  "evaluation_games": 64,
-  "timeouts": 13,
-  "title": "Overseer next: review",
+  "stage": "review",
+  "iteration": 9,
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 9: reviewing evidence",
   "change": "Review timeout evidence and full-state retention before next experiment",
   "result": "Diagnose timeout outcomes and preserve versioned full-state recovery before selecting the next costed GPU hypothesis.",
   "candidate": "M",
-  "evaluation_label": "Completed matched comparison",
-  "updated_at": "2026-10-22T23:03:04.443635+00:00",
-  "matchup": {
-    "challenger": "MuZero M 1024",
-    "opponent": "MuZero L2048",
-    "opponent_wins": 26,
-    "draws": 0
-  },
-  "training_metrics": {
-    "iteration": 8,
-    "run_id": "arena-loop-001-M8",
-    "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:56:00.423038+00:00",
-    "points": [
-      {
-        "optimizer_updates": 128,
-        "games": 128,
-        "elapsed_seconds": 28.902521595009603,
-        "loss": 4.857036590576172,
-        "search_entropy": 1.1289262939244509
-      },
-      {
-        "optimizer_updates": 256,
-        "games": 256,
-        "elapsed_seconds": 56.694906802033074,
-        "loss": 5.021389007568359,
-        "search_entropy": 1.4842366962693632
-      },
-      {
-        "optimizer_updates": 384,
-        "games": 384,
-        "elapsed_seconds": 84.58811809303006,
-        "loss": 5.110937118530273,
-        "search_entropy": 1.2188229905441403
-      },
-      {
-        "optimizer_updates": 512,
-        "games": 512,
-        "elapsed_seconds": 105.36162442603381,
-        "loss": 4.806703567504883,
-        "search_entropy": 1.667399941739582
-      },
-      {
-        "optimizer_updates": 640,
-        "games": 640,
-        "elapsed_seconds": 123.44476304401178,
-        "loss": 4.9597883224487305,
-        "search_entropy": 1.048246555775404
-      },
-      {
-        "optimizer_updates": 768,
-        "games": 768,
-        "elapsed_seconds": 147.90031157399062,
-        "loss": 4.885778427124023,
-        "search_entropy": 1.4516129745170474
-      },
-      {
-        "optimizer_updates": 896,
-        "games": 896,
-        "elapsed_seconds": 172.40970051899785,
-        "loss": 4.642851829528809,
-        "search_entropy": 1.5931689548306167
-      },
-      {
-        "optimizer_updates": 1024,
-        "games": 1024,
-        "elapsed_seconds": 196.3326399240177,
-        "loss": 4.671642303466797,
-        "search_entropy": 1.5580650247244472
-      },
-      {
-        "optimizer_updates": 1152,
-        "games": 1152,
-        "elapsed_seconds": 221.40045093902154,
-        "loss": 4.699317455291748,
-        "search_entropy": 1.4189954018220305
-      },
-      {
-        "optimizer_updates": 1280,
-        "games": 1280,
-        "elapsed_seconds": 245.680433653004,
-        "loss": 5.1519775390625,
-        "search_entropy": 1.5591321806423366
-      },
-      {
-        "optimizer_updates": 1408,
-        "games": 1408,
-        "elapsed_seconds": 270.03612165001687,
-        "loss": 4.877816200256348,
-        "search_entropy": 1.8237243867479265
-      },
-      {
-        "optimizer_updates": 1536,
-        "games": 1536,
-        "elapsed_seconds": 294.306954883039,
-        "loss": 5.196484565734863,
-        "search_entropy": 1.4593434929847717
-      },
-      {
-        "optimizer_updates": 1664,
-        "games": 1664,
-        "elapsed_seconds": 319.27826559200184,
-        "loss": 5.336043357849121,
-        "search_entropy": 1.7617263696156442
-      },
-      {
-        "optimizer_updates": 1792,
-        "games": 1792,
-        "elapsed_seconds": 343.8661100260215,
-        "loss": 5.137404441833496,
-        "search_entropy": 1.780043507926166
-      },
-      {
-        "optimizer_updates": 1920,
-        "games": 1920,
-        "elapsed_seconds": 368.8392747970065,
-        "loss": 5.332774639129639,
-        "search_entropy": 1.3216403690166771
-      },
-      {
-        "optimizer_updates": 2048,
-        "games": 2048,
-        "elapsed_seconds": 393.2063435410382,
-        "loss": 5.096058368682861,
-        "search_entropy": 1.7759172841906548
-      }
-    ]
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-22T23:07:25.677659+00:00",
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
@@ -155,56 +29,56 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:07:02.566561-07:00",
+    "measured_at": "2026-10-22T16:08:04.994425-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "finished",
-        "updated_at": "2026-10-22T22:45:39.327923+00:00",
-        "elapsed_seconds": 571,
-        "completed": 2048,
-        "total": 2048,
-        "task": "Training M from scratch",
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
+        "total": null,
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:02:32.944376+00:00",
-        "elapsed_seconds": 1014,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Completed matched comparison",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:03:04.443635+00:00",
-        "elapsed_seconds": 136,
+        "state": "active",
+        "updated_at": "2026-10-22T23:07:25.677659+00:00",
+        "elapsed_seconds": 39,
         "completed": null,
         "total": null,
-        "task": "MuZero M completed; reviewing failed improvement hypothesis",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 9: reviewing evidence",
+        "eta_seconds": 85,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-22T22:36:08.683822+00:00",
-        "elapsed_seconds": 35,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Testing rebuilt M package",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1755,
-    "eta_seconds": null,
-    "eta_basis": "6 previous completed iteration(s)"
+    "elapsed_seconds": 39,
+    "eta_seconds": 1636,
+    "eta_basis": "7 previous completed iteration(s)"
   },
   "max_iterations": 17,
   "reward": {

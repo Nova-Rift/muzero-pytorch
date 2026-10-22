@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "stage": "edit",
+  "stage": "test",
   "iteration": 12,
   "completed_games": 0,
   "target_games": 0,
@@ -9,19 +9,19 @@
   "timeouts": 0,
   "title": "Audit fixed-horizon cutoff evidence",
   "change": "Existing checkpoints frozen; no model edit or new training.",
-  "result": "Auditing 512 archived outcomes, seat balance and fixed-horizon censoring; no new games.",
+  "result": "Recorder validated locally: identical J/E actions, states and outcomes; original model bytes unchanged.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "Archived outcomes review; no new games",
-  "updated_at": "2026-10-22T23:54:03.854869+00:00",
+  "updated_at": "2026-10-22T23:55:30.341469+00:00",
   "revision": {
-    "summary": "Proposed read-only trajectory recorder for cutoff diagnosis",
-    "reason": "Archived outcomes show 158 fixed-horizon cutoffs but omit actions and observations; a causal training change is not yet supported.",
+    "summary": "Read-only cutoff recorder implemented and locally validated",
+    "reason": "All 158 archived cutoffs reached the decision limit; absent action trajectories prevent a causal model diagnosis.",
     "changes": [
-      "Add isolated recorder around the frozen environment bridge without changing model, reward, search or action selection.",
-      "Preserve bounded per-decision observations/actions and exact checkpoint/protocol provenance."
+      "Isolated recorder preserves per-decision observations and submitted actions without changing the frozen evaluator.",
+      "Diagnostic entry point checks evaluator source hash and refuses existing trace directories."
     ],
-    "test_plan": "Check forwarding, immutable records, bounded sampling, and real environment parity; require frozen-policy parity before any ranking import.",
-    "updated_at": "2026-10-22T23:54:03.854865+00:00"
+    "test_plan": "3 unit checks, 85 exact environment comparisons and short J/E policy parity passed. Full-length GPU parity and diagnostic trajectories remain pending.",
+    "updated_at": "2026-10-22T23:55:30.341466+00:00"
   },
   "latest_comparison": {
     "iteration": 11,
@@ -39,7 +39,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:54:52.962997-07:00",
+    "measured_at": "2026-10-22T16:55:55.255302-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,44 +65,44 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:54:03.854869+00:00",
-        "elapsed_seconds": 192,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:55:30.341469+00:00",
+        "elapsed_seconds": 230,
         "completed": null,
         "total": null,
         "task": "Audit fixed-horizon cutoff evidence",
-        "eta_seconds": 0,
-        "eta_basis": "9 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
+        "state": "active",
+        "updated_at": "2026-10-22T23:55:30.341469+00:00",
+        "elapsed_seconds": 25,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Audit fixed-horizon cutoff evidence",
+        "eta_seconds": 59,
+        "eta_basis": "8 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 192,
-    "eta_seconds": 1251,
+    "elapsed_seconds": 255,
+    "eta_seconds": 1188,
     "eta_basis": "9 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792713160.0876074,
-    "fresh": false,
+    "updated_at": 1792713330.3410285,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
         "job_id": "cutoff-audit",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 12,
           "completed_games": 0,
           "target_games": 0,
@@ -111,10 +111,20 @@
           "timeouts": 0,
           "title": "Audit fixed-horizon cutoff evidence",
           "change": "Existing checkpoints frozen; no model edit or new training.",
-          "result": "Auditing 512 archived outcomes, seat balance and fixed-horizon censoring; no new games.",
+          "result": "Recorder validated locally: identical J/E actions, states and outcomes; original model bytes unchanged.",
           "candidate": "J cutoff diagnosis",
           "evaluation_label": "Archived outcomes review; no new games",
-          "updated_at": "2026-10-22T23:52:40.087497+00:00",
+          "updated_at": "2026-10-22T23:55:30.340961+00:00",
+          "revision": {
+            "summary": "Read-only cutoff recorder implemented and locally validated",
+            "reason": "All 158 archived cutoffs reached the decision limit; absent action trajectories prevent a causal model diagnosis.",
+            "changes": [
+              "Isolated recorder preserves per-decision observations and submitted actions without changing the frozen evaluator.",
+              "Diagnostic entry point checks evaluator source hash and refuses existing trace directories."
+            ],
+            "test_plan": "3 unit checks, 85 exact environment comparisons and short J/E policy parity passed. Full-length GPU parity and diagnostic trajectories remain pending.",
+            "updated_at": "2026-10-22T23:55:30.316289+00:00"
+          },
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

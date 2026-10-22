@@ -1,31 +1,31 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "train",
   "iteration": 8,
   "completed_games": 0,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Testing rebuilt M package",
+  "title": "Launching reviewed M experiment",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
-  "result": "Reviewed failure preserved; inner source receipt verified. Testing actual archive before allocation. Today $30 remains.",
+  "result": "Packaged CPU smoke and source hashes passed; guarded allocation pending. No GPU training progress yet.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:35:33.958127+00:00",
+  "updated_at": "2026-10-22T22:36:08.683822+00:00",
   "timing": {
-    "measured_at": "2026-10-22T15:35:54.231953-07:00",
+    "measured_at": "2026-10-22T15:36:08.735518-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T22:36:08.683822+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
-        "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "completed": 0,
+        "total": 2048,
+        "task": "Launching reviewed M experiment",
+        "eta_seconds": 429,
+        "eta_basis": "4 previous iteration(s)"
       },
       {
         "step": 2,
@@ -51,18 +51,18 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-22T22:35:33.958127+00:00",
-        "elapsed_seconds": 20,
+        "state": "finished",
+        "updated_at": "2026-10-22T22:36:08.683822+00:00",
+        "elapsed_seconds": 35,
         "completed": null,
         "total": null,
         "task": "Testing rebuilt M package",
-        "eta_seconds": 81,
-        "eta_basis": "5 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 125,
-    "eta_seconds": 1434,
+    "elapsed_seconds": 139,
+    "eta_seconds": 1420,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

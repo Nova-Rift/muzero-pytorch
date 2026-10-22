@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "review",
   "iteration": 6,
   "completed_games": 4096,
   "target_games": 4096,
   "wins": 34,
   "evaluation_games": 64,
   "timeouts": 10,
-  "title": "Evaluating L4096 against F1024",
-  "change": "Duration comparison unchanged; adapting fresh runtime transfer and deadlines",
-  "result": "3,200 games/updates confirmed and 25 real loss samples published. Training continues during checkpoint recovery.",
+  "title": "L complete: no checkpoint passed development",
+  "change": "4,096 training games; 576 matched development games audited",
+  "result": "GPU deleted. Estimated GPU cost $1.70; $9 daily allowance remains. Next: test finite-horizon timeout targets; no promotion.",
   "candidate": "L",
   "evaluation_label": "development: L4096 vs F1024",
-  "updated_at": "2026-10-22T04:21:27.814348+00:00",
+  "updated_at": "2026-10-22T04:24:06.662729+00:00",
   "matchup": {
     "challenger": "MuZero L \u00b7 4096 games",
     "opponent": "MuZero F1024",
@@ -252,7 +252,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:23:36.241575-07:00",
+    "measured_at": "2026-10-21T21:24:06.706675-07:00",
     "steps": [
       {
         "step": 1,
@@ -267,25 +267,25 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-22T04:21:27.814348+00:00",
-        "elapsed_seconds": 658,
+        "state": "finished",
+        "updated_at": "2026-10-22T04:24:06.662729+00:00",
+        "elapsed_seconds": 688,
         "completed": 64,
         "total": null,
         "task": "development: L4096 vs F1024",
-        "eta_seconds": 197,
-        "eta_basis": "3 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T03:55:13.975377+00:00",
+        "state": "active",
+        "updated_at": "2026-10-22T04:24:06.662729+00:00",
         "elapsed_seconds": 117,
         "completed": null,
         "total": null,
-        "task": "Preparing cross-region launch and recovery",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "L complete: no checkpoint passed development",
+        "eta_seconds": 0,
+        "eta_basis": "5 previous iteration(s)"
       },
       {
         "step": 4,
@@ -299,7 +299,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1819,
+    "elapsed_seconds": 1850,
     "eta_seconds": 0,
     "eta_basis": "5 previous completed iteration(s)"
   },

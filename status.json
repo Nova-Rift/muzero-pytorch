@@ -1,27 +1,28 @@
 {
   "schema": 1,
-  "stage": "edit",
+  "stage": "test",
   "iteration": 10,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Integrating renewable workload supervision",
+  "title": "Validated frozen J/E evaluation and renewable supervisor",
   "change": "Review timeout evidence and full-state retention before next experiment",
   "result": "Integrate and test remote multi-cycle deadlines/recovery before allocating for a registered next hypothesis.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:15:15.994477+00:00",
+  "updated_at": "2026-10-22T23:20:22.912175+00:00",
   "revision": {
-    "summary": "Proposed: independent renewable deadline watchdog and tested supervisor handoff.",
-    "reason": "Historical M8 deadlines were fixed; useful successive cycles require acknowledged lease updates without extending the assistant session.",
+    "summary": "Remote supervisor bridge prepared; local renewal and cleanup checks passed.",
+    "reason": "Enables selected-match cycles on one pod while keeping fixed assistant-session and renewable lease guards.",
     "changes": [
-      "Add remote watchdog with expiry/stop cleanup and deadline acknowledgement.",
-      "Prepare separate loop outputs and complete recovery before adding subsequent matchups."
+      "lease_watchdog.py acknowledges bounded renewals and terminates workload descendants at expiry.",
+      "Private session bridge recovers supervisor activity and all per-bout artifacts.",
+      "Exact historical tournament evaluator and all participant checkpoint hashes verified."
     ],
-    "test_plan": "Test renewal, immutable session deadline, expiry and descendant termination locally before any allocation. Validate J evaluation against frozen ladder protocol.",
-    "updated_at": "2026-10-22T23:15:15.994468+00:00"
+    "test_plan": "3 watchdog integration tests, 8 supervisor/settings tests and frozen-evaluator CPU smoke passed. Next: one guarded allocation, real runtime validation and sequential GPU bouts; no GPU overlap claim.",
+    "updated_at": "2026-10-22T23:20:22.912171+00:00"
   },
   "latest_comparison": {
     "iteration": 8,
@@ -39,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:19:40.744737-07:00",
+    "measured_at": "2026-10-22T16:20:22.967088-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,29 +66,29 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:15:15.994477+00:00",
-        "elapsed_seconds": 328,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:20:22.912175+00:00",
+        "elapsed_seconds": 371,
         "completed": null,
         "total": null,
         "task": "Integrating renewable workload supervision",
-        "eta_seconds": 0,
-        "eta_basis": "8 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T23:20:22.912175+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Validated frozen J/E evaluation and renewable supervisor",
+        "eta_seconds": 67,
+        "eta_basis": "7 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 328,
-    "eta_seconds": 1231,
+    "elapsed_seconds": 371,
+    "eta_seconds": 1188,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,

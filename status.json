@@ -1,29 +1,18 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 9,
+  "stage": "review",
+  "iteration": 10,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Overseer next: edit",
+  "title": "Iteration 10: reviewing evidence",
   "change": "Review timeout evidence and full-state retention before next experiment",
   "result": "Integrate and test remote multi-cycle deadlines/recovery before allocating for a registered next hypothesis.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:12:08.169748+00:00",
-  "revision": {
-    "summary": "Implemented immutable full-state milestones and a serial cycle helper.",
-    "reason": "Preserves intermediate optimizer/replay/RNG snapshots and orders recovery/final reporting before selecting the next task.",
-    "changes": [
-      "arena/state_history.py saves exclusive versioned milestones and atomically updates the latest alias.",
-      "arena/train_selfplay.py retains milestone history and avoids duplicate final saves.",
-      "tools/research-loop/session_cycles.py bounds serial tasks by live lease and session deadlines; stop/error invokes cleanup."
-    ],
-    "test_plan": "11 focused tests passed. A 4-game CPU run exactly matches a 2+2 resumed run for model, optimizer, replay and RNG; historical 2-game tensors also match. Remote integration and GPU concurrency remain unvalidated.",
-    "updated_at": "2026-10-22T23:11:08.144999+00:00"
-  },
+  "updated_at": "2026-10-22T23:14:12.407778+00:00",
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
@@ -40,7 +29,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:13:22.490875-07:00",
+    "measured_at": "2026-10-22T16:14:25.711182-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,30 +55,30 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:11:08.145003+00:00",
-        "elapsed_seconds": 222,
+        "state": "active",
+        "updated_at": "2026-10-22T23:14:12.407778+00:00",
+        "elapsed_seconds": 13,
         "completed": null,
         "total": null,
-        "task": "Preserve resumable milestones and prepare pod reuse",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 10: reviewing evidence",
+        "eta_seconds": 111,
+        "eta_basis": "8 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:12:08.169748+00:00",
-        "elapsed_seconds": 60,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Recovery checks complete; remote reuse integration next",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 282,
-    "eta_seconds": null,
-    "eta_basis": "7 previous completed iteration(s)"
+    "elapsed_seconds": 13,
+    "eta_seconds": 1546,
+    "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,
   "reward": {

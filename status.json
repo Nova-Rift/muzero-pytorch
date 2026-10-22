@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "edit",
+  "stage": "test",
   "iteration": 6,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Preparing cross-region launch and recovery",
+  "title": "Checking transfer, checkpoints and evaluator",
   "change": "Duration comparison unchanged; adapting fresh runtime transfer and deadlines",
-  "result": "Iteration 6 worker is running local preparation. No pod allocated; $12 remains.",
+  "result": "Source/environment/opponent hashes match; local tests running. No GPU allocated.",
   "candidate": "L",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T03:54:02.495563+00:00",
+  "updated_at": "2026-10-22T03:55:13.975377+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:54:26.146766-07:00",
+    "measured_at": "2026-10-21T20:55:14.005706-07:00",
     "steps": [
       {
         "step": 1,
@@ -40,29 +40,29 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T03:54:02.495563+00:00",
-        "elapsed_seconds": 69,
+        "state": "finished",
+        "updated_at": "2026-10-22T03:55:13.975377+00:00",
+        "elapsed_seconds": 117,
         "completed": null,
         "total": null,
         "task": "Preparing cross-region launch and recovery",
-        "eta_seconds": 48,
-        "eta_basis": "5 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T03:55:13.975377+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Checking transfer, checkpoints and evaluator",
+        "eta_seconds": 108,
+        "eta_basis": "4 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 69,
-    "eta_seconds": 1374,
+    "elapsed_seconds": 117,
+    "eta_seconds": 1326,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

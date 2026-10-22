@@ -4,15 +4,15 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 0,
-  "evaluation_games": 0,
+  "wins": 5,
+  "evaluation_games": 5,
   "timeouts": 0,
   "title": "Evaluating M1024 against initial",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development: M1024 vs initial",
-  "updated_at": "2026-10-22T22:49:33.760119+00:00",
+  "updated_at": "2026-10-22T22:49:38.998752+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 1024 games",
     "opponent": "MuZero initial",
@@ -142,20 +142,20 @@
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
-    "evaluation_label": "Completed matched comparison",
-    "wins": 29,
-    "evaluation_games": 64,
-    "timeouts": 10,
+    "evaluation_label": "development: M1024 vs initial",
+    "wins": 5,
+    "evaluation_games": 5,
+    "timeouts": 0,
     "matchup": {
-      "challenger": "MuZero M 512",
-      "opponent": "MuZero F1024",
-      "opponent_wins": 25,
+      "challenger": "MuZero M \u00b7 1024 games",
+      "opponent": "MuZero initial",
+      "opponent_wins": 0,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:49:29.668197+00:00"
+    "updated_at": "2026-10-22T22:49:38.998752+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:49:33.828254-07:00",
+    "measured_at": "2026-10-22T15:49:39.072185-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:49:33.760119+00:00",
-        "elapsed_seconds": 235,
-        "completed": 0,
+        "updated_at": "2026-10-22T22:49:38.998752+00:00",
+        "elapsed_seconds": 240,
+        "completed": 5,
         "total": null,
         "task": "development: M1024 vs initial",
-        "eta_seconds": 537,
+        "eta_seconds": 532,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 944,
-    "eta_seconds": 615,
+    "elapsed_seconds": 949,
+    "eta_seconds": 610,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

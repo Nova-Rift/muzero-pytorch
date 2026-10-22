@@ -12,12 +12,12 @@
   "result": "2,560 games/updates confirmed remotely. Loss graph uses recovered rows and may lag during full-state transfer.",
   "candidate": "L",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:09:18.787871+00:00",
+  "updated_at": "2026-10-22T04:09:47.080018+00:00",
   "training_metrics": {
     "iteration": 6,
     "run_id": "arena-loop-001-L",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T04:09:18.753427+00:00",
+    "reported_at": "2026-10-22T04:09:47.051865+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -186,21 +186,28 @@
         "elapsed_seconds": 600.3475437340094,
         "loss": 4.40385627746582,
         "search_entropy": 1.3786591340322047
+      },
+      {
+        "optimizer_updates": 3200,
+        "games": 3200,
+        "elapsed_seconds": 626.0118441550003,
+        "loss": 4.373074531555176,
+        "search_entropy": 1.3684708657674491
       }
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:09:35.458108-07:00",
+    "measured_at": "2026-10-21T21:09:47.115020-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T04:09:18.787871+00:00",
-        "elapsed_seconds": 808,
+        "updated_at": "2026-10-22T04:09:47.080018+00:00",
+        "elapsed_seconds": 820,
         "completed": 3072,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 269,
+        "eta_seconds": 273,
         "eta_basis": "observed training rate"
       },
       {
@@ -237,8 +244,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 979,
-    "eta_seconds": 464,
+    "elapsed_seconds": 990,
+    "eta_seconds": 453,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

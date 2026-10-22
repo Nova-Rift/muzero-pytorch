@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "paused",
   "iteration": 5,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 5: reviewing evidence",
-  "change": "Fixed-trajectory 1024/2048/4096 comparison prepared and tested",
-  "result": "Allocation failure preserved; launch gate tested; authenticated inventory empty. Next bounded turn pending; no GPU training yet.",
+  "title": "Overseer chose to wait",
+  "change": "Reviewed continuation; prepared duration comparison remains unexecuted",
+  "result": "Wait for owner resume and a fresh eligible hardware/preflight check; current prepared cache-region offers cannot meet the hourly cap. No new reservation; $12 remains.",
   "candidate": "K",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T03:40:21.136720+00:00",
+  "updated_at": "2026-10-22T03:41:31.255505+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:40:53.655752-07:00",
+    "measured_at": "2026-10-21T20:41:56.829316-07:00",
     "steps": [
       {
         "step": 1,
@@ -40,14 +40,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T03:40:21.136720+00:00",
-        "elapsed_seconds": 33,
+        "state": "interrupted",
+        "updated_at": "2026-10-22T03:41:25.478731+00:00",
+        "elapsed_seconds": 64,
         "completed": null,
         "total": null,
         "task": "Iteration 5: reviewing evidence",
-        "eta_seconds": 87,
-        "eta_basis": "4 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 33,
-    "eta_seconds": 1526,
+    "elapsed_seconds": 96,
+    "eta_seconds": null,
     "eta_basis": "4 previous completed iteration(s)"
   },
   "max_iterations": 8,

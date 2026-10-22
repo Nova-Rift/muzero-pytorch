@@ -4,26 +4,26 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 20,
-  "evaluation_games": 37,
+  "wins": 22,
+  "evaluation_games": 44,
   "timeouts": 0,
   "title": "Evaluating M2048 against F1024",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development: M2048 vs F1024",
-  "updated_at": "2026-10-22T22:54:29.047672+00:00",
+  "updated_at": "2026-10-22T22:54:31.158453+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 2048 games",
     "opponent": "MuZero F1024",
-    "opponent_wins": 17,
+    "opponent_wins": 22,
     "draws": 0
   },
   "training_metrics": {
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:54:26.927763+00:00",
+    "reported_at": "2026-10-22T22:54:29.676818+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -143,19 +143,19 @@
     "iteration": 8,
     "candidate": "M",
     "evaluation_label": "development: M2048 vs F1024",
-    "wins": 20,
-    "evaluation_games": 37,
+    "wins": 22,
+    "evaluation_games": 44,
     "timeouts": 0,
     "matchup": {
       "challenger": "MuZero M \u00b7 2048 games",
       "opponent": "MuZero F1024",
-      "opponent_wins": 17,
+      "opponent_wins": 22,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:54:26.881898+00:00"
+    "updated_at": "2026-10-22T22:54:31.158453+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:54:29.106864-07:00",
+    "measured_at": "2026-10-22T15:54:31.218904-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:54:29.047672+00:00",
-        "elapsed_seconds": 530,
-        "completed": 37,
+        "updated_at": "2026-10-22T22:54:31.158453+00:00",
+        "elapsed_seconds": 532,
+        "completed": 44,
         "total": null,
         "task": "development: M2048 vs F1024",
-        "eta_seconds": 242,
+        "eta_seconds": 240,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1239,
-    "eta_seconds": 320,
+    "elapsed_seconds": 1242,
+    "eta_seconds": 317,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

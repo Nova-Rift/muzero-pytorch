@@ -4,26 +4,26 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
-  "title": "Evaluating M2048 against initial",
+  "wins": 23,
+  "evaluation_games": 64,
+  "timeouts": 19,
+  "title": "Completed MuZero M 1024 vs MuZero F1024",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
-  "evaluation_label": "development: M2048 vs initial",
-  "updated_at": "2026-10-22T22:52:07.797451+00:00",
+  "evaluation_label": "Completed matched comparison",
+  "updated_at": "2026-10-22T22:52:09.666483+00:00",
   "matchup": {
-    "challenger": "MuZero M \u00b7 2048 games",
-    "opponent": "MuZero initial",
-    "opponent_wins": 0,
+    "challenger": "MuZero M 1024",
+    "opponent": "MuZero F1024",
+    "opponent_wins": 22,
     "draws": 0
   },
   "training_metrics": {
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:51:55.443014+00:00",
+    "reported_at": "2026-10-22T22:52:07.846706+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -142,20 +142,20 @@
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
-    "evaluation_label": "development: M1024 vs F1024",
-    "wins": 19,
-    "evaluation_games": 38,
-    "timeouts": 0,
+    "evaluation_label": "Completed matched comparison",
+    "wins": 23,
+    "evaluation_games": 64,
+    "timeouts": 19,
     "matchup": {
-      "challenger": "MuZero M \u00b7 1024 games",
+      "challenger": "MuZero M 1024",
       "opponent": "MuZero F1024",
-      "opponent_wins": 19,
+      "opponent_wins": 22,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:51:58.436284+00:00"
+    "updated_at": "2026-10-22T22:52:09.666483+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:52:07.849959-07:00",
+    "measured_at": "2026-10-22T15:52:09.728941-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:52:07.797451+00:00",
-        "elapsed_seconds": 389,
-        "completed": 0,
+        "updated_at": "2026-10-22T22:52:09.666483+00:00",
+        "elapsed_seconds": 390,
+        "completed": 64,
         "total": null,
-        "task": "development: M2048 vs initial",
-        "eta_seconds": 383,
+        "task": "Completed matched comparison",
+        "eta_seconds": 382,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1098,
-    "eta_seconds": 461,
+    "elapsed_seconds": 1100,
+    "eta_seconds": 459,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

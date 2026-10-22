@@ -169,17 +169,17 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:07:58.530229-07:00",
+    "measured_at": "2026-10-21T21:08:00.883796-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-22T04:07:58.494303+00:00",
-        "elapsed_seconds": 711,
+        "elapsed_seconds": 714,
         "completed": 2688,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 372,
+        "eta_seconds": 374,
         "eta_basis": "observed training rate"
       },
       {
@@ -216,8 +216,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 882,
-    "eta_seconds": 561,
+    "elapsed_seconds": 884,
+    "eta_seconds": 559,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

@@ -40,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:20:43.492187-07:00",
+    "measured_at": "2026-10-22T16:21:46.009673-07:00",
     "steps": [
       {
         "step": 1,
@@ -79,16 +79,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-22T23:20:22.912175+00:00",
-        "elapsed_seconds": 21,
+        "elapsed_seconds": 83,
         "completed": null,
         "total": null,
         "task": "Validated frozen J/E evaluation and renewable supervisor",
-        "eta_seconds": 46,
+        "eta_seconds": 0,
         "eta_basis": "7 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 391,
-    "eta_seconds": 1168,
+    "elapsed_seconds": 454,
+    "eta_seconds": 1105,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,

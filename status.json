@@ -1,24 +1,18 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 11,
+  "stage": "review",
+  "iteration": 12,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 27,
-  "evaluation_games": 128,
-  "timeouts": 53,
-  "title": "Overseer next: review",
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 12: reviewing evidence",
   "change": "Review high timeout rates before selecting the next training hypothesis",
   "result": "Diagnose high cross-opponent cutoff rates before choosing one costed training hypothesis; GPU overlap and full-size state transfer remain unverified.",
   "candidate": "J",
-  "evaluation_label": "Completed frozen ladder matchup",
-  "updated_at": "2026-10-22T23:50:00.807182+00:00",
-  "matchup": {
-    "challenger": "lana-100",
-    "opponent": "MuZero J \u00b7 2,048 games",
-    "opponent_wins": 48,
-    "draws": 0
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-22T23:51:40.556616+00:00",
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -35,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:51:29.007734-07:00",
+    "measured_at": "2026-10-22T16:51:45.754082-07:00",
     "steps": [
       {
         "step": 1,
@@ -50,41 +44,41 @@
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:44:19.739853+00:00",
-        "elapsed_seconds": 229,
-        "completed": 128,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Completed frozen ladder matchup",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:48:32.904948+00:00",
-        "elapsed_seconds": 633,
+        "state": "active",
+        "updated_at": "2026-10-22T23:51:40.556616+00:00",
+        "elapsed_seconds": 5,
         "completed": null,
         "total": null,
-        "task": "Selecting next measured matchup",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 12: reviewing evidence",
+        "eta_seconds": 119,
+        "eta_basis": "9 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:36:58.820781+00:00",
-        "elapsed_seconds": 228,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Transferring registered evaluation runtime",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1178,
-    "eta_seconds": null,
-    "eta_basis": "8 previous completed iteration(s)"
+    "elapsed_seconds": 5,
+    "eta_seconds": 1438,
+    "eta_basis": "9 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
@@ -102,30 +96,6 @@
           "total": 128,
           "unit": "games",
           "updated_at": 1792712637.746434
-        },
-        "details": {
-          "schema": 1,
-          "stage": "complete",
-          "iteration": 11,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 27,
-          "evaluation_games": 128,
-          "timeouts": 53,
-          "title": "Four selected matchups completed",
-          "change": "Frozen-checkpoint experiment: training and model revision deliberately skipped; four evaluations completed. Future cycles may choose any useful stage.",
-          "result": "Loop total: 512 evaluated games across four bouts. Scores below are the final 128-game Lana100 vs J bout; no new training.",
-          "candidate": "J",
-          "evaluation_label": "Completed frozen ladder matchup",
-          "updated_at": "2026-10-22T23:43:57.746434+00:00",
-          "matchup": {
-            "challenger": "lana-100",
-            "opponent": "MuZero J \u00b7 2,048 games",
-            "opponent_wins": 48,
-            "draws": 0
-          },
-          "max_iterations": 17,
-          "pilot_gpu_cap_usd": 30
         }
       },
       {
@@ -139,24 +109,6 @@
           "total": 2,
           "unit": "checks",
           "updated_at": 1792712256.2668362
-        },
-        "details": {
-          "schema": 1,
-          "stage": "complete",
-          "iteration": 11,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Checkpoint recovery checks completed",
-          "change": "Recovery validation experiment: training and strength evaluation skipped. Two existing CPU checkpoints saved remotely and recovered; no model revision.",
-          "result": "2/2 checks passed; model, optimizer, replay and RNG fields match. No new games or updates. Full-size GPU transfer throughput remains unverified.",
-          "candidate": "Full-state retention check",
-          "evaluation_label": "No evaluation in this loop",
-          "updated_at": "2026-10-22T23:37:36.266836+00:00",
-          "max_iterations": 17,
-          "pilot_gpu_cap_usd": 30
         }
       }
     ]

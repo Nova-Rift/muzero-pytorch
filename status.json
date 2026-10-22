@@ -7,14 +7,14 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "M stopped after execution failure",
+  "title": "M paused: source packaging failure",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
-  "result": "Execution failed; recovered available artifacts and stopped. See iteration report.",
+  "result": "Zero GPU games. Stale source receipt rejected; fix passes staged CPU check. Pod deletion verified; $21 daily allowance remains. No retry.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:38:54.697393+00:00",
+  "updated_at": "2026-10-22T04:41:52.486171+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:41:30.194740-07:00",
+    "measured_at": "2026-10-21T21:41:52.529780-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 917,
+    "elapsed_seconds": 939,
     "eta_seconds": null,
     "eta_basis": "6 previous completed iteration(s)"
   },

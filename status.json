@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "blocked",
+  "stage": "paused",
   "iteration": 7,
   "completed_games": 0,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Overseer report incomplete; research stopped",
+  "title": "Paused by owner",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Zero GPU games. Stale source receipt rejected; fix passes staged CPU check. Pod deletion verified; $21 daily allowance remains. No retry.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:42:16.958606+00:00",
+  "updated_at": "2026-10-22T04:50:42.091836+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:50:03.360270-07:00",
+    "measured_at": "2026-10-21T21:50:42.144692-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1430,
+    "elapsed_seconds": 1469,
     "eta_seconds": null,
     "eta_basis": "6 previous completed iteration(s)"
   },

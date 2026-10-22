@@ -14,7 +14,7 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T03:41:31.255505+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:45:13.649345-07:00",
+    "measured_at": "2026-10-21T20:46:16.826961-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 293,
+    "elapsed_seconds": 356,
     "eta_seconds": null,
     "eta_basis": "4 previous completed iteration(s)"
   },

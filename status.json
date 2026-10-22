@@ -12,19 +12,19 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "L",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T03:58:43.864717+00:00",
+  "updated_at": "2026-10-22T03:58:54.203367+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:58:43.895936-07:00",
+    "measured_at": "2026-10-21T20:58:54.234136-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T03:58:43.864717+00:00",
-        "elapsed_seconds": 157,
+        "updated_at": "2026-10-22T03:58:54.203367+00:00",
+        "elapsed_seconds": 167,
         "completed": 0,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 259,
+        "eta_seconds": 249,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 327,
-    "eta_seconds": 1116,
+    "elapsed_seconds": 337,
+    "eta_seconds": 1106,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

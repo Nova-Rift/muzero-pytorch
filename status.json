@@ -1,18 +1,24 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "evaluate",
   "iteration": 6,
-  "completed_games": 3968,
+  "completed_games": 4096,
   "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Training L from scratch",
+  "title": "Evaluating L1024 against initial",
   "change": "Duration comparison unchanged; adapting fresh runtime transfer and deadlines",
   "result": "3,200 games/updates confirmed and 25 real loss samples published. Training continues during checkpoint recovery.",
   "candidate": "L",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:12:30.638464+00:00",
+  "evaluation_label": "development: L1024 vs initial",
+  "updated_at": "2026-10-22T04:12:38.386711+00:00",
+  "matchup": {
+    "challenger": "MuZero L \u00b7 1024 games",
+    "opponent": "MuZero initial",
+    "opponent_wins": 0,
+    "draws": 0
+  },
   "training_metrics": {
     "iteration": 6,
     "run_id": "arena-loop-001-L",
@@ -246,29 +252,29 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:12:30.679554-07:00",
+    "measured_at": "2026-10-21T21:12:38.433461-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-22T04:12:30.638464+00:00",
-        "elapsed_seconds": 984,
-        "completed": 3968,
+        "state": "finished",
+        "updated_at": "2026-10-22T04:12:38.386711+00:00",
+        "elapsed_seconds": 991,
+        "completed": 4096,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 32,
-        "eta_basis": "observed training rate"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T04:12:38.386711+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "development: L1024 vs initial",
+        "eta_seconds": 855,
+        "eta_basis": "3 previous iteration(s)"
       },
       {
         "step": 3,
@@ -293,8 +299,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1154,
-    "eta_seconds": 289,
+    "elapsed_seconds": 1162,
+    "eta_seconds": 281,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

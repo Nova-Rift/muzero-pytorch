@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "queued",
   "iteration": 6,
   "completed_games": 4096,
   "target_games": 4096,
   "wins": 34,
   "evaluation_games": 64,
   "timeouts": 10,
-  "title": "L complete: no checkpoint passed development",
+  "title": "Overseer next: edit",
   "change": "4,096 training games; 576 matched development games audited",
-  "result": "GPU deleted. Estimated GPU cost $1.70; $9 daily allowance remains. Next: test finite-horizon timeout targets; no promotion.",
+  "result": "Prepare an isolated finite-horizon timeout-bootstrap hypothesis with matched controls and local tests; duration extension did not pass any development gate. Preserve L/J baseline; new settings are not exact resume.",
   "candidate": "L",
   "evaluation_label": "development: L4096 vs F1024",
-  "updated_at": "2026-10-22T04:24:06.662729+00:00",
+  "updated_at": "2026-10-22T04:24:13.312744+00:00",
   "matchup": {
     "challenger": "MuZero L \u00b7 4096 games",
     "opponent": "MuZero F1024",
@@ -252,7 +252,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:24:06.706675-07:00",
+    "measured_at": "2026-10-21T21:24:43.674389-07:00",
     "steps": [
       {
         "step": 1,
@@ -278,14 +278,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T04:24:06.662729+00:00",
-        "elapsed_seconds": 117,
+        "state": "finished",
+        "updated_at": "2026-10-22T04:24:13.312744+00:00",
+        "elapsed_seconds": 124,
         "completed": null,
         "total": null,
         "task": "L complete: no checkpoint passed development",
-        "eta_seconds": 0,
-        "eta_basis": "5 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -299,8 +299,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1850,
-    "eta_seconds": 0,
+    "elapsed_seconds": 1857,
+    "eta_seconds": null,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 13,

@@ -1,307 +1,69 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 6,
-  "completed_games": 4096,
-  "target_games": 4096,
-  "wins": 34,
-  "evaluation_games": 64,
-  "timeouts": 10,
-  "title": "Overseer next: edit",
+  "stage": "review",
+  "iteration": 7,
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 7: reviewing evidence",
   "change": "4,096 training games; 576 matched development games audited",
   "result": "Prepare an isolated finite-horizon timeout-bootstrap hypothesis with matched controls and local tests; duration extension did not pass any development gate. Preserve L/J baseline; new settings are not exact resume.",
   "candidate": "L",
-  "evaluation_label": "development: L4096 vs F1024",
-  "updated_at": "2026-10-22T04:24:13.312744+00:00",
-  "matchup": {
-    "challenger": "MuZero L \u00b7 4096 games",
-    "opponent": "MuZero F1024",
-    "opponent_wins": 20,
-    "draws": 0
-  },
-  "training_metrics": {
-    "iteration": 6,
-    "run_id": "arena-loop-001-L",
-    "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T04:12:51.035754+00:00",
-    "points": [
-      {
-        "optimizer_updates": 128,
-        "games": 128,
-        "elapsed_seconds": 29.093104483996285,
-        "loss": 4.921174049377441,
-        "search_entropy": 1.1289262939244509
-      },
-      {
-        "optimizer_updates": 256,
-        "games": 256,
-        "elapsed_seconds": 56.949634832999436,
-        "loss": 4.729355335235596,
-        "search_entropy": 0.9517277150880545
-      },
-      {
-        "optimizer_updates": 384,
-        "games": 384,
-        "elapsed_seconds": 83.99043807698763,
-        "loss": 5.061229228973389,
-        "search_entropy": 1.7629813561215997
-      },
-      {
-        "optimizer_updates": 512,
-        "games": 512,
-        "elapsed_seconds": 108.23409736901522,
-        "loss": 4.907364845275879,
-        "search_entropy": 2.045551107265055
-      },
-      {
-        "optimizer_updates": 640,
-        "games": 640,
-        "elapsed_seconds": 132.69130290401517,
-        "loss": 5.23457145690918,
-        "search_entropy": 2.0302643165923655
-      },
-      {
-        "optimizer_updates": 768,
-        "games": 768,
-        "elapsed_seconds": 157.18844924098812,
-        "loss": 5.054835796356201,
-        "search_entropy": 1.2385504436679184
-      },
-      {
-        "optimizer_updates": 896,
-        "games": 896,
-        "elapsed_seconds": 181.4355028840073,
-        "loss": 5.200203895568848,
-        "search_entropy": 1.379800939699635
-      },
-      {
-        "optimizer_updates": 1024,
-        "games": 1024,
-        "elapsed_seconds": 205.78430656099226,
-        "loss": 5.074512004852295,
-        "search_entropy": 1.600063243880868
-      },
-      {
-        "optimizer_updates": 1152,
-        "games": 1152,
-        "elapsed_seconds": 230.42645324999467,
-        "loss": 5.014042854309082,
-        "search_entropy": 1.7602799811866134
-      },
-      {
-        "optimizer_updates": 1280,
-        "games": 1280,
-        "elapsed_seconds": 254.9864914130012,
-        "loss": 5.26887321472168,
-        "search_entropy": 1.439146236749366
-      },
-      {
-        "optimizer_updates": 1408,
-        "games": 1408,
-        "elapsed_seconds": 279.34565788600594,
-        "loss": 5.212831497192383,
-        "search_entropy": 1.466789361089468
-      },
-      {
-        "optimizer_updates": 1536,
-        "games": 1536,
-        "elapsed_seconds": 304.0762976820115,
-        "loss": 5.117465972900391,
-        "search_entropy": 1.6049210289493203
-      },
-      {
-        "optimizer_updates": 1664,
-        "games": 1664,
-        "elapsed_seconds": 329.42380327699357,
-        "loss": 5.40933895111084,
-        "search_entropy": 1.7518249405547976
-      },
-      {
-        "optimizer_updates": 1792,
-        "games": 1792,
-        "elapsed_seconds": 354.1073436400038,
-        "loss": 5.204561233520508,
-        "search_entropy": 1.8142243614420295
-      },
-      {
-        "optimizer_updates": 1920,
-        "games": 1920,
-        "elapsed_seconds": 379.1385598159977,
-        "loss": 5.26513671875,
-        "search_entropy": 1.9112824751064181
-      },
-      {
-        "optimizer_updates": 2048,
-        "games": 2048,
-        "elapsed_seconds": 403.7334496479889,
-        "loss": 5.301554203033447,
-        "search_entropy": 1.6112050632946193
-      },
-      {
-        "optimizer_updates": 2176,
-        "games": 2176,
-        "elapsed_seconds": 429.01880922500277,
-        "loss": 5.2659406661987305,
-        "search_entropy": 1.8568901703692973
-      },
-      {
-        "optimizer_updates": 2304,
-        "games": 2304,
-        "elapsed_seconds": 453.1568358060031,
-        "loss": 5.301377296447754,
-        "search_entropy": 1.8333903946913779
-      },
-      {
-        "optimizer_updates": 2432,
-        "games": 2432,
-        "elapsed_seconds": 477.2348901029909,
-        "loss": 5.2649359703063965,
-        "search_entropy": 1.8534830245189369
-      },
-      {
-        "optimizer_updates": 2560,
-        "games": 2560,
-        "elapsed_seconds": 501.7890067840053,
-        "loss": 5.379416465759277,
-        "search_entropy": 1.9615440089255571
-      },
-      {
-        "optimizer_updates": 2688,
-        "games": 2688,
-        "elapsed_seconds": 527.1678376560158,
-        "loss": 5.0976104736328125,
-        "search_entropy": 1.2657451941631734
-      },
-      {
-        "optimizer_updates": 2816,
-        "games": 2816,
-        "elapsed_seconds": 551.8550853719935,
-        "loss": 5.37501335144043,
-        "search_entropy": 1.5606139008887112
-      },
-      {
-        "optimizer_updates": 2944,
-        "games": 2944,
-        "elapsed_seconds": 576.4912793659896,
-        "loss": 5.1612443923950195,
-        "search_entropy": 1.6127283023670316
-      },
-      {
-        "optimizer_updates": 3072,
-        "games": 3072,
-        "elapsed_seconds": 600.3475437340094,
-        "loss": 4.40385627746582,
-        "search_entropy": 1.3786591340322047
-      },
-      {
-        "optimizer_updates": 3200,
-        "games": 3200,
-        "elapsed_seconds": 626.0118441550003,
-        "loss": 4.373074531555176,
-        "search_entropy": 1.3684708657674491
-      },
-      {
-        "optimizer_updates": 3328,
-        "games": 3328,
-        "elapsed_seconds": 650.4570641210012,
-        "loss": 4.402753829956055,
-        "search_entropy": 1.4296162794344127
-      },
-      {
-        "optimizer_updates": 3456,
-        "games": 3456,
-        "elapsed_seconds": 675.3594266980072,
-        "loss": 4.078067779541016,
-        "search_entropy": 1.1866408137138933
-      },
-      {
-        "optimizer_updates": 3584,
-        "games": 3584,
-        "elapsed_seconds": 700.5914885500097,
-        "loss": 4.139669418334961,
-        "search_entropy": 1.908245513215661
-      },
-      {
-        "optimizer_updates": 3712,
-        "games": 3712,
-        "elapsed_seconds": 725.9194908959907,
-        "loss": 5.009418964385986,
-        "search_entropy": 1.8450658903457224
-      },
-      {
-        "optimizer_updates": 3840,
-        "games": 3840,
-        "elapsed_seconds": 751.0787787089939,
-        "loss": 5.01598596572876,
-        "search_entropy": 1.8626434411853552
-      },
-      {
-        "optimizer_updates": 3968,
-        "games": 3968,
-        "elapsed_seconds": 775.9395725459908,
-        "loss": 4.305210113525391,
-        "search_entropy": 1.5753250047564507
-      },
-      {
-        "optimizer_updates": 4096,
-        "games": 4096,
-        "elapsed_seconds": 800.1306288170163,
-        "loss": 5.178966045379639,
-        "search_entropy": 1.9636070705018938
-      }
-    ]
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-22T04:26:13.589965+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:25:47.667235-07:00",
+    "measured_at": "2026-10-21T21:26:53.677498-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "finished",
-        "updated_at": "2026-10-22T04:12:38.386711+00:00",
-        "elapsed_seconds": 991,
-        "completed": 4096,
-        "total": 4096,
-        "task": "Training L from scratch",
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
+        "total": null,
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-22T04:24:06.662729+00:00",
-        "elapsed_seconds": 688,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "development: L4096 vs F1024",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T04:24:13.312744+00:00",
-        "elapsed_seconds": 124,
+        "state": "active",
+        "updated_at": "2026-10-22T04:26:13.589965+00:00",
+        "elapsed_seconds": 40,
         "completed": null,
         "total": null,
-        "task": "L complete: no checkpoint passed development",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 7: reviewing evidence",
+        "eta_seconds": 80,
+        "eta_basis": "6 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-22T03:56:07.065547+00:00",
-        "elapsed_seconds": 53,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Checking transfer, checkpoints and evaluator",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1857,
-    "eta_seconds": null,
-    "eta_basis": "5 previous completed iteration(s)"
+    "elapsed_seconds": 40,
+    "eta_seconds": 1519,
+    "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 13,
   "reward": {

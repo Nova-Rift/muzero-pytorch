@@ -7,14 +7,14 @@
   "wins": 25,
   "evaluation_games": 64,
   "timeouts": 13,
-  "title": "Evaluating M1024 against L2048",
+  "title": "Completed MuZero M 1024 vs MuZero L2048",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
-  "evaluation_label": "development control: M1024 vs L2048",
-  "updated_at": "2026-10-22T22:56:00.374572+00:00",
+  "evaluation_label": "Completed matched comparison",
+  "updated_at": "2026-10-22T22:56:02.366922+00:00",
   "matchup": {
-    "challenger": "MuZero M \u00b7 1024 games",
+    "challenger": "MuZero M 1024",
     "opponent": "MuZero L2048",
     "opponent_wins": 26,
     "draws": 0
@@ -23,7 +23,7 @@
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:55:52.784214+00:00",
+    "reported_at": "2026-10-22T22:56:00.423038+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -142,20 +142,20 @@
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
-    "evaluation_label": "development control: M1024 vs L2048",
+    "evaluation_label": "Completed matched comparison",
     "wins": 25,
     "evaluation_games": 64,
     "timeouts": 13,
     "matchup": {
-      "challenger": "MuZero M \u00b7 1024 games",
+      "challenger": "MuZero M 1024",
       "opponent": "MuZero L2048",
       "opponent_wins": 26,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:55:53.086004+00:00"
+    "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:56:00.445022-07:00",
+    "measured_at": "2026-10-22T15:56:02.433634-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:56:00.374572+00:00",
-        "elapsed_seconds": 621,
+        "updated_at": "2026-10-22T22:56:02.366922+00:00",
+        "elapsed_seconds": 623,
         "completed": 64,
         "total": null,
-        "task": "development control: M1024 vs L2048",
-        "eta_seconds": 151,
+        "task": "Completed matched comparison",
+        "eta_seconds": 149,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1331,
-    "eta_seconds": 228,
+    "elapsed_seconds": 1333,
+    "eta_seconds": 226,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

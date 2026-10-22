@@ -1,29 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
-  "iteration": 10,
+  "stage": "review",
+  "iteration": 11,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Overseer report incomplete; research stopped",
+  "title": "Iteration 11: reviewing evidence",
   "change": "Review timeout evidence and full-state retention before next experiment",
   "result": "Outer 180-second transfer limit conflicted with 420-second setup budget. Fixed/tested locally; zero research games. No retry; $24 allowance remains.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:26:07.531750+00:00",
-  "revision": {
-    "summary": "Remote supervisor bridge prepared; local renewal and cleanup checks passed.",
-    "reason": "Enables selected-match cycles on one pod while keeping fixed assistant-session and renewable lease guards.",
-    "changes": [
-      "lease_watchdog.py acknowledges bounded renewals and terminates workload descendants at expiry.",
-      "Private session bridge recovers supervisor activity and all per-bout artifacts.",
-      "Exact historical tournament evaluator and all participant checkpoint hashes verified."
-    ],
-    "test_plan": "3 watchdog integration tests, 8 supervisor/settings tests and frozen-evaluator CPU smoke passed. Next: one guarded allocation, real runtime validation and sequential GPU bouts; no GPU overlap claim.",
-    "updated_at": "2026-10-22T23:20:22.912171+00:00"
-  },
+  "updated_at": "2026-10-22T23:30:23.108499+00:00",
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
@@ -40,7 +29,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:30:21.456946-07:00",
+    "measured_at": "2026-10-22T16:31:24.253684-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,29 +55,29 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:20:22.912175+00:00",
-        "elapsed_seconds": 371,
+        "state": "active",
+        "updated_at": "2026-10-22T23:30:23.108499+00:00",
+        "elapsed_seconds": 61,
         "completed": null,
         "total": null,
-        "task": "Integrating renewable workload supervision",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 11: reviewing evidence",
+        "eta_seconds": 63,
+        "eta_basis": "8 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "interrupted",
-        "updated_at": "2026-10-22T23:25:44.389796+00:00",
-        "elapsed_seconds": 321,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Preparing registered H100 evaluation runtime",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 969,
-    "eta_seconds": null,
+    "elapsed_seconds": 61,
+    "eta_seconds": 1498,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,

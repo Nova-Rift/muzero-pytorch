@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "edit",
+  "stage": "test",
   "iteration": 7,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Testing finite-horizon timeout targets",
+  "title": "Validating timeout-target candidate locally",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
-  "result": "Local implementation and tests only so far; no GPU allocated. $24 remains today.",
+  "result": "32 tests passed; 2 CUDA-only skipped. CPU target and resume checks running; no GPU allocated.",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:27:17.721154+00:00",
+  "updated_at": "2026-10-22T04:29:02.368676+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:28:59.666042-07:00",
+    "measured_at": "2026-10-21T21:29:02.410466-07:00",
     "steps": [
       {
         "step": 1,
@@ -40,29 +40,29 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T04:27:17.721154+00:00",
-        "elapsed_seconds": 166,
+        "state": "finished",
+        "updated_at": "2026-10-22T04:29:02.368676+00:00",
+        "elapsed_seconds": 169,
         "completed": null,
         "total": null,
         "task": "Testing finite-horizon timeout targets",
-        "eta_seconds": 0,
-        "eta_basis": "6 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T04:29:02.368676+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Validating timeout-target candidate locally",
+        "eta_seconds": 101,
+        "eta_basis": "5 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 166,
-    "eta_seconds": 1393,
+    "elapsed_seconds": 169,
+    "eta_seconds": 1390,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 13,

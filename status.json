@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 5,
+  "stage": "review",
+  "iteration": 6,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Cross-region MuZero run queued",
+  "title": "Iteration 6: reviewing evidence",
   "change": "Eligible H100 offers found outside the cache region",
   "result": "Fresh-transfer plan estimates 40 minutes and $2.66 GPU cost; final preflight required. No GPU allocated; $12 remains.",
   "candidate": "K",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T03:51:10.538385+00:00",
+  "updated_at": "2026-10-22T03:53:16.749307+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:52:16.821105-07:00",
+    "measured_at": "2026-10-21T20:53:23.662050-07:00",
     "steps": [
       {
         "step": 1,
@@ -40,14 +40,14 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-22T03:41:25.478731+00:00",
-        "elapsed_seconds": 64,
+        "state": "active",
+        "updated_at": "2026-10-22T03:53:16.749307+00:00",
+        "elapsed_seconds": 7,
         "completed": null,
         "total": null,
-        "task": "Iteration 5: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 6: reviewing evidence",
+        "eta_seconds": 110,
+        "eta_basis": "5 previous iteration(s)"
       },
       {
         "step": 4,
@@ -61,9 +61,9 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 649,
-    "eta_seconds": null,
-    "eta_basis": "4 previous completed iteration(s)"
+    "elapsed_seconds": 7,
+    "eta_seconds": 1436,
+    "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,
   "reward": {

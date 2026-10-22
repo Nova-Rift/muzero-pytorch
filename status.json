@@ -1,18 +1,24 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "evaluate",
   "iteration": 8,
-  "completed_games": 1920,
+  "completed_games": 2048,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Training M from scratch",
+  "title": "Evaluating M512 against initial",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:45:22.989600+00:00",
+  "evaluation_label": "development: M512 vs initial",
+  "updated_at": "2026-10-22T22:45:39.327923+00:00",
+  "matchup": {
+    "challenger": "MuZero M \u00b7 512 games",
+    "opponent": "MuZero initial",
+    "opponent_wins": 0,
+    "draws": 0
+  },
   "training_metrics": {
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
@@ -127,29 +133,29 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-22T15:45:23.035896-07:00",
+    "measured_at": "2026-10-22T15:45:39.369813-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-22T22:45:22.989600+00:00",
-        "elapsed_seconds": 554,
-        "completed": 1920,
+        "state": "finished",
+        "updated_at": "2026-10-22T22:45:39.327923+00:00",
+        "elapsed_seconds": 571,
+        "completed": 2048,
         "total": 2048,
         "task": "Training M from scratch",
-        "eta_seconds": 37,
-        "eta_basis": "observed training rate"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T22:45:39.327923+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "development: M512 vs initial",
+        "eta_seconds": 772,
+        "eta_basis": "4 previous iteration(s)"
       },
       {
         "step": 3,
@@ -174,8 +180,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 693,
-    "eta_seconds": 866,
+    "elapsed_seconds": 710,
+    "eta_seconds": 849,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

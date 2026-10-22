@@ -67,7 +67,7 @@ def history(observations,actions,times,agents,context):
     return np.concatenate((obs.reshape(len(times),-1),previous),-1).astype(np.float32)
 
 
-def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep"):
+def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep",timeout_bootstrap="continue"):
     state=pool.reset(seeds);games=len(seeds);count=games*11
     obs=np.zeros((limit+1,count,64),np.float32)
     actions=np.zeros((limit,count),np.int64)
@@ -103,7 +103,8 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_
     length=t+1
     obs[length]=state['observation'].reshape(count,64)
     # Only time-limit survivors bootstrap; use actual final observations.
-    if not finished.all():
+    if timeout_bootstrap not in ("continue","zero"):raise ValueError("Invalid timeout bootstrap mode")
+    if not finished.all() and timeout_bootstrap=="continue":
         x=history(obs,actions,np.full(count,length),np.arange(count),context)
         with torch.no_grad():
             from model import scalar
@@ -156,6 +157,7 @@ def main():
     p.add_argument('--context',type=int,default=64);p.add_argument('--simulations',type=int,default=8)
     p.add_argument('--batch',type=int,default=32);p.add_argument('--unroll',type=int,default=5)
     p.add_argument('--return-mode',choices=['nstep','episode'],default='nstep')
+    p.add_argument('--timeout-bootstrap',choices=['continue','zero'],default='continue',help='zero uses the finite collection horizon; default preserves historical continuing targets')
     p.add_argument('--root-candidates',type=int,default=0)
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
@@ -203,7 +205,7 @@ def main():
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
             if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
-            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode)
+            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode,a.timeout_bootstrap)
             np.savez_compressed(out/f'trace-{offset}.npz',**{k:v[:,:22] for k,v in block.items() if k!='indices'})
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):

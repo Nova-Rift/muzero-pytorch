@@ -1,0 +1,160 @@
+{
+  "id": "arena-loop-001-M",
+  "iteration": 7,
+  "hypothesis": "Does zero bootstrap at the finite 256-action cutoff improve matched self-play strength versus continuing targets?",
+  "basis": "L duration extension failed gates; 26 sampled surviving zero-reward timeout streams had mean initial target .453613.",
+  "change": "Only training final timeout bootstrap switches continue -> zero. No reward, transition, architecture or search change.",
+  "training": {
+    "seed": 51000000,
+    "games": 2048,
+    "updates": 2048,
+    "parallel": 128,
+    "workers": 4,
+    "batch": 256,
+    "context": 64,
+    "hidden": 448,
+    "simulations": 32,
+    "root_candidates": 8,
+    "unroll": 5,
+    "return_mode": "episode",
+    "replay_blocks": 3,
+    "max_seconds": 900,
+    "agents": 2,
+    "cadence": "5 x 0.05 seconds",
+    "reward": {
+      "winner": 1,
+      "other": 0
+    },
+    "from_scratch": true,
+    "discount": 1.0,
+    "timeout_bootstrap": "zero"
+  },
+  "development": {
+    "checkpoints": [
+      512,
+      1024,
+      2048
+    ],
+    "games_per_opponent": 64,
+    "opponents": [
+      "initial",
+      "E1024",
+      "F1024"
+    ],
+    "seed_bases": [
+      82000000,
+      82010000,
+      82020000
+    ],
+    "balanced_seats": true,
+    "selection": "highest minimum opponent win fraction, then aggregate wins, then fewer total timeouts, then earliest checkpoint",
+    "gate": "strictly >60% wins and <=20% timeouts against EACH opponent",
+    "rationale": "Three checkpoints in a bounded2048-game trajectory; anchors use exactly matched prior L development protocol. Reused development seeds are intentionally not held-out confirmation."
+  },
+  "confirmation": {
+    "games_per_opponent": 200,
+    "seed_bases": [
+      93000000,
+      93010000,
+      93020000,
+      93030000
+    ],
+    "only_after": "Frozen selected candidate passes >60% wins and <=20%timeouts versus initial/E/F and separate L2048 control",
+    "gate": "95% Wilson lower win fraction >0.5 and <=20% timeouts against EACH opponent",
+    "no_reselection": true,
+    "rationale": "Only a frozen development winner passing every gate receives 200 fresh games per anchor; preserves held-out test and controls.",
+    "budget_rule": "All800 games plus recovery must fit; conservative >=720s remaining check. Otherwise defer honestly; no automatic second allocation.",
+    "opponents": [
+      "initial",
+      "E1024",
+      "F1024",
+      "L2048"
+    ]
+  },
+  "replication": {
+    "training_seed": 84000000,
+    "development_seed_bases": [
+      85000000,
+      85010000,
+      85020000
+    ],
+    "confirmation_seed_bases": [
+      86000000,
+      86010000,
+      86020000
+    ],
+    "status": "Required before promotion, not executed in this single-trajectory iteration."
+  },
+  "bounds": {
+    "allocations": 1,
+    "gpu_usd": 3,
+    "hourly_usd": 4,
+    "allocation_seconds": 2700,
+    "remote_subprocess_seconds": 2300,
+    "training_seconds": 1200,
+    "total_remote_seconds": 2300
+  },
+  "scope": "Fixed arena, two agents. Seeds vary policy sampling, not layouts. E/F are frozen anchors, not matched-duration candidates. Historical J results use a different evaluation RNG scheme and are not pooled. No cross-family ranking evidence or arena replacement is implied.",
+  "source_sha256": {
+    "model.py": "c546948594aa70456b9361ccd4e5acc82fa2790b3d3c9d069fb769f095888e17",
+    "arena/train_selfplay.py": "9d373ae8ef63d131b003a87db992e4429e14fa38eaac5e4483567fe3971ca18a",
+    "scripts/evaluate_selfplay.py": "74341d5b9ea2e0b958f8ae03e85374954b2b0166d3e13e7231d2bdf5e7109a03",
+    "arena/environment.py": "83703665a2e045d43b2d6294b0c4a66bf1a537e8fc31701cbcbe9fabf3dac64d",
+    "arena/returns.py": "6fc1497a56b422094f8ff77fbc3d578dcc2a177db2a770605a1febfd6d0c7c22",
+    "scripts/run_iteration_k.py": "3e2085b6d9eb74ece148e0efb3b0c2b8c152df901cfba878f5dc19b7a801d2b0",
+    "arena/frozen_search.py": "dabcad37da568cfcb4c91701f75e484d8d0d8988d604113f7811f221c992a43f",
+    "scripts/run_iteration_l.py": "7b5a5f0c722c923df483f565b5a287899c8c418ec3afcba60dd21b6a5f2a7a52",
+    "scripts/run_iteration_m.py": "88e8e1c1a755f66a6af9a838e8550980dc7b84170eed9c6d89edb35657ff4171"
+  },
+  "environment_sha256": {
+    "src/sandboxCombat.ts": "8041163035515c13d1645ada2df72bdf482408dc9f467f220b5429da43e8685a",
+    "src/sandboxMotion.ts": "bff13f8b38d4d59b40271f60fb1fda57ae5c1a752c5763cbe2a9fb383910811c",
+    "src/lana/observation.ts": "1867ab292e924e5708eac81924efc4d1fe7200f294e4d20de804d0955d2a8947"
+  },
+  "opponent_sha256": {
+    "E1024": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "F1024": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "L2048": "ff09496a95a2603b54cc81b94d9de8ef1e00987593881154f1c00584bc89eb39"
+  },
+  "evaluation_settings": {
+    "decision": "sampled search, no root noise",
+    "simulations": 32,
+    "root_candidates": 8,
+    "decision_limit": 256,
+    "batch_games": 64,
+    "confirmation_batch_games": 200,
+    "challenger_discount": 1.0,
+    "initial_discount": 1.0,
+    "E_F_discount": 0.99,
+    "rng": "Separate challenger/reference generators, seed_base+1000000000/+2000000000, same streams across count checkpoints",
+    "balanced_seats": "alternating challenger seat 0/1",
+    "tf32": false
+  },
+  "acknowledged_guidance": [
+    1792563591.7862878,
+    1792636607.7061172,
+    1792638100.941946,
+    1792639686.1377153,
+    1792640378.1474028,
+    1792641070.2990413,
+    1792641085.4453228
+  ],
+  "checkpoint_strategy": "Fresh matched-seed restart; changed target recipe is not exact resume or warm start",
+  "continuation_authority": "Adaptive owner authority; preserve all failures, existing budgets and future assigned iteration reservation",
+  "confirmation_timing": "Only if >=720s remain and all development gates including L2048 pass; otherwise preserve frozen selection, no promotion.",
+  "phase": "local preparation; paid run must use its newly assigned worker iteration",
+  "matched_baseline": {
+    "candidate": "L2048, byte-identical J2048",
+    "sha256": "ff09496a95a2603b54cc81b94d9de8ef1e00987593881154f1c00584bc89eb39",
+    "existing_evaluation": "iteration-6-evidence/development-2048-*.json",
+    "reason_reuse_valid": "Same environment, evaluation source, opponents, independent per-player RNG settings and development seeds; these are explicitly reused DEVELOPMENT, never confirmation. Verify all hashes again at staging.",
+    "direct_control": {
+      "games": 64,
+      "seed": 82030000,
+      "balanced_seats": 32,
+      "selected_only": true,
+      "used_for_selection": false
+    }
+  },
+  "confirmation_recipe": "Four opponents at fresh93000000/93010000/93020000/93030000,200games each; independent training-seed replication required."
+}

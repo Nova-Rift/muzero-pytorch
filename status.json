@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "queued",
   "iteration": 12,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Audit fixed-horizon cutoff evidence",
+  "title": "Overseer next: evaluate",
   "change": "Existing checkpoints frozen; no model edit or new training.",
-  "result": "Recorder validated locally: identical J/E actions, states and outcomes; original model bytes unchanged.",
+  "result": "Run the prepared frozen-checkpoint trajectory diagnostic after fresh guarded preflight and GPU parity; use observed behavior to choose a training hypothesis.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "Archived outcomes review; no new games",
-  "updated_at": "2026-10-22T23:55:30.341469+00:00",
+  "updated_at": "2026-10-22T23:57:27.040976+00:00",
   "revision": {
     "summary": "Read-only cutoff recorder implemented and locally validated",
     "reason": "All 158 archived cutoffs reached the decision limit; absent action trajectories prevent a causal model diagnosis.",
@@ -21,7 +21,7 @@
       "Diagnostic entry point checks evaluator source hash and refuses existing trace directories."
     ],
     "test_plan": "3 unit checks, 85 exact environment comparisons and short J/E policy parity passed. Full-length GPU parity and diagnostic trajectories remain pending.",
-    "updated_at": "2026-10-22T23:55:30.341466+00:00"
+    "updated_at": "2026-10-22T23:57:14.921984+00:00"
   },
   "latest_comparison": {
     "iteration": 11,
@@ -39,7 +39,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:56:57.757274-07:00",
+    "measured_at": "2026-10-22T16:58:01.866293-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,33 +76,33 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-22T23:55:30.341469+00:00",
-        "elapsed_seconds": 87,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:57:14.921989+00:00",
+        "elapsed_seconds": 105,
         "completed": null,
         "total": null,
         "task": "Audit fixed-horizon cutoff evidence",
-        "eta_seconds": 0,
-        "eta_basis": "8 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 317,
-    "eta_seconds": 1126,
+    "elapsed_seconds": 346,
+    "eta_seconds": null,
     "eta_basis": "9 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792713330.3410285,
-    "fresh": false,
+    "active_loops": 0,
+    "updated_at": 1792713434.921105,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
-        "state": "active",
+        "state": "done",
         "job_id": "cutoff-audit",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "complete",
           "iteration": 12,
           "completed_games": 0,
           "target_games": 0,
@@ -111,10 +111,10 @@
           "timeouts": 0,
           "title": "Audit fixed-horizon cutoff evidence",
           "change": "Existing checkpoints frozen; no model edit or new training.",
-          "result": "Recorder validated locally: identical J/E actions, states and outcomes; original model bytes unchanged.",
+          "result": "Audit and recorder checks completed. No new training or strength games; next step is a guarded trajectory diagnostic.",
           "candidate": "J cutoff diagnosis",
           "evaluation_label": "Archived outcomes review; no new games",
-          "updated_at": "2026-10-22T23:55:30.340961+00:00",
+          "updated_at": "2026-10-22T23:57:14.920916+00:00",
           "revision": {
             "summary": "Read-only cutoff recorder implemented and locally validated",
             "reason": "All 158 archived cutoffs reached the decision limit; absent action trajectories prevent a causal model diagnosis.",

@@ -12,12 +12,12 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:44:14.422572+00:00",
+  "updated_at": "2026-10-22T22:44:16.327662+00:00",
   "training_metrics": {
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:43:25.321697+00:00",
+    "reported_at": "2026-10-22T22:44:14.470221+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -95,21 +95,35 @@
         "elapsed_seconds": 270.03612165001687,
         "loss": 4.877816200256348,
         "search_entropy": 1.8237243867479265
+      },
+      {
+        "optimizer_updates": 1536,
+        "games": 1536,
+        "elapsed_seconds": 294.306954883039,
+        "loss": 5.196484565734863,
+        "search_entropy": 1.4593434929847717
+      },
+      {
+        "optimizer_updates": 1664,
+        "games": 1664,
+        "elapsed_seconds": 319.27826559200184,
+        "loss": 5.336043357849121,
+        "search_entropy": 1.7617263696156442
       }
     ]
   },
   "timing": {
-    "measured_at": "2026-10-22T15:44:14.465184-07:00",
+    "measured_at": "2026-10-22T15:44:16.371280-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T22:44:14.422572+00:00",
-        "elapsed_seconds": 486,
+        "updated_at": "2026-10-22T22:44:16.327662+00:00",
+        "elapsed_seconds": 488,
         "completed": 1664,
         "total": 2048,
         "task": "Training M from scratch",
-        "eta_seconds": 112,
+        "eta_seconds": 113,
         "eta_basis": "observed training rate"
       },
       {
@@ -146,8 +160,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 625,
-    "eta_seconds": 934,
+    "elapsed_seconds": 627,
+    "eta_seconds": 932,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

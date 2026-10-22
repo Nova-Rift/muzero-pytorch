@@ -2,7 +2,7 @@
   "schema": 1,
   "stage": "train",
   "iteration": 8,
-  "completed_games": 1408,
+  "completed_games": 1664,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
@@ -12,7 +12,7 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:43:25.357791+00:00",
+  "updated_at": "2026-10-22T22:44:14.422572+00:00",
   "training_metrics": {
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
@@ -99,17 +99,17 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-22T15:43:34.057740-07:00",
+    "measured_at": "2026-10-22T15:44:14.465184-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T22:43:25.357791+00:00",
-        "elapsed_seconds": 445,
-        "completed": 1408,
+        "updated_at": "2026-10-22T22:44:14.422572+00:00",
+        "elapsed_seconds": 486,
+        "completed": 1664,
         "total": 2048,
         "task": "Training M from scratch",
-        "eta_seconds": 202,
+        "eta_seconds": 112,
         "eta_basis": "observed training rate"
       },
       {
@@ -146,8 +146,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 584,
-    "eta_seconds": 975,
+    "elapsed_seconds": 625,
+    "eta_seconds": 934,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

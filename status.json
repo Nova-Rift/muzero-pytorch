@@ -14,17 +14,17 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T04:35:51.565411+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:35:51.607528-07:00",
+    "measured_at": "2026-10-21T21:36:16.423581-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-22T04:35:51.565411+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 25,
         "completed": 0,
         "total": 2048,
         "task": "Preparing guarded M allocation",
-        "eta_seconds": 429,
+        "eta_seconds": 404,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 578,
-    "eta_seconds": 981,
+    "elapsed_seconds": 603,
+    "eta_seconds": 956,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 13,
@@ -72,8 +72,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 24.0,
-    "reserved_usd": 6.0,
+    "remaining_usd": 21.0,
+    "reserved_usd": 9.0,
     "reset_at": "2026-10-22T07:00:00+00:00"
   }
 }

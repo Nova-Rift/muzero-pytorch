@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "blocked",
+  "stage": "paused",
   "iteration": 4,
   "completed_games": 0,
   "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration incomplete; pilot stopped",
+  "title": "Stopped by owner",
   "change": "Fixed-trajectory 1024/2048/4096 comparison prepared and tested",
   "result": "No pod returned; authenticated inventory empty. No training/evaluation. $3 reservation retained, pilot paused, no retry.",
   "candidate": "K",
   "evaluation_label": "Not started: 576 registered development games versus initial/E/F",
-  "updated_at": "2026-10-22T02:44:27.155079+00:00",
+  "updated_at": "2026-10-22T03:27:53.654124+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:27:49.222299-07:00",
+    "measured_at": "2026-10-21T20:27:53.717464-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3026,
+    "elapsed_seconds": 3030,
     "eta_seconds": null,
     "eta_basis": "3 previous completed iteration(s)"
   },

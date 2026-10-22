@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "evaluate",
   "iteration": 11,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
-  "title": "Selecting next measured matchup",
+  "wins": 69,
+  "evaluation_games": 128,
+  "timeouts": 21,
+  "title": "Completed selfplay-E1024 vs selfplay-J2048",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "Recovered 0 active loop(s); GPU overlap disabled. Completed jobs: 2",
+  "result": "Exact historical evaluator; 64 games per seat. Full raw results recovered and audited.",
   "candidate": "J",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:37:51.156289+00:00",
+  "evaluation_label": "Completed frozen ladder matchup",
+  "updated_at": "2026-10-22T23:38:17.495615+00:00",
   "revision": {
     "summary": "New runner uses one shared SetupDeadline directly for all setup stages.",
     "reason": "Prevents the earlier nested 180-second timeout; smaller initial payload reduces setup cost.",
@@ -24,23 +24,29 @@
     "test_plan": "4 shared transport tests plus 3 staged wiring tests pass. Exact historical evaluator smoke already passed; verify runtime remotely before evaluation.",
     "updated_at": "2026-10-22T23:33:10.823769+00:00"
   },
+  "matchup": {
+    "challenger": "selfplay-E1024",
+    "opponent": "MuZero J \u00b7 2,048 games",
+    "opponent_wins": 38,
+    "draws": 0
+  },
   "latest_comparison": {
-    "iteration": 8,
-    "candidate": "M",
-    "evaluation_label": "Completed matched comparison",
-    "wins": 25,
-    "evaluation_games": 64,
-    "timeouts": 13,
+    "iteration": 11,
+    "candidate": "J",
+    "evaluation_label": "Completed frozen ladder matchup",
+    "wins": 69,
+    "evaluation_games": 128,
+    "timeouts": 21,
     "matchup": {
-      "challenger": "MuZero M 1024",
-      "opponent": "MuZero L2048",
-      "opponent_wins": 26,
+      "challenger": "selfplay-E1024",
+      "opponent": "MuZero J \u00b7 2,048 games",
+      "opponent_wins": 38,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:56:02.366922+00:00"
+    "updated_at": "2026-10-22T23:38:17.495615+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:37:51.216092-07:00",
+    "measured_at": "2026-10-22T16:38:17.567877-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,25 +61,25 @@
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-22T23:37:51.156289+00:00",
+        "state": "active",
+        "updated_at": "2026-10-22T23:38:17.495615+00:00",
         "elapsed_seconds": 52,
-        "completed": 0,
+        "completed": 128,
         "total": null,
-        "task": "No new evaluation",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Completed frozen ladder matchup",
+        "eta_seconds": 803,
+        "eta_basis": "5 previous iteration(s)"
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:37:51.156289+00:00",
-        "elapsed_seconds": 168,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:38:17.495615+00:00",
+        "elapsed_seconds": 194,
         "completed": null,
         "total": null,
         "task": "Selecting next measured matchup",
-        "eta_seconds": 0,
-        "eta_basis": "8 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -87,13 +93,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 448,
-    "eta_seconds": 1111,
+    "elapsed_seconds": 474,
+    "eta_seconds": 1085,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792712268.867307,
+    "updated_at": 1792712290.6672912,
     "fresh": true,
     "loops": [
       {

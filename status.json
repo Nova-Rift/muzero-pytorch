@@ -252,7 +252,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:21:30.665203-07:00",
+    "measured_at": "2026-10-21T21:22:33.636666-07:00",
     "steps": [
       {
         "step": 1,
@@ -269,11 +269,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-22T04:21:27.814348+00:00",
-        "elapsed_seconds": 532,
+        "elapsed_seconds": 595,
         "completed": 64,
         "total": null,
         "task": "development: L4096 vs F1024",
-        "eta_seconds": 323,
+        "eta_seconds": 260,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -299,7 +299,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1694,
+    "elapsed_seconds": 1757,
     "eta_seconds": 0,
     "eta_basis": "5 previous completed iteration(s)"
   },

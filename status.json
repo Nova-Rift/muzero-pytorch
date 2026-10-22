@@ -252,7 +252,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-21T21:12:38.433461-07:00",
+    "measured_at": "2026-10-21T21:12:48.161184-07:00",
     "steps": [
       {
         "step": 1,
@@ -269,11 +269,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-22T04:12:38.386711+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 10,
         "completed": 0,
         "total": null,
         "task": "development: L1024 vs initial",
-        "eta_seconds": 855,
+        "eta_seconds": 845,
         "eta_basis": "3 previous iteration(s)"
       },
       {
@@ -299,8 +299,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1162,
-    "eta_seconds": 281,
+    "elapsed_seconds": 1171,
+    "eta_seconds": 272,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

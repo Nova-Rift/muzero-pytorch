@@ -4,19 +4,19 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 0,
-  "evaluation_games": 0,
+  "wins": 3,
+  "evaluation_games": 4,
   "timeouts": 0,
   "title": "Evaluating M1024 against L2048",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development control: M1024 vs L2048",
-  "updated_at": "2026-10-22T22:55:04.557918+00:00",
+  "updated_at": "2026-10-22T22:55:13.983829+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 1024 games",
     "opponent": "MuZero L2048",
-    "opponent_wins": 0,
+    "opponent_wins": 1,
     "draws": 0
   },
   "training_metrics": {
@@ -142,20 +142,20 @@
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
-    "evaluation_label": "Completed matched comparison",
-    "wins": 34,
-    "evaluation_games": 64,
-    "timeouts": 4,
+    "evaluation_label": "development control: M1024 vs L2048",
+    "wins": 3,
+    "evaluation_games": 4,
+    "timeouts": 0,
     "matchup": {
-      "challenger": "MuZero M 2048",
-      "opponent": "MuZero F1024",
-      "opponent_wins": 26,
+      "challenger": "MuZero M \u00b7 1024 games",
+      "opponent": "MuZero L2048",
+      "opponent_wins": 1,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:55:00.364698+00:00"
+    "updated_at": "2026-10-22T22:55:13.983829+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:55:04.619744-07:00",
+    "measured_at": "2026-10-22T15:55:14.040216-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:55:04.557918+00:00",
-        "elapsed_seconds": 565,
-        "completed": 0,
+        "updated_at": "2026-10-22T22:55:13.983829+00:00",
+        "elapsed_seconds": 575,
+        "completed": 4,
         "total": null,
         "task": "development control: M1024 vs L2048",
-        "eta_seconds": 207,
+        "eta_seconds": 197,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1275,
-    "eta_seconds": 284,
+    "elapsed_seconds": 1284,
+    "eta_seconds": 275,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

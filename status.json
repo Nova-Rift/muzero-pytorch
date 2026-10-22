@@ -2,7 +2,7 @@
   "schema": 1,
   "stage": "train",
   "iteration": 6,
-  "completed_games": 768,
+  "completed_games": 896,
   "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
@@ -12,19 +12,19 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "L",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:01:46.413058+00:00",
+  "updated_at": "2026-10-22T04:02:07.241886+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:01:48.407423-07:00",
+    "measured_at": "2026-10-21T21:02:07.270798-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T04:01:46.413058+00:00",
-        "elapsed_seconds": 341,
-        "completed": 768,
+        "updated_at": "2026-10-22T04:02:07.241886+00:00",
+        "elapsed_seconds": 360,
+        "completed": 896,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 1478,
+        "eta_seconds": 1286,
         "eta_basis": "observed training rate"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 512,
-    "eta_seconds": 931,
+    "elapsed_seconds": 531,
+    "eta_seconds": 912,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

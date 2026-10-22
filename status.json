@@ -35,7 +35,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:48:32.956781-07:00",
+    "measured_at": "2026-10-22T16:49:21.948939-07:00",
     "steps": [
       {
         "step": 1,
@@ -113,7 +113,7 @@
           "evaluation_games": 128,
           "timeouts": 53,
           "title": "Four selected matchups completed",
-          "change": "Frozen evaluator and exact checkpoint identities; no training or model changes.",
+          "change": "Frozen-checkpoint experiment: training and model revision deliberately skipped; four evaluations completed. Future cycles may choose any useful stage.",
           "result": "Loop total: 512 evaluated games across four bouts. Scores below are the final 128-game Lana100 vs J bout; no new training.",
           "candidate": "J",
           "evaluation_label": "Completed frozen ladder matchup",
@@ -150,7 +150,7 @@
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Checkpoint recovery checks completed",
-          "change": "Two existing tiny CPU checkpoints saved remotely as separate immutable milestones and recovered.",
+          "change": "Recovery validation experiment: training and strength evaluation skipped. Two existing CPU checkpoints saved remotely and recovered; no model revision.",
           "result": "2/2 checks passed; model, optimizer, replay and RNG fields match. No new games or updates. Full-size GPU transfer throughput remains unverified.",
           "candidate": "Full-state retention check",
           "evaluation_label": "No evaluation in this loop",

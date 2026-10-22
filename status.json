@@ -40,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:37:25.438143-07:00",
+    "measured_at": "2026-10-22T16:37:49.237315-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-22T23:37:25.388524+00:00",
-        "elapsed_seconds": 27,
+        "elapsed_seconds": 50,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 828,
+        "eta_seconds": 805,
         "eta_basis": "5 previous iteration(s)"
       },
       {
@@ -87,20 +87,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 422,
-    "eta_seconds": 1137,
+    "elapsed_seconds": 446,
+    "eta_seconds": 1113,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792712245.0460446,
+    "active_loops": 0,
+    "updated_at": 1792712268.867307,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
-        "state": "active",
+        "state": "done",
         "job_id": "e-j-001"
+      },
+      {
+        "id": "loop-b",
+        "stage": "test",
+        "state": "done",
+        "job_id": "checkpoint-recovery-check",
+        "progress": {
+          "job_id": "checkpoint-recovery-check",
+          "completed": 2,
+          "total": 2,
+          "unit": "checks",
+          "updated_at": 1792712256.2668362
+        }
       }
     ]
   },

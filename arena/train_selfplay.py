@@ -149,6 +149,7 @@ def replay_batch(block,rng,batch,context,unroll,device):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--site',required=True);p.add_argument('--output',required=True)
+    p.add_argument('--resume-state',type=Path)
     p.add_argument('--games',type=int,default=10000);p.add_argument('--parallel',type=int,default=128)
     p.add_argument('--replay-blocks',type=int,default=3,choices=range(1,13))
     p.add_argument('--workers',type=int,default=8);p.add_argument('--hidden',type=int,default=384)
@@ -169,15 +170,36 @@ def main():
     torch.backends.cuda.matmul.allow_tf32=a.tf32
     model=MuZero(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=a.discount,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
     optimizer=torch.optim.Adam(model.parameters(),lr=3e-4,weight_decay=1e-4)
+    restored=None
+    if a.resume_state:
+        restored=torch.load(a.resume_state,map_location='cpu',weights_only=True)
+        for key,value in vars(a).items():
+            if key not in ('site','output','resume_state','games','max_seconds') and restored['arguments'][key]!=value:
+                raise ValueError('Resume setting changed: '+key)
+        model.load_state_dict(restored['model']);optimizer.load_state_dict(restored['optimizer'])
     site=Path(a.site); source={str(x.relative_to(site)):hashlib.sha256(x.read_bytes()).hexdigest() for x in [site/'src/sandboxCombat.ts',site/'src/sandboxMotion.ts',site/'src/lana/observation.ts']}
     provenance=capture_source(Path(__file__).resolve().parents[1])
-    manifest=dict(arguments=vars(a),config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
+    if restored and (restored['source_files']!=provenance['files'] or restored['torch_version']!=str(torch.__version__)):
+        raise ValueError('Resume requires identical source and PyTorch version')
+    arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(a).items()}
+    manifest=dict(arguments=arguments,config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
+    if restored and restored['environment']!=source:raise ValueError('Resume environment changed')
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
     pool=Pool(a.site,a.workers,agents=a.agents,cadence=a.cadence);replay=deque(maxlen=a.replay_blocks);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
     try:
-        np.savez_compressed(out/'initial.npz',**{k:v.detach().cpu().numpy() for k,v in model.state_dict().items()})
+        initial=restored['initial'] if restored else {k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+        np.savez_compressed(out/'initial.npz',**{k:v.numpy() for k,v in initial.items()})
         searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents,a.root_candidates);setup=time.perf_counter()-started
-        for offset in range(0,a.games,a.parallel):
+        if restored:
+            totals.update(restored['totals'])
+            replay.extend({k:v.numpy() for k,v in b.items()} for b in restored['replay'])
+            rng.bit_generator.state=restored['numpy_rng'];torch.set_rng_state(restored['torch_rng'])
+            if a.device=='cuda':torch.cuda.set_rng_state_all(restored['cuda_rng'])
+        def save_state():
+            state=dict(arguments=arguments,environment=source,source_files=provenance['files'],torch_version=str(torch.__version__),initial=initial,model=model.state_dict(),optimizer=optimizer.state_dict(),totals=totals,replay=[{k:torch.from_numpy(v) for k,v in b.items()} for b in replay],numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),cuda_rng=torch.cuda.get_rng_state_all() if a.device=='cuda' else [])
+            temporary=out/'resume-state.tmp'
+            torch.save(state,temporary);temporary.replace(out/'resume-state.pt')
+        for offset in range(totals['games'],a.games,a.parallel):
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
             if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
@@ -200,6 +222,8 @@ def main():
             row=dict(**totals,search_entropy=float(np.mean(searcher.entropies)),elapsed_seconds=elapsed,setup_seconds=setup,batch_seconds=stats,training_seconds=train_time,loss=float(loss.detach()) if updates else None,games_per_second=totals['games']/elapsed)
             with (out/'metrics.jsonl').open('a') as f:f.write(json.dumps(row)+'\n')
             print(json.dumps(row),flush=True);searcher.entropies.clear()
+            if totals['games']%512==0:save_state()
+        save_state()
         save_start=time.perf_counter()
         np.savez_compressed(out/'weights.npz',**{k:v.detach().cpu().numpy() for k,v in model.state_dict().items()})
         elapsed=time.perf_counter()-started

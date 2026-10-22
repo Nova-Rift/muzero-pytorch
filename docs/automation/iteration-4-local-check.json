@@ -1,0 +1,7 @@
+{
+  "resume_max_weight_error": 0.0,
+  "reproducible_evaluation_records": true,
+  "completed_counter_balance": true,
+  "games": 4,
+  "scope": "CPU small engineering test; GPU resume not yet validated"
+}

@@ -18,9 +18,11 @@ p.add_argument('--reference-decision',choices=['search','noisy-search','policy']
 p.add_argument('--decision',choices=['search','noisy-search','policy'],default='search')
 p.add_argument('--games',type=int,default=32);p.add_argument('--seed',type=int,default=41000000)
 p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
+p.add_argument('--progress',type=Path)
 a=p.parse_args();launched=time.perf_counter();torch.set_num_threads(1);torch.manual_seed(a.seed)
 if a.output.exists():raise ValueError('Preserve existing evaluation')
 meta=json.loads((a.run/'manifest.json').read_text());c=Config(**meta['config'])
+generators=[torch.Generator(device=a.device).manual_seed(a.seed+offset) for offset in (1000000000,2000000000)]
 models=[]
 for file,discount in zip([a.challenger,a.reference],[a.challenger_discount,a.reference_discount]):
  config=c if discount is None else replace(c,discount=discount)
@@ -35,6 +37,11 @@ history=DeviceHistory(a.games*11,64,a.device)
 seats=np.arange(a.games)%2;finished=np.zeros(a.games,bool);steps=np.zeros(a.games,int)
 actions=np.zeros((a.games,11),np.int64);started=time.perf_counter()
 indices=[np.array([g*11+(seats[g] if j==0 else 1-seats[g]) for g in range(a.games)]) for j in range(2)]
+def progress(final=False):
+ if a.progress is None:return
+ win=finished&(s['winner']==seats);loss=finished&(s['winner']==1-seats)
+ d=dict(evaluation_games=a.games if final else int(finished.sum()),wins=int(win.sum()),losses=int(loss.sum()),draws=int((finished&~win&~loss).sum()),timeouts=int((~finished).sum()) if final else 0)
+ tmp=a.progress.with_suffix('.tmp');tmp.write_text(json.dumps(d));tmp.replace(a.progress)
 try:
  with torch.no_grad():
   for t in range(256):
@@ -44,14 +51,15 @@ try:
     inputs=x[torch.as_tensor(ids,device=a.device)]
     _,logits,_=m.initial(inputs);prior=logits.softmax(-1)
     candidates=meta['arguments'].get('root_candidates',0)
-    roots=torch.multinomial(prior,candidates,replacement=False) if candidates else None
+    roots=torch.multinomial(prior,candidates,replacement=False,generator=generators[side]) if candidates else None
     if decision=='policy':pol=prior
     else:pol,_=searchers[side](inputs,roots)
-    actions.reshape(-1)[ids]=torch.multinomial(pol,1).squeeze(-1).cpu().numpy()
+    actions.reshape(-1)[ids]=torch.multinomial(pol,1,generator=generators[side]).squeeze(-1).cpu().numpy()
    history.acted(actions.reshape(-1));commands=actions.copy();commands[finished]=-1
    steps+=~finished;s=pool.step(commands);finished|=s['finished']
+   progress(final=t==255 or bool(finished.all()))
    if finished.all():break
  win=finished&(s['winner']==seats);loss=finished&(s['winner']==1-seats)
- result=dict(challenger_discount=models[0].config.discount,reference_discount=models[1].config.discount,total_seconds=time.perf_counter()-launched,frozen_search_sha256=hashlib.sha256(Path(inspect.getfile(FrozenSearch)).read_bytes()).hexdigest(),evaluator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),checkpoint_sha256=hashlib.sha256((a.run/a.challenger).read_bytes()).hexdigest(),reference_decision=a.reference_decision or a.decision,decision=a.decision,challenger=a.challenger,reference=a.reference,seed=a.seed,games=a.games,wins=int(win.sum()),losses=int(loss.sum()),cutoffs=int((~finished).sum()),draws=int((finished&~win&~loss).sum()),mean_steps=float(steps.mean()),seconds=time.perf_counter()-started,seat_swapped=True,records=[dict(seat=int(seats[i]),winner=int(s['winner'][i]),finished=bool(finished[i]),steps=int(steps[i])) for i in range(a.games)])
+ result=dict(random_streams={'kind':'independent per-player torch generators','seeds':[a.seed+1000000000,a.seed+2000000000]},challenger_discount=models[0].config.discount,reference_discount=models[1].config.discount,total_seconds=time.perf_counter()-launched,frozen_search_sha256=hashlib.sha256(Path(inspect.getfile(FrozenSearch)).read_bytes()).hexdigest(),evaluator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),checkpoint_sha256=hashlib.sha256((a.run/a.challenger).read_bytes()).hexdigest(),reference_decision=a.reference_decision or a.decision,decision=a.decision,challenger=a.challenger,reference=a.reference,seed=a.seed,games=a.games,wins=int(win.sum()),losses=int(loss.sum()),cutoffs=int((~finished).sum()),draws=int((finished&~win&~loss).sum()),mean_steps=float(steps.mean()),seconds=time.perf_counter()-started,seat_swapped=True,records=[dict(seat=int(seats[i]),winner=int(s['winner'][i]),finished=bool(finished[i]),steps=int(steps[i])) for i in range(a.games)])
  a.output.write_text(json.dumps(result,indent=2));print(json.dumps({k:v for k,v in result.items() if k!='records'}))
 finally:pool.close()

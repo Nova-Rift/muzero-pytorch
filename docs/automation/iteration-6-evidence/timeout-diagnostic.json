@@ -1,0 +1,8 @@
+{
+  "scope": "Read-only postrun diagnostic; first two games per collection block only; zero-reward active-at-final-step nonabsorbing streams",
+  "streams": 26,
+  "mean_initial_target": 0.4536128594325139,
+  "min": 0.12741291522979736,
+  "max": 0.792171835899353,
+  "causal_claim": false
+}

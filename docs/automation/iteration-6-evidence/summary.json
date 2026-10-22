@@ -1,0 +1,81 @@
+{
+  "development_games": 576,
+  "matchups": [
+    {
+      "file": "development-1024-E1024.json",
+      "wins": 16,
+      "losses": 23,
+      "timeouts": 25,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-1024-F1024.json",
+      "wins": 28,
+      "losses": 22,
+      "timeouts": 14,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-1024-initial.json",
+      "wins": 33,
+      "losses": 17,
+      "timeouts": 14,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-2048-E1024.json",
+      "wins": 21,
+      "losses": 28,
+      "timeouts": 15,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-2048-F1024.json",
+      "wins": 25,
+      "losses": 24,
+      "timeouts": 15,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-2048-initial.json",
+      "wins": 26,
+      "losses": 18,
+      "timeouts": 20,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-4096-E1024.json",
+      "wins": 26,
+      "losses": 24,
+      "timeouts": 14,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-4096-F1024.json",
+      "wins": 34,
+      "losses": 20,
+      "timeouts": 10,
+      "draws": 0,
+      "games": 64
+    },
+    {
+      "file": "development-4096-initial.json",
+      "wins": 20,
+      "losses": 31,
+      "timeouts": 13,
+      "draws": 0,
+      "games": 64
+    }
+  ],
+  "selected": 2048,
+  "selected_sha256": "ff09496a95a2603b54cc81b94d9de8ef1e00987593881154f1c00584bc89eb39",
+  "development_pass": false,
+  "checks": "Every record recounted, seats balanced, discounts and selected hash checked; NPZ arrays finite."
+}

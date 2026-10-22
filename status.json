@@ -14,17 +14,17 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T22:36:08.683822+00:00",
   "timing": {
-    "measured_at": "2026-10-22T15:36:08.735518-07:00",
+    "measured_at": "2026-10-22T15:37:01.746413-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-22T22:36:08.683822+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 53,
         "completed": 0,
         "total": 2048,
         "task": "Launching reviewed M experiment",
-        "eta_seconds": 429,
+        "eta_seconds": 376,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 139,
-    "eta_seconds": 1420,
+    "elapsed_seconds": 192,
+    "eta_seconds": 1367,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,
@@ -72,8 +72,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 30,
-    "reserved_usd": 0,
+    "remaining_usd": 27.0,
+    "reserved_usd": 3.0,
     "reset_at": "2026-10-23T07:00:00+00:00"
   }
 }

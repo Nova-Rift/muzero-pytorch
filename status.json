@@ -5,18 +5,18 @@
   "completed_games": 2048,
   "target_games": 2048,
   "wins": 3,
-  "evaluation_games": 11,
+  "evaluation_games": 17,
   "timeouts": 0,
   "title": "Evaluating M512 against E1024",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development: M512 vs E1024",
-  "updated_at": "2026-10-22T22:47:58.214851+00:00",
+  "updated_at": "2026-10-22T22:48:07.677671+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 512 games",
     "opponent": "MuZero E1024",
-    "opponent_wins": 8,
+    "opponent_wins": 14,
     "draws": 0
   },
   "training_metrics": {
@@ -140,7 +140,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-22T15:48:02.201317-07:00",
+    "measured_at": "2026-10-22T15:48:07.719046-07:00",
     "steps": [
       {
         "step": 1,
@@ -156,12 +156,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:47:58.214851+00:00",
-        "elapsed_seconds": 143,
-        "completed": 11,
+        "updated_at": "2026-10-22T22:48:07.677671+00:00",
+        "elapsed_seconds": 148,
+        "completed": 17,
         "total": null,
         "task": "development: M512 vs E1024",
-        "eta_seconds": 629,
+        "eta_seconds": 624,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -187,8 +187,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 853,
-    "eta_seconds": 706,
+    "elapsed_seconds": 858,
+    "eta_seconds": 701,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

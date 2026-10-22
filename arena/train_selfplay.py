@@ -18,6 +18,7 @@ from arena.environment import Pool
 from arena.history import DeviceHistory
 from arena.returns import episode_returns
 from arena.provenance import capture_source
+from arena.state_history import save_milestone
 
 
 class Search:
@@ -197,10 +198,14 @@ def main():
             replay.extend({k:v.numpy() for k,v in b.items()} for b in restored['replay'])
             rng.bit_generator.state=restored['numpy_rng'];torch.set_rng_state(restored['torch_rng'])
             if a.device=='cuda':torch.cuda.set_rng_state_all(restored['cuda_rng'])
+        last_saved = None
         def save_state():
+            nonlocal last_saved
+            if last_saved == (totals["games"], totals["optimizer_updates"]):
+                return
             state=dict(arguments=arguments,environment=source,source_files=provenance['files'],torch_version=str(torch.__version__),initial=initial,model=model.state_dict(),optimizer=optimizer.state_dict(),totals=totals,replay=[{k:torch.from_numpy(v) for k,v in b.items()} for b in replay],numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),cuda_rng=torch.cuda.get_rng_state_all() if a.device=='cuda' else [])
-            temporary=out/'resume-state.tmp'
-            torch.save(state,temporary);temporary.replace(out/'resume-state.pt')
+            save_milestone(state, out, torch.save)
+            last_saved = (totals['games'], totals['optimizer_updates'])
         for offset in range(totals['games'],a.games,a.parallel):
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)

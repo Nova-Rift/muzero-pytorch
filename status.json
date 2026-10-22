@@ -40,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:33:35.713053-07:00",
+    "measured_at": "2026-10-22T16:34:39.697528-07:00",
     "steps": [
       {
         "step": 1,
@@ -79,16 +79,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-22T23:33:10.823773+00:00",
-        "elapsed_seconds": 25,
+        "elapsed_seconds": 89,
         "completed": null,
         "total": null,
         "task": "Shared setup deadline validated; preparing E/J bout",
-        "eta_seconds": 42,
+        "eta_seconds": 0,
         "eta_basis": "7 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 193,
-    "eta_seconds": 1366,
+    "elapsed_seconds": 257,
+    "eta_seconds": 1302,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "max_iterations": 17,

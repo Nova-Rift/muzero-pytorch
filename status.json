@@ -4,19 +4,19 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 28,
-  "evaluation_games": 53,
-  "timeouts": 0,
-  "title": "Evaluating M512 against F1024",
+  "wins": 35,
+  "evaluation_games": 64,
+  "timeouts": 6,
+  "title": "Completed MuZero M 512 vs MuZero initial",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
-  "evaluation_label": "development: M512 vs F1024",
-  "updated_at": "2026-10-22T22:49:14.235393+00:00",
+  "evaluation_label": "Completed matched comparison",
+  "updated_at": "2026-10-22T22:49:23.523762+00:00",
   "matchup": {
-    "challenger": "MuZero M \u00b7 512 games",
-    "opponent": "MuZero F1024",
-    "opponent_wins": 25,
+    "challenger": "MuZero M 512",
+    "opponent": "MuZero initial",
+    "opponent_wins": 23,
     "draws": 0
   },
   "training_metrics": {
@@ -142,20 +142,20 @@
   "latest_comparison": {
     "iteration": 8,
     "candidate": "M",
-    "evaluation_label": "development: M512 vs F1024",
-    "wins": 28,
-    "evaluation_games": 53,
-    "timeouts": 0,
+    "evaluation_label": "Completed matched comparison",
+    "wins": 35,
+    "evaluation_games": 64,
+    "timeouts": 6,
     "matchup": {
-      "challenger": "MuZero M \u00b7 512 games",
-      "opponent": "MuZero F1024",
-      "opponent_wins": 25,
+      "challenger": "MuZero M 512",
+      "opponent": "MuZero initial",
+      "opponent_wins": 23,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:49:11.993817+00:00"
+    "updated_at": "2026-10-22T22:49:23.523762+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:49:14.309820-07:00",
+    "measured_at": "2026-10-22T15:49:23.592235-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:49:14.235393+00:00",
-        "elapsed_seconds": 215,
-        "completed": 53,
+        "updated_at": "2026-10-22T22:49:23.523762+00:00",
+        "elapsed_seconds": 224,
+        "completed": 64,
         "total": null,
-        "task": "development: M512 vs F1024",
-        "eta_seconds": 557,
+        "task": "Completed matched comparison",
+        "eta_seconds": 548,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 925,
-    "eta_seconds": 634,
+    "elapsed_seconds": 934,
+    "eta_seconds": 625,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

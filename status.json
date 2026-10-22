@@ -4,19 +4,19 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 31,
-  "evaluation_games": 64,
-  "timeouts": 14,
-  "title": "Completed MuZero M 1024 vs MuZero initial",
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Evaluating M1024 against E1024",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
-  "evaluation_label": "Completed matched comparison",
-  "updated_at": "2026-10-22T22:50:13.815065+00:00",
+  "evaluation_label": "development: M1024 vs E1024",
+  "updated_at": "2026-10-22T22:50:16.151290+00:00",
   "matchup": {
-    "challenger": "MuZero M 1024",
-    "opponent": "MuZero initial",
-    "opponent_wins": 19,
+    "challenger": "MuZero M \u00b7 1024 games",
+    "opponent": "MuZero E1024",
+    "opponent_wins": 0,
     "draws": 0
   },
   "training_metrics": {
@@ -155,7 +155,7 @@
     "updated_at": "2026-10-22T22:50:13.815065+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:50:13.923088-07:00",
+    "measured_at": "2026-10-22T15:50:16.275621-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:50:13.815065+00:00",
-        "elapsed_seconds": 275,
-        "completed": 64,
+        "updated_at": "2026-10-22T22:50:16.151290+00:00",
+        "elapsed_seconds": 277,
+        "completed": 0,
         "total": null,
-        "task": "Completed matched comparison",
-        "eta_seconds": 497,
+        "task": "development: M1024 vs E1024",
+        "eta_seconds": 495,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 984,
-    "eta_seconds": 575,
+    "elapsed_seconds": 987,
+    "eta_seconds": 572,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

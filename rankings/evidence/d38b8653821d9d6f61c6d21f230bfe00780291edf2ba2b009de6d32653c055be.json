@@ -1,0 +1,90 @@
+{
+  "catalog_sha256": "e1136fe82d1248f044126cf4157d52124f0345832c700d21036637e4fd87e4d0",
+  "models": [
+    {
+      "id": "lana-100",
+      "family": "lana",
+      "sha256": "95b7f65cc903a32b0df9cf9409718277968d1ebd1e3e609c878d6a9711abdf94",
+      "trained": true,
+      "training_label": "100 epochs (legacy counter)"
+    },
+    {
+      "id": "selfplay-J2048",
+      "family": "independent_muzero",
+      "sha256": "ff09496a95a2603b54cc81b94d9de8ef1e00987593881154f1c00584bc89eb39",
+      "config": {
+        "observations": 4159,
+        "actions": 153,
+        "hidden": 448,
+        "support": 10,
+        "discount": 1.0,
+        "simulations": 32,
+        "pb_c_base": 19652.0,
+        "pb_c_init": 1.25,
+        "dirichlet_alpha": 0.3,
+        "exploration_fraction": 0.25
+      },
+      "root_candidates": 8,
+      "trained": true
+    }
+  ],
+  "games": 128,
+  "parallel": 128,
+  "workers": 4,
+  "limit": 256,
+  "seed": 91040000,
+  "device": "cuda",
+  "source_sha256": "9b08fc5f16928fa29098cb1dbab1f15e27d7950599216954f0c29cd764fdcec5",
+  "controller_sha256": "7c50f9217d5268b7d826b72c664200eafeac45ba599edb1c6fe8db8558addee7",
+  "environment": {
+    "src/sandboxCombat.ts": "8041163035515c13d1645ada2df72bdf482408dc9f467f220b5429da43e8685a",
+    "src/sandboxMotion.ts": "bff13f8b38d4d59b40271f60fb1fda57ae5c1a752c5763cbe2a9fb383910811c",
+    "src/lana/observation.ts": "1867ab292e924e5708eac81924efc4d1fe7200f294e4d20de804d0955d2a8947"
+  },
+  "cadence": "five .05s frames per decision",
+  "sampling": "independent PCG64 per game and seat; no root noise",
+  "scope": "two active agents, fixed spawn geometry; seeds vary policy sampling, not worlds",
+  "runtime": {
+    "torch": "2.8.0+cu128",
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "legacy_sources": {
+    "scripts/baselines/dreamer4.py": "c8c4cb8d537c3313984096fc0a8ec696894a2dda99a37e80c66186922b49b35c",
+    "scripts/baselines/muzero.py": "1b8562e92cac698646c2107bdda591628e29770680a94f65a064c36ec9350541",
+    "scripts/baselines/__init__.py": "64f0e82792f67d192eef3beab773842b1406413f30a44c985be01a2949db7756",
+    "scripts/baselines/vendor/muzero_models.py": "649188948d72b9b0a83016cc3048992cfd614482a53f0737619e0bfbaed2d0d4",
+    ".training/lana-hybrid-003/source/survival_agent/simulator.py": "c75e710cd7ea65aca587c914dd562d911e3321fee3f825b5f1015c3201962a46",
+    ".training/lana-hybrid-003/source/survival_agent/integrated.py": "3d9aa7f429fbdafb49cfbdd4e9490fcf009e0c77a1ef58a5ae2f51d2d5dcd81e",
+    ".training/lana-hybrid-003/source/survival_agent/agent.py": "9c7582b10983b6f2f7657214927db8997b03ad68bd60b81b6e55fcf452953e3f",
+    ".training/lana-hybrid-003/source/survival_agent/checkpoint_io.py": "567fcbc5da7e9a3b7deffffd69b7dcd73078f9cb59562dc890ec7d493ec5d03d",
+    ".training/lana-hybrid-003/source/survival_agent/replay.py": "2e81d012bab68128daca2b1089268a6396bf0a8d063cb0d806dfeb627b961f8c",
+    ".training/lana-hybrid-003/source/survival_agent/language_backend.py": "30b6dfa404510859b2aa05caf96a25c67ac26ec58ac96f68ec633336f07ad4db",
+    ".training/lana-hybrid-003/source/survival_agent/muzero.py": "cac12e1d2392648796ad7449018d16980a82e6a89ee013acf32aee8624fd11ed",
+    ".training/lana-hybrid-003/source/survival_agent/__init__.py": "5ed961514fc38419976a080d7a9b500f79824dd6af17667788f53dc1ea5f3b94",
+    ".training/lana-hybrid-003/source/survival_agent/training.py": "85b60f173b9ee6c6978ce5c9cd2bd20203de501a849a5a086018b2dcf242d302",
+    ".training/lana-hybrid-003/source/survival_agent/language_run.py": "5ca350b769d6484ab4049b5fdd1126f1f3bbe8c1c44034e51f74d16a282b82d3",
+    ".training/lana-hybrid-003/source/survival_agent/measure.py": "2809aa53a415fb9336665395a48fa963ebbd3e86d90bc8da593a3b21c0baef14",
+    ".training/lana-hybrid-003/source/survival_agent/communication.py": "381f6f960db45d26cee6d58f9ab721dc5b1826b0f88040896b8b56d6cc13b6ab",
+    ".training/lana-hybrid-003/source/survival_agent/muzero_run.py": "cfb2e473c86819e32adc17cac82e55f37e9d0dfdbe5134a9c0f53f123b75a023",
+    ".training/lana-hybrid-003/source/survival_agent/run.py": "235ecbeab389f04483b4ccac8f386f618c6a14c13bfb6f425815369046306663",
+    ".training/lana-hybrid-003/source/survival_agent/integrated_run.py": "8dc5bfd880def496e3f7f61d6ca43195767c1e436b2925b0ba08548bc252c1ec",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/planning.py": "ef0a738be3e4343c3a42a96fd7325fdef1c7859245ae568e256e8744350d610c",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/policy.py": "8bfa44540fc04043ebead7cb35c0ed59b6ce21d6c12ea8cdaba886dff9023577",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/control.py": "e94134d8648248f773f994b8ecb148265915a45241d20febcf4e345c36a04c23",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/contracts.py": "5b44fc5e18e55e17822558226dc1174961517d812a0cd49087083c394a4e4bf1",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/replay.py": "70315381fd1e525b381e7acac2b02d131e67b729229a4ac80a28e34a1555c98c",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/checkpoints.py": "611830bb48ea0b724fc398325b40098b6624b3ba41758b0efadbad8a84dfc237",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/model.py": "7d192b4ab664c911334ef20626868c70f0483caff38ebd8459bf8052a73211a6",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/toy.py": "9e0f604017de6633576f868fea2fd67feb67c93bf29b2679562f17330b9e1f25",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/__init__.py": "c0126a021deebb54c2dcafc842ae715dbabf1b825c296384806685d90b3790a6",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/world_model.py": "f329821b145c5cb3b64ddc113a967d818a774af79828e9c28c024a60ef254dcf",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/transformer_agent.py": "d02513f54a00a14b30f1704325159bac9f860b2e32e526f974130ae30b275091",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/learning.py": "2274b609228a5c96d81d7de568eca7892f9e18cc5a3708fbe6236542d165e3c7",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/diagnostics.py": "e5c9b7c89ef53380bcce34b11d192ac246cf0d45291700e77d8cd5bce19171f1",
+    ".training/lana-hybrid-003/source/survival_agent/hybrid/runtime.py": "563d1bb9a8275bcd879c9f35dd3daef8c9dc18068f0d8c41d726214ec18aaf80",
+    "scripts/evaluate-lana-100.py": "56ed837635e672c7cbe72fad455d539ae10e9362473be8ef26120130a0c4869a",
+    "scripts/lana_large.py": "b9876934260bc6c8cc218ad99ed01760b329d04c12defc0f5c0f02919c6b9d08",
+    "scripts/lana_device.py": "b75ac7ab2cba2ea3a0301c68efa49fc35ce6aee61475934ba232bdc19a93c923",
+    "scripts/lana_batched_planning.py": "b721993d6d28f1c84efd54484a70230c679a46b77be2d4df7098417623239553"
+  }
+}

@@ -4,19 +4,19 @@
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 24,
-  "evaluation_games": 43,
+  "wins": 28,
+  "evaluation_games": 53,
   "timeouts": 0,
   "title": "Evaluating M512 against F1024",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development: M512 vs F1024",
-  "updated_at": "2026-10-22T22:49:02.685913+00:00",
+  "updated_at": "2026-10-22T22:49:11.993817+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 512 games",
     "opponent": "MuZero F1024",
-    "opponent_wins": 19,
+    "opponent_wins": 25,
     "draws": 0
   },
   "training_metrics": {
@@ -143,19 +143,19 @@
     "iteration": 8,
     "candidate": "M",
     "evaluation_label": "development: M512 vs F1024",
-    "wins": 24,
-    "evaluation_games": 43,
+    "wins": 28,
+    "evaluation_games": 53,
     "timeouts": 0,
     "matchup": {
       "challenger": "MuZero M \u00b7 512 games",
       "opponent": "MuZero F1024",
-      "opponent_wins": 19,
+      "opponent_wins": 25,
       "draws": 0
     },
-    "updated_at": "2026-10-22T22:49:00.555686+00:00"
+    "updated_at": "2026-10-22T22:49:11.993817+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:49:04.849968-07:00",
+    "measured_at": "2026-10-22T15:49:12.066530-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:49:02.685913+00:00",
-        "elapsed_seconds": 206,
-        "completed": 43,
+        "updated_at": "2026-10-22T22:49:11.993817+00:00",
+        "elapsed_seconds": 213,
+        "completed": 53,
         "total": null,
         "task": "development: M512 vs F1024",
-        "eta_seconds": 566,
+        "eta_seconds": 559,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 915,
-    "eta_seconds": 644,
+    "elapsed_seconds": 922,
+    "eta_seconds": 637,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

@@ -7,24 +7,24 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Launching reviewed M experiment",
+  "title": "Training M from scratch",
   "change": "Optional zero timeout bootstrap; historical default and model unchanged",
-  "result": "Packaged CPU smoke and source hashes passed; guarded allocation pending. No GPU training progress yet.",
+  "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:36:08.683822+00:00",
+  "updated_at": "2026-10-22T22:38:38.500161+00:00",
   "timing": {
-    "measured_at": "2026-10-22T15:38:05.739123-07:00",
+    "measured_at": "2026-10-22T15:38:38.574063-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T22:36:08.683822+00:00",
-        "elapsed_seconds": 117,
+        "updated_at": "2026-10-22T22:38:38.500161+00:00",
+        "elapsed_seconds": 150,
         "completed": 0,
         "total": 2048,
-        "task": "Launching reviewed M experiment",
-        "eta_seconds": 312,
+        "task": "Training M from scratch",
+        "eta_seconds": 279,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 256,
-    "eta_seconds": 1303,
+    "elapsed_seconds": 289,
+    "eta_seconds": 1270,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

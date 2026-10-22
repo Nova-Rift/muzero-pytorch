@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "queued",
   "iteration": 8,
   "completed_games": 2048,
   "target_games": 2048,
   "wins": 25,
   "evaluation_games": 64,
   "timeouts": 13,
-  "title": "MuZero M completed; reviewing failed improvement hypothesis",
+  "title": "Overseer next: review",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "2048 training games; 640 evaluation games. M1024 vs L/J: 25 wins, 26 losses, 13 timeouts. No promotion; pod deleted.",
+  "result": "Diagnose timeout outcomes and preserve versioned full-state recovery before selecting the next costed GPU hypothesis.",
   "candidate": "M",
   "evaluation_label": "Completed matched comparison",
-  "updated_at": "2026-10-22T23:02:32.944376+00:00",
+  "updated_at": "2026-10-22T23:03:04.443635+00:00",
   "matchup": {
     "challenger": "MuZero M 1024",
     "opponent": "MuZero L2048",
@@ -155,7 +155,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:02:38.952380-07:00",
+    "measured_at": "2026-10-22T16:03:45.706133-07:00",
     "steps": [
       {
         "step": 1,
@@ -181,14 +181,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:02:32.944376+00:00",
-        "elapsed_seconds": 110,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:03:04.443635+00:00",
+        "elapsed_seconds": 136,
         "completed": null,
         "total": null,
         "task": "MuZero M completed; reviewing failed improvement hypothesis",
-        "eta_seconds": 10,
-        "eta_basis": "6 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1729,
-    "eta_seconds": 0,
+    "elapsed_seconds": 1755,
+    "eta_seconds": null,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

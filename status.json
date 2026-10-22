@@ -12,7 +12,7 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "development: M1024 vs initial",
-  "updated_at": "2026-10-22T22:49:38.998752+00:00",
+  "updated_at": "2026-10-22T22:49:41.037518+00:00",
   "matchup": {
     "challenger": "MuZero M \u00b7 1024 games",
     "opponent": "MuZero initial",
@@ -23,7 +23,7 @@
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:49:30.700723+00:00",
+    "reported_at": "2026-10-22T22:49:39.054392+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -155,7 +155,7 @@
     "updated_at": "2026-10-22T22:49:38.998752+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T15:49:39.072185-07:00",
+    "measured_at": "2026-10-22T15:49:41.115526-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-22T22:49:38.998752+00:00",
-        "elapsed_seconds": 240,
+        "updated_at": "2026-10-22T22:49:41.037518+00:00",
+        "elapsed_seconds": 242,
         "completed": 5,
         "total": null,
         "task": "development: M1024 vs initial",
-        "eta_seconds": 532,
+        "eta_seconds": 530,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -202,8 +202,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 949,
-    "eta_seconds": 610,
+    "elapsed_seconds": 951,
+    "eta_seconds": 608,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

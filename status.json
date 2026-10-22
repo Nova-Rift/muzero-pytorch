@@ -2,7 +2,7 @@
   "schema": 1,
   "stage": "train",
   "iteration": 6,
-  "completed_games": 1664,
+  "completed_games": 1792,
   "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
@@ -12,19 +12,19 @@
   "result": "1,664 games/updates confirmed; first full-state checkpoint recovered locally. No evaluation result yet.",
   "candidate": "L",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:04:47.556757+00:00",
+  "updated_at": "2026-10-22T04:05:06.494542+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:04:47.594856-07:00",
+    "measured_at": "2026-10-21T21:05:06.529704-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T04:04:47.556757+00:00",
-        "elapsed_seconds": 521,
-        "completed": 1664,
+        "updated_at": "2026-10-22T04:05:06.494542+00:00",
+        "elapsed_seconds": 539,
+        "completed": 1792,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 761,
+        "eta_seconds": 693,
         "eta_basis": "observed training rate"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 691,
-    "eta_seconds": 752,
+    "elapsed_seconds": 710,
+    "eta_seconds": 733,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

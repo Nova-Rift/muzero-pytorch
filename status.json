@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "paused",
+  "stage": "queued",
   "iteration": 4,
   "completed_games": 0,
-  "target_games": 4096,
+  "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
+  "title": "Owner-reviewed continuation queued",
   "change": "Fixed-trajectory 1024/2048/4096 comparison prepared and tested",
-  "result": "No pod returned; authenticated inventory empty. No training/evaluation. $3 reservation retained, pilot paused, no retry.",
+  "result": "Allocation failure preserved; launch gate tested; authenticated inventory empty. Next bounded turn pending; no GPU training yet.",
   "candidate": "K",
   "evaluation_label": "Not started: 576 registered development games versus initial/E/F",
-  "updated_at": "2026-10-22T03:27:53.654124+00:00",
+  "updated_at": "2026-10-22T03:39:48.064504+00:00",
   "timing": {
-    "measured_at": "2026-10-21T20:38:46.805242-07:00",
+    "measured_at": "2026-10-21T20:39:48.097330-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,7 +51,7 @@
       },
       {
         "step": 4,
-        "state": "interrupted",
+        "state": "finished",
         "updated_at": "2026-10-22T02:42:29.522448+00:00",
         "elapsed_seconds": 67,
         "completed": null,
@@ -61,7 +61,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3683,
+    "elapsed_seconds": 3745,
     "eta_seconds": null,
     "eta_basis": "3 previous completed iteration(s)"
   },

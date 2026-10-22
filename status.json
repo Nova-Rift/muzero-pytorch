@@ -2,7 +2,7 @@
   "schema": 1,
   "stage": "train",
   "iteration": 8,
-  "completed_games": 1024,
+  "completed_games": 1152,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
@@ -12,12 +12,12 @@
   "result": "Fresh source/runtime verified; remote deadline tied to allocation time",
   "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T22:42:18.174899+00:00",
+  "updated_at": "2026-10-22T22:42:40.416124+00:00",
   "training_metrics": {
     "iteration": 8,
     "run_id": "arena-loop-001-M8",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-22T22:42:15.657213+00:00",
+    "reported_at": "2026-10-22T22:42:40.383834+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -74,21 +74,28 @@
         "elapsed_seconds": 196.3326399240177,
         "loss": 4.671642303466797,
         "search_entropy": 1.5580650247244472
+      },
+      {
+        "optimizer_updates": 1152,
+        "games": 1152,
+        "elapsed_seconds": 221.40045093902154,
+        "loss": 4.699317455291748,
+        "search_entropy": 1.4189954018220305
       }
     ]
   },
   "timing": {
-    "measured_at": "2026-10-22T15:42:24.731949-07:00",
+    "measured_at": "2026-10-22T15:42:40.465591-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T22:42:18.174899+00:00",
-        "elapsed_seconds": 376,
-        "completed": 1024,
+        "updated_at": "2026-10-22T22:42:40.416124+00:00",
+        "elapsed_seconds": 392,
+        "completed": 1152,
         "total": 2048,
         "task": "Training M from scratch",
-        "eta_seconds": 376,
+        "eta_seconds": 305,
         "eta_basis": "observed training rate"
       },
       {
@@ -125,8 +132,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 515,
-    "eta_seconds": 1044,
+    "elapsed_seconds": 531,
+    "eta_seconds": 1028,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

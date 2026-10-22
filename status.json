@@ -12,7 +12,7 @@
   "result": "Recovered 0 active loop(s); GPU overlap disabled. Completed jobs: 2",
   "candidate": "J",
   "evaluation_label": "Completed frozen ladder matchup",
-  "updated_at": "2026-10-22T23:38:19.447500+00:00",
+  "updated_at": "2026-10-22T23:38:41.675751+00:00",
   "revision": {
     "summary": "New runner uses one shared SetupDeadline directly for all setup stages.",
     "reason": "Prevents the earlier nested 180-second timeout; smaller initial payload reduces setup cost.",
@@ -46,7 +46,7 @@
     "updated_at": "2026-10-22T23:38:17.495615+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:38:19.506325-07:00",
+    "measured_at": "2026-10-22T16:38:41.729501-07:00",
     "steps": [
       {
         "step": 1,
@@ -73,8 +73,8 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-22T23:38:19.447500+00:00",
-        "elapsed_seconds": 194,
+        "updated_at": "2026-10-22T23:38:41.675751+00:00",
+        "elapsed_seconds": 216,
         "completed": null,
         "total": null,
         "task": "Selecting next measured matchup",
@@ -93,13 +93,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 476,
-    "eta_seconds": 1083,
+    "elapsed_seconds": 499,
+    "eta_seconds": 1060,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792712297.2883184,
+    "updated_at": 1792712318.8828797,
     "fresh": true,
     "loops": [
       {

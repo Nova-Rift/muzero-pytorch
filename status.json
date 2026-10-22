@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "edit",
   "iteration": 12,
   "completed_games": 0,
   "target_games": 0,
@@ -12,7 +12,17 @@
   "result": "Auditing 512 archived outcomes, seat balance and fixed-horizon censoring; no new games.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "Archived outcomes review; no new games",
-  "updated_at": "2026-10-22T23:52:40.089002+00:00",
+  "updated_at": "2026-10-22T23:54:03.854869+00:00",
+  "revision": {
+    "summary": "Proposed read-only trajectory recorder for cutoff diagnosis",
+    "reason": "Archived outcomes show 158 fixed-horizon cutoffs but omit actions and observations; a causal training change is not yet supported.",
+    "changes": [
+      "Add isolated recorder around the frozen environment bridge without changing model, reward, search or action selection.",
+      "Preserve bounded per-decision observations/actions and exact checkpoint/protocol provenance."
+    ],
+    "test_plan": "Check forwarding, immutable records, bounded sampling, and real environment parity; require frozen-policy parity before any ranking import.",
+    "updated_at": "2026-10-22T23:54:03.854865+00:00"
+  },
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -29,7 +39,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:53:50.700149-07:00",
+    "measured_at": "2026-10-22T16:54:03.917264-07:00",
     "steps": [
       {
         "step": 1,
@@ -56,8 +66,8 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-22T23:52:40.089002+00:00",
-        "elapsed_seconds": 130,
+        "updated_at": "2026-10-22T23:54:03.854869+00:00",
+        "elapsed_seconds": 143,
         "completed": null,
         "total": null,
         "task": "Audit fixed-horizon cutoff evidence",
@@ -76,8 +86,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 130,
-    "eta_seconds": 1313,
+    "elapsed_seconds": 143,
+    "eta_seconds": 1300,
     "eta_basis": "9 previous completed iteration(s)"
   },
   "workload_status": {

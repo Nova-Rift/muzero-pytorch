@@ -46,7 +46,7 @@
     "updated_at": "2026-10-22T23:39:20.658546+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:39:50.383161-07:00",
+    "measured_at": "2026-10-22T16:39:54.262390-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,11 +63,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-22T23:39:50.297718+00:00",
-        "elapsed_seconds": 81,
+        "elapsed_seconds": 85,
         "completed": 128,
         "total": null,
         "task": "Completed frozen ladder matchup",
-        "eta_seconds": 774,
+        "eta_seconds": 770,
         "eta_basis": "5 previous iteration(s)"
       },
       {
@@ -93,8 +93,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 567,
-    "eta_seconds": 992,
+    "elapsed_seconds": 571,
+    "eta_seconds": 988,
     "eta_basis": "8 previous completed iteration(s)"
   },
   "workload_status": {

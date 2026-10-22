@@ -14,7 +14,7 @@
   "evaluation_label": "Planned 576 development games across three training counts",
   "updated_at": "2026-10-22T02:41:22.258570+00:00",
   "timing": {
-    "measured_at": "2026-10-21T19:41:22.292112-07:00",
+    "measured_at": "2026-10-21T19:41:39.915601-07:00",
     "steps": [
       {
         "step": 1,
@@ -53,16 +53,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-22T02:41:22.258570+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 18,
         "completed": null,
         "total": null,
         "task": "Validating recovery and evaluation counters",
-        "eta_seconds": 115,
+        "eta_seconds": 97,
         "eta_basis": "3 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 239,
-    "eta_seconds": 1204,
+    "elapsed_seconds": 256,
+    "eta_seconds": 1187,
     "eta_basis": "3 previous completed iteration(s)"
   },
   "max_iterations": 8,

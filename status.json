@@ -140,7 +140,7 @@
     ]
   },
   "timing": {
-    "measured_at": "2026-10-22T15:45:41.499978-07:00",
+    "measured_at": "2026-10-22T15:45:43.446133-07:00",
     "steps": [
       {
         "step": 1,
@@ -157,11 +157,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-22T22:45:41.449934+00:00",
-        "elapsed_seconds": 2,
+        "elapsed_seconds": 4,
         "completed": 0,
         "total": null,
         "task": "development: M512 vs initial",
-        "eta_seconds": 770,
+        "eta_seconds": 768,
         "eta_basis": "4 previous iteration(s)"
       },
       {
@@ -187,8 +187,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 712,
-    "eta_seconds": 847,
+    "elapsed_seconds": 714,
+    "eta_seconds": 845,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 17,

@@ -14,7 +14,7 @@
   "evaluation_label": "No new evaluation",
   "updated_at": "2026-10-22T04:29:02.368676+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:34:11.405992-07:00",
+    "measured_at": "2026-10-21T21:35:13.920287-07:00",
     "steps": [
       {
         "step": 1,
@@ -53,7 +53,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-22T04:29:02.368676+00:00",
-        "elapsed_seconds": 309,
+        "elapsed_seconds": 372,
         "completed": null,
         "total": null,
         "task": "Validating timeout-target candidate locally",
@@ -61,8 +61,8 @@
         "eta_basis": "5 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 478,
-    "eta_seconds": 1081,
+    "elapsed_seconds": 540,
+    "eta_seconds": 1019,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 13,

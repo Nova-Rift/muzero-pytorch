@@ -12,19 +12,139 @@
   "result": "2,176 games/updates confirmed remotely; halfway checkpoint recovery underway. Training remains within bound.",
   "candidate": "L",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:06:37.858103+00:00",
+  "updated_at": "2026-10-22T04:06:58.395578+00:00",
+  "training_metrics": {
+    "iteration": 6,
+    "run_id": "arena-loop-001-L",
+    "loss_definition": "last_update_batch_mean",
+    "reported_at": "2026-10-22T04:06:58.368908+00:00",
+    "points": [
+      {
+        "optimizer_updates": 128,
+        "games": 128,
+        "elapsed_seconds": 29.093104483996285,
+        "loss": 4.921174049377441,
+        "search_entropy": 1.1289262939244509
+      },
+      {
+        "optimizer_updates": 256,
+        "games": 256,
+        "elapsed_seconds": 56.949634832999436,
+        "loss": 4.729355335235596,
+        "search_entropy": 0.9517277150880545
+      },
+      {
+        "optimizer_updates": 384,
+        "games": 384,
+        "elapsed_seconds": 83.99043807698763,
+        "loss": 5.061229228973389,
+        "search_entropy": 1.7629813561215997
+      },
+      {
+        "optimizer_updates": 512,
+        "games": 512,
+        "elapsed_seconds": 108.23409736901522,
+        "loss": 4.907364845275879,
+        "search_entropy": 2.045551107265055
+      },
+      {
+        "optimizer_updates": 640,
+        "games": 640,
+        "elapsed_seconds": 132.69130290401517,
+        "loss": 5.23457145690918,
+        "search_entropy": 2.0302643165923655
+      },
+      {
+        "optimizer_updates": 768,
+        "games": 768,
+        "elapsed_seconds": 157.18844924098812,
+        "loss": 5.054835796356201,
+        "search_entropy": 1.2385504436679184
+      },
+      {
+        "optimizer_updates": 896,
+        "games": 896,
+        "elapsed_seconds": 181.4355028840073,
+        "loss": 5.200203895568848,
+        "search_entropy": 1.379800939699635
+      },
+      {
+        "optimizer_updates": 1024,
+        "games": 1024,
+        "elapsed_seconds": 205.78430656099226,
+        "loss": 5.074512004852295,
+        "search_entropy": 1.600063243880868
+      },
+      {
+        "optimizer_updates": 1152,
+        "games": 1152,
+        "elapsed_seconds": 230.42645324999467,
+        "loss": 5.014042854309082,
+        "search_entropy": 1.7602799811866134
+      },
+      {
+        "optimizer_updates": 1280,
+        "games": 1280,
+        "elapsed_seconds": 254.9864914130012,
+        "loss": 5.26887321472168,
+        "search_entropy": 1.439146236749366
+      },
+      {
+        "optimizer_updates": 1408,
+        "games": 1408,
+        "elapsed_seconds": 279.34565788600594,
+        "loss": 5.212831497192383,
+        "search_entropy": 1.466789361089468
+      },
+      {
+        "optimizer_updates": 1536,
+        "games": 1536,
+        "elapsed_seconds": 304.0762976820115,
+        "loss": 5.117465972900391,
+        "search_entropy": 1.6049210289493203
+      },
+      {
+        "optimizer_updates": 1664,
+        "games": 1664,
+        "elapsed_seconds": 329.42380327699357,
+        "loss": 5.40933895111084,
+        "search_entropy": 1.7518249405547976
+      },
+      {
+        "optimizer_updates": 1792,
+        "games": 1792,
+        "elapsed_seconds": 354.1073436400038,
+        "loss": 5.204561233520508,
+        "search_entropy": 1.8142243614420295
+      },
+      {
+        "optimizer_updates": 1920,
+        "games": 1920,
+        "elapsed_seconds": 379.1385598159977,
+        "loss": 5.26513671875,
+        "search_entropy": 1.9112824751064181
+      },
+      {
+        "optimizer_updates": 2048,
+        "games": 2048,
+        "elapsed_seconds": 403.7334496479889,
+        "loss": 5.301554203033447,
+        "search_entropy": 1.6112050632946193
+      }
+    ]
+  },
   "timing": {
-    "measured_at": "2026-10-21T21:06:37.892021-07:00",
+    "measured_at": "2026-10-21T21:06:58.429708-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-22T04:06:37.858103+00:00",
-        "elapsed_seconds": 631,
+        "updated_at": "2026-10-22T04:06:58.395578+00:00",
+        "elapsed_seconds": 651,
         "completed": 2176,
         "total": 4096,
         "task": "Training L from scratch",
-        "eta_seconds": 557,
+        "eta_seconds": 574,
         "eta_basis": "observed training rate"
       },
       {
@@ -61,8 +181,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 801,
-    "eta_seconds": 642,
+    "elapsed_seconds": 822,
+    "eta_seconds": 621,
     "eta_basis": "5 previous completed iteration(s)"
   },
   "max_iterations": 8,

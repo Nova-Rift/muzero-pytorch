@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "evaluate",
   "iteration": 11,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Transferring registered evaluation runtime",
+  "title": "Evaluating frozen ladder matchup",
   "change": "Review timeout evidence and full-state retention before next experiment",
-  "result": "Registered H100 at $3.99/hour. One 420-second shared setup deadline is active; no research games completed. CPU milestone recovery check prepared.",
+  "result": "Recovered 1 active loop(s); GPU overlap disabled. Completed jobs: 0",
   "candidate": "J",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:35:21.910295+00:00",
+  "updated_at": "2026-10-22T23:36:58.820781+00:00",
   "revision": {
     "summary": "New runner uses one shared SetupDeadline directly for all setup stages.",
     "reason": "Prevents the earlier nested 180-second timeout; smaller initial payload reduces setup cost.",
@@ -40,7 +40,7 @@
     "updated_at": "2026-10-22T22:56:02.366922+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T16:36:46.753428-07:00",
+    "measured_at": "2026-10-22T16:36:58.868632-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,14 +55,14 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-22T23:36:58.820781+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "No new evaluation",
+        "eta_seconds": 855,
+        "eta_basis": "5 previous iteration(s)"
       },
       {
         "step": 3,
@@ -77,19 +77,32 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-22T23:35:21.910295+00:00",
-        "elapsed_seconds": 216,
+        "state": "finished",
+        "updated_at": "2026-10-22T23:36:58.820781+00:00",
+        "elapsed_seconds": 228,
         "completed": null,
         "total": null,
         "task": "Transferring registered evaluation runtime",
-        "eta_seconds": 0,
-        "eta_basis": "7 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 384,
-    "eta_seconds": 1175,
+    "elapsed_seconds": 396,
+    "eta_seconds": 1163,
     "eta_basis": "8 previous completed iteration(s)"
+  },
+  "workload_status": {
+    "active_loops": 1,
+    "updated_at": 1792712216.088221,
+    "fresh": true,
+    "loops": [
+      {
+        "id": "loop-a",
+        "stage": "evaluate",
+        "state": "active",
+        "job_id": "e-j-001"
+      }
+    ]
   },
   "max_iterations": 17,
   "reward": {

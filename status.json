@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "edit",
   "iteration": 7,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 7: reviewing evidence",
-  "change": "4,096 training games; 576 matched development games audited",
-  "result": "Prepare an isolated finite-horizon timeout-bootstrap hypothesis with matched controls and local tests; duration extension did not pass any development gate. Preserve L/J baseline; new settings are not exact resume.",
-  "candidate": "L",
+  "title": "Testing finite-horizon timeout targets",
+  "change": "Optional zero timeout bootstrap; historical default and model unchanged",
+  "result": "Local implementation and tests only so far; no GPU allocated. $24 remains today.",
+  "candidate": "M",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T04:26:13.589965+00:00",
+  "updated_at": "2026-10-22T04:27:17.721154+00:00",
   "timing": {
-    "measured_at": "2026-10-21T21:26:53.677498-07:00",
+    "measured_at": "2026-10-21T21:27:17.775198-07:00",
     "steps": [
       {
         "step": 1,
@@ -41,12 +41,12 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-22T04:26:13.589965+00:00",
-        "elapsed_seconds": 40,
+        "updated_at": "2026-10-22T04:27:17.721154+00:00",
+        "elapsed_seconds": 64,
         "completed": null,
         "total": null,
-        "task": "Iteration 7: reviewing evidence",
-        "eta_seconds": 80,
+        "task": "Testing finite-horizon timeout targets",
+        "eta_seconds": 56,
         "eta_basis": "6 previous iteration(s)"
       },
       {
@@ -61,8 +61,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 40,
-    "eta_seconds": 1519,
+    "elapsed_seconds": 64,
+    "eta_seconds": 1495,
     "eta_basis": "6 previous completed iteration(s)"
   },
   "max_iterations": 13,

@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:05:57.737997-07:00",
+    "measured_at": "2026-10-22T18:07:01.213110-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:01:04.589926+00:00",
-        "elapsed_seconds": 293,
+        "elapsed_seconds": 357,
         "completed": null,
         "total": null,
         "task": "Validate root-count experiment before GPU spend",
@@ -76,14 +76,14 @@
         "eta_basis": "11 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 486,
-    "eta_seconds": 604,
+    "elapsed_seconds": 549,
+    "eta_seconds": 541,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792717447.4001474,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1792717591.2602167,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -115,48 +115,48 @@
           "timeouts": 0,
           "title": "Prepared GPU root16 recorder parity",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "CPU root16 checks and9 transport/report tests passed. Current H100 quote3.99/hour; zero pods verified. Preparing guarded launch.",
+          "result": "Verified transfer reached79.2MB of130.3MB; setup deadline remains enforced. Evaluation awaits unpack/hash verification and GPU parity.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:02:50.145422+00:00",
+          "updated_at": "2026-10-23T01:06:15.374426+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "test",
-        "state": "active",
+        "stage": "review",
+        "state": "pending",
         "job_id": "state-recovery-audit",
         "decision": {
-          "reviewing": "Full-state recovery readiness before future training",
+          "reviewing": "Full-size GPU recovery admission gates",
           "options": [
-            "Prepare exact-state comparator and bounded round-trip test",
-            "Defer training until GPU recovery and exact-resume gates pass"
+            "Keep verified local comparator and prepare split-resume wrapper before GPU admission",
+            "Defer remote test while the frozen root-count experiment runs"
           ],
           "evidence": [
-            "M2048 full-state hash, finite tensors and optimizer steps verified",
-            "229 source and3 environment bindings match; remote full-size recovery unverified"
+            "Six mutation tests and real1GB exact self-comparison passed",
+            "Full-state source and optimizer provenance verified; no GPU resume evidence yet"
           ],
-          "reason": "Integrity checks support preparation but do not establish exact GPU continuation or justify longer unchanged training.",
-          "next_action": "Implement and test a portable state comparator locally; retain missing remote gates explicitly",
-          "updated_at": "2026-10-23T01:03:27.460991+00:00"
+          "reason": "A second remote workload is not ready: wrapper correctness and full-size transfer costs remain unvalidated.",
+          "next_action": "Prepare/test wrapper and measure transfer budget before admitting recovery job; no extra pod",
+          "updated_at": "2026-10-23T01:06:31.290428+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Validate exact checkpoint comparator",
+          "title": "Prepare bounded remote recovery gates",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Implemented recursive tensor, optimizer, replay and RNG comparison. Six focused mutation checks running; no ignored fields or tolerance.",
+          "result": "Local checks complete. Remote recovery blocked on tested split-resume wrapper and costed1GB transfer; release after those prerequisites pass.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:04:07.399801+00:00",
+          "updated_at": "2026-10-23T01:06:31.259937+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

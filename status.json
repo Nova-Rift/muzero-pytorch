@@ -44,7 +44,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:47:59.677217-07:00",
+    "measured_at": "2026-10-22T17:49:02.696004-07:00",
     "steps": [
       {
         "step": 1,
@@ -72,7 +72,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:46:02.660373+00:00",
-        "elapsed_seconds": 790,
+        "elapsed_seconds": 853,
         "completed": null,
         "total": null,
         "task": "Check whether sparse root candidates justify a planner experiment",
@@ -91,14 +91,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1337,
+    "elapsed_seconds": 1400,
     "eta_seconds": 0,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1792716475.5798328,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-b",

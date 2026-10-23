@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Validate root-count experiment before GPU spend",
-  "change": "Replay, frozen-policy audits and root-count correctness checks complete; source published.",
-  "result": "Source shows root32 forces every simulation onto a distinct action. Running CPU proof and root16 validity checks before allocation.",
+  "title": "Frozen M matched diagnostic",
+  "change": "Frozen M2048 root8/root16 comparison; no training.",
+  "result": "Recovered gpu-parity test",
   "candidate": "M finishing diagnosis",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:01:04.589926+00:00",
+  "evaluation_label": "No completed new matchup",
+  "updated_at": "2026-10-23T01:08:00.482918+00:00",
   "latest_comparison": {
     "iteration": 15,
     "candidate": "M finishing diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:07:01.213110-07:00",
+    "measured_at": "2026-10-22T18:08:04.494730-07:00",
     "steps": [
       {
         "step": 1,
@@ -67,42 +67,42 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-23T01:01:04.589926+00:00",
-        "elapsed_seconds": 357,
+        "updated_at": "2026-10-23T01:08:00.482918+00:00",
+        "elapsed_seconds": 420,
         "completed": null,
         "total": null,
-        "task": "Validate root-count experiment before GPU spend",
+        "task": "Frozen M matched diagnostic",
         "eta_seconds": 0,
         "eta_basis": "11 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 549,
-    "eta_seconds": 541,
+    "elapsed_seconds": 612,
+    "eta_seconds": 478,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792717591.2602167,
+    "active_loops": 2,
+    "updated_at": 1792717679.8200686,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "job_id": "root-count-preflight",
+        "job_id": "gpu-parity",
         "decision": {
-          "reviewing": "Root-candidate coverage with frozen M2048",
+          "reviewing": "GPU recorder parity for root16 search",
           "options": [
-            "Compare8 versus16 candidates at32 simulations",
-            "Reject32 candidates at32 simulations before paid testing"
+            "Run identical plain and recorded trajectories before scientific comparisons",
+            "Abort on any action/state/outcome mismatch"
           ],
           "evidence": [
-            "CPU proof:32 forced visits yield uniform1/32 policy",
-            "Root16 validity and root8 repeatability passed; transport/report checks passed"
+            "267 staged files verified",
+            "CPU root16 validity passed; root32 uniform-policy flaw excluded"
           ],
-          "reason": "Sixteen candidates widen coverage while preserving simulations for revisiting actions; strength remains unknown.",
-          "next_action": "Finish guarded setup, verify GPU recorder parity, then run registered balanced E/F comparisons",
-          "updated_at": "2026-10-23T01:03:27.429236+00:00"
+          "reason": "Recording must preserve the exact frozen GPU policy before results can support a search comparison.",
+          "next_action": "After exact parity passes, admit root8 versus E64-game batch under registered development protocol",
+          "updated_at": "2026-10-23T01:07:37.328701+00:00"
         },
         "details": {
           "schema": 1,
@@ -113,50 +113,50 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepared GPU root16 recorder parity",
-          "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Verified transfer reached79.2MB of130.3MB; setup deadline remains enforced. Evaluation awaits unpack/hash verification and GPU parity.",
-          "candidate": "M2048",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:06:15.374426+00:00",
+          "title": "Frozen M matched diagnostic",
+          "change": "Frozen M2048 root8/root16 comparison; no training.",
+          "result": "Recovered gpu-parity test",
+          "candidate": "M finishing diagnosis",
+          "evaluation_label": "No completed new matchup",
+          "updated_at": "2026-10-23T01:08:00.481147+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "review",
-        "state": "pending",
+        "stage": "edit",
+        "state": "active",
         "job_id": "state-recovery-audit",
         "decision": {
-          "reviewing": "Full-size GPU recovery admission gates",
+          "reviewing": "Prepare immutable checkpoint capture for split-resume tests",
           "options": [
-            "Keep verified local comparator and prepare split-resume wrapper before GPU admission",
-            "Defer remote test while the frozen root-count experiment runs"
+            "Delegate isolated wrapper and CPU failure-path tests",
+            "Keep remote recovery gated until transfer and runtime preflight pass"
           ],
           "evidence": [
-            "Six mutation tests and real1GB exact self-comparison passed",
-            "Full-state source and optimizer provenance verified; no GPU resume evidence yet"
+            "Comparator and full-state integrity checks passed",
+            "Current wrapper gap can be addressed independently of GPU evaluation"
           ],
-          "reason": "A second remote workload is not ready: wrapper correctness and full-size transfer costs remain unvalidated.",
-          "next_action": "Prepare/test wrapper and measure transfer budget before admitting recovery job; no extra pod",
-          "updated_at": "2026-10-23T01:06:31.290428+00:00"
+          "reason": "Independent CPU engineering can remove a real prerequisite while the coordinator monitors the paid workload.",
+          "next_action": "Review helper tests and saved handoff, then publish tested wrapper; no training admission yet",
+          "updated_at": "2026-10-23T01:07:29.027099+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare bounded remote recovery gates",
+          "title": "Implement bounded checkpoint capture wrapper",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Local checks complete. Remote recovery blocked on tested split-resume wrapper and costed1GB transfer; release after those prerequisites pass.",
+          "result": "New claimed helper prepares process timeout and immutable full-state capture tests in isolated worktree; no GPU training.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:06:31.259937+00:00",
+          "updated_at": "2026-10-23T01:07:13.809131+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

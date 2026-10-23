@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "queued",
   "iteration": 19,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Split-search correctness checkpoint archived",
+  "title": "Overseer next: test",
   "change": "Published adapter/controller and preserved interrupted18 diagnostic history.",
-  "result": "Six fixtures, real-model parity and truncated arena wiring passed. No scored games or GPU spend. Next: candidate evaluator integration.",
+  "result": "Integrate explicit candidate evaluator dispatch/protocol; validate scored runner then cost GPU parity and matched comparisons. No stronger-play claim or training admission.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:15:49.410578+00:00",
+  "updated_at": "2026-10-23T02:15:55.902657+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:15:49.462709-07:00",
+    "measured_at": "2026-10-22T19:16:42.558202-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,14 +55,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T02:15:49.410578+00:00",
-        "elapsed_seconds": 639,
+        "state": "finished",
+        "updated_at": "2026-10-23T02:15:55.902657+00:00",
+        "elapsed_seconds": 645,
         "completed": null,
         "total": null,
         "task": "Split-search correctness checkpoint archived",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -76,8 +76,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 639,
-    "eta_seconds": 119,
+    "elapsed_seconds": 645,
+    "eta_seconds": null,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {

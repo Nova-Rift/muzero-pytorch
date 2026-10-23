@@ -7,35 +7,35 @@
   "wins": 0,
   "evaluation_games": 2,
   "timeouts": 1,
-  "title": "Baseline scored gate complete; candidate next",
+  "title": "Split scored gate complete; matched development next",
   "change": "Published adapter/controller and preserved interrupted18 diagnostic history.",
-  "result": "Final baseline gate:0 wins,1 opponent win,0 draws,1 cutoff in2 games; not strength evidence.",
-  "candidate": "M2048 baseline",
+  "result": "Final split gate:0 wins,1 opponent win,0 draws,1 cutoff in2 games. Full-horizon scored wiring passes.",
+  "candidate": "M2048 split",
   "evaluation_label": "CPU scored wiring gate versus E1024",
-  "updated_at": "2026-10-23T02:24:16.075486+00:00",
+  "updated_at": "2026-10-23T02:25:40.537948+00:00",
   "matchup": {
-    "challenger": "M2048-baseline",
+    "challenger": "M2048-split",
     "opponent": "E1024",
     "opponent_wins": 1,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 20,
-    "candidate": "M2048 baseline",
+    "candidate": "M2048 split",
     "evaluation_label": "CPU scored wiring gate versus E1024",
     "wins": 0,
     "evaluation_games": 2,
     "timeouts": 1,
     "matchup": {
-      "challenger": "M2048-baseline",
+      "challenger": "M2048-split",
       "opponent": "E1024",
       "opponent_wins": 1,
       "draws": 0
     },
-    "updated_at": "2026-10-23T02:24:16.075486+00:00"
+    "updated_at": "2026-10-23T02:25:40.537948+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:25:07.004851-07:00",
+    "measured_at": "2026-10-22T19:25:40.590766-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-23T02:24:16.075486+00:00",
-        "elapsed_seconds": 51,
+        "updated_at": "2026-10-23T02:25:40.537948+00:00",
+        "elapsed_seconds": 85,
         "completed": 2,
         "total": null,
         "task": "CPU scored wiring gate versus E1024",
-        "eta_seconds": 474,
+        "eta_seconds": 440,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,14 +82,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 430,
-    "eta_seconds": 324,
+    "elapsed_seconds": 464,
+    "eta_seconds": 290,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792722256.1110516,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

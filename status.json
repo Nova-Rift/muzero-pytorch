@@ -12,7 +12,7 @@
   "result": "Recovered 128 games: 59 challenger wins, 41 opponent wins, 0 draws, 28 cutoffs.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
-  "updated_at": "2026-10-23T00:20:20.991950+00:00",
+  "updated_at": "2026-10-23T00:21:21.303525+00:00",
   "matchup": {
     "challenger": "selfplay-E1024",
     "opponent": "selfplay-J2048",
@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:20:29.011022-07:00",
+    "measured_at": "2026-10-22T17:21:31.509490-07:00",
     "steps": [
       {
         "step": 1,
@@ -82,13 +82,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 631,
+    "elapsed_seconds": 691,
     "eta_seconds": null,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792714827.3655415,
+    "updated_at": 1792714887.716399,
     "fresh": true,
     "loops": [
       {
@@ -110,7 +110,7 @@
           "result": "Recovered 128 games: 59 challenger wins, 41 opponent wins, 0 draws, 28 cutoffs.",
           "candidate": "J cutoff diagnosis",
           "evaluation_label": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
-          "updated_at": "2026-10-23T00:20:28.915476+00:00",
+          "updated_at": "2026-10-23T00:21:31.259705+00:00",
           "matchup": {
             "challenger": "selfplay-E1024",
             "opponent": "selfplay-J2048",

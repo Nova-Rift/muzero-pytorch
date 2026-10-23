@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "review",
   "iteration": 17,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Check stochastic search targets before revising training",
-  "change": "Replay census and loss reconstruction passed; no model weights changed.",
-  "result": "Testing16 saved histories with64 repeated searches each. No new games or GPU allocation.",
+  "title": "Frozen target diagnostics archived",
+  "change": "Tested diagnostic sources pushed and remote SHAs verified; no model revision or new games.",
+  "result": "Replay integrity passed. Aggregation gains mixed and expensive; next review will cost-match an estimator. No pod allocated; helper closed.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:27:01.116946+00:00",
+  "updated_at": "2026-10-23T01:31:18.366539+00:00",
   "revision": {
     "summary": "Added read-only replay-fit diagnostic",
     "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:30:21.465802-07:00",
+    "measured_at": "2026-10-22T18:31:18.428658-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,40 +64,40 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:22:14.602343+00:00",
+        "state": "active",
+        "updated_at": "2026-10-23T01:31:18.366539+00:00",
         "elapsed_seconds": 199,
         "completed": null,
         "total": null,
-        "task": "Iteration 17: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Frozen target diagnostics archived",
+        "eta_seconds": 0,
+        "eta_basis": "14 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T01:27:01.116946+00:00",
-        "elapsed_seconds": 487,
+        "state": "finished",
+        "updated_at": "2026-10-23T01:31:18.366539+00:00",
+        "elapsed_seconds": 544,
         "completed": null,
         "total": null,
         "task": "Check stochastic search targets before revising training",
-        "eta_seconds": 0,
-        "eta_basis": "12 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 686,
-    "eta_seconds": 238,
+    "elapsed_seconds": 743,
+    "eta_seconds": 181,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792718985.5460148,
+    "active_loops": 0,
+    "updated_at": 1792719078.1045232,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
-        "state": "active",
+        "stage": "review",
+        "state": "done",
         "job_id": "search-target-review",
         "decision": {
           "reviewing": "Does averaging search draws predict independent draws better?",
@@ -114,7 +114,7 @@
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 17,
           "completed_games": 0,
           "target_games": 0,
@@ -123,10 +123,10 @@
           "timeouts": 0,
           "title": "Test disjoint target aggregation",
           "change": "Local evidence review; no pod or training.",
-          "result": "Running16 fixed histories with64 discovery plus64 validation searches each, fresh seed170004. Fixed50% prior/mean-target blend; no training.",
+          "result": "Session checkpoint: aggregation improved7/16 histories;64-search cost lacks training justification. Next: cost-matched estimator design. No GPU task ready.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:29:45.545953+00:00",
+          "updated_at": "2026-10-23T01:31:18.104529+00:00",
           "revision": {
             "summary": "Added read-only replay-fit diagnostic",
             "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -143,7 +143,7 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "active",
+        "state": "done",
         "job_id": "replay-target-census",
         "decision": {
           "reviewing": "What does replay integrity establish for the next revision?",
@@ -170,10 +170,10 @@
           "timeouts": 0,
           "title": "Prepare diagnostic provenance archive",
           "change": "Local evidence review; no pod or training.",
-          "result": "Census reviewed and published. Main preparing revision index and artifact manifest; no helper needed for this short finalization task.",
+          "result": "Census and publication complete:384 games,87694 transitions;8 total fixtures pass across diagnostics. Helper closed. Next: broader frozen-history protocol.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:29:45.545999+00:00",
+          "updated_at": "2026-10-23T01:31:18.104579+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

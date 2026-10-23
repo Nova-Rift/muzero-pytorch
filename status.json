@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:09:55.762815-07:00",
+    "measured_at": "2026-10-22T17:10:58.497258-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:09:50.144622+00:00",
-        "elapsed_seconds": 6,
+        "elapsed_seconds": 68,
         "completed": null,
         "total": null,
         "task": "Iteration 14: reviewing evidence",
-        "eta_seconds": 118,
+        "eta_seconds": 56,
         "eta_basis": "11 previous iteration(s)"
       },
       {
@@ -76,8 +76,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 6,
-    "eta_seconds": 1263,
+    "elapsed_seconds": 68,
+    "eta_seconds": 1201,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {

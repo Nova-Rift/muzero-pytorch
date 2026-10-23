@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:31:07.489399-07:00",
+    "measured_at": "2026-10-22T17:32:10.266710-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:29:16.977497+00:00",
-        "elapsed_seconds": 325,
+        "elapsed_seconds": 387,
         "completed": null,
         "total": null,
         "task": "Interpret verified J shot replay; prepare matched diagnostics",
@@ -76,20 +76,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 325,
-    "eta_seconds": 854,
+    "elapsed_seconds": 387,
+    "eta_seconds": 792,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792715400.6511648,
+    "updated_at": 1792715469.0091305,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "job_id": "j-engagement-review",
+        "job_id": "j-replay-interpretation",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -99,12 +99,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Interpret verified J shot replay; prepare matched diagnostics",
+          "title": "Compare J shot alignment with controls",
           "change": "Saved-action replay matched 5,273,664 observation values; maximum error 2.98e-8. No new games.",
-          "result": "Nine sampled cutoffs: J emitted 870 shots; 5.5% within half an aim bin of opponent position. Descriptive only; checking controls before causal interpretation.",
+          "result": "Native helper analyzing verified replay results against opponent and finished-game controls; no new games.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:29:16.977034+00:00",
+          "updated_at": "2026-10-23T00:31:09.008859+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

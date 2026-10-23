@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:46:02.362559-07:00",
+    "measured_at": "2026-10-22T19:47:04.962188-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,7 +66,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:46:00.621098+00:00",
-        "elapsed_seconds": 325,
+        "elapsed_seconds": 387,
         "completed": null,
         "total": null,
         "task": "Gradient audit passed; examine horizon information",
@@ -85,13 +85,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 325,
-    "eta_seconds": 433,
+    "elapsed_seconds": 387,
+    "eta_seconds": 371,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792723560.6209128,
+    "updated_at": 1792723582.8124495,
     "fresh": true,
     "loops": [
       {
@@ -133,36 +133,37 @@
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "job_id": "training-contract-review",
+        "job_id": "horizon-contract-fixture",
         "decision": {
-          "reviewing": "Which return and timeout training variants have already been tested?",
+          "reviewing": "Can identical rolling inputs correspond to different time remaining under the finite objective?",
           "options": [
-            "Audit actual M8 arguments and historical H\u2013M records"
+            "Test an explicit analytic input-alias counterexample"
           ],
           "evidence": [
-            "Historical candidates include both training and inference revisions"
+            "M8 uses episode returns and zero bootstrap at256 decisions",
+            "Current64-frame input contains no explicit global step"
           ],
-          "reason": "Avoid repeating rejected work or mislabeling changed targets as continuation.",
-          "next_action": "Helper returns evidence-backed configuration coverage and remaining uncertainty",
-          "updated_at": "2026-10-23T02:41:58.759519+00:00"
+          "reason": "Establish the information contract before any clock-conditioned model experiment.",
+          "next_action": "Helper implements source-bound fixture; no model or environment edits",
+          "updated_at": "2026-10-23T02:46:47.507989+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 21,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review finite-horizon input contract",
+          "title": "Test finite-horizon input ambiguity",
           "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "M8 uses finite256 horizon without explicit remaining-time input. Helper closed/reclaimed; inspect bounded calibration test.",
+          "result": "Analytic fixture only; no claim that clock input improves play.",
           "candidate": "MuZero next-hypothesis review",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:46:00.620625+00:00",
+          "updated_at": "2026-10-23T02:46:22.812703+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

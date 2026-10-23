@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "complete",
+  "stage": "queued",
   "iteration": 13,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Diagnostic runner preparation checkpointed",
+  "title": "Overseer next: edit",
   "change": "Owner requested a safe turn boundary for helper activation; no allocation.",
-  "result": "10 local checks passed; GPU parity and diagnostic evaluations remain unrun.",
+  "result": "Finish packaging and per-loop monitor integration after owner maintenance; fresh preflight required before guarded allocation.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T00:01:09.740210+00:00",
+  "updated_at": "2026-10-23T00:01:55.493569+00:00",
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:01:14.964708-07:00",
+    "measured_at": "2026-10-22T17:02:21.699335-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,14 +76,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 100,
+    "elapsed_seconds": 146,
     "eta_seconds": null,
     "eta_basis": "10 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
     "updated_at": 1792713669.739787,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

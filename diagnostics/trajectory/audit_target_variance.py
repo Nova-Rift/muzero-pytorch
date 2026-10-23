@@ -9,8 +9,16 @@ def decompose(targets,prior):
  assert torch.allclose(expected,js+kl,atol=2e-6,rtol=2e-6)
  return dict(mean_target_entropy=float(h),averaged_target_entropy=float(hm),mean_sample_kl_to_prior=float(expected),sampling_js=float(js),averaged_target_kl_to_prior=float(kl),decomposition_error=float(abs(expected-js-kl)))
 
+def heldout(targets, prior):
+ split=len(targets)//2
+ discovery=targets[:split].mean(0); validation=targets[split:].mean(0)
+ mixture=0.5*prior+0.5*discovery
+ base=-(validation*prior.clamp_min(1e-30).log()).sum()
+ candidate=-(validation*mixture.clamp_min(1e-30).log()).sum()
+ return dict(discovery_draws=split,validation_draws=len(targets)-split,prior_ce=float(base),fixed_half_mixture_ce=float(candidate),mixture_minus_prior_ce=float(candidate-base))
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--state',type=Path,required=True);p.add_argument('--catalog',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--noise-fraction',type=float,default=None);p.add_argument('--states',type=int,default=4);p.add_argument('--draws',type=int,default=32);a=p.parse_args();assert 1<=a.states<=64 and 2<=a.draws<=256;sys.path.insert(0,str(a.source))
+ p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--state',type=Path,required=True);p.add_argument('--catalog',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--seed',type=int,default=170003);p.add_argument('--noise-fraction',type=float,default=None);p.add_argument('--states',type=int,default=4);p.add_argument('--draws',type=int,default=32);a=p.parse_args();assert 1<=a.states<=64 and 2<=a.draws<=256;sys.path.insert(0,str(a.source))
  from model import MuZero,Config
  from arena.train_selfplay import replay_batch
  from batched_search_exploration import search_batch
@@ -18,13 +26,13 @@ def main():
  for name in ['model.py','arena/train_selfplay.py','arena/history.py','batched_search_exploration.py']:
   assert hashlib.sha256((a.source/name).read_bytes()).hexdigest()==s['source_files'][name]
  b={k:v.numpy() for k,v in s['replay'][-1].items()};x=replay_batch(b,np.random.default_rng(170002),a.states,s['arguments']['context'],s['arguments']['unroll'],'cpu')[0];del s,b
- results=[];torch.manual_seed(170003)
+ results=[];torch.manual_seed(a.seed)
  with torch.no_grad():
   for i in range(a.states):
    obs=x[i:i+1].repeat(a.draws,1);_,logits,_=m.initial(obs);prior=logits.softmax(-1)
    noise=torch.distributions.Dirichlet(torch.full_like(prior,m.config.dirichlet_alpha)).sample();roots=torch.multinomial((1-m.config.exploration_fraction)*prior+m.config.exploration_fraction*noise,8,replacement=False)
    policies,_=search_batch(m,obs,root_noise=noise,root_candidates=roots)
-   assert torch.allclose(policies.sum(-1),torch.ones(a.draws));results.append(dict(state_index=i,draws=a.draws,**decompose(policies,prior[0])))
- report=dict(exploration_fraction=m.config.exploration_fraction,changed_search_setting=a.noise_fraction is not None,seed=170003,states=a.states,draws_per_state=a.draws,new_games=0,optimizer_updates=0,scope='Finite Monte Carlo repeated noisy search on fixed saved histories; not generalization or irreducible-noise proof',results=results)
+   assert torch.allclose(policies.sum(-1),torch.ones(a.draws));results.append(dict(state_index=i,draws=a.draws,**decompose(policies,prior[0]),heldout=heldout(policies,prior[0])))
+ report=dict(exploration_fraction=m.config.exploration_fraction,changed_search_setting=a.noise_fraction is not None,seed=a.seed,states=a.states,draws_per_state=a.draws,new_games=0,optimizer_updates=0,scope='Finite Monte Carlo repeated noisy search on fixed saved histories; not generalization or irreducible-noise proof',results=results)
  a.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
 if __name__=='__main__':main()

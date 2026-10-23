@@ -23,3 +23,9 @@ Independent retained replay census (branch experiment/iteration-17-replay-audit,
 Before a training change, test target aggregation on fixed saved histories with independent discovery/validation search seeds. Compare prior against mean targets using disjoint draws; quantify how averaging changes variance and held-out target fit. Freeze history selection and settings before reading validation outputs. This tests target estimation, not game strength. Reject an aggregation proposal if benefit disappears with independent draws or its extra search cost lacks a bounded training benefit hypothesis.
 
 A real training revision would be a new experiment with explicit warm-start/reset choice, not exact continuation. It still needs source tests, full-state remote recovery validation, sufficient local artifact space, costed throughput, frozen incumbent/E/F comparisons and independent-seed confirmation before promotion. Unchanged training is not justified by these integrity checks.
+
+## Disjoint-draw follow-up
+
+Fresh search seed170004, same16 histories,128 searches/history split64 discovery/64 validation. Fixed estimator =0.5 prior +0.5 discovery mean; no coefficient tuning. Mean validation cross-entropy change versus prior was−0.101142 nats, but improved only7/16 histories (range−0.473749 to+0.036655). Four fixtures now pass, including opposite validation targets detecting overfit. This is internal search-draw validation on development histories, NOT held-out game confirmation.
+
+The64-search estimator costs far more than one historical32-simulation target. Mixed per-history gains and absent training/strength evidence do not justify paid training or changing exploration. Next work must cost-match a practical target estimator and freeze a broader history selection protocol before testing; do not tune on these validation draws. Full-state remote recovery and local storage capacity remain separate admission prerequisites.

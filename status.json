@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:37:36.992733-07:00",
+    "measured_at": "2026-10-22T19:38:39.618332-07:00",
     "steps": [
       {
         "step": 1,
@@ -74,7 +74,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T02:37:21.759979+00:00",
-        "elapsed_seconds": 153,
+        "elapsed_seconds": 216,
         "completed": null,
         "total": null,
         "task": "Completed recorded split replay",
@@ -82,13 +82,13 @@
         "eta_basis": "13 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 1180,
+    "elapsed_seconds": 1243,
     "eta_seconds": 0,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792723041.7602718,
+    "updated_at": 1792723107.68013,
     "fresh": true,
     "loops": [
       {
@@ -96,6 +96,19 @@
         "stage": "review",
         "state": "active",
         "job_id": "paired-trajectory-analysis",
+        "decision": {
+          "reviewing": "Do the two new E cutoffs reflect absent firing or ineffective shots?",
+          "options": [
+            "Inspect actual emitted shots and hits in selected paired trajectories"
+          ],
+          "evidence": [
+            "Both8-game replays match original outcomes exactly",
+            "1591744 observation scalars matched canonical replay within2.99e-8"
+          ],
+          "reason": "Distinguish an observed action failure from a scoring/recorder defect without claiming causation.",
+          "next_action": "Summarize exact projectile counts with counterexample and limitations",
+          "updated_at": "2026-10-23T02:38:27.680130+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -120,6 +133,20 @@
         "stage": "review",
         "state": "active",
         "job_id": "diagnostic-report-review",
+        "decision": {
+          "reviewing": "Does this evidence justify changing training now?",
+          "options": [
+            "Retain baseline and rejected candidate evidence",
+            "Require a new tested hypothesis before any training"
+          ],
+          "evidence": [
+            "Frozen inference candidate fails E gate",
+            "No training-seed replication or GPU recovery validation was performed in this session"
+          ],
+          "reason": "Opponent-specific development results do not justify immediate target-training changes.",
+          "next_action": "Record explicit prerequisites and preserve source/results for the next hypothesis",
+          "updated_at": "2026-10-23T02:38:27.711324+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",

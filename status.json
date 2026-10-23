@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:35:38.633645-07:00",
+    "measured_at": "2026-10-22T18:36:42.570145-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T01:35:32.470839+00:00",
-        "elapsed_seconds": 6,
+        "elapsed_seconds": 70,
         "completed": null,
         "total": null,
         "task": "Iteration 18: reviewing evidence",
-        "eta_seconds": 130,
+        "eta_seconds": 66,
         "eta_basis": "15 previous iteration(s)"
       },
       {
@@ -76,26 +76,88 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 6,
-    "eta_seconds": 752,
+    "elapsed_seconds": 70,
+    "eta_seconds": 688,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792719078.1045232,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792719398.8529162,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "done",
-        "job_id": "search-target-review"
+        "state": "active",
+        "job_id": "cost-matched-targets",
+        "decision": {
+          "reviewing": "Can target averaging help at the same simulation budget?",
+          "options": [
+            "One32-simulation search with8 roots",
+            "Four8-simulation searches with2 roots each"
+          ],
+          "evidence": [
+            "64-search mixture improved7/16 histories but was too costly to justify training."
+          ],
+          "reason": "Match total recurrent rollout budget; retain selection and validation separation. Equal rollout count is not assumed equal wall time.",
+          "next_action": "Check forced-root mechanics, freeze protocol, implement bounded CPU comparison.",
+          "updated_at": "2026-10-23T01:36:38.886497+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 18,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Design cost-matched target estimator",
+          "change": "Local preparation; no paid resources.",
+          "result": "Reviewing one32-simulation search versus four8-simulation searches; fixed total rollout budget, no training yet.",
+          "candidate": "M2048 target diagnosis",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T01:36:38.852882+00:00",
+          "max_iterations": 18,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "done",
-        "job_id": "replay-target-census"
+        "state": "active",
+        "job_id": "recovery-space-audit",
+        "decision": {
+          "reviewing": "Can existing artifacts support safe full-state recovery validation?",
+          "options": [
+            "Reclaim only hash-verified duplicates",
+            "Defer GPU recovery if space or transfer gates fail"
+          ],
+          "evidence": [
+            "Local free space about1.07GB; full state about1.01GB; remote recovery remains unverified."
+          ],
+          "reason": "Need durable checkpoint headroom before paid training. Read-only audit protects unique historical evidence.",
+          "next_action": "Helper reviews retained duplicates and documents exact release conditions.",
+          "updated_at": "2026-10-23T01:36:38.926524+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 18,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Audit recovery and artifact space",
+          "change": "Local preparation; no paid resources.",
+          "result": "Helper assigned read-only duplicate/provenance and remote recovery audit; no deletion or allocation.",
+          "candidate": "M2048 target diagnosis",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T01:36:38.852906+00:00",
+          "max_iterations": 18,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "complete",
   "iteration": 17,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Frozen target diagnostics archived",
+  "title": "Daily research allowance reached",
   "change": "Tested diagnostic sources pushed and remote SHAs verified; no model revision or new games.",
   "result": "Replay integrity passed. Aggregation gains mixed and expensive; next review will cost-match an estimator. No pod allocated; helper closed.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:31:18.366539+00:00",
+  "updated_at": "2026-10-23T01:31:24.795458+00:00",
   "revision": {
     "summary": "Added read-only replay-fit diagnostic",
     "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:31:18.428658-07:00",
+    "measured_at": "2026-10-22T18:31:25.201292-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,14 +64,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T01:31:18.366539+00:00",
-        "elapsed_seconds": 199,
+        "state": "finished",
+        "updated_at": "2026-10-23T01:31:24.795458+00:00",
+        "elapsed_seconds": 205,
         "completed": null,
         "total": null,
         "task": "Frozen target diagnostics archived",
-        "eta_seconds": 0,
-        "eta_basis": "14 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -85,8 +85,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 743,
-    "eta_seconds": 181,
+    "elapsed_seconds": 749,
+    "eta_seconds": null,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {

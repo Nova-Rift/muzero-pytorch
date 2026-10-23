@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:03:51.761452-07:00",
+    "measured_at": "2026-10-22T18:04:55.212390-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:01:04.589926+00:00",
-        "elapsed_seconds": 167,
+        "elapsed_seconds": 231,
         "completed": null,
         "total": null,
         "task": "Validate root-count experiment before GPU spend",
@@ -76,14 +76,14 @@
         "eta_basis": "11 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 360,
-    "eta_seconds": 730,
+    "elapsed_seconds": 423,
+    "eta_seconds": 667,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792717370.145507,
-    "fresh": false,
+    "updated_at": 1792717447.4001474,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -125,7 +125,7 @@
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
         "job_id": "state-recovery-audit",
         "decision": {
@@ -144,19 +144,19 @@
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review full-state recovery admission plan",
+          "title": "Validate exact checkpoint comparator",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Helper closed and reclaimed. Full-state/source integrity verified; main reviews safe comparator design while GPU parity runs.",
+          "result": "Implemented recursive tensor, optimizer, replay and RNG comparison. Six focused mutation checks running; no ignored fields or tolerance.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:02:50.145446+00:00",
+          "updated_at": "2026-10-23T01:04:07.399801+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

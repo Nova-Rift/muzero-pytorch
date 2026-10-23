@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:30:05.193741-07:00",
+    "measured_at": "2026-10-22T17:31:07.489399-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:29:16.977497+00:00",
-        "elapsed_seconds": 262,
+        "elapsed_seconds": 325,
         "completed": null,
         "total": null,
         "task": "Interpret verified J shot replay; prepare matched diagnostics",
@@ -76,14 +76,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 262,
-    "eta_seconds": 917,
+    "elapsed_seconds": 325,
+    "eta_seconds": 854,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792715400.6511648,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

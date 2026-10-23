@@ -1,18 +1,27 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 17,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 17: reviewing evidence",
-  "change": "Rejected saturated root32 plan; tested root8/root16 and full-state recovery tools.",
-  "result": "Root16 showed no demonstrated benefit. Review policy/search targets and integrate costed full-state recovery before next GPU experiment.",
+  "title": "Reconcile frozen replay loss components",
+  "change": "Read-only saved replay diagnostics; no training.",
+  "result": "Implemented read-only loss decomposition; running384 saved replay samples and checking reconstructed loss against historical model.loss.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:18:55.645763+00:00",
+  "updated_at": "2026-10-23T01:22:14.602343+00:00",
+  "revision": {
+    "summary": "Added read-only replay-fit diagnostic",
+    "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
+    "changes": [
+      "diagnostics/trajectory/audit_replay_fit.py samples saved replay and decomposes policy/value/reward loss"
+    ],
+    "test_plan": "Require component sum to match exact model.loss; preserve masks and fixed sampling seed. No strength claim.",
+    "updated_at": "2026-10-23T01:22:14.602340+00:00"
+  },
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -29,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:21:56.950794-07:00",
+    "measured_at": "2026-10-22T18:22:59.462003-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,70 +64,79 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T01:18:55.645763+00:00",
-        "elapsed_seconds": 181,
+        "state": "finished",
+        "updated_at": "2026-10-23T01:22:14.602343+00:00",
+        "elapsed_seconds": 199,
         "completed": null,
         "total": null,
         "task": "Iteration 17: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "14 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
+        "state": "active",
+        "updated_at": "2026-10-23T01:22:14.602343+00:00",
+        "elapsed_seconds": 45,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Reconcile frozen replay loss components",
+        "eta_seconds": 58,
+        "eta_basis": "12 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 181,
-    "eta_seconds": 743,
+    "elapsed_seconds": 244,
+    "eta_seconds": 680,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792718390.0322123,
-    "fresh": false,
+    "updated_at": 1792718534.6019495,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
         "job_id": "search-target-review",
         "decision": {
-          "reviewing": "Why wider roots did not improve frozen M2048",
+          "reviewing": "Saved target entropy versus frozen prediction fit",
           "options": [
-            "Audit exact search and learning target contract locally",
-            "Train longer only if evidence supports unchanged continuation"
+            "Measure per-unroll policy KL and entropy on fixed replay samples",
+            "Defer architecture or training changes until actual mismatch is identified"
           ],
           "evidence": [
-            "Root16 produced fewer wins than root8 on E/F development batches; intervals include zero",
-            "Root32 at32 simulations is exactly uniform across forced roots"
+            "Exact M8 source hashes match saved checkpoint bindings",
+            "Policy targets come from noisy search visits; prediction entropy alone cannot diagnose fitting"
           ],
-          "reason": "A target-generation or learning mismatch should be investigated before more paid training or another search sweep.",
-          "next_action": "Verify historical source hashes and build focused deterministic target checks",
-          "updated_at": "2026-10-23T01:20:18.624694+00:00"
+          "reason": "Recomputing components with exact masks can identify which head or unroll depth needs investigation.",
+          "next_action": "Check decomposition matches historical loss; compare findings with independent target census",
+          "updated_at": "2026-10-23T01:22:14.633396+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 17,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review historical search and learning targets",
+          "title": "Reconcile frozen replay loss components",
           "change": "Local evidence review; no pod or training.",
-          "result": "Inspect exact M8 source bindings and test forced-root target behavior; no model revision selected.",
+          "result": "Implemented read-only loss decomposition; running384 saved replay samples and checking reconstructed loss against historical model.loss.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:19:50.031907+00:00",
+          "updated_at": "2026-10-23T01:22:14.601884+00:00",
+          "revision": {
+            "summary": "Added read-only replay-fit diagnostic",
+            "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
+            "changes": [
+              "diagnostics/trajectory/audit_replay_fit.py samples saved replay and decomposes policy/value/reward loss"
+            ],
+            "test_plan": "Require component sum to match exact model.loss; preserve masks and fixed sampling seed. No strength claim.",
+            "updated_at": "2026-10-23T01:22:14.601901+00:00"
+          },
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

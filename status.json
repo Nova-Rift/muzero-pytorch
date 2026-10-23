@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:29:18.484131-07:00",
+    "measured_at": "2026-10-22T18:30:21.465802-07:00",
     "steps": [
       {
         "step": 1,
@@ -77,7 +77,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:27:01.116946+00:00",
-        "elapsed_seconds": 424,
+        "elapsed_seconds": 487,
         "completed": null,
         "total": null,
         "task": "Check stochastic search targets before revising training",
@@ -85,14 +85,14 @@
         "eta_basis": "12 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 623,
-    "eta_seconds": 301,
+    "elapsed_seconds": 686,
+    "eta_seconds": 238,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792718882.890611,
-    "fresh": false,
+    "updated_at": 1792718985.5460148,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -100,17 +100,17 @@
         "state": "active",
         "job_id": "search-target-review",
         "decision": {
-          "reviewing": "How much target variation remains without Dirichlet noise?",
+          "reviewing": "Does averaging search draws predict independent draws better?",
           "options": [
-            "Keep historical noise fraction0.25",
-            "Frozen diagnostic with noise fraction0"
+            "Keep frozen prior as estimator",
+            "Fixed50% prior and discovery-target mean mixture"
           ],
           "evidence": [
-            "16-state repeated search: sample variation2.69\u20133.08 nats; residual averaged-target KL0.14\u20131.02."
+            "Zero-noise control leaves mean variation2.793 versus2.827 nats; replay masks pass."
           ],
-          "reason": "A controlled frozen ablation separates noise from random root selection without paying for an unjustified training change.",
-          "next_action": "Compare paired saved histories; no promotion or exact-continuation claim.",
-          "updated_at": "2026-10-23T01:28:02.919060+00:00"
+          "reason": "Validate aggregation on disjoint draws before proposing expensive extra training searches. Mixture fixed before new results.",
+          "next_action": "Run64 discovery and64 validation searches on16 histories with fresh seed170004.",
+          "updated_at": "2026-10-23T01:29:45.573462+00:00"
         },
         "details": {
           "schema": 1,
@@ -121,12 +121,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Separate Dirichlet noise from root sampling",
+          "title": "Test disjoint target aggregation",
           "change": "Local evidence review; no pod or training.",
-          "result": "Running zero-Dirichlet control on the same16 histories; stochastic root sampling retained. Changed search setting, no training or games.",
+          "result": "Running16 fixed histories with64 discovery plus64 validation searches each, fresh seed170004. Fixed50% prior/mean-target blend; no training.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:28:02.890546+00:00",
+          "updated_at": "2026-10-23T01:29:45.545953+00:00",
           "revision": {
             "summary": "Added read-only replay-fit diagnostic",
             "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -168,12 +168,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Assess revision prerequisites",
+          "title": "Prepare diagnostic provenance archive",
           "change": "Local evidence review; no pod or training.",
-          "result": "Census source577fb41 verified on GitHub. Checking what a noise-control result can justify; trainer revision depends on frozen control, not integrity checks alone.",
+          "result": "Census reviewed and published. Main preparing revision index and artifact manifest; no helper needed for this short finalization task.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:28:02.890595+00:00",
+          "updated_at": "2026-10-23T01:29:45.545999+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

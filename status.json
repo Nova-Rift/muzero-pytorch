@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:54:22.448958-07:00",
+    "measured_at": "2026-10-22T19:55:25.700050-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,7 +66,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:52:17.780823+00:00",
-        "elapsed_seconds": 765,
+        "elapsed_seconds": 828,
         "completed": null,
         "total": null,
         "task": "Prepare useful GPU queue and reusable runner",
@@ -85,13 +85,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 825,
+    "elapsed_seconds": 888,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792723971.940338,
+    "updated_at": 1792723971.967209,
     "fresh": false,
     "loops": [
       {
@@ -120,12 +120,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare deeper-search GPU comparison",
+          "title": "Stage deeper-search GPU queue",
           "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "Preparing concrete same-pod queue before allocation; no GPU active yet.",
+          "result": "Payload staged; static traversal is quadratic, so64-simulation comparison precedes any128 follow-up.",
           "candidate": "MuZero next-hypothesis review",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:52:17.780363+00:00",
+          "updated_at": "2026-10-23T02:55:01.982561+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

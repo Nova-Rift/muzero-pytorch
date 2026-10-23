@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Frozen J trajectory diagnostic",
+  "title": "Transferring diagnostic runtime",
   "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-  "result": "Recovered active job runtime-setup",
+  "result": "Measured payload transfer: 50.4 of 81.2 MB. Shared 420-second setup deadline active; no research games yet.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "No completed diagnostic matchup yet",
-  "updated_at": "2026-10-23T00:12:37.442460+00:00",
+  "updated_at": "2026-10-23T00:13:42.964864+00:00",
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:13:03.523128-07:00",
+    "measured_at": "2026-10-22T17:13:43.022551-07:00",
     "steps": [
       {
         "step": 1,
@@ -67,23 +67,23 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-23T00:12:37.442460+00:00",
-        "elapsed_seconds": 89,
+        "updated_at": "2026-10-23T00:13:42.964864+00:00",
+        "elapsed_seconds": 129,
         "completed": null,
         "total": null,
-        "task": "Frozen J trajectory diagnostic",
-        "eta_seconds": 12,
+        "task": "Transferring diagnostic runtime",
+        "eta_seconds": 0,
         "eta_basis": "9 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 193,
-    "eta_seconds": 1076,
+    "elapsed_seconds": 233,
+    "eta_seconds": 1036,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1792714357.4419444,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

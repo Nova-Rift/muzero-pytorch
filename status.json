@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T02:27:52.250910+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:27:52.312613-07:00",
+    "measured_at": "2026-10-22T19:28:14.449733-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-23T02:27:52.250910+00:00",
-        "elapsed_seconds": 216,
+        "elapsed_seconds": 238,
         "completed": 8,
         "total": null,
         "task": "CPU development versus F1024",
-        "eta_seconds": 309,
+        "eta_seconds": 287,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,8 +82,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 595,
-    "eta_seconds": 159,
+    "elapsed_seconds": 618,
+    "eta_seconds": 136,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {

@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:49:09.453211-07:00",
+    "measured_at": "2026-10-22T19:50:12.454648-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,7 +66,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:48:23.459129+00:00",
-        "elapsed_seconds": 452,
+        "elapsed_seconds": 515,
         "completed": null,
         "total": null,
         "task": "Prepare fixed horizon calibration probe",
@@ -85,8 +85,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 512,
-    "eta_seconds": 246,
+    "elapsed_seconds": 575,
+    "eta_seconds": 183,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {

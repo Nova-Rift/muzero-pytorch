@@ -1,27 +1,18 @@
 {
   "schema": 1,
-  "stage": "edit",
+  "stage": "review",
   "iteration": 15,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Reconstruct actual shots from frozen trajectories",
-  "change": "Proposed local replay analysis using saved actions and exact canonical physics; no model or training changes.",
-  "result": "Check replay against every recovered observation before interpreting aim and shot counts.",
-  "candidate": "J cutoff diagnosis",
+  "title": "Interpret verified J shot replay; prepare matched diagnostics",
+  "change": "Saved-action replay matched 5,273,664 observation values; maximum error 2.98e-8. No new games.",
+  "result": "Nine sampled cutoffs: J emitted 870 shots; 5.5% within half an aim bin of opponent position. Descriptive only; checking controls before causal interpretation.",
+  "candidate": "Analyze J aim and engagement",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T00:27:36.286371+00:00",
-  "revision": {
-    "summary": "Add isolated trajectory replay diagnostics",
-    "reason": "Fire commands alone do not show shots actually emitted. Exact saved-action replay can recover cooldown-filtered shots without paid inference.",
-    "changes": [
-      "Proposed local replay script and geometry checks in iteration-15-loop-a"
-    ],
-    "test_plan": "Verify every replay observation and outcome against saved traces; assert emitted-shot counts match canonical nextShot increments; test angular geometry.",
-    "updated_at": "2026-10-23T00:27:36.286368+00:00"
-  },
+  "updated_at": "2026-10-23T00:29:16.977497+00:00",
   "latest_comparison": {
     "iteration": 14,
     "candidate": "J cutoff diagnosis",
@@ -38,7 +29,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:29:02.750258-07:00",
+    "measured_at": "2026-10-22T17:30:05.193741-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +56,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-23T00:27:36.286371+00:00",
-        "elapsed_seconds": 200,
+        "updated_at": "2026-10-23T00:29:16.977497+00:00",
+        "elapsed_seconds": 262,
         "completed": null,
         "total": null,
-        "task": "Reconstruct actual shots from frozen trajectories",
+        "task": "Interpret verified J shot replay; prepare matched diagnostics",
         "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       },
@@ -85,14 +76,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 200,
-    "eta_seconds": 979,
+    "elapsed_seconds": 262,
+    "eta_seconds": 917,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792715190.5872204,
-    "fresh": false,
+    "updated_at": 1792715400.6511648,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -108,36 +99,36 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Analyze J aim and engagement",
-          "change": "Recovered cutoff traces show frequent movement/fire commands; quantify aiming before choosing a change.",
-          "result": "Local evidence review in progress; no new games.",
+          "title": "Interpret verified J shot replay; prepare matched diagnostics",
+          "change": "Saved-action replay matched 5,273,664 observation values; maximum error 2.98e-8. No new games.",
+          "result": "Nine sampled cutoffs: J emitted 870 shots; 5.5% within half an aim bin of opponent position. Descriptive only; checking controls before causal interpretation.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:26:30.587005+00:00",
+          "updated_at": "2026-10-23T00:29:16.977034+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
-        "job_id": "m-compatibility-review",
+        "job_id": "m-diagnostic-preparation",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Check frozen M diagnostic compatibility",
-          "change": "Helper reviewing archived source/checkpoint contracts for matched M1024/M2048 diagnostics.",
-          "result": "Local evidence review in progress; no new games.",
+          "title": "Prepare matched frozen M diagnostics",
+          "change": "Compatibility checks complete; coordinator preparing four separate paired-seed E/F batches with frozen checkpoints.",
+          "result": "GPU admission blocked until staged parity/transport tests, seed audit, current offers and costed payload pass. No pod allocated.",
           "candidate": "Check frozen M diagnostic compatibility",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:26:30.587005+00:00",
+          "updated_at": "2026-10-23T00:30:00.650925+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

@@ -12,7 +12,7 @@
   "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
   "candidate": "M finishing diagnosis",
   "evaluation_label": "M2048 vs F1024",
-  "updated_at": "2026-10-23T00:43:25.638343+00:00",
+  "updated_at": "2026-10-23T00:44:08.671902+00:00",
   "matchup": {
     "challenger": "M2048",
     "opponent": "F1024",
@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:43:45.714207-07:00",
+    "measured_at": "2026-10-22T17:44:48.215121-07:00",
     "steps": [
       {
         "step": 1,
@@ -82,13 +82,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1063,
+    "elapsed_seconds": 1106,
     "eta_seconds": null,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792716205.277976,
+    "updated_at": 1792716242.0220313,
     "fresh": true,
     "loops": [
       {
@@ -110,7 +110,7 @@
           "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
           "candidate": "M finishing diagnosis",
           "evaluation_label": "M2048 vs F1024",
-          "updated_at": "2026-10-23T00:43:25.636621+00:00",
+          "updated_at": "2026-10-23T00:44:08.671199+00:00",
           "matchup": {
             "challenger": "M2048",
             "opponent": "F1024",

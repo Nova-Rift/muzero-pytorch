@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "blocked",
   "iteration": 21,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Prepare useful GPU queue and reusable runner",
-  "change": "32 versus128 simulation search at fixed8 roots; stage comparisons and conditional follow-up before allocation.",
-  "result": "No pod yet. Preparing tests, current offers and costed queue under existing guards.",
+  "title": "Research stopped",
+  "change": "One pod, serial GPU tasks, same-pod follow-up prepared.",
+  "result": "CPU parity and transport tests passed; GPU correctness and runtime remain to be measured.",
   "candidate": "MuZero learning-signal review",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:52:17.780823+00:00",
+  "updated_at": "2026-10-23T02:59:45.612256+00:00",
   "revision": {
     "summary": "Add a fixed offline clock versus constant-feature calibration probe",
     "reason": "Historical finite-horizon value target lacks explicit clock; test whether that feature helps held-out retained replay calibration.",
@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:59:35.461313-07:00",
+    "measured_at": "2026-10-22T20:00:39.702670-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,35 +64,35 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T02:52:17.780823+00:00",
-        "elapsed_seconds": 1078,
+        "state": "finished",
+        "updated_at": "2026-10-23T02:59:43.428887+00:00",
+        "elapsed_seconds": 1085,
         "completed": null,
         "total": null,
         "task": "Prepare useful GPU queue and reusable runner",
-        "eta_seconds": 0,
-        "eta_basis": "17 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-23T02:48:23.459129+00:00",
-        "elapsed_seconds": 60,
+        "state": "interrupted",
+        "updated_at": "2026-10-23T02:59:45.612256+00:00",
+        "elapsed_seconds": 62,
         "completed": null,
         "total": null,
-        "task": "Validate gradient evidence and horizon contract",
+        "task": "Launch guarded H100 search-depth comparison",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1138,
-    "eta_seconds": 0,
+    "elapsed_seconds": 1202,
+    "eta_seconds": null,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792724320.340826,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

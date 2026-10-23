@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "complete",
+  "stage": "queued",
   "iteration": 16,
   "completed_games": 0,
   "target_games": 0,
   "wins": 24,
   "evaluation_games": 64,
   "timeouts": 5,
-  "title": "Iteration16:256 frozen comparison games complete",
+  "title": "Overseer next: review",
   "change": "Rejected saturated root32 plan; tested root8/root16 and full-state recovery tools.",
-  "result": "No demonstrated root16 benefit; no training or promotion. Pod deletion verified. Next: local policy/search-target review.",
+  "result": "Root16 showed no demonstrated benefit. Review policy/search targets and integrate costed full-state recovery before next GPU experiment.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "M2048-root16 vs F1024",
-  "updated_at": "2026-10-23T01:15:36.746971+00:00",
+  "updated_at": "2026-10-23T01:16:35.881625+00:00",
   "matchup": {
     "challenger": "M2048-root16",
     "opponent": "F1024",
@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:16:35.701014-07:00",
+    "measured_at": "2026-10-22T18:17:42.754873-07:00",
     "steps": [
       {
         "step": 1,
@@ -82,7 +82,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1065,
+    "elapsed_seconds": 1124,
     "eta_seconds": null,
     "eta_basis": "13 previous completed iteration(s)"
   },

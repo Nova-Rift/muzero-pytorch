@@ -1,24 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
-  "iteration": 20,
+  "stage": "review",
+  "iteration": 21,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
-  "evaluation_games": 8,
-  "timeouts": 2,
-  "title": "Completed recorded split replay",
-  "change": "Both CPU loops replay the original eight-game E schedules with an observation-only wrapper.",
-  "result": "All8 seed/seat/outcome/step records exactly equal original development batch.",
-  "candidate": "M2048-split",
-  "evaluation_label": "Repeated E diagnostic, not new confirmation",
-  "updated_at": "2026-10-23T02:37:21.759979+00:00",
-  "matchup": {
-    "challenger": "M2048-split",
-    "opponent": "E1024",
-    "opponent_wins": 6,
-    "draws": 0
-  },
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 21: reviewing evidence",
+  "change": "32 development games plus exact diagnostic replay; source published.",
+  "result": "Select separately tested learning hypothesis from full history; split inference failed frozen E gate and no new training mechanism established.",
+  "candidate": "M2048 split-search",
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-23T02:40:37.654411+00:00",
   "latest_comparison": {
     "iteration": 20,
     "candidate": "M2048-split",
@@ -35,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:39:42.963542-07:00",
+    "measured_at": "2026-10-22T19:40:50.551425-07:00",
     "steps": [
       {
         "step": 1,
@@ -50,80 +44,67 @@
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-23T02:37:21.759562+00:00",
-        "elapsed_seconds": 423,
-        "completed": 8,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Repeated E diagnostic, not new confirmation",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T02:35:03.644047+00:00",
-        "elapsed_seconds": 604,
+        "state": "active",
+        "updated_at": "2026-10-23T02:40:37.654411+00:00",
+        "elapsed_seconds": 13,
         "completed": null,
         "total": null,
-        "task": "Prepare observation-only E replay",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 21: reviewing evidence",
+        "eta_seconds": 179,
+        "eta_basis": "17 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T02:37:21.759979+00:00",
-        "elapsed_seconds": 279,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Completed recorded split replay",
-        "eta_seconds": 0,
-        "eta_basis": "13 previous iteration(s)"
+        "task": "Not started",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1306,
-    "eta_seconds": 0,
-    "eta_basis": "16 previous completed iteration(s)"
+    "elapsed_seconds": 13,
+    "eta_seconds": 745,
+    "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792723107.68013,
-    "fresh": false,
+    "updated_at": 1792723237.661031,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "job_id": "paired-trajectory-analysis",
-        "decision": {
-          "reviewing": "Do the two new E cutoffs reflect absent firing or ineffective shots?",
-          "options": [
-            "Inspect actual emitted shots and hits in selected paired trajectories"
-          ],
-          "evidence": [
-            "Both8-game replays match original outcomes exactly",
-            "1591744 observation scalars matched canonical replay within2.99e-8"
-          ],
-          "reason": "Distinguish an observed action failure from a scoring/recorder defect without claiming causation.",
-          "next_action": "Summarize exact projectile counts with counterexample and limitations",
-          "updated_at": "2026-10-23T02:38:27.680130+00:00"
-        },
+        "job_id": "iteration-21-planning-1",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 20,
+          "iteration": 21,
           "completed_games": 0,
-          "target_games": 8,
+          "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Compare validated paired E traces",
-          "change": "Original E seeds and seats; isolated recorded CPU replay.",
-          "result": "Both recorded batches exactly reproduce original8-game outcomes; no new independent evidence.",
-          "candidate": "M2048 E-trace-baseline",
-          "evaluation_label": "Diagnostic replay",
-          "updated_at": "2026-10-23T02:37:21.760214+00:00",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T02:40:37.661031+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -132,36 +113,22 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "diagnostic-report-review",
-        "decision": {
-          "reviewing": "Does this evidence justify changing training now?",
-          "options": [
-            "Retain baseline and rejected candidate evidence",
-            "Require a new tested hypothesis before any training"
-          ],
-          "evidence": [
-            "Frozen inference candidate fails E gate",
-            "No training-seed replication or GPU recovery validation was performed in this session"
-          ],
-          "reason": "Opponent-specific development results do not justify immediate target-training changes.",
-          "next_action": "Record explicit prerequisites and preserve source/results for the next hypothesis",
-          "updated_at": "2026-10-23T02:38:27.711324+00:00"
-        },
+        "job_id": "iteration-21-planning-2",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 20,
+          "iteration": 21,
           "completed_games": 0,
-          "target_games": 8,
+          "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review diagnostic limitations and next gate",
-          "change": "Original E seeds and seats; isolated recorded CPU replay.",
-          "result": "Both recorded batches exactly reproduce original8-game outcomes; no new independent evidence.",
-          "candidate": "M2048 E-trace-split",
-          "evaluation_label": "Diagnostic replay",
-          "updated_at": "2026-10-23T02:37:21.760246+00:00",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T02:40:37.661031+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "complete",
   "iteration": 13,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 13: reviewing evidence",
-  "change": "Existing checkpoints frozen; no model edit or new training.",
-  "result": "Run the prepared frozen-checkpoint trajectory diagnostic after fresh guarded preflight and GPU parity; use observed behavior to choose a training hypothesis.",
+  "title": "Diagnostic runner preparation checkpointed",
+  "change": "Owner requested a safe turn boundary for helper activation; no allocation.",
+  "result": "10 local checks passed; GPU parity and diagnostic evaluations remain unrun.",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-22T23:59:29.250131+00:00",
+  "updated_at": "2026-10-23T00:01:09.740210+00:00",
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:00:12.462121-07:00",
+    "measured_at": "2026-10-22T17:01:14.964708-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,14 +55,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-22T23:59:29.250131+00:00",
-        "elapsed_seconds": 43,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:01:09.740210+00:00",
+        "elapsed_seconds": 100,
         "completed": null,
         "total": null,
         "task": "Iteration 13: reviewing evidence",
-        "eta_seconds": 87,
-        "eta_basis": "10 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -76,20 +76,38 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 43,
-    "eta_seconds": 1313,
+    "elapsed_seconds": 100,
+    "eta_seconds": null,
     "eta_basis": "10 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792713434.921105,
-    "fresh": false,
+    "updated_at": 1792713669.739787,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "done",
-        "job_id": "cutoff-audit"
+        "job_id": "diagnostic-preparation",
+        "details": {
+          "schema": 1,
+          "stage": "complete",
+          "iteration": 13,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Diagnostic runner preparation checkpointed",
+          "change": "Owner requested a safe turn boundary for helper activation; no allocation.",
+          "result": "10 local checks passed; GPU parity and diagnostic evaluations remain unrun.",
+          "candidate": "J cutoff diagnosis",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T00:01:09.739771+00:00",
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

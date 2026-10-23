@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:38:16.816744-07:00",
+    "measured_at": "2026-10-22T18:38:47.706551-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,16 +68,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:38:16.753653+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 31,
         "completed": null,
         "total": null,
         "task": "Compare target estimators at equal rollout count",
-        "eta_seconds": 105,
+        "eta_seconds": 74,
         "eta_basis": "13 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 164,
-    "eta_seconds": 594,
+    "elapsed_seconds": 195,
+    "eta_seconds": 563,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {

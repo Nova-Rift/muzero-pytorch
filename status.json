@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:25:50.750128-07:00",
+    "measured_at": "2026-10-22T17:26:53.210639-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:25:42.807770+00:00",
-        "elapsed_seconds": 8,
+        "elapsed_seconds": 70,
         "completed": null,
         "total": null,
         "task": "Iteration 15: reviewing evidence",
-        "eta_seconds": 116,
+        "eta_seconds": 54,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,26 +76,62 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 8,
-    "eta_seconds": 1171,
+    "elapsed_seconds": 70,
+    "eta_seconds": 1109,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792714950.6994615,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792715190.5872204,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "evaluate",
-        "state": "done",
-        "job_id": "e-j-expanded"
+        "stage": "review",
+        "state": "active",
+        "job_id": "j-engagement-review",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 15,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Analyze J aim and engagement",
+          "change": "Recovered cutoff traces show frequent movement/fire commands; quantify aiming before choosing a change.",
+          "result": "Local evidence review in progress; no new games.",
+          "candidate": "Analyze J aim and engagement",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T00:26:30.587005+00:00",
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "done",
-        "job_id": "m8-continuation-review"
+        "state": "active",
+        "job_id": "m-compatibility-review",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 15,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Check frozen M diagnostic compatibility",
+          "change": "Helper reviewing archived source/checkpoint contracts for matched M1024/M2048 diagnostics.",
+          "result": "Local evidence review in progress; no new games.",
+          "candidate": "Check frozen M diagnostic compatibility",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T00:26:30.587005+00:00",
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

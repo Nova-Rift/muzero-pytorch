@@ -44,7 +44,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:46:53.214501-07:00",
+    "measured_at": "2026-10-22T17:47:59.677217-07:00",
     "steps": [
       {
         "step": 1,
@@ -72,7 +72,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:46:02.660373+00:00",
-        "elapsed_seconds": 723,
+        "elapsed_seconds": 790,
         "completed": null,
         "total": null,
         "task": "Check whether sparse root candidates justify a planner experiment",
@@ -91,44 +91,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1270,
+    "elapsed_seconds": 1337,
     "eta_seconds": 0,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792716362.6825967,
+    "active_loops": 1,
+    "updated_at": 1792716475.5798328,
     "fresh": true,
     "loops": [
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "active",
-        "job_id": "M2048-F1024",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 15,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 24,
-          "evaluation_games": 64,
-          "timeouts": 9,
-          "title": "Prepare next matched planner protocol",
-          "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-          "result": "Training extension unsupported by current matched results. Checking root-count experiment prerequisites; no new allocation this session.",
-          "candidate": "M finishing diagnosis",
-          "evaluation_label": "M2048 vs F1024",
-          "updated_at": "2026-10-23T00:46:02.682579+00:00",
-          "matchup": {
-            "challenger": "M2048",
-            "opponent": "F1024",
-            "opponent_wins": 31,
-            "draws": 0
-          },
-          "max_iterations": 17,
-          "pilot_gpu_cap_usd": 30
-        }
+        "state": "pending",
+        "job_id": "M2048-F1024"
       },
       {
         "id": "loop-a",
@@ -144,12 +120,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Inspect frozen policy concentration",
+          "title": "Finalize published diagnostics and immutable evidence",
           "change": "History alignment check passed; local CPU forward-only audit is fast enough, so no extra GPU job is needed.",
-          "result": "Local forward-only audit measures entropy and top-eight mass on saved histories to assess wider-root hypothesis; GPU deleted.",
+          "result": "Source revisions committed; verifying remote tip and archiving both loop histories, exact results, tests and next protocol.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:46:02.682579+00:00",
+          "updated_at": "2026-10-23T00:47:55.579813+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

@@ -1,35 +1,41 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "complete",
   "iteration": 14,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
+  "wins": 59,
+  "evaluation_games": 128,
+  "timeouts": 28,
   "title": "Frozen J trajectory diagnostic",
   "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-  "result": "Recovered active job e-j-expanded",
+  "result": "Recovered 128 games: 59 challenger wins, 41 opponent wins, 0 draws, 28 cutoffs.",
   "candidate": "J cutoff diagnosis",
-  "evaluation_label": "No completed diagnostic matchup yet",
-  "updated_at": "2026-10-23T00:19:05.955928+00:00",
+  "evaluation_label": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
+  "updated_at": "2026-10-23T00:20:20.991950+00:00",
+  "matchup": {
+    "challenger": "selfplay-E1024",
+    "opponent": "selfplay-J2048",
+    "opponent_wins": 41,
+    "draws": 0
+  },
   "latest_comparison": {
     "iteration": 14,
     "candidate": "J cutoff diagnosis",
-    "evaluation_label": "Frozen diagnostic matchup: muzero-100 vs selfplay-J2048",
-    "wins": 30,
+    "evaluation_label": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
+    "wins": 59,
     "evaluation_games": 128,
-    "timeouts": 48,
+    "timeouts": 28,
     "matchup": {
-      "challenger": "muzero-100",
+      "challenger": "selfplay-E1024",
       "opponent": "selfplay-J2048",
-      "opponent_wins": 50,
+      "opponent_wins": 41,
       "draws": 0
     },
-    "updated_at": "2026-10-23T00:17:56.398160+00:00"
+    "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:19:26.537043-07:00",
+    "measured_at": "2026-10-22T17:20:29.011022-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,14 +50,14 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-23T00:19:05.955928+00:00",
-        "elapsed_seconds": 107,
-        "completed": 0,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:19:54.381275+00:00",
+        "elapsed_seconds": 135,
+        "completed": 128,
         "total": null,
-        "task": "No completed diagnostic matchup yet",
-        "eta_seconds": 665,
-        "eta_basis": "6 previous iteration(s)"
+        "task": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -76,35 +82,65 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 576,
-    "eta_seconds": 693,
+    "elapsed_seconds": 631,
+    "eta_seconds": null,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792714760.1811776,
+    "active_loops": 0,
+    "updated_at": 1792714827.3655415,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
-        "state": "active",
+        "state": "done",
         "job_id": "e-j-expanded",
         "details": {
           "schema": 1,
-          "stage": "evaluate",
+          "stage": "complete",
+          "iteration": 14,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 59,
+          "evaluation_games": 128,
+          "timeouts": 28,
+          "title": "Frozen J trajectory diagnostic",
+          "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
+          "result": "Recovered 128 games: 59 challenger wins, 41 opponent wins, 0 draws, 28 cutoffs.",
+          "candidate": "J cutoff diagnosis",
+          "evaluation_label": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
+          "updated_at": "2026-10-23T00:20:28.915476+00:00",
+          "matchup": {
+            "challenger": "selfplay-E1024",
+            "opponent": "selfplay-J2048",
+            "opponent_wins": 41,
+            "draws": 0
+          },
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
+      },
+      {
+        "id": "loop-b",
+        "stage": "review",
+        "state": "done",
+        "job_id": "m8-continuation-review",
+        "details": {
+          "schema": 1,
+          "stage": "review",
           "iteration": 14,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Frozen J trajectory diagnostic",
-          "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-          "result": "Recovered active job e-j-expanded",
-          "candidate": "J cutoff diagnosis",
-          "evaluation_label": "No completed diagnostic matchup yet",
-          "updated_at": "2026-10-23T00:19:05.955139+00:00",
+          "title": "M8 continuation feasibility review",
+          "change": "Reviewed archived state, training samples and frozen evaluation outcomes; no model edits.",
+          "result": "Unchanged extension is unsupported; final M2048 full state preserved, exact GPU continuation unvalidated.",
+          "candidate": "Historical M1024 and M2048",
+          "evaluation_label": "Archive analysis only; no new games",
+          "updated_at": "2026-10-23T00:20:21.467212+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

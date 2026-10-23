@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:27:36.344503-07:00",
+    "measured_at": "2026-10-22T17:27:55.712721-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,11 +66,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:27:36.286371+00:00",
-        "elapsed_seconds": 114,
+        "elapsed_seconds": 133,
         "completed": null,
         "total": null,
         "task": "Reconstruct actual shots from frozen trajectories",
-        "eta_seconds": 10,
+        "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -85,8 +85,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 114,
-    "eta_seconds": 1065,
+    "elapsed_seconds": 133,
+    "eta_seconds": 1046,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {

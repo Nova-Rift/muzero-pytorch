@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "evaluate",
   "iteration": 16,
   "completed_games": 0,
   "target_games": 0,
@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "Frozen M matched diagnostic",
   "change": "Frozen M2048 root8/root16 comparison; no training.",
-  "result": "Recovered gpu-parity test",
+  "result": "Recovered M2048-root8-E1024 evaluate",
   "candidate": "M finishing diagnosis",
   "evaluation_label": "No completed new matchup",
-  "updated_at": "2026-10-23T01:08:00.482918+00:00",
+  "updated_at": "2026-10-23T01:09:04.660343+00:00",
   "latest_comparison": {
     "iteration": 15,
     "candidate": "M finishing diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:08:04.494730-07:00",
+    "measured_at": "2026-10-22T18:09:12.255854-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,14 +44,14 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
-        "completed": null,
+        "state": "active",
+        "updated_at": "2026-10-23T01:09:04.660343+00:00",
+        "elapsed_seconds": 8,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "No completed new matchup",
+        "eta_seconds": 599,
+        "eta_basis": "8 previous iteration(s)"
       },
       {
         "step": 3,
@@ -66,47 +66,33 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T01:08:00.482918+00:00",
-        "elapsed_seconds": 420,
+        "state": "finished",
+        "updated_at": "2026-10-23T01:08:35.217818+00:00",
+        "elapsed_seconds": 451,
         "completed": null,
         "total": null,
         "task": "Frozen M matched diagnostic",
-        "eta_seconds": 0,
-        "eta_basis": "11 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 612,
-    "eta_seconds": 478,
+    "elapsed_seconds": 680,
+    "eta_seconds": 410,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792717679.8200686,
+    "updated_at": 1792717743.9418092,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "evaluate",
         "state": "active",
-        "job_id": "gpu-parity",
-        "decision": {
-          "reviewing": "GPU recorder parity for root16 search",
-          "options": [
-            "Run identical plain and recorded trajectories before scientific comparisons",
-            "Abort on any action/state/outcome mismatch"
-          ],
-          "evidence": [
-            "267 staged files verified",
-            "CPU root16 validity passed; root32 uniform-policy flaw excluded"
-          ],
-          "reason": "Recording must preserve the exact frozen GPU policy before results can support a search comparison.",
-          "next_action": "After exact parity passes, admit root8 versus E64-game batch under registered development protocol",
-          "updated_at": "2026-10-23T01:07:37.328701+00:00"
-        },
+        "job_id": "M2048-root8-E1024",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "evaluate",
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
@@ -115,10 +101,10 @@
           "timeouts": 0,
           "title": "Frozen M matched diagnostic",
           "change": "Frozen M2048 root8/root16 comparison; no training.",
-          "result": "Recovered gpu-parity test",
+          "result": "Recovered M2048-root8-E1024 evaluate",
           "candidate": "M finishing diagnosis",
           "evaluation_label": "No completed new matchup",
-          "updated_at": "2026-10-23T01:08:00.481147+00:00",
+          "updated_at": "2026-10-23T01:09:04.658450+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

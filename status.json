@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:28:15.711201-07:00",
+    "measured_at": "2026-10-22T18:29:18.484131-07:00",
     "steps": [
       {
         "step": 1,
@@ -77,7 +77,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:27:01.116946+00:00",
-        "elapsed_seconds": 361,
+        "elapsed_seconds": 424,
         "completed": null,
         "total": null,
         "task": "Check stochastic search targets before revising training",
@@ -85,14 +85,14 @@
         "eta_basis": "12 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 560,
-    "eta_seconds": 364,
+    "elapsed_seconds": 623,
+    "eta_seconds": 301,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792718882.890611,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

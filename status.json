@@ -1,35 +1,41 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "complete",
   "iteration": 14,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
+  "wins": 30,
+  "evaluation_games": 128,
+  "timeouts": 48,
   "title": "Frozen J trajectory diagnostic",
   "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-  "result": "Recovered active job mu-j-diagnostic",
+  "result": "Recovered 128 games: 30 challenger wins, 50 opponent wins, 0 draws, 48 cutoffs.",
   "candidate": "J cutoff diagnosis",
-  "evaluation_label": "No completed diagnostic matchup yet",
-  "updated_at": "2026-10-23T00:17:19.923390+00:00",
+  "evaluation_label": "Frozen diagnostic matchup: muzero-100 vs selfplay-J2048",
+  "updated_at": "2026-10-23T00:18:23.008024+00:00",
+  "matchup": {
+    "challenger": "muzero-100",
+    "opponent": "selfplay-J2048",
+    "opponent_wins": 50,
+    "draws": 0
+  },
   "latest_comparison": {
     "iteration": 14,
     "candidate": "J cutoff diagnosis",
-    "evaluation_label": "Frozen diagnostic matchup: selfplay-E1024 vs selfplay-J2048",
-    "wins": 60,
+    "evaluation_label": "Frozen diagnostic matchup: muzero-100 vs selfplay-J2048",
+    "wins": 30,
     "evaluation_games": 128,
-    "timeouts": 21,
+    "timeouts": 48,
     "matchup": {
-      "challenger": "selfplay-E1024",
+      "challenger": "muzero-100",
       "opponent": "selfplay-J2048",
-      "opponent_wins": 47,
+      "opponent_wins": 50,
       "draws": 0
     },
-    "updated_at": "2026-10-23T00:16:49.865579+00:00"
+    "updated_at": "2026-10-23T00:17:56.398160+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:17:21.770204-07:00",
+    "measured_at": "2026-10-22T17:18:23.998925-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,14 +50,14 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-23T00:17:19.923390+00:00",
-        "elapsed_seconds": 52,
-        "completed": 0,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:17:56.398160+00:00",
+        "elapsed_seconds": 86,
+        "completed": 128,
         "total": null,
-        "task": "No completed diagnostic matchup yet",
-        "eta_seconds": 720,
-        "eta_basis": "6 previous iteration(s)"
+        "task": "Frozen diagnostic matchup: muzero-100 vs selfplay-J2048",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -76,35 +82,41 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 452,
-    "eta_seconds": 817,
+    "elapsed_seconds": 513,
+    "eta_seconds": null,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792714638.8375063,
+    "active_loops": 0,
+    "updated_at": 1792714702.691295,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
-        "state": "active",
+        "state": "done",
         "job_id": "mu-j-diagnostic",
         "details": {
           "schema": 1,
-          "stage": "evaluate",
+          "stage": "complete",
           "iteration": 14,
           "completed_games": 0,
           "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
+          "wins": 30,
+          "evaluation_games": 128,
+          "timeouts": 48,
           "title": "Frozen J trajectory diagnostic",
           "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-          "result": "Recovered active job mu-j-diagnostic",
+          "result": "Recovered 128 games: 30 challenger wins, 50 opponent wins, 0 draws, 48 cutoffs.",
           "candidate": "J cutoff diagnosis",
-          "evaluation_label": "No completed diagnostic matchup yet",
-          "updated_at": "2026-10-23T00:17:19.922581+00:00",
+          "evaluation_label": "Frozen diagnostic matchup: muzero-100 vs selfplay-J2048",
+          "updated_at": "2026-10-23T00:18:23.007719+00:00",
+          "matchup": {
+            "challenger": "muzero-100",
+            "opponent": "selfplay-J2048",
+            "opponent_wins": 50,
+            "draws": 0
+          },
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

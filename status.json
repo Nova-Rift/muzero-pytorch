@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T02:25:40.537948+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:25:40.590766-07:00",
+    "measured_at": "2026-10-22T19:26:09.450476-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-23T02:25:40.537948+00:00",
-        "elapsed_seconds": 85,
+        "elapsed_seconds": 113,
         "completed": 2,
         "total": null,
         "task": "CPU scored wiring gate versus E1024",
-        "eta_seconds": 440,
+        "eta_seconds": 412,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,8 +82,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 464,
-    "eta_seconds": 290,
+    "elapsed_seconds": 493,
+    "eta_seconds": 261,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {

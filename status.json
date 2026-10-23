@@ -1,35 +1,41 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "evaluate",
   "iteration": 20,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
-  "title": "Iteration 20: reviewing evidence",
+  "evaluation_games": 2,
+  "timeouts": 1,
+  "title": "Baseline scored gate complete; candidate next",
   "change": "Published adapter/controller and preserved interrupted18 diagnostic history.",
-  "result": "Integrate explicit candidate evaluator dispatch/protocol; validate scored runner then cost GPU parity and matched comparisons. No stronger-play claim or training admission.",
-  "candidate": "M2048 root-count diagnosis",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:17:56.824831+00:00",
+  "result": "Final baseline gate:0 wins,1 opponent win,0 draws,1 cutoff in2 games; not strength evidence.",
+  "candidate": "M2048 baseline",
+  "evaluation_label": "CPU scored wiring gate versus E1024",
+  "updated_at": "2026-10-23T02:24:16.075486+00:00",
+  "matchup": {
+    "challenger": "M2048-baseline",
+    "opponent": "E1024",
+    "opponent_wins": 1,
+    "draws": 0
+  },
   "latest_comparison": {
-    "iteration": 16,
-    "candidate": "M2048 root-count diagnosis",
-    "evaluation_label": "M2048-root16 vs F1024",
-    "wins": 24,
-    "evaluation_games": 64,
-    "timeouts": 5,
+    "iteration": 20,
+    "candidate": "M2048 baseline",
+    "evaluation_label": "CPU scored wiring gate versus E1024",
+    "wins": 0,
+    "evaluation_games": 2,
+    "timeouts": 1,
     "matchup": {
-      "challenger": "M2048-root16",
-      "opponent": "F1024",
-      "opponent_wins": 35,
+      "challenger": "M2048-baseline",
+      "opponent": "E1024",
+      "opponent_wins": 1,
       "draws": 0
     },
-    "updated_at": "2026-10-23T01:15:36.746971+00:00"
+    "updated_at": "2026-10-23T02:24:16.075486+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:24:04.766898-07:00",
+    "measured_at": "2026-10-22T19:24:16.139612-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,25 +50,25 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-23T02:24:16.075486+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 2,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "CPU scored wiring gate versus E1024",
+        "eta_seconds": 525,
+        "eta_basis": "9 previous iteration(s)"
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T02:17:56.824831+00:00",
-        "elapsed_seconds": 368,
+        "state": "finished",
+        "updated_at": "2026-10-23T02:24:16.075486+00:00",
+        "elapsed_seconds": 379,
         "completed": null,
         "total": null,
         "task": "Iteration 20: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "16 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -76,18 +82,18 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 368,
-    "eta_seconds": 386,
+    "elapsed_seconds": 379,
+    "eta_seconds": 375,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792722163.5962532,
-    "fresh": false,
+    "updated_at": 1792722256.1110516,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "evaluate",
         "state": "active",
         "job_id": "scored-split-integration",
         "decision": {
@@ -105,26 +111,32 @@
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "evaluate",
           "iteration": 20,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Run full-horizon scored CPU gate",
+          "evaluation_games": 2,
+          "timeouts": 1,
+          "title": "Run matched split candidate gate",
           "change": "Continue tested split-search candidate validation.",
-          "result": "Full-horizon baseline CPU gate is being checked; counters remain0 until complete records are recovered.",
+          "result": "Baseline gate final:0 wins/1 loss/0 draws/1 cutoff in2 games. Running split on same seeds/seats.",
           "candidate": "M2048 split-search candidate",
           "evaluation_label": "No scored results yet",
-          "updated_at": "2026-10-23T02:22:43.596234+00:00",
+          "updated_at": "2026-10-23T02:24:16.110998+00:00",
+          "matchup": {
+            "challenger": "M2048-baseline",
+            "opponent": "E1024",
+            "opponent_wins": 1,
+            "draws": 0
+          },
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
         "job_id": "protocol-compatibility",
         "decision": {
@@ -142,19 +154,19 @@
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 20,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review gate protocol and provenance",
+          "title": "Check development admission prerequisites",
           "change": "Continue tested split-search candidate validation.",
-          "result": "Protocol review accepted: explicit single-matchup schedule, no root noise, strict malformed-outcome rejection and wall-timeout distinction.",
+          "result": "Fresh E/F schedule and advancement rule frozen. Gate baseline valid; candidate completion required before larger comparison.",
           "candidate": "M2048 split-search candidate",
           "evaluation_label": "No scored results yet",
-          "updated_at": "2026-10-23T02:22:43.596234+00:00",
+          "updated_at": "2026-10-23T02:24:16.111047+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

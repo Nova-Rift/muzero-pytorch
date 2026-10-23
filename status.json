@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:13:43.022551-07:00",
+    "measured_at": "2026-10-22T17:14:06.734319-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T00:13:42.964864+00:00",
-        "elapsed_seconds": 129,
+        "elapsed_seconds": 153,
         "completed": null,
         "total": null,
         "task": "Transferring diagnostic runtime",
@@ -76,8 +76,8 @@
         "eta_basis": "9 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 233,
-    "eta_seconds": 1036,
+    "elapsed_seconds": 257,
+    "eta_seconds": 1012,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
@@ -99,12 +99,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Frozen J trajectory diagnostic",
+          "title": "Transferring diagnostic runtime",
           "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-          "result": "Recovered active job runtime-setup",
+          "result": "Measured payload transfer: 50.4 of 81.2 MB. No research games yet.",
           "candidate": "J cutoff diagnosis",
           "evaluation_label": "No completed diagnostic matchup yet",
-          "updated_at": "2026-10-23T00:12:37.442132+00:00",
+          "updated_at": "2026-10-23T00:13:51.821614+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

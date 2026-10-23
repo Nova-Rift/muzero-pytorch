@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "complete",
   "iteration": 15,
   "completed_games": 0,
   "target_games": 0,
   "wins": 24,
   "evaluation_games": 64,
   "timeouts": 9,
-  "title": "Check whether sparse root candidates justify a planner experiment",
-  "change": "Completed four matched batches; testing frozen policy concentration locally before choosing a search change.",
-  "result": "Pod deletion verified. No training, allocation retry or promotion.",
+  "title": "Iteration 15: 256 diagnostic games complete",
+  "change": "Replay, frozen-policy audits and root-count correctness checks complete; source published.",
+  "result": "No training or promotion. Pod deletion verified. Next: guarded M2048 root8/root32 comparison after GPU correctness checks.",
   "candidate": "M finishing diagnosis",
   "evaluation_label": "M2048 vs F1024",
-  "updated_at": "2026-10-23T00:46:02.660373+00:00",
+  "updated_at": "2026-10-23T00:52:23.726520+00:00",
   "revision": {
     "summary": "Extend offline frozen-head audit with policy entropy and top-eight probability mass",
     "reason": "Every current M evaluator samples only8 of153 root actions. Recovered directional metrics are weak; policy concentration can determine whether a wider-root comparison is a plausible next test.",
@@ -44,7 +44,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:52:09.997372-07:00",
+    "measured_at": "2026-10-22T17:52:23.783863-07:00",
     "steps": [
       {
         "step": 1,
@@ -70,14 +70,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T00:46:02.660373+00:00",
-        "elapsed_seconds": 1040,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:52:23.726520+00:00",
+        "elapsed_seconds": 1054,
         "completed": null,
         "total": null,
         "task": "Check whether sparse root candidates justify a planner experiment",
-        "eta_seconds": 0,
-        "eta_basis": "12 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -91,41 +91,65 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1587,
-    "eta_seconds": 0,
+    "elapsed_seconds": 1601,
+    "eta_seconds": null,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792716475.5798328,
-    "fresh": false,
+    "active_loops": 0,
+    "updated_at": 1792716731.184411,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
-        "job_id": "M2048-F1024"
+        "state": "done",
+        "job_id": "M2048-F1024",
+        "details": {
+          "schema": 1,
+          "stage": "complete",
+          "iteration": 15,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 24,
+          "evaluation_games": 64,
+          "timeouts": 9,
+          "title": "256 matched diagnostic games complete",
+          "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
+          "result": "Root8/root32 local checks passed. Next GPU test requires a fresh guarded session because this session allocation is deleted. Release: new preflight and reservation.",
+          "candidate": "M finishing diagnosis",
+          "evaluation_label": "M2048 vs F1024",
+          "updated_at": "2026-10-23T00:52:11.184350+00:00",
+          "matchup": {
+            "challenger": "M2048",
+            "opponent": "F1024",
+            "opponent_wins": 31,
+            "draws": 0
+          },
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "active",
+        "state": "done",
         "job_id": "j-replay-interpretation",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "complete",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Finalize published diagnostics and immutable evidence",
+          "title": "Replay diagnostics and source publication complete",
           "change": "History alignment check passed; local CPU forward-only audit is fast enough, so no extra GPU job is needed.",
-          "result": "Source revisions committed; verifying remote tip and archiving both loop histories, exact results, tests and next protocol.",
+          "result": "48 historical and 32 M traces checked; diagnostic code pushed and verified. No model change or promotion. Evidence prepared for archive.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:47:55.579813+00:00",
+          "updated_at": "2026-10-23T00:52:11.184394+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

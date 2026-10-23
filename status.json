@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:06:15.448631-07:00",
+    "measured_at": "2026-10-22T19:07:17.699251-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:05:10.837861+00:00",
-        "elapsed_seconds": 65,
+        "elapsed_seconds": 127,
         "completed": null,
         "total": null,
         "task": "Iteration 19: reviewing evidence",
-        "eta_seconds": 71,
+        "eta_seconds": 9,
         "eta_basis": "15 previous iteration(s)"
       },
       {
@@ -76,26 +76,88 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 65,
-    "eta_seconds": 693,
+    "elapsed_seconds": 127,
+    "eta_seconds": 631,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792719489.5780826,
+    "updated_at": 1792721175.6654859,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "job_id": "cost-matched-targets"
+        "job_id": "source-recovery",
+        "decision": {
+          "reviewing": "What completed work survives the owner interruption?",
+          "options": [
+            "Publish tested diagnostic sources and archive results",
+            "Admit compute only after recovery gates"
+          ],
+          "evidence": [
+            "Iteration18 remains interrupted; repeated diagnostic JSON is complete and previous helper was closed."
+          ],
+          "reason": "Preserve real outputs without turning interruption into success; resolve source and storage prerequisites first.",
+          "next_action": "Verify tests/source history and hash-bound redundant capture.",
+          "updated_at": "2026-10-23T02:06:15.692485+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 19,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Preserve interrupted sources and recovery evidence",
+          "change": "Local evidence review; no resources allocated.",
+          "result": "Iteration18 remains owner-interrupted. Main verifying diagnostic publication and archived duplicate capture before any space reclamation.",
+          "candidate": "M2048 equal-rollout diagnosis",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T02:06:15.665453+00:00",
+          "max_iterations": 19,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "recovery-space-audit"
+        "job_id": "equal-rollout-review",
+        "decision": {
+          "reviewing": "Does equal-rollout target agreement repeat?",
+          "options": [
+            "Prepare isolated split-search candidate",
+            "Reject if repeat or bias review undermines evidence"
+          ],
+          "evidence": [
+            "Two completed12-history diagnostic batches exist; no arena games."
+          ],
+          "reason": "Independent helper analysis separates teacher agreement from strength and checks depth/runtime limitations.",
+          "next_action": "Review paired errors and specify a bounded candidate acceptance test.",
+          "updated_at": "2026-10-23T02:06:15.721370+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 19,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Review replicated equal-rollout evidence",
+          "change": "Local evidence review; no resources allocated.",
+          "result": "Helper assigned analysis of completed12+12 saved-history diagnostics; no new games or GPU work.",
+          "candidate": "M2048 equal-rollout diagnosis",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T02:06:15.665476+00:00",
+          "max_iterations": 19,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

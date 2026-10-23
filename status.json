@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:53:19.696697-07:00",
+    "measured_at": "2026-10-22T19:54:22.448958-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,7 +66,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:52:17.780823+00:00",
-        "elapsed_seconds": 702,
+        "elapsed_seconds": 765,
         "completed": null,
         "total": null,
         "task": "Prepare useful GPU queue and reusable runner",
@@ -85,14 +85,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 762,
+    "elapsed_seconds": 825,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792723971.940338,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

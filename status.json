@@ -1,24 +1,18 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 16,
+  "stage": "review",
+  "iteration": 17,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 24,
-  "evaluation_games": 64,
-  "timeouts": 5,
-  "title": "Overseer next: review",
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 17: reviewing evidence",
   "change": "Rejected saturated root32 plan; tested root8/root16 and full-state recovery tools.",
   "result": "Root16 showed no demonstrated benefit. Review policy/search targets and integrate costed full-state recovery before next GPU experiment.",
   "candidate": "M2048 root-count diagnosis",
-  "evaluation_label": "M2048-root16 vs F1024",
-  "updated_at": "2026-10-23T01:16:35.881625+00:00",
-  "matchup": {
-    "challenger": "M2048-root16",
-    "opponent": "F1024",
-    "opponent_wins": 35,
-    "draws": 0
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-23T01:18:55.645763+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -35,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:18:45.751699-07:00",
+    "measured_at": "2026-10-22T18:19:52.363012-07:00",
     "steps": [
       {
         "step": 1,
@@ -50,87 +44,67 @@
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:13:21.268348+00:00",
-        "elapsed_seconds": 175,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "M2048-root16 vs F1024",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:01:04.589926+00:00",
-        "elapsed_seconds": 192,
+        "state": "active",
+        "updated_at": "2026-10-23T01:18:55.645763+00:00",
+        "elapsed_seconds": 57,
         "completed": null,
         "total": null,
-        "task": "Iteration 16: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 17: reviewing evidence",
+        "eta_seconds": 73,
+        "eta_basis": "14 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:08:35.217818+00:00",
-        "elapsed_seconds": 451,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Frozen M matched diagnostic",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1124,
-    "eta_seconds": null,
-    "eta_basis": "13 previous completed iteration(s)"
+    "elapsed_seconds": 57,
+    "eta_seconds": 867,
+    "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792718119.9523427,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792718390.0322123,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "done",
-        "job_id": "M2048-root16-F1024",
-        "decision": {
-          "reviewing": "Reject wider roots pending better evidence",
-          "options": [
-            "Preserve root8 and inspect training/search targets locally",
-            "Do not spend on confirmation of an unpromising development result"
-          ],
-          "evidence": [
-            "Root16-minus-root8 win fraction:E -0.125,F -0.046875; both paired intervals include zero",
-            "All256 planned games and exact final totals recovered"
-          ],
-          "reason": "No demonstrated strength benefit; next recovery task is not GPU-ready. Explicit release avoids paid idle analysis.",
-          "next_action": "Release pod, archive evidence and review policy/search-target behavior",
-          "updated_at": "2026-10-23T01:13:56.061440+00:00"
-        },
+        "state": "active",
+        "job_id": "search-target-review",
         "details": {
           "schema": 1,
-          "stage": "complete",
-          "iteration": 16,
+          "stage": "review",
+          "iteration": 17,
           "completed_games": 0,
           "target_games": 0,
-          "wins": 24,
-          "evaluation_games": 64,
-          "timeouts": 5,
-          "title": "Frozen M matched diagnostic",
-          "change": "Frozen M2048 root8/root16 comparison; no training.",
-          "result": "256 games recovered; root16 showed no demonstrated benefit. Pod release/deletion verified; next policy/search-target review prepared.",
-          "candidate": "M finishing diagnosis",
-          "evaluation_label": "M2048-root16 vs F1024",
-          "updated_at": "2026-10-23T01:15:19.952280+00:00",
-          "matchup": {
-            "challenger": "M2048-root16",
-            "opponent": "F1024",
-            "opponent_wins": 35,
-            "draws": 0
-          },
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Review historical search and learning targets",
+          "change": "Local evidence review; no pod or training.",
+          "result": "Inspect exact M8 source bindings and test forced-root target behavior; no model revision selected.",
+          "candidate": "M2048 target audit",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T01:19:50.031907+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
@@ -138,37 +112,23 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "done",
-        "job_id": "state-recovery-audit",
-        "decision": {
-          "reviewing": "Remote recovery feasibility after local capture success",
-          "options": [
-            "Retain verified tools and require new costed recovery plan",
-            "Do not add unprepared multi-GB work to current lease"
-          ],
-          "evidence": [
-            "Real1GB capture hash and readonly publication verified",
-            "Observed effective setup rate extrapolates to1977seconds for input alone; multiple recovery transfers unmeasured"
-          ],
-          "reason": "Remote split-resume is not ready within the current prepared workload. Integrity success does not establish GPU resume correctness.",
-          "next_action": "Release blocker only after split integration tests and full transfer/recovery budget fit the guarded lease",
-          "updated_at": "2026-10-23T01:11:56.531515+00:00"
-        },
+        "state": "active",
+        "job_id": "replay-target-census",
         "details": {
           "schema": 1,
-          "stage": "complete",
-          "iteration": 16,
+          "stage": "review",
+          "iteration": 17,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Full-size capture verified; remote recovery gated",
-          "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Full-state integrity, comparator and capture checks passed. Remote GPU exact resume remains gated on integration and costed transfers.",
-          "candidate": "M2048",
+          "title": "Audit archived replay targets",
+          "change": "Local evidence review; no pod or training.",
+          "result": "Independent helper task: bounded CPU census of policy/value/reward/mask evidence from existing full state.",
+          "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:15:19.952325+00:00",
+          "updated_at": "2026-10-23T01:19:50.031950+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

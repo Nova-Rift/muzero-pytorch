@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:58:37.964120-07:00",
+    "measured_at": "2026-10-22T17:59:40.461157-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:57:52.149155+00:00",
-        "elapsed_seconds": 46,
+        "elapsed_seconds": 108,
         "completed": null,
         "total": null,
         "task": "Iteration 16: reviewing evidence",
-        "eta_seconds": 78,
+        "eta_seconds": 16,
         "eta_basis": "13 previous iteration(s)"
       },
       {
@@ -76,26 +76,62 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 46,
-    "eta_seconds": 1044,
+    "elapsed_seconds": 108,
+    "eta_seconds": 982,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792716731.184411,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792717140.6809273,
+    "fresh": true,
     "loops": [
-      {
-        "id": "loop-b",
-        "stage": "review",
-        "state": "done",
-        "job_id": "M2048-F1024"
-      },
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "done",
-        "job_id": "j-replay-interpretation"
+        "state": "active",
+        "job_id": "root-count-preflight",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 16,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Prepare frozen M2048 root-count comparison",
+          "change": "Preparation only; frozen weights and game contract preserved.",
+          "result": "Reviewing registered protocol and adapting tested reusable runner; no GPU allocation yet.",
+          "candidate": "M2048",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T00:59:00.680616+00:00",
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
+      },
+      {
+        "id": "loop-b",
+        "stage": "review",
+        "state": "active",
+        "job_id": "state-recovery-audit",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 16,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Audit full-state recovery prerequisites",
+          "change": "Preparation only; frozen weights and game contract preserved.",
+          "result": "Native helper checks immutable M checkpoint evidence and prepares bounded recovery validation.",
+          "candidate": "M2048",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-23T00:59:00.680661+00:00",
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

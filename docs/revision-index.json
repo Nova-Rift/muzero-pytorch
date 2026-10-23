@@ -10,7 +10,27 @@
       "rationale": "Preserve tested recorder and observer replay for diagnosing engagement before training changes.",
       "tests": "3 recorder tests;48 replay traces,5,273,664 scalars,96 damage checks; portable output equality",
       "result": "No causal cutoff explanation established; no model promotion.",
-      "commit_reference": "Commit containing this index; exact remote SHA recorded in private loop report/archive."
+      "commit_reference": "Commit containing this index; exact remote SHA recorded in private loop report/archive.",
+      "pushed_commit": "89953fb2435faf96122cd58b6df4efa1eb16bff4"
+    },
+    {
+      "id": "immutable-full-state-milestones-iteration9",
+      "repository": "https://github.com/Nova-Rift/muzero-pytorch",
+      "branch": "experiment/iteration-9-state-retention",
+      "pushed_commit": "66814cbffc94996a51a7509a0755b76a3d28e215",
+      "rationale": "Publish preserved historical recovery revision separately from actual M8 training source; no history rewritten.",
+      "tests": "2 state-history checks rerun and passed; small historical recovery checks do not establish full-size GPU exact resume.",
+      "remote_verified": true
     }
-  ]
+  ],
+  "coverage": {
+    "H": "fc8f93c17a6eed92af6b88ebf8a8b57012c99644",
+    "I": "8adea2178523f6cbf744df282f17ca748d2172ef",
+    "J": "75c7b9b00b2de2525dc242bc4a021ce3372547a3",
+    "K": "8d4e55877f8a8dfd02fa0dc8d3e1a290b1d86fbf",
+    "L": "e8458129dcbcd3df289941cafd77d94493c3ae6d",
+    "M8": "d10af2d72dbf03dfec113c0b6e7e47481c5cc88d",
+    "M_failed_initial_payload": "e8458129dcbcd3df289941cafd77d94493c3ae6d",
+    "notes": "H\u2013L verified remote experiment ancestry. K dirty smoke code matched later committed revision. M initial packaging staged old L source; clean M8 source is distinct. M8 now reachable through diagnostic branch ancestry; historical failure preserved."
+  }
 }

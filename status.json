@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 14,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 14: reviewing evidence",
-  "change": "Owner requested a safe turn boundary for helper activation; no allocation.",
-  "result": "Finish packaging and per-loop monitor integration after owner maintenance; fresh preflight required before guarded allocation.",
+  "title": "Frozen J trajectory diagnostic",
+  "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
+  "result": "Recovered active job preflight",
   "candidate": "J cutoff diagnosis",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T00:09:50.144622+00:00",
+  "evaluation_label": "No completed diagnostic matchup yet",
+  "updated_at": "2026-10-23T00:11:34.165488+00:00",
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:10:58.497258-07:00",
+    "measured_at": "2026-10-22T17:12:01.007914-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,41 +55,59 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T00:09:50.144622+00:00",
-        "elapsed_seconds": 68,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:11:34.165488+00:00",
+        "elapsed_seconds": 104,
         "completed": null,
         "total": null,
         "task": "Iteration 14: reviewing evidence",
-        "eta_seconds": 56,
-        "eta_basis": "11 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
+        "state": "active",
+        "updated_at": "2026-10-23T00:11:34.165488+00:00",
+        "elapsed_seconds": 27,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Frozen J trajectory diagnostic",
+        "eta_seconds": 74,
+        "eta_basis": "9 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 68,
-    "eta_seconds": 1201,
+    "elapsed_seconds": 131,
+    "eta_seconds": 1138,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792713669.739787,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1792714294.1650255,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
-        "state": "done",
-        "job_id": "diagnostic-preparation"
+        "state": "active",
+        "job_id": "preflight",
+        "details": {
+          "schema": 1,
+          "stage": "test",
+          "iteration": 14,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Frozen J trajectory diagnostic",
+          "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
+          "result": "Recovered active job preflight",
+          "candidate": "J cutoff diagnosis",
+          "evaluation_label": "No completed diagnostic matchup yet",
+          "updated_at": "2026-10-23T00:11:34.165164+00:00",
+          "max_iterations": 17,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },
@@ -100,8 +118,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 21.0,
-    "reserved_usd": 9.0,
+    "remaining_usd": 18.0,
+    "reserved_usd": 12.0,
     "reset_at": "2026-10-23T07:00:00+00:00"
   }
 }

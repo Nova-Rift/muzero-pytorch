@@ -4,38 +4,38 @@
   "iteration": 16,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 27,
+  "wins": 24,
   "evaluation_games": 64,
   "timeouts": 5,
   "title": "Frozen M matched diagnostic",
   "change": "Frozen M2048 root8/root16 comparison; no training.",
-  "result": "64 games: 27 challenger wins, 32 opponent wins, 0 draws, 5 cutoffs.",
+  "result": "64 games: 24 challenger wins, 35 opponent wins, 0 draws, 5 cutoffs.",
   "candidate": "M finishing diagnosis",
-  "evaluation_label": "M2048-root8 vs F1024",
-  "updated_at": "2026-10-23T01:12:15.002889+00:00",
+  "evaluation_label": "M2048-root16 vs F1024",
+  "updated_at": "2026-10-23T01:13:21.268348+00:00",
   "matchup": {
-    "challenger": "M2048-root8",
+    "challenger": "M2048-root16",
     "opponent": "F1024",
-    "opponent_wins": 32,
+    "opponent_wins": 35,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M finishing diagnosis",
-    "evaluation_label": "M2048-root8 vs F1024",
-    "wins": 27,
+    "evaluation_label": "M2048-root16 vs F1024",
+    "wins": 24,
     "evaluation_games": 64,
     "timeouts": 5,
     "matchup": {
-      "challenger": "M2048-root8",
+      "challenger": "M2048-root16",
       "opponent": "F1024",
-      "opponent_wins": 32,
+      "opponent_wins": 35,
       "draws": 0
     },
-    "updated_at": "2026-10-23T01:12:15.001861+00:00"
+    "updated_at": "2026-10-23T01:13:21.267449+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:12:20.706620-07:00",
+    "measured_at": "2026-10-22T18:13:23.242625-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,11 +51,11 @@
       {
         "step": 2,
         "state": "finished",
-        "updated_at": "2026-10-23T01:12:15.002889+00:00",
-        "elapsed_seconds": 131,
+        "updated_at": "2026-10-23T01:13:21.268348+00:00",
+        "elapsed_seconds": 175,
         "completed": 64,
         "total": null,
-        "task": "M2048-root8 vs F1024",
+        "task": "M2048-root16 vs F1024",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -82,32 +82,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 863,
+    "elapsed_seconds": 929,
     "eta_seconds": null,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792717934.2482996,
+    "updated_at": 1792718000.461485,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "done",
-        "job_id": "M2048-root8-F1024",
+        "job_id": "M2048-root16-F1024",
         "decision": {
-          "reviewing": "Complete registered F1024 comparison after weaker E result",
+          "reviewing": "Final registered root16 development batch",
           "options": [
-            "Finish both F conditions under frozen protocol",
-            "Reject wider roots if no useful measured benefit across opponents"
+            "Complete F comparison without retuning",
+            "Retain root8 if wider search has no useful evidence"
           ],
           "evidence": [
-            "E root8:19 wins28 losses17 cutoffs; root16:11 wins31 losses22 cutoffs"
+            "F root8:27 wins32 losses5 cutoffs in64 games",
+            "E comparison favored root8; no promotion criteria met"
           ],
-          "reason": "One opponent is insufficient to attribute the effect broadly; finish the predeclared comparison without changing settings.",
-          "next_action": "Publish root8 F final totals, run root16 F, then paired analysis",
-          "updated_at": "2026-10-23T01:11:56.503181+00:00"
+          "reason": "This completes the predefined opponent comparison and supports a measured continuation decision.",
+          "next_action": "Recover final totals and paired analysis, then choose useful prepared continuation or explicit resource release",
+          "updated_at": "2026-10-23T01:13:09.897303+00:00"
         },
         "details": {
           "schema": 1,
@@ -115,19 +116,19 @@
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
-          "wins": 27,
+          "wins": 24,
           "evaluation_games": 64,
           "timeouts": 5,
           "title": "Frozen M matched diagnostic",
           "change": "Frozen M2048 root8/root16 comparison; no training.",
-          "result": "64 games: 27 challenger wins, 32 opponent wins, 0 draws, 5 cutoffs.",
+          "result": "64 games: 24 challenger wins, 35 opponent wins, 0 draws, 5 cutoffs.",
           "candidate": "M finishing diagnosis",
-          "evaluation_label": "M2048-root8 vs F1024",
-          "updated_at": "2026-10-23T01:12:15.002247+00:00",
+          "evaluation_label": "M2048-root16 vs F1024",
+          "updated_at": "2026-10-23T01:13:21.267816+00:00",
           "matchup": {
-            "challenger": "M2048-root8",
+            "challenger": "M2048-root16",
             "opponent": "F1024",
-            "opponent_wins": 32,
+            "opponent_wins": 35,
             "draws": 0
           },
           "max_iterations": 17,

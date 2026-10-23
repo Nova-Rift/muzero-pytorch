@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:38:39.618332-07:00",
+    "measured_at": "2026-10-22T19:39:42.963542-07:00",
     "steps": [
       {
         "step": 1,
@@ -74,7 +74,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T02:37:21.759979+00:00",
-        "elapsed_seconds": 216,
+        "elapsed_seconds": 279,
         "completed": null,
         "total": null,
         "task": "Completed recorded split replay",
@@ -82,14 +82,14 @@
         "eta_basis": "13 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 1243,
+    "elapsed_seconds": 1306,
     "eta_seconds": 0,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792723107.68013,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

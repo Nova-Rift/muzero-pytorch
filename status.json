@@ -5,40 +5,37 @@
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
-  "title": "Record frozen E diagnostic replay",
+  "evaluation_games": 8,
+  "timeouts": 2,
+  "title": "Completed recorded split replay",
   "change": "Both CPU loops replay the original eight-game E schedules with an observation-only wrapper.",
-  "result": "Six recorder/scorer fixtures passed. Compare exact outcomes before interpreting traces.",
-  "candidate": "M2048 split-search",
-  "evaluation_label": "Completed evidence retained separately",
-  "updated_at": "2026-10-23T02:35:03.644047+00:00",
-  "revision": {
-    "summary": "Proposed observation-only wrapper for frozen split evaluator",
-    "reason": "E seeds92021003 and92021004 changed to cutoffs; outcome-only records cannot identify behavior.",
-    "changes": [
-      "Add a separate trace wrapper; preserve evaluated sources and selection gate."
-    ],
-    "test_plan": "Recorder/scorer fixtures, source hashes, then exact recorded-outcome replay comparison.",
-    "updated_at": "2026-10-23T02:34:10.676823+00:00"
+  "result": "All8 seed/seat/outcome/step records exactly equal original development batch.",
+  "candidate": "M2048-split",
+  "evaluation_label": "Repeated E diagnostic, not new confirmation",
+  "updated_at": "2026-10-23T02:37:21.759979+00:00",
+  "matchup": {
+    "challenger": "M2048-split",
+    "opponent": "E1024",
+    "opponent_wins": 6,
+    "draws": 0
   },
   "latest_comparison": {
     "iteration": 20,
     "candidate": "M2048-split",
-    "evaluation_label": "CPU development versus F1024",
-    "wins": 6,
+    "evaluation_label": "Repeated E diagnostic, not new confirmation",
+    "wins": 0,
     "evaluation_games": 8,
-    "timeouts": 0,
+    "timeouts": 2,
     "matchup": {
       "challenger": "M2048-split",
-      "opponent": "F1024",
-      "opponent_wins": 2,
+      "opponent": "E1024",
+      "opponent_wins": 6,
       "draws": 0
     },
-    "updated_at": "2026-10-23T02:31:18.948170+00:00"
+    "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:36:34.735821-07:00",
+    "measured_at": "2026-10-22T19:37:36.992733-07:00",
     "steps": [
       {
         "step": 1,
@@ -54,11 +51,11 @@
       {
         "step": 2,
         "state": "finished",
-        "updated_at": "2026-10-23T02:31:18.948795+00:00",
+        "updated_at": "2026-10-23T02:37:21.759562+00:00",
         "elapsed_seconds": 423,
-        "completed": 0,
+        "completed": 8,
         "total": null,
-        "task": "Completed evidence retained separately",
+        "task": "Repeated E diagnostic, not new confirmation",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -76,92 +73,68 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-23T02:35:03.644047+00:00",
-        "elapsed_seconds": 91,
+        "updated_at": "2026-10-23T02:37:21.759979+00:00",
+        "elapsed_seconds": 153,
         "completed": null,
         "total": null,
-        "task": "Record frozen E diagnostic replay",
-        "eta_seconds": 14,
+        "task": "Completed recorded split replay",
+        "eta_seconds": 0,
         "eta_basis": "13 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 1118,
+    "elapsed_seconds": 1180,
     "eta_seconds": 0,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792722994.694514,
+    "active_loops": 2,
+    "updated_at": 1792723041.7602718,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "job_id": "E-trace-baseline",
-        "decision": {
-          "reviewing": "Does observation-only replay preserve the original E baseline outcomes?",
-          "options": [
-            "Record original seed and seat schedule"
-          ],
-          "evidence": [
-            "Recorder/scorer fixtures passed; wrapper source pushed and verified"
-          ],
-          "reason": "Baseline trajectory is needed to interpret the paired cutoff changes.",
-          "next_action": "Compare all eight recovered record dictionaries with original baseline",
-          "updated_at": "2026-10-23T02:35:32.479407+00:00"
-        },
+        "job_id": "paired-trajectory-analysis",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 20,
           "completed_games": 0,
           "target_games": 8,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Observation-only E-trace-baseline",
+          "title": "Compare validated paired E traces",
           "change": "Original E seeds and seats; isolated recorded CPU replay.",
-          "result": "Recorded 202 decision steps; 7 terminal games so far. Exact outcome check awaits completion.",
+          "result": "Both recorded batches exactly reproduce original8-game outcomes; no new independent evidence.",
           "candidate": "M2048 E-trace-baseline",
           "evaluation_label": "Diagnostic replay",
-          "updated_at": "2026-10-23T02:36:19.928033+00:00",
+          "updated_at": "2026-10-23T02:37:21.760214+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "test",
-        "state": "done",
-        "job_id": "E-trace-split",
-        "decision": {
-          "reviewing": "What actions preceded split-search E cutoffs?",
-          "options": [
-            "Record the original split schedule without changing policies"
-          ],
-          "evidence": [
-            "E seeds92021003 and92021004 changed to cutoffs in development"
-          ],
-          "reason": "Outcome-only records do not reveal behavior; replay must first reproduce exact outcomes.",
-          "next_action": "Validate record equality, then inspect saved observations and actions",
-          "updated_at": "2026-10-23T02:35:32.523512+00:00"
-        },
+        "stage": "review",
+        "state": "active",
+        "job_id": "diagnostic-report-review",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 20,
           "completed_games": 0,
           "target_games": 8,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Observation-only E-trace-split",
+          "title": "Review diagnostic limitations and next gate",
           "change": "Original E seeds and seats; isolated recorded CPU replay.",
-          "result": "Recorded 256 decision steps; 6 terminal games so far. Exact outcome check awaits completion.",
+          "result": "Both recorded batches exactly reproduce original8-game outcomes; no new independent evidence.",
           "candidate": "M2048 E-trace-split",
           "evaluation_label": "Diagnostic replay",
-          "updated_at": "2026-10-23T02:36:19.954325+00:00",
+          "updated_at": "2026-10-23T02:37:21.760246+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

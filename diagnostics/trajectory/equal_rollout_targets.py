@@ -24,6 +24,7 @@ def metrics(estimates, reference):
 def main():
     p=argparse.ArgumentParser()
     for name in ('source','state','catalog','output'):p.add_argument('--'+name,type=Path,required=True)
+    p.add_argument('--history-seed',type=int,default=180001);p.add_argument('--search-seed',type=int,default=180002)
     a=p.parse_args();sys.path.insert(0,str(a.source))
     from model import MuZero, Config
     from arena.train_selfplay import replay_batch
@@ -38,7 +39,7 @@ def main():
     for simulations in (8,32):
         c=dict(e['config']);c['simulations']=simulations
         m=MuZero(Config(**c));m.load_state_dict(state['model']);m.eval();models[simulations]=m
-    rng=np.random.default_rng(180001);histories=[]
+    rng=np.random.default_rng(a.history_seed);histories=[]
     for block in state['replay']:
         b={k:v.numpy() for k,v in block.items()}
         histories.append(replay_batch(b,rng,4,state['arguments']['context'],state['arguments']['unroll'],'cpu')[0])
@@ -55,7 +56,7 @@ def main():
     with torch.no_grad():
         for block,x in enumerate(histories):
             for i in range(len(x)):
-                index=block*4+i;seed=180002+index*3;obs=x[i:i+1]
+                index=block*4+i;seed=a.search_seed+index*3;obs=x[i:i+1]
                 reference,ref_time=draws(obs,32,32,8,seed)
                 standard,std_time=draws(obs,8,32,8,seed+1)
                 split,split_time=draws(obs,32,8,2,seed+2)
@@ -66,7 +67,7 @@ def main():
                 row['mse_delta']=row['split']['mean_squared_distance']-row['standard']['mean_squared_distance']
                 results.append(row)
                 a.output.write_text(json.dumps(dict(complete=False,results=results),indent=2)+'\n')
-    report=dict(complete=True,new_games=0,optimizer_updates=0,history_seed=180001,source_bindings=bindings,
+    report=dict(complete=True,new_games=0,optimizer_updates=0,history_seed=a.history_seed,search_seed=a.search_seed,source_bindings=bindings,
                 settings=dict(standard=[1,32,8],split=[4,8,2],reference_draws=32,estimates=8),
                 scope='Development teacher-agreement proxy on saved histories. Changed tree depth/root settings; equal expansions do not imply equal time or strength.',results=results)
     a.output.write_text(json.dumps(report,indent=2)+'\n')

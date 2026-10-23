@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:16:42.558202-07:00",
+    "measured_at": "2026-10-22T19:17:45.707079-07:00",
     "steps": [
       {
         "step": 1,
@@ -83,7 +83,7 @@
   "workload_status": {
     "active_loops": 0,
     "updated_at": 1792721749.3676147,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

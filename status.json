@@ -1,35 +1,41 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "complete",
   "iteration": 15,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
+  "wins": 24,
+  "evaluation_games": 64,
+  "timeouts": 9,
   "title": "Frozen M matched diagnostic",
   "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-  "result": "Recovered M2048-F1024 evaluate",
+  "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
   "candidate": "M finishing diagnosis",
-  "evaluation_label": "No completed new matchup",
-  "updated_at": "2026-10-23T00:42:37.252658+00:00",
+  "evaluation_label": "M2048 vs F1024",
+  "updated_at": "2026-10-23T00:43:25.638343+00:00",
+  "matchup": {
+    "challenger": "M2048",
+    "opponent": "F1024",
+    "opponent_wins": 31,
+    "draws": 0
+  },
   "latest_comparison": {
     "iteration": 15,
     "candidate": "M finishing diagnosis",
-    "evaluation_label": "M1024 vs F1024",
-    "wins": 26,
+    "evaluation_label": "M2048 vs F1024",
+    "wins": 24,
     "evaluation_games": 64,
-    "timeouts": 16,
+    "timeouts": 9,
     "matchup": {
-      "challenger": "M1024",
+      "challenger": "M2048",
       "opponent": "F1024",
-      "opponent_wins": 22,
+      "opponent_wins": 31,
       "draws": 0
     },
-    "updated_at": "2026-10-23T00:41:59.021635+00:00"
+    "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:42:43.235763-07:00",
+    "measured_at": "2026-10-22T17:43:45.714207-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,14 +50,14 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-23T00:42:37.252658+00:00",
-        "elapsed_seconds": 165,
-        "completed": 0,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:42:58.882377+00:00",
+        "elapsed_seconds": 180,
+        "completed": 64,
         "total": null,
-        "task": "No completed new matchup",
-        "eta_seconds": 523,
-        "eta_basis": "7 previous iteration(s)"
+        "task": "M2048 vs F1024",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -76,59 +82,65 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1020,
-    "eta_seconds": 159,
+    "elapsed_seconds": 1063,
+    "eta_seconds": null,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792716156.2669327,
+    "active_loops": 1,
+    "updated_at": 1792716205.277976,
     "fresh": true,
     "loops": [
       {
         "id": "loop-b",
         "stage": "evaluate",
-        "state": "active",
+        "state": "done",
         "job_id": "M2048-F1024",
         "details": {
           "schema": 1,
-          "stage": "evaluate",
+          "stage": "complete",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
+          "wins": 24,
+          "evaluation_games": 64,
+          "timeouts": 9,
           "title": "Frozen M matched diagnostic",
           "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-          "result": "Recovered M2048-F1024 evaluate",
+          "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
           "candidate": "M finishing diagnosis",
-          "evaluation_label": "No completed new matchup",
-          "updated_at": "2026-10-23T00:42:37.251718+00:00",
+          "evaluation_label": "M2048 vs F1024",
+          "updated_at": "2026-10-23T00:43:25.636621+00:00",
+          "matchup": {
+            "challenger": "M2048",
+            "opponent": "F1024",
+            "opponent_wins": 31,
+            "draws": 0
+          },
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
         "job_id": "j-replay-interpretation",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review M/E evidence and source coverage",
-          "change": "Diagnostic source pushed and remote SHA verified. Both M/E batches recovered; applying the validated projectile replay.",
-          "result": "M1024 vs E:24 wins/31 losses/9cutoffs; M2048:13/37/14. First16 M traces replay-validated. F comparisons still running; no final training decision yet.",
+          "title": "Validate frozen value predictions on recovered histories",
+          "change": "History alignment check passed; local CPU forward-only audit is fast enough, so no extra GPU job is needed.",
+          "result": "Comparing M1024/M2048 value outputs on saved histories; cutoffs excluded from terminal calibration. Awaiting complete final F batch.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:41:30.786406+00:00",
+          "updated_at": "2026-10-23T00:42:55.406347+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

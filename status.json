@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:02:47.484524-07:00",
+    "measured_at": "2026-10-22T18:03:51.761452-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:01:04.589926+00:00",
-        "elapsed_seconds": 103,
+        "elapsed_seconds": 167,
         "completed": null,
         "total": null,
         "task": "Validate root-count experiment before GPU spend",
@@ -76,13 +76,13 @@
         "eta_basis": "11 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 295,
-    "eta_seconds": 795,
+    "elapsed_seconds": 360,
+    "eta_seconds": 730,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792717264.5895622,
+    "updated_at": 1792717370.145507,
     "fresh": false,
     "loops": [
       {
@@ -90,6 +90,20 @@
         "stage": "test",
         "state": "active",
         "job_id": "root-count-preflight",
+        "decision": {
+          "reviewing": "Root-candidate coverage with frozen M2048",
+          "options": [
+            "Compare8 versus16 candidates at32 simulations",
+            "Reject32 candidates at32 simulations before paid testing"
+          ],
+          "evidence": [
+            "CPU proof:32 forced visits yield uniform1/32 policy",
+            "Root16 validity and root8 repeatability passed; transport/report checks passed"
+          ],
+          "reason": "Sixteen candidates widen coverage while preserving simulations for revisiting actions; strength remains unknown.",
+          "next_action": "Finish guarded setup, verify GPU recorder parity, then run registered balanced E/F comparisons",
+          "updated_at": "2026-10-23T01:03:27.429236+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "test",
@@ -99,12 +113,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Check root-candidate search budget",
+          "title": "Prepared GPU root16 recorder parity",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Source shows root32 forces every simulation onto a distinct action. Running CPU proof and root16 validity checks before allocation.",
+          "result": "CPU root16 checks and9 transport/report tests passed. Current H100 quote3.99/hour; zero pods verified. Preparing guarded launch.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:01:04.589504+00:00",
+          "updated_at": "2026-10-23T01:02:50.145422+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
@@ -114,6 +128,20 @@
         "stage": "review",
         "state": "active",
         "job_id": "state-recovery-audit",
+        "decision": {
+          "reviewing": "Full-state recovery readiness before future training",
+          "options": [
+            "Prepare exact-state comparator and bounded round-trip test",
+            "Defer training until GPU recovery and exact-resume gates pass"
+          ],
+          "evidence": [
+            "M2048 full-state hash, finite tensors and optimizer steps verified",
+            "229 source and3 environment bindings match; remote full-size recovery unverified"
+          ],
+          "reason": "Integrity checks support preparation but do not establish exact GPU continuation or justify longer unchanged training.",
+          "next_action": "Implement and test a portable state comparator locally; retain missing remote gates explicitly",
+          "updated_at": "2026-10-23T01:03:27.460991+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -123,12 +151,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Audit full-state recovery prerequisites",
+          "title": "Review full-state recovery admission plan",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Helper verified historical full-state provenance; preparing remote transfer and exact-resume validation gates.",
+          "result": "Helper closed and reclaimed. Full-state/source integrity verified; main reviews safe comparator design while GPU parity runs.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:01:04.589544+00:00",
+          "updated_at": "2026-10-23T01:02:50.145446+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
@@ -142,8 +170,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 15.0,
-    "reserved_usd": 15.0,
+    "remaining_usd": 12.0,
+    "reserved_usd": 18.0,
     "reset_at": "2026-10-23T07:00:00+00:00"
   }
 }

@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T01:13:21.267449+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:14:26.201662-07:00",
+    "measured_at": "2026-10-22T18:15:32.748331-07:00",
     "steps": [
       {
         "step": 1,
@@ -88,12 +88,12 @@
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792718031.256625,
+    "updated_at": 1792718119.9523427,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "evaluate",
+        "stage": "review",
         "state": "done",
         "job_id": "M2048-root16-F1024",
         "decision": {
@@ -121,10 +121,10 @@
           "timeouts": 5,
           "title": "Frozen M matched diagnostic",
           "change": "Frozen M2048 root8/root16 comparison; no training.",
-          "result": "64 games: 24 challenger wins, 35 opponent wins, 0 draws, 5 cutoffs.",
+          "result": "256 games recovered; root16 showed no demonstrated benefit. Pod release/deletion verified; next policy/search-target review prepared.",
           "candidate": "M finishing diagnosis",
           "evaluation_label": "M2048-root16 vs F1024",
-          "updated_at": "2026-10-23T01:13:57.891839+00:00",
+          "updated_at": "2026-10-23T01:15:19.952280+00:00",
           "matchup": {
             "challenger": "M2048-root16",
             "opponent": "F1024",
@@ -138,7 +138,7 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
+        "state": "done",
         "job_id": "state-recovery-audit",
         "decision": {
           "reviewing": "Remote recovery feasibility after local capture success",
@@ -156,7 +156,7 @@
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "complete",
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
@@ -165,10 +165,10 @@
           "timeouts": 0,
           "title": "Full-size capture verified; remote recovery gated",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "1GB local capture hash matches exactly. Remote test awaits costed multi-GB transfer/recovery and historical split-resume integration; no ready GPU recovery job.",
+          "result": "Full-state integrity, comparator and capture checks passed. Remote GPU exact resume remains gated on integration and costed transfers.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:10:57.691218+00:00",
+          "updated_at": "2026-10-23T01:15:19.952325+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

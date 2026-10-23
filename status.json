@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:11:27.201471-07:00",
+    "measured_at": "2026-10-22T19:11:29.568532-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:10:33.783089+00:00",
-        "elapsed_seconds": 376,
+        "elapsed_seconds": 379,
         "completed": null,
         "total": null,
         "task": "Review adapter tests and prepare controlled arena validation",
@@ -76,8 +76,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 376,
-    "eta_seconds": 382,
+    "elapsed_seconds": 379,
+    "eta_seconds": 379,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {

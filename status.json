@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:25:04.969687-07:00",
+    "measured_at": "2026-10-22T18:26:07.462137-07:00",
     "steps": [
       {
         "step": 1,
@@ -77,7 +77,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:22:14.602343+00:00",
-        "elapsed_seconds": 170,
+        "elapsed_seconds": 233,
         "completed": null,
         "total": null,
         "task": "Reconcile frozen replay loss components",
@@ -85,8 +85,8 @@
         "eta_basis": "12 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 369,
-    "eta_seconds": 555,
+    "elapsed_seconds": 432,
+    "eta_seconds": 492,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {

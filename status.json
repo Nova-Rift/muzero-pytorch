@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:14:34.711548-07:00",
+    "measured_at": "2026-10-22T19:15:36.958512-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:10:33.783089+00:00",
-        "elapsed_seconds": 564,
+        "elapsed_seconds": 626,
         "completed": null,
         "total": null,
         "task": "Review adapter tests and prepare controlled arena validation",
@@ -76,18 +76,18 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 564,
-    "eta_seconds": 194,
+    "elapsed_seconds": 626,
+    "eta_seconds": 132,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792721587.2053652,
-    "fresh": false,
+    "updated_at": 1792721724.6799703,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
         "job_id": "source-recovery",
         "decision": {
@@ -105,20 +105,20 @@
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 19,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Validate no-noise split controller",
+          "title": "Archive tested candidate checkpoint",
           "change": "Local evidence review; no resources allocated.",
-          "result": "Six fixtures pass: stream grouping, RNG reset, inactive-stream handling and input guards. Historical model controller parity check underway.",
+          "result": "Six fixtures and canonical wiring passed; published source verified. Finalizing evidence; scored evaluator dispatch remains untested.",
           "candidate": "M2048 equal-rollout diagnosis",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:13:07.205309+00:00",
-          "max_iterations": 19,
+          "updated_at": "2026-10-23T02:15:24.679828+00:00",
+          "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       },
@@ -149,13 +149,13 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Bind candidate arena protocol",
+          "title": "Record next evaluator gate",
           "change": "Local evidence review; no resources allocated.",
-          "result": "Evaluator uses no root noise and per-game/seat RNG. Main records this compatibility requirement and remaining end-to-end arena gate.",
+          "result": "Analysis and helper handoff preserved. Main finalizing protocol requirements: explicit candidate identity, no-noise streams and matched opponents.",
           "candidate": "M2048 equal-rollout diagnosis",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:13:07.205309+00:00",
-          "max_iterations": 19,
+          "updated_at": "2026-10-23T02:15:24.679919+00:00",
+          "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       }

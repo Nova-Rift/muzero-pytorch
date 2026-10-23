@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:43:57.710377-07:00",
+    "measured_at": "2026-10-22T19:44:59.951533-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,7 +66,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:43:19.912335+00:00",
-        "elapsed_seconds": 200,
+        "elapsed_seconds": 262,
         "completed": null,
         "total": null,
         "task": "Prepare frozen gradient decomposition",
@@ -85,14 +85,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 200,
-    "eta_seconds": 558,
+    "elapsed_seconds": 262,
+    "eta_seconds": 496,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792723399.9127533,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

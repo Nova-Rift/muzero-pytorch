@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:18:52.559457-07:00",
+    "measured_at": "2026-10-22T19:19:54.750134-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:17:56.824831+00:00",
-        "elapsed_seconds": 56,
+        "elapsed_seconds": 118,
         "completed": null,
         "total": null,
         "task": "Iteration 20: reviewing evidence",
-        "eta_seconds": 108,
+        "eta_seconds": 46,
         "eta_basis": "16 previous iteration(s)"
       },
       {
@@ -76,26 +76,88 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 56,
-    "eta_seconds": 698,
+    "elapsed_seconds": 118,
+    "eta_seconds": 636,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792721749.3676147,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792721941.7091548,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
-        "state": "done",
-        "job_id": "source-recovery"
+        "stage": "edit",
+        "state": "active",
+        "job_id": "scored-split-integration",
+        "decision": {
+          "reviewing": "Can the candidate run scored comparisons without changing the baseline?",
+          "options": [
+            "Explicit candidate dispatch with separate manifest",
+            "Reject integration on protocol or accounting mismatch"
+          ],
+          "evidence": [
+            "Six adapter fixtures and historical-model/arena wiring checks passed in19."
+          ],
+          "reason": "Scored results need exact candidate identity and complete outcomes; no strength inferred from teacher agreement.",
+          "next_action": "Implement and test scored evaluator then run bounded CPU development if valid.",
+          "updated_at": "2026-10-23T02:19:01.738561+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "edit",
+          "iteration": 20,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Integrate explicit scored split evaluator",
+          "change": "Continue tested split-search candidate validation.",
+          "result": "Implementing candidate dispatch with source-bound baseline and separate protocol identity; no GPU allocation.",
+          "candidate": "M2048 split-search candidate",
+          "evaluation_label": "No scored results yet",
+          "updated_at": "2026-10-23T02:19:01.709090+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "done",
-        "job_id": "equal-rollout-review"
+        "state": "active",
+        "job_id": "protocol-compatibility",
+        "decision": {
+          "reviewing": "Which frozen evaluation invariants must remain matched?",
+          "options": [
+            "Use checked baseline play loop and explicit variant metadata",
+            "Defer if source, seats or outcome semantics mismatch"
+          ],
+          "evidence": [
+            "Historical evaluator uses balanced alternating seats, per-game RNG and no root noise."
+          ],
+          "reason": "Helper reviews contract independently while main owns implementation and publication.",
+          "next_action": "Return exact source hashes and score/seed compatibility checks.",
+          "updated_at": "2026-10-23T02:19:01.770286+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 20,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Check matched evaluation contract",
+          "change": "Continue tested split-search candidate validation.",
+          "result": "Native helper assigned frozen source, score accounting and seed-seat audit while main codes; no duplicate candidate edits.",
+          "candidate": "M2048 split-search candidate",
+          "evaluation_label": "No scored results yet",
+          "updated_at": "2026-10-23T02:19:01.709134+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

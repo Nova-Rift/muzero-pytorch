@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:21:55.216842-07:00",
+    "measured_at": "2026-10-22T19:22:58.134520-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:17:56.824831+00:00",
-        "elapsed_seconds": 238,
+        "elapsed_seconds": 301,
         "completed": null,
         "total": null,
         "task": "Iteration 20: reviewing evidence",
@@ -76,13 +76,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 238,
-    "eta_seconds": 516,
+    "elapsed_seconds": 301,
+    "eta_seconds": 453,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792722071.5358403,
+    "updated_at": 1792722163.5962532,
     "fresh": true,
     "loops": [
       {
@@ -112,19 +112,19 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Check scored evaluator execution",
+          "title": "Run full-horizon scored CPU gate",
           "change": "Continue tested split-search candidate validation.",
-          "result": "Three scoring fixtures pass. Running2-stream4-decision CPU wiring check; timeouts here are test cutoffs, not strength evidence.",
+          "result": "Full-horizon baseline CPU gate is being checked; counters remain0 until complete records are recovered.",
           "candidate": "M2048 split-search candidate",
           "evaluation_label": "No scored results yet",
-          "updated_at": "2026-10-23T02:21:11.535820+00:00",
+          "updated_at": "2026-10-23T02:22:43.596234+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
         "job_id": "protocol-compatibility",
         "decision": {
@@ -142,19 +142,19 @@
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 20,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Transfer protocol review to main",
+          "title": "Review gate protocol and provenance",
           "change": "Continue tested split-search candidate validation.",
-          "result": "Helper audit complete; takeover requested. Reviewing explicit seed matching, malformed outcomes and effective no-noise settings.",
+          "result": "Protocol review accepted: explicit single-matchup schedule, no root noise, strict malformed-outcome rejection and wall-timeout distinction.",
           "candidate": "M2048 split-search candidate",
           "evaluation_label": "No scored results yet",
-          "updated_at": "2026-10-23T02:21:11.535837+00:00",
+          "updated_at": "2026-10-23T02:22:43.596234+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

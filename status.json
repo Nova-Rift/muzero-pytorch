@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 16,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 16: reviewing evidence",
+  "title": "Validate root-count experiment before GPU spend",
   "change": "Replay, frozen-policy audits and root-count correctness checks complete; source published.",
-  "result": "Validate GPU root32 correctness then execute registered frozen M2048 root8/root32 E/F comparison under fresh guarded preflight.",
+  "result": "Source shows root32 forces every simulation onto a distinct action. Running CPU proof and root16 validity checks before allocation.",
   "candidate": "M finishing diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T00:57:52.149155+00:00",
+  "updated_at": "2026-10-23T01:01:04.589926+00:00",
   "latest_comparison": {
     "iteration": 15,
     "candidate": "M finishing diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:00:42.709605-07:00",
+    "measured_at": "2026-10-22T18:01:45.207413-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,56 +55,56 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-23T00:57:52.149155+00:00",
-        "elapsed_seconds": 171,
+        "state": "finished",
+        "updated_at": "2026-10-23T01:01:04.589926+00:00",
+        "elapsed_seconds": 192,
         "completed": null,
         "total": null,
         "task": "Iteration 16: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "13 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
+        "state": "active",
+        "updated_at": "2026-10-23T01:01:04.589926+00:00",
+        "elapsed_seconds": 41,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Validate root-count experiment before GPU spend",
+        "eta_seconds": 60,
+        "eta_basis": "11 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 171,
-    "eta_seconds": 919,
+    "elapsed_seconds": 233,
+    "eta_seconds": 857,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792717140.6809273,
-    "fresh": false,
+    "updated_at": 1792717264.5895622,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
         "job_id": "root-count-preflight",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 16,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare frozen M2048 root-count comparison",
+          "title": "Check root-candidate search budget",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Reviewing registered protocol and adapting tested reusable runner; no GPU allocation yet.",
+          "result": "Source shows root32 forces every simulation onto a distinct action. Running CPU proof and root16 validity checks before allocation.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:59:00.680616+00:00",
+          "updated_at": "2026-10-23T01:01:04.589504+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
@@ -125,10 +125,10 @@
           "timeouts": 0,
           "title": "Audit full-state recovery prerequisites",
           "change": "Preparation only; frozen weights and game contract preserved.",
-          "result": "Native helper checks immutable M checkpoint evidence and prepares bounded recovery validation.",
+          "result": "Helper verified historical full-state provenance; preparing remote transfer and exact-resume validation gates.",
           "candidate": "M2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:59:00.680661+00:00",
+          "updated_at": "2026-10-23T01:01:04.589544+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

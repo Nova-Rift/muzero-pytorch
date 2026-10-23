@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T02:25:40.537948+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:26:47.389619-07:00",
+    "measured_at": "2026-10-22T19:27:11.749804-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-23T02:26:47.333246+00:00",
-        "elapsed_seconds": 151,
+        "elapsed_seconds": 176,
         "completed": 2,
         "total": null,
         "task": "CPU scored wiring gate versus E1024",
-        "eta_seconds": 374,
+        "eta_seconds": 349,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,8 +82,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 531,
-    "eta_seconds": 223,
+    "elapsed_seconds": 555,
+    "eta_seconds": 199,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
@@ -133,6 +133,19 @@
         "stage": "evaluate",
         "state": "active",
         "job_id": "F1024-baseline",
+        "decision": {
+          "reviewing": "Does the candidate also meet the fixed F development rule?",
+          "options": [
+            "Require nonworse wins and cutoffs onF as well asE",
+            "Reject if either opponent fails"
+          ],
+          "evidence": [
+            "Independent F schedule frozen; opponent and checkpoint hashes bound in protocol."
+          ],
+          "reason": "One opponent cannot establish general improvement; this remains small development evidence.",
+          "next_action": "Complete matched baseline and split F batches with exact outcome accounting.",
+          "updated_at": "2026-10-23T02:26:47.396893+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "evaluate",

@@ -30,6 +30,24 @@
       "remote_verified": true,
       "rationale": "Forward-only values on saved histories; preserve source coverage index",
       "tests": "History alignment and32 recovered M traces; no training or new games"
+    },
+    {
+      "id": "root-budget-iteration16",
+      "branch": "experiment/iteration-16-root-budget",
+      "base_commit": "9298395c992c56a2afc47fbb6d7a46b6672c4bcc",
+      "pushed_commit": "aa700ac7bb712886f9c217679ea2fb333096d148",
+      "rationale": "Reject root32 uniform policy at32 simulations; compare root8/root16 with frozen M2048",
+      "tests": "CPU proof and GPU exact recorder parity;256 balanced development games",
+      "result": "No demonstrated root16 benefit; no promotion"
+    },
+    {
+      "id": "full-state-tools-iteration16",
+      "branch": "experiment/iteration-16-recovery-wrapper",
+      "base_commit": "57228847e0fd8b4877d0d45980a165eae1548a5b",
+      "pushed_commit": "9c7d101111504edab0904e03f39eab90d06f906b",
+      "rationale": "Prepare immutable full-state recovery checks",
+      "tests": "6 comparator tests,8 capture tests, actual1GB local hash-preserving capture",
+      "result": "Local engineering only; GPU exactness and remote full-size recovery unverified"
     }
   ],
   "coverage": {

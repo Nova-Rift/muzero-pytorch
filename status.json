@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:41:52.963269-07:00",
+    "measured_at": "2026-10-22T19:42:55.460754-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:41:35.877369+00:00",
-        "elapsed_seconds": 75,
+        "elapsed_seconds": 138,
         "completed": null,
         "total": null,
         "task": "Review learning signals before next revision",
-        "eta_seconds": 117,
+        "eta_seconds": 54,
         "eta_basis": "17 previous iteration(s)"
       },
       {
@@ -76,13 +76,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 75,
-    "eta_seconds": 683,
+    "elapsed_seconds": 138,
+    "eta_seconds": 620,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792723295.876873,
+    "updated_at": 1792723318.730334,
     "fresh": true,
     "loops": [
       {
@@ -90,6 +90,19 @@
         "stage": "review",
         "state": "active",
         "job_id": "loss-gradient-review",
+        "decision": {
+          "reviewing": "Could loss weighting obscure sparse winner-reward learning?",
+          "options": [
+            "Inspect actual loss reduction and masks",
+            "Retain loss if no concrete defect or testable imbalance is found"
+          ],
+          "evidence": [
+            "Prior replay integrity checks passed; inference split failed its advancement gate"
+          ],
+          "reason": "A learning revision needs evidence beyond a failed inference variant.",
+          "next_action": "Read actual M8 loss and design a bounded check only if justified",
+          "updated_at": "2026-10-23T02:41:58.730334+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -114,6 +127,18 @@
         "stage": "review",
         "state": "active",
         "job_id": "training-contract-review",
+        "decision": {
+          "reviewing": "Which return and timeout training variants have already been tested?",
+          "options": [
+            "Audit actual M8 arguments and historical H\u2013M records"
+          ],
+          "evidence": [
+            "Historical candidates include both training and inference revisions"
+          ],
+          "reason": "Avoid repeating rejected work or mislabeling changed targets as continuation.",
+          "next_action": "Helper returns evidence-backed configuration coverage and remaining uncertainty",
+          "updated_at": "2026-10-23T02:41:58.759519+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",

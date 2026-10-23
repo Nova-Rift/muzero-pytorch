@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "revisions": [
+    {
+      "id": "trajectory-diagnostics-iteration15",
+      "repository": "https://github.com/Nova-Rift/muzero-pytorch",
+      "branch": "experiment/iteration-15-trajectory-diagnostics",
+      "base_commit": "d10af2d72dbf03dfec113c0b6e7e47481c5cc88d",
+      "source_path": "diagnostics/trajectory",
+      "rationale": "Preserve tested recorder and observer replay for diagnosing engagement before training changes.",
+      "tests": "3 recorder tests;48 replay traces,5,273,664 scalars,96 damage checks; portable output equality",
+      "result": "No causal cutoff explanation established; no model promotion.",
+      "commit_reference": "Commit containing this index; exact remote SHA recorded in private loop report/archive."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "base_commit": "d10af2d72dbf03dfec113c0b6e7e47481c5cc88d",
+  "original_private_replay_sha256": "8063c0a13a413eea0e252e2770163653e5d57c192c954d36884259a0ce95a9b1",
+  "published_replay_changes": "Replace local absolute paths with required CLI arguments; same replay and assertions",
+  "recorder_origin": "iteration12, GPU validated iteration14 and15",
+  "new_games_from_replay": 0
+}

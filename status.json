@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:44:48.215121-07:00",
+    "measured_at": "2026-10-22T17:45:50.767857-07:00",
     "steps": [
       {
         "step": 1,
@@ -87,30 +87,30 @@
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792716242.0220313,
+    "active_loops": 2,
+    "updated_at": 1792716293.7241037,
     "fresh": true,
     "loops": [
       {
         "id": "loop-b",
-        "stage": "evaluate",
-        "state": "done",
+        "stage": "review",
+        "state": "active",
         "job_id": "M2048-F1024",
         "details": {
           "schema": 1,
-          "stage": "complete",
+          "stage": "review",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
           "wins": 24,
           "evaluation_games": 64,
           "timeouts": 9,
-          "title": "Frozen M matched diagnostic",
+          "title": "Record matched diagnostic conclusion",
           "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-          "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
+          "result": "All256 games complete. M2048 minus M1024: E -11 wins; F -2 wins. Choosing next hypothesis; no training or promotion.",
           "candidate": "M finishing diagnosis",
           "evaluation_label": "M2048 vs F1024",
-          "updated_at": "2026-10-23T00:44:08.671199+00:00",
+          "updated_at": "2026-10-23T00:44:53.724085+00:00",
           "matchup": {
             "challenger": "M2048",
             "opponent": "F1024",
@@ -123,24 +123,24 @@
       },
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
         "job_id": "j-replay-interpretation",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Validate frozen value predictions on recovered histories",
+          "title": "Finalize replay/source evidence and next protocol",
           "change": "History alignment check passed; local CPU forward-only audit is fast enough, so no extra GPU job is needed.",
-          "result": "Comparing M1024/M2048 value outputs on saved histories; cutoffs excluded from terminal calibration. Awaiting complete final F batch.",
+          "result": "32 M traces and frozen value audit complete. Diagnostic source c2632c1 and historical retention66814cb verified remotely; preparing durable report.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:42:55.406347+00:00",
+          "updated_at": "2026-10-23T00:44:53.724085+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

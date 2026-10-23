@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:22:58.134520-07:00",
+    "measured_at": "2026-10-22T19:24:04.766898-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:17:56.824831+00:00",
-        "elapsed_seconds": 301,
+        "elapsed_seconds": 368,
         "completed": null,
         "total": null,
         "task": "Iteration 20: reviewing evidence",
@@ -76,14 +76,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 301,
-    "eta_seconds": 453,
+    "elapsed_seconds": 368,
+    "eta_seconds": 386,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792722163.5962532,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -128,17 +128,17 @@
         "state": "active",
         "job_id": "protocol-compatibility",
         "decision": {
-          "reviewing": "Which frozen evaluation invariants must remain matched?",
+          "reviewing": "What evidence would justify advancing the frozen inference candidate?",
           "options": [
-            "Use checked baseline play loop and explicit variant metadata",
-            "Defer if source, seats or outcome semantics mismatch"
+            "Matched8-game baseline/candidate batches againstE andF after wiring gate",
+            "Reject advancement if wins or cutoffs worsen for either opponent"
           ],
           "evidence": [
-            "Historical evaluator uses balanced alternating seats, per-game RNG and no root noise."
+            "Scoring fixtures and truncated wiring pass; full-horizon baseline gate running."
           ],
-          "reason": "Helper reviews contract independently while main owns implementation and publication.",
-          "next_action": "Return exact source hashes and score/seed compatibility checks.",
-          "updated_at": "2026-10-23T02:19:01.770286+00:00"
+          "reason": "Freeze a small development rule before scores; no promotion or training decision from this sample.",
+          "next_action": "Require completed gate, then run identical settings on fresh E/F schedules without tuning.",
+          "updated_at": "2026-10-23T02:23:30.113643+00:00"
         },
         "details": {
           "schema": 1,

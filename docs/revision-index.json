@@ -48,6 +48,22 @@
       "rationale": "Prepare immutable full-state recovery checks",
       "tests": "6 comparator tests,8 capture tests, actual1GB local hash-preserving capture",
       "result": "Local engineering only; GPU exactness and remote full-size recovery unverified"
+    },
+    {
+      "id": "scored-split-iteration20",
+      "repository": "https://github.com/Nova-Rift/muzero-pytorch",
+      "branch": "experiment/iteration-20-scored-split",
+      "base_commit": "b001b55ceced22aaaac2341a65a9a4ea0602c71e",
+      "pushed_commit": "90bf0252afa334c797f1fb1beeb9f28f712cd3b7",
+      "remote_verified": true,
+      "changed_files": [
+        "diagnostics/trajectory/evaluate_split.py",
+        "diagnostics/trajectory/test_evaluate_split.py"
+      ],
+      "rationale": "Measure split-search frozen inference with matched seed/seat schedules after teacher-distance diagnostics.",
+      "tests": "3 scorer fixtures; 2 wiring games; 4 gate games; 32 development games.",
+      "result": "Rejected advancement: fails E non-regression rule. No promotion.",
+      "result_path": "diagnostics/trajectory/scored-split-results.md"
     }
   ],
   "coverage": {

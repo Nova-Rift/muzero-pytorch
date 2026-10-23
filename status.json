@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "paused",
   "iteration": 18,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Compare target estimators at equal rollout count",
+  "title": "Stopped by owner",
   "change": "Frozen diagnostic source committed; three fixture tests pass.",
   "result": "CPU comparison underway; helper auditing recovery/storage prerequisites. No pod allocation or new games.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:38:16.753653+00:00",
+  "updated_at": "2026-10-23T01:39:17.960998+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:38:47.706551-07:00",
+    "measured_at": "2026-10-22T18:39:18.013439-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,24 +66,24 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T01:38:16.753653+00:00",
-        "elapsed_seconds": 31,
+        "state": "interrupted",
+        "updated_at": "2026-10-23T01:39:17.960998+00:00",
+        "elapsed_seconds": 61,
         "completed": null,
         "total": null,
         "task": "Compare target estimators at equal rollout count",
-        "eta_seconds": 74,
-        "eta_basis": "13 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 195,
-    "eta_seconds": 563,
+    "elapsed_seconds": 226,
+    "eta_seconds": null,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792719489.5780826,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -91,17 +91,17 @@
         "state": "active",
         "job_id": "cost-matched-targets",
         "decision": {
-          "reviewing": "Can target averaging help at the same simulation budget?",
+          "reviewing": "Does the equal-rollout proxy replicate on fresh saved histories?",
           "options": [
-            "One32-simulation search with8 roots",
-            "Four8-simulation searches with2 roots each"
+            "Reject split estimator if improvement fails to replicate",
+            "Prepare isolated candidate only after replicated proxy evidence"
           ],
           "evidence": [
-            "64-search mixture improved7/16 histories but was too costly to justify training."
+            "First12 histories: split target MSE lower in8; measured CPU search time0.80s versus1.57s."
           ],
-          "reason": "Match total recurrent rollout budget; retain selection and validation separation. Equal rollout count is not assumed equal wall time.",
-          "next_action": "Check forced-root mechanics, freeze protocol, implement bounded CPU comparison.",
-          "updated_at": "2026-10-23T01:36:38.886497+00:00"
+          "reason": "Tree depth changes as well as variance. Keep all settings fixed and use fresh history/search seeds; no game-strength claim.",
+          "next_action": "Repeat12-history diagnostic with seeds180101/180102; no tuning on repeat results.",
+          "updated_at": "2026-10-23T01:38:59.165232+00:00"
         }
       },
       {

@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:01:45.207413-07:00",
+    "measured_at": "2026-10-22T18:02:47.484524-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,22 +68,22 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:01:04.589926+00:00",
-        "elapsed_seconds": 41,
+        "elapsed_seconds": 103,
         "completed": null,
         "total": null,
         "task": "Validate root-count experiment before GPU spend",
-        "eta_seconds": 60,
+        "eta_seconds": 0,
         "eta_basis": "11 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 233,
-    "eta_seconds": 857,
+    "elapsed_seconds": 295,
+    "eta_seconds": 795,
     "eta_basis": "13 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792717264.5895622,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

@@ -7,12 +7,12 @@
   "wins": 24,
   "evaluation_games": 64,
   "timeouts": 5,
-  "title": "Frozen M matched diagnostic",
-  "change": "Frozen M2048 root8/root16 comparison; no training.",
-  "result": "64 games: 24 challenger wins, 35 opponent wins, 0 draws, 5 cutoffs.",
-  "candidate": "M finishing diagnosis",
+  "title": "Iteration16:256 frozen comparison games complete",
+  "change": "Rejected saturated root32 plan; tested root8/root16 and full-state recovery tools.",
+  "result": "No demonstrated root16 benefit; no training or promotion. Pod deletion verified. Next: local policy/search-target review.",
+  "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "M2048-root16 vs F1024",
-  "updated_at": "2026-10-23T01:13:57.893845+00:00",
+  "updated_at": "2026-10-23T01:15:36.746971+00:00",
   "matchup": {
     "challenger": "M2048-root16",
     "opponent": "F1024",
@@ -21,7 +21,7 @@
   },
   "latest_comparison": {
     "iteration": 16,
-    "candidate": "M finishing diagnosis",
+    "candidate": "M2048 root-count diagnosis",
     "evaluation_label": "M2048-root16 vs F1024",
     "wins": 24,
     "evaluation_games": 64,
@@ -32,10 +32,10 @@
       "opponent_wins": 35,
       "draws": 0
     },
-    "updated_at": "2026-10-23T01:13:21.267449+00:00"
+    "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:15:32.748331-07:00",
+    "measured_at": "2026-10-22T18:15:36.809932-07:00",
     "steps": [
       {
         "step": 1,
@@ -82,7 +82,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 966,
+    "elapsed_seconds": 1065,
     "eta_seconds": null,
     "eta_basis": "13 previous completed iteration(s)"
   },

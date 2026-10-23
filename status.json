@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:27:12.566731-07:00",
+    "measured_at": "2026-10-22T18:28:15.711201-07:00",
     "steps": [
       {
         "step": 1,
@@ -77,7 +77,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-23T01:27:01.116946+00:00",
-        "elapsed_seconds": 298,
+        "elapsed_seconds": 361,
         "completed": null,
         "total": null,
         "task": "Check stochastic search targets before revising training",
@@ -85,13 +85,13 @@
         "eta_basis": "12 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 497,
-    "eta_seconds": 427,
+    "elapsed_seconds": 560,
+    "eta_seconds": 364,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792718821.0847702,
+    "updated_at": 1792718882.890611,
     "fresh": true,
     "loops": [
       {
@@ -100,17 +100,17 @@
         "state": "active",
         "job_id": "search-target-review",
         "decision": {
-          "reviewing": "Does sparse target entropy imply policy underfitting?",
+          "reviewing": "How much target variation remains without Dirichlet noise?",
           "options": [
-            "Revise policy fitting",
-            "Measure search target variation first"
+            "Keep historical noise fraction0.25",
+            "Frozen diagnostic with noise fraction0"
           ],
           "evidence": [
-            "Repeated search on4 fixed histories: variation accounts for2.49\u20132.72 nats of sample KL."
+            "16-state repeated search: sample variation2.69\u20133.08 nats; residual averaged-target KL0.14\u20131.02."
           ],
-          "reason": "Individual sparse noisy targets cannot establish underfitting; finite averaged-target residual remains uncertain.",
-          "next_action": "Review and publish frozen diagnostics; design broader repeated-target control.",
-          "updated_at": "2026-10-23T01:26:13.697514+00:00"
+          "reason": "A controlled frozen ablation separates noise from random root selection without paying for an unjustified training change.",
+          "next_action": "Compare paired saved histories; no promotion or exact-continuation claim.",
+          "updated_at": "2026-10-23T01:28:02.919060+00:00"
         },
         "details": {
           "schema": 1,
@@ -121,12 +121,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Broaden repeated-search target check",
+          "title": "Separate Dirichlet noise from root sampling",
           "change": "Local evidence review; no pod or training.",
-          "result": "Running1024 frozen searches across16 saved histories. No environment games or updates; source hashes checked.",
+          "result": "Running zero-Dirichlet control on the same16 histories; stochastic root sampling retained. Changed search setting, no training or games.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:27:01.084781+00:00",
+          "updated_at": "2026-10-23T01:28:02.890546+00:00",
           "revision": {
             "summary": "Added read-only replay-fit diagnostic",
             "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -146,17 +146,18 @@
         "state": "active",
         "job_id": "replay-target-census",
         "decision": {
-          "reviewing": "Are saved replay targets or masks corrupt?",
+          "reviewing": "What does replay integrity establish for the next revision?",
           "options": [
-            "Fix replay corruption if demonstrated",
-            "Preserve trainer if integrity checks pass"
+            "Revise masks or normalization",
+            "Retain validated replay and investigate target generation"
           ],
           "evidence": [
-            "87694 valid player transitions: all targets normalized with support8; checked masks consistent."
+            "All retained valid policy rows normalized; checked mask consistency passes.",
+            "Census code577fb41 is remotely verified and four fixture tests pass."
           ],
-          "reason": "No observed corruption justifies a trainer edit. Census covers retained384 games only.",
-          "next_action": "Review tested census sources and publish immutable diagnostic history.",
-          "updated_at": "2026-10-23T01:26:13.725449+00:00"
+          "reason": "Integrity gives no basis for a replay repair. Search-target controls must guide any proposed training experiment.",
+          "next_action": "Record source provenance and explicit ablation acceptance criteria.",
+          "updated_at": "2026-10-23T01:28:02.949183+00:00"
         },
         "details": {
           "schema": 1,
@@ -167,12 +168,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Publish verified replay census",
+          "title": "Assess revision prerequisites",
           "change": "Local evidence review; no pod or training.",
-          "result": "Main reran4 census fixtures: all pass. Reviewing scoped diagnostic commit; helper closed and ownership reclaimed.",
+          "result": "Census source577fb41 verified on GitHub. Checking what a noise-control result can justify; trainer revision depends on frozen control, not integrity checks alone.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:27:01.084865+00:00",
+          "updated_at": "2026-10-23T01:28:02.890595+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

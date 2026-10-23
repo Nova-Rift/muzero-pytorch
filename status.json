@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 19: reviewing evidence",
-  "change": "Frozen diagnostic source committed; three fixture tests pass.",
-  "result": "CPU comparison underway; helper auditing recovery/storage prerequisites. No pod allocation or new games.",
+  "title": "Review adapter tests and prepare controlled arena validation",
+  "change": "Split-search adapter fixtures and historical-model parity passed; helper closed and reclaimed.",
+  "result": "Both loops assigned current review tasks. No arena games, training or pod allocation; loop detail export validated.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:05:10.837861+00:00",
+  "updated_at": "2026-10-23T02:10:33.783089+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:10:24.993901-07:00",
+    "measured_at": "2026-10-22T19:10:33.844915-07:00",
     "steps": [
       {
         "step": 1,
@@ -56,11 +56,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-23T02:05:10.837861+00:00",
-        "elapsed_seconds": 314,
+        "updated_at": "2026-10-23T02:10:33.783089+00:00",
+        "elapsed_seconds": 323,
         "completed": null,
         "total": null,
-        "task": "Iteration 19: reviewing evidence",
+        "task": "Review adapter tests and prepare controlled arena validation",
         "eta_seconds": 0,
         "eta_basis": "15 previous iteration(s)"
       },
@@ -76,18 +76,18 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 314,
-    "eta_seconds": 444,
+    "elapsed_seconds": 323,
+    "eta_seconds": 435,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792721307.8585815,
-    "fresh": false,
+    "updated_at": 1792721433.7489219,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "edit",
+        "stage": "review",
         "state": "active",
         "job_id": "source-recovery",
         "decision": {
@@ -105,19 +105,19 @@
         },
         "details": {
           "schema": 1,
-          "stage": "edit",
+          "stage": "review",
           "iteration": 19,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Implement isolated split-search adapter",
+          "title": "Review split-search correctness results",
           "change": "Local evidence review; no resources allocated.",
-          "result": "Proposed adapter changes search only. Tests will check grouping, reproducibility, source isolation and explicit-control parity; no training.",
+          "result": "Three fixtures and historical-model grouping parity passed. Main reviewing source and publication; no arena games or training.",
           "candidate": "M2048 equal-rollout diagnosis",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:08:27.858524+00:00",
+          "updated_at": "2026-10-23T02:10:33.748844+00:00",
           "max_iterations": 19,
           "pilot_gpu_cap_usd": 30
         }
@@ -149,12 +149,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare candidate validation gates",
+          "title": "Prepare arena-validation plan",
           "change": "Local evidence review; no resources allocated.",
-          "result": "Helper review complete, closed and reclaimed. Main records sample-identity and teacher-bias controls; arena admission awaits adapter tests.",
+          "result": "Helper analysis complete and ownership reclaimed. Main specifies frozen comparisons, sample identity and recovery gates; no helper currently active.",
           "candidate": "M2048 equal-rollout diagnosis",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:08:27.858564+00:00",
+          "updated_at": "2026-10-23T02:10:33.748844+00:00",
           "max_iterations": 19,
           "pilot_gpu_cap_usd": 30
         }

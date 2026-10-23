@@ -40,6 +40,7 @@ def main():
   if digest(e['checkpoint'])!=e['sha256']:raise ValueError('checkpoint changed')
  left['id']=a.challenger+'-'+a.mode
  files={str(f.relative_to(a.source)):digest(f) for f in a.source.rglob('*.py')}
+ files['arena/bridge.mjs']=digest(a.source/'arena/bridge.mjs')
  own={f:digest(Path(__file__).with_name(f)) for f in ['evaluate_split.py','split_controller.py','split_search.py']}
  manifest=dict(schema=1,protocol_id='split-search-development-v1',mode=a.mode,challenger={k:v for k,v in left.items() if k!='checkpoint'},opponent={k:v for k,v in right.items() if k!='checkpoint'},seed=a.seed,games=a.games,parallel=a.parallel,limit=a.limit,device=a.device,source=files,adapter=own,environment={f:digest(a.site/f) for f in ['src/sandboxCombat.ts','src/sandboxMotion.ts','src/lana/observation.ts']},root_noise=False,split=dict(groups=4,simulations=8,roots=2) if a.mode=='split' else None,scope='Frozen development only; not compatible ladder import or training replication')
  a.output.mkdir(parents=True,exist_ok=False);(a.output/'protocol.json').write_text(json.dumps(manifest,indent=2)+'\n')

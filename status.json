@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "evaluate",
   "iteration": 14,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Validate full-horizon GPU recorder parity",
+  "title": "Frozen J trajectory diagnostic",
   "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-  "result": "Parity active; duplicate engineering games are excluded from strength scores.",
+  "result": "Recovered active job e-j-diagnostic",
   "candidate": "J cutoff diagnosis",
   "evaluation_label": "No completed diagnostic matchup yet",
-  "updated_at": "2026-10-23T00:15:01.689844+00:00",
+  "updated_at": "2026-10-23T00:16:00.009880+00:00",
   "latest_comparison": {
     "iteration": 11,
     "candidate": "J",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-22T23:43:57.781259+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:15:15.658496-07:00",
+    "measured_at": "2026-10-22T17:16:19.262441-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,14 +44,14 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
-        "completed": null,
+        "state": "active",
+        "updated_at": "2026-10-23T00:16:00.009880+00:00",
+        "elapsed_seconds": 19,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "No completed diagnostic matchup yet",
+        "eta_seconds": 753,
+        "eta_basis": "6 previous iteration(s)"
       },
       {
         "step": 3,
@@ -66,45 +66,45 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T00:15:01.689844+00:00",
-        "elapsed_seconds": 221,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:16:00.009880+00:00",
+        "elapsed_seconds": 266,
         "completed": null,
         "total": null,
         "task": "Validate full-horizon GPU recorder parity",
-        "eta_seconds": 0,
-        "eta_basis": "9 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 326,
-    "eta_seconds": 943,
+    "elapsed_seconds": 389,
+    "eta_seconds": 880,
     "eta_basis": "11 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792714507.978271,
+    "updated_at": 1792714573.4368284,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "evaluate",
         "state": "active",
-        "job_id": "gpu-parity",
+        "job_id": "e-j-diagnostic",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "evaluate",
           "iteration": 14,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Validate full-horizon GPU recorder parity",
+          "title": "Frozen J trajectory diagnostic",
           "change": "Training and model revision skipped; gather behavior before choosing a training hypothesis.",
-          "result": "Parity active; duplicate engineering games are excluded from strength scores.",
+          "result": "Recovered active job e-j-diagnostic",
           "candidate": "J cutoff diagnosis",
           "evaluation_label": "No completed diagnostic matchup yet",
-          "updated_at": "2026-10-23T00:15:01.689196+00:00",
+          "updated_at": "2026-10-23T00:16:00.009040+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

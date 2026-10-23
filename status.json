@@ -4,38 +4,38 @@
   "iteration": 20,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 2,
+  "wins": 1,
+  "evaluation_games": 8,
   "timeouts": 1,
-  "title": "Two CPU development matchups active",
+  "title": "Completed E1024-baseline",
   "change": "Supervisor runs E and F baseline batches concurrently; each split batch waits for its own baseline.",
-  "result": "Both loops active under a bounded CPU supervisor. Displayed gate score is the last completed matchup; development results are pending.",
-  "candidate": "M2048 split",
-  "evaluation_label": "CPU scored wiring gate versus E1024",
-  "updated_at": "2026-10-23T02:26:47.333246+00:00",
+  "result": "Final: 1 wins, 6 opponent wins, 0 draws, 1 cutoffs in 8 games.",
+  "candidate": "M2048-baseline",
+  "evaluation_label": "CPU development versus E1024",
+  "updated_at": "2026-10-23T02:27:50.082876+00:00",
   "matchup": {
-    "challenger": "M2048-split",
+    "challenger": "M2048-baseline",
     "opponent": "E1024",
-    "opponent_wins": 1,
+    "opponent_wins": 6,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 20,
-    "candidate": "M2048 split",
-    "evaluation_label": "CPU scored wiring gate versus E1024",
-    "wins": 0,
-    "evaluation_games": 2,
+    "candidate": "M2048-baseline",
+    "evaluation_label": "CPU development versus E1024",
+    "wins": 1,
+    "evaluation_games": 8,
     "timeouts": 1,
     "matchup": {
-      "challenger": "M2048-split",
+      "challenger": "M2048-baseline",
       "opponent": "E1024",
-      "opponent_wins": 1,
+      "opponent_wins": 6,
       "draws": 0
     },
-    "updated_at": "2026-10-23T02:25:40.537948+00:00"
+    "updated_at": "2026-10-23T02:27:50.082876+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:27:11.749804-07:00",
+    "measured_at": "2026-10-22T19:27:50.145216-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-23T02:26:47.333246+00:00",
-        "elapsed_seconds": 176,
-        "completed": 2,
+        "updated_at": "2026-10-23T02:27:50.082876+00:00",
+        "elapsed_seconds": 214,
+        "completed": 8,
         "total": null,
-        "task": "CPU scored wiring gate versus E1024",
-        "eta_seconds": 349,
+        "task": "CPU development versus E1024",
+        "eta_seconds": 311,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,88 +82,26 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 555,
-    "eta_seconds": 199,
+    "elapsed_seconds": 593,
+    "eta_seconds": 161,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792722378.724541,
+    "updated_at": 1792722470.0511675,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "E1024-baseline",
-        "decision": {
-          "reviewing": "Does split search improve the matched E development batch?",
-          "options": [
-            "Advance only if wins do not fall and cutoffs do not rise",
-            "Reject advancement otherwise"
-          ],
-          "evidence": [
-            "Both two-game full-horizon wiring gates completed with valid totals."
-          ],
-          "reason": "Fixed development rule and fresh schedule were registered before these scores. No tuning or promotion.",
-          "next_action": "Complete baseline then split on identical8 seeds/seats againstE.",
-          "updated_at": "2026-10-23T02:26:47.364050+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "evaluate",
-          "iteration": 20,
-          "completed_games": 0,
-          "target_games": 8,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Run matched baseline versus E1024",
-          "change": "Bounded CPU development; no GPU allocation.",
-          "result": "Supervisor reports active. Completed game counters await recovered batch records.",
-          "candidate": "M2048 baseline",
-          "evaluation_label": "Development versus E1024",
-          "updated_at": "2026-10-23T02:26:18.802902+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "E1024-split"
       },
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "F1024-baseline",
-        "decision": {
-          "reviewing": "Does the candidate also meet the fixed F development rule?",
-          "options": [
-            "Require nonworse wins and cutoffs onF as well asE",
-            "Reject if either opponent fails"
-          ],
-          "evidence": [
-            "Independent F schedule frozen; opponent and checkpoint hashes bound in protocol."
-          ],
-          "reason": "One opponent cannot establish general improvement; this remains small development evidence.",
-          "next_action": "Complete matched baseline and split F batches with exact outcome accounting.",
-          "updated_at": "2026-10-23T02:26:47.396893+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "evaluate",
-          "iteration": 20,
-          "completed_games": 0,
-          "target_games": 8,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Run matched baseline versus F1024",
-          "change": "Bounded CPU development; no GPU allocation.",
-          "result": "Supervisor reports active. Completed game counters await recovered batch records.",
-          "candidate": "M2048 baseline",
-          "evaluation_label": "Development versus F1024",
-          "updated_at": "2026-10-23T02:26:18.802960+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "F1024-split"
       }
     ]
   },

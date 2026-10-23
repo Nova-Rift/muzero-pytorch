@@ -1,26 +1,26 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "edit",
   "iteration": 21,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Validate gradient evidence and horizon contract",
+  "title": "Prepare fixed horizon calibration probe",
   "change": "Second frozen replay sample plus independent analytic input fixture.",
   "result": "No optimizer updates, model changes, allocation or reservation.",
   "candidate": "MuZero learning-signal review",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:47:23.176592+00:00",
+  "updated_at": "2026-10-23T02:48:23.459129+00:00",
   "revision": {
-    "summary": "Add read-only policy/value/reward gradient audit",
-    "reason": "Prior losses differ in scale; actual gradient norms and alignment have not been measured.",
+    "summary": "Add a fixed offline clock versus constant-feature calibration probe",
+    "reason": "Historical finite-horizon value target lacks explicit clock; test whether that feature helps held-out retained replay calibration.",
     "changes": [
-      "diagnostics/trajectory/audit_loss_gradients.py: reconstruct historical masked losses and compare gradients."
+      "Add source-bound ridge probe with block-separated validation and fixed gate."
     ],
-    "test_plan": "Require reconstructed loss and summed gradients to match original model.loss; verify weights unchanged. No optimizer steps.",
-    "updated_at": "2026-10-23T02:43:19.912332+00:00"
+    "test_plan": "Check binary episode targets, disjoint block split, finite coefficients, unchanged weights; report both class errors and reject failed gate.",
+    "updated_at": "2026-10-23T02:48:23.459126+00:00"
   },
   "latest_comparison": {
     "iteration": 20,
@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:48:07.449437-07:00",
+    "measured_at": "2026-10-22T19:49:09.453211-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,35 +64,35 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T02:47:23.176592+00:00",
-        "elapsed_seconds": 406,
+        "state": "active",
+        "updated_at": "2026-10-23T02:48:23.459129+00:00",
+        "elapsed_seconds": 452,
         "completed": null,
         "total": null,
-        "task": "Gradient audit passed; examine horizon information",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Prepare fixed horizon calibration probe",
+        "eta_seconds": 0,
+        "eta_basis": "17 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T02:47:23.176592+00:00",
-        "elapsed_seconds": 44,
+        "state": "finished",
+        "updated_at": "2026-10-23T02:48:23.459129+00:00",
+        "elapsed_seconds": 60,
         "completed": null,
         "total": null,
         "task": "Validate gradient evidence and horizon contract",
-        "eta_seconds": 66,
-        "eta_basis": "14 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 450,
-    "eta_seconds": 308,
+    "elapsed_seconds": 512,
+    "eta_seconds": 246,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792723643.1762655,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -114,19 +114,19 @@
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "edit",
           "iteration": 21,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Check gradient pattern on a second replay sample",
+          "title": "Prepare fixed clock calibration probe",
           "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "Initial192 samples passed exact decomposition; checking384 samples with a different fixed seed.",
+          "result": "Gradient checks do not justify simple loss reweighting; register bounded alternative before fitting.",
           "candidate": "MuZero next-hypothesis review",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:47:23.176266+00:00",
+          "updated_at": "2026-10-23T02:48:23.459367+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

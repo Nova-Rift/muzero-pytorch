@@ -1,18 +1,27 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "edit",
   "iteration": 21,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Review learning signals before next revision",
+  "title": "Prepare frozen gradient decomposition",
   "change": "Main checks loss weighting; native helper checks historical training contracts.",
   "result": "Split inference rejected; no claim that more unchanged training will help.",
   "candidate": "MuZero learning-signal review",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:41:35.877369+00:00",
+  "updated_at": "2026-10-23T02:43:19.912335+00:00",
+  "revision": {
+    "summary": "Add read-only policy/value/reward gradient audit",
+    "reason": "Prior losses differ in scale; actual gradient norms and alignment have not been measured.",
+    "changes": [
+      "diagnostics/trajectory/audit_loss_gradients.py: reconstruct historical masked losses and compare gradients."
+    ],
+    "test_plan": "Require reconstructed loss and summed gradients to match original model.loss; verify weights unchanged. No optimizer steps.",
+    "updated_at": "2026-10-23T02:43:19.912332+00:00"
+  },
   "latest_comparison": {
     "iteration": 20,
     "candidate": "M2048-split",
@@ -29,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:42:55.460754-07:00",
+    "measured_at": "2026-10-22T19:43:57.710377-07:00",
     "steps": [
       {
         "step": 1,
@@ -56,12 +65,12 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-23T02:41:35.877369+00:00",
-        "elapsed_seconds": 138,
+        "updated_at": "2026-10-23T02:43:19.912335+00:00",
+        "elapsed_seconds": 200,
         "completed": null,
         "total": null,
-        "task": "Review learning signals before next revision",
-        "eta_seconds": 54,
+        "task": "Prepare frozen gradient decomposition",
+        "eta_seconds": 0,
         "eta_basis": "17 previous iteration(s)"
       },
       {
@@ -76,18 +85,18 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 138,
-    "eta_seconds": 620,
+    "elapsed_seconds": 200,
+    "eta_seconds": 558,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792723318.730334,
+    "updated_at": 1792723399.9127533,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
         "job_id": "loss-gradient-review",
         "decision": {
@@ -105,19 +114,19 @@
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 21,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review masked loss weighting and sparse reward learning",
+          "title": "Implement frozen loss-gradient audit",
           "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "No new training or strength result.",
+          "result": "Compare exact total-loss gradients with decomposed components; no optimizer updates.",
           "candidate": "MuZero next-hypothesis review",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:41:35.876873+00:00",
+          "updated_at": "2026-10-23T02:43:19.912591+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -150,10 +159,10 @@
           "timeouts": 0,
           "title": "Audit historical target and training configuration coverage",
           "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "No new training or strength result.",
+          "result": "Helper verified M8 uses episode returns, zero timeout bootstrap and discount1; auditing prior revisions.",
           "candidate": "MuZero next-hypothesis review",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:41:35.876914+00:00",
+          "updated_at": "2026-10-23T02:43:19.912597+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

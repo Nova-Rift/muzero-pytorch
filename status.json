@@ -1,27 +1,18 @@
 {
   "schema": 1,
-  "stage": "complete",
-  "iteration": 17,
+  "stage": "review",
+  "iteration": 18,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Daily research allowance reached",
+  "title": "Iteration 18: reviewing evidence",
   "change": "Tested diagnostic sources pushed and remote SHAs verified; no model revision or new games.",
   "result": "Replay integrity passed. Aggregation gains mixed and expensive; next review will cost-match an estimator. No pod allocated; helper closed.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:31:24.795458+00:00",
-  "revision": {
-    "summary": "Added read-only replay-fit diagnostic",
-    "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
-    "changes": [
-      "diagnostics/trajectory/audit_replay_fit.py samples saved replay and decomposes policy/value/reward loss"
-    ],
-    "test_plan": "Require component sum to match exact model.loss; preserve masks and fixed sampling seed. No strength claim.",
-    "updated_at": "2026-10-23T01:22:14.602340+00:00"
-  },
+  "updated_at": "2026-10-23T01:35:32.470839+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -38,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:34:35.763059-07:00",
+    "measured_at": "2026-10-22T18:35:38.633645-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,30 +55,30 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:31:24.795458+00:00",
-        "elapsed_seconds": 205,
+        "state": "active",
+        "updated_at": "2026-10-23T01:35:32.470839+00:00",
+        "elapsed_seconds": 6,
         "completed": null,
         "total": null,
-        "task": "Frozen target diagnostics archived",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 18: reviewing evidence",
+        "eta_seconds": 130,
+        "eta_basis": "15 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:31:18.366539+00:00",
-        "elapsed_seconds": 544,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Check stochastic search targets before revising training",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 749,
-    "eta_seconds": null,
-    "eta_basis": "14 previous completed iteration(s)"
+    "elapsed_seconds": 6,
+    "eta_seconds": 752,
+    "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
@@ -98,89 +89,17 @@
         "id": "loop-a",
         "stage": "review",
         "state": "done",
-        "job_id": "search-target-review",
-        "decision": {
-          "reviewing": "Does averaging search draws predict independent draws better?",
-          "options": [
-            "Keep frozen prior as estimator",
-            "Fixed50% prior and discovery-target mean mixture"
-          ],
-          "evidence": [
-            "Zero-noise control leaves mean variation2.793 versus2.827 nats; replay masks pass."
-          ],
-          "reason": "Validate aggregation on disjoint draws before proposing expensive extra training searches. Mixture fixed before new results.",
-          "next_action": "Run64 discovery and64 validation searches on16 histories with fresh seed170004.",
-          "updated_at": "2026-10-23T01:29:45.573462+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 17,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Test disjoint target aggregation",
-          "change": "Local evidence review; no pod or training.",
-          "result": "Session checkpoint: aggregation improved7/16 histories;64-search cost lacks training justification. Next: cost-matched estimator design. No GPU task ready.",
-          "candidate": "M2048 target audit",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:31:18.104529+00:00",
-          "revision": {
-            "summary": "Added read-only replay-fit diagnostic",
-            "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
-            "changes": [
-              "diagnostics/trajectory/audit_replay_fit.py samples saved replay and decomposes policy/value/reward loss"
-            ],
-            "test_plan": "Require component sum to match exact model.loss; preserve masks and fixed sampling seed. No strength claim.",
-            "updated_at": "2026-10-23T01:22:14.601901+00:00"
-          },
-          "max_iterations": 17,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "search-target-review"
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "done",
-        "job_id": "replay-target-census",
-        "decision": {
-          "reviewing": "What does replay integrity establish for the next revision?",
-          "options": [
-            "Revise masks or normalization",
-            "Retain validated replay and investigate target generation"
-          ],
-          "evidence": [
-            "All retained valid policy rows normalized; checked mask consistency passes.",
-            "Census code577fb41 is remotely verified and four fixture tests pass."
-          ],
-          "reason": "Integrity gives no basis for a replay repair. Search-target controls must guide any proposed training experiment.",
-          "next_action": "Record source provenance and explicit ablation acceptance criteria.",
-          "updated_at": "2026-10-23T01:28:02.949183+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 17,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Prepare diagnostic provenance archive",
-          "change": "Local evidence review; no pod or training.",
-          "result": "Census and publication complete:384 games,87694 transitions;8 total fixtures pass across diagnostics. Helper closed. Next: broader frozen-history protocol.",
-          "candidate": "M2048 target audit",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:31:18.104579+00:00",
-          "max_iterations": 17,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "replay-target-census"
       }
     ]
   },
-  "max_iterations": 17,
+  "max_iterations": null,
   "reward": {
     "win": 1,
     "other": 0

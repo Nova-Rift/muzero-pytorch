@@ -37,3 +37,5 @@ Iteration15 four64-game development results (candidate wins/opponent wins/cutoff
 
 ## Iteration16 preflight correction
 The proposed32 roots at32 simulations exhausts forced root visits and gives exactly uniform1/32 policy on those roots. CPU assertion verified this on two recovered states. Rejected before allocation; preserved prior protocol. Compare8 versus16 roots at fixed32 simulations instead; frozen weights, same registered development seeds. No strength claim.
+
+Full-state tooling: compare_state.py compares every field exactly and reports the first mismatch; six mutation checks and an actual archived1GB self-comparison passed. audit_archived_state.py accepts an explicit local research archive root; no archive or checkpoints are published. These checks do not establish GPU continuation equivalence.

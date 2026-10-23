@@ -4,38 +4,38 @@
   "iteration": 15,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 24,
+  "wins": 13,
   "evaluation_games": 64,
-  "timeouts": 9,
+  "timeouts": 14,
   "title": "Frozen M matched diagnostic",
   "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-  "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
+  "result": "64 games: 13 challenger wins, 37 opponent wins, 0 draws, 14 cutoffs.",
   "candidate": "M finishing diagnosis",
-  "evaluation_label": "M1024 vs E1024",
-  "updated_at": "2026-10-23T00:39:30.979686+00:00",
+  "evaluation_label": "M2048 vs E1024",
+  "updated_at": "2026-10-23T00:40:25.878397+00:00",
   "matchup": {
-    "challenger": "M1024",
+    "challenger": "M2048",
     "opponent": "E1024",
-    "opponent_wins": 31,
+    "opponent_wins": 37,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 15,
     "candidate": "M finishing diagnosis",
-    "evaluation_label": "M1024 vs E1024",
-    "wins": 24,
+    "evaluation_label": "M2048 vs E1024",
+    "wins": 13,
     "evaluation_games": 64,
-    "timeouts": 9,
+    "timeouts": 14,
     "matchup": {
-      "challenger": "M1024",
+      "challenger": "M2048",
       "opponent": "E1024",
-      "opponent_wins": 31,
+      "opponent_wins": 37,
       "draws": 0
     },
-    "updated_at": "2026-10-23T00:39:26.214166+00:00"
+    "updated_at": "2026-10-23T00:40:25.875501+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:39:35.712422-07:00",
+    "measured_at": "2026-10-22T17:40:38.210991-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,11 +51,11 @@
       {
         "step": 2,
         "state": "finished",
-        "updated_at": "2026-10-23T00:39:26.215063+00:00",
-        "elapsed_seconds": 43,
+        "updated_at": "2026-10-23T00:40:25.878397+00:00",
+        "elapsed_seconds": 87,
         "completed": 64,
         "total": null,
-        "task": "M1024 vs E1024",
+        "task": "M2048 vs E1024",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -82,39 +82,39 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 828,
+    "elapsed_seconds": 883,
     "eta_seconds": null,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792715965.6012833,
+    "updated_at": 1792716025.0896056,
     "fresh": true,
     "loops": [
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "done",
-        "job_id": "M1024-E1024",
+        "job_id": "M2048-E1024",
         "details": {
           "schema": 1,
           "stage": "complete",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
-          "wins": 24,
+          "wins": 13,
           "evaluation_games": 64,
-          "timeouts": 9,
+          "timeouts": 14,
           "title": "Frozen M matched diagnostic",
           "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-          "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
+          "result": "64 games: 13 challenger wins, 37 opponent wins, 0 draws, 14 cutoffs.",
           "candidate": "M finishing diagnosis",
-          "evaluation_label": "M1024 vs E1024",
-          "updated_at": "2026-10-23T00:39:30.979097+00:00",
+          "evaluation_label": "M2048 vs E1024",
+          "updated_at": "2026-10-23T00:40:25.876595+00:00",
           "matchup": {
-            "challenger": "M1024",
+            "challenger": "M2048",
             "opponent": "E1024",
-            "opponent_wins": 31,
+            "opponent_wins": 37,
             "draws": 0
           },
           "max_iterations": 17,

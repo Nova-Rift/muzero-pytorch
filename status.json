@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "complete",
   "iteration": 15,
   "completed_games": 0,
   "target_games": 0,
@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "Frozen M matched diagnostic",
   "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-  "result": "Recovered gpu-parity test",
+  "result": "Recovered gpu-parity complete",
   "candidate": "M finishing diagnosis",
   "evaluation_label": "No completed new matchup",
-  "updated_at": "2026-10-23T00:37:17.941454+00:00",
+  "updated_at": "2026-10-23T00:38:20.678916+00:00",
   "latest_comparison": {
     "iteration": 14,
     "candidate": "J cutoff diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:37:26.265384-07:00",
+    "measured_at": "2026-10-22T17:38:28.715556-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,33 +66,33 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-23T00:37:17.941454+00:00",
-        "elapsed_seconds": 31,
+        "state": "finished",
+        "updated_at": "2026-10-23T00:38:20.678916+00:00",
+        "elapsed_seconds": 85,
         "completed": null,
         "total": null,
         "task": "Frozen M matched diagnostic",
-        "eta_seconds": 72,
-        "eta_basis": "10 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 703,
-    "eta_seconds": 476,
+    "elapsed_seconds": 758,
+    "eta_seconds": null,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792715837.6228793,
+    "updated_at": 1792715900.0759685,
     "fresh": true,
     "loops": [
       {
         "id": "loop-b",
         "stage": "test",
-        "state": "active",
+        "state": "done",
         "job_id": "gpu-parity",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "complete",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
@@ -101,34 +101,34 @@
           "timeouts": 0,
           "title": "Frozen M matched diagnostic",
           "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-          "result": "Recovered gpu-parity test",
+          "result": "Recovered gpu-parity complete",
           "candidate": "M finishing diagnosis",
           "evaluation_label": "No completed new matchup",
-          "updated_at": "2026-10-23T00:37:17.939614+00:00",
+          "updated_at": "2026-10-23T00:38:20.677104+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-a",
-        "stage": "review",
-        "state": "pending",
+        "stage": "edit",
+        "state": "active",
         "job_id": "j-replay-interpretation",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Select next engagement test from matched M evidence",
-          "change": "J projectile attribution validated against all recovered HP changes; preparing the same analysis for candidate-first M catalogs.",
-          "result": "J analysis and candidate-seat checks complete. Blocker: matched M traces not yet produced. Release: first complete M/E trace recovery; then replay with the validated observer. No helper needed while input is unavailable.",
+          "title": "Publish tested replay diagnostic sources",
+          "change": "Owner requested durable Git source history; preparing scoped portable sources in an isolated experiment worktree.",
+          "result": "Publication pending: reviewing source/tests and excluding private evidence. Helper audits H\u2013M history independently while GPU parity runs.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:36:28.568648+00:00",
+          "updated_at": "2026-10-23T00:38:15.118529+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

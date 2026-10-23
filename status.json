@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "queued",
-  "iteration": 19,
+  "stage": "review",
+  "iteration": 20,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Overseer next: test",
+  "title": "Iteration 20: reviewing evidence",
   "change": "Published adapter/controller and preserved interrupted18 diagnostic history.",
   "result": "Integrate explicit candidate evaluator dispatch/protocol; validate scored runner then cost GPU parity and matched comparisons. No stronger-play claim or training admission.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:15:55.902657+00:00",
+  "updated_at": "2026-10-23T02:17:56.824831+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:17:45.707079-07:00",
+    "measured_at": "2026-10-22T19:18:52.559457-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,14 +55,14 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T02:15:55.902657+00:00",
-        "elapsed_seconds": 645,
+        "state": "active",
+        "updated_at": "2026-10-23T02:17:56.824831+00:00",
+        "elapsed_seconds": 56,
         "completed": null,
         "total": null,
-        "task": "Split-search correctness checkpoint archived",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 20: reviewing evidence",
+        "eta_seconds": 108,
+        "eta_basis": "16 previous iteration(s)"
       },
       {
         "step": 4,
@@ -76,9 +76,9 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 645,
-    "eta_seconds": null,
-    "eta_basis": "15 previous completed iteration(s)"
+    "elapsed_seconds": 56,
+    "eta_seconds": 698,
+    "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
@@ -89,75 +89,13 @@
         "id": "loop-a",
         "stage": "review",
         "state": "done",
-        "job_id": "source-recovery",
-        "decision": {
-          "reviewing": "Can split search be isolated without altering historical model behavior?",
-          "options": [
-            "Separate adapter with explicit historical backend",
-            "Defer integration if parity or reproducibility fails"
-          ],
-          "evidence": [
-            "Mean proxy gains repeated but repeat improved only6/12 histories; no arena evidence."
-          ],
-          "reason": "Correctness adapter is a prerequisite, not a promotion or training decision.",
-          "next_action": "Test explicit-control batched versus per-stream search and unchanged model state.",
-          "updated_at": "2026-10-23T02:08:27.885502+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 19,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Archive tested candidate checkpoint",
-          "change": "Local evidence review; no resources allocated.",
-          "result": "Session checkpoint archived: candidate CPU correctness passed. Next: explicit scored evaluator integration and GPU parity. No pod or scored games.",
-          "candidate": "M2048 equal-rollout diagnosis",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:15:49.367634+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "source-recovery"
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "done",
-        "job_id": "equal-rollout-review",
-        "decision": {
-          "reviewing": "Which evaluator semantics must the candidate preserve?",
-          "options": [
-            "Separate no-noise controller with per-stream RNG",
-            "Defer arena admission if reset/batching mapping fails"
-          ],
-          "evidence": [
-            "Frozen evaluator disables root noise and seeds each game/seat independently."
-          ],
-          "reason": "Default training-noise adapter is not directly protocol-compatible; controller must make the difference explicit.",
-          "next_action": "Preserve baseline evaluator; validate candidate controller and freeze protocol before games.",
-          "updated_at": "2026-10-23T02:13:07.232466+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 19,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Record next evaluator gate",
-          "change": "Local evidence review; no resources allocated.",
-          "result": "Review archived; helper closed. Next evaluator gate requires explicit candidate metadata, fresh matched seeds/seats and frozen opponents.",
-          "candidate": "M2048 equal-rollout diagnosis",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:15:49.367740+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "equal-rollout-review"
       }
     ]
   },

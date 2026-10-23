@@ -1,18 +1,27 @@
 {
   "schema": 1,
-  "stage": "complete",
+  "stage": "review",
   "iteration": 15,
   "completed_games": 0,
   "target_games": 0,
   "wins": 24,
   "evaluation_games": 64,
   "timeouts": 9,
-  "title": "Frozen M matched diagnostic",
-  "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-  "result": "64 games: 24 challenger wins, 31 opponent wins, 0 draws, 9 cutoffs.",
+  "title": "Check whether sparse root candidates justify a planner experiment",
+  "change": "Completed four matched batches; testing frozen policy concentration locally before choosing a search change.",
+  "result": "Pod deletion verified. No training, allocation retry or promotion.",
   "candidate": "M finishing diagnosis",
   "evaluation_label": "M2048 vs F1024",
-  "updated_at": "2026-10-23T00:44:08.671902+00:00",
+  "updated_at": "2026-10-23T00:46:02.660373+00:00",
+  "revision": {
+    "summary": "Extend offline frozen-head audit with policy entropy and top-eight probability mass",
+    "reason": "Every current M evaluator samples only8 of153 root actions. Recovered directional metrics are weak; policy concentration can determine whether a wider-root comparison is a plausible next test.",
+    "changes": [
+      "Added local prior_audit.py alongside value_audit.py; no model weights or training settings changed"
+    ],
+    "test_plan": "Check finite outputs and agreement with original value audit, then test any proposed root-count setting before future GPU admission.",
+    "updated_at": "2026-10-23T00:46:02.660368+00:00"
+  },
   "matchup": {
     "challenger": "M2048",
     "opponent": "F1024",
@@ -35,7 +44,7 @@
     "updated_at": "2026-10-23T00:42:58.881414+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:45:50.767857-07:00",
+    "measured_at": "2026-10-22T17:46:02.718113-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,14 +70,14 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T00:36:55.422550+00:00",
+        "state": "active",
+        "updated_at": "2026-10-23T00:46:02.660373+00:00",
         "elapsed_seconds": 673,
         "completed": null,
         "total": null,
-        "task": "Interpret verified J shot replay; prepare matched diagnostics",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Check whether sparse root candidates justify a planner experiment",
+        "eta_seconds": 0,
+        "eta_basis": "12 previous iteration(s)"
       },
       {
         "step": 4,
@@ -82,13 +91,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1106,
-    "eta_seconds": null,
+    "elapsed_seconds": 1220,
+    "eta_seconds": 0,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792716293.7241037,
+    "updated_at": 1792716362.6825967,
     "fresh": true,
     "loops": [
       {
@@ -105,12 +114,12 @@
           "wins": 24,
           "evaluation_games": 64,
           "timeouts": 9,
-          "title": "Record matched diagnostic conclusion",
+          "title": "Prepare next matched planner protocol",
           "change": "Frozen M1024/M2048 diagnostics; no training or model changes.",
-          "result": "All256 games complete. M2048 minus M1024: E -11 wins; F -2 wins. Choosing next hypothesis; no training or promotion.",
+          "result": "Training extension unsupported by current matched results. Checking root-count experiment prerequisites; no new allocation this session.",
           "candidate": "M finishing diagnosis",
           "evaluation_label": "M2048 vs F1024",
-          "updated_at": "2026-10-23T00:44:53.724085+00:00",
+          "updated_at": "2026-10-23T00:46:02.682579+00:00",
           "matchup": {
             "challenger": "M2048",
             "opponent": "F1024",
@@ -135,12 +144,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Finalize replay/source evidence and next protocol",
+          "title": "Inspect frozen policy concentration",
           "change": "History alignment check passed; local CPU forward-only audit is fast enough, so no extra GPU job is needed.",
-          "result": "32 M traces and frozen value audit complete. Diagnostic source c2632c1 and historical retention66814cb verified remotely; preparing durable report.",
+          "result": "Local forward-only audit measures entropy and top-eight mass on saved histories to assess wider-root hypothesis; GPU deleted.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:44:53.724085+00:00",
+          "updated_at": "2026-10-23T00:46:02.682579+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

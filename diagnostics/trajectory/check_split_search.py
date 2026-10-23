@@ -4,11 +4,12 @@ from dataclasses import replace
 from pathlib import Path
 import numpy as np,torch
 from split_search import split_search
+from split_controller import SplitController
 
 def main():
  p=argparse.ArgumentParser()
  for n in ('source','state','catalog','output'):p.add_argument('--'+n,type=Path,required=True)
- a=p.parse_args();sys.path.insert(0,str(a.source))
+ p.add_argument('--site',type=Path);a=p.parse_args();sys.path.insert(0,str(a.source))
  from model import Config,MuZero
  from arena.train_selfplay import replay_batch
  from batched_search_exploration import search_batch
@@ -27,6 +28,32 @@ def main():
   errors.append(float((x-y).abs().max()));torch.testing.assert_close(x,y,atol=1e-6,rtol=1e-6)
  assert m.config.simulations==32 and not m.training
  assert all(torch.equal(v,before[k]) for k,v in m.state_dict().items())
- report=dict(passed=True,observations=2,groups=4,policy_max_error=errors[0],value_max_error=errors[1],observation_sha256=[hashlib.sha256(x.numpy().tobytes()).hexdigest() for x in obs],weights_unchanged=True,explicit_controls_rng_unchanged=True,new_games=0,optimizer_updates=0,scope='CPU explicit-control grouping parity only; not GPU, arena compatibility or exact training resume')
+ from arena.history import DeviceHistory
+ raw=obs[:,:4096].reshape(2,64,64)[:,-1].numpy()
+ labels=[(190100,0),(190101,1)]
+ grouped=SplitController(m,labels,DeviceHistory,search_batch)
+ singles=[SplitController(m,[label],DeviceHistory,search_batch) for label in labels]
+ actions=[]
+ for tick in range(3):
+  group=grouped.decide(raw.tolist(),[True,True])
+  separate=[c.decide([raw[i].tolist()],[True])[0] for i,c in enumerate(singles)]
+  assert group==separate
+  actions.append(group)
+ assert all(torch.equal(v,before[k]) for k,v in m.state_dict().items())
+ report=dict(passed=True,controller_group_actions=actions,controller_per_stream_parity=True,observations=2,groups=4,policy_max_error=errors[0],value_max_error=errors[1],observation_sha256=[hashlib.sha256(x.numpy().tobytes()).hexdigest() for x in obs],weights_unchanged=True,explicit_controls_rng_unchanged=True,new_games=0,optimizer_updates=0,scope='CPU explicit-control grouping parity only; not GPU, arena compatibility or exact training resume')
+ if a.site:
+  from arena.environment import Pool
+  pool=Pool(str(a.site),workers=1,agents=2,cadence='homepage')
+  try:
+   state=pool.reset([190201,190202]);assert (state['alive'].sum(1)==2).all()
+   controllers=[SplitController(m,[(190201,seat),(190202,seat)],DeviceHistory,search_batch) for seat in (0,1)]
+   steps=0
+   for tick in range(4):
+    commands=np.zeros((2,11),dtype=np.int64)
+    for seat,c in enumerate(controllers):commands[:,seat]=c.decide(state['observation'][:,seat].tolist(),state['alive'][:,seat].tolist())
+    assert ((commands[:,:2]>=0)&(commands[:,:2]<153)).all()
+    state=pool.step(commands);steps+=1
+   report['arena_smoke']=dict(two_player_streams=2,decisions_per_stream=steps,completed_matchups=0,scope='Truncated wiring test, not scored games',environment={f:hashlib.sha256((a.site/f).read_bytes()).hexdigest() for f in ['src/sandboxCombat.ts','src/sandboxMotion.ts','src/lana/observation.ts']})
+  finally:pool.close()
  a.output.write_text(json.dumps(report,indent=2)+'\n')
 if __name__=='__main__':main()

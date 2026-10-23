@@ -4,38 +4,38 @@
   "iteration": 20,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 1,
+  "wins": 2,
   "evaluation_games": 8,
-  "timeouts": 1,
-  "title": "Completed E1024-baseline",
+  "timeouts": 2,
+  "title": "Completed F1024-baseline",
   "change": "Supervisor runs E and F baseline batches concurrently; each split batch waits for its own baseline.",
-  "result": "Final: 1 wins, 6 opponent wins, 0 draws, 1 cutoffs in 8 games.",
+  "result": "Final: 2 wins, 4 opponent wins, 0 draws, 2 cutoffs in 8 games.",
   "candidate": "M2048-baseline",
-  "evaluation_label": "CPU development versus E1024",
-  "updated_at": "2026-10-23T02:27:50.082876+00:00",
+  "evaluation_label": "CPU development versus F1024",
+  "updated_at": "2026-10-23T02:27:52.250910+00:00",
   "matchup": {
     "challenger": "M2048-baseline",
-    "opponent": "E1024",
-    "opponent_wins": 6,
+    "opponent": "F1024",
+    "opponent_wins": 4,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 20,
     "candidate": "M2048-baseline",
-    "evaluation_label": "CPU development versus E1024",
-    "wins": 1,
+    "evaluation_label": "CPU development versus F1024",
+    "wins": 2,
     "evaluation_games": 8,
-    "timeouts": 1,
+    "timeouts": 2,
     "matchup": {
       "challenger": "M2048-baseline",
-      "opponent": "E1024",
-      "opponent_wins": 6,
+      "opponent": "F1024",
+      "opponent_wins": 4,
       "draws": 0
     },
-    "updated_at": "2026-10-23T02:27:50.082876+00:00"
+    "updated_at": "2026-10-23T02:27:52.250910+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:27:50.145216-07:00",
+    "measured_at": "2026-10-22T19:27:52.312613-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-23T02:27:50.082876+00:00",
-        "elapsed_seconds": 214,
+        "updated_at": "2026-10-23T02:27:52.250910+00:00",
+        "elapsed_seconds": 216,
         "completed": 8,
         "total": null,
-        "task": "CPU development versus E1024",
-        "eta_seconds": 311,
+        "task": "CPU development versus F1024",
+        "eta_seconds": 309,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,8 +82,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 593,
-    "eta_seconds": 161,
+    "elapsed_seconds": 595,
+    "eta_seconds": 159,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
@@ -95,13 +95,49 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "E1024-split"
+        "job_id": "E1024-split",
+        "details": {
+          "schema": 1,
+          "stage": "evaluate",
+          "iteration": 20,
+          "completed_games": 0,
+          "target_games": 8,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Matched E1024-split",
+          "change": "CPU supervisor; no GPU jobs.",
+          "result": "Recovered supervisor state: active. No complete batch recovered yet.",
+          "candidate": "M2048 split",
+          "evaluation_label": "Development versus E1024",
+          "updated_at": "2026-10-23T02:27:52.258728+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "F1024-split"
+        "job_id": "F1024-split",
+        "details": {
+          "schema": 1,
+          "stage": "evaluate",
+          "iteration": 20,
+          "completed_games": 0,
+          "target_games": 8,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Matched F1024-split",
+          "change": "CPU supervisor; no GPU jobs.",
+          "result": "Recovered supervisor state: active. No complete batch recovered yet.",
+          "candidate": "M2048 split",
+          "evaluation_label": "Development versus F1024",
+          "updated_at": "2026-10-23T02:27:52.258782+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
       }
     ]
   },

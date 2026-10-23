@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T00:19:54.381275+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T17:35:18.710502-07:00",
+    "measured_at": "2026-10-22T17:36:22.709157-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T00:29:16.977497+00:00",
-        "elapsed_seconds": 576,
+        "elapsed_seconds": 640,
         "completed": null,
         "total": null,
         "task": "Interpret verified J shot replay; prepare matched diagnostics",
@@ -76,13 +76,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 576,
-    "eta_seconds": 603,
+    "elapsed_seconds": 640,
+    "eta_seconds": 539,
     "eta_basis": "12 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792715715.8742929,
+    "updated_at": 1792715770.3571563,
     "fresh": true,
     "loops": [
       {
@@ -92,7 +92,7 @@
         "job_id": "j-replay-interpretation",
         "details": {
           "schema": 1,
-          "stage": "edit",
+          "stage": "test",
           "iteration": 15,
           "completed_games": 0,
           "target_games": 0,
@@ -101,10 +101,10 @@
           "timeouts": 0,
           "title": "Prepare matched M trajectory analysis",
           "change": "J projectile attribution validated against all recovered HP changes; preparing the same analysis for candidate-first M catalogs.",
-          "result": "No new model inference here. M analysis awaits recovered traces; local candidate-seat regression test underway.",
+          "result": "Candidate-seat regression passed on eight saved traces. Prepared paired-seed uncertainty analysis; next input is recovered M trajectories.",
           "candidate": "Analyze J aim and engagement",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:35:15.873963+00:00",
+          "updated_at": "2026-10-23T00:36:10.356962+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }
@@ -125,10 +125,10 @@
           "timeouts": 0,
           "title": "Guarded GPU setup and parity preflight",
           "change": "Compatibility checks complete; coordinator preparing four separate paired-seed E/F batches with frozen checkpoints.",
-          "result": "Pod setup/transfer in progress under single420-second deadline; no evaluation completed.",
+          "result": "Authenticated SSH transfer check: 87,310,336 of 130,328,579 payload bytes present at 147 seconds. Setup deadline remains420seconds.",
           "candidate": "Check frozen M diagnostic compatibility",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T00:35:15.874109+00:00",
+          "updated_at": "2026-10-23T00:36:10.356962+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

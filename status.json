@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
-  "iteration": 18,
+  "stage": "review",
+  "iteration": 19,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
+  "title": "Iteration 19: reviewing evidence",
   "change": "Frozen diagnostic source committed; three fixture tests pass.",
   "result": "CPU comparison underway; helper auditing recovery/storage prerequisites. No pod allocation or new games.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:39:17.960998+00:00",
+  "updated_at": "2026-10-23T02:05:10.837861+00:00",
   "latest_comparison": {
     "iteration": 16,
     "candidate": "M2048 root-count diagnosis",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:04:48.905201-07:00",
+    "measured_at": "2026-10-22T19:05:12.562291-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,29 +55,29 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T01:38:16.753653+00:00",
-        "elapsed_seconds": 164,
+        "state": "active",
+        "updated_at": "2026-10-23T02:05:10.837861+00:00",
+        "elapsed_seconds": 2,
         "completed": null,
         "total": null,
-        "task": "Iteration 18: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 19: reviewing evidence",
+        "eta_seconds": 134,
+        "eta_basis": "15 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "interrupted",
-        "updated_at": "2026-10-23T01:39:17.960998+00:00",
-        "elapsed_seconds": 61,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Compare target estimators at equal rollout count",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1756,
-    "eta_seconds": null,
+    "elapsed_seconds": 2,
+    "eta_seconds": 756,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
@@ -89,57 +89,13 @@
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "job_id": "cost-matched-targets",
-        "decision": {
-          "reviewing": "Does the equal-rollout proxy replicate on fresh saved histories?",
-          "options": [
-            "Reject split estimator if improvement fails to replicate",
-            "Prepare isolated candidate only after replicated proxy evidence"
-          ],
-          "evidence": [
-            "First12 histories: split target MSE lower in8; measured CPU search time0.80s versus1.57s."
-          ],
-          "reason": "Tree depth changes as well as variance. Keep all settings fixed and use fresh history/search seeds; no game-strength claim.",
-          "next_action": "Repeat12-history diagnostic with seeds180101/180102; no tuning on repeat results.",
-          "updated_at": "2026-10-23T01:38:59.165232+00:00"
-        }
+        "job_id": "cost-matched-targets"
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "recovery-space-audit",
-        "decision": {
-          "reviewing": "Can existing artifacts support safe full-state recovery validation?",
-          "options": [
-            "Reclaim only hash-verified duplicates",
-            "Defer GPU recovery if space or transfer gates fail"
-          ],
-          "evidence": [
-            "Local free space about1.07GB; full state about1.01GB; remote recovery remains unverified."
-          ],
-          "reason": "Need durable checkpoint headroom before paid training. Read-only audit protects unique historical evidence.",
-          "next_action": "Helper reviews retained duplicates and documents exact release conditions.",
-          "updated_at": "2026-10-23T01:36:38.926524+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 18,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Audit recovery and artifact space",
-          "change": "Local preparation; no paid resources.",
-          "result": "Helper assigned read-only duplicate/provenance and remote recovery audit; no deletion or allocation.",
-          "candidate": "M2048 target diagnosis",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:36:38.852906+00:00",
-          "max_iterations": 18,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "recovery-space-audit"
       }
     ]
   },

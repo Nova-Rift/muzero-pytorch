@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Reconcile frozen replay loss components",
-  "change": "Read-only saved replay diagnostics; no training.",
-  "result": "Implemented read-only loss decomposition; running384 saved replay samples and checking reconstructed loss against historical model.loss.",
+  "title": "Check stochastic search targets before revising training",
+  "change": "Replay census and loss reconstruction passed; no model weights changed.",
+  "result": "Testing16 saved histories with64 repeated searches each. No new games or GPU allocation.",
   "candidate": "M2048 root-count diagnosis",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T01:22:14.602343+00:00",
+  "updated_at": "2026-10-23T01:27:01.116946+00:00",
   "revision": {
     "summary": "Added read-only replay-fit diagnostic",
     "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:26:07.462137-07:00",
+    "measured_at": "2026-10-22T18:27:01.172479-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,23 +76,23 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-23T01:22:14.602343+00:00",
-        "elapsed_seconds": 233,
+        "updated_at": "2026-10-23T01:27:01.116946+00:00",
+        "elapsed_seconds": 287,
         "completed": null,
         "total": null,
-        "task": "Reconcile frozen replay loss components",
+        "task": "Check stochastic search targets before revising training",
         "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 432,
-    "eta_seconds": 492,
+    "elapsed_seconds": 486,
+    "eta_seconds": 438,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792718534.6019495,
-    "fresh": false,
+    "updated_at": 1792718821.0847702,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -100,18 +100,17 @@
         "state": "active",
         "job_id": "search-target-review",
         "decision": {
-          "reviewing": "Saved target entropy versus frozen prediction fit",
+          "reviewing": "Does sparse target entropy imply policy underfitting?",
           "options": [
-            "Measure per-unroll policy KL and entropy on fixed replay samples",
-            "Defer architecture or training changes until actual mismatch is identified"
+            "Revise policy fitting",
+            "Measure search target variation first"
           ],
           "evidence": [
-            "Exact M8 source hashes match saved checkpoint bindings",
-            "Policy targets come from noisy search visits; prediction entropy alone cannot diagnose fitting"
+            "Repeated search on4 fixed histories: variation accounts for2.49\u20132.72 nats of sample KL."
           ],
-          "reason": "Recomputing components with exact masks can identify which head or unroll depth needs investigation.",
-          "next_action": "Check decomposition matches historical loss; compare findings with independent target census",
-          "updated_at": "2026-10-23T01:22:14.633396+00:00"
+          "reason": "Individual sparse noisy targets cannot establish underfitting; finite averaged-target residual remains uncertain.",
+          "next_action": "Review and publish frozen diagnostics; design broader repeated-target control.",
+          "updated_at": "2026-10-23T01:26:13.697514+00:00"
         },
         "details": {
           "schema": 1,
@@ -122,12 +121,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Reconcile frozen replay loss components",
+          "title": "Broaden repeated-search target check",
           "change": "Local evidence review; no pod or training.",
-          "result": "Implemented read-only loss decomposition; running384 saved replay samples and checking reconstructed loss against historical model.loss.",
+          "result": "Running1024 frozen searches across16 saved histories. No environment games or updates; source hashes checked.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:22:14.601884+00:00",
+          "updated_at": "2026-10-23T01:27:01.084781+00:00",
           "revision": {
             "summary": "Added read-only replay-fit diagnostic",
             "reason": "Need to separate diffuse targets from poor policy fit before changing training. No weights or optimizer updates.",
@@ -147,17 +146,17 @@
         "state": "active",
         "job_id": "replay-target-census",
         "decision": {
-          "reviewing": "Distribution and validity of actual saved replay targets",
+          "reviewing": "Are saved replay targets or masks corrupt?",
           "options": [
-            "Measure archived policy/value/reward targets without new games",
-            "Use small fixtures to validate diagnostic masks and counts"
+            "Fix replay corruption if demonstrated",
+            "Preserve trainer if integrity checks pass"
           ],
           "evidence": [
-            "M2048 full-state integrity and source bindings were verified in iteration16"
+            "87694 valid player transitions: all targets normalized with support8; checked masks consistent."
           ],
-          "reason": "Replay statistics can distinguish a diffuse target from a fitting failure; they do not establish causality or strength.",
-          "next_action": "Helper computes bounded CPU census and returns source/tests/evidence for coordinator review",
-          "updated_at": "2026-10-23T01:20:18.652185+00:00"
+          "reason": "No observed corruption justifies a trainer edit. Census covers retained384 games only.",
+          "next_action": "Review tested census sources and publish immutable diagnostic history.",
+          "updated_at": "2026-10-23T01:26:13.725449+00:00"
         },
         "details": {
           "schema": 1,
@@ -168,12 +167,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Audit archived replay targets",
+          "title": "Publish verified replay census",
           "change": "Local evidence review; no pod or training.",
-          "result": "Independent helper task: bounded CPU census of policy/value/reward/mask evidence from existing full state.",
+          "result": "Main reran4 census fixtures: all pass. Reviewing scoped diagnostic commit; helper closed and ownership reclaimed.",
           "candidate": "M2048 target audit",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T01:19:50.031950+00:00",
+          "updated_at": "2026-10-23T01:27:01.084865+00:00",
           "max_iterations": 17,
           "pilot_gpu_cap_usd": 30
         }

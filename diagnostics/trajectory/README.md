@@ -25,3 +25,12 @@ For the selected40 J/E development traces, shot-weighted bearing error was90.54Â
 A frozen matched M1024/M2048-versus-E/F diagnostic is running separately to test whether the descriptive pattern applies to M. Do not transfer J-specific observations to M or describe diagnostic evaluation as training. Source provenance is in `source-provenance.json`; exact experiment records and raw artifacts remain in the private immutable archive.
 
 `value_audit.py` performs frozen forward-only predictions on recovered candidate-first histories. It reuses exact DeviceHistory and excludes censored cutoff outcomes from terminal labels. `--self-test` checks history/action alignment. This exploratory checkpoint comparison is not a training intervention, held-out confirmation, or a causal diagnosis.
+
+
+## Next planner diagnostic, registered but not executed
+
+`prior_audit.py` extends the same frozen forward pass with entropy and top-eight prior mass. On32 recovered candidate histories, equal-game mean entropy was4.259 versus4.824nats for M1024/M2048; mean top-eight prior mass0.390 versus0.175. Top-eight mass is an upper bound for the probability mass of any8-action subset, not the actual sampled root mass. Values matched `value_audit.py` within1e-6. These are selected-state diagnostics, not a causal explanation of strength.
+
+`test_root_candidates.py` checked repeated root8 CPU decisions, unique root32 candidates, finite search results, chosen actions within candidates and unchanged weights on two saved initial states. No new game was played. GPU correctness and strength remain pending. `next-planner-protocol.json` registers root8 versus root32 for the same frozen M2048 weights at fixed32simulations, against E/F with separate balanced catalogs. Different root counts consume random streams differently; matched labels do not imply identical RNG draws. This changes inference search configuration, not training duration or architecture. The candidate is not promoted.
+
+Iteration15 four64-game development results (candidate wins/opponent wins/cutoffs; zero draws): M1024/E24/31/9; M2048/E13/37/14; M1024/F26/22/16; M2048/F24/31/9. This does not support unchanged M training extension. A paired-seed bootstrap for M2048-minus-M1024 win fraction was -0.172[-0.328,-0.016] against E and -0.031[-0.203,0.141] against F. Exploratory, one training seed, no confirmation or promotion claim.

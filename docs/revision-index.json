@@ -21,6 +21,15 @@
       "rationale": "Publish preserved historical recovery revision separately from actual M8 training source; no history rewritten.",
       "tests": "2 state-history checks rerun and passed; small historical recovery checks do not establish full-size GPU exact resume.",
       "remote_verified": true
+    },
+    {
+      "id": "frozen-value-audit-iteration15",
+      "branch": "experiment/iteration-15-trajectory-diagnostics",
+      "base_commit": "89953fb2435faf96122cd58b6df4efa1eb16bff4",
+      "pushed_commit": "c2632c16eed8ad6c6c858faaa1be423d8da258e6",
+      "remote_verified": true,
+      "rationale": "Forward-only values on saved histories; preserve source coverage index",
+      "tests": "History alignment and32 recovered M traces; no training or new games"
     }
   ],
   "coverage": {

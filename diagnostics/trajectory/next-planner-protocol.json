@@ -1,0 +1,44 @@
+{
+  "status": "registered_not_executed",
+  "registered_at": "2026-10-23T00:47:14.910195+00:00",
+  "hypothesis": "M2048 diffuse prior plus only8 sampled root candidates may limit useful action coverage. Compare32 candidates at fixed32 simulations before more training.",
+  "candidate_checkpoint_sha256": "9e8684f3f627b950465466a0ce0cae77275e6ced04b0f28fe11d198fef8aa118",
+  "conditions": [
+    {
+      "id": "M2048-root8",
+      "root_candidates": 8
+    },
+    {
+      "id": "M2048-root32",
+      "root_candidates": 32
+    }
+  ],
+  "fixed": {
+    "simulations": 32,
+    "discount": 1.0,
+    "weights": "same frozen M2048",
+    "environment": "unchanged two-player canonical",
+    "reward": "winner1 otherwise0",
+    "cadence": "five .05s frames",
+    "root_noise": false
+  },
+  "opponents": [
+    "E1024",
+    "F1024"
+  ],
+  "games_per_condition_opponent": 64,
+  "total_games": 256,
+  "seed_start": 91520000,
+  "seats": "alternating candidate-first; same seed labels per condition. Different candidate counts consume RNG differently; not identical random-number streams.",
+  "checkpoint_strategy": "Frozen weights with revised inference planner configuration, not exact training continuation or a new trained checkpoint.",
+  "expected_cost_usd": 1.1,
+  "prerequisites": [
+    "Fresh guarded session, current inventory/offers/budget",
+    "GPU backend root32 correctness and recorder parity before games",
+    "Source/runtime/checkpoint hashes and setup cost/prepared launcher",
+    "Separate catalogs, final exact score publication before next opponent"
+  ],
+  "selection": "Development diagnosis only; no automatic promotion or confirmation reuse",
+  "stopping": "Stop on correctness/runtime/deadline failure; reject root32 if no measured useful strength/throughput benefit. No extra training to fill checklist.",
+  "next_after_evidence": "If promising freeze planner selection then independent confirmation; otherwise inspect training/search learning evidence without relabeling failure."
+}

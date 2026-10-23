@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 2,
   "timeouts": 1,
-  "title": "Split scored gate complete; matched development next",
-  "change": "Published adapter/controller and preserved interrupted18 diagnostic history.",
-  "result": "Final split gate:0 wins,1 opponent win,0 draws,1 cutoff in2 games. Full-horizon scored wiring passes.",
+  "title": "Two CPU development matchups active",
+  "change": "Supervisor runs E and F baseline batches concurrently; each split batch waits for its own baseline.",
+  "result": "Both loops active under a bounded CPU supervisor. Displayed gate score is the last completed matchup; development results are pending.",
   "candidate": "M2048 split",
   "evaluation_label": "CPU scored wiring gate versus E1024",
-  "updated_at": "2026-10-23T02:25:40.537948+00:00",
+  "updated_at": "2026-10-23T02:26:47.333246+00:00",
   "matchup": {
     "challenger": "M2048-split",
     "opponent": "E1024",
@@ -35,7 +35,7 @@
     "updated_at": "2026-10-23T02:25:40.537948+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:26:09.450476-07:00",
+    "measured_at": "2026-10-22T19:26:47.389619-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-23T02:25:40.537948+00:00",
-        "elapsed_seconds": 113,
+        "updated_at": "2026-10-23T02:26:47.333246+00:00",
+        "elapsed_seconds": 151,
         "completed": 2,
         "total": null,
         "task": "CPU scored wiring gate versus E1024",
-        "eta_seconds": 412,
+        "eta_seconds": 374,
         "eta_basis": "9 previous iteration(s)"
       },
       {
@@ -82,91 +82,72 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 493,
-    "eta_seconds": 261,
+    "elapsed_seconds": 531,
+    "eta_seconds": 223,
     "eta_basis": "16 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792722256.1110516,
-    "fresh": false,
+    "updated_at": 1792722378.724541,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "scored-split-integration",
+        "job_id": "E1024-baseline",
         "decision": {
-          "reviewing": "Can the candidate run scored comparisons without changing the baseline?",
+          "reviewing": "Does split search improve the matched E development batch?",
           "options": [
-            "Explicit candidate dispatch with separate manifest",
-            "Reject integration on protocol or accounting mismatch"
+            "Advance only if wins do not fall and cutoffs do not rise",
+            "Reject advancement otherwise"
           ],
           "evidence": [
-            "Six adapter fixtures and historical-model/arena wiring checks passed in19."
+            "Both two-game full-horizon wiring gates completed with valid totals."
           ],
-          "reason": "Scored results need exact candidate identity and complete outcomes; no strength inferred from teacher agreement.",
-          "next_action": "Implement and test scored evaluator then run bounded CPU development if valid.",
-          "updated_at": "2026-10-23T02:19:01.738561+00:00"
+          "reason": "Fixed development rule and fresh schedule were registered before these scores. No tuning or promotion.",
+          "next_action": "Complete baseline then split on identical8 seeds/seats againstE.",
+          "updated_at": "2026-10-23T02:26:47.364050+00:00"
         },
         "details": {
           "schema": 1,
           "stage": "evaluate",
           "iteration": 20,
           "completed_games": 0,
-          "target_games": 0,
+          "target_games": 8,
           "wins": 0,
-          "evaluation_games": 2,
-          "timeouts": 1,
-          "title": "Run matched split candidate gate",
-          "change": "Continue tested split-search candidate validation.",
-          "result": "Baseline gate final:0 wins/1 loss/0 draws/1 cutoff in2 games. Running split on same seeds/seats.",
-          "candidate": "M2048 split-search candidate",
-          "evaluation_label": "No scored results yet",
-          "updated_at": "2026-10-23T02:24:16.110998+00:00",
-          "matchup": {
-            "challenger": "M2048-baseline",
-            "opponent": "E1024",
-            "opponent_wins": 1,
-            "draws": 0
-          },
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Run matched baseline versus E1024",
+          "change": "Bounded CPU development; no GPU allocation.",
+          "result": "Supervisor reports active. Completed game counters await recovered batch records.",
+          "candidate": "M2048 baseline",
+          "evaluation_label": "Development versus E1024",
+          "updated_at": "2026-10-23T02:26:18.802902+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "evaluate",
         "state": "active",
-        "job_id": "protocol-compatibility",
-        "decision": {
-          "reviewing": "What evidence would justify advancing the frozen inference candidate?",
-          "options": [
-            "Matched8-game baseline/candidate batches againstE andF after wiring gate",
-            "Reject advancement if wins or cutoffs worsen for either opponent"
-          ],
-          "evidence": [
-            "Scoring fixtures and truncated wiring pass; full-horizon baseline gate running."
-          ],
-          "reason": "Freeze a small development rule before scores; no promotion or training decision from this sample.",
-          "next_action": "Require completed gate, then run identical settings on fresh E/F schedules without tuning.",
-          "updated_at": "2026-10-23T02:23:30.113643+00:00"
-        },
+        "job_id": "F1024-baseline",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "evaluate",
           "iteration": 20,
           "completed_games": 0,
-          "target_games": 0,
+          "target_games": 8,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Check development admission prerequisites",
-          "change": "Continue tested split-search candidate validation.",
-          "result": "Fresh E/F schedule and advancement rule frozen. Gate baseline valid; candidate completion required before larger comparison.",
-          "candidate": "M2048 split-search candidate",
-          "evaluation_label": "No scored results yet",
-          "updated_at": "2026-10-23T02:24:16.111047+00:00",
+          "title": "Run matched baseline versus F1024",
+          "change": "Bounded CPU development; no GPU allocation.",
+          "result": "Supervisor reports active. Completed game counters await recovered batch records.",
+          "candidate": "M2048 baseline",
+          "evaluation_label": "Development versus F1024",
+          "updated_at": "2026-10-23T02:26:18.802960+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

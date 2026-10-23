@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T19:08:20.451162-07:00",
+    "measured_at": "2026-10-22T19:09:22.546118-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T02:05:10.837861+00:00",
-        "elapsed_seconds": 190,
+        "elapsed_seconds": 252,
         "completed": null,
         "total": null,
         "task": "Iteration 19: reviewing evidence",
@@ -76,48 +76,48 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 190,
-    "eta_seconds": 568,
+    "elapsed_seconds": 252,
+    "eta_seconds": 506,
     "eta_basis": "15 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792721175.6654859,
-    "fresh": false,
+    "updated_at": 1792721307.8585815,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
         "job_id": "source-recovery",
         "decision": {
-          "reviewing": "What completed work survives the owner interruption?",
+          "reviewing": "Can split search be isolated without altering historical model behavior?",
           "options": [
-            "Publish tested diagnostic sources and archive results",
-            "Admit compute only after recovery gates"
+            "Separate adapter with explicit historical backend",
+            "Defer integration if parity or reproducibility fails"
           ],
           "evidence": [
-            "Iteration18 remains interrupted; repeated diagnostic JSON is complete and previous helper was closed."
+            "Mean proxy gains repeated but repeat improved only6/12 histories; no arena evidence."
           ],
-          "reason": "Preserve real outputs without turning interruption into success; resolve source and storage prerequisites first.",
-          "next_action": "Verify tests/source history and hash-bound redundant capture.",
-          "updated_at": "2026-10-23T02:06:15.692485+00:00"
+          "reason": "Correctness adapter is a prerequisite, not a promotion or training decision.",
+          "next_action": "Test explicit-control batched versus per-stream search and unchanged model state.",
+          "updated_at": "2026-10-23T02:08:27.885502+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 19,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Preserve interrupted sources and recovery evidence",
+          "title": "Implement isolated split-search adapter",
           "change": "Local evidence review; no resources allocated.",
-          "result": "Iteration18 remains owner-interrupted. Main verifying diagnostic publication and archived duplicate capture before any space reclamation.",
+          "result": "Proposed adapter changes search only. Tests will check grouping, reproducibility, source isolation and explicit-control parity; no training.",
           "candidate": "M2048 equal-rollout diagnosis",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:06:15.665453+00:00",
+          "updated_at": "2026-10-23T02:08:27.858524+00:00",
           "max_iterations": 19,
           "pilot_gpu_cap_usd": 30
         }
@@ -149,12 +149,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review replicated equal-rollout evidence",
+          "title": "Prepare candidate validation gates",
           "change": "Local evidence review; no resources allocated.",
-          "result": "Helper assigned analysis of completed12+12 saved-history diagnostics; no new games or GPU work.",
+          "result": "Helper review complete, closed and reclaimed. Main records sample-identity and teacher-bias controls; arena admission awaits adapter tests.",
           "candidate": "M2048 equal-rollout diagnosis",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:06:15.665476+00:00",
+          "updated_at": "2026-10-23T02:08:27.858564+00:00",
           "max_iterations": 19,
           "pilot_gpu_cap_usd": 30
         }

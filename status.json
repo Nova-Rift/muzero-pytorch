@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T01:15:36.746971+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-22T18:19:52.363012-07:00",
+    "measured_at": "2026-10-22T18:20:54.457868-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-23T01:18:55.645763+00:00",
-        "elapsed_seconds": 57,
+        "elapsed_seconds": 119,
         "completed": null,
         "total": null,
         "task": "Iteration 17: reviewing evidence",
-        "eta_seconds": 73,
+        "eta_seconds": 11,
         "eta_basis": "14 previous iteration(s)"
       },
       {
@@ -76,20 +76,34 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 57,
-    "eta_seconds": 867,
+    "elapsed_seconds": 119,
+    "eta_seconds": 805,
     "eta_basis": "14 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792718390.0322123,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
         "job_id": "search-target-review",
+        "decision": {
+          "reviewing": "Why wider roots did not improve frozen M2048",
+          "options": [
+            "Audit exact search and learning target contract locally",
+            "Train longer only if evidence supports unchanged continuation"
+          ],
+          "evidence": [
+            "Root16 produced fewer wins than root8 on E/F development batches; intervals include zero",
+            "Root32 at32 simulations is exactly uniform across forced roots"
+          ],
+          "reason": "A target-generation or learning mismatch should be investigated before more paid training or another search sweep.",
+          "next_action": "Verify historical source hashes and build focused deterministic target checks",
+          "updated_at": "2026-10-23T01:20:18.624694+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -114,6 +128,19 @@
         "stage": "review",
         "state": "active",
         "job_id": "replay-target-census",
+        "decision": {
+          "reviewing": "Distribution and validity of actual saved replay targets",
+          "options": [
+            "Measure archived policy/value/reward targets without new games",
+            "Use small fixtures to validate diagnostic masks and counts"
+          ],
+          "evidence": [
+            "M2048 full-state integrity and source bindings were verified in iteration16"
+          ],
+          "reason": "Replay statistics can distinguish a diffuse target from a fitting failure; they do not establish causality or strength.",
+          "next_action": "Helper computes bounded CPU census and returns source/tests/evidence for coordinator review",
+          "updated_at": "2026-10-23T01:20:18.652185+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",

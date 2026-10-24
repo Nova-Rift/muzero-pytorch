@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:47:37.234389+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:49:21.821936-07:00",
+    "measured_at": "2026-10-23T18:50:24.349165-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:47:37.234389+00:00",
-        "elapsed_seconds": 2148,
+        "elapsed_seconds": 2210,
         "completed": null,
         "total": null,
         "task": "Implement frozen replay gradient diagnostic",
@@ -212,7 +212,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3092,
+    "elapsed_seconds": 3154,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
@@ -225,7 +225,7 @@
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792806517.567238,
+        "updated_at": 1792806606.681301,
         "job_id": "iteration-23-paired-readout",
         "decision": {
           "reviewing": "Finalize immutable evidence and source history after mixed development results",
@@ -248,12 +248,12 @@
           "wins": 25,
           "evaluation_games": 64,
           "timeouts": 11,
-          "title": "Preserve paired evidence and verify source history",
+          "title": "Freeze actual replay diagnostic inputs",
           "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-          "result": "All six bouts audited and eight states verified. Q replication rejected; pod deletion verified. Public experiment summary pushed, exact source history being recorded.",
+          "result": "Published Q experiment summary and verified remote SHA. Diagnostic seed and exact final-state hashes frozen before gradients; awaiting atomic helper handoff.",
           "candidate": "Baseline2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:48:37.538232+00:00",
+          "updated_at": "2026-10-24T01:50:06.681301+00:00",
           "matchup": {
             "challenger": "Baseline2048",
             "opponent": "F1024",

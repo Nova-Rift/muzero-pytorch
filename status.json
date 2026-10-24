@@ -40,17 +40,17 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:39:49.321018-07:00",
+    "measured_at": "2026-10-23T19:40:00.886438-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T02:39:49.267199+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 12,
         "completed": 0,
         "total": null,
         "task": "First-transition candidate training on reused H100",
-        "eta_seconds": 443,
+        "eta_seconds": 431,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -87,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2200,
+    "elapsed_seconds": 2212,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -114,7 +114,7 @@
           "next_action": "Helper prepares independent bindings, then audits completed recovered endpoints and bouts",
           "updated_at": "2026-10-24T02:38:51.390815+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -140,7 +140,7 @@
         "id": "loop-d",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792809586.396891,
+        "updated_at": 1792809596.4163463,
         "job_id": "first-transition-overlap-v2",
         "fresh": true
       },
@@ -148,7 +148,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792809586.396891,
+        "updated_at": 1792809596.4163463,
         "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }

@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:32:16.931546-07:00",
+    "measured_at": "2026-10-23T20:33:24.358649-07:00",
     "steps": [
       {
         "step": 1,
@@ -86,21 +86,21 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T03:31:52.896756+00:00",
-        "elapsed_seconds": 24,
+        "elapsed_seconds": 91,
         "completed": null,
         "total": null,
         "task": "H100 allocated; verify exact continuation runtime",
-        "eta_seconds": 91,
+        "eta_seconds": 24,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 483,
-    "eta_seconds": 607,
+    "elapsed_seconds": 550,
+    "eta_seconds": 540,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792812617.3734708,
+    "updated_at": 1792812712.9180417,
     "fresh": false,
     "loops": [
       {
@@ -122,7 +122,7 @@
           "next_action": "Review prepared package, current quotes and recovery gates, then admit bounded GPU work",
           "updated_at": "2026-10-24T03:25:57.155829+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -135,18 +135,18 @@
       {
         "id": "loop-c",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792812617.3734708,
+        "state": "pending",
+        "updated_at": 1792812789.2438595,
         "job_id": "iteration25-readout",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "review",
-        "state": "pending",
-        "updated_at": 1792812587.8967116,
-        "job_id": "iteration25-followup",
-        "fresh": false
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792812755.5767312,
+        "job_id": "iteration25-overlap",
+        "fresh": true
       }
     ]
   },

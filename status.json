@@ -1,27 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
-  "iteration": 21,
+  "stage": "review",
+  "iteration": 22,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
+  "title": "Iteration 22: reviewing evidence",
   "change": "One pod, serial GPU tasks, same-pod follow-up prepared.",
   "result": "CPU parity and transport tests passed; GPU correctness and runtime remain to be measured.",
   "candidate": "MuZero learning-signal review",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T00:31:00.869397+00:00",
-  "revision": {
-    "summary": "Add a fixed offline clock versus constant-feature calibration probe",
-    "reason": "Historical finite-horizon value target lacks explicit clock; test whether that feature helps held-out retained replay calibration.",
-    "changes": [
-      "Add source-bound ridge probe with block-separated validation and fixed gate."
-    ],
-    "test_plan": "Check binary episode targets, disjoint block split, finite coefficients, unchanged weights; report both class errors and reject failed gate.",
-    "updated_at": "2026-10-23T02:48:23.459126+00:00"
-  },
+  "updated_at": "2026-10-24T00:31:06.886510+00:00",
   "latest_comparison": {
     "iteration": 20,
     "candidate": "M2048-split",
@@ -38,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:31:00.917061-07:00",
+    "measured_at": "2026-10-23T17:31:12.322359-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,68 +55,56 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-23T02:59:43.428887+00:00",
-        "elapsed_seconds": 1085,
+        "state": "active",
+        "updated_at": "2026-10-24T00:31:06.886510+00:00",
+        "elapsed_seconds": 5,
         "completed": null,
         "total": null,
-        "task": "Prepare useful GPU queue and reusable runner",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 22: reviewing evidence",
+        "eta_seconds": 187,
+        "eta_basis": "17 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "interrupted",
-        "updated_at": "2026-10-23T02:59:45.612256+00:00",
-        "elapsed_seconds": 62,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Launch guarded H100 search-depth comparison",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 78623,
-    "eta_seconds": null,
+    "elapsed_seconds": 5,
+    "eta_seconds": 753,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792724320.340826,
-    "fresh": false,
+    "updated_at": 1792801866.908447,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "job_id": "gpu-scientific-queue",
-        "decision": {
-          "reviewing": "Does deeper search at fixed root coverage improve frozen MuZero play?",
-          "options": [
-            "Compare32 versus128 simulations with8 roots against E and F"
-          ],
-          "evidence": [
-            "Root16 at32 simulations and split4x8 failed advancement; neither tests greater depth at8 roots"
-          ],
-          "reason": "Separate search-depth benefit from reduced revisits, with measured runtime and fixed development gates.",
-          "next_action": "Prepare source/config checks and a serial GPU queue with costed follow-up",
-          "updated_at": "2026-10-23T02:52:51.940338+00:00"
-        },
+        "job_id": "iteration-22-planning-1",
         "details": {
           "schema": 1,
-          "stage": "test",
-          "iteration": 21,
+          "stage": "review",
+          "iteration": 22,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Finalize GPU package and cost preflight",
-          "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "64-simulation CPU static/dynamic/frozen parity exact; eight runner tests and four transport tests passed.",
-          "candidate": "MuZero next-hypothesis review",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:58:40.340826+00:00",
+          "updated_at": "2026-10-24T00:31:06.908447+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -134,34 +113,22 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "reusable-runner-preflight",
-        "decision": {
-          "reviewing": "Can the prepared runner safely reuse one pod across queued tasks?",
-          "options": [
-            "Adapt tested runner with current status-mirror and lifecycle rules"
-          ],
-          "evidence": [
-            "Iteration16 runner already supports watchdog acknowledgement and retained normal completion"
-          ],
-          "reason": "Complete transport and reuse checks before paying for allocation.",
-          "next_action": "Helper prepares isolated runner and wiring tests; main alone allocates and submits",
-          "updated_at": "2026-10-23T02:52:51.967209+00:00"
-        },
+        "job_id": "iteration-22-planning-2",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 21,
+          "iteration": 22,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare next same-pod depth comparison",
-          "change": "Review source and archived evidence before choosing a training revision.",
-          "result": "Reusable runner helper closed/reclaimed;128-simulation continuation awaits actual64-simulation GPU timing.",
-          "candidate": "MuZero next-hypothesis review",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-23T02:58:40.340842+00:00",
+          "updated_at": "2026-10-24T00:31:06.908447+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

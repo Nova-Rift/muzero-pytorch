@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:24:40.465519-07:00",
+    "measured_at": "2026-10-23T19:25:47.167882-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 1291,
+        "elapsed_seconds": 1358,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,61 +76,68 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1291,
+    "elapsed_seconds": 1358,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792808496.965059,
+    "updated_at": 1792808562.124706,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792808496.965059,
-        "job_id": "iteration-24-followup-verifier",
+        "updated_at": 1792808694.111696,
+        "job_id": "iteration-24-storage-admission",
         "decision": {
-          "reviewing": "Can recovery verify the intended first-transition objective and complete baseline state?",
+          "reviewing": "Will local recovery capacity support a ready same-pod follow-up?",
           "options": [
-            "Extend isolated verifier and test wrong-objective rejection"
+            "Verify completed archive-identical duplicate artifacts before deduplication"
           ],
           "evidence": [
-            "Baseline training completed2048 games; current verifier only accepts baseline and root5 contracts"
+            "Baseline full-state recovery passed;32 prior duplicate paths offer493MB but current candidate recovery is still pending"
           ],
-          "reason": "Explicit objective binding must be ready before follow-up admission",
-          "next_action": "Helper tests and publishes verifier extension; inspect recovered state checks",
-          "updated_at": "2026-10-24T02:21:36.965059+00:00"
+          "reason": "Preserve every artifact and require measured free-space margin before another training job",
+          "next_action": "Review verified deduplication plan and remeasure capacity after current recovery",
+          "updated_at": "2026-10-24T02:24:54.111696+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792808679.124119,
+        "updated_at": 1792808744.0670211,
         "job_id": "Root5_2048",
+        "progress": {
+          "job_id": "Root5_2048",
+          "completed": 1664,
+          "total": 2048,
+          "unit": "games",
+          "updated_at": 1792808735.3116302
+        },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 24,
-          "completed_games": 1280,
+          "completed_games": 1664,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Fresh2048 root-focused loss training",
           "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 1280 training games and 1280 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1664 training games and 1664 optimizer updates. Strength remains unmeasured.",
           "candidate": "Root5_2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:24:11.420357+00:00",
+          "updated_at": "2026-10-24T02:25:35.311630+00:00",
           "training_metrics": {
             "iteration": 24,
             "run_id": "Root5_2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:24:11.420357+00:00",
+            "reported_at": "2026-10-24T02:25:35.311630+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -201,6 +208,27 @@
                 "elapsed_seconds": 281.7500065729837,
                 "loss": 4.915453910827637,
                 "search_entropy": 1.6604270222596824
+              },
+              {
+                "optimizer_updates": 1408,
+                "games": 1408,
+                "elapsed_seconds": 309.572286568,
+                "loss": 4.835692405700684,
+                "search_entropy": 1.785482818260789
+              },
+              {
+                "optimizer_updates": 1536,
+                "games": 1536,
+                "elapsed_seconds": 337.0731284280191,
+                "loss": 4.817424774169922,
+                "search_entropy": 1.5460890755057335
+              },
+              {
+                "optimizer_updates": 1664,
+                "games": 1664,
+                "elapsed_seconds": 365.5422630630201,
+                "loss": 5.158642768859863,
+                "search_entropy": 1.6064041266217828
               }
             ]
           },
@@ -213,21 +241,21 @@
         "id": "loop-c",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792808603.482872,
-        "job_id": "iteration-24-followup-package",
+        "updated_at": 1792808739.969263,
+        "job_id": "iteration-24-followup-admission-plan",
         "decision": {
-          "reviewing": "Can the isolated follow-up reuse the existing pod runtime exactly?",
+          "reviewing": "Will the prepared follow-up be recovered and reported by the existing runner?",
           "options": [
-            "Upload only663046 bytes of frozen source and verify150 reused file hashes"
+            "Correct unsubmitted output paths and bind frozen comparisons"
           ],
           "evidence": [
-            "Package and seven handoff artifacts verified; baseline behavior sources unchanged"
+            "Existing recovery reads workspace runs; preliminary templates used a separate followup output tree"
           ],
-          "reason": "Avoid cold setup while retaining exact source/runtime checks and unchanged active jobs",
-          "next_action": "Stage isolated source and verify remote bytes before any GPU admission",
-          "updated_at": "2026-10-24T02:23:23.482872+00:00"
+          "reason": "Avoid missing artifacts without modifying active source or runner",
+          "next_action": "Helper validates compatible output paths and exact comparison bindings before admission",
+          "updated_at": "2026-10-24T02:25:39.969263+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",

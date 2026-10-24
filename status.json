@@ -1,171 +1,171 @@
 {
   "schema": 1,
-  "stage": "edit",
+  "stage": "review",
   "iteration": 23,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 35,
+  "wins": 25,
   "evaluation_games": 64,
-  "timeouts": 10,
-  "title": "Implement frozen replay gradient diagnostic",
-  "change": "Read-only diagnostic; original trainer and model remain unchanged.",
-  "result": "Helper is implementing actual-loss parity and mask coefficient tests before a bounded CPU replay probe.",
-  "candidate": "Q2048",
+  "timeouts": 11,
+  "title": "Prepare fresh paired loss experiment prerequisites",
+  "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
+  "result": "Coordinator is binding new seeds, fixed controls and measured recovery/storage constraints; no GPU allocation.",
+  "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T01:47:37.234389+00:00",
+  "updated_at": "2026-10-24T01:53:15.458498+00:00",
   "revision": {
-    "summary": "Implement read-only replay gradient diagnostic.",
-    "reason": "The source audit found weighting differences; actual replay gradients are not yet measured, so benefit remains unknown.",
+    "summary": "Generalize paired readout to frozen experiment labels and seed bindings.",
+    "reason": "Existing parser hardcodes Q experiment names and seeds; new loss experiment needs honest labels and independent predeclared seeds.",
     "changes": [
-      "Proposed diagnostics/gradients replay loader and loss reconstruction",
-      "Proposed parity and mask tests; no trainer/model edits"
+      "Proposed diagnostics/paired/readout.py manifest-bound candidate label and development/bootstrap seeds",
+      "Proposed fixture for changed labels/seeds and rejection of mismatches"
     ],
-    "test_plan": "Compare original loss and parameter gradients; test mask coefficients and hidden scaling; run a bounded frozen CPU replay probe.",
-    "updated_at": "2026-10-24T01:47:37.234383+00:00"
+    "test_plan": "Keep all ten strict audit tests; add new frozen binding tests and verify prior Q readout unchanged.",
+    "updated_at": "2026-10-24T01:53:15.458491+00:00"
   },
   "matchup": {
-    "challenger": "Q2048",
+    "challenger": "Baseline2048",
     "opponent": "F1024",
-    "opponent_wins": 18,
-    "draws": 1
+    "opponent_wins": 28,
+    "draws": 0
   },
   "training_metrics": {
     "iteration": 23,
-    "run_id": "Q2048",
+    "run_id": "Baseline2048",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-24T01:39:16.517818+00:00",
+    "reported_at": "2026-10-24T01:31:36.184300+00:00",
     "points": [
       {
         "optimizer_updates": 128,
         "games": 128,
-        "elapsed_seconds": 31.42276402999414,
-        "loss": 4.845115661621094,
-        "search_entropy": 0.968941505998373
+        "elapsed_seconds": 29.225785896996967,
+        "loss": 5.305891036987305,
+        "search_entropy": 3.465735912322998
       },
       {
         "optimizer_updates": 256,
         "games": 256,
-        "elapsed_seconds": 57.25735433003865,
-        "loss": 4.9677734375,
-        "search_entropy": 1.2187657350665526
+        "elapsed_seconds": 57.25855774799129,
+        "loss": 5.391545295715332,
+        "search_entropy": 0.9509891271591187
       },
       {
         "optimizer_updates": 384,
         "games": 384,
-        "elapsed_seconds": 86.79315404203953,
-        "loss": 4.941828727722168,
-        "search_entropy": 1.3789989701472223
+        "elapsed_seconds": 85.26426825998351,
+        "loss": 5.359657287597656,
+        "search_entropy": 1.2888370677828789
       },
       {
         "optimizer_updates": 512,
         "games": 512,
-        "elapsed_seconds": 110.63937170698773,
-        "loss": 4.796825885772705,
-        "search_entropy": 1.120841930357463
+        "elapsed_seconds": 112.85519435396418,
+        "loss": 5.173979759216309,
+        "search_entropy": 1.583502006251365
       },
       {
         "optimizer_updates": 640,
         "games": 640,
-        "elapsed_seconds": 137.83798881800612,
-        "loss": 4.765341758728027,
-        "search_entropy": 1.370921568479389
+        "elapsed_seconds": 141.68399176897947,
+        "loss": 4.8751912117004395,
+        "search_entropy": 1.64034377457574
       },
       {
         "optimizer_updates": 768,
         "games": 768,
-        "elapsed_seconds": 164.1674372620182,
-        "loss": 4.449838638305664,
-        "search_entropy": 1.4834754983894527
+        "elapsed_seconds": 169.46104271599324,
+        "loss": 5.016875267028809,
+        "search_entropy": 1.6857315227389336
       },
       {
         "optimizer_updates": 896,
         "games": 896,
-        "elapsed_seconds": 190.48688524001045,
-        "loss": 4.447656631469727,
-        "search_entropy": 1.2566883631516248
+        "elapsed_seconds": 197.18767906201538,
+        "loss": 5.019231796264648,
+        "search_entropy": 1.240921140415594
       },
       {
         "optimizer_updates": 1024,
         "games": 1024,
-        "elapsed_seconds": 218.54525946703507,
-        "loss": 4.675105571746826,
-        "search_entropy": 1.9083576595876366
+        "elapsed_seconds": 224.6556312039611,
+        "loss": 4.866997241973877,
+        "search_entropy": 1.4770120005123317
       },
       {
         "optimizer_updates": 1152,
         "games": 1152,
-        "elapsed_seconds": 248.4143918970367,
-        "loss": 4.6434245109558105,
-        "search_entropy": 1.5987163081299514
+        "elapsed_seconds": 253.0751077529858,
+        "loss": 4.937623977661133,
+        "search_entropy": 1.417601185850799
       },
       {
         "optimizer_updates": 1280,
         "games": 1280,
-        "elapsed_seconds": 278.1078536960413,
-        "loss": 4.926885604858398,
-        "search_entropy": 1.574570873286575
+        "elapsed_seconds": 280.9014866229845,
+        "loss": 4.960740089416504,
+        "search_entropy": 1.5437126019969583
       },
       {
         "optimizer_updates": 1408,
         "games": 1408,
-        "elapsed_seconds": 307.6613670660299,
-        "loss": 4.809106826782227,
-        "search_entropy": 1.4004444142337888
+        "elapsed_seconds": 308.4182753089699,
+        "loss": 4.906318664550781,
+        "search_entropy": 1.5488296053372324
       },
       {
         "optimizer_updates": 1536,
         "games": 1536,
-        "elapsed_seconds": 336.1089236490079,
-        "loss": 4.806558132171631,
-        "search_entropy": 1.3825862798839808
+        "elapsed_seconds": 335.6389859879855,
+        "loss": 4.881287574768066,
+        "search_entropy": 1.6551669142208993
       },
       {
         "optimizer_updates": 1664,
         "games": 1664,
-        "elapsed_seconds": 364.113940026029,
-        "loss": 4.730551719665527,
-        "search_entropy": 1.0457836496455788
+        "elapsed_seconds": 359.43492630997207,
+        "loss": 5.092697620391846,
+        "search_entropy": 1.5124112958750449
       },
       {
         "optimizer_updates": 1792,
         "games": 1792,
-        "elapsed_seconds": 394.32086487603374,
-        "loss": 4.282346725463867,
-        "search_entropy": 1.3794817519374192
+        "elapsed_seconds": 383.589633902011,
+        "loss": 5.226715564727783,
+        "search_entropy": 1.7488343343138695
       },
       {
         "optimizer_updates": 1920,
         "games": 1920,
-        "elapsed_seconds": 421.6553774990025,
-        "loss": 2.640260696411133,
-        "search_entropy": 1.0495623633596631
+        "elapsed_seconds": 402.2179412099649,
+        "loss": 4.798613548278809,
+        "search_entropy": 1.1014154296553595
       },
       {
         "optimizer_updates": 2048,
         "games": 2048,
-        "elapsed_seconds": 449.9657908420195,
-        "loss": 1.9903172254562378,
-        "search_entropy": 0.9662904196884483
+        "elapsed_seconds": 424.2181913999957,
+        "loss": 5.233583450317383,
+        "search_entropy": 1.6528177245598008
       }
     ]
   },
   "latest_comparison": {
     "iteration": 23,
-    "candidate": "Q2048",
+    "candidate": "Baseline2048",
     "evaluation_label": "No new evaluation",
-    "wins": 35,
+    "wins": 25,
     "evaluation_games": 64,
-    "timeouts": 10,
+    "timeouts": 11,
     "matchup": {
-      "challenger": "Q2048",
+      "challenger": "Baseline2048",
       "opponent": "F1024",
-      "opponent_wins": 18,
-      "draws": 1
+      "opponent_wins": 28,
+      "draws": 0
     },
-    "updated_at": "2026-10-24T01:47:37.234389+00:00"
+    "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:52:29.074049-07:00",
+    "measured_at": "2026-10-23T18:53:15.520839-07:00",
     "steps": [
       {
         "step": 1,
@@ -192,11 +192,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-24T01:47:37.234389+00:00",
-        "elapsed_seconds": 2335,
+        "updated_at": "2026-10-24T01:53:15.458498+00:00",
+        "elapsed_seconds": 2381,
         "completed": null,
         "total": null,
-        "task": "Implement frozen replay gradient diagnostic",
+        "task": "Prepare fresh paired loss experiment prerequisites",
         "eta_seconds": 0,
         "eta_basis": "18 previous iteration(s)"
       },
@@ -212,198 +212,54 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3279,
+    "elapsed_seconds": 3325,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792806645.875134,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792806750.90123,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "pending",
-        "updated_at": 1792806645.8056138,
-        "job_id": "iteration-23-paired-readout",
+        "state": "active",
+        "updated_at": 1792806750.930106,
+        "job_id": "iteration-23-loss-preflight",
         "decision": {
-          "reviewing": "Finalize immutable evidence and source history after mixed development results",
+          "reviewing": "What must be ready before the next paired loss training allocation?",
           "options": [
-            "Preserve rejected candidate and prepare the next isolated diagnostic."
+            "Freeze new paired seeds and controls; reuse only unchanged transport/recovery checks."
           ],
           "evidence": [
-            "Six balanced bouts audited; eight full states verified; authenticated inventory confirms pod deletion."
+            "Current pod is deleted, eight checkpoints recovered, and changed loss requires new resume checks."
           ],
-          "reason": "Q improved F and own-initial results but failed frozen E gate; these outcomes do not justify promotion or replication.",
-          "next_action": "Record all source revisions, checkpoint identities and exact scores while the helper finishes diagnostic fixtures.",
-          "updated_at": "2026-10-24T01:48:37.567238+00:00"
+          "reason": "One allocation per session forbids another pod now; prepare a complete next-session package instead.",
+          "next_action": "Bind fresh protocol, measure storage and record exact remaining admission gates.",
+          "updated_at": "2026-10-24T01:52:30.930106+00:00"
         },
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 23,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 25,
-          "evaluation_games": 64,
-          "timeouts": 11,
-          "title": "Freeze actual replay diagnostic inputs",
-          "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-          "result": "Q gate failed and GPU released. Next training preparation depends on completed replay-gradient diagnostic and separate tested candidate; no additional independent GPU task is admitted.",
-          "candidate": "Baseline2048",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:50:06.681301+00:00",
-          "matchup": {
-            "challenger": "Baseline2048",
-            "opponent": "F1024",
-            "opponent_wins": 28,
-            "draws": 0
-          },
-          "training_metrics": {
-            "iteration": 23,
-            "run_id": "Baseline2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:31:36.184300+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 29.225785896996967,
-                "loss": 5.305891036987305,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 57.25855774799129,
-                "loss": 5.391545295715332,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 85.26426825998351,
-                "loss": 5.359657287597656,
-                "search_entropy": 1.2888370677828789
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 112.85519435396418,
-                "loss": 5.173979759216309,
-                "search_entropy": 1.583502006251365
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 141.68399176897947,
-                "loss": 4.8751912117004395,
-                "search_entropy": 1.64034377457574
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 169.46104271599324,
-                "loss": 5.016875267028809,
-                "search_entropy": 1.6857315227389336
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 197.18767906201538,
-                "loss": 5.019231796264648,
-                "search_entropy": 1.240921140415594
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 224.6556312039611,
-                "loss": 4.866997241973877,
-                "search_entropy": 1.4770120005123317
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 253.0751077529858,
-                "loss": 4.937623977661133,
-                "search_entropy": 1.417601185850799
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 280.9014866229845,
-                "loss": 4.960740089416504,
-                "search_entropy": 1.5437126019969583
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 308.4182753089699,
-                "loss": 4.906318664550781,
-                "search_entropy": 1.5488296053372324
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 335.6389859879855,
-                "loss": 4.881287574768066,
-                "search_entropy": 1.6551669142208993
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 359.43492630997207,
-                "loss": 5.092697620391846,
-                "search_entropy": 1.5124112958750449
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 383.589633902011,
-                "loss": 5.226715564727783,
-                "search_entropy": 1.7488343343138695
-              },
-              {
-                "optimizer_updates": 1920,
-                "games": 1920,
-                "elapsed_seconds": 402.2179412099649,
-                "loss": 4.798613548278809,
-                "search_entropy": 1.1014154296553595
-              },
-              {
-                "optimizer_updates": 2048,
-                "games": 2048,
-                "elapsed_seconds": 424.2181913999957,
-                "loss": 5.233583450317383,
-                "search_entropy": 1.6528177245598008
-              }
-            ]
-          },
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "test",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792806645.875134,
-        "job_id": "iteration-23-real-gradients",
+        "updated_at": 1792806750.90123,
+        "job_id": "iteration-23-rootweighted",
         "decision": {
-          "reviewing": "Does the tested redistribution change actual replay gradients without a baseline reconstruction error?",
+          "reviewing": "Prepare a separate root-focused loss candidate with exact resume identity",
           "options": [
-            "Run the predeclared four64-example CPU probe, no optimizer step."
+            "Preserve per-head coefficient mass while changing root/recurrent ratio to5."
           ],
           "evidence": [
-            "Seven fixtures passed, including exact float64 loss/gradient parity and unchanged reward/hidden-gradient contracts."
+            "Four frozen real-replay batches showed exact baseline parity and finite changed representation gradients, all below clipping."
           ],
-          "reason": "Real replay gradients remain unmeasured; a bounded descriptive probe can guide the next isolated candidate.",
-          "next_action": "Freeze exact sampled tensors, measure baseline and root5 gradients, and record finite/parity checks.",
-          "updated_at": "2026-10-24T01:50:45.875134+00:00"
+          "reason": "This warrants a controlled hypothesis, not a strength claim; search and reward stay unchanged.",
+          "next_action": "Implement isolated loss and serialized contract with sparse-mask, parity and dispatch tests.",
+          "updated_at": "2026-10-24T01:52:30.901230+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

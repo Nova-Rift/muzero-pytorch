@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Paired Root5 development comparisons",
+  "title": "Root5 development gate failed; initial control finishing",
   "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "Baseline E24/34/0/6 and F30/23/0/11; Root5 E25/21/0/18, each64 games (wins/opponent wins/draws/timeouts). Remaining controls running; no promotion.",
+  "result": "Root5 E25/21/0/18; F32/27/0/5. Baseline E24/34/0/6; F30/23/0/11; OwnInitial41/15/0/8. All bouts64 games: wins/opponent wins/draws/timeouts. No promotion or replication; independent first-transition GPU gate queued.",
   "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T02:30:20.791007+00:00",
+  "updated_at": "2026-10-24T02:31:50.342707+00:00",
   "latest_comparison": {
     "iteration": 23,
     "candidate": "Baseline2048",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:31:27.330777-07:00",
+    "measured_at": "2026-10-23T19:31:50.395815-07:00",
     "steps": [
       {
         "step": 1,
@@ -45,12 +45,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T02:30:20.791007+00:00",
-        "elapsed_seconds": 67,
+        "updated_at": "2026-10-24T02:31:50.342707+00:00",
+        "elapsed_seconds": 90,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 407,
+        "eta_seconds": 384,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,13 +76,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1698,
+    "elapsed_seconds": 1721,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792809014.235835,
+    "updated_at": 1792808913.4805565,
     "fresh": false,
     "loops": [
       {
@@ -95,39 +95,26 @@
       },
       {
         "id": "loop-b",
-        "stage": "evaluate",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792809084.8983912,
-        "job_id": "Root5_2048-OwnInitial",
+        "updated_at": 1792808913.4805565,
+        "job_id": "iteration-24-readout",
+        "fresh": false
+      },
+      {
+        "id": "loop-c",
+        "stage": "test",
+        "state": "pending",
+        "updated_at": 1792809110.3619192,
+        "job_id": "first-transition-candidate-gpu-resume",
         "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792809084.8983912,
+        "updated_at": 1792808995.7575045,
         "job_id": "serial-overlap-benchmark",
-        "fresh": true
-      },
-      {
-        "id": "loop-c",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792809014.235835,
-        "job_id": "iteration-24-followup-admission-plan",
-        "decision": {
-          "reviewing": "Which pre-frozen follow-up branch meets scientific and resource admission?",
-          "options": [
-            "Replicate Root5 only if every frozen development gate passes",
-            "Otherwise consider the independently motivated first-transition candidate"
-          ],
-          "evidence": [
-            "Root5 E audit:25wins21opponent wins0draws18timeouts of64; timeout gate requires at most12"
-          ],
-          "reason": "Root5 E timeout gate fails; wait for full frozen report and complete recovery before final branch decision",
-          "next_action": "Review completed paired report, then verify storage and acknowledged lease for prepared follow-up",
-          "updated_at": "2026-10-24T02:30:14.235835+00:00"
-        },
         "fresh": false
       }
     ]

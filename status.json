@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:53:07.320626-07:00",
+    "measured_at": "2026-10-23T19:54:14.354367-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 966,
+        "elapsed_seconds": 1033,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2998,
+    "elapsed_seconds": 3065,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -106,24 +106,23 @@
       },
       {
         "id": "loop-b",
-        "stage": "review",
-        "state": "pending",
-        "updated_at": 1792810278.896345,
-        "job_id": "iteration-24-baseline-continuation",
+        "stage": "edit",
+        "state": "active",
+        "updated_at": 1792810419.744343,
+        "job_id": "iteration-24-continuation-evaluator",
         "decision": {
-          "reviewing": "Is exact baseline continuation justified after two failed gradient revisions?",
+          "reviewing": "How can a4096 continuation be evaluated without changing its frozen trainer?",
           "options": [
-            "Review full-state continuation from2048 to4096 with fresh comparisons",
-            "Defer if storage/source/deadline prerequisites do not fit"
+            "Add explicit expected endpoint count to separately staged evaluator"
           ],
           "evidence": [
-            "Root5 and first-transition failed frozen development gates; baseline beat its initial control41 to15 with8timeouts"
+            "Current evaluator requires exactly2048games/updates; next exact-resume hypothesis targets4096"
           ],
-          "reason": "Prefer evidence-backed next work over another unmotivated edit; preserve exact-resume and resource guards",
-          "next_action": "Helper checks source/state contract and bounded continuation requirements",
-          "updated_at": "2026-10-24T02:46:07.093981+00:00"
+          "reason": "Preserve original source contract and reject mismatched/incomplete checkpoints rather than relaxing checks",
+          "next_action": "Helper tests and publishes scoped evaluator support; storage remains unapproved",
+          "updated_at": "2026-10-24T02:53:39.744343+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
@@ -163,7 +162,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 18.0,
+    "remaining_usd": 24.53144746123155,
     "reserved_usd": 12.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }

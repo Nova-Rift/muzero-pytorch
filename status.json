@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:08:10.761229-07:00",
+    "measured_at": "2026-10-23T18:08:24.322526-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 621,
+        "elapsed_seconds": 634,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,14 +87,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 621,
-    "eta_seconds": 303,
+    "elapsed_seconds": 634,
+    "eta_seconds": 290,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792804038.983092,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

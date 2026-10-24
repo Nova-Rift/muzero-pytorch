@@ -1,34 +1,18 @@
 {
   "schema": 1,
-  "stage": "complete",
-  "iteration": 22,
-  "completed_games": 640,
-  "target_games": 640,
-  "wins": 32,
-  "evaluation_games": 64,
-  "timeouts": 2,
-  "title": "Checkpoint archived; no top-ten promotion",
+  "stage": "review",
+  "iteration": 23,
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 23: reviewing evidence",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "640 training games;448 evaluations. Both full states archived. Pod deletion verified. Next: storage-safe retention and resume checks before long training.",
+  "result": "Validate storage-safe immutable checkpoint recovery/archive capacity and interrupted-resume equivalence before further paid long training. No new allocation until these prerequisites and a frozen costed plan are ready.",
   "candidate": "Fresh640",
-  "evaluation_label": "Fresh640 vs FreshInitial",
-  "updated_at": "2026-10-24T00:57:23.090768+00:00",
-  "revision": {
-    "summary": "Checkpoint recovery verified; no trainer behavior change",
-    "reason": "Both real512/640 states passed hashes, safe-load, state-field and weight alignment checks. Strength gates failed; no promotion.",
-    "changes": [
-      "Published retention diagnostics and actual-state verifier",
-      "Preserved rejected depth and fresh640 evaluation results"
-    ],
-    "test_plan": "Next validate storage-safe longer-run retention and GPU interruption/resume equivalence before allocation.",
-    "updated_at": "2026-10-24T00:57:23.090763+00:00"
-  },
-  "matchup": {
-    "challenger": "Fresh640",
-    "opponent": "FreshInitial",
-    "opponent_wins": 30,
-    "draws": 0
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-24T00:57:50.253046+00:00",
   "latest_comparison": {
     "iteration": 22,
     "candidate": "Fresh640",
@@ -45,82 +29,82 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:57:23.144121-07:00",
+    "measured_at": "2026-10-23T17:58:00.692884-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "finished",
-        "updated_at": "2026-10-24T00:46:14.264768+00:00",
-        "elapsed_seconds": 110,
-        "completed": 640,
-        "total": 640,
-        "task": "Fresh training with immutable checkpoint recovery",
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
+        "total": null,
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-24T00:57:23.090768+00:00",
-        "elapsed_seconds": 588,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Fresh640 vs FreshInitial",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-24T00:35:01.344989+00:00",
-        "elapsed_seconds": 234,
+        "state": "active",
+        "updated_at": "2026-10-24T00:57:50.253046+00:00",
+        "elapsed_seconds": 10,
         "completed": null,
         "total": null,
-        "task": "Iteration 22: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 23: reviewing evidence",
+        "eta_seconds": 189,
+        "eta_basis": "18 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-24T00:52:47.594947+00:00",
-        "elapsed_seconds": 644,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Recover and verify two full training states",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1576,
-    "eta_seconds": null,
-    "eta_basis": "17 previous completed iteration(s)"
+    "elapsed_seconds": 10,
+    "eta_seconds": 914,
+    "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792803443.062767,
+    "active_loops": 2,
+    "updated_at": 1792803470.260086,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "pending",
-        "job_id": "i22-storage-review",
+        "state": "active",
+        "job_id": "iteration-23-planning-1",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 22,
+          "iteration": 23,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Long training blocked by storage headroom",
-          "change": "One registered H100; remote SSH readiness reached.",
-          "result": "Depth comparison archived; no promotion. Further long training blocked by storage capacity. Release: tested storage-safe retention and recovery plan.",
-          "candidate": "MuZero fixed-root depth comparison",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:57:23.062752+00:00",
+          "updated_at": "2026-10-24T00:57:50.260086+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -128,66 +112,23 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
-        "job_id": "i22-archive-finalization",
+        "state": "active",
+        "job_id": "iteration-23-planning-2",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 22,
-          "completed_games": 640,
-          "target_games": 640,
+          "iteration": 23,
+          "completed_games": 0,
+          "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Checkpoint complete; next training admission gated",
-          "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "640 training games and192 fresh evaluations archived; two full states verified. Pod deleted. Next: capacity and interruption/resume checks before long training.",
-          "candidate": "MuZero fresh engineering seed52400000",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:57:23.062752+00:00",
-          "training_metrics": {
-            "iteration": 22,
-            "run_id": "fresh640-retention-engineering",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T00:45:37.712885+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 28.239263793977443,
-                "loss": 4.896056175231934,
-                "search_entropy": 0.9509932635778404
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 55.86251663096482,
-                "loss": 4.995828151702881,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 82.95436854095897,
-                "loss": 4.942033767700195,
-                "search_entropy": 1.432871786877513
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 110.41414993896615,
-                "loss": 4.79100227355957,
-                "search_entropy": 1.4770913789980114
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 137.39545072900364,
-                "loss": 5.032074928283691,
-                "search_entropy": 1.7651002472266555
-              }
-            ]
-          },
+          "updated_at": "2026-10-24T00:57:50.260086+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

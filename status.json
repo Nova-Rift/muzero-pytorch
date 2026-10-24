@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "paused",
   "iteration": 26,
   "completed_games": 4096,
   "target_games": 4096,
   "wins": 33,
   "evaluation_games": 64,
   "timeouts": 11,
-  "title": "Preparing the next frozen update-ratio experiment",
+  "title": "Stopped by owner",
   "change": "Completed384-game comparison rejected longer continuation. Three helpers now validate UPG2 diagnostic support, package fresh controls, and verify archived duplicate capacity.",
   "result": "Pod deleted; no paid work or new result claimed. Next experiment is fresh2048games with2updates/game under unchanged trainer/objective, pending tests/source/storage/admission.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "Baseline2048 vs OwnInitial",
-  "updated_at": "2026-10-24T04:04:29.804966+00:00",
+  "updated_at": "2026-10-24T04:06:09.799395+00:00",
   "revision": {
     "summary": "Prepare explicit support for2048games/4096updates in evaluation and recovery checks",
     "reason": "Longer continuation failed frozen E/F gate. The next hypothesis tests update-to-new-data ratio separately, without treating extra updates as extra games.",
@@ -174,7 +174,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T21:05:17.328629-07:00",
+    "measured_at": "2026-10-23T21:06:09.855886-07:00",
     "steps": [
       {
         "step": 1,
@@ -200,14 +200,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-24T04:04:29.804966+00:00",
-        "elapsed_seconds": 757,
+        "state": "interrupted",
+        "updated_at": "2026-10-24T04:06:09.799395+00:00",
+        "elapsed_seconds": 809,
         "completed": null,
         "total": null,
         "task": "Preparing the next frozen update-ratio experiment",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -221,8 +221,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1832,
-    "eta_seconds": 0,
+    "elapsed_seconds": 1885,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -248,7 +248,7 @@
           "next_action": "Review scoped diagnostic tests, frozen package and verified storage manifest; next allocation only through new guarded session.",
           "updated_at": "2026-10-24T04:04:29.836456+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",

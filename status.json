@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 26: reviewing evidence",
-  "change": "Frozen188.7MB payload uploading through shared setup deadline; remote source/runtime/restore and GPU resume checks precede training.",
-  "result": "Pod registered at3.99/hour. Initial2424-second planning estimate2.6866dollars. No scientific training games completed in this session yet.",
+  "title": "Verified continuation ready for guarded launch",
+  "change": "Exact source-bound package and 20 runner safety checks verified; serial GPU plan retains recovery and resume gates.",
+  "result": "No session26 pod allocated yet. Estimated2424 seconds at2.6866 dollars; storage exceeds unchanged recovery bound. Conditional confirmation is prepared but not admitted.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:34:45.201756+00:00",
+  "updated_at": "2026-10-24T03:39:39.275511+00:00",
   "latest_comparison": {
     "iteration": 24,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:39:07.317617-07:00",
+    "measured_at": "2026-10-23T20:39:39.337290-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,11 +64,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-24T03:34:45.201756+00:00",
-        "elapsed_seconds": 262,
+        "updated_at": "2026-10-24T03:39:39.275511+00:00",
+        "elapsed_seconds": 294,
         "completed": null,
         "total": null,
-        "task": "Iteration 26: reviewing evidence",
+        "task": "Verified continuation ready for guarded launch",
         "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
@@ -84,12 +84,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 262,
-    "eta_seconds": 828,
+    "elapsed_seconds": 294,
+    "eta_seconds": 796,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 1,
     "updated_at": 1792812971.7048461,
     "fresh": false,
     "loops": [
@@ -99,22 +99,6 @@
         "state": "active",
         "updated_at": 1792812971.7048461,
         "job_id": "iteration26-coordinator",
-        "fresh": false
-      },
-      {
-        "id": "loop-b",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792812971.7048461,
-        "job_id": "iteration26-admission",
-        "fresh": false
-      },
-      {
-        "id": "loop-c",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792812971.7048461,
-        "job_id": "iteration26-readiness",
         "fresh": false
       }
     ]

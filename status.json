@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:47:37.234389+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:47:37.293432-07:00",
+    "measured_at": "2026-10-23T18:48:19.581157-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:47:37.234389+00:00",
-        "elapsed_seconds": 2043,
+        "elapsed_seconds": 2085,
         "completed": null,
         "total": null,
         "task": "Implement frozen replay gradient diagnostic",
@@ -212,7 +212,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2987,
+    "elapsed_seconds": 3029,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },

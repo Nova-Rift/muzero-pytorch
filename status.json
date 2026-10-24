@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:08:06.823688-07:00",
+    "measured_at": "2026-10-23T19:09:09.318917-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 298,
+        "elapsed_seconds": 360,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,14 +76,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 298,
-    "eta_seconds": 792,
+    "elapsed_seconds": 360,
+    "eta_seconds": 730,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792807682.1479416,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -121,7 +121,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -159,7 +159,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -197,7 +197,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -217,7 +217,7 @@
           "next_action": "Integrate explicit objective checking into the existing one-at-a-time decode verifier and test mismatches.",
           "updated_at": "2026-10-24T02:08:02.214678+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

@@ -54,7 +54,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:11:30.878999-07:00",
+    "measured_at": "2026-10-23T20:12:37.314542-07:00",
     "steps": [
       {
         "step": 1,
@@ -82,7 +82,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:00:59.966131+00:00",
-        "elapsed_seconds": 2262,
+        "elapsed_seconds": 2329,
         "completed": null,
         "total": null,
         "task": "Repair result feed and recovery throughput",
@@ -101,12 +101,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4102,
+    "elapsed_seconds": 4168,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 1,
     "updated_at": 1792810752.5394747,
     "fresh": false,
     "loops": [
@@ -116,14 +116,6 @@
         "state": "done",
         "updated_at": 1792811126.2000632,
         "job_id": "iteration24-result-retention",
-        "fresh": false
-      },
-      {
-        "id": "loop-b",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792811415.9191434,
-        "job_id": "iteration24-storage-unblock",
         "fresh": false
       },
       {

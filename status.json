@@ -35,7 +35,7 @@
     "updated_at": "2026-10-24T00:43:30.572010+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:43:30.622461-07:00",
+    "measured_at": "2026-10-23T17:43:50.819237-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T00:43:30.572010+00:00",
-        "elapsed_seconds": 259,
+        "elapsed_seconds": 279,
         "completed": 64,
         "total": null,
         "task": "M2048-s64 vs F1024",
-        "eta_seconds": 215,
+        "eta_seconds": 195,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -82,38 +82,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 744,
-    "eta_seconds": 14,
+    "elapsed_seconds": 764,
+    "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792802610.5969143,
+    "active_loops": 1,
+    "updated_at": 1792802629.0412881,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
-        "state": "active",
-        "job_id": "i22-depth-results-review",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 22,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Analyze complete depth comparison",
-          "change": "One registered H100; remote SSH readiness reached.",
-          "result": "All256 development games recovered. Candidate64sim failed E gate; reviewing paired outcomes and publishing source-bound result.",
-          "candidate": "MuZero fixed-root depth comparison",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:43:30.596898+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "stage": "evaluate",
+        "state": "done",
+        "job_id": "M2048-s64-F1024"
       },
       {
         "id": "loop-b",

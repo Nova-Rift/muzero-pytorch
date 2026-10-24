@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:53:32.346536-07:00",
+    "measured_at": "2026-10-23T18:54:34.824800-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:53:15.458498+00:00",
-        "elapsed_seconds": 2398,
+        "elapsed_seconds": 2461,
         "completed": null,
         "total": null,
         "task": "Prepare fresh paired loss experiment prerequisites",
@@ -212,7 +212,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3342,
+    "elapsed_seconds": 3405,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },

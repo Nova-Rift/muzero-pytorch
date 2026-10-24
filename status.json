@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:26:53.558088-07:00",
+    "measured_at": "2026-10-23T20:27:57.317231-07:00",
     "steps": [
       {
         "step": 1,
@@ -75,11 +75,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:25:57.184706+00:00",
-        "elapsed_seconds": 160,
+        "elapsed_seconds": 223,
         "completed": null,
         "total": null,
         "task": "Prepare exact Baseline2048 to4096 continuation",
-        "eta_seconds": 45,
+        "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -94,8 +94,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 160,
-    "eta_seconds": 930,
+    "elapsed_seconds": 223,
+    "eta_seconds": 867,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -122,7 +122,7 @@
           "next_action": "Review prepared package, current quotes and recovery gates, then admit bounded GPU work",
           "updated_at": "2026-10-24T03:25:57.155829+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -150,7 +150,7 @@
           "next_action": "Accept source-bound package size and approve exact preflight before guarded launch",
           "updated_at": "2026-10-24T03:26:52.856776+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",

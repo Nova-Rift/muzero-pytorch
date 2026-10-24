@@ -39,7 +39,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:04:15.307371-07:00",
+    "measured_at": "2026-10-23T18:05:17.634340-07:00",
     "steps": [
       {
         "step": 1,
@@ -67,7 +67,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:02:29.700130+00:00",
-        "elapsed_seconds": 385,
+        "elapsed_seconds": 447,
         "completed": null,
         "total": null,
         "task": "Testing lossless checkpoint recovery",
@@ -86,32 +86,31 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 385,
-    "eta_seconds": 539,
+    "elapsed_seconds": 447,
+    "eta_seconds": 477,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792803838.668645,
+    "updated_at": 1792803916.989983,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "job_id": "iteration-23-storage-review",
+        "job_id": "iteration-23-q-completion",
         "decision": {
-          "reviewing": "Does lossless recovery remove the measured storage obstacle?",
+          "reviewing": "Does unvisited-action normalization alter frozen search decisions?",
           "options": [
-            "Use compressed immutable transport artifacts for future checkpoints"
+            "Single-change diagnostic using fixed weights and histories"
           ],
           "evidence": [
-            "Real640-game state compressed from1014720295 to98522357 bytes; decoded SHA exactly matched.",
-            "Compression took5.71seconds; compression plus streamed verification took7.99seconds locally."
+            "Our source normalizes raw zero for unseen actions; Google reference leaves normalized unseen score zero."
           ],
-          "reason": "About90percent smaller for this state; future states still require measured bounds and exact restore checks.",
-          "next_action": "Record tested source and restore procedure, then prepare bounded resume validation.",
-          "updated_at": "2026-10-24T01:03:06.531177+00:00"
+          "reason": "Positive and negative bounds have different effects; source difference alone is not a root cause.",
+          "next_action": "Test deterministic score fixtures and32 frozen roots without new games.",
+          "updated_at": "2026-10-24T01:05:16.989983+00:00"
         },
         "details": {
           "schema": 1,
@@ -122,48 +121,48 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Checkpoint storage and exact recovery",
-          "change": "Three lossless encoding tests passed; measuring a real640-game full state.",
-          "result": "Real1.015GB checkpoint compressed to98.5MB in5.71s; exact restored SHA verified. Preparing source publication and capacity bounds.",
+          "title": "Testing unvisited-action search scores",
+          "change": "Prepare source-bound Q-completion diagnostic on frozen histories; no model edits.",
+          "result": "Reference difference identified; causal impact unmeasured.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:03:58.668627+00:00",
+          "updated_at": "2026-10-24T01:05:16.955610+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "job_id": "iteration-23-reference-review",
+        "job_id": "iteration-23-gradient-contract",
         "decision": {
-          "reviewing": "Which reference implementation checks can explain weak learning?",
+          "reviewing": "How do root and recurrent training gradients differ from the reference?",
           "options": [
-            "Compare learning and search contracts against published Google sources"
+            "Source-bound CPU autograd fixture"
           ],
           "evidence": [
-            "Fresh640 scored32 wins30 losses2 cutoffs against its own initial weights."
+            "Local root and recurrent losses share scaling; Google weights root separately."
           ],
-          "reason": "The root cause remains unisolated; reference differences need tests before attributing failure.",
-          "next_action": "Native helper audits source contracts and proposes bounded discriminating tests.",
-          "updated_at": "2026-10-24T01:01:45.595766+00:00"
+          "reason": "Need gradient measurements before proposing any loss change.",
+          "next_action": "Helper measures per-term and representation gradients with masks.",
+          "updated_at": "2026-10-24T01:05:17.028492+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 23,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "MuZero reference comparison preparation",
-          "change": "Compare published reference contracts with our custom arena implementation; distinguish evidence from hypotheses.",
-          "result": "Helper found a concrete unvisited-action normalization difference from Google references; checking whether prior evidence already addresses it.",
+          "title": "Testing root and recurrent gradient weights",
+          "change": "Native helper prepares CPU autograd comparison against pinned Google learner.",
+          "result": "Reference difference identified; causal impact unmeasured.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:03:58.668642+00:00",
+          "updated_at": "2026-10-24T01:05:16.955610+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

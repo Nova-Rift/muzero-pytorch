@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Continuation setup and recovery gates",
-  "change": "Session26 pod registered; payload transfer underway. Remote restore and CUDA resume checks must pass before training.",
-  "result": "One GPU allocated, no training results yet. Conditional confirmation ready; helper preparing independent-seed replication. Estimated total2.6866 dollars, not actual billed cost.",
+  "title": "CUDA resume validation running",
+  "change": "419 remote files verified; setup completed in366.43seconds. Hash-bound1.015GB full-state restore passed in2.17seconds.",
+  "result": "CUDA split-resume correctness gate active before Baseline4096 training; no new scientific training or evaluation completed yet.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:40:46.402570+00:00",
+  "updated_at": "2026-10-24T03:46:38.097837+00:00",
   "latest_comparison": {
     "iteration": 24,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:45:39.112418-07:00",
+    "measured_at": "2026-10-23T20:46:38.164674-07:00",
     "steps": [
       {
         "step": 1,
@@ -75,43 +75,39 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-24T03:40:46.402570+00:00",
-        "elapsed_seconds": 293,
+        "updated_at": "2026-10-24T03:46:38.097837+00:00",
+        "elapsed_seconds": 352,
         "completed": null,
         "total": null,
-        "task": "Continuation setup and recovery gates",
+        "task": "CUDA resume validation running",
         "eta_seconds": 0,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 654,
-    "eta_seconds": 436,
+    "elapsed_seconds": 713,
+    "eta_seconds": 377,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792813356.146492,
+    "updated_at": 1792813510.174493,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1792813356.146492,
-        "job_id": "iteration26-coordinator",
-        "decision": {
-          "reviewing": "Setup progress against fixed admission deadline",
-          "options": [
-            "Continue verified transfer within existing420-second bound"
-          ],
-          "evidence": [
-            "At159seconds since creation, remote payload contains72073216of188739486bytes; setup not yet complete."
-          ],
-          "reason": "Transfer is progressing; preserve absolute setup guard and do not interrupt or extend running source.",
-          "next_action": "Verify completed transfer, remote hashes, restore and CUDA resume before accepting training.",
-          "updated_at": "2026-10-24T03:42:36.146492+00:00"
-        },
-        "fresh": false
+        "updated_at": 1792813596.372456,
+        "job_id": "Baseline4096",
+        "fresh": true
+      },
+      {
+        "id": "loop-b",
+        "stage": "evaluate",
+        "state": "pending",
+        "updated_at": 1792813596.372456,
+        "job_id": "Baseline2048-E1024",
+        "fresh": true
       },
       {
         "id": "loop-c",
@@ -119,7 +115,28 @@
         "state": "active",
         "updated_at": 1792813510.174493,
         "job_id": "iteration26-replication-storage",
-        "fresh": true
+        "fresh": false
+      },
+      {
+        "id": "loop-d",
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792813335.584764,
+        "job_id": "iteration26-overlap-recovery",
+        "decision": {
+          "reviewing": "Overlap preparation ownership blocked",
+          "options": [
+            "Wait for the recorded prerequisites"
+          ],
+          "evidence": [
+            "Review verified partial artifact hash; no supported identity-bound close receipt exists for interrupted helper. Release requires lifecycle verification/repair; preserve old ownership. Current serial experiment unaffected."
+          ],
+          "reason": "Review verified partial artifact hash; no supported identity-bound close receipt exists for interrupted helper. Release requires lifecycle verification/repair; preserve old ownership. Current serial experiment unaffected.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-24T03:42:15.584764+00:00"
+        },
+        "fresh": false
       }
     ]
   },

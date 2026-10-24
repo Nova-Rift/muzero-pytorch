@@ -1,18 +1,29 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "train",
   "iteration": 24,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Root5 development gate failed; initial control finishing",
+  "title": "First-transition candidate training on reused H100",
   "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "Root5 E25/21/0/18; F32/27/0/5. Baseline E24/34/0/6; F30/23/0/11; OwnInitial41/15/0/8. All bouts64 games: wins/opponent wins/draws/timeouts. No promotion or replication; independent first-transition GPU gate queued.",
+  "result": "1408 of2048 games and updates observed. Fresh candidate, unchanged original loss and game/reward; exact CUDA resume passed. No strength claim before frozen comparisons.",
   "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T02:31:50.342707+00:00",
+  "updated_at": "2026-10-24T02:39:49.267199+00:00",
+  "revision": {
+    "summary": "First-transition gradient candidate is isolated and training",
+    "reason": "Pinned source audit identified first recurrent hidden-state gradient attenuation; this experiment changes only that backward factor while preserving original objective.",
+    "changes": [
+      "arena/first_transition.py: first hidden transition backward factor1 instead0.5; later factors unchanged",
+      "arena/train_first_transition_fixed.py: explicit first-transition1-v1 contract",
+      "Original model.py, loss weights, physics and reward unchanged"
+    ],
+    "test_plan": "55tests:50pass5skip; CPU and CUDA complete split-resume equality passed. Six fresh balanced64-game comparisons and full-state recovery checks follow training.",
+    "updated_at": "2026-10-24T02:39:49.267195+00:00"
+  },
   "latest_comparison": {
     "iteration": 23,
     "candidate": "Baseline2048",
@@ -29,29 +40,29 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:38:56.357181-07:00",
+    "measured_at": "2026-10-23T19:39:49.321018-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T02:39:49.267199+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "First-transition candidate training on reused H100",
+        "eta_seconds": 443,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 516,
+        "state": "finished",
+        "updated_at": "2026-10-24T02:39:49.267199+00:00",
+        "elapsed_seconds": 568,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 0,
-        "eta_basis": "12 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -76,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2147,
+    "elapsed_seconds": 2200,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -129,7 +140,7 @@
         "id": "loop-d",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792809531.6016304,
+        "updated_at": 1792809586.396891,
         "job_id": "first-transition-overlap-v2",
         "fresh": true
       },
@@ -137,7 +148,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792809531.6016304,
+        "updated_at": 1792809586.396891,
         "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }

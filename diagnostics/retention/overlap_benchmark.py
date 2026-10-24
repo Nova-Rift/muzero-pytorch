@@ -48,8 +48,11 @@ def run_group(commands, directories, deadline, sampler=memory_sample):
     try:
         for command, directory in zip(commands, directories):
             if time.monotonic()>=deadline: raise TimeoutError('Global benchmark deadline')
-            directory.mkdir(parents=True, exist_ok=False)
-            log=(directory/'process.log').open('w'); logs.append(log)
+            # Trainers exclusively create their own output directory. Keep launcher
+            # evidence beside it so even pre-output failures remain recoverable.
+            if directory.exists(): raise FileExistsError(directory)
+            directory.parent.mkdir(parents=True, exist_ok=True)
+            log=directory.with_name(directory.name+'.process.log').open('x'); logs.append(log)
             argv=[str(directory) if x=='{output}' else x for x in command]
             processes.append(subprocess.Popen(argv, stdout=log, stderr=subprocess.STDOUT, start_new_session=True))
         while True:
@@ -63,8 +66,8 @@ def run_group(commands, directories, deadline, sampler=memory_sample):
     finally:
         terminate(processes)
         for log in logs: log.close()
-        if directories and directories[0].exists():
-            (directories[0]/'measurement.json').write_text(json.dumps({'elapsed_seconds':time.monotonic()-started,'samples':samples,'exit_codes':[p.poll() for p in processes]},indent=2)+'\n')
+        if directories and directories[0].parent.exists():
+            directories[0].with_name(directories[0].name+'.measurement.json').write_text(json.dumps({'elapsed_seconds':time.monotonic()-started,'samples':samples,'exit_codes':[p.poll() for p in processes]},indent=2)+'\n')
 
 
 def inspect(directory, arm, plan):

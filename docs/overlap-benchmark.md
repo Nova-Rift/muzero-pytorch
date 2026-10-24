@@ -23,6 +23,14 @@ justify a later representative peak-memory/steady-state check under the same sou
 config/runtime and full command-plan binding. The runner does not modify supervisor
 slots, reserve compute or upload anything. No measured result is included with code.
 
-Four private output directories retain raw logs, manifests, reports and measurement
-JSON even for incomplete runs. Avoid archiving raw full-state `.pt` scratch files;
+Four private trainer output directories retain manifests and reports. Launcher logs
+and measurement JSON are sibling files so trainers can exclusively create their own
+output directories; failures before directory creation still preserve evidence. Avoid archiving raw full-state `.pt` scratch files;
 coordinator decides evidence retention/cleanup after recovery.
+
+The first actual bounded attempt failed before training with `FileExistsError`: the
+launcher created a directory that the trainer creates with `exist_ok=False`. That
+attempt produced no throughput evidence and remains inconclusive. The corrected
+launcher is covered by a CPU subprocess integration test exercising the same
+exclusive-directory contract and complete serial/concurrent report inspection.
+This correction does not authorize a GPU retry or imply measured concurrency.

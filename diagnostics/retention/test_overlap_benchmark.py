@@ -24,13 +24,13 @@ class Tests(unittest.TestCase):
             with self.assertRaises(TimeoutError):
                 m.run_group([[sys.executable,'-c','import time;time.sleep(20)']],[d],m.time.monotonic()+.1,lambda:dict(total_bytes=10,used_bytes=1))
             import json
-            self.assertTrue(all(x is not None for x in json.loads((d/'measurement.json').read_text())['exit_codes']))
+            self.assertTrue(all(x is not None for x in json.loads(d.with_name(d.name+'.measurement.json').read_text())['exit_codes']))
     def test_group_failure_preserves_evidence(self):
         with tempfile.TemporaryDirectory() as root:
             d=Path(root)/'x'
             with self.assertRaises(RuntimeError):
                 m.run_group([[sys.executable,'-c','raise RuntimeError("fixture")']],[d],m.time.monotonic()+2,lambda:dict(total_bytes=10,used_bytes=1))
-            self.assertTrue((d/'measurement.json').exists());self.assertIn('fixture',(d/'process.log').read_text())
+            self.assertTrue(d.with_name(d.name+'.measurement.json').exists());self.assertIn('fixture',d.with_name(d.name+'.process.log').read_text())
     def test_serial_and_overlap_run_same_work(self):
         with tempfile.TemporaryDirectory() as root:
             dirs=[Path(root)/str(i) for i in range(2)]
@@ -43,6 +43,41 @@ class Tests(unittest.TestCase):
             with patch.object(m,'run_group',side_effect=TimeoutError('fixture')):
                 r=m.execute(plan,Path(root)/'result')
             self.assertFalse(r['complete']);self.assertFalse(r['eligible']);self.assertIn('fixture',r['error'])
+    def test_exclusive_output_trainer_end_to_end(self):
+        # Reproduce the real trainer contract, including full output inspection.
+        # The old launcher fails here because it precreated the output directory.
+        with tempfile.TemporaryDirectory() as root:
+            root=Path(root); trainer=root/'trainer.py'
+            trainer.write_text("""import hashlib,json,sys
+from pathlib import Path
+out=Path(sys.argv[1]);out.mkdir(parents=True,exist_ok=False)
+(out/'weights.npz').write_bytes(sys.argv[2].encode())
+(out/'initial.npz').write_bytes(b'initial')
+(out/'manifest.json').write_text(json.dumps(dict(source_commit='source',torch='fixture',gpu='fixture',config={},arguments={'output':str(out)})))
+(out/'report.json').write_text(json.dumps(dict(requested_run_completed=True,games=128,optimizer_updates=128,checkpoint_sha256=hashlib.sha256((out/'weights.npz').read_bytes()).hexdigest())))
+""")
+            plan=dict(approved=True,seconds=5,target_plan_sha256='a'*64,
+                      files={str(trainer):m.digest(trainer)},torch='fixture',gpu='fixture',
+                      arms=[dict(command=[sys.executable,str(trainer),'{output}',str(i)],
+                                 source_commit='source',config={},expected_arguments={}) for i in range(2)])
+            with patch.object(m,'memory_sample',return_value=dict(total_bytes=80*1024**3,used_bytes=10*1024**3)):
+                # run_group's default is bound at definition time.
+                original=m.run_group
+                with patch.object(m,'run_group',side_effect=lambda c,d,t:original(c,d,t,m.memory_sample)):
+                    result=m.execute(plan,root/'result')
+            self.assertTrue(result['complete'],result.get('error'))
+            self.assertTrue(result['exact_serial_concurrent_checkpoints'])
+            self.assertFalse(result['full_plan_authorized'])
+            for name in ['serial-0','serial-1','concurrent-0','concurrent-1']:
+                self.assertTrue((root/'result'/name/'manifest.json').exists())
+                self.assertTrue((root/'result'/(name+'.process.log')).exists())
+    def test_existing_trainer_output_refused(self):
+        with tempfile.TemporaryDirectory() as root:
+            directory=Path(root)/'existing';directory.mkdir()
+            (directory/'sentinel').write_text('preserve')
+            with self.assertRaises(FileExistsError):
+                m.run_group([[sys.executable,'-c','pass']],[directory],m.time.monotonic()+2)
+            self.assertEqual((directory/'sentinel').read_text(),'preserve')
     def test_wrong_binding_refused(self):
         with tempfile.TemporaryDirectory() as root:
             p=Path(root)/'bound';p.write_text('actual')

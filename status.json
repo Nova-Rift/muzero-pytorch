@@ -29,17 +29,17 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:39:49.368085-07:00",
+    "measured_at": "2026-10-23T18:40:57.317318-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 476,
+        "elapsed_seconds": 544,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 476,
+        "eta_seconds": 544,
         "eta_basis": "observed training rate"
       },
       {
@@ -76,21 +76,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2519,
+    "elapsed_seconds": 2587,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792805957.944788,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792805987.3339756,
-        "job_id": "Baseline2048-E1024",
+        "updated_at": 1792806055.438709,
+        "job_id": "Baseline2048-F1024",
         "fresh": true
       },
       {
@@ -237,7 +237,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

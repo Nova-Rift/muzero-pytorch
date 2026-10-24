@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:21:27.314084-07:00",
+    "measured_at": "2026-10-23T19:22:30.506296-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 1098,
+        "elapsed_seconds": 1161,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,7 +76,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1098,
+    "elapsed_seconds": 1161,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -87,159 +87,21 @@
     "loops": [
       {
         "id": "loop-a",
-        "stage": "train",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792808454.7177272,
-        "job_id": "Baseline2048",
+        "updated_at": 1792808496.965059,
+        "job_id": "iteration-24-followup-verifier",
         "decision": {
-          "reviewing": "Run the frozen paired control after actual GPU recovery gates passed",
+          "reviewing": "Can recovery verify the intended first-transition objective and complete baseline state?",
           "options": [
-            "Complete baseline2048 then root5_2048, final endpoint only."
+            "Extend isolated verifier and test wrong-objective rejection"
           ],
           "evidence": [
-            "Both CUDA gates verified118tensors334values; setup completed in about140seconds."
+            "Baseline training completed2048 games; current verifier only accepts baseline and root5 contracts"
           ],
-          "reason": "The changed loss is now ready for strength measurement; correctness is not strength evidence.",
-          "next_action": "Recover milestone checkpoints and losses while preparing ready same-pod followup.",
-          "updated_at": "2026-10-24T02:13:22.878370+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "train",
-          "iteration": 24,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Fresh2048 baseline training",
-          "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 2048 training games and 2048 optimizer updates. Strength remains unmeasured.",
-          "candidate": "Baseline2048",
-          "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:19:21.041333+00:00",
-          "training_metrics": {
-            "iteration": 24,
-            "run_id": "Baseline2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:19:19.703361+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 29.08756226801779,
-                "loss": 5.356105804443359,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 56.98251880099997,
-                "loss": 5.556274890899658,
-                "search_entropy": 0.9509891273919493
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 84.82090379600413,
-                "loss": 5.48863410949707,
-                "search_entropy": 1.304490718524903
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 112.49683811300201,
-                "loss": 5.150787830352783,
-                "search_entropy": 1.490995931904763
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 140.91540759499185,
-                "loss": 5.081546306610107,
-                "search_entropy": 1.4876585006713867
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 164.88552218896803,
-                "loss": 4.958235740661621,
-                "search_entropy": 1.3898819390521107
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 189.2738377689966,
-                "loss": 4.696484088897705,
-                "search_entropy": 1.2975961505435407
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 208.80502163001802,
-                "loss": 4.731574058532715,
-                "search_entropy": 1.627727042544972
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 226.5734997339896,
-                "loss": 4.701642036437988,
-                "search_entropy": 1.4163894357148163
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 245.03307215700625,
-                "loss": 4.763228893280029,
-                "search_entropy": 1.6341901744544174
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 269.2559801519965,
-                "loss": 4.754752159118652,
-                "search_entropy": 1.6380708431825042
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 293.39691761898575,
-                "loss": 4.677816390991211,
-                "search_entropy": 1.3601063848473132
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 318.3245866619982,
-                "loss": 5.159002780914307,
-                "search_entropy": 1.752840152475983
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 342.38149522599997,
-                "loss": 5.235502243041992,
-                "search_entropy": 1.6241623302921653
-              },
-              {
-                "optimizer_updates": 1920,
-                "games": 1920,
-                "elapsed_seconds": 366.8344936859794,
-                "loss": 5.079379081726074,
-                "search_entropy": 1.8055250863544643
-              },
-              {
-                "optimizer_updates": 2048,
-                "games": 2048,
-                "elapsed_seconds": 391.2389371820027,
-                "loss": 5.050714015960693,
-                "search_entropy": 1.2819397519342601
-              }
-            ]
-          },
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
+          "reason": "Explicit objective binding must be ready before follow-up admission",
+          "next_action": "Helper tests and publishes verifier extension; inspect recovered state checks",
+          "updated_at": "2026-10-24T02:21:36.965059+00:00"
         },
         "fresh": true
       },
@@ -247,35 +109,35 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792808484.1081362,
+        "updated_at": 1792808549.137654,
         "job_id": "Root5_2048",
         "progress": {
           "job_id": "Root5_2048",
-          "completed": 512,
+          "completed": 768,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792808482.961824
+          "updated_at": 1792808539.122668
         },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 24,
-          "completed_games": 512,
+          "completed_games": 768,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Fresh2048 root-focused loss training",
           "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 512 training games and 512 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 768 training games and 768 optimizer updates. Strength remains unmeasured.",
           "candidate": "Root5_2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:21:22.961824+00:00",
+          "updated_at": "2026-10-24T02:22:19.122668+00:00",
           "training_metrics": {
             "iteration": 24,
             "run_id": "Root5_2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:21:22.961824+00:00",
+            "reported_at": "2026-10-24T02:22:19.122668+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -304,6 +166,20 @@
                 "elapsed_seconds": 113.27858590497635,
                 "loss": 5.135043144226074,
                 "search_entropy": 1.8063836279325187
+              },
+              {
+                "optimizer_updates": 640,
+                "games": 640,
+                "elapsed_seconds": 142.17788914300036,
+                "loss": 4.520046234130859,
+                "search_entropy": 1.096178163541481
+              },
+              {
+                "optimizer_updates": 768,
+                "games": 768,
+                "elapsed_seconds": 169.440554382978,
+                "loss": 5.178977012634277,
+                "search_entropy": 1.8257396589033306
               }
             ]
           },
@@ -318,7 +194,7 @@
         "state": "active",
         "updated_at": 1792808454.7177272,
         "job_id": "iteration-24-followup-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",

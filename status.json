@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:39:39.337290-07:00",
+    "measured_at": "2026-10-23T20:40:14.360040-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:39:39.275511+00:00",
-        "elapsed_seconds": 294,
+        "elapsed_seconds": 329,
         "completed": null,
         "total": null,
         "task": "Verified continuation ready for guarded launch",
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 294,
-    "eta_seconds": 796,
+    "elapsed_seconds": 329,
+    "eta_seconds": 761,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -111,8 +111,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 24.332491731574137,
-    "reserved_usd": 15.0,
+    "remaining_usd": 21.332491731574137,
+    "reserved_usd": 18.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }
 }

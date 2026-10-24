@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:14:37.806170-07:00",
+    "measured_at": "2026-10-23T18:15:40.319766-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 1008,
+        "elapsed_seconds": 1070,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,20 +87,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1008,
+    "elapsed_seconds": 1070,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792804422.030782,
+    "updated_at": 1792804527.3573713,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "edit",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792804422.030782,
+        "updated_at": 1792804527.3573713,
         "job_id": "iteration-23-runtime-gates",
         "decision": {
           "reviewing": "Can the isolated candidate resume exactly and retain complete compressed states?",
@@ -116,7 +116,7 @@
         },
         "details": {
           "schema": 1,
-          "stage": "edit",
+          "stage": "test",
           "iteration": 23,
           "completed_games": 0,
           "target_games": 0,
@@ -125,10 +125,10 @@
           "timeouts": 0,
           "title": "Preparing GPU resume and recovery gates",
           "change": "Prepare tested runtime integration before allocation.",
-          "result": "CPU candidate resume matched117 tensors; GPU equivalence remains untested.",
+          "result": "Deduplication verified both original paths and hashes; free space now6.01GB. Testing external checkpoint encoder and GPU gate harness.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:13:19.460135+00:00",
+          "updated_at": "2026-10-24T01:15:27.357319+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -138,7 +138,7 @@
         "id": "loop-b",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792804422.062412,
+        "updated_at": 1792804527.3573713,
         "job_id": "iteration-23-runner-preparation",
         "decision": {
           "reviewing": "Does the fresh runner preserve lease guards and truthful training telemetry?",

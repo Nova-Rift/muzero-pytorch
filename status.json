@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:17:30.819145-07:00",
+    "measured_at": "2026-10-23T19:18:33.388520-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 862,
+        "elapsed_seconds": 924,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,27 +76,27 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 862,
-    "eta_seconds": 228,
+    "elapsed_seconds": 924,
+    "eta_seconds": 166,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792808002.8129663,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792808308.748863,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792808249.0427496,
+        "updated_at": 1792808309.0367339,
         "job_id": "Baseline2048",
         "progress": {
           "job_id": "Baseline2048",
-          "completed": 1408,
+          "completed": 1664,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792808237.5298753
+          "updated_at": 1792808286.7098632
         },
         "decision": {
           "reviewing": "Run the frozen paired control after actual GPU recovery gates passed",
@@ -114,22 +114,22 @@
           "schema": 1,
           "stage": "train",
           "iteration": 24,
-          "completed_games": 1408,
+          "completed_games": 1664,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Fresh2048 baseline training",
           "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 1408 training games and 1408 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1664 training games and 1664 optimizer updates. Strength remains unmeasured.",
           "candidate": "Baseline2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:17:17.529875+00:00",
+          "updated_at": "2026-10-24T02:18:06.709863+00:00",
           "training_metrics": {
             "iteration": 24,
             "run_id": "Baseline2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:17:17.529875+00:00",
+            "reported_at": "2026-10-24T02:18:06.709863+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -207,6 +207,20 @@
                 "elapsed_seconds": 269.2559801519965,
                 "loss": 4.754752159118652,
                 "search_entropy": 1.6380708431825042
+              },
+              {
+                "optimizer_updates": 1536,
+                "games": 1536,
+                "elapsed_seconds": 293.39691761898575,
+                "loss": 4.677816390991211,
+                "search_entropy": 1.3601063848473132
+              },
+              {
+                "optimizer_updates": 1664,
+                "games": 1664,
+                "elapsed_seconds": 318.3245866619982,
+                "loss": 5.159002780914307,
+                "search_entropy": 1.752840152475983
               }
             ]
           },
@@ -219,7 +233,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "pending",
-        "updated_at": 1792808249.0427496,
+        "updated_at": 1792808309.0367339,
         "job_id": "Root5_2048",
         "details": {
           "schema": 1,
@@ -243,47 +257,17 @@
       },
       {
         "id": "loop-c",
-        "stage": "edit",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792808002.8129663,
-        "job_id": "iteration-24-first-transition",
-        "decision": {
-          "reviewing": "Prepare a distinct first-hidden-transition gradient hypothesis while current training runs",
-          "options": [
-            "Use original loss/search, change only first recurrent hidden backward factor from0.5 to1."
-          ],
-          "evidence": [
-            "Pinned reference audit identified this independent difference; current root5 experiment deliberately leaves it unchanged."
-          ],
-          "reason": "Separate candidate preparation avoids confounding loss redistribution with hidden-gradient attenuation.",
-          "next_action": "Implement isolated contract and backward/forward parity tests without touching running source.",
-          "updated_at": "2026-10-24T02:12:09.522311+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "edit",
-          "iteration": 24,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Prepare separate first-transition gradient hypothesis",
-          "change": "Complete remaining admission prerequisites for the prepared experiment.",
-          "result": "Native helper isolates first hidden backward scaling from root weighting, keeping original loss/search and source history.",
-          "candidate": "Root5 fresh pair",
-          "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:12:09.412011+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792808308.748863,
+        "job_id": "iteration-24-first-transition-validation",
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792808002.8129663,
+        "state": "pending",
+        "updated_at": 1792808308.748863,
         "job_id": "iteration-24-reuse",
         "decision": {
           "reviewing": "Which tested followup can reuse this pod within storage, budget and original deadlines?",
@@ -297,7 +281,7 @@
           "next_action": "Freeze choice rule and bounded job/storage plans before outcomes; preserve current immutable jobs.",
           "updated_at": "2026-10-24T02:12:09.550689+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

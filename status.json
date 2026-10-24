@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:32:17.358794-07:00",
+    "measured_at": "2026-10-23T17:33:19.820742-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T00:31:06.886510+00:00",
-        "elapsed_seconds": 70,
+        "elapsed_seconds": 133,
         "completed": null,
         "total": null,
         "task": "Iteration 22: reviewing evidence",
-        "eta_seconds": 122,
+        "eta_seconds": 59,
         "eta_basis": "17 previous iteration(s)"
       },
       {
@@ -76,20 +76,32 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 70,
-    "eta_seconds": 688,
+    "elapsed_seconds": 133,
+    "eta_seconds": 625,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792801866.908447,
-    "fresh": false,
+    "updated_at": 1792801971.715113,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "job_id": "iteration-22-planning-1",
+        "job_id": "i22-evidence-review",
+        "decision": {
+          "reviewing": "Is the preserved fixed-root depth comparison ready for GPU evaluation?",
+          "options": [
+            "Evaluate32 versus64 simulations with eight roots"
+          ],
+          "evidence": [
+            "Prior wider-root and split-search variants did not pass development gates"
+          ],
+          "reason": "Test deeper search separately from changing trained weights",
+          "next_action": "Verify archived plan, checkpoint bindings and preflight",
+          "updated_at": "2026-10-24T00:32:51.715113+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -99,12 +111,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "Review depth experiment and preserved evidence",
+          "change": "Reviewing prerequisites for the prepared GPU comparison",
+          "result": "Check frozen comparison design and source provenance before admitting GPU evaluation.",
+          "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:31:06.908447+00:00",
+          "updated_at": "2026-10-24T00:32:51.675829+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -113,7 +125,19 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "iteration-22-planning-2",
+        "job_id": "i22-runner-preparation",
+        "decision": {
+          "reviewing": "Can the prepared runner safely launch and reuse one pod?",
+          "options": [
+            "Validate a fresh iteration22 runner"
+          ],
+          "evidence": [
+            "Iteration21 inventory failed before reservation; helper reproduced403 and successful200 with existing client headers"
+          ],
+          "reason": "Resolve the failed prerequisite before paid allocation",
+          "next_action": "Helper checks transport, deadlines and lifecycle tests",
+          "updated_at": "2026-10-24T00:32:51.748090+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -123,12 +147,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "Validate reusable GPU runner",
+          "change": "Reviewing prerequisites for the prepared GPU comparison",
+          "result": "Native helper preparing iteration22 runner and investigating prior inventory HTTP403; no GPU allocated.",
+          "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:31:06.908447+00:00",
+          "updated_at": "2026-10-24T00:32:51.675829+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

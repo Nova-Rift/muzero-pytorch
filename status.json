@@ -35,7 +35,7 @@
     "updated_at": "2026-10-24T00:40:37.631599+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:40:37.686069-07:00",
+    "measured_at": "2026-10-23T17:40:43.555462-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T00:40:37.631599+00:00",
-        "elapsed_seconds": 86,
+        "elapsed_seconds": 91,
         "completed": 64,
         "total": null,
         "task": "M2048-s64 vs E1024",
-        "eta_seconds": 388,
+        "eta_seconds": 383,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -82,13 +82,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 571,
-    "eta_seconds": 187,
+    "elapsed_seconds": 577,
+    "eta_seconds": 181,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792802433.9729464,
+    "updated_at": 1792802438.9268787,
     "fresh": true,
     "loops": [
       {

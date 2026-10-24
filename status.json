@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:03:57.323142-07:00",
+    "measured_at": "2026-10-23T19:04:59.570424-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 48,
+        "elapsed_seconds": 110,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
-        "eta_seconds": 157,
+        "eta_seconds": 95,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -76,45 +76,117 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 48,
-    "eta_seconds": 1042,
+    "elapsed_seconds": 110,
+    "eta_seconds": 980,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792807420.8436067,
+    "updated_at": 1792807482.233248,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807420.8436067,
+        "updated_at": 1792807482.233248,
         "job_id": "iteration-24-preflight",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 24,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Verify current offer and cost admission",
+          "change": "Complete remaining admission prerequisites for the prepared experiment.",
+          "result": "Coordinator checks current provider availability, budget and conservative runtime.",
+          "candidate": "Root5 fresh pair",
+          "evaluation_label": "Not started",
+          "updated_at": "2026-10-24T02:04:42.233248+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807420.8436067,
+        "updated_at": 1792807482.233248,
         "job_id": "iteration-24-runner",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 24,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Bind session24 runner",
+          "change": "Complete remaining admission prerequisites for the prepared experiment.",
+          "result": "Native helper updates iteration-specific runner and tests retention, transport and telemetry wiring.",
+          "candidate": "Root5 fresh pair",
+          "evaluation_label": "Not started",
+          "updated_at": "2026-10-24T02:04:42.233248+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807420.8436067,
+        "updated_at": 1792807482.233248,
         "job_id": "iteration-24-payload",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 24,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Build exact-source payload",
+          "change": "Complete remaining admission prerequisites for the prepared experiment.",
+          "result": "Native helper stages published model, fixed environment/runtime and opponent hashes.",
+          "candidate": "Root5 fresh pair",
+          "evaluation_label": "Not started",
+          "updated_at": "2026-10-24T02:04:42.233248+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807420.8436067,
+        "updated_at": 1792807482.233248,
         "job_id": "iteration-24-protocol",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 24,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Verify frozen scientific and recovery contracts",
+          "change": "Complete remaining admission prerequisites for the prepared experiment.",
+          "result": "Native helper checks exact source/CPU evidence, new seeds, recovery and current storage.",
+          "candidate": "Root5 fresh pair",
+          "evaluation_label": "Not started",
+          "updated_at": "2026-10-24T02:04:42.233248+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       }
     ]

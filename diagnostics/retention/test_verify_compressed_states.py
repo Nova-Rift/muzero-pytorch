@@ -50,6 +50,28 @@ class VerifyTests(unittest.TestCase):
         self.assertFalse(list(self.root.glob('.verify-state-*')))
         self.assertEqual(len(list((self.root / 'compressed').glob('*.gz'))), 1)
 
+    def set_contract(self, contract):
+        self.arguments['loss_contract'] = contract
+        self.write('manifest.json', dict(arguments=self.arguments, environment='fixture', torch='2.8.0+cu128'))
+        self.encode()
+
+    def test_intended_contracts_verified_in_existing_decode(self):
+        from verify_compressed_states import restore
+        for contract in ('baseline', 'root5-mass-v1'):
+            with self.subTest(contract=contract):
+                self.set_contract(contract)
+                with patch('verify_compressed_states.restore', wraps=restore) as decode:
+                    result = verify(self.root, self.source, 'entry', 'arm', [4], contract)
+                self.assertTrue(result['verified'])
+                self.assertEqual(result['expected_loss_contract'], contract)
+                self.assertEqual(decode.call_count, 1)
+
+    def test_consistently_wrong_contract_rejected(self):
+        self.set_contract('baseline')
+        with self.assertRaisesRegex(ValueError, 'Manifest objective differs'):
+            verify(self.root, self.source, 'entry', 'arm', [4], 'root5-mass-v1')
+        self.assertFalse(list(self.root.glob('.verify-state-*')))
+
     def test_corrupt_compressed(self):
         path = next((self.root / 'compressed').glob('*.gz'))
         path.write_bytes(path.read_bytes()[:-2])

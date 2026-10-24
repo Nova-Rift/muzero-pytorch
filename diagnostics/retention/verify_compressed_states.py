@@ -11,6 +11,7 @@ import tempfile
 import numpy as np
 import torch
 from compressed_checkpoint import restore
+from check_contract import check as check_contract
 from verify_training_states import FIELDS, digest, finite
 
 RESERVE = 750 * 1024**2
@@ -28,7 +29,7 @@ def arrays_match(path, saved):
             require(np.array_equal(arrays[key], saved[key].numpy()), 'Weight mismatch: ' + key)
 
 
-def verify(root, source_path, entrypoint, arm, expected=(512, 1024, 1536, 2048)):
+def verify(root, source_path, entrypoint, arm, expected=(512, 1024, 1536, 2048), expected_loss_contract=None):
     root = Path(root)
     expected = list(expected)
     require(expected and expected == sorted(set(expected)) and all(type(x) is int and x > 0 for x in expected), 'Invalid expected chain')
@@ -58,6 +59,8 @@ def verify(root, source_path, entrypoint, arm, expected=(512, 1024, 1536, 2048))
             restore(compressed, raw, record['raw_sha256'], record['raw_bytes'])
             state = torch.load(raw, map_location='cpu', weights_only=True)
             try:
+                if expected_loss_contract is not None:
+                    check_contract(manifest, state, expected_loss_contract)
                 require(set(state) == FIELDS, 'Saved field set mismatch')
                 require(state['source_files'] == source['files'], 'Source mismatch')
                 require(state['environment'] == manifest['environment'] and state['arguments'] == manifest['arguments'], 'Configuration mismatch')
@@ -80,7 +83,7 @@ def verify(root, source_path, entrypoint, arm, expected=(512, 1024, 1536, 2048))
             finally:
                 del state
                 gc.collect()
-    return dict(verified=True, states=rows, loader_torch_version=str(torch.__version__), source_provenance_sha256=digest(source_path), trusted_entrypoint=entrypoint, trusted_arm=arm, scope='Recovery integrity and saved fields only. Entrypoint/arm supplied externally; source/config alone cannot infer search variant. No numerical resume equality or playing strength claim.')
+    return dict(verified=True, expected_loss_contract=expected_loss_contract, states=rows, loader_torch_version=str(torch.__version__), source_provenance_sha256=digest(source_path), trusted_entrypoint=entrypoint, trusted_arm=arm, scope='Recovery integrity and saved fields only. Entrypoint/arm supplied externally; source/config alone cannot infer search variant. No numerical resume equality or playing strength claim.')
 
 
 def main():
@@ -90,12 +93,13 @@ def main():
     p.add_argument('--entrypoint', required=True)
     p.add_argument('--arm', required=True)
     p.add_argument('--expected', type=int, nargs='+', default=[512, 1024, 1536, 2048])
+    p.add_argument('--expected-loss-contract', choices=['baseline', 'root5-mass-v1'])
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
     try:
-        result = verify(a.root, a.source_provenance, a.entrypoint, a.arm, a.expected)
+        result = verify(a.root, a.source_provenance, a.entrypoint, a.arm, a.expected, a.expected_loss_contract)
     except Exception as error:
-        a.output.write_text(json.dumps(dict(verified=False, error=str(error)), indent=2) + '\n')
+        a.output.write_text(json.dumps(dict(verified=False, expected_loss_contract=a.expected_loss_contract, error=str(error)), indent=2) + '\n')
         raise
     a.output.write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result))

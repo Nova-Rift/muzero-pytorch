@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "complete",
   "iteration": 22,
   "completed_games": 640,
   "target_games": 640,
   "wins": 32,
   "evaluation_games": 64,
   "timeouts": 2,
-  "title": "Fresh checkpoint evaluation complete",
+  "title": "Checkpoint archived; no top-ten promotion",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "Final64 games:32 wins,30 losses,0 draws,2 cutoffs. No robust improvement or top-ten promotion established.",
+  "result": "640 training games;448 evaluations. Both full states archived. Pod deletion verified. Next: storage-safe retention and resume checks before long training.",
   "candidate": "Fresh640",
   "evaluation_label": "Fresh640 vs FreshInitial",
-  "updated_at": "2026-10-24T00:54:04.152782+00:00",
+  "updated_at": "2026-10-24T00:57:23.090768+00:00",
+  "revision": {
+    "summary": "Checkpoint recovery verified; no trainer behavior change",
+    "reason": "Both real512/640 states passed hashes, safe-load, state-field and weight alignment checks. Strength gates failed; no promotion.",
+    "changes": [
+      "Published retention diagnostics and actual-state verifier",
+      "Preserved rejected depth and fresh640 evaluation results"
+    ],
+    "test_plan": "Next validate storage-safe longer-run retention and GPU interruption/resume equivalence before allocation.",
+    "updated_at": "2026-10-24T00:57:23.090763+00:00"
+  },
   "matchup": {
     "challenger": "Fresh640",
     "opponent": "FreshInitial",
@@ -35,7 +45,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:56:58.567318-07:00",
+    "measured_at": "2026-10-23T17:57:23.144121-07:00",
     "steps": [
       {
         "step": 1,
@@ -50,14 +60,14 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-24T00:54:04.152782+00:00",
-        "elapsed_seconds": 563,
+        "state": "finished",
+        "updated_at": "2026-10-24T00:57:23.090768+00:00",
+        "elapsed_seconds": 588,
         "completed": 64,
         "total": null,
         "task": "Fresh640 vs FreshInitial",
-        "eta_seconds": 0,
-        "eta_basis": "10 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -82,14 +92,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1552,
-    "eta_seconds": 0,
+    "elapsed_seconds": 1576,
+    "eta_seconds": null,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792803352.5868096,
-    "fresh": false,
+    "active_loops": 0,
+    "updated_at": 1792803443.062767,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -107,10 +117,10 @@
           "timeouts": 0,
           "title": "Long training blocked by storage headroom",
           "change": "One registered H100; remote SSH readiness reached.",
-          "result": "Audit found only2.03GB verified historical duplicates; reclaim alone cannot fit next4GB states plusarchivecopies. Release: validate a storage-safe retention plan.",
+          "result": "Depth comparison archived; no promotion. Further long training blocked by storage capacity. Release: tested storage-safe retention and recovery plan.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:55:52.586795+00:00",
+          "updated_at": "2026-10-24T00:57:23.062752+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -118,7 +128,7 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "active",
+        "state": "pending",
         "job_id": "i22-archive-finalization",
         "details": {
           "schema": 1,
@@ -129,12 +139,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Archive verified training and evaluation evidence",
+          "title": "Checkpoint complete; next training admission gated",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "All448 evaluation records audited;640 training games complete; both full states verified. Pod deletion confirmed. Final source/archive records underway.",
+          "result": "640 training games and192 fresh evaluations archived; two full states verified. Pod deleted. Next: capacity and interruption/resume checks before long training.",
           "candidate": "MuZero fresh engineering seed52400000",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:55:52.586795+00:00",
+          "updated_at": "2026-10-24T00:57:23.062752+00:00",
           "training_metrics": {
             "iteration": 22,
             "run_id": "fresh640-retention-engineering",

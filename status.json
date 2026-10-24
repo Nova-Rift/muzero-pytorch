@@ -53,7 +53,7 @@
     "evidence_sha256": "79af83cbea6e05bb14e85318295cb75caa0a5481da8c6e541a9da0289feb5177"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:03:57.361720-07:00",
+    "measured_at": "2026-10-23T20:05:04.317929-07:00",
     "steps": [
       {
         "step": 1,
@@ -81,7 +81,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:00:59.966131+00:00",
-        "elapsed_seconds": 1809,
+        "elapsed_seconds": 1876,
         "completed": null,
         "total": null,
         "task": "Repair result feed and recovery throughput",
@@ -100,7 +100,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3648,
+    "elapsed_seconds": 3715,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1792811027.8348472,
         "job_id": "iteration24-result-retention",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",

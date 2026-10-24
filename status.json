@@ -72,7 +72,7 @@
     "updated_at": "2026-10-24T00:43:30.572010+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:48:25.109317-07:00",
+    "measured_at": "2026-10-23T17:49:37.818166-07:00",
     "steps": [
       {
         "step": 1,
@@ -111,7 +111,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T00:46:14.264768+00:00",
-        "elapsed_seconds": 382,
+        "elapsed_seconds": 454,
         "completed": null,
         "total": null,
         "task": "Recover and verify two full training states",
@@ -119,19 +119,19 @@
         "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 1038,
+    "elapsed_seconds": 1111,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792802774.2700672,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1792802959.3613708,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "active",
+        "state": "pending",
         "job_id": "i22-depth-results-review",
         "decision": {
           "reviewing": "What can be evaluated after the fresh checkpoint is recovered?",
@@ -156,10 +156,10 @@
           "timeouts": 0,
           "title": "Prepare frozen evaluation of fresh640 checkpoint",
           "change": "One registered H100; remote SSH readiness reached.",
-          "result": "Depth candidate rejected and source publication verified. Preparing matched E/F/initial evaluations for the fresh640 engineering checkpoint after recovery.",
+          "result": "192-game E/F/initial evaluation plan prepared. Admission waits for second full state to finish download and verification; no extra helper needed.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:47:17.147591+00:00",
+          "updated_at": "2026-10-24T00:49:19.361356+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -180,10 +180,10 @@
           "timeouts": 0,
           "title": "Recover and verify two full training states",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "640 games/updates complete; two real full states saved. Download and integrity checks underway; no strength claim.",
+          "result": "512-game full state passed hash, safe-load, source and finite-tensor checks. Transfer has recovered 1837 MB;640-state check pending.",
           "candidate": "MuZero fresh engineering seed52400000",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:45:37.712885+00:00",
+          "updated_at": "2026-10-24T00:49:19.361356+00:00",
           "training_metrics": {
             "iteration": 22,
             "run_id": "fresh640-retention-engineering",

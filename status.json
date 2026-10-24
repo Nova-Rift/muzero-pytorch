@@ -174,7 +174,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T04:27:19.875687-07:00",
+    "measured_at": "2026-10-24T04:28:25.065935-07:00",
     "steps": [
       {
         "step": 1,
@@ -221,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 28355,
+    "elapsed_seconds": 28420,
     "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },

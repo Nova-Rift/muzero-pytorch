@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:59:46.854518-07:00",
+    "measured_at": "2026-10-23T19:00:49.315848-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:53:15.458498+00:00",
-        "elapsed_seconds": 2773,
+        "elapsed_seconds": 2835,
         "completed": null,
         "total": null,
         "task": "Prepare fresh paired loss experiment prerequisites",
@@ -212,14 +212,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3717,
+    "elapsed_seconds": 3779,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792807185.0661762,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -257,7 +257,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -277,7 +277,7 @@
           "next_action": "Implement isolated loss and serialized contract with sparse-mask, parity and dispatch tests.",
           "updated_at": "2026-10-24T01:52:30.901230+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -303,13 +303,13 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "pending",
-        "updated_at": 1792807185.0661762,
+        "updated_at": 1792807199.418662,
         "job_id": "iteration-23-protocol-readiness",
         "details": {
           "schema": 1,
@@ -322,10 +322,10 @@
           "timeouts": 0,
           "title": "Freeze independent loss experiment protocol",
           "change": "Prepare next experiment without compute allocation.",
-          "result": "Helper checks new seeds, fixed controls, interpretation and readout binding.",
+          "result": "Protocol and new seed52731415 frozen; future expected evaluation protocols need actual trained checkpoint hashes before outcomes. Helper handoff verified and closed.",
           "candidate": "Root5 planned",
           "evaluation_label": "No new evaluations",
-          "updated_at": "2026-10-24T01:57:08.585234+00:00",
+          "updated_at": "2026-10-24T01:59:59.418662+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

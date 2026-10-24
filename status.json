@@ -40,17 +40,17 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:44:22.293691-07:00",
+    "measured_at": "2026-10-23T19:45:27.314525-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T02:39:49.267199+00:00",
-        "elapsed_seconds": 273,
+        "elapsed_seconds": 338,
         "completed": 0,
         "total": null,
         "task": "First-transition candidate training on reused H100",
-        "eta_seconds": 170,
+        "eta_seconds": 105,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -87,12 +87,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2473,
+    "elapsed_seconds": 2538,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 3,
     "updated_at": 1792809787.5279417,
     "fresh": false,
     "loops": [
@@ -126,18 +126,18 @@
       },
       {
         "id": "loop-d",
-        "stage": "test",
-        "state": "pending",
-        "updated_at": 1792809859.1082752,
-        "job_id": "first-transition-overlap-v2",
-        "fresh": true
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792809865.5664558,
+        "job_id": "iteration-24-representative-overlap-plan",
+        "fresh": false
       },
       {
         "id": "loop-c",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792809859.1082752,
-        "job_id": "first-transition-FirstTransition2048-F1024",
+        "updated_at": 1792809924.4826756,
+        "job_id": "first-transition-FirstTransition2048-OwnInitial",
         "fresh": true
       }
     ]

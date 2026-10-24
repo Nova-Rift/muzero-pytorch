@@ -39,7 +39,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:06:19.809630-07:00",
+    "measured_at": "2026-10-23T18:07:21.811499-07:00",
     "steps": [
       {
         "step": 1,
@@ -67,7 +67,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:02:29.700130+00:00",
-        "elapsed_seconds": 510,
+        "elapsed_seconds": 572,
         "completed": null,
         "total": null,
         "task": "Testing lossless checkpoint recovery",
@@ -86,13 +86,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 510,
-    "eta_seconds": 414,
+    "elapsed_seconds": 572,
+    "eta_seconds": 352,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792803916.989983,
+    "updated_at": 1792803917.028492,
     "fresh": false,
     "loops": [
       {
@@ -101,16 +101,17 @@
         "state": "active",
         "job_id": "iteration-23-q-completion",
         "decision": {
-          "reviewing": "Does unvisited-action normalization alter frozen search decisions?",
+          "reviewing": "Does the reference Q rule affect actual frozen arena decisions?",
           "options": [
-            "Single-change diagnostic using fixed weights and histories"
+            "Prepare a single-change candidate after source-bound tests"
           ],
           "evidence": [
-            "Our source normalizes raw zero for unseen actions; Google reference leaves normalized unseen score zero."
+            "On32 frozen development histories,31 visit policies and8 argmax actions changed; mean total variation0.1201.",
+            "Mean visited root actions increased from8.0 to9.21875; scalar/batched/static parity fixtures passed."
           ],
-          "reason": "Positive and negative bounds have different effects; source difference alone is not a root cause.",
-          "next_action": "Test deterministic score fixtures and32 frozen roots without new games.",
-          "updated_at": "2026-10-24T01:05:16.989983+00:00"
+          "reason": "The discrepancy affects decisions, but no new game or strength benefit is measured.",
+          "next_action": "Publish diagnostic evidence and prepare one isolated Q-completion change with unchanged loss.",
+          "updated_at": "2026-10-24T01:07:18.955681+00:00"
         },
         "details": {
           "schema": 1,
@@ -123,10 +124,10 @@
           "timeouts": 0,
           "title": "Testing unvisited-action search scores",
           "change": "Prepare source-bound Q-completion diagnostic on frozen histories; no model edits.",
-          "result": "Reference difference identified; causal impact unmeasured.",
+          "result": "32-root frozen diagnostic:31 policies and8 argmax actions changed;2 source-bound parity tests pass. No strength claim.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:05:16.955610+00:00",
+          "updated_at": "2026-10-24T01:07:18.983092+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

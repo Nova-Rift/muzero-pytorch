@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:27:57.317231-07:00",
+    "measured_at": "2026-10-23T20:29:03.559536-07:00",
     "steps": [
       {
         "step": 1,
@@ -75,7 +75,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:25:57.184706+00:00",
-        "elapsed_seconds": 223,
+        "elapsed_seconds": 290,
         "completed": null,
         "total": null,
         "task": "Prepare exact Baseline2048 to4096 continuation",
@@ -94,8 +94,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 223,
-    "eta_seconds": 867,
+    "elapsed_seconds": 290,
+    "eta_seconds": 800,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

@@ -7,12 +7,23 @@
   "wins": 33,
   "evaluation_games": 64,
   "timeouts": 11,
-  "title": "All384 development games complete; continuation gate failed",
-  "change": "Matched wins: E1024 baseline26/64 versus continuation17/64; F1024 both31/64. Candidate E timeouts15 exceed12.",
-  "result": "Six bouts audited; confirmation/replication rejected. Recovering/checking four fullstates before pod release; no new top10 model or promotion.",
+  "title": "Preparing the next frozen update-ratio experiment",
+  "change": "Completed384-game comparison rejected longer continuation. Three helpers now validate UPG2 diagnostic support, package fresh controls, and verify archived duplicate capacity.",
+  "result": "Pod deleted; no paid work or new result claimed. Next experiment is fresh2048games with2updates/game under unchanged trainer/objective, pending tests/source/storage/admission.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "Baseline2048 vs OwnInitial",
-  "updated_at": "2026-10-24T03:58:41.829313+00:00",
+  "updated_at": "2026-10-24T04:04:29.804966+00:00",
+  "revision": {
+    "summary": "Prepare explicit support for2048games/4096updates in evaluation and recovery checks",
+    "reason": "Longer continuation failed frozen E/F gate. The next hypothesis tests update-to-new-data ratio separately, without treating extra updates as extra games.",
+    "changes": [
+      "Proposed isolated evaluator expected-update binding",
+      "Proposed recovery ratio/count/example checks",
+      "Unchanged trainer/model/objective; fresh restart required"
+    ],
+    "test_plan": "Reject mismatched ratio, counters, source and objective; preserve baseline compatibility; run bounded CPU smoke and freeze fresh balanced evaluation seeds before any allocation.",
+    "updated_at": "2026-10-24T04:04:29.804962+00:00"
+  },
   "training_metrics": {
     "iteration": 26,
     "run_id": "Baseline4096",
@@ -163,7 +174,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T21:04:14.357347-07:00",
+    "measured_at": "2026-10-23T21:04:29.869579-07:00",
     "steps": [
       {
         "step": 1,
@@ -190,11 +201,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-24T03:58:41.829313+00:00",
-        "elapsed_seconds": 694,
+        "updated_at": "2026-10-24T04:04:29.804966+00:00",
+        "elapsed_seconds": 709,
         "completed": null,
         "total": null,
-        "task": "All384 development games complete; continuation gate failed",
+        "task": "Preparing the next frozen update-ratio experiment",
         "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
@@ -210,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1769,
+    "elapsed_seconds": 1785,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -223,8 +234,20 @@
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792814636.0561903,
+        "updated_at": 1792814669.836456,
         "job_id": "iteration26-next-admission-review",
+        "decision": {
+          "reviewing": "Whether the prepared update-ratio hypothesis merits bounded validation",
+          "options": [
+            "Fresh2048games with2updates/game and matched frozen baseline"
+          ],
+          "evidence": [
+            "Longer continuation: E wins26to17; F31to31; E timeouts15above12. Historical batch256 failure is counterevidence, not proof this ratio helps."
+          ],
+          "reason": "A single settings intervention is falsifiable; unchanged source/objective and fresh restart distinguish it from exact continuation. No improvement claim before matched evaluation.",
+          "next_action": "Review scoped diagnostic tests, frozen package and verified storage manifest; next allocation only through new guarded session.",
+          "updated_at": "2026-10-24T04:04:29.836456+00:00"
+        },
         "fresh": true
       },
       {

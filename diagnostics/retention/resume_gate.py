@@ -37,7 +37,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True)
     p.add_argument('--site',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--device',choices=['cpu','cuda'],required=True)
-    p.add_argument('--entrypoint',choices=['train_selfplay.py','train_qcompletion.py','train_loss.py','train_rootweighted.py'],default='train_qcompletion.py')
+    p.add_argument('--entrypoint',choices=['train_selfplay.py','train_qcompletion.py','train_loss.py','train_rootweighted.py','train_first_transition_fixed.py'],default='train_qcompletion.py')
     p.add_argument('--seconds',type=int,default=120);a=p.parse_args()
     a.output.mkdir(parents=True,exist_ok=False);started=time.monotonic();deadline=started+a.seconds
     large=a.device=='cuda'

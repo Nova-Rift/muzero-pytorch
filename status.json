@@ -7,12 +7,22 @@
   "wins": 8,
   "evaluation_games": 64,
   "timeouts": 23,
-  "title": "Depth comparison: baseline versus E complete",
+  "title": "GPU depth comparison running; retention check in parallel",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
   "result": "Final64 games:8 wins,33 losses,0 draws,23 cutoffs. The64-simulation candidate batch is now running.",
   "candidate": "M2048-s32",
   "evaluation_label": "M2048-s32 vs E1024",
-  "updated_at": "2026-10-24T00:39:12.096164+00:00",
+  "updated_at": "2026-10-24T00:40:11.879495+00:00",
+  "revision": {
+    "summary": "Proposed fix for duplicate final checkpoint save",
+    "reason": "Retention trainer saves at each512 games and again on exit; immutable writer rejects duplicate names. This may fail otherwise completed training.",
+    "changes": [
+      "Inspect arena/train_selfplay.py final-save path",
+      "Prepare isolated regression and minimal fix if confirmed"
+    ],
+    "test_plan": "Exercise exact milestone completion and interrupted saves; GPU training remains gated by full-size recovery.",
+    "updated_at": "2026-10-24T00:40:11.879492+00:00"
+  },
   "matchup": {
     "challenger": "M2048-s32",
     "opponent": "E1024",
@@ -35,7 +45,7 @@
     "updated_at": "2026-10-24T00:39:12.096164+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:39:41.364351-07:00",
+    "measured_at": "2026-10-23T17:40:11.930502-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +61,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T00:39:12.096164+00:00",
-        "elapsed_seconds": 29,
+        "updated_at": "2026-10-24T00:40:11.879495+00:00",
+        "elapsed_seconds": 60,
         "completed": 64,
         "total": null,
         "task": "M2048-s32 vs E1024",
-        "eta_seconds": 445,
+        "eta_seconds": 414,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -82,13 +92,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 514,
-    "eta_seconds": 244,
+    "elapsed_seconds": 545,
+    "eta_seconds": 213,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792802378.947913,
+    "updated_at": 1792802408.93107,
     "fresh": true,
     "loops": [
       {
@@ -120,6 +130,18 @@
         "stage": "review",
         "state": "active",
         "job_id": "i22-recovery-preparation",
+        "decision": {
+          "reviewing": "Can immutable retention finish cleanly at a checkpoint boundary?",
+          "options": [
+            "Fix a confirmed duplicate-final-save defect in isolated source"
+          ],
+          "evidence": [
+            "Trainer calls save at512-game boundaries and again at exit; writer rejects an existing milestone"
+          ],
+          "reason": "Resolve correctness before attempting long training or claiming recoverability",
+          "next_action": "Helper reproduces the defect and tests a minimal fix",
+          "updated_at": "2026-10-24T00:40:11.907498+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",

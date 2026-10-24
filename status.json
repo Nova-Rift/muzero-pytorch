@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 22,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 22: reviewing evidence",
-  "change": "One pod, serial GPU tasks, same-pod follow-up prepared.",
-  "result": "CPU parity and transport tests passed; GPU correctness and runtime remain to be measured.",
-  "candidate": "MuZero learning-signal review",
+  "title": "Validate deeper search on one GPU",
+  "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
+  "result": "Local tests and source checks passed. GPU correctness and runtime are not yet measured.",
+  "candidate": "MuZero M2048 depth comparison",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T00:31:06.886510+00:00",
+  "updated_at": "2026-10-24T00:35:01.344989+00:00",
   "latest_comparison": {
     "iteration": 20,
     "candidate": "M2048-split",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:34:22.108695-07:00",
+    "measured_at": "2026-10-23T17:35:01.397509-07:00",
     "steps": [
       {
         "step": 1,
@@ -55,52 +55,53 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-24T00:31:06.886510+00:00",
-        "elapsed_seconds": 195,
+        "state": "finished",
+        "updated_at": "2026-10-24T00:35:01.344989+00:00",
+        "elapsed_seconds": 234,
         "completed": null,
         "total": null,
         "task": "Iteration 22: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "17 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T00:35:01.344989+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Validate deeper search on one GPU",
+        "eta_seconds": 110,
+        "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 195,
-    "eta_seconds": 563,
+    "elapsed_seconds": 235,
+    "eta_seconds": 523,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792801971.715113,
-    "fresh": false,
+    "updated_at": 1792802101.287279,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "job_id": "i22-evidence-review",
+        "job_id": "i22-gpu-preflight",
         "decision": {
-          "reviewing": "Is the preserved fixed-root depth comparison ready for GPU evaluation?",
+          "reviewing": "Admit the frozen32 versus64 simulation comparison?",
           "options": [
-            "Evaluate32 versus64 simulations with eight roots"
+            "One H100 with serial evaluation batches"
           ],
           "evidence": [
-            "Prior wider-root and split-search variants did not pass development gates"
+            "Corrected inventory client succeeds;10 staged and4 transport tests pass",
+            "Payload and frozen source hashes verified; fresh H100 quote3.99 dollars per hour"
           ],
-          "reason": "Test deeper search separately from changing trained weights",
-          "next_action": "Verify archived plan, checkpoint bindings and preflight",
-          "updated_at": "2026-10-24T00:32:51.715113+00:00"
+          "reason": "A bounded GPU probe will check correctness, memory and runtime before scored batches",
+          "next_action": "Reserve through shared guard and launch the prepared run",
+          "updated_at": "2026-10-24T00:35:01.287279+00:00"
         },
         "details": {
           "schema": 1,
@@ -111,12 +112,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review depth experiment and preserved evidence",
+          "title": "Prepare fixed-root depth GPU evaluation",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Check frozen comparison design and source provenance before admitting GPU evaluation.",
+          "result": "All265 payload hashes verified;10 staged tests passed. Fresh52-region search found H100 offers at3.99 dollars per hour.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:32:51.675829+00:00",
+          "updated_at": "2026-10-24T00:35:01.257913+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -125,18 +126,19 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "i22-runner-preparation",
+        "job_id": "i22-training-followup",
         "decision": {
-          "reviewing": "Can the prepared runner safely launch and reuse one pod?",
+          "reviewing": "Which bounded training task can follow on the same pod?",
           "options": [
-            "Validate a fresh iteration22 runner"
+            "Exact full-state continuation if recovery gates pass",
+            "Independent-seed replication with matched contract"
           ],
           "evidence": [
-            "Iteration21 inventory failed before reservation; helper reproduced403 and successful200 with existing client headers"
+            "Prior calibration gate failed; loss-size differences did not imply missing value gradients"
           ],
-          "reason": "Resolve the failed prerequisite before paid allocation",
-          "next_action": "Helper checks transport, deadlines and lifecycle tests",
-          "updated_at": "2026-10-24T00:32:51.748090+00:00"
+          "reason": "Avoid unsupported loss changes; prepare a source-bound training task",
+          "next_action": "Helper verifies existing state and recovery prerequisites",
+          "updated_at": "2026-10-24T00:35:01.315211+00:00"
         },
         "details": {
           "schema": 1,
@@ -147,12 +149,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Validate reusable GPU runner",
+          "title": "Review next training experiment",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Native helper preparing iteration22 runner and investigating prior inventory HTTP403; no GPU allocated.",
+          "result": "Native helper reviewing full-state continuation and independent-seed replication prerequisites while GPU preparation proceeds.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:32:51.675829+00:00",
+          "updated_at": "2026-10-24T00:35:01.257913+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:58:44.513761-07:00",
+    "measured_at": "2026-10-23T18:59:46.854518-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:53:15.458498+00:00",
-        "elapsed_seconds": 2710,
+        "elapsed_seconds": 2773,
         "completed": null,
         "total": null,
         "task": "Prepare fresh paired loss experiment prerequisites",
@@ -212,21 +212,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3654,
+    "elapsed_seconds": 3717,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792807028.5848427,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792807185.0661762,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807028.585234,
+        "updated_at": 1792807185.234968,
         "job_id": "iteration-23-storage-readiness",
+        "decision": {
+          "reviewing": "Apply verified deduplication after all source artifacts stopped changing",
+          "options": [
+            "Preserve every artifact and immutable archive object while removing duplicate storage blocks."
+          ],
+          "evidence": [
+            "Helper verified104 archived-identical files totaling2.843GB potential savings; sources are completed sessions."
+          ],
+          "reason": "Fresh recovery headroom is a real next-allocation prerequisite; prior savings were partly lost to final rsync replacement.",
+          "next_action": "Rehash and atomically hardlink verified files, then measure actual free space and record every receipt.",
+          "updated_at": "2026-10-24T01:59:45.234968+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -245,13 +257,13 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "test",
-        "state": "active",
-        "updated_at": 1792807028.5848427,
+        "state": "pending",
+        "updated_at": 1792807185.0661762,
         "job_id": "iteration-23-rootweighted",
         "decision": {
           "reviewing": "Prepare a separate root-focused loss candidate with exact resume identity",
@@ -265,13 +277,13 @@
           "next_action": "Implement isolated loss and serialized contract with sparse-mask, parity and dispatch tests.",
           "updated_at": "2026-10-24T01:52:30.901230+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807028.585234,
+        "updated_at": 1792807185.0661762,
         "job_id": "iteration-23-runner-readiness",
         "details": {
           "schema": 1,
@@ -291,13 +303,13 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792807028.585234,
+        "state": "pending",
+        "updated_at": 1792807185.0661762,
         "job_id": "iteration-23-protocol-readiness",
         "details": {
           "schema": 1,
@@ -317,7 +329,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:01:00.020020-07:00",
+    "measured_at": "2026-10-23T20:01:47.310731-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:00:59.966131+00:00",
-        "elapsed_seconds": 1632,
+        "elapsed_seconds": 1679,
         "completed": null,
         "total": null,
         "task": "Repair result feed and recovery throughput",
@@ -87,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3471,
+    "elapsed_seconds": 3518,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

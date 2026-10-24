@@ -1,35 +1,41 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "evaluate",
   "iteration": 22,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
-  "title": "Validate deeper search on one GPU",
+  "wins": 8,
+  "evaluation_games": 64,
+  "timeouts": 23,
+  "title": "Depth comparison: baseline versus E complete",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "Local tests and source checks passed. GPU correctness and runtime are not yet measured.",
-  "candidate": "MuZero M2048 depth comparison",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T00:35:01.344989+00:00",
+  "result": "Final64 games:8 wins,33 losses,0 draws,23 cutoffs. The64-simulation candidate batch is now running.",
+  "candidate": "M2048-s32",
+  "evaluation_label": "M2048-s32 vs E1024",
+  "updated_at": "2026-10-24T00:39:12.096164+00:00",
+  "matchup": {
+    "challenger": "M2048-s32",
+    "opponent": "E1024",
+    "opponent_wins": 33,
+    "draws": 0
+  },
   "latest_comparison": {
-    "iteration": 20,
-    "candidate": "M2048-split",
-    "evaluation_label": "Repeated E diagnostic, not new confirmation",
-    "wins": 0,
-    "evaluation_games": 8,
-    "timeouts": 2,
+    "iteration": 22,
+    "candidate": "M2048-s32",
+    "evaluation_label": "M2048-s32 vs E1024",
+    "wins": 8,
+    "evaluation_games": 64,
+    "timeouts": 23,
     "matchup": {
-      "challenger": "M2048-split",
+      "challenger": "M2048-s32",
       "opponent": "E1024",
-      "opponent_wins": 6,
+      "opponent_wins": 33,
       "draws": 0
     },
-    "updated_at": "2026-10-23T02:37:21.759979+00:00"
+    "updated_at": "2026-10-24T00:39:12.096164+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:38:39.111115-07:00",
+    "measured_at": "2026-10-23T17:39:12.149630-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,14 +50,14 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T00:39:12.096164+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 64,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "M2048-s32 vs E1024",
+        "eta_seconds": 474,
+        "eta_basis": "10 previous iteration(s)"
       },
       {
         "step": 3,
@@ -66,48 +72,54 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-24T00:35:01.344989+00:00",
-        "elapsed_seconds": 218,
+        "state": "finished",
+        "updated_at": "2026-10-24T00:39:12.096164+00:00",
+        "elapsed_seconds": 251,
         "completed": null,
         "total": null,
         "task": "Validate deeper search on one GPU",
-        "eta_seconds": 0,
-        "eta_basis": "14 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 452,
-    "eta_seconds": 306,
+    "elapsed_seconds": 485,
+    "eta_seconds": 273,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792802318.913594,
+    "active_loops": 2,
+    "updated_at": 1792802348.9038725,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "M2048-s64-E1024"
+        "job_id": "M2048-s64-E1024",
+        "details": {
+          "schema": 1,
+          "stage": "evaluate",
+          "iteration": 22,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Evaluate64-simulation candidate against E",
+          "change": "One registered H100; remote SSH readiness reached.",
+          "result": "Prior baseline/E completed:8 wins,33 losses,0 draws,23 cutoffs of64. Candidate batch running; no candidate score yet.",
+          "candidate": "MuZero fixed-root depth comparison",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-24T00:39:12.121183+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
-        "job_id": "i22-training-followup",
-        "decision": {
-          "reviewing": "Training plan saved; admission prerequisite remains unresolved",
-          "options": [
-            "Validate full-size remote state recovery before long training"
-          ],
-          "evidence": [
-            "Two fresh2048-game replicas proposed; no training launched"
-          ],
-          "reason": "Tiny CPU retention tests cannot establish actual full-state transfer and recovery time",
-          "next_action": "Release training gate only after verified full-size recovery and a costed source-pinned plan",
-          "updated_at": "2026-10-24T00:38:20.648858+00:00"
-        },
+        "state": "active",
+        "job_id": "i22-recovery-preparation",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -117,12 +129,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Training admission blocked by recovery validation",
+          "title": "Prepare checkpoint recovery engineering gate",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Two-replica plan reviewed. Long training requires two full-size milestones recovered and verified, plus measured transfer cost and frozen source/seeds.",
+          "result": "Native helper preparing a bounded full-size serialization/recovery test and CPU checks. Long training remains gated; no training started.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:38:06.396608+00:00",
+          "updated_at": "2026-10-24T00:38:52.384686+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

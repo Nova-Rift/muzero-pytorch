@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:22:30.506296-07:00",
+    "measured_at": "2026-10-23T19:23:37.317626-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 1161,
+        "elapsed_seconds": 1228,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,13 +76,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1161,
+    "elapsed_seconds": 1228,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792808361.812011,
+    "updated_at": 1792808496.965059,
     "fresh": false,
     "loops": [
       {
@@ -103,41 +103,41 @@
           "next_action": "Helper tests and publishes verifier extension; inspect recovered state checks",
           "updated_at": "2026-10-24T02:21:36.965059+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792808549.137654,
+        "updated_at": 1792808614.0982366,
         "job_id": "Root5_2048",
         "progress": {
           "job_id": "Root5_2048",
-          "completed": 768,
+          "completed": 1024,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792808539.122668
+          "updated_at": 1792808594.816522
         },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 24,
-          "completed_games": 768,
+          "completed_games": 1024,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Fresh2048 root-focused loss training",
           "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 768 training games and 768 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1024 training games and 1024 optimizer updates. Strength remains unmeasured.",
           "candidate": "Root5_2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:22:19.122668+00:00",
+          "updated_at": "2026-10-24T02:23:14.816522+00:00",
           "training_metrics": {
             "iteration": 24,
             "run_id": "Root5_2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:22:19.122668+00:00",
+            "reported_at": "2026-10-24T02:23:14.816522+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -180,6 +180,20 @@
                 "elapsed_seconds": 169.440554382978,
                 "loss": 5.178977012634277,
                 "search_entropy": 1.8257396589033306
+              },
+              {
+                "optimizer_updates": 896,
+                "games": 896,
+                "elapsed_seconds": 197.3315722150146,
+                "loss": 5.070823669433594,
+                "search_entropy": 1.698413871228695
+              },
+              {
+                "optimizer_updates": 1024,
+                "games": 1024,
+                "elapsed_seconds": 225.1371806510142,
+                "loss": 4.949483394622803,
+                "search_entropy": 1.0274890360888094
               }
             ]
           },
@@ -192,29 +206,41 @@
         "id": "loop-c",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792808454.7177272,
+        "updated_at": 1792808603.482872,
         "job_id": "iteration-24-followup-package",
-        "fresh": false
+        "decision": {
+          "reviewing": "Can the isolated follow-up reuse the existing pod runtime exactly?",
+          "options": [
+            "Upload only663046 bytes of frozen source and verify150 reused file hashes"
+          ],
+          "evidence": [
+            "Package and seven handoff artifacts verified; baseline behavior sources unchanged"
+          ],
+          "reason": "Avoid cold setup while retaining exact source/runtime checks and unchanged active jobs",
+          "next_action": "Stage isolated source and verify remote bytes before any GPU admission",
+          "updated_at": "2026-10-24T02:23:23.482872+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792808361.812011,
-        "job_id": "iteration-24-followup-protocol",
+        "updated_at": 1792808562.124706,
+        "job_id": "iteration-24-overlap-preparation",
         "decision": {
-          "reviewing": "Are frozen follow-up seeds and baseline reuse compatible with archived evidence?",
+          "reviewing": "Does exact-workload GPU overlap improve useful throughput with memory headroom?",
           "options": [
-            "Audit seed history and source/config equivalence while training continues"
+            "Prepare a240-second bounded serial-versus-overlap check after current jobs"
           ],
           "evidence": [
-            "Conditional branch plan is frozen before outcomes; archive-wide seed audit remains pending"
+            "H100 active; production128-game blocks take roughly24seconds; GPU overlap has not been measured"
           ],
-          "reason": "Avoid reusing evaluation evidence or silently changing the comparison baseline",
-          "next_action": "Save seed audit and exact reuse prerequisites before admission",
-          "updated_at": "2026-10-24T02:19:21.812011+00:00"
+          "reason": "Owner requests resolving concurrency bottleneck; preserve frozen scientific runs and require measured gain",
+          "next_action": "Helper tests bounded benchmark; coordinator checks remaining cost/deadline before admission",
+          "updated_at": "2026-10-24T02:22:42.124706+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

@@ -4,38 +4,38 @@
   "iteration": 23,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 17,
+  "wins": 39,
   "evaluation_games": 64,
-  "timeouts": 23,
+  "timeouts": 17,
   "title": "Final2048 versus own initialization",
   "change": "Frozen control, common inference settings.",
   "result": "Verified balanced 64-game control; no promotion claim.",
-  "candidate": "Baseline2048",
+  "candidate": "Q2048",
   "evaluation_label": "Own initial control",
-  "updated_at": "2026-10-24T01:44:15.574837+00:00",
+  "updated_at": "2026-10-24T01:44:18.139048+00:00",
   "matchup": {
-    "challenger": "Baseline2048",
+    "challenger": "Q2048",
     "opponent": "Initial52500000",
-    "opponent_wins": 24,
+    "opponent_wins": 8,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 23,
-    "candidate": "Baseline2048",
+    "candidate": "Q2048",
     "evaluation_label": "Own initial control",
-    "wins": 17,
+    "wins": 39,
     "evaluation_games": 64,
-    "timeouts": 23,
+    "timeouts": 17,
     "matchup": {
-      "challenger": "Baseline2048",
+      "challenger": "Q2048",
       "opponent": "Initial52500000",
-      "opponent_wins": 24,
+      "opponent_wins": 8,
       "draws": 0
     },
-    "updated_at": "2026-10-24T01:44:15.574837+00:00"
+    "updated_at": "2026-10-24T01:44:18.139048+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:44:15.628372-07:00",
+    "measured_at": "2026-10-23T18:44:18.204979-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T01:44:15.574837+00:00",
-        "elapsed_seconds": 74,
+        "updated_at": "2026-10-24T01:44:18.139048+00:00",
+        "elapsed_seconds": 76,
         "completed": 64,
         "total": null,
         "task": "Own initial control",
-        "eta_seconds": 451,
+        "eta_seconds": 449,
         "eta_basis": "11 previous iteration(s)"
       },
       {
@@ -82,7 +82,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2785,
+    "elapsed_seconds": 2788,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },

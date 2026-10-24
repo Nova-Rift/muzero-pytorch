@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:37:35.368685-07:00",
+    "measured_at": "2026-10-23T17:38:39.111115-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T00:35:01.344989+00:00",
-        "elapsed_seconds": 154,
+        "elapsed_seconds": 218,
         "completed": null,
         "total": null,
         "task": "Validate deeper search on one GPU",
@@ -76,55 +76,37 @@
         "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 388,
-    "eta_seconds": 370,
+    "elapsed_seconds": 452,
+    "eta_seconds": 306,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792802143.284136,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1792802318.913594,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "evaluate",
         "state": "active",
-        "job_id": "i22-remote-setup",
-        "details": {
-          "schema": 1,
-          "stage": "test",
-          "iteration": 22,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Transfer and verify GPU evaluation payload",
-          "change": "One registered H100; remote SSH readiness reached.",
-          "result": "Payload transfer/setup underway under one420-second deadline. No scored games completed.",
-          "candidate": "MuZero fixed-root depth comparison",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:35:43.284136+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "M2048-s64-E1024"
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "active",
+        "state": "pending",
         "job_id": "i22-training-followup",
         "decision": {
-          "reviewing": "Is a fresh-seed M8 replication ready?",
+          "reviewing": "Training plan saved; admission prerequisite remains unresolved",
           "options": [
-            "Restart the unchanged M8 training contract with an independent seed"
+            "Validate full-size remote state recovery before long training"
           ],
           "evidence": [
-            "Clock calibration failed its frozen gate; raw gradient sizes do not justify reweighting"
+            "Two fresh2048-game replicas proposed; no training launched"
           ],
-          "reason": "Independent replication is scientifically cleaner than unsupported loss or observation changes",
-          "next_action": "Check full-state recovery and bounded launch prerequisites",
-          "updated_at": "2026-10-24T00:36:18.317751+00:00"
+          "reason": "Tiny CPU retention tests cannot establish actual full-state transfer and recovery time",
+          "next_action": "Release training gate only after verified full-size recovery and a costed source-pinned plan",
+          "updated_at": "2026-10-24T00:38:20.648858+00:00"
         },
         "details": {
           "schema": 1,
@@ -135,12 +117,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review full-state recovery gate",
+          "title": "Training admission blocked by recovery validation",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Helper handoff verified and closed. Coordinator checking retained checkpoint wrapper before any long training admission.",
+          "result": "Two-replica plan reviewed. Long training requires two full-size milestones recovered and verified, plus measured transfer cost and frozen source/seeds.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:37:18.053421+00:00",
+          "updated_at": "2026-10-24T00:38:06.396608+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

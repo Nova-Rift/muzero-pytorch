@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:20:52.311831-07:00",
+    "measured_at": "2026-10-23T18:21:54.813357-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 1382,
+        "elapsed_seconds": 1445,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,32 +87,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1382,
+    "elapsed_seconds": 1445,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792804662.914493,
-    "fresh": false,
+    "updated_at": 1792804889.357122,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792804662.914493,
-        "job_id": "iteration-23-runtime-gates",
+        "updated_at": 1792804889.357122,
+        "job_id": "baseline-gpu-resume",
         "decision": {
-          "reviewing": "Can the isolated candidate resume exactly and retain complete compressed states?",
+          "reviewing": "Admit the paired experiment on a guarded H100?",
           "options": [
-            "Tiny actual GPU gate before paired long training"
+            "One pod with runtime gates then serial baseline and candidate training"
           ],
           "evidence": [
-            "CPU4 games versus2+2 resume matched117 tensors and318 values."
+            "14 runner tests,4 transport tests and source-bound CPU checks passed; storage bound fits.",
+            "52 regions checked; H100 available at3.99USD/hour in US-MO-1;27USD daily reservation allowance remains."
           ],
-          "reason": "CPU success is insufficient to claim CUDA graph and TF32 equivalence.",
-          "next_action": "Prepare bounded GPU gate and external immutable checkpoint encoder.",
-          "updated_at": "2026-10-24T01:13:42.030782+00:00"
+          "reason": "Estimated2.88USD includes setup,recovery and cleanup; no strength result assumed.",
+          "next_action": "Allocate once through shared launcher; failed runtime gate stops long training.",
+          "updated_at": "2026-10-24T01:20:56.139408+00:00"
         },
         "details": {
           "schema": 1,
@@ -123,54 +124,54 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Preparing GPU resume and recovery gates",
-          "change": "Prepare tested runtime integration before allocation.",
-          "result": "CPU compressed split-resume passed on committed candidate source. Final endpoint binding and payload checks now in progress.",
+          "title": "Preparing actual GPU resume checks",
+          "change": "Admit one fresh H100 after source, storage, budget and transport checks.",
+          "result": "GPU execution not yet started; local gates passed.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:17:42.914493+00:00",
+          "updated_at": "2026-10-24T01:20:56.055416+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "review",
-        "state": "pending",
-        "updated_at": 1792804662.91448,
-        "job_id": "iteration-23-runner-preparation",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792804908.471035,
+        "job_id": "iteration-23-paired-readout",
         "decision": {
-          "reviewing": "Does the fresh runner preserve lease guards and truthful training telemetry?",
+          "reviewing": "Will the paired readout reject mismatched or incomplete evidence?",
           "options": [
-            "Test iteration23 runner before allocation"
+            "Prepare exact seed/seat and outcome audit before results arrive"
           ],
           "evidence": [
-            "Iteration22 retained one pod across three jobs and recovered states; raw-state transfer was slow."
+            "Frozen plan compares two2048 endpoints against E/F with matched64-game seed sets."
           ],
-          "reason": "Use compressed recovery with finite transport bounds and no old iteration reuse.",
-          "next_action": "Helper stages guarded runner and tests actual metric recovery and assignment merging.",
-          "updated_at": "2026-10-24T01:13:42.062412+00:00"
+          "reason": "Keep development comparison separate from promotion and confirmation.",
+          "next_action": "Helper tests readout on bounded fixtures; no new evaluation claims.",
+          "updated_at": "2026-10-24T01:21:48.471035+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 23,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Preparing reusable guarded runner",
-          "change": "Prepare tested runtime integration before allocation.",
-          "result": "Runner preparation passed14 tests; waiting for shared candidate source freeze and payload verification. Release: coordinator finishes those gates, then admit serial GPU plan.",
-          "candidate": "Fresh640",
+          "title": "Preparing paired evaluation audit",
+          "change": "Validate seed/seat matching and exact outcome readout while GPU runtime gates proceed.",
+          "result": "No new strength results; Q training remains queued behind its dependency.",
+          "candidate": "Q2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:17:42.914480+00:00",
+          "updated_at": "2026-10-24T01:21:29.357102+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },
@@ -182,8 +183,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 27.0,
-    "reserved_usd": 3.0,
+    "remaining_usd": 24.0,
+    "reserved_usd": 6.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }
 }

@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "edit",
   "iteration": 23,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 23: reviewing evidence",
+  "title": "Testing lossless checkpoint recovery",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
   "result": "Validate storage-safe immutable checkpoint recovery/archive capacity and interrupted-resume equivalence before further paid long training. No new allocation until these prerequisites and a frozen costed plan are ready.",
   "candidate": "Fresh640",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T00:57:50.253046+00:00",
+  "updated_at": "2026-10-24T01:02:29.700130+00:00",
+  "revision": {
+    "summary": "Proposed standalone lossless checkpoint compression diagnostic",
+    "reason": "Two recovered full states exceed2GB; duplicate recovery and archive copies limit safe longer training.",
+    "changes": [
+      "diagnostics/retention/compressed_checkpoint.py: bounded streaming gzip and restored-content verification",
+      "diagnostics/retention/test_compressed_checkpoint.py: exact roundtrip, corruption and immutable destination checks"
+    ],
+    "test_plan": "Run small corruption and roundtrip tests, then measure a real recovered state; this does not test playing strength or GPU resume equivalence.",
+    "updated_at": "2026-10-24T01:02:29.700125+00:00"
+  },
   "latest_comparison": {
     "iteration": 22,
     "candidate": "Fresh640",
@@ -29,7 +39,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:02:10.331081-07:00",
+    "measured_at": "2026-10-23T18:02:29.755018-07:00",
     "steps": [
       {
         "step": 1,
@@ -56,11 +66,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-24T00:57:50.253046+00:00",
-        "elapsed_seconds": 260,
+        "updated_at": "2026-10-24T01:02:29.700130+00:00",
+        "elapsed_seconds": 280,
         "completed": null,
         "total": null,
-        "task": "Iteration 23: reviewing evidence",
+        "task": "Testing lossless checkpoint recovery",
         "eta_seconds": 0,
         "eta_basis": "18 previous iteration(s)"
       },
@@ -76,14 +86,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 260,
-    "eta_seconds": 664,
+    "elapsed_seconds": 280,
+    "eta_seconds": 644,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792803687.724771,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

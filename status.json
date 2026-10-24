@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:15:26.077667-07:00",
+    "measured_at": "2026-10-23T19:16:28.315314-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 737,
+        "elapsed_seconds": 799,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,8 +76,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 737,
-    "eta_seconds": 353,
+    "elapsed_seconds": 799,
+    "eta_seconds": 291,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -89,8 +89,15 @@
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792808124.202671,
+        "updated_at": 1792808184.0858958,
         "job_id": "Baseline2048",
+        "progress": {
+          "job_id": "Baseline2048",
+          "completed": 1024,
+          "total": 2048,
+          "unit": "games",
+          "updated_at": 1792808177.0931191
+        },
         "decision": {
           "reviewing": "Run the frozen paired control after actual GPU recovery gates passed",
           "options": [
@@ -107,22 +114,22 @@
           "schema": 1,
           "stage": "train",
           "iteration": 24,
-          "completed_games": 640,
+          "completed_games": 1024,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Fresh2048 baseline training",
           "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 640 training games and 640 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1024 training games and 1024 optimizer updates. Strength remains unmeasured.",
           "candidate": "Baseline2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:15:09.201517+00:00",
+          "updated_at": "2026-10-24T02:16:17.093119+00:00",
           "training_metrics": {
             "iteration": 24,
             "run_id": "Baseline2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:15:09.201517+00:00",
+            "reported_at": "2026-10-24T02:16:17.093119+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -158,6 +165,27 @@
                 "elapsed_seconds": 140.91540759499185,
                 "loss": 5.081546306610107,
                 "search_entropy": 1.4876585006713867
+              },
+              {
+                "optimizer_updates": 768,
+                "games": 768,
+                "elapsed_seconds": 164.88552218896803,
+                "loss": 4.958235740661621,
+                "search_entropy": 1.3898819390521107
+              },
+              {
+                "optimizer_updates": 896,
+                "games": 896,
+                "elapsed_seconds": 189.2738377689966,
+                "loss": 4.696484088897705,
+                "search_entropy": 1.2975961505435407
+              },
+              {
+                "optimizer_updates": 1024,
+                "games": 1024,
+                "elapsed_seconds": 208.80502163001802,
+                "loss": 4.731574058532715,
+                "search_entropy": 1.627727042544972
               }
             ]
           },
@@ -170,7 +198,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "pending",
-        "updated_at": 1792808124.202671,
+        "updated_at": 1792808184.0858958,
         "job_id": "Root5_2048",
         "details": {
           "schema": 1,

@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:37:50.354325-07:00",
+    "measured_at": "2026-10-23T19:38:56.357181-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 450,
+        "elapsed_seconds": 516,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 24,
+        "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,21 +76,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2081,
+    "elapsed_seconds": 2147,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 3,
     "updated_at": 1792809402.157912,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "evaluate",
-        "state": "pending",
-        "updated_at": 1792809466.4009674,
-        "job_id": "first-transition-Baseline2048-E1024",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792809531.390815,
+        "job_id": "iteration-24-first-transition-readout",
+        "decision": {
+          "reviewing": "Can the next candidate be compared under exact frozen protocols?",
+          "options": [
+            "Bind fresh six-bout readout and full-state recovery checks before outcomes"
+          ],
+          "evidence": [
+            "Baseline protocols frozen; first-transition training reached1024 of2048 games; final checkpoint still pending"
+          ],
+          "reason": "Keep scientific evidence checkpoint-bound and avoid tuning to confirmation results",
+          "next_action": "Helper prepares independent bindings, then audits completed recovered endpoints and bouts",
+          "updated_at": "2026-10-24T02:38:51.390815+00:00"
+        },
         "fresh": true
       },
       {
@@ -117,7 +129,7 @@
         "id": "loop-d",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792809466.4009674,
+        "updated_at": 1792809531.6016304,
         "job_id": "first-transition-overlap-v2",
         "fresh": true
       },
@@ -125,7 +137,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792809466.4009674,
+        "updated_at": 1792809531.6016304,
         "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }

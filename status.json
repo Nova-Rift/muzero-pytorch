@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:32:30.692752-07:00",
+    "measured_at": "2026-10-23T19:33:33.323791-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 130,
+        "elapsed_seconds": 193,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 344,
+        "eta_seconds": 281,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,12 +76,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1761,
+    "elapsed_seconds": 1824,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 3,
     "updated_at": 1792808913.4805565,
     "fresh": false,
     "loops": [
@@ -103,17 +103,29 @@
       },
       {
         "id": "loop-d",
-        "stage": "test",
-        "state": "done",
-        "updated_at": 1792809144.8714244,
-        "job_id": "serial-overlap-benchmark",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792809160.810402,
+        "job_id": "iteration-24-overlap-failure-review",
+        "decision": {
+          "reviewing": "Why did the bounded overlap diagnostic fail before training?",
+          "options": [
+            "Fix log placement and test trainer-owned output-directory creation"
+          ],
+          "evidence": [
+            "Child raised FileExistsError because benchmark created the output directory first; no training or throughput result"
+          ],
+          "reason": "Preserve failed evidence and repair only the isolated diagnostic; production overlap remains disabled",
+          "next_action": "Helper publishes tested correction; coordinator reviews before any future GPU admission",
+          "updated_at": "2026-10-24T02:32:40.810402+00:00"
+        },
         "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "test",
         "state": "done",
-        "updated_at": 1792809144.8714244,
+        "updated_at": 1792809211.4226732,
         "job_id": "first-transition-candidate-gpu-resume",
         "fresh": true
       }
@@ -127,8 +139,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 21.0,
-    "reserved_usd": 9.0,
+    "remaining_usd": 18.0,
+    "reserved_usd": 12.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }
 }

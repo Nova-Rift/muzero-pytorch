@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:57:42.349165-07:00",
+    "measured_at": "2026-10-23T18:58:44.513761-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:53:15.458498+00:00",
-        "elapsed_seconds": 2648,
+        "elapsed_seconds": 2710,
         "completed": null,
         "total": null,
         "task": "Prepare fresh paired loss experiment prerequisites",
@@ -212,14 +212,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3592,
+    "elapsed_seconds": 3654,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792807028.5848427,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -245,7 +245,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -265,7 +265,7 @@
           "next_action": "Implement isolated loss and serialized contract with sparse-mask, parity and dispatch tests.",
           "updated_at": "2026-10-24T01:52:30.901230+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -291,7 +291,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -317,7 +317,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

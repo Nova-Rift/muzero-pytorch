@@ -29,17 +29,17 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:34:32.348314-07:00",
+    "measured_at": "2026-10-23T18:35:34.853338-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 159,
+        "elapsed_seconds": 222,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 159,
+        "eta_seconds": 222,
         "eta_basis": "observed training rate"
       },
       {
@@ -76,48 +76,48 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2202,
+    "elapsed_seconds": 2265,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792805561.783242,
-    "fresh": false,
+    "updated_at": 1792805703.774947,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792805561.783242,
-        "job_id": "iteration-23-baseline-recovery",
+        "updated_at": 1792805703.774947,
+        "job_id": "iteration-23-followup-readiness",
         "decision": {
-          "reviewing": "Is the complete baseline2048 recovery ready for archival and exact future resume?",
+          "reviewing": "What same-pod prerequisites can be prepared before the current result arrives?",
           "options": [
-            "Verify all four saved milestones before further selection"
+            "Conditional independent paired training seed using unchanged tested source/runtime"
           ],
           "evidence": [
-            "Supervisor reports Baseline2048 done and Q2048 active; three early encoded milestones already hash verified."
+            "Baseline2048 finished in424seconds; all four full states verified; actual GPU resume gates passed for both entrypoints."
           ],
-          "reason": "Recovery integrity is independent of playing strength.",
-          "next_action": "Complete local recovery and run the tested full-state verifier.",
-          "updated_at": "2026-10-24T01:32:41.783242+00:00"
+          "reason": "Prepare reusable recovery/storage/lease inputs without claiming the development gate has passed.",
+          "next_action": "Helper prepares bounded append-only plan and storage needs; coordinator decides after frozen results.",
+          "updated_at": "2026-10-24T01:35:03.774947+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "review",
           "iteration": 23,
           "completed_games": 2048,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Verify baseline full-state recovery",
-          "change": "Baseline training completed; check all four compressed states and final weights.",
-          "result": "Recovery is in progress while Q2048 trains on the same pod.",
+          "title": "Prepare same-pod followup prerequisites",
+          "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
+          "result": "All four baseline full states verified. No followup selected or reservation renewed; choice depends on frozen development results.",
           "candidate": "Baseline2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:32:41.716964+00:00",
+          "updated_at": "2026-10-24T01:34:41.812007+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Baseline2048",
@@ -241,41 +241,41 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792805667.3624458,
+        "updated_at": 1792805732.2189374,
         "job_id": "Q2048",
         "progress": {
           "job_id": "Q2048",
-          "completed": 640,
+          "completed": 1024,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792805644.2002504
+          "updated_at": 1792805724.922587
         },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 23,
-          "completed_games": 640,
+          "completed_games": 1024,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Q-completion fresh2048 training",
           "change": "Recovery verifier and paired readout are tested and ready.",
-          "result": "Observed 640 training games and 640 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1024 training games and 1024 optimizer updates. Strength remains unmeasured.",
           "candidate": "Q2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:34:04.200250+00:00",
+          "updated_at": "2026-10-24T01:35:24.922587+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Q2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:34:04.200250+00:00",
+            "reported_at": "2026-10-24T01:35:24.922587+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -311,6 +311,27 @@
                 "elapsed_seconds": 137.83798881800612,
                 "loss": 4.765341758728027,
                 "search_entropy": 1.370921568479389
+              },
+              {
+                "optimizer_updates": 768,
+                "games": 768,
+                "elapsed_seconds": 164.1674372620182,
+                "loss": 4.449838638305664,
+                "search_entropy": 1.4834754983894527
+              },
+              {
+                "optimizer_updates": 896,
+                "games": 896,
+                "elapsed_seconds": 190.48688524001045,
+                "loss": 4.447656631469727,
+                "search_entropy": 1.2566883631516248
+              },
+              {
+                "optimizer_updates": 1024,
+                "games": 1024,
+                "elapsed_seconds": 218.54525946703507,
+                "loss": 4.675105571746826,
+                "search_entropy": 1.9083576595876366
               }
             ]
           },

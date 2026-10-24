@@ -1,23 +1,23 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "evaluate",
   "iteration": 26,
-  "completed_games": 3584,
+  "completed_games": 4096,
   "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Baseline4096 exact continuation",
-  "change": "CUDA resume equality passed; unchanged source continues original2048state.",
-  "result": "Recovered1536new training games;3584cumulative. Frozen comparisons queued; no strength claim.",
+  "title": "Fresh Baseline4096 versus E1024 comparison",
+  "change": "Exact continuation completed2048new games. Frozen64-game development comparison started; results not yet final.",
+  "result": "Training endpoint reached in415.15seconds; checkpoint recovery proceeds in parallel. No promotion claim.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:52:13.079156+00:00",
+  "updated_at": "2026-10-24T03:54:10.919197+00:00",
   "training_metrics": {
     "iteration": 26,
     "run_id": "Baseline4096",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-24T03:52:13.050799+00:00",
+    "reported_at": "2026-10-24T03:54:10.887425+00:00",
     "points": [
       {
         "optimizer_updates": 2176,
@@ -102,6 +102,34 @@
         "elapsed_seconds": 317.0670254389988,
         "loss": 2.518935203552246,
         "search_entropy": 1.3726750777568668
+      },
+      {
+        "optimizer_updates": 3712,
+        "games": 3712,
+        "elapsed_seconds": 342.2557307400275,
+        "loss": 2.618237018585205,
+        "search_entropy": 1.2983107066247612
+      },
+      {
+        "optimizer_updates": 3840,
+        "games": 3840,
+        "elapsed_seconds": 366.72239302803064,
+        "loss": 2.337238311767578,
+        "search_entropy": 1.426522983238101
+      },
+      {
+        "optimizer_updates": 3968,
+        "games": 3968,
+        "elapsed_seconds": 391.2873718669871,
+        "loss": 2.881831407546997,
+        "search_entropy": 1.3304326576180756
+      },
+      {
+        "optimizer_updates": 4096,
+        "games": 4096,
+        "elapsed_seconds": 415.15322960302,
+        "loss": 2.783813953399658,
+        "search_entropy": 1.2351394372526556
       }
     ]
   },
@@ -129,29 +157,29 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:53:17.321523-07:00",
+    "measured_at": "2026-10-23T20:54:10.982840-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-24T03:52:13.079156+00:00",
-        "elapsed_seconds": 381,
-        "completed": 3584,
+        "state": "finished",
+        "updated_at": "2026-10-24T03:54:10.919197+00:00",
+        "elapsed_seconds": 434,
+        "completed": 4096,
         "total": 4096,
         "task": "Baseline4096 exact continuation",
-        "eta_seconds": 54,
-        "eta_basis": "observed training rate"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T03:54:10.919197+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "No new evaluation",
+        "eta_seconds": 474,
+        "eta_basis": "12 previous iteration(s)"
       },
       {
         "step": 3,
@@ -176,51 +204,38 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1112,
+    "elapsed_seconds": 1166,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792813996.0393507,
+    "active_loops": 3,
+    "updated_at": 1792814021.3572686,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "train",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792813996.0393507,
-        "job_id": "Baseline4096",
+        "updated_at": 1792814046.042666,
+        "job_id": "Baseline4096-E1024",
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "evaluate",
-        "state": "pending",
-        "updated_at": 1792813996.0393507,
-        "job_id": "Baseline2048-E1024",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792814021.3572686,
+        "job_id": "iteration26-next-hypothesis",
         "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792813859.870506,
-        "job_id": "iteration26-fullstate-verification",
-        "decision": {
-          "reviewing": "Full-state verifier prepared; await stable recovery",
-          "options": [
-            "Wait for the recorded prerequisites"
-          ],
-          "evidence": [
-            "259 source bindings and19 verifier tests pass. Need final compressed manifest and four fully recovered2560/3072/3584/4096states before sequential integrity validation. No checkpoint verification claimed yet."
-          ],
-          "reason": "259 source bindings and19 verifier tests pass. Need final compressed manifest and four fully recovered2560/3072/3584/4096states before sequential integrity validation. No checkpoint verification claimed yet.",
-          "next_action": "Resolve the recorded prerequisites before admitting this task.",
-          "updated_at": "2026-10-24T03:50:59.870506+00:00"
-        },
-        "fresh": false
+        "state": "active",
+        "updated_at": 1792814021.357271,
+        "job_id": "iteration26-capacity-prerequisite",
+        "fresh": true
       },
       {
         "id": "loop-d",
@@ -235,9 +250,9 @@
             "Wait for the recorded prerequisites"
           ],
           "evidence": [
-            "Review verified partial artifact hash; no supported identity-bound close receipt exists for interrupted helper. Release requires lifecycle verification/repair; preserve old ownership. Current serial experiment unaffected."
+            "Old overlap helper has no verified closure receipt; claim guard counts its preserved ownership. Two unrelated helpers assigned in fresh workspaces. Third execution claim blocked until supported lifecycle verification; no duplicate ownership or filler."
           ],
-          "reason": "Review verified partial artifact hash; no supported identity-bound close receipt exists for interrupted helper. Release requires lifecycle verification/repair; preserve old ownership. Current serial experiment unaffected.",
+          "reason": "Old overlap helper has no verified closure receipt; claim guard counts its preserved ownership. Two unrelated helpers assigned in fresh workspaces. Third execution claim blocked until supported lifecycle verification; no duplicate ownership or filler.",
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-24T03:42:15.584764+00:00"
         },

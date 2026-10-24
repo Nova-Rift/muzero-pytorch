@@ -155,7 +155,7 @@
     "updated_at": "2026-10-24T01:43:06.004572+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:43:06.042032-07:00",
+    "measured_at": "2026-10-23T18:43:07.912525-07:00",
     "steps": [
       {
         "step": 1,
@@ -172,11 +172,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T01:43:06.004572+00:00",
-        "elapsed_seconds": 4,
+        "elapsed_seconds": 6,
         "completed": 64,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 521,
+        "eta_seconds": 519,
         "eta_basis": "11 previous iteration(s)"
       },
       {
@@ -202,7 +202,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2716,
+    "elapsed_seconds": 2718,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },

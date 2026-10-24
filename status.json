@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:36:27.072420-07:00",
+    "measured_at": "2026-10-23T17:37:35.368685-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,22 +68,22 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T00:35:01.344989+00:00",
-        "elapsed_seconds": 86,
+        "elapsed_seconds": 154,
         "completed": null,
         "total": null,
         "task": "Validate deeper search on one GPU",
-        "eta_seconds": 24,
+        "eta_seconds": 0,
         "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 320,
-    "eta_seconds": 438,
+    "elapsed_seconds": 388,
+    "eta_seconds": 370,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792802143.284136,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -135,12 +135,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Review next training experiment",
+          "title": "Review full-state recovery gate",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Helper verified clock calibration failed its frozen gate; reviewing fresh-seed M8 replication and full-state recovery requirements.",
+          "result": "Helper handoff verified and closed. Coordinator checking retained checkpoint wrapper before any long training admission.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:36:18.291972+00:00",
+          "updated_at": "2026-10-24T00:37:18.053421+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

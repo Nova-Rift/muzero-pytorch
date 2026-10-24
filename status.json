@@ -54,7 +54,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:13:43.329968-07:00",
+    "measured_at": "2026-10-23T20:14:47.317023-07:00",
     "steps": [
       {
         "step": 1,
@@ -101,14 +101,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4234,
+    "elapsed_seconds": 4298,
     "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
     "updated_at": 1792811568.3649092,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -124,7 +124,7 @@
         "state": "done",
         "updated_at": 1792811568.3649092,
         "job_id": "iteration-24-archive",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",

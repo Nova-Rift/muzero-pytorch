@@ -4,14 +4,14 @@
   "iteration": 24,
   "completed_games": 6144,
   "target_games": 6144,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
+  "wins": 29,
+  "evaluation_games": 64,
+  "timeouts": 9,
   "title": "Repair result feed and recovery throughput",
   "change": "Two helpers repairing structured evaluation ingestion and archive/recovery preparation; coordinator finalizing evidence.",
   "result": "6144 training and768 audited evaluation games completed. Both revisions failed gates; no promotion. Pod deleted. Match feed repair pending. Next GPU admission needs a new guarded session and recovery space.",
   "candidate": "Baseline2048",
-  "evaluation_label": "No new evaluation",
+  "evaluation_label": "FirstTransition2048 vs OwnInitial",
   "updated_at": "2026-10-24T03:00:59.966131+00:00",
   "revision": {
     "summary": "First-transition gradient candidate is isolated and training",
@@ -24,23 +24,36 @@
     "test_plan": "55tests:50pass5skip; CPU and CUDA complete split-resume equality passed. Six fresh balanced64-game comparisons and full-state recovery checks follow training.",
     "updated_at": "2026-10-24T02:39:49.267195+00:00"
   },
+  "matchup": {
+    "challenger": "FirstTransition2048",
+    "opponent": "OwnInitial",
+    "opponent_wins": 26,
+    "draws": 0
+  },
   "latest_comparison": {
-    "iteration": 23,
-    "candidate": "Baseline2048",
-    "evaluation_label": "No new evaluation",
-    "wins": 25,
+    "iteration": 24,
+    "loop": "loop-c",
+    "job_id": "first-transition-FirstTransition2048-OwnInitial",
+    "protocol_sha256": "e144d9168d8d83b0d6970ad42b29135ed53b26ccbc2da18e310ba79ae8acae9c",
+    "challenger_sha256": "85aced3c8f506370318d7b75964f69f09006eeff6e8a57a36d44020584cc452e",
+    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
+    "result_id": "3b6deee957b9b1110435044c9f7bb09415245e1c9ab2921115040e23a3d8a3fd",
+    "candidate": "FirstTransition2048",
+    "evaluation_label": "FirstTransition2048 vs OwnInitial",
+    "wins": 29,
     "evaluation_games": 64,
-    "timeouts": 11,
+    "timeouts": 9,
     "matchup": {
-      "challenger": "Baseline2048",
-      "opponent": "F1024",
-      "opponent_wins": 28,
+      "challenger": "FirstTransition2048",
+      "opponent": "OwnInitial",
+      "opponent_wins": 26,
       "draws": 0
     },
-    "updated_at": "2026-10-24T01:53:15.458498+00:00"
+    "updated_at": "2026-10-24T02:46:03.710800+00:00",
+    "evidence_sha256": "79af83cbea6e05bb14e85318295cb75caa0a5481da8c6e541a9da0289feb5177"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:02:52.631384-07:00",
+    "measured_at": "2026-10-23T20:03:57.361720-07:00",
     "steps": [
       {
         "step": 1,
@@ -58,9 +71,9 @@
         "state": "finished",
         "updated_at": "2026-10-24T03:00:59.966131+00:00",
         "elapsed_seconds": 1439,
-        "completed": 0,
+        "completed": 64,
         "total": null,
-        "task": "No new evaluation",
+        "task": "FirstTransition2048 vs OwnInitial",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -68,7 +81,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:00:59.966131+00:00",
-        "elapsed_seconds": 1744,
+        "elapsed_seconds": 1809,
         "completed": null,
         "total": null,
         "task": "Repair result feed and recovery throughput",
@@ -87,7 +100,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3583,
+    "elapsed_seconds": 3648,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -98,23 +111,11 @@
     "loops": [
       {
         "id": "loop-a",
-        "stage": "edit",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792810787.536032,
-        "job_id": "iteration24-result-ingestion",
-        "decision": {
-          "reviewing": "Why completed evaluations are absent from comparison feed",
-          "options": [
-            "Ingest completed evaluation artifacts independently of active stage"
-          ],
-          "evidence": [
-            "Reusable metrics collection skips non-training stages; session24 has twelve audited completed bouts"
-          ],
-          "reason": "Training-only collection leaves old comparison data despite real evaluation work",
-          "next_action": "Helper implements bounded validated ingestion and tests; coordinator applies reviewed fix",
-          "updated_at": "2026-10-24T02:59:47.536032+00:00"
-        },
-        "fresh": false
+        "updated_at": 1792811027.8348472,
+        "job_id": "iteration24-result-retention",
+        "fresh": true
       },
       {
         "id": "loop-b",

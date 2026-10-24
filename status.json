@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:47:37.234389+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:48:19.581157-07:00",
+    "measured_at": "2026-10-23T18:49:21.821936-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:47:37.234389+00:00",
-        "elapsed_seconds": 2085,
+        "elapsed_seconds": 2148,
         "completed": null,
         "total": null,
         "task": "Implement frozen replay gradient diagnostic",
@@ -212,32 +212,32 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3029,
+    "elapsed_seconds": 3092,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792806395.912249,
+    "updated_at": 1792806395.983,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792806395.912249,
+        "updated_at": 1792806517.567238,
         "job_id": "iteration-23-paired-readout",
         "decision": {
-          "reviewing": "Reject conditional Q-completion replication after the frozen development gate failed",
+          "reviewing": "Finalize immutable evidence and source history after mixed development results",
           "options": [
-            "Finish already admitted control bouts and recover artifacts, then release this pod."
+            "Preserve rejected candidate and prepare the next isolated diagnostic."
           ],
           "evidence": [
-            "Against E1024 both arms won 9/64; Q had 43 timeouts versus baseline 29."
+            "Six balanced bouts audited; eight full states verified; authenticated inventory confirms pod deletion."
           ],
-          "reason": "Candidate fails both strict improvement and timeout gates on E; another seed is not admitted under the frozen plan.",
-          "next_action": "Complete remaining audits, preserve both arms and prepare the next separate hypothesis without an idle GPU.",
-          "updated_at": "2026-10-24T01:43:10.146077+00:00"
+          "reason": "Q improved F and own-initial results but failed frozen E gate; these outcomes do not justify promotion or replication.",
+          "next_action": "Record all source revisions, checkpoint identities and exact scores while the helper finishes diagnostic fixtures.",
+          "updated_at": "2026-10-24T01:48:37.567238+00:00"
         },
         "details": {
           "schema": 1,
@@ -248,12 +248,12 @@
           "wins": 25,
           "evaluation_games": 64,
           "timeouts": 11,
-          "title": "Audit frozen paired evaluation",
+          "title": "Preserve paired evidence and verify source history",
           "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-          "result": "E: baseline9W26L29timeouts; Q9W12L43timeouts. F: baseline25W28L11timeouts; Q35W18L1draw10timeouts. No replication gate pass.",
+          "result": "All six bouts audited and eight states verified. Q replication rejected; pod deletion verified. Public experiment summary pushed, exact source history being recorded.",
           "candidate": "Baseline2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:44:01.928983+00:00",
+          "updated_at": "2026-10-24T01:48:37.538232+00:00",
           "matchup": {
             "challenger": "Baseline2048",
             "opponent": "F1024",
@@ -383,7 +383,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",

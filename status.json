@@ -4,19 +4,19 @@
   "iteration": 23,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 9,
+  "wins": 25,
   "evaluation_games": 64,
-  "timeouts": 29,
+  "timeouts": 11,
   "title": "Frozen final2048 development comparison",
   "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "Verified 64 games: 9 wins, 26 losses, 0 draws, 29 timeouts.",
+  "result": "Verified 64 games: 25 wins, 28 losses, 0 draws, 11 timeouts.",
   "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T01:43:02.031179+00:00",
+  "updated_at": "2026-10-24T01:43:04.038381+00:00",
   "matchup": {
     "challenger": "Baseline2048",
-    "opponent": "E1024",
-    "opponent_wins": 26,
+    "opponent": "F1024",
+    "opponent_wins": 28,
     "draws": 0
   },
   "training_metrics": {
@@ -143,19 +143,19 @@
     "iteration": 23,
     "candidate": "Baseline2048",
     "evaluation_label": "No new evaluation",
-    "wins": 9,
+    "wins": 25,
     "evaluation_games": 64,
-    "timeouts": 29,
+    "timeouts": 11,
     "matchup": {
       "challenger": "Baseline2048",
-      "opponent": "E1024",
-      "opponent_wins": 26,
+      "opponent": "F1024",
+      "opponent_wins": 28,
       "draws": 0
     },
-    "updated_at": "2026-10-24T01:43:02.031179+00:00"
+    "updated_at": "2026-10-24T01:43:04.038381+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:43:02.085167-07:00",
+    "measured_at": "2026-10-23T18:43:04.107858-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T01:43:02.031179+00:00",
-        "elapsed_seconds": 0,
+        "updated_at": "2026-10-24T01:43:04.038381+00:00",
+        "elapsed_seconds": 2,
         "completed": 64,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 525,
+        "eta_seconds": 523,
         "eta_basis": "11 previous iteration(s)"
       },
       {
@@ -202,7 +202,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2712,
+    "elapsed_seconds": 2714,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },

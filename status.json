@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:30:07.325703-07:00",
+    "measured_at": "2026-10-23T20:31:14.327429-07:00",
     "steps": [
       {
         "step": 1,
@@ -75,7 +75,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:25:57.184706+00:00",
-        "elapsed_seconds": 353,
+        "elapsed_seconds": 420,
         "completed": null,
         "total": null,
         "task": "Prepare exact Baseline2048 to4096 continuation",
@@ -94,13 +94,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 353,
-    "eta_seconds": 737,
+    "elapsed_seconds": 420,
+    "eta_seconds": 670,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792812328.6542842,
+    "updated_at": 1792812357.155829,
     "fresh": false,
     "loops": [
       {
@@ -127,29 +127,17 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792812328.6542842,
+        "state": "pending",
+        "updated_at": 1792812673.9851701,
         "job_id": "iteration25-continuation-package",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
-        "state": "pending",
-        "updated_at": 1792812548.9381108,
-        "job_id": "iteration25-admission",
-        "decision": {
-          "reviewing": "Can a fresh bounded continuation fit the current allowance?",
-          "options": [
-            "Measured H10080GB hardware at current3.99 dollars/hour"
-          ],
-          "evidence": [
-            "Fresh52-region query found73 eligible offers; recommended2352seconds includes20percent contingency and120seconds cleanup"
-          ],
-          "reason": "Uses measured training/evaluation timings and explicit cold setup; final payload transfer size remains to verify",
-          "next_action": "Accept source-bound package size and approve exact preflight before guarded launch",
-          "updated_at": "2026-10-24T03:26:52.856776+00:00"
-        },
+        "state": "active",
+        "updated_at": 1792812617.3734708,
+        "job_id": "iteration25-readout",
         "fresh": true
       },
       {
@@ -158,7 +146,7 @@
         "state": "pending",
         "updated_at": 1792812587.8967116,
         "job_id": "iteration25-followup",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

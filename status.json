@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:04:59.570424-07:00",
+    "measured_at": "2026-10-23T19:06:01.823677-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,11 +57,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 110,
+        "elapsed_seconds": 173,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
-        "eta_seconds": 95,
+        "eta_seconds": 32,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -76,21 +76,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 110,
-    "eta_seconds": 980,
+    "elapsed_seconds": 173,
+    "eta_seconds": 917,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792807482.233248,
+    "updated_at": 1792807527.35714,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807482.233248,
+        "updated_at": 1792807527.35714,
         "job_id": "iteration-24-preflight",
+        "decision": {
+          "reviewing": "Which currently available GPU plan fits the frozen paired experiment and shared reservation?",
+          "options": [
+            "Complete required admission checks before a single bounded allocation."
+          ],
+          "evidence": [
+            "The next source and CPU gates are prepared; actual current quotes and cost bounds remain unverified."
+          ],
+          "reason": "Use prepared evidence where exact bindings still apply; remaining gates cannot be skipped.",
+          "next_action": "Query eligible regions and cost setup, gates, training, six evaluations and recovery.",
+          "updated_at": "2026-10-24T02:05:27.357140+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -115,8 +127,20 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807482.233248,
+        "updated_at": 1792807527.38673,
         "job_id": "iteration-24-runner",
+        "decision": {
+          "reviewing": "Bind the tested reusable runner to actual session24 without altering lifecycle guards.",
+          "options": [
+            "Complete required admission checks before a single bounded allocation."
+          ],
+          "evidence": [
+            "Prior session retained its pod across both arms and six bouts, with verified cleanup afterward."
+          ],
+          "reason": "Use prepared evidence where exact bindings still apply; remaining gates cannot be skipped.",
+          "next_action": "Adapt iteration paths and validate transport, watchdog renewal and telemetry wiring.",
+          "updated_at": "2026-10-24T02:05:27.386730+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -141,8 +165,20 @@
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807482.233248,
+        "updated_at": 1792807527.418193,
         "job_id": "iteration-24-payload",
+        "decision": {
+          "reviewing": "Stage only exact published source and frozen runtime/environment/opponents.",
+          "options": [
+            "Complete required admission checks before a single bounded allocation."
+          ],
+          "evidence": [
+            "Source2e67c2b and both CPU exact resume gates are available."
+          ],
+          "reason": "Use prepared evidence where exact bindings still apply; remaining gates cannot be skipped.",
+          "next_action": "Build hash-bound payload and measure transfer size.",
+          "updated_at": "2026-10-24T02:05:27.418193+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -167,8 +203,20 @@
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807482.233248,
+        "updated_at": 1792807527.447806,
         "job_id": "iteration-24-protocol",
+        "decision": {
+          "reviewing": "Verify frozen next-experiment and recovery contracts remain ready.",
+          "options": [
+            "Complete required admission checks before a single bounded allocation."
+          ],
+          "evidence": [
+            "Seed52731415 and384 evaluation games were preregistered; no current training outcomes exist."
+          ],
+          "reason": "Use prepared evidence where exact bindings still apply; remaining gates cannot be skipped.",
+          "next_action": "Check current storage, exact source/state contract and protocol bindings.",
+          "updated_at": "2026-10-24T02:05:27.447806+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",

@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:25:03.862278-07:00",
+    "measured_at": "2026-10-23T18:26:07.041894-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 1634,
+        "elapsed_seconds": 1697,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,48 +87,48 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1634,
+    "elapsed_seconds": 1697,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792805102.1977513,
+    "updated_at": 1792805162.2811453,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792805102.1977513,
+        "updated_at": 1792805162.2811453,
         "job_id": "Baseline2048",
         "progress": {
           "job_id": "Baseline2048",
-          "completed": 128,
+          "completed": 384,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792805101.0204434
+          "updated_at": 1792805157.046289
         },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 23,
-          "completed_games": 128,
+          "completed_games": 384,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Baseline fresh2048 training",
           "change": "Same seed and settings across paired arms; original search baseline first.",
-          "result": "Observed 128 training games and 128 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 384 training games and 384 optimizer updates. Strength remains unmeasured.",
           "candidate": "Baseline2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:25:01.020443+00:00",
+          "updated_at": "2026-10-24T01:25:57.046289+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Baseline2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:25:01.020443+00:00",
+            "reported_at": "2026-10-24T01:25:57.046289+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -136,6 +136,20 @@
                 "elapsed_seconds": 29.225785896996967,
                 "loss": 5.305891036987305,
                 "search_entropy": 3.465735912322998
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 57.25855774799129,
+                "loss": 5.391545295715332,
+                "search_entropy": 0.9509891271591187
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 85.26426825998351,
+                "loss": 5.359657287597656,
+                "search_entropy": 1.2888370677828789
               }
             ]
           },
@@ -148,7 +162,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "pending",
-        "updated_at": 1792805102.1977513,
+        "updated_at": 1792805162.2811453,
         "job_id": "Q2048",
         "details": {
           "schema": 1,

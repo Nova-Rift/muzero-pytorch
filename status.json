@@ -29,17 +29,17 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:37:39.320491-07:00",
+    "measured_at": "2026-10-23T18:38:46.822800-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 346,
+        "elapsed_seconds": 414,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 346,
+        "eta_seconds": 414,
         "eta_basis": "observed training rate"
       },
       {
@@ -76,7 +76,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2389,
+    "elapsed_seconds": 2457,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
@@ -247,35 +247,35 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792805857.2784414,
+        "updated_at": 1792805922.2940743,
         "job_id": "Q2048",
         "progress": {
           "job_id": "Q2048",
-          "completed": 1536,
+          "completed": 1792,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792805842.478165
+          "updated_at": 1792805900.8559635
         },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 23,
-          "completed_games": 1536,
+          "completed_games": 1792,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Q-completion fresh2048 training",
           "change": "Recovery verifier and paired readout are tested and ready.",
-          "result": "Observed 1536 training games and 1536 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1792 training games and 1792 optimizer updates. Strength remains unmeasured.",
           "candidate": "Q2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:37:22.478165+00:00",
+          "updated_at": "2026-10-24T01:38:20.855963+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Q2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:37:22.478165+00:00",
+            "reported_at": "2026-10-24T01:38:20.855963+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -360,6 +360,20 @@
                 "elapsed_seconds": 336.1089236490079,
                 "loss": 4.806558132171631,
                 "search_entropy": 1.3825862798839808
+              },
+              {
+                "optimizer_updates": 1664,
+                "games": 1664,
+                "elapsed_seconds": 364.113940026029,
+                "loss": 4.730551719665527,
+                "search_entropy": 1.0457836496455788
+              },
+              {
+                "optimizer_updates": 1792,
+                "games": 1792,
+                "elapsed_seconds": 394.32086487603374,
+                "loss": 4.282346725463867,
+                "search_entropy": 1.3794817519374192
               }
             ]
           },

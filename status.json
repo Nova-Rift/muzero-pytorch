@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:12:33.353961-07:00",
+    "measured_at": "2026-10-23T18:13:35.359473-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 883,
+        "elapsed_seconds": 945,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,91 +87,66 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 883,
-    "eta_seconds": 41,
+    "elapsed_seconds": 945,
+    "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792804166.172436,
-    "fresh": false,
+    "updated_at": 1792804399.460158,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792804166.172436,
-        "job_id": "iteration-23-q-completion",
-        "decision": {
-          "reviewing": "Does the reference Q rule affect actual frozen arena decisions?",
-          "options": [
-            "Prepare a single-change candidate after source-bound tests"
-          ],
-          "evidence": [
-            "On32 frozen development histories,31 visit policies and8 argmax actions changed; mean total variation0.1201.",
-            "Mean visited root actions increased from8.0 to9.21875; scalar/batched/static parity fixtures passed."
-          ],
-          "reason": "The discrepancy affects decisions, but no new game or strength benefit is measured.",
-          "next_action": "Publish diagnostic evidence and prepare one isolated Q-completion change with unchanged loss.",
-          "updated_at": "2026-10-24T01:07:18.955681+00:00"
-        },
+        "updated_at": 1792804399.460158,
+        "job_id": "iteration-23-runtime-gates",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "edit",
           "iteration": 23,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Testing unvisited-action search scores",
-          "change": "Prepare source-bound Q-completion diagnostic on frozen histories; no model edits.",
-          "result": "32-root frozen diagnostic:31 policies and8 argmax actions changed;2 source-bound parity tests pass. No strength claim.",
+          "title": "Preparing GPU resume and recovery gates",
+          "change": "Prepare tested runtime integration before allocation.",
+          "result": "CPU candidate resume matched117 tensors; GPU equivalence remains untested.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:07:18.983092+00:00",
+          "updated_at": "2026-10-24T01:13:19.460135+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792804166.201098,
-        "job_id": "iteration-23-gpu-preflight",
-        "decision": {
-          "reviewing": "Can a paired fresh-training comparison fit recovery, budget and lease bounds?",
-          "options": [
-            "Baseline and reference-Q2048-game endpoints on one pod"
-          ],
-          "evidence": [
-            "Previous640-game training took140seconds; full state now compresses to98.5MB with exact recovery."
-          ],
-          "reason": "Keep one behavioral change and matched seeds; actual remote throughput and GPU resume gate still required.",
-          "next_action": "Helper prepares frozen scientific plan and bounded runtime/storage preflight.",
-          "updated_at": "2026-10-24T01:09:26.201098+00:00"
-        },
+        "updated_at": 1792804399.460158,
+        "job_id": "iteration-23-runner-preparation",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 23,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Preparing paired GPU training comparison",
-          "change": "Native helper costs paired fresh baseline and Q-completion training with compressed full-state recovery.",
-          "result": "Gradient audit saved with5 passing checks; loss remains unchanged in selected candidate.",
+          "title": "Preparing reusable guarded runner",
+          "change": "Prepare tested runtime integration before allocation.",
+          "result": "CPU candidate resume matched117 tensors; GPU equivalence remains untested.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:09:26.172421+00:00",
+          "updated_at": "2026-10-24T01:13:19.460135+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

@@ -29,17 +29,17 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:31:53.300744-07:00",
+    "measured_at": "2026-10-23T18:32:22.562354-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 29,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 429,
+        "eta_seconds": 400,
         "eta_basis": "6 previous iteration(s)"
       },
       {
@@ -76,13 +76,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2043,
+    "elapsed_seconds": 2072,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792805507.2669349,
+    "updated_at": 1792805513.279474,
     "fresh": true,
     "loops": [
       {
@@ -247,7 +247,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792805507.2669349,
+        "updated_at": 1792805537.4013567,
         "job_id": "Q2048",
         "details": {
           "schema": 1,

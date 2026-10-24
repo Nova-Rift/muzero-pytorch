@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:18:33.388520-07:00",
+    "measured_at": "2026-10-23T19:19:42.313991-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 924,
+        "elapsed_seconds": 993,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,28 +76,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 924,
-    "eta_seconds": 166,
+    "elapsed_seconds": 993,
+    "eta_seconds": 97,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792808308.748863,
+    "active_loops": 4,
+    "updated_at": 1792808324.401971,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792808309.0367339,
+        "updated_at": 1792808361.740111,
         "job_id": "Baseline2048",
-        "progress": {
-          "job_id": "Baseline2048",
-          "completed": 1664,
-          "total": 2048,
-          "unit": "games",
-          "updated_at": 1792808286.7098632
-        },
         "decision": {
           "reviewing": "Run the frozen paired control after actual GPU recovery gates passed",
           "options": [
@@ -114,22 +107,22 @@
           "schema": 1,
           "stage": "train",
           "iteration": 24,
-          "completed_games": 1664,
+          "completed_games": 2048,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Fresh2048 baseline training",
           "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 1664 training games and 1664 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 2048 training games and 2048 optimizer updates. Strength remains unmeasured.",
           "candidate": "Baseline2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:18:06.709863+00:00",
+          "updated_at": "2026-10-24T02:19:21.041333+00:00",
           "training_metrics": {
             "iteration": 24,
             "run_id": "Baseline2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:18:06.709863+00:00",
+            "reported_at": "2026-10-24T02:19:19.703361+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -221,6 +214,27 @@
                 "elapsed_seconds": 318.3245866619982,
                 "loss": 5.159002780914307,
                 "search_entropy": 1.752840152475983
+              },
+              {
+                "optimizer_updates": 1792,
+                "games": 1792,
+                "elapsed_seconds": 342.38149522599997,
+                "loss": 5.235502243041992,
+                "search_entropy": 1.6241623302921653
+              },
+              {
+                "optimizer_updates": 1920,
+                "games": 1920,
+                "elapsed_seconds": 366.8344936859794,
+                "loss": 5.079379081726074,
+                "search_entropy": 1.8055250863544643
+              },
+              {
+                "optimizer_updates": 2048,
+                "games": 2048,
+                "elapsed_seconds": 391.2389371820027,
+                "loss": 5.050714015960693,
+                "search_entropy": 1.2819397519342601
               }
             ]
           },
@@ -232,8 +246,8 @@
       {
         "id": "loop-b",
         "stage": "train",
-        "state": "pending",
-        "updated_at": 1792808309.0367339,
+        "state": "active",
+        "updated_at": 1792808381.266553,
         "job_id": "Root5_2048",
         "details": {
           "schema": 1,
@@ -259,27 +273,39 @@
         "id": "loop-c",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792808308.748863,
+        "updated_at": 1792808324.401971,
         "job_id": "iteration-24-first-transition-validation",
+        "decision": {
+          "reviewing": "Can the first-transition gradient candidate resume exactly before GPU admission?",
+          "options": [
+            "Finish isolated CPU resume and source checks while current paired training runs"
+          ],
+          "evidence": [
+            "Eight candidate and nine rootweighted tests passed; tiny full-state resume remains unverified for the new entrypoint"
+          ],
+          "reason": "Correctness and source binding are admission dependencies; no strength gain is claimed",
+          "next_action": "Verify frozen source and CPU full/split equality; retain actual GPU gate before training",
+          "updated_at": "2026-10-24T02:18:44.401971+00:00"
+        },
         "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "pending",
-        "updated_at": 1792808308.748863,
-        "job_id": "iteration-24-reuse",
+        "state": "active",
+        "updated_at": 1792808361.812011,
+        "job_id": "iteration-24-followup-protocol",
         "decision": {
-          "reviewing": "Which tested followup can reuse this pod within storage, budget and original deadlines?",
+          "reviewing": "Are frozen follow-up seeds and baseline reuse compatible with archived evidence?",
           "options": [
-            "Prepare conditional root5 replication or an independently preregistered first-transition trial."
+            "Audit seed history and source/config equivalence while training continues"
           ],
           "evidence": [
-            "One H100 is registered; current frozen paired experiment has not produced evaluation outcomes."
+            "Conditional branch plan is frozen before outcomes; archive-wide seed audit remains pending"
           ],
-          "reason": "Prepare actual dependencies now, but admit only a tested costed choice with scientific and resource gates satisfied.",
-          "next_action": "Freeze choice rule and bounded job/storage plans before outcomes; preserve current immutable jobs.",
-          "updated_at": "2026-10-24T02:12:09.550689+00:00"
+          "reason": "Avoid reusing evaluation evidence or silently changing the comparison baseline",
+          "next_action": "Save seed audit and exact reuse prerequisites before admission",
+          "updated_at": "2026-10-24T02:19:21.812011+00:00"
         },
         "fresh": true
       }

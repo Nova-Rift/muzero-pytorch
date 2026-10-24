@@ -29,17 +29,17 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:35:34.853338-07:00",
+    "measured_at": "2026-10-23T18:36:37.098354-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 222,
+        "elapsed_seconds": 284,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 222,
+        "eta_seconds": 284,
         "eta_basis": "observed training rate"
       },
       {
@@ -76,14 +76,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2265,
+    "elapsed_seconds": 2327,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792805703.774947,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -241,41 +241,41 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792805732.2189374,
+        "updated_at": 1792805792.2976043,
         "job_id": "Q2048",
         "progress": {
           "job_id": "Q2048",
-          "completed": 1024,
+          "completed": 1280,
           "total": 2048,
           "unit": "games",
-          "updated_at": 1792805724.922587
+          "updated_at": 1792805784.46236
         },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 23,
-          "completed_games": 1024,
+          "completed_games": 1280,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Q-completion fresh2048 training",
           "change": "Recovery verifier and paired readout are tested and ready.",
-          "result": "Observed 1024 training games and 1024 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 1280 training games and 1280 optimizer updates. Strength remains unmeasured.",
           "candidate": "Q2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:35:24.922587+00:00",
+          "updated_at": "2026-10-24T01:36:24.462360+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Q2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:35:24.922587+00:00",
+            "reported_at": "2026-10-24T01:36:24.462360+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -332,6 +332,20 @@
                 "elapsed_seconds": 218.54525946703507,
                 "loss": 4.675105571746826,
                 "search_entropy": 1.9083576595876366
+              },
+              {
+                "optimizer_updates": 1152,
+                "games": 1152,
+                "elapsed_seconds": 248.4143918970367,
+                "loss": 4.6434245109558105,
+                "search_entropy": 1.5987163081299514
+              },
+              {
+                "optimizer_updates": 1280,
+                "games": 1280,
+                "elapsed_seconds": 278.1078536960413,
+                "loss": 4.926885604858398,
+                "search_entropy": 1.574570873286575
               }
             ]
           },

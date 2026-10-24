@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:59:37.917722-07:00",
+    "measured_at": "2026-10-23T20:00:41.808521-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 1357,
+        "elapsed_seconds": 1421,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,29 +87,53 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3389,
+    "elapsed_seconds": 3453,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792810752.5394747,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792810752.5394747,
+        "updated_at": 1792810787.536032,
         "job_id": "iteration24-result-ingestion",
+        "decision": {
+          "reviewing": "Why completed evaluations are absent from comparison feed",
+          "options": [
+            "Ingest completed evaluation artifacts independently of active stage"
+          ],
+          "evidence": [
+            "Reusable metrics collection skips non-training stages; session24 has twelve audited completed bouts"
+          ],
+          "reason": "Training-only collection leaves old comparison data despite real evaluation work",
+          "next_action": "Helper implements bounded validated ingestion and tests; coordinator applies reviewed fix",
+          "updated_at": "2026-10-24T02:59:47.536032+00:00"
+        },
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792810752.5394747,
+        "updated_at": 1792810787.565631,
         "job_id": "iteration24-throughput-repair",
+        "decision": {
+          "reviewing": "Shortest next GPU admission path after consumed session24 allocation",
+          "options": [
+            "Resolve recovery storage and reuse frozen continuation source checks"
+          ],
+          "evidence": [
+            "Baseline2048 continuation and separate4096 evaluator prepared; recovery disk short at last measurement"
+          ],
+          "reason": "No second allocation is allowed in session24; persistent storage preparation should prevent next-session cold waits",
+          "next_action": "Helper returns measured critical path and safe tested improvement",
+          "updated_at": "2026-10-24T02:59:47.565631+00:00"
+        },
         "fresh": true
       },
       {
@@ -118,7 +142,7 @@
         "state": "active",
         "updated_at": 1792810752.5394747,
         "job_id": "iteration-24-archive",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -138,7 +162,7 @@
           "next_action": "Verify final recovery, release pod, archive all candidate evidence and save next-action report",
           "updated_at": "2026-10-24T02:48:40.404826+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

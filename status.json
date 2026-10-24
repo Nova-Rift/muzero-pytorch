@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:31:52.957237-07:00",
+    "measured_at": "2026-10-23T20:32:16.931546-07:00",
     "steps": [
       {
         "step": 1,
@@ -86,16 +86,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T03:31:52.896756+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 24,
         "completed": null,
         "total": null,
         "task": "H100 allocated; verify exact continuation runtime",
-        "eta_seconds": 115,
+        "eta_seconds": 91,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 459,
-    "eta_seconds": 631,
+    "elapsed_seconds": 483,
+    "eta_seconds": 607,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -130,7 +130,7 @@
         "state": "pending",
         "updated_at": 1792812673.9851701,
         "job_id": "iteration25-continuation-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",

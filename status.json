@@ -39,7 +39,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:05:17.634340-07:00",
+    "measured_at": "2026-10-23T18:06:19.809630-07:00",
     "steps": [
       {
         "step": 1,
@@ -67,7 +67,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:02:29.700130+00:00",
-        "elapsed_seconds": 447,
+        "elapsed_seconds": 510,
         "completed": null,
         "total": null,
         "task": "Testing lossless checkpoint recovery",
@@ -86,14 +86,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 447,
-    "eta_seconds": 477,
+    "elapsed_seconds": 510,
+    "eta_seconds": 414,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792803916.989983,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

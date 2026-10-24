@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:36:57.333974-07:00",
+    "measured_at": "2026-10-23T20:38:03.232072-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:34:45.201756+00:00",
-        "elapsed_seconds": 132,
+        "elapsed_seconds": 198,
         "completed": null,
         "total": null,
         "task": "Iteration 26: reviewing evidence",
-        "eta_seconds": 73,
+        "eta_seconds": 7,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 132,
-    "eta_seconds": 958,
+    "elapsed_seconds": 198,
+    "eta_seconds": 892,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792812971.7048461,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792812971.7048461,
         "job_id": "iteration26-coordinator",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1792812971.7048461,
         "job_id": "iteration26-admission",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1792812971.7048461,
         "job_id": "iteration26-readiness",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

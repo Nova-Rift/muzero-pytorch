@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:58:31.572035-07:00",
+    "measured_at": "2026-10-23T19:59:37.917722-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 1290,
+        "elapsed_seconds": 1357,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,56 +87,44 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3322,
+    "elapsed_seconds": 3389,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792810278.896345,
-    "fresh": false,
+    "updated_at": 1792810752.5394747,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792810278.896345,
-        "job_id": "iteration-24-final-report",
-        "fresh": false
+        "updated_at": 1792810752.5394747,
+        "job_id": "iteration24-result-ingestion",
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "edit",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792810419.744343,
-        "job_id": "iteration-24-continuation-evaluator",
-        "decision": {
-          "reviewing": "How can a4096 continuation be evaluated without changing its frozen trainer?",
-          "options": [
-            "Add explicit expected endpoint count to separately staged evaluator"
-          ],
-          "evidence": [
-            "Current evaluator requires exactly2048games/updates; next exact-resume hypothesis targets4096"
-          ],
-          "reason": "Preserve original source contract and reject mismatched/incomplete checkpoints rather than relaxing checks",
-          "next_action": "Helper tests and publishes scoped evaluator support; storage remains unapproved",
-          "updated_at": "2026-10-24T02:53:39.744343+00:00"
-        },
-        "fresh": false
+        "updated_at": 1792810752.5394747,
+        "job_id": "iteration24-throughput-repair",
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792810278.896345,
+        "updated_at": 1792810752.5394747,
         "job_id": "iteration-24-archive",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "done",
-        "updated_at": 1792810278.896345,
+        "updated_at": 1792810752.5394747,
         "job_id": "iteration-24-resource-closeout",
         "decision": {
           "reviewing": "Is any tested useful GPU follow-up admissible now?",
@@ -150,7 +138,7 @@
           "next_action": "Verify final recovery, release pod, archive all candidate evidence and save next-action report",
           "updated_at": "2026-10-24T02:48:40.404826+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

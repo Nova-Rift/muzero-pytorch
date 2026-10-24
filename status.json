@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:35:01.397509-07:00",
+    "measured_at": "2026-10-23T17:35:24.814031-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,16 +68,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T00:35:01.344989+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 23,
         "completed": null,
         "total": null,
         "task": "Validate deeper search on one GPU",
-        "eta_seconds": 110,
+        "eta_seconds": 87,
         "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 235,
-    "eta_seconds": 523,
+    "elapsed_seconds": 258,
+    "eta_seconds": 500,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
@@ -169,8 +169,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 30,
-    "reserved_usd": 0,
+    "remaining_usd": 27.0,
+    "reserved_usd": 3.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }
 }

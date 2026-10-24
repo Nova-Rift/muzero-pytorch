@@ -29,17 +29,17 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:38:46.822800-07:00",
+    "measured_at": "2026-10-23T18:39:49.368085-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 414,
+        "elapsed_seconds": 476,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 414,
+        "eta_seconds": 476,
         "eta_basis": "observed training rate"
       },
       {
@@ -76,206 +76,49 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2457,
+    "elapsed_seconds": 2519,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792805703.774947,
-    "fresh": false,
+    "updated_at": 1792805957.944788,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792805703.774947,
-        "job_id": "iteration-23-followup-readiness",
-        "decision": {
-          "reviewing": "What same-pod prerequisites can be prepared before the current result arrives?",
-          "options": [
-            "Conditional independent paired training seed using unchanged tested source/runtime"
-          ],
-          "evidence": [
-            "Baseline2048 finished in424seconds; all four full states verified; actual GPU resume gates passed for both entrypoints."
-          ],
-          "reason": "Prepare reusable recovery/storage/lease inputs without claiming the development gate has passed.",
-          "next_action": "Helper prepares bounded append-only plan and storage needs; coordinator decides after frozen results.",
-          "updated_at": "2026-10-24T01:35:03.774947+00:00"
-        },
+        "updated_at": 1792805987.3339756,
+        "job_id": "Baseline2048-E1024",
+        "fresh": true
+      },
+      {
+        "id": "loop-b",
+        "stage": "train",
+        "state": "active",
+        "updated_at": 1792805957.944788,
+        "job_id": "Q2048",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "train",
           "iteration": 23,
           "completed_games": 2048,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare same-pod followup prerequisites",
-          "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-          "result": "All four baseline full states verified. No followup selected or reservation renewed; choice depends on frozen development results.",
-          "candidate": "Baseline2048",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:34:41.812007+00:00",
-          "training_metrics": {
-            "iteration": 23,
-            "run_id": "Baseline2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:31:36.184300+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 29.225785896996967,
-                "loss": 5.305891036987305,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 57.25855774799129,
-                "loss": 5.391545295715332,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 85.26426825998351,
-                "loss": 5.359657287597656,
-                "search_entropy": 1.2888370677828789
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 112.85519435396418,
-                "loss": 5.173979759216309,
-                "search_entropy": 1.583502006251365
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 141.68399176897947,
-                "loss": 4.8751912117004395,
-                "search_entropy": 1.64034377457574
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 169.46104271599324,
-                "loss": 5.016875267028809,
-                "search_entropy": 1.6857315227389336
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 197.18767906201538,
-                "loss": 5.019231796264648,
-                "search_entropy": 1.240921140415594
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 224.6556312039611,
-                "loss": 4.866997241973877,
-                "search_entropy": 1.4770120005123317
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 253.0751077529858,
-                "loss": 4.937623977661133,
-                "search_entropy": 1.417601185850799
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 280.9014866229845,
-                "loss": 4.960740089416504,
-                "search_entropy": 1.5437126019969583
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 308.4182753089699,
-                "loss": 4.906318664550781,
-                "search_entropy": 1.5488296053372324
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 335.6389859879855,
-                "loss": 4.881287574768066,
-                "search_entropy": 1.6551669142208993
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 359.43492630997207,
-                "loss": 5.092697620391846,
-                "search_entropy": 1.5124112958750449
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 383.589633902011,
-                "loss": 5.226715564727783,
-                "search_entropy": 1.7488343343138695
-              },
-              {
-                "optimizer_updates": 1920,
-                "games": 1920,
-                "elapsed_seconds": 402.2179412099649,
-                "loss": 4.798613548278809,
-                "search_entropy": 1.1014154296553595
-              },
-              {
-                "optimizer_updates": 2048,
-                "games": 2048,
-                "elapsed_seconds": 424.2181913999957,
-                "loss": 5.233583450317383,
-                "search_entropy": 1.6528177245598008
-              }
-            ]
-          },
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
-      },
-      {
-        "id": "loop-b",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1792805922.2940743,
-        "job_id": "Q2048",
-        "progress": {
-          "job_id": "Q2048",
-          "completed": 1792,
-          "total": 2048,
-          "unit": "games",
-          "updated_at": 1792805900.8559635
-        },
-        "details": {
-          "schema": 1,
-          "stage": "train",
-          "iteration": 23,
-          "completed_games": 1792,
-          "target_games": 2048,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
           "title": "Q-completion fresh2048 training",
           "change": "Recovery verifier and paired readout are tested and ready.",
-          "result": "Observed 1792 training games and 1792 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 2048 training games and 2048 optimizer updates. Strength remains unmeasured.",
           "candidate": "Q2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:38:20.855963+00:00",
+          "updated_at": "2026-10-24T01:39:17.944788+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Q2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T01:38:20.855963+00:00",
+            "reported_at": "2026-10-24T01:39:16.517818+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -374,6 +217,20 @@
                 "elapsed_seconds": 394.32086487603374,
                 "loss": 4.282346725463867,
                 "search_entropy": 1.3794817519374192
+              },
+              {
+                "optimizer_updates": 1920,
+                "games": 1920,
+                "elapsed_seconds": 421.6553774990025,
+                "loss": 2.640260696411133,
+                "search_entropy": 1.0495623633596631
+              },
+              {
+                "optimizer_updates": 2048,
+                "games": 2048,
+                "elapsed_seconds": 449.9657908420195,
+                "loss": 1.9903172254562378,
+                "search_entropy": 0.9662904196884483
               }
             ]
           },

@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:47:42.326789-07:00",
+    "measured_at": "2026-10-23T19:48:45.886686-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 641,
+        "elapsed_seconds": 705,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,22 +87,22 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2673,
+    "elapsed_seconds": 2737,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792809787.5279417,
+    "active_loops": 2,
+    "updated_at": 1792809967.093981,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792809787.5279417,
+        "state": "pending",
+        "updated_at": 1792810088.2822711,
         "job_id": "iteration-24-first-transition-audit",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
@@ -127,19 +127,31 @@
       },
       {
         "id": "loop-d",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792810059.1621237,
-        "job_id": "first-transition-overlap-v2",
+        "updated_at": 1792810120.404826,
+        "job_id": "iteration-24-resource-closeout",
+        "decision": {
+          "reviewing": "Is any tested useful GPU follow-up admissible now?",
+          "options": [
+            "Release after final recovery; retain prepared next tasks"
+          ],
+          "evidence": [
+            "All jobs done; short overlap speedup1.289 with identical checkpoints; full-replay instrumentation and4096 evaluator remain unprepared"
+          ],
+          "reason": "No tested ready follow-up fits current source/storage prerequisites; do not idle a paid pod during coding",
+          "next_action": "Verify final recovery, release pod, archive all candidate evidence and save next-action report",
+          "updated_at": "2026-10-24T02:48:40.404826+00:00"
+        },
         "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "evaluate",
-        "state": "active",
-        "updated_at": 1792809865.5664558,
-        "job_id": "first-transition-FirstTransition2048-E1024",
-        "fresh": false
+        "stage": "review",
+        "state": "pending",
+        "updated_at": 1792810088.2822711,
+        "job_id": "iteration-24-candidate-review",
+        "fresh": true
       }
     ]
   },

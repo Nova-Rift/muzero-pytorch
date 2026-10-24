@@ -12,16 +12,16 @@
   "result": "Final64 games:8 wins,33 losses,0 draws,23 cutoffs. The64-simulation candidate batch is now running.",
   "candidate": "M2048-s32",
   "evaluation_label": "M2048-s32 vs E1024",
-  "updated_at": "2026-10-24T00:40:11.879495+00:00",
+  "updated_at": "2026-10-24T00:40:21.319967+00:00",
   "revision": {
-    "summary": "Proposed fix for duplicate final checkpoint save",
-    "reason": "Retention trainer saves at each512 games and again on exit; immutable writer rejects duplicate names. This may fail otherwise completed training.",
+    "summary": "Retention guard verified; no trainer fix needed",
+    "reason": "Full closure inspection confirms last_saved prevents duplicate final checkpoints. The suspected defect was not present.",
     "changes": [
-      "Inspect arena/train_selfplay.py final-save path",
-      "Prepare isolated regression and minimal fix if confirmed"
+      "No trainer changes",
+      "Add targeted closure regression evidence and recovery plan"
     ],
-    "test_plan": "Exercise exact milestone completion and interrupted saves; GPU training remains gated by full-size recovery.",
-    "updated_at": "2026-10-24T00:40:11.879492+00:00"
+    "test_plan": "Verify duplicate-save suppression and partial-save behavior; actual full-size remote recovery remains unvalidated.",
+    "updated_at": "2026-10-24T00:40:21.319963+00:00"
   },
   "matchup": {
     "challenger": "M2048-s32",
@@ -45,7 +45,7 @@
     "updated_at": "2026-10-24T00:39:12.096164+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:40:11.930502-07:00",
+    "measured_at": "2026-10-23T17:40:21.372298-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,12 +61,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T00:40:11.879495+00:00",
-        "elapsed_seconds": 60,
+        "updated_at": "2026-10-24T00:40:21.319967+00:00",
+        "elapsed_seconds": 69,
         "completed": 64,
         "total": null,
         "task": "M2048-s32 vs E1024",
-        "eta_seconds": 414,
+        "eta_seconds": 405,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -92,38 +92,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 545,
-    "eta_seconds": 213,
+    "elapsed_seconds": 554,
+    "eta_seconds": 204,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792802408.93107,
+    "updated_at": 1792802418.9071605,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "job_id": "M2048-s64-E1024",
-        "details": {
-          "schema": 1,
-          "stage": "evaluate",
-          "iteration": 22,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Evaluate64-simulation candidate against E",
-          "change": "One registered H100; remote SSH readiness reached.",
-          "result": "Prior baseline/E completed:8 wins,33 losses,0 draws,23 cutoffs of64. Candidate batch running; no candidate score yet.",
-          "candidate": "MuZero fixed-root depth comparison",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:39:12.121183+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
+        "job_id": "M2048-s32-F1024"
       },
       {
         "id": "loop-b",

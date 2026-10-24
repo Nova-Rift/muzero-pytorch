@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:33:33.323791-07:00",
+    "measured_at": "2026-10-23T19:34:37.010638-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 193,
+        "elapsed_seconds": 256,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 281,
+        "eta_seconds": 218,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,12 +76,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1824,
+    "elapsed_seconds": 1888,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 4,
     "updated_at": 1792808913.4805565,
     "fresh": false,
     "loops": [
@@ -119,14 +119,14 @@
           "next_action": "Helper publishes tested correction; coordinator reviews before any future GPU admission",
           "updated_at": "2026-10-24T02:32:40.810402+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
-        "stage": "test",
-        "state": "done",
-        "updated_at": 1792809211.4226732,
-        "job_id": "first-transition-candidate-gpu-resume",
+        "stage": "train",
+        "state": "active",
+        "updated_at": 1792809276.4848576,
+        "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }
     ]

@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 25,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Prepare exact Baseline2048 to4096 continuation",
-  "change": "Three helpers prepare scientific package, fresh admission and same-pod follow-up in parallel.",
-  "result": "Storage now exceeds prior recovery gate. Both previous revisions failed; no top10 promotion. New training not launched yet.",
+  "title": "H100 allocated; verify exact continuation runtime",
+  "change": "Frozen188.7MB payload uploading through shared setup deadline; remote source/runtime/restore and GPU resume checks precede training.",
+  "result": "Pod registered at3.99/hour. Initial2424-second planning estimate2.6866dollars. No scientific training games completed in this session yet.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:25:57.184706+00:00",
+  "updated_at": "2026-10-24T03:31:52.896756+00:00",
   "revision": {
     "summary": "Keep baseline behavior unchanged and test longer training",
     "reason": "Both prior gradient revisions failed development gates; exact full-state continuation isolates additional training.",
@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:31:14.327429-07:00",
+    "measured_at": "2026-10-23T20:31:52.957237-07:00",
     "steps": [
       {
         "step": 1,
@@ -73,41 +73,41 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-24T03:25:57.184706+00:00",
-        "elapsed_seconds": 420,
+        "state": "finished",
+        "updated_at": "2026-10-24T03:31:52.896756+00:00",
+        "elapsed_seconds": 459,
         "completed": null,
         "total": null,
         "task": "Prepare exact Baseline2048 to4096 continuation",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T03:31:52.896756+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "H100 allocated; verify exact continuation runtime",
+        "eta_seconds": 115,
+        "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 420,
-    "eta_seconds": 670,
+    "elapsed_seconds": 459,
+    "eta_seconds": 631,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792812357.155829,
+    "updated_at": 1792812617.3734708,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792812357.155829,
+        "updated_at": 1792812712.9180417,
         "job_id": "iteration25-coordinator",
         "decision": {
           "reviewing": "Does additional unchanged baseline training improve matched development strength?",
@@ -122,7 +122,7 @@
           "next_action": "Review prepared package, current quotes and recovery gates, then admit bounded GPU work",
           "updated_at": "2026-10-24T03:25:57.155829+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
@@ -138,7 +138,7 @@
         "state": "active",
         "updated_at": 1792812617.3734708,
         "job_id": "iteration25-readout",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -158,8 +158,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 24.53144746123155,
-    "reserved_usd": 12.0,
+    "remaining_usd": 21.53144746123155,
+    "reserved_usd": 15.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }
 }

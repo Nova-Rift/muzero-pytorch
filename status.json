@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:42:24.483005-07:00",
+    "measured_at": "2026-10-23T20:43:28.289622-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,30 +76,42 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T03:40:46.402570+00:00",
-        "elapsed_seconds": 98,
+        "elapsed_seconds": 162,
         "completed": null,
         "total": null,
         "task": "Continuation setup and recovery gates",
-        "eta_seconds": 17,
+        "eta_seconds": 0,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 459,
-    "eta_seconds": 631,
+    "elapsed_seconds": 523,
+    "eta_seconds": 567,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792812971.7048461,
+    "updated_at": 1792813218.467285,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792812971.7048461,
+        "updated_at": 1792813356.146492,
         "job_id": "iteration26-coordinator",
-        "fresh": false
+        "decision": {
+          "reviewing": "Setup progress against fixed admission deadline",
+          "options": [
+            "Continue verified transfer within existing420-second bound"
+          ],
+          "evidence": [
+            "At159seconds since creation, remote payload contains72073216of188739486bytes; setup not yet complete."
+          ],
+          "reason": "Transfer is progressing; preserve absolute setup guard and do not interrupt or extend running source.",
+          "next_action": "Verify completed transfer, remote hashes, restore and CUDA resume before accepting training.",
+          "updated_at": "2026-10-24T03:42:36.146492+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",

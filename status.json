@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:46:32.104191-07:00",
+    "measured_at": "2026-10-23T19:46:39.116616-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 571,
+        "elapsed_seconds": 578,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2603,
+    "elapsed_seconds": 2610,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -129,7 +129,7 @@
         "id": "loop-d",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792809989.1250157,
+        "updated_at": 1792809994.1924157,
         "job_id": "first-transition-overlap-v2",
         "fresh": true
       },

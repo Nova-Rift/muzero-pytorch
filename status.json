@@ -1,23 +1,39 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "train",
   "iteration": 22,
-  "completed_games": 0,
-  "target_games": 0,
+  "completed_games": 256,
+  "target_games": 640,
   "wins": 35,
   "evaluation_games": 64,
   "timeouts": 8,
-  "title": "Depth comparison completed",
+  "title": "Fresh training with immutable checkpoint recovery",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "Final64 games:35 wins,21 losses,0 draws,8 cutoffs. Candidate fails frozen promotion gate; no promotion.",
-  "candidate": "M2048-s64",
+  "result": "256 games and optimizer updates completed; recovery gate not yet passed. No strength claim.",
+  "candidate": "MuZero fresh engineering seed52400000",
   "evaluation_label": "M2048-s64 vs F1024",
-  "updated_at": "2026-10-24T00:43:30.572010+00:00",
-  "matchup": {
-    "challenger": "M2048-s64",
-    "opponent": "F1024",
-    "opponent_wins": 21,
-    "draws": 0
+  "updated_at": "2026-10-24T00:44:24.420874+00:00",
+  "training_metrics": {
+    "iteration": 22,
+    "run_id": "fresh640-retention-engineering",
+    "loss_definition": "last_update_batch_mean",
+    "reported_at": "2026-10-24T00:44:09.044178+00:00",
+    "points": [
+      {
+        "optimizer_updates": 128,
+        "games": 128,
+        "elapsed_seconds": 28.239263793977443,
+        "loss": 4.896056175231934,
+        "search_entropy": 0.9509932635778404
+      },
+      {
+        "optimizer_updates": 256,
+        "games": 256,
+        "elapsed_seconds": 55.86251663096482,
+        "loss": 4.995828151702881,
+        "search_entropy": 0.9509891271591187
+      }
+    ]
   },
   "latest_comparison": {
     "iteration": 22,
@@ -35,29 +51,29 @@
     "updated_at": "2026-10-24T00:43:30.572010+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:43:50.819237-07:00",
+    "measured_at": "2026-10-23T17:44:24.474057-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T00:44:24.420874+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
-        "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "completed": 256,
+        "total": 640,
+        "task": "Fresh training with immutable checkpoint recovery",
+        "eta_seconds": 443,
+        "eta_basis": "5 previous iteration(s)"
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-24T00:43:30.572010+00:00",
-        "elapsed_seconds": 279,
+        "state": "finished",
+        "updated_at": "2026-10-24T00:44:24.420874+00:00",
+        "elapsed_seconds": 312,
         "completed": 64,
         "total": null,
         "task": "M2048-s64 vs F1024",
-        "eta_seconds": 195,
-        "eta_basis": "10 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -82,13 +98,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 764,
+    "elapsed_seconds": 798,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792802629.0412881,
+    "updated_at": 1792802663.9601555,
     "fresh": true,
     "loops": [
       {
@@ -106,17 +122,39 @@
           "schema": 1,
           "stage": "train",
           "iteration": 22,
-          "completed_games": 0,
-          "target_games": 0,
+          "completed_games": 256,
+          "target_games": 640,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Fresh640-game retention engineering run",
+          "title": "Fresh training with immutable checkpoint recovery",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Queued on the same H100 after evaluation. Fresh seed52400000; intended full states at512 and640. Not a completed2048 replication.",
-          "candidate": "MuZero fixed-root depth comparison",
+          "result": "256 games and optimizer updates completed; recovery gate not yet passed. No strength claim.",
+          "candidate": "MuZero fresh engineering seed52400000",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:43:30.596898+00:00",
+          "updated_at": "2026-10-24T00:44:09.044178+00:00",
+          "training_metrics": {
+            "iteration": 22,
+            "run_id": "fresh640-retention-engineering",
+            "loss_definition": "last_update_batch_mean",
+            "reported_at": "2026-10-24T00:44:09.044178+00:00",
+            "points": [
+              {
+                "optimizer_updates": 128,
+                "games": 128,
+                "elapsed_seconds": 28.239263793977443,
+                "loss": 4.896056175231934,
+                "search_entropy": 0.9509932635778404
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 55.86251663096482,
+                "loss": 4.995828151702881,
+                "search_entropy": 0.9509891271591187
+              }
+            ]
+          },
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

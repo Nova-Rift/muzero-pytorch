@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:52:04.687428-07:00",
+    "measured_at": "2026-10-23T19:53:07.320626-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 904,
+        "elapsed_seconds": 966,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,14 +87,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2935,
+    "elapsed_seconds": 2998,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792810278.896345,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -102,7 +102,7 @@
         "state": "active",
         "updated_at": 1792810278.896345,
         "job_id": "iteration-24-final-report",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -123,7 +123,7 @@
           "next_action": "Helper checks source/state contract and bounded continuation requirements",
           "updated_at": "2026-10-24T02:46:07.093981+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -131,7 +131,7 @@
         "state": "active",
         "updated_at": 1792810278.896345,
         "job_id": "iteration-24-archive",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -151,7 +151,7 @@
           "next_action": "Verify final recovery, release pod, archive all candidate evidence and save next-action report",
           "updated_at": "2026-10-24T02:48:40.404826+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

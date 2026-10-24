@@ -4,158 +4,158 @@
   "iteration": 23,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 25,
+  "wins": 9,
   "evaluation_games": 64,
-  "timeouts": 11,
+  "timeouts": 43,
   "title": "Frozen final2048 development comparison",
-  "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "Verified 64 games: 25 wins, 28 losses, 0 draws, 11 timeouts.",
-  "candidate": "Baseline2048",
+  "change": "Recovery verifier and paired readout are tested and ready.",
+  "result": "Verified 64 games: 9 wins, 12 losses, 0 draws, 43 timeouts.",
+  "candidate": "Q2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T01:43:04.038381+00:00",
+  "updated_at": "2026-10-24T01:43:06.004572+00:00",
   "matchup": {
-    "challenger": "Baseline2048",
-    "opponent": "F1024",
-    "opponent_wins": 28,
+    "challenger": "Q2048",
+    "opponent": "E1024",
+    "opponent_wins": 12,
     "draws": 0
   },
   "training_metrics": {
     "iteration": 23,
-    "run_id": "Baseline2048",
+    "run_id": "Q2048",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-24T01:31:36.184300+00:00",
+    "reported_at": "2026-10-24T01:39:16.517818+00:00",
     "points": [
       {
         "optimizer_updates": 128,
         "games": 128,
-        "elapsed_seconds": 29.225785896996967,
-        "loss": 5.305891036987305,
-        "search_entropy": 3.465735912322998
+        "elapsed_seconds": 31.42276402999414,
+        "loss": 4.845115661621094,
+        "search_entropy": 0.968941505998373
       },
       {
         "optimizer_updates": 256,
         "games": 256,
-        "elapsed_seconds": 57.25855774799129,
-        "loss": 5.391545295715332,
-        "search_entropy": 0.9509891271591187
+        "elapsed_seconds": 57.25735433003865,
+        "loss": 4.9677734375,
+        "search_entropy": 1.2187657350665526
       },
       {
         "optimizer_updates": 384,
         "games": 384,
-        "elapsed_seconds": 85.26426825998351,
-        "loss": 5.359657287597656,
-        "search_entropy": 1.2888370677828789
+        "elapsed_seconds": 86.79315404203953,
+        "loss": 4.941828727722168,
+        "search_entropy": 1.3789989701472223
       },
       {
         "optimizer_updates": 512,
         "games": 512,
-        "elapsed_seconds": 112.85519435396418,
-        "loss": 5.173979759216309,
-        "search_entropy": 1.583502006251365
+        "elapsed_seconds": 110.63937170698773,
+        "loss": 4.796825885772705,
+        "search_entropy": 1.120841930357463
       },
       {
         "optimizer_updates": 640,
         "games": 640,
-        "elapsed_seconds": 141.68399176897947,
-        "loss": 4.8751912117004395,
-        "search_entropy": 1.64034377457574
+        "elapsed_seconds": 137.83798881800612,
+        "loss": 4.765341758728027,
+        "search_entropy": 1.370921568479389
       },
       {
         "optimizer_updates": 768,
         "games": 768,
-        "elapsed_seconds": 169.46104271599324,
-        "loss": 5.016875267028809,
-        "search_entropy": 1.6857315227389336
+        "elapsed_seconds": 164.1674372620182,
+        "loss": 4.449838638305664,
+        "search_entropy": 1.4834754983894527
       },
       {
         "optimizer_updates": 896,
         "games": 896,
-        "elapsed_seconds": 197.18767906201538,
-        "loss": 5.019231796264648,
-        "search_entropy": 1.240921140415594
+        "elapsed_seconds": 190.48688524001045,
+        "loss": 4.447656631469727,
+        "search_entropy": 1.2566883631516248
       },
       {
         "optimizer_updates": 1024,
         "games": 1024,
-        "elapsed_seconds": 224.6556312039611,
-        "loss": 4.866997241973877,
-        "search_entropy": 1.4770120005123317
+        "elapsed_seconds": 218.54525946703507,
+        "loss": 4.675105571746826,
+        "search_entropy": 1.9083576595876366
       },
       {
         "optimizer_updates": 1152,
         "games": 1152,
-        "elapsed_seconds": 253.0751077529858,
-        "loss": 4.937623977661133,
-        "search_entropy": 1.417601185850799
+        "elapsed_seconds": 248.4143918970367,
+        "loss": 4.6434245109558105,
+        "search_entropy": 1.5987163081299514
       },
       {
         "optimizer_updates": 1280,
         "games": 1280,
-        "elapsed_seconds": 280.9014866229845,
-        "loss": 4.960740089416504,
-        "search_entropy": 1.5437126019969583
+        "elapsed_seconds": 278.1078536960413,
+        "loss": 4.926885604858398,
+        "search_entropy": 1.574570873286575
       },
       {
         "optimizer_updates": 1408,
         "games": 1408,
-        "elapsed_seconds": 308.4182753089699,
-        "loss": 4.906318664550781,
-        "search_entropy": 1.5488296053372324
+        "elapsed_seconds": 307.6613670660299,
+        "loss": 4.809106826782227,
+        "search_entropy": 1.4004444142337888
       },
       {
         "optimizer_updates": 1536,
         "games": 1536,
-        "elapsed_seconds": 335.6389859879855,
-        "loss": 4.881287574768066,
-        "search_entropy": 1.6551669142208993
+        "elapsed_seconds": 336.1089236490079,
+        "loss": 4.806558132171631,
+        "search_entropy": 1.3825862798839808
       },
       {
         "optimizer_updates": 1664,
         "games": 1664,
-        "elapsed_seconds": 359.43492630997207,
-        "loss": 5.092697620391846,
-        "search_entropy": 1.5124112958750449
+        "elapsed_seconds": 364.113940026029,
+        "loss": 4.730551719665527,
+        "search_entropy": 1.0457836496455788
       },
       {
         "optimizer_updates": 1792,
         "games": 1792,
-        "elapsed_seconds": 383.589633902011,
-        "loss": 5.226715564727783,
-        "search_entropy": 1.7488343343138695
+        "elapsed_seconds": 394.32086487603374,
+        "loss": 4.282346725463867,
+        "search_entropy": 1.3794817519374192
       },
       {
         "optimizer_updates": 1920,
         "games": 1920,
-        "elapsed_seconds": 402.2179412099649,
-        "loss": 4.798613548278809,
-        "search_entropy": 1.1014154296553595
+        "elapsed_seconds": 421.6553774990025,
+        "loss": 2.640260696411133,
+        "search_entropy": 1.0495623633596631
       },
       {
         "optimizer_updates": 2048,
         "games": 2048,
-        "elapsed_seconds": 424.2181913999957,
-        "loss": 5.233583450317383,
-        "search_entropy": 1.6528177245598008
+        "elapsed_seconds": 449.9657908420195,
+        "loss": 1.9903172254562378,
+        "search_entropy": 0.9662904196884483
       }
     ]
   },
   "latest_comparison": {
     "iteration": 23,
-    "candidate": "Baseline2048",
+    "candidate": "Q2048",
     "evaluation_label": "No new evaluation",
-    "wins": 25,
+    "wins": 9,
     "evaluation_games": 64,
-    "timeouts": 11,
+    "timeouts": 43,
     "matchup": {
-      "challenger": "Baseline2048",
-      "opponent": "F1024",
-      "opponent_wins": 28,
+      "challenger": "Q2048",
+      "opponent": "E1024",
+      "opponent_wins": 12,
       "draws": 0
     },
-    "updated_at": "2026-10-24T01:43:04.038381+00:00"
+    "updated_at": "2026-10-24T01:43:06.004572+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:43:04.107858-07:00",
+    "measured_at": "2026-10-23T18:43:06.042032-07:00",
     "steps": [
       {
         "step": 1,
@@ -171,12 +171,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T01:43:04.038381+00:00",
-        "elapsed_seconds": 2,
+        "updated_at": "2026-10-24T01:43:06.004572+00:00",
+        "elapsed_seconds": 4,
         "completed": 64,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 523,
+        "eta_seconds": 521,
         "eta_basis": "11 previous iteration(s)"
       },
       {
@@ -202,20 +202,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2714,
+    "elapsed_seconds": 2716,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792806125.6550384,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792806180.4925673,
+        "updated_at": 1792806185.3619561,
         "job_id": "Baseline2048-Initial52500000",
         "fresh": true
       },
@@ -225,7 +225,7 @@
         "state": "active",
         "updated_at": 1792806125.6550384,
         "job_id": "Q2048-F1024",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

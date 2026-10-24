@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:13:35.359473-07:00",
+    "measured_at": "2026-10-23T18:14:37.806170-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 945,
+        "elapsed_seconds": 1008,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,21 +87,33 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 945,
+    "elapsed_seconds": 1008,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792804399.460158,
+    "updated_at": 1792804422.030782,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792804399.460158,
+        "updated_at": 1792804422.030782,
         "job_id": "iteration-23-runtime-gates",
+        "decision": {
+          "reviewing": "Can the isolated candidate resume exactly and retain complete compressed states?",
+          "options": [
+            "Tiny actual GPU gate before paired long training"
+          ],
+          "evidence": [
+            "CPU4 games versus2+2 resume matched117 tensors and318 values."
+          ],
+          "reason": "CPU success is insufficient to claim CUDA graph and TF32 equivalence.",
+          "next_action": "Prepare bounded GPU gate and external immutable checkpoint encoder.",
+          "updated_at": "2026-10-24T01:13:42.030782+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "edit",
@@ -126,8 +138,20 @@
         "id": "loop-b",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792804399.460158,
+        "updated_at": 1792804422.062412,
         "job_id": "iteration-23-runner-preparation",
+        "decision": {
+          "reviewing": "Does the fresh runner preserve lease guards and truthful training telemetry?",
+          "options": [
+            "Test iteration23 runner before allocation"
+          ],
+          "evidence": [
+            "Iteration22 retained one pod across three jobs and recovered states; raw-state transfer was slow."
+          ],
+          "reason": "Use compressed recovery with finite transport bounds and no old iteration reuse.",
+          "next_action": "Helper stages guarded runner and tests actual metric recovery and assignment merging.",
+          "updated_at": "2026-10-24T01:13:42.062412+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "edit",

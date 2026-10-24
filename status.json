@@ -51,18 +51,18 @@
     "updated_at": "2026-10-24T00:43:30.572010+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:44:52.824283-07:00",
+    "measured_at": "2026-10-23T17:45:55.818936-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T00:44:24.420874+00:00",
-        "elapsed_seconds": 28,
+        "elapsed_seconds": 91,
         "completed": 256,
         "total": 640,
         "task": "Fresh training with immutable checkpoint recovery",
-        "eta_seconds": 415,
-        "eta_basis": "5 previous iteration(s)"
+        "eta_seconds": 136,
+        "eta_basis": "observed training rate"
       },
       {
         "step": 2,
@@ -98,13 +98,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 826,
+    "elapsed_seconds": 889,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792802688.9441297,
+    "active_loops": 0,
+    "updated_at": 1792802726.857807,
     "fresh": true,
     "loops": [
       {
@@ -116,7 +116,7 @@
       {
         "id": "loop-b",
         "stage": "train",
-        "state": "active",
+        "state": "done",
         "job_id": "fresh640-retention-engineering",
         "details": {
           "schema": 1,

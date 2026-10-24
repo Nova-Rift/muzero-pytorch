@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "review",
   "iteration": 24,
-  "completed_games": 0,
-  "target_games": 0,
+  "completed_games": 6144,
+  "target_games": 6144,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "First-transition development gate failed",
-  "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "Fresh baseline E17/33/0/14,F34/25/0/5; FirstTransition E12/29/0/23,F25/31/0/8. Each64 games: wins/opponent wins/draws/timeouts. Both win comparisons fail and Etimeouts exceed12. No promotion or replication; final initial control finishing.",
+  "title": "Repair result feed and recovery throughput",
+  "change": "Two helpers repairing structured evaluation ingestion and archive/recovery preparation; coordinator finalizing evidence.",
+  "result": "6144 training and768 audited evaluation games completed. Both revisions failed gates; no promotion. Pod deleted. Match feed repair pending. Next GPU admission needs a new guarded session and recovery space.",
   "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T02:46:29.591145+00:00",
+  "updated_at": "2026-10-24T03:00:59.966131+00:00",
   "revision": {
     "summary": "First-transition gradient candidate is isolated and training",
     "reason": "Pinned source audit identified first recurrent hidden-state gradient attenuation; this experiment changes only that backward factor while preserving original objective.",
@@ -40,40 +40,40 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:00:41.808521-07:00",
+    "measured_at": "2026-10-23T20:01:00.020020-07:00",
     "steps": [
       {
         "step": 1,
         "state": "finished",
-        "updated_at": "2026-10-24T02:46:29.591145+00:00",
+        "updated_at": "2026-10-24T03:00:59.966131+00:00",
         "elapsed_seconds": 400,
-        "completed": 0,
-        "total": null,
+        "completed": 6144,
+        "total": 6144,
         "task": "First-transition candidate training on reused H100",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 1421,
+        "state": "finished",
+        "updated_at": "2026-10-24T03:00:59.966131+00:00",
+        "elapsed_seconds": 1439,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 0,
-        "eta_basis": "12 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-24T02:30:20.791007+00:00",
+        "state": "active",
+        "updated_at": "2026-10-24T03:00:59.966131+00:00",
         "elapsed_seconds": 1632,
         "completed": null,
         "total": null,
-        "task": "Iteration 24: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Repair result feed and recovery throughput",
+        "eta_seconds": 0,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
@@ -87,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3453,
+    "elapsed_seconds": 3471,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -114,7 +114,7 @@
           "next_action": "Helper implements bounded validated ingestion and tests; coordinator applies reviewed fix",
           "updated_at": "2026-10-24T02:59:47.536032+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -134,7 +134,7 @@
           "next_action": "Helper returns measured critical path and safe tested improvement",
           "updated_at": "2026-10-24T02:59:47.565631+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",

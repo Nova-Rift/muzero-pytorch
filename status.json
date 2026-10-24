@@ -29,7 +29,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:35:24.814031-07:00",
+    "measured_at": "2026-10-23T17:36:27.072420-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,56 +68,43 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T00:35:01.344989+00:00",
-        "elapsed_seconds": 23,
+        "elapsed_seconds": 86,
         "completed": null,
         "total": null,
         "task": "Validate deeper search on one GPU",
-        "eta_seconds": 87,
+        "eta_seconds": 24,
         "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 258,
-    "eta_seconds": 500,
+    "elapsed_seconds": 320,
+    "eta_seconds": 438,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792802101.287279,
+    "updated_at": 1792802143.284136,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "job_id": "i22-gpu-preflight",
-        "decision": {
-          "reviewing": "Admit the frozen32 versus64 simulation comparison?",
-          "options": [
-            "One H100 with serial evaluation batches"
-          ],
-          "evidence": [
-            "Corrected inventory client succeeds;10 staged and4 transport tests pass",
-            "Payload and frozen source hashes verified; fresh H100 quote3.99 dollars per hour"
-          ],
-          "reason": "A bounded GPU probe will check correctness, memory and runtime before scored batches",
-          "next_action": "Reserve through shared guard and launch the prepared run",
-          "updated_at": "2026-10-24T00:35:01.287279+00:00"
-        },
+        "job_id": "i22-remote-setup",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 22,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare fixed-root depth GPU evaluation",
-          "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "All265 payload hashes verified;10 staged tests passed. Fresh52-region search found H100 offers at3.99 dollars per hour.",
+          "title": "Transfer and verify GPU evaluation payload",
+          "change": "One registered H100; remote SSH readiness reached.",
+          "result": "Payload transfer/setup underway under one420-second deadline. No scored games completed.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:35:01.257913+00:00",
+          "updated_at": "2026-10-24T00:35:43.284136+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }
@@ -128,17 +115,16 @@
         "state": "active",
         "job_id": "i22-training-followup",
         "decision": {
-          "reviewing": "Which bounded training task can follow on the same pod?",
+          "reviewing": "Is a fresh-seed M8 replication ready?",
           "options": [
-            "Exact full-state continuation if recovery gates pass",
-            "Independent-seed replication with matched contract"
+            "Restart the unchanged M8 training contract with an independent seed"
           ],
           "evidence": [
-            "Prior calibration gate failed; loss-size differences did not imply missing value gradients"
+            "Clock calibration failed its frozen gate; raw gradient sizes do not justify reweighting"
           ],
-          "reason": "Avoid unsupported loss changes; prepare a source-bound training task",
-          "next_action": "Helper verifies existing state and recovery prerequisites",
-          "updated_at": "2026-10-24T00:35:01.315211+00:00"
+          "reason": "Independent replication is scientifically cleaner than unsupported loss or observation changes",
+          "next_action": "Check full-state recovery and bounded launch prerequisites",
+          "updated_at": "2026-10-24T00:36:18.317751+00:00"
         },
         "details": {
           "schema": 1,
@@ -151,10 +137,10 @@
           "timeouts": 0,
           "title": "Review next training experiment",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Native helper reviewing full-state continuation and independent-seed replication prerequisites while GPU preparation proceeds.",
+          "result": "Helper verified clock calibration failed its frozen gate; reviewing fresh-seed M8 replication and full-state recovery requirements.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:35:01.257913+00:00",
+          "updated_at": "2026-10-24T00:36:18.291972+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

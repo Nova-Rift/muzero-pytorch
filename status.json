@@ -1,23 +1,23 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "test",
   "iteration": 22,
-  "completed_games": 256,
+  "completed_games": 640,
   "target_games": 640,
   "wins": 35,
   "evaluation_games": 64,
   "timeouts": 8,
-  "title": "Fresh training with immutable checkpoint recovery",
+  "title": "Recover and verify two full training states",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "256 games and optimizer updates completed; recovery gate not yet passed. No strength claim.",
+  "result": "640 games/updates complete; two real full states saved. Download and integrity checks underway; no strength claim.",
   "candidate": "MuZero fresh engineering seed52400000",
   "evaluation_label": "M2048-s64 vs F1024",
-  "updated_at": "2026-10-24T00:44:24.420874+00:00",
+  "updated_at": "2026-10-24T00:46:14.264768+00:00",
   "training_metrics": {
     "iteration": 22,
     "run_id": "fresh640-retention-engineering",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-24T00:44:09.044178+00:00",
+    "reported_at": "2026-10-24T00:45:37.712885+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -32,6 +32,27 @@
         "elapsed_seconds": 55.86251663096482,
         "loss": 4.995828151702881,
         "search_entropy": 0.9509891271591187
+      },
+      {
+        "optimizer_updates": 384,
+        "games": 384,
+        "elapsed_seconds": 82.95436854095897,
+        "loss": 4.942033767700195,
+        "search_entropy": 1.432871786877513
+      },
+      {
+        "optimizer_updates": 512,
+        "games": 512,
+        "elapsed_seconds": 110.41414993896615,
+        "loss": 4.79100227355957,
+        "search_entropy": 1.4770913789980114
+      },
+      {
+        "optimizer_updates": 640,
+        "games": 640,
+        "elapsed_seconds": 137.39545072900364,
+        "loss": 5.032074928283691,
+        "search_entropy": 1.7651002472266555
       }
     ]
   },
@@ -51,18 +72,18 @@
     "updated_at": "2026-10-24T00:43:30.572010+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:45:55.818936-07:00",
+    "measured_at": "2026-10-23T17:46:14.319251-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-24T00:44:24.420874+00:00",
-        "elapsed_seconds": 91,
-        "completed": 256,
+        "state": "finished",
+        "updated_at": "2026-10-24T00:46:14.264768+00:00",
+        "elapsed_seconds": 110,
+        "completed": 640,
         "total": 640,
         "task": "Fresh training with immutable checkpoint recovery",
-        "eta_seconds": 136,
-        "eta_basis": "observed training rate"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
@@ -88,56 +109,86 @@
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-24T00:39:12.096164+00:00",
+        "state": "active",
+        "updated_at": "2026-10-24T00:46:14.264768+00:00",
         "elapsed_seconds": 251,
         "completed": null,
         "total": null,
-        "task": "Validate deeper search on one GPU",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Recover and verify two full training states",
+        "eta_seconds": 0,
+        "eta_basis": "14 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 889,
+    "elapsed_seconds": 907,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792802726.857807,
+    "active_loops": 2,
+    "updated_at": 1792802774.2700672,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "evaluate",
-        "state": "done",
-        "job_id": "M2048-s64-F1024"
+        "stage": "review",
+        "state": "active",
+        "job_id": "i22-depth-results-review",
+        "decision": {
+          "reviewing": "Does deeper search pass the frozen strength gate?",
+          "options": [
+            "Reject promotion and preserve all four batches"
+          ],
+          "evidence": [
+            "E64sim9W33L22cutoffs; F64sim35W21L8cutoffs;64 games each"
+          ],
+          "reason": "E win fraction and cutoff gate fail; F Wilson lower bound also remains below0.5",
+          "next_action": "Audit balanced records and publish tested source-bound results",
+          "updated_at": "2026-10-24T00:43:30.624598+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 22,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Analyze complete depth comparison",
+          "change": "One registered H100; remote SSH readiness reached.",
+          "result": "All256 records passed total/seat checks; scoped source and results pushed, remote SHA verification underway.",
+          "candidate": "MuZero fixed-root depth comparison",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-24T00:46:14.270077+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
       },
       {
         "id": "loop-b",
-        "stage": "train",
-        "state": "done",
-        "job_id": "fresh640-retention-engineering",
+        "stage": "test",
+        "state": "active",
+        "job_id": "i22-full-state-recovery",
         "details": {
           "schema": 1,
-          "stage": "train",
+          "stage": "test",
           "iteration": 22,
-          "completed_games": 256,
+          "completed_games": 640,
           "target_games": 640,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Fresh training with immutable checkpoint recovery",
+          "title": "Recover and verify two full training states",
           "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "256 games and optimizer updates completed; recovery gate not yet passed. No strength claim.",
+          "result": "640 games/updates complete; two real full states saved. Download and integrity checks underway; no strength claim.",
           "candidate": "MuZero fresh engineering seed52400000",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:44:09.044178+00:00",
+          "updated_at": "2026-10-24T00:45:37.712885+00:00",
           "training_metrics": {
             "iteration": 22,
             "run_id": "fresh640-retention-engineering",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T00:44:09.044178+00:00",
+            "reported_at": "2026-10-24T00:45:37.712885+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -152,6 +203,27 @@
                 "elapsed_seconds": 55.86251663096482,
                 "loss": 4.995828151702881,
                 "search_entropy": 0.9509891271591187
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 82.95436854095897,
+                "loss": 4.942033767700195,
+                "search_entropy": 1.432871786877513
+              },
+              {
+                "optimizer_updates": 512,
+                "games": 512,
+                "elapsed_seconds": 110.41414993896615,
+                "loss": 4.79100227355957,
+                "search_entropy": 1.4770913789980114
+              },
+              {
+                "optimizer_updates": 640,
+                "games": 640,
+                "elapsed_seconds": 137.39545072900364,
+                "loss": 5.032074928283691,
+                "search_entropy": 1.7651002472266555
               }
             ]
           },

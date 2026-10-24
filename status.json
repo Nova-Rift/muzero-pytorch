@@ -4,48 +4,38 @@
   "iteration": 22,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 8,
+  "wins": 9,
   "evaluation_games": 64,
-  "timeouts": 23,
-  "title": "GPU depth comparison running; retention check in parallel",
+  "timeouts": 22,
+  "title": "Depth64 versus E complete; F comparisons running",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "Final64 games:8 wins,33 losses,0 draws,23 cutoffs. The64-simulation candidate batch is now running.",
-  "candidate": "M2048-s32",
-  "evaluation_label": "M2048-s32 vs E1024",
-  "updated_at": "2026-10-24T00:40:21.319967+00:00",
-  "revision": {
-    "summary": "Retention guard verified; no trainer fix needed",
-    "reason": "Full closure inspection confirms last_saved prevents duplicate final checkpoints. The suspected defect was not present.",
-    "changes": [
-      "No trainer changes",
-      "Add targeted closure regression evidence and recovery plan"
-    ],
-    "test_plan": "Verify duplicate-save suppression and partial-save behavior; actual full-size remote recovery remains unvalidated.",
-    "updated_at": "2026-10-24T00:40:21.319963+00:00"
-  },
+  "result": "Final64 games:9 wins,33 losses,0 draws,22 cutoffs. F comparisons continue. E promotion gate failed.",
+  "candidate": "M2048-s64",
+  "evaluation_label": "M2048-s64 vs E1024",
+  "updated_at": "2026-10-24T00:40:37.631599+00:00",
   "matchup": {
-    "challenger": "M2048-s32",
+    "challenger": "M2048-s64",
     "opponent": "E1024",
     "opponent_wins": 33,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 22,
-    "candidate": "M2048-s32",
-    "evaluation_label": "M2048-s32 vs E1024",
-    "wins": 8,
+    "candidate": "M2048-s64",
+    "evaluation_label": "M2048-s64 vs E1024",
+    "wins": 9,
     "evaluation_games": 64,
-    "timeouts": 23,
+    "timeouts": 22,
     "matchup": {
-      "challenger": "M2048-s32",
+      "challenger": "M2048-s64",
       "opponent": "E1024",
       "opponent_wins": 33,
       "draws": 0
     },
-    "updated_at": "2026-10-24T00:39:12.096164+00:00"
+    "updated_at": "2026-10-24T00:40:37.631599+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:40:21.372298-07:00",
+    "measured_at": "2026-10-23T17:40:37.686069-07:00",
     "steps": [
       {
         "step": 1,
@@ -61,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T00:40:21.319967+00:00",
-        "elapsed_seconds": 69,
+        "updated_at": "2026-10-24T00:40:37.631599+00:00",
+        "elapsed_seconds": 86,
         "completed": 64,
         "total": null,
-        "task": "M2048-s32 vs E1024",
-        "eta_seconds": 405,
+        "task": "M2048-s64 vs E1024",
+        "eta_seconds": 388,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -92,13 +82,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 554,
-    "eta_seconds": 204,
+    "elapsed_seconds": 571,
+    "eta_seconds": 187,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792802418.9071605,
+    "updated_at": 1792802433.9729464,
     "fresh": true,
     "loops": [
       {

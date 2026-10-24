@@ -7,12 +7,12 @@
   "wins": 17,
   "evaluation_games": 64,
   "timeouts": 15,
-  "title": "Fresh Baseline4096 versus E1024 comparison",
-  "change": "Exact continuation completed2048new games. Frozen64-game development comparison started; results not yet final.",
-  "result": "Training endpoint reached in415.15seconds; checkpoint recovery proceeds in parallel. No promotion claim.",
+  "title": "Baseline4096 E1024 comparison complete; F1024 running",
+  "change": "First frozen bout complete:17wins/32opponent wins/0draws/15timeouts. All64outcomes accounted.",
+  "result": "E1024 timeout gate fails:15 exceeds12. Continue remaining frozen comparisons; held-out confirmation will not be admitted.",
   "candidate": "Baseline4096-continuation",
-  "evaluation_label": "Baseline4096 vs E1024",
-  "updated_at": "2026-10-24T03:54:10.919197+00:00",
+  "evaluation_label": "Baseline4096 vs E1024 completed",
+  "updated_at": "2026-10-24T03:55:29.510485+00:00",
   "training_metrics": {
     "iteration": 26,
     "run_id": "Baseline4096",
@@ -133,37 +133,31 @@
       }
     ]
   },
-  "matchup": {
-    "challenger": "Baseline4096",
-    "opponent": "E1024",
-    "opponent_wins": 32,
-    "draws": 0
-  },
   "latest_comparison": {
     "iteration": 26,
     "loop": "loop-a",
-    "job_id": "Baseline4096-E1024",
-    "protocol_sha256": "0d4b64374f901622fbc10755ca5bdffdcd09dc63e12182d3b5db26ec3fabfb8b",
+    "job_id": "Baseline4096-F1024",
+    "protocol_sha256": "d66874e6b0e54e6dd67ff0869fc95f20d6e182881e1a6a1e6eca795bc4439077",
     "challenger_sha256": "4e48448dee7212e87461b66f51c7f60480f3c3b2fcd82b48b0b9f515f269ef64",
-    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
-    "result_id": "9a8af441207fb43a57468de321198097ee568a88e2cc9aa2b59e16ceb5eb28a3",
+    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "result_id": "a1a837e81a16d0d8836587960d3683b8fbe83aca8d31924a08c20ac3ee00bde1",
     "candidate": "Baseline4096",
-    "evaluation_label": "Baseline4096 vs E1024",
-    "wins": 17,
+    "evaluation_label": "Baseline4096 vs F1024",
+    "wins": 31,
     "evaluation_games": 64,
-    "timeouts": 15,
+    "timeouts": 6,
     "matchup": {
       "challenger": "Baseline4096",
-      "opponent": "E1024",
-      "opponent_wins": 32,
+      "opponent": "F1024",
+      "opponent_wins": 27,
       "draws": 0
     },
-    "updated_at": "2026-10-24T03:54:14.308586+00:00",
-    "evidence_sha256": "2059ba8c4f3f5cae08c3c33116ea5aa41b2645467b44e6c8570cb2e684bdb479",
+    "updated_at": "2026-10-24T03:54:53.639722+00:00",
+    "evidence_sha256": "ee133702b10b347161001259b64ce17f3cb8aecc53133f5f7e2aee7c74e8dc35",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:54:20.363270-07:00",
+    "measured_at": "2026-10-23T20:55:29.570599-07:00",
     "steps": [
       {
         "step": 1,
@@ -179,12 +173,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T03:54:10.919197+00:00",
-        "elapsed_seconds": 9,
+        "updated_at": "2026-10-24T03:55:29.510485+00:00",
+        "elapsed_seconds": 79,
         "completed": 64,
         "total": null,
-        "task": "Baseline4096 vs E1024",
-        "eta_seconds": 465,
+        "task": "Baseline4096 vs E1024 completed",
+        "eta_seconds": 395,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -210,21 +204,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1175,
+    "elapsed_seconds": 1244,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792814021.3572686,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792814057.119637,
-        "job_id": "Baseline4096-F1024",
+        "updated_at": 1792814126.0549228,
+        "job_id": "Baseline4096-OwnInitial",
         "fresh": true
       },
       {
@@ -233,7 +227,7 @@
         "state": "active",
         "updated_at": 1792814021.3572686,
         "job_id": "iteration26-next-hypothesis",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -241,7 +235,7 @@
         "state": "active",
         "updated_at": 1792814021.357271,
         "job_id": "iteration26-capacity-prerequisite",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",

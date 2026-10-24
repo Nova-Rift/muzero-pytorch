@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:36:47.314995-07:00",
+    "measured_at": "2026-10-23T19:37:50.354325-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 387,
+        "elapsed_seconds": 450,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 87,
+        "eta_seconds": 24,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,20 +76,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2018,
+    "elapsed_seconds": 2081,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792809402.157912,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "pending",
-        "updated_at": 1792809406.538044,
+        "updated_at": 1792809466.4009674,
         "job_id": "first-transition-Baseline2048-E1024",
         "fresh": true
       },
@@ -111,33 +111,21 @@
           "next_action": "Helper validates protocol, source and reusable-runner admission requirements without allocating",
           "updated_at": "2026-10-24T02:36:42.157912+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "test",
         "state": "pending",
-        "updated_at": 1792809380.0580173,
-        "job_id": "iteration-24-overlap-failure-review",
-        "decision": {
-          "reviewing": "Why did the bounded overlap diagnostic fail before training?",
-          "options": [
-            "Fix log placement and test trainer-owned output-directory creation"
-          ],
-          "evidence": [
-            "Child raised FileExistsError because benchmark created the output directory first; no training or throughput result"
-          ],
-          "reason": "Preserve failed evidence and repair only the isolated diagnostic; production overlap remains disabled",
-          "next_action": "Helper publishes tested correction; coordinator reviews before any future GPU admission",
-          "updated_at": "2026-10-24T02:32:40.810402+00:00"
-        },
+        "updated_at": 1792809466.4009674,
+        "job_id": "first-transition-overlap-v2",
         "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792809406.538044,
+        "updated_at": 1792809466.4009674,
         "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }

@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:34:37.010638-07:00",
+    "measured_at": "2026-10-23T19:35:43.321691-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 256,
+        "elapsed_seconds": 323,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 218,
+        "eta_seconds": 151,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,7 +76,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1888,
+    "elapsed_seconds": 1954,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -125,7 +125,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792809276.4848576,
+        "updated_at": 1792809341.4867067,
         "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }

@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:11:31.070944-07:00",
+    "measured_at": "2026-10-23T18:12:33.353961-07:00",
     "steps": [
       {
         "step": 1,
@@ -68,7 +68,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:08:10.704931+00:00",
-        "elapsed_seconds": 821,
+        "elapsed_seconds": 883,
         "completed": null,
         "total": null,
         "task": "Preparing single-change search experiment",
@@ -87,8 +87,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 821,
-    "eta_seconds": 103,
+    "elapsed_seconds": 883,
+    "eta_seconds": 41,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
@@ -100,6 +100,7 @@
         "id": "loop-a",
         "stage": "test",
         "state": "active",
+        "updated_at": 1792804166.172436,
         "job_id": "iteration-23-q-completion",
         "decision": {
           "reviewing": "Does the reference Q rule affect actual frozen arena decisions?",
@@ -131,12 +132,14 @@
           "updated_at": "2026-10-24T01:07:18.983092+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
-        }
+        },
+        "fresh": false
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
+        "updated_at": 1792804166.201098,
         "job_id": "iteration-23-gpu-preflight",
         "decision": {
           "reviewing": "Can a paired fresh-training comparison fit recovery, budget and lease bounds?",
@@ -167,7 +170,8 @@
           "updated_at": "2026-10-24T01:09:26.172421+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
-        }
+        },
+        "fresh": false
       }
     ]
   },

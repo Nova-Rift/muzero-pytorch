@@ -4,38 +4,38 @@
   "iteration": 22,
   "completed_games": 640,
   "target_games": 640,
-  "wins": 30,
+  "wins": 18,
   "evaluation_games": 64,
-  "timeouts": 1,
-  "title": "Fresh640 versus E completed",
+  "timeouts": 32,
+  "title": "Fresh640 versus F complete; initial control running",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "Final64 games:30 wins,33 losses,0 draws,1 cutoff. F and initial comparisons continue; no promotion gate met.",
+  "result": "Final64 games:18 wins,14 losses,0 draws,32 cutoffs. Initial control running. Cutoff gate failed; no promotion.",
   "candidate": "Fresh640",
-  "evaluation_label": "Fresh640 vs E1024",
-  "updated_at": "2026-10-24T00:52:47.594947+00:00",
+  "evaluation_label": "Fresh640 vs F1024",
+  "updated_at": "2026-10-24T00:53:36.791923+00:00",
   "matchup": {
     "challenger": "Fresh640",
-    "opponent": "E1024",
-    "opponent_wins": 33,
+    "opponent": "F1024",
+    "opponent_wins": 14,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 22,
     "candidate": "Fresh640",
-    "evaluation_label": "Fresh640 vs E1024",
-    "wins": 30,
+    "evaluation_label": "Fresh640 vs F1024",
+    "wins": 18,
     "evaluation_games": 64,
-    "timeouts": 1,
+    "timeouts": 32,
     "matchup": {
       "challenger": "Fresh640",
-      "opponent": "E1024",
-      "opponent_wins": 33,
+      "opponent": "F1024",
+      "opponent_wins": 14,
       "draws": 0
     },
-    "updated_at": "2026-10-24T00:52:47.594947+00:00"
+    "updated_at": "2026-10-24T00:53:36.791923+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:52:47.665520-07:00",
+    "measured_at": "2026-10-23T17:53:36.848160-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T00:52:47.594947+00:00",
-        "elapsed_seconds": 312,
+        "updated_at": "2026-10-24T00:53:36.791923+00:00",
+        "elapsed_seconds": 362,
         "completed": 64,
         "total": null,
-        "task": "Fresh640 vs E1024",
-        "eta_seconds": 162,
+        "task": "Fresh640 vs F1024",
+        "eta_seconds": 112,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -82,15 +82,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1301,
+    "elapsed_seconds": 1350,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792803167.635356,
+    "updated_at": 1792803213.818444,
     "fresh": true,
     "loops": [
+      {
+        "id": "loop-b",
+        "stage": "evaluate",
+        "state": "active",
+        "job_id": "Fresh640-FreshInitial"
+      },
       {
         "id": "loop-a",
         "stage": "review",
@@ -111,73 +117,6 @@
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-24T00:52:47.635342+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        }
-      },
-      {
-        "id": "loop-b",
-        "stage": "evaluate",
-        "state": "active",
-        "job_id": "Fresh640-F1024",
-        "details": {
-          "schema": 1,
-          "stage": "evaluate",
-          "iteration": 22,
-          "completed_games": 640,
-          "target_games": 640,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Evaluate fresh640 checkpoint against F",
-          "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "E result:30 wins,33 losses,0 draws,1 cutoff of64. F batch running; initial comparison follows.",
-          "candidate": "MuZero fresh engineering seed52400000",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:52:47.635342+00:00",
-          "training_metrics": {
-            "iteration": 22,
-            "run_id": "fresh640-retention-engineering",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T00:45:37.712885+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 28.239263793977443,
-                "loss": 4.896056175231934,
-                "search_entropy": 0.9509932635778404
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 55.86251663096482,
-                "loss": 4.995828151702881,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 82.95436854095897,
-                "loss": 4.942033767700195,
-                "search_entropy": 1.432871786877513
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 110.41414993896615,
-                "loss": 4.79100227355957,
-                "search_entropy": 1.4770913789980114
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 137.39545072900364,
-                "loss": 5.032074928283691,
-                "search_entropy": 1.7651002472266555
-              }
-            ]
-          },
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

@@ -1,41 +1,171 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "edit",
   "iteration": 23,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 39,
+  "wins": 35,
   "evaluation_games": 64,
-  "timeouts": 17,
-  "title": "Final2048 versus own initialization",
-  "change": "Frozen control, common inference settings.",
-  "result": "Verified balanced 64-game control; no promotion claim.",
+  "timeouts": 10,
+  "title": "Implement frozen replay gradient diagnostic",
+  "change": "Read-only diagnostic; original trainer and model remain unchanged.",
+  "result": "Helper is implementing actual-loss parity and mask coefficient tests before a bounded CPU replay probe.",
   "candidate": "Q2048",
-  "evaluation_label": "Own initial control",
-  "updated_at": "2026-10-24T01:44:18.139048+00:00",
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-24T01:47:37.234389+00:00",
+  "revision": {
+    "summary": "Implement read-only replay gradient diagnostic.",
+    "reason": "The source audit found weighting differences; actual replay gradients are not yet measured, so benefit remains unknown.",
+    "changes": [
+      "Proposed diagnostics/gradients replay loader and loss reconstruction",
+      "Proposed parity and mask tests; no trainer/model edits"
+    ],
+    "test_plan": "Compare original loss and parameter gradients; test mask coefficients and hidden scaling; run a bounded frozen CPU replay probe.",
+    "updated_at": "2026-10-24T01:47:37.234383+00:00"
+  },
   "matchup": {
     "challenger": "Q2048",
-    "opponent": "Initial52500000",
-    "opponent_wins": 8,
-    "draws": 0
+    "opponent": "F1024",
+    "opponent_wins": 18,
+    "draws": 1
+  },
+  "training_metrics": {
+    "iteration": 23,
+    "run_id": "Q2048",
+    "loss_definition": "last_update_batch_mean",
+    "reported_at": "2026-10-24T01:39:16.517818+00:00",
+    "points": [
+      {
+        "optimizer_updates": 128,
+        "games": 128,
+        "elapsed_seconds": 31.42276402999414,
+        "loss": 4.845115661621094,
+        "search_entropy": 0.968941505998373
+      },
+      {
+        "optimizer_updates": 256,
+        "games": 256,
+        "elapsed_seconds": 57.25735433003865,
+        "loss": 4.9677734375,
+        "search_entropy": 1.2187657350665526
+      },
+      {
+        "optimizer_updates": 384,
+        "games": 384,
+        "elapsed_seconds": 86.79315404203953,
+        "loss": 4.941828727722168,
+        "search_entropy": 1.3789989701472223
+      },
+      {
+        "optimizer_updates": 512,
+        "games": 512,
+        "elapsed_seconds": 110.63937170698773,
+        "loss": 4.796825885772705,
+        "search_entropy": 1.120841930357463
+      },
+      {
+        "optimizer_updates": 640,
+        "games": 640,
+        "elapsed_seconds": 137.83798881800612,
+        "loss": 4.765341758728027,
+        "search_entropy": 1.370921568479389
+      },
+      {
+        "optimizer_updates": 768,
+        "games": 768,
+        "elapsed_seconds": 164.1674372620182,
+        "loss": 4.449838638305664,
+        "search_entropy": 1.4834754983894527
+      },
+      {
+        "optimizer_updates": 896,
+        "games": 896,
+        "elapsed_seconds": 190.48688524001045,
+        "loss": 4.447656631469727,
+        "search_entropy": 1.2566883631516248
+      },
+      {
+        "optimizer_updates": 1024,
+        "games": 1024,
+        "elapsed_seconds": 218.54525946703507,
+        "loss": 4.675105571746826,
+        "search_entropy": 1.9083576595876366
+      },
+      {
+        "optimizer_updates": 1152,
+        "games": 1152,
+        "elapsed_seconds": 248.4143918970367,
+        "loss": 4.6434245109558105,
+        "search_entropy": 1.5987163081299514
+      },
+      {
+        "optimizer_updates": 1280,
+        "games": 1280,
+        "elapsed_seconds": 278.1078536960413,
+        "loss": 4.926885604858398,
+        "search_entropy": 1.574570873286575
+      },
+      {
+        "optimizer_updates": 1408,
+        "games": 1408,
+        "elapsed_seconds": 307.6613670660299,
+        "loss": 4.809106826782227,
+        "search_entropy": 1.4004444142337888
+      },
+      {
+        "optimizer_updates": 1536,
+        "games": 1536,
+        "elapsed_seconds": 336.1089236490079,
+        "loss": 4.806558132171631,
+        "search_entropy": 1.3825862798839808
+      },
+      {
+        "optimizer_updates": 1664,
+        "games": 1664,
+        "elapsed_seconds": 364.113940026029,
+        "loss": 4.730551719665527,
+        "search_entropy": 1.0457836496455788
+      },
+      {
+        "optimizer_updates": 1792,
+        "games": 1792,
+        "elapsed_seconds": 394.32086487603374,
+        "loss": 4.282346725463867,
+        "search_entropy": 1.3794817519374192
+      },
+      {
+        "optimizer_updates": 1920,
+        "games": 1920,
+        "elapsed_seconds": 421.6553774990025,
+        "loss": 2.640260696411133,
+        "search_entropy": 1.0495623633596631
+      },
+      {
+        "optimizer_updates": 2048,
+        "games": 2048,
+        "elapsed_seconds": 449.9657908420195,
+        "loss": 1.9903172254562378,
+        "search_entropy": 0.9662904196884483
+      }
+    ]
   },
   "latest_comparison": {
     "iteration": 23,
     "candidate": "Q2048",
-    "evaluation_label": "Own initial control",
-    "wins": 39,
+    "evaluation_label": "No new evaluation",
+    "wins": 35,
     "evaluation_games": 64,
-    "timeouts": 17,
+    "timeouts": 10,
     "matchup": {
       "challenger": "Q2048",
-      "opponent": "Initial52500000",
-      "opponent_wins": 8,
-      "draws": 0
+      "opponent": "F1024",
+      "opponent_wins": 18,
+      "draws": 1
     },
-    "updated_at": "2026-10-24T01:44:18.139048+00:00"
+    "updated_at": "2026-10-24T01:47:37.234389+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:47:17.351775-07:00",
+    "measured_at": "2026-10-23T18:47:37.293432-07:00",
     "steps": [
       {
         "step": 1,
@@ -50,25 +180,25 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-24T01:44:18.139048+00:00",
-        "elapsed_seconds": 255,
+        "state": "finished",
+        "updated_at": "2026-10-24T01:47:37.234389+00:00",
+        "elapsed_seconds": 275,
         "completed": 64,
         "total": null,
-        "task": "Own initial control",
-        "eta_seconds": 270,
-        "eta_basis": "11 previous iteration(s)"
+        "task": "No new evaluation",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-24T01:31:53.246726+00:00",
+        "state": "active",
+        "updated_at": "2026-10-24T01:47:37.234389+00:00",
         "elapsed_seconds": 2043,
         "completed": null,
         "total": null,
-        "task": "Preparing single-change search experiment",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Implement frozen replay gradient diagnostic",
+        "eta_seconds": 0,
+        "eta_basis": "18 previous iteration(s)"
       },
       {
         "step": 4,
@@ -82,14 +212,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2967,
+    "elapsed_seconds": 2987,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792806395.912249,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -253,7 +383,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -273,7 +403,7 @@
           "next_action": "Helper implements fixtures and source-bound replay measurement; coordinator reviews before running it.",
           "updated_at": "2026-10-24T01:46:35.983000+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

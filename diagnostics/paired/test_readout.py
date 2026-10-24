@@ -35,6 +35,27 @@ class ReadoutTests(unittest.TestCase):
         self.assertEqual(result['secondary_equal_opponent_difference'],1)
         self.assertEqual(result['per_opponent']['E1024']['percentile95'],[1,1])
 
+    def test_new_frozen_labels_and_seeds(self):
+        self.manifest.update(candidate_arm='root5', development_seeds={'E1024':92620000,'F1024':92630000}, bootstrap_seed=92660000)
+        for e in self.manifest['bouts']:
+            directory=Path(e['directory']);p=e['protocol'];old=p['models'][0]['id'];new='root5' if old=='reference-q' else old
+            old_seed=p['seed'];p['seed']=self.manifest['development_seeds'][e['opponent']];p['models'][0]['id']=new;e['arm']=new
+            raw=directory/f"{old}__{e['opponent']}-0.json";data=json.loads(raw.read_text());raw.unlink()
+            for r in data['records']:r['seed']+=p['seed']-old_seed
+            (directory/f"{new}__{e['opponent']}-0.json").write_text(json.dumps(data))
+            summary=json.loads((directory/'summary.json').read_text());summary[0]['a']=new
+            (directory/'summary.json').write_text(json.dumps(summary));(directory/'protocol.json').write_text(json.dumps(p))
+        result=analyze(self.manifest)
+        self.assertEqual(result['secondary_equal_opponent_difference'],1)
+        self.assertIn('root5',result['per_opponent']['E1024'])
+        self.assertEqual(result['uncertainty']['seed'],92660000)
+        self.manifest['development_seeds']['E1024']+=1
+        with self.assertRaisesRegex(ValueError,'development seeds'):analyze(self.manifest)
+
+    def test_invalid_seed_and_label_bindings(self):
+        for extra in [dict(candidate_arm='baseline'),dict(candidate_arm='private/path'),dict(development_seeds={'E1024':1,'F1024':2}),dict(bootstrap_seed=True)]:
+            with self.assertRaises(ValueError):analyze({**self.manifest,**extra})
+
     def test_partial(self):
         self.mutate_records(lambda r:r.pop())
         with self.assertRaisesRegex(ValueError,'partial'): analyze(self.manifest)

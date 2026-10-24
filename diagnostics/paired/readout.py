@@ -74,6 +74,13 @@ def quantile(values, q):
 
 def analyze(manifest):
     """Manifest requires four bout entries with arm, opponent, directory, protocol."""
+    candidate_arm = manifest.get('candidate_arm', 'reference-q')
+    require(isinstance(candidate_arm, str) and candidate_arm != 'baseline' and 1 <= len(candidate_arm) <= 64 and all(c.isalnum() or c in '._-' for c in candidate_arm), 'invalid candidate arm')
+    seeds = manifest.get('development_seeds', {'E1024':92320000, 'F1024':92330000})
+    require(isinstance(seeds, dict) and set(seeds) == {'E1024','F1024'} and all(type(v) is int and v >= 0 for v in seeds.values()), 'invalid development seed binding')
+    require(abs(seeds['E1024']-seeds['F1024']) >= 64, 'overlapping development seed ranges')
+    bootstrap_seed = manifest.get('bootstrap_seed', BOOTSTRAP_SEED)
+    require(type(bootstrap_seed) is int and bootstrap_seed >= 0, 'invalid bootstrap seed')
     bouts = manifest['bouts']
     require(len(bouts) == 4, 'requires four bouts')
     indexed = {}
@@ -81,14 +88,14 @@ def analyze(manifest):
         key = (entry['arm'], entry['opponent'])
         require(key not in indexed, 'duplicate bout')
         indexed[key] = audit_bout(entry['directory'], entry['protocol'])
-    require(set(indexed) == {(a, o) for a in ('baseline', 'reference-q') for o in ('E1024', 'F1024')}, 'wrong bout identities')
+    require(set(indexed) == {(a, o) for a in ('baseline', candidate_arm) for o in ('E1024', 'F1024')}, 'wrong bout identities')
     common = None
     arm_models = {}
-    rng = random.Random(BOOTSTRAP_SEED)
+    rng = random.Random(bootstrap_seed)
     results = {}
-    for opponent, seed in [('E1024', 92320000), ('F1024', 92330000)]:
-        baseline, candidate = [indexed[(a, opponent)] for a in ('baseline', 'reference-q')]
-        for arm, bout in [('baseline', baseline), ('reference-q', candidate)]:
+    for opponent, seed in [(o,seeds[o]) for o in ('E1024','F1024')]:
+        baseline, candidate = [indexed[(a, opponent)] for a in ('baseline', candidate_arm)]
+        for arm, bout in [('baseline', baseline), (candidate_arm, candidate)]:
             p = bout['protocol']
             require(p['seed'] == seed and p['models'][1]['id'] == opponent, 'wrong development seeds/opponent')
             require(p['models'][1]['sha256'] == {'E1024':'18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532', 'F1024':'4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7'}[opponent], 'wrong opponent weights')
@@ -110,11 +117,11 @@ def analyze(manifest):
         blocks = [(differences[i]+differences[i+1])/2 for i in range(0,64,2)]
         samples = [sum(rng.choice(blocks) for _ in range(32))/32 for _ in range(DRAWS)]
         results[opponent] = {'baseline': {k:v for k,v in baseline.items() if k not in ('scores','protocol')},
-                             'reference-q': {k:v for k,v in candidate.items() if k not in ('scores','protocol')},
+                             candidate_arm: {k:v for k,v in candidate.items() if k not in ('scores','protocol')},
                              'paired_win_fraction_difference': sum(differences)/64,
                              'percentile95': [quantile(samples, .025), quantile(samples, .975)], 'block_differences': blocks}
     return {'schema':1, 'scope':'Development evaluation of one paired training seed; not promotion, ranking, or independent training replication.',
-            'uncertainty': {'method':'Paired adjacent two-game balanced-seat block bootstrap; 32 blocks resampled with replacement per opponent; percentile interval, linear quantiles', 'seed':BOOTSTRAP_SEED, 'draws':DRAWS, 'opponent_order':['E1024','F1024'], 'rng':'Python random.Random; statistical resampling only', 'limitations':'Conditional on these trained weights and fixed spawn geometry. Does not estimate training-seed uncertainty. Cutoffs and draws score zero.'},
+            'uncertainty': {'method':'Paired adjacent two-game balanced-seat block bootstrap; 32 blocks resampled with replacement per opponent; percentile interval, linear quantiles', 'seed':bootstrap_seed, 'draws':DRAWS, 'opponent_order':['E1024','F1024'], 'rng':'Python random.Random; statistical resampling only', 'limitations':'Conditional on these trained weights and fixed spawn geometry. Does not estimate training-seed uncertainty. Cutoffs and draws score zero.'},
             'per_opponent':results,
             'secondary_equal_opponent_difference':sum(r['paired_win_fraction_difference'] for r in results.values())/2}
 

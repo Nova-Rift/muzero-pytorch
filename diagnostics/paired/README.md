@@ -38,3 +38,5 @@ Equal-opponent mean difference is secondary, without an aggregate interval.
 Private `.evidence` may hold parser checks and fixtures; never publish historical
 fixtures as iteration23 results. Synthetic unit fixtures are created in temporary
 directories and have no research interpretation. No GPU/network/model changes.
+
+New experiments may supply candidate_arm, development_seeds (E1024/F1024) and bootstrap_seed in the frozen input manifest. Defaults preserve the original Q experiment. Bind this manifest before reading outcomes; the parser checks identity, nonoverlapping64-game seed ranges and exact protocol agreement, not the chronology of that freeze. Candidate labels cannot contain paths. Twelve fixtures pass; original Q result recomputation is exactly unchanged.

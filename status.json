@@ -54,7 +54,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:07:13.724954-07:00",
+    "measured_at": "2026-10-23T20:08:17.368319-07:00",
     "steps": [
       {
         "step": 1,
@@ -82,7 +82,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:00:59.966131+00:00",
-        "elapsed_seconds": 2005,
+        "elapsed_seconds": 2069,
         "completed": null,
         "total": null,
         "task": "Repair result feed and recovery throughput",
@@ -101,7 +101,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3844,
+    "elapsed_seconds": 3908,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -122,21 +122,21 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792810787.565631,
+        "updated_at": 1792811240.772235,
         "job_id": "iteration24-throughput-repair",
         "decision": {
-          "reviewing": "Shortest next GPU admission path after consumed session24 allocation",
+          "reviewing": "Which archive overhead can be removed without weakening recovery",
           "options": [
-            "Resolve recovery storage and reuse frozen continuation source checks"
+            "Reuse verified archive objects in normal snapshots; explicit frozen-file deduplication"
           ],
           "evidence": [
-            "Baseline2048 continuation and separate4096 evaluator prepared; recovery disk short at last measurement"
+            "195 completed paths have estimated651706368 redundant bytes; raw verification scratch remains necessary"
           ],
-          "reason": "No second allocation is allowed in session24; persistent storage preparation should prevent next-session cold waits",
-          "next_action": "Helper returns measured critical path and safe tested improvement",
-          "updated_at": "2026-10-24T02:59:47.565631+00:00"
+          "reason": "Repeat copying can be eliminated, but estimated remaining179MB storage deficit cannot be waived",
+          "next_action": "Apply tested integration and verified dedup after handoff, then remeasure admission space",
+          "updated_at": "2026-10-24T03:07:20.772235+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",

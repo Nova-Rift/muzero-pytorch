@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:47:37.234389+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:50:24.349165-07:00",
+    "measured_at": "2026-10-23T18:51:26.846815-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:47:37.234389+00:00",
-        "elapsed_seconds": 2210,
+        "elapsed_seconds": 2273,
         "completed": null,
         "total": null,
         "task": "Implement frozen replay gradient diagnostic",
@@ -212,20 +212,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3154,
+    "elapsed_seconds": 3217,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792806395.983,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1792806645.875134,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792806606.681301,
+        "state": "pending",
+        "updated_at": 1792806645.8056138,
         "job_id": "iteration-23-paired-readout",
         "decision": {
           "reviewing": "Finalize immutable evidence and source history after mixed development results",
@@ -250,7 +250,7 @@
           "timeouts": 11,
           "title": "Freeze actual replay diagnostic inputs",
           "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-          "result": "Published Q experiment summary and verified remote SHA. Diagnostic seed and exact final-state hashes frozen before gradients; awaiting atomic helper handoff.",
+          "result": "Q gate failed and GPU released. Next training preparation depends on completed replay-gradient diagnostic and separate tested candidate; no additional independent GPU task is admitted.",
           "candidate": "Baseline2048",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-24T01:50:06.681301+00:00",
@@ -387,23 +387,23 @@
       },
       {
         "id": "loop-b",
-        "stage": "edit",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792806395.983,
+        "updated_at": 1792806645.875134,
         "job_id": "iteration-23-real-gradients",
         "decision": {
-          "reviewing": "Measure whether root/recurrent weighting materially changes gradients on actual replay",
+          "reviewing": "Does the tested redistribution change actual replay gradients without a baseline reconstruction error?",
           "options": [
-            "Implement a read-only fixed-minibatch diagnostic before changing the trainer."
+            "Run the predeclared four64-example CPU probe, no optimizer step."
           ],
           "evidence": [
-            "Synthetic source audit establishes coefficient differences but does not measure trained replay gradients."
+            "Seven fixtures passed, including exact float64 loss/gradient parity and unchanged reward/hidden-gradient contracts."
           ],
-          "reason": "A bounded CPU diagnostic can separate loss redistribution from global scale without paying for another untested candidate.",
-          "next_action": "Helper implements fixtures and source-bound replay measurement; coordinator reviews before running it.",
-          "updated_at": "2026-10-24T01:46:35.983000+00:00"
+          "reason": "Real replay gradients remain unmeasured; a bounded descriptive probe can guide the next isolated candidate.",
+          "next_action": "Freeze exact sampled tensors, measure baseline and root5 gradients, and record finite/parity checks.",
+          "updated_at": "2026-10-24T01:50:45.875134+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

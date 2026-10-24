@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:12:18.320121-07:00",
+    "measured_at": "2026-10-23T19:13:20.826242-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 549,
+        "elapsed_seconds": 612,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,28 +76,28 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 549,
-    "eta_seconds": 541,
+    "elapsed_seconds": 612,
+    "eta_seconds": 478,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792807929.522311,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1792807934.0426018,
-        "job_id": "baseline-gpu-resume",
+        "updated_at": 1792807999.0164003,
+        "job_id": "Baseline2048",
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "train",
         "state": "pending",
-        "updated_at": 1792807934.0426018,
+        "updated_at": 1792807999.0164003,
         "job_id": "Root5_2048",
         "details": {
           "schema": 1,
@@ -155,7 +155,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -175,7 +175,7 @@
           "next_action": "Freeze choice rule and bounded job/storage plans before outcomes; preserve current immutable jobs.",
           "updated_at": "2026-10-24T02:12:09.550689+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

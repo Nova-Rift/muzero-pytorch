@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:13:20.826242-07:00",
+    "measured_at": "2026-10-23T19:14:23.312000-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 612,
+        "elapsed_seconds": 674,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,44 +76,110 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 612,
-    "eta_seconds": 478,
+    "elapsed_seconds": 674,
+    "eta_seconds": 416,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792807929.522311,
+    "updated_at": 1792808002.8129663,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792807999.0164003,
+        "updated_at": 1792808059.042131,
         "job_id": "Baseline2048",
+        "progress": {
+          "job_id": "Baseline2048",
+          "completed": 384,
+          "total": 2048,
+          "unit": "games",
+          "updated_at": 1792808053.109671
+        },
+        "decision": {
+          "reviewing": "Run the frozen paired control after actual GPU recovery gates passed",
+          "options": [
+            "Complete baseline2048 then root5_2048, final endpoint only."
+          ],
+          "evidence": [
+            "Both CUDA gates verified118tensors334values; setup completed in about140seconds."
+          ],
+          "reason": "The changed loss is now ready for strength measurement; correctness is not strength evidence.",
+          "next_action": "Recover milestone checkpoints and losses while preparing ready same-pod followup.",
+          "updated_at": "2026-10-24T02:13:22.878370+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "train",
+          "iteration": 24,
+          "completed_games": 384,
+          "target_games": 2048,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Fresh2048 baseline training",
+          "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
+          "result": "Observed 384 training games and 384 optimizer updates. Strength remains unmeasured.",
+          "candidate": "Baseline2048",
+          "evaluation_label": "Not started",
+          "updated_at": "2026-10-24T02:14:13.109671+00:00",
+          "training_metrics": {
+            "iteration": 24,
+            "run_id": "Baseline2048",
+            "loss_definition": "last_update_batch_mean",
+            "reported_at": "2026-10-24T02:14:13.109671+00:00",
+            "points": [
+              {
+                "optimizer_updates": 128,
+                "games": 128,
+                "elapsed_seconds": 29.08756226801779,
+                "loss": 5.356105804443359,
+                "search_entropy": 3.465735912322998
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 56.98251880099997,
+                "loss": 5.556274890899658,
+                "search_entropy": 0.9509891273919493
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 84.82090379600413,
+                "loss": 5.48863410949707,
+                "search_entropy": 1.304490718524903
+              }
+            ]
+          },
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "train",
         "state": "pending",
-        "updated_at": 1792807999.0164003,
+        "updated_at": 1792808059.042131,
         "job_id": "Root5_2048",
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 24,
           "completed_games": 0,
-          "target_games": 0,
+          "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Root5 paired training queued",
-          "change": "Complete remaining admission prerequisites for the prepared experiment.",
-          "result": "Waits for both actualGPU resume gates and baseline training. Serial GPU policy; no overlap has been validated.",
-          "candidate": "Root5 fresh pair",
+          "title": "Fresh2048 root-focused loss training",
+          "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
+          "result": "Baseline is running; candidate waits for baseline completion under serial GPU execution.",
+          "candidate": "Root5_2048",
           "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:12:09.412011+00:00",
+          "updated_at": "2026-10-24T02:13:22.813172+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -123,7 +189,7 @@
         "id": "loop-c",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792807929.522311,
+        "updated_at": 1792808002.8129663,
         "job_id": "iteration-24-first-transition",
         "decision": {
           "reviewing": "Prepare a distinct first-hidden-transition gradient hypothesis while current training runs",
@@ -161,7 +227,7 @@
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792807929.550689,
+        "updated_at": 1792808002.8129663,
         "job_id": "iteration-24-reuse",
         "decision": {
           "reviewing": "Which tested followup can reuse this pod within storage, budget and original deadlines?",

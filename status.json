@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:27:55.351030-07:00",
+    "measured_at": "2026-10-23T19:29:17.312458-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 1486,
+        "elapsed_seconds": 1568,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
@@ -76,167 +76,29 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1486,
+    "elapsed_seconds": 1568,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792808562.124706,
+    "active_loops": 3,
+    "updated_at": 1792808739.969263,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792808874.4787667,
-        "job_id": "Baseline2048-F1024",
+        "updated_at": 1792808913.4805565,
+        "job_id": "Baseline2048-E1024",
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "train",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792808820.047886,
-        "job_id": "Root5_2048",
-        "details": {
-          "schema": 1,
-          "stage": "train",
-          "iteration": 24,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Fresh2048 root-focused loss training",
-          "change": "Both actual CUDA resume gates passed; original search/game/reward unchanged.",
-          "result": "Observed 2048 training games and 2048 optimizer updates. Strength remains unmeasured.",
-          "candidate": "Root5_2048",
-          "evaluation_label": "Not started",
-          "updated_at": "2026-10-24T02:27:00.047886+00:00",
-          "training_metrics": {
-            "iteration": 24,
-            "run_id": "Root5_2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-24T02:26:58.707914+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 29.373610242968425,
-                "loss": 5.355668067932129,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 57.506986603024416,
-                "loss": 5.046642303466797,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 85.50702369498322,
-                "loss": 5.486116409301758,
-                "search_entropy": 1.206848217640072
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 113.27858590497635,
-                "loss": 5.135043144226074,
-                "search_entropy": 1.8063836279325187
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 142.17788914300036,
-                "loss": 4.520046234130859,
-                "search_entropy": 1.096178163541481
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 169.440554382978,
-                "loss": 5.178977012634277,
-                "search_entropy": 1.8257396589033306
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 197.3315722150146,
-                "loss": 5.070823669433594,
-                "search_entropy": 1.698413871228695
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 225.1371806510142,
-                "loss": 4.949483394622803,
-                "search_entropy": 1.0274890360888094
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 253.88084474398056,
-                "loss": 4.9993815422058105,
-                "search_entropy": 1.4906093385070562
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 281.7500065729837,
-                "loss": 4.915453910827637,
-                "search_entropy": 1.6604270222596824
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 309.572286568,
-                "loss": 4.835692405700684,
-                "search_entropy": 1.785482818260789
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 337.0731284280191,
-                "loss": 4.817424774169922,
-                "search_entropy": 1.5460890755057335
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 365.5422630630201,
-                "loss": 5.158642768859863,
-                "search_entropy": 1.6064041266217828
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 393.21328680601437,
-                "loss": 5.277956962585449,
-                "search_entropy": 1.4851235607638955
-              },
-              {
-                "optimizer_updates": 1920,
-                "games": 1920,
-                "elapsed_seconds": 421.139310523984,
-                "loss": 5.351215362548828,
-                "search_entropy": 1.7814623448066413
-              },
-              {
-                "optimizer_updates": 2048,
-                "games": 2048,
-                "elapsed_seconds": 448.8686610190198,
-                "loss": 5.145257949829102,
-                "search_entropy": 1.7804545531980693
-              }
-            ]
-          },
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
+        "updated_at": 1792808954.6169171,
+        "job_id": "Root5_2048-E1024",
         "fresh": true
       },
       {
@@ -262,8 +124,8 @@
       {
         "id": "loop-d",
         "stage": "test",
-        "state": "active",
-        "updated_at": 1792808562.124706,
+        "state": "pending",
+        "updated_at": 1792808913.4805565,
         "job_id": "iteration-24-overlap-preparation",
         "decision": {
           "reviewing": "Does exact-workload GPU overlap improve useful throughput with memory headroom?",
@@ -277,7 +139,7 @@
           "next_action": "Helper tests bounded benchmark; coordinator checks remaining cost/deadline before admission",
           "updated_at": "2026-10-24T02:22:42.124706+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

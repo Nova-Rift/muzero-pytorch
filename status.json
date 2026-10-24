@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
+  "stage": "paused",
   "iteration": 21,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Research stopped",
+  "title": "Stopped by owner",
   "change": "One pod, serial GPU tasks, same-pod follow-up prepared.",
   "result": "CPU parity and transport tests passed; GPU correctness and runtime remain to be measured.",
   "candidate": "MuZero learning-signal review",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-23T02:59:45.612256+00:00",
+  "updated_at": "2026-10-24T00:30:56.568559+00:00",
   "revision": {
     "summary": "Add a fixed offline clock versus constant-feature calibration probe",
     "reason": "Historical finite-horizon value target lacks explicit clock; test whether that feature helps held-out retained replay calibration.",
@@ -38,7 +38,7 @@
     "updated_at": "2026-10-23T02:37:21.759979+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:30:07.310994-07:00",
+    "measured_at": "2026-10-23T17:30:56.617977-07:00",
     "steps": [
       {
         "step": 1,
@@ -85,7 +85,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 78570,
+    "elapsed_seconds": 78619,
     "eta_seconds": null,
     "eta_basis": "17 previous completed iteration(s)"
   },

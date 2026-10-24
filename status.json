@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:40:46.471580-07:00",
+    "measured_at": "2026-10-23T20:41:22.369272-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,20 +76,20 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-24T03:40:46.402570+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 36,
         "completed": null,
         "total": null,
         "task": "Continuation setup and recovery gates",
-        "eta_seconds": 115,
+        "eta_seconds": 79,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 361,
-    "eta_seconds": 729,
+    "elapsed_seconds": 397,
+    "eta_seconds": 693,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 3,
     "updated_at": 1792812971.7048461,
     "fresh": false,
     "loops": [
@@ -107,6 +107,14 @@
         "state": "active",
         "updated_at": 1792813218.467285,
         "job_id": "iteration26-replication-preparation",
+        "fresh": false
+      },
+      {
+        "id": "loop-d",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792813276.6216094,
+        "job_id": "iteration26-ownership-review",
         "fresh": true
       }
     ]

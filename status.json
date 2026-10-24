@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 26,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Verified continuation ready for guarded launch",
-  "change": "Exact source-bound package and 20 runner safety checks verified; serial GPU plan retains recovery and resume gates.",
-  "result": "No session26 pod allocated yet. Estimated2424 seconds at2.6866 dollars; storage exceeds unchanged recovery bound. Conditional confirmation is prepared but not admitted.",
+  "title": "Continuation setup and recovery gates",
+  "change": "Session26 pod registered; payload transfer underway. Remote restore and CUDA resume checks must pass before training.",
+  "result": "One GPU allocated, no training results yet. Conditional confirmation ready; helper preparing independent-seed replication. Estimated total2.6866 dollars, not actual billed cost.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:39:39.275511+00:00",
+  "updated_at": "2026-10-24T03:40:46.402570+00:00",
   "latest_comparison": {
     "iteration": 24,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:40:14.360040-07:00",
+    "measured_at": "2026-10-23T20:40:46.471580-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,33 +63,33 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-24T03:39:39.275511+00:00",
-        "elapsed_seconds": 329,
+        "state": "finished",
+        "updated_at": "2026-10-24T03:40:46.402570+00:00",
+        "elapsed_seconds": 361,
         "completed": null,
         "total": null,
         "task": "Verified continuation ready for guarded launch",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T03:40:46.402570+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Continuation setup and recovery gates",
+        "eta_seconds": 115,
+        "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 329,
-    "eta_seconds": 761,
+    "elapsed_seconds": 361,
+    "eta_seconds": 729,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
+    "active_loops": 2,
     "updated_at": 1792812971.7048461,
     "fresh": false,
     "loops": [
@@ -100,6 +100,14 @@
         "updated_at": 1792812971.7048461,
         "job_id": "iteration26-coordinator",
         "fresh": false
+      },
+      {
+        "id": "loop-c",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792813218.467285,
+        "job_id": "iteration26-replication-preparation",
+        "fresh": true
       }
     ]
   },

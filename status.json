@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "evaluate",
   "iteration": 24,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 24: reviewing evidence",
+  "title": "Paired Root5 development comparisons",
   "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "Immediately bind prepared root5 package to next assigned session, check fresh offers/budget/storage/deadlines and runner wiring, then actual GPU gates followed by frozen paired training. Session23 allocation consumed; no optional audit dela",
+  "result": "Baseline E24/34/0/6 and F30/23/0/11; Root5 E25/21/0/18, each64 games (wins/opponent wins/draws/timeouts). Remaining controls running; no promotion.",
   "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T02:03:09.263227+00:00",
+  "updated_at": "2026-10-24T02:30:20.791007+00:00",
   "latest_comparison": {
     "iteration": 23,
     "candidate": "Baseline2048",
@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:29:17.312458-07:00",
+    "measured_at": "2026-10-23T19:30:20.843328-07:00",
     "steps": [
       {
         "step": 1,
@@ -44,25 +44,25 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T02:30:20.791007+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "No new evaluation",
+        "eta_seconds": 474,
+        "eta_basis": "12 previous iteration(s)"
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-24T02:03:09.263227+00:00",
-        "elapsed_seconds": 1568,
+        "state": "finished",
+        "updated_at": "2026-10-24T02:30:20.791007+00:00",
+        "elapsed_seconds": 1632,
         "completed": null,
         "total": null,
         "task": "Iteration 24: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -76,68 +76,57 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1568,
+    "elapsed_seconds": 1632,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792808739.969263,
+    "updated_at": 1792808913.4805565,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792808913.4805565,
-        "job_id": "Baseline2048-E1024",
+        "updated_at": 1792809019.6420054,
+        "job_id": "Baseline2048-OwnInitial",
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "evaluate",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792808954.6169171,
-        "job_id": "Root5_2048-E1024",
-        "fresh": true
-      },
-      {
-        "id": "loop-c",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792808739.969263,
-        "job_id": "iteration-24-followup-admission-plan",
-        "decision": {
-          "reviewing": "Will the prepared follow-up be recovered and reported by the existing runner?",
-          "options": [
-            "Correct unsubmitted output paths and bind frozen comparisons"
-          ],
-          "evidence": [
-            "Existing recovery reads workspace runs; preliminary templates used a separate followup output tree"
-          ],
-          "reason": "Avoid missing artifacts without modifying active source or runner",
-          "next_action": "Helper validates compatible output paths and exact comparison bindings before admission",
-          "updated_at": "2026-10-24T02:25:39.969263+00:00"
-        },
+        "updated_at": 1792808913.4805565,
+        "job_id": "iteration-24-readout",
         "fresh": false
       },
       {
         "id": "loop-d",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792808913.4805565,
-        "job_id": "iteration-24-overlap-preparation",
+        "updated_at": 1792809019.6420054,
+        "job_id": "serial-overlap-benchmark",
+        "fresh": true
+      },
+      {
+        "id": "loop-c",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792809014.235835,
+        "job_id": "iteration-24-followup-admission-plan",
         "decision": {
-          "reviewing": "Does exact-workload GPU overlap improve useful throughput with memory headroom?",
+          "reviewing": "Which pre-frozen follow-up branch meets scientific and resource admission?",
           "options": [
-            "Prepare a240-second bounded serial-versus-overlap check after current jobs"
+            "Replicate Root5 only if every frozen development gate passes",
+            "Otherwise consider the independently motivated first-transition candidate"
           ],
           "evidence": [
-            "H100 active; production128-game blocks take roughly24seconds; GPU overlap has not been measured"
+            "Root5 E audit:25wins21opponent wins0draws18timeouts of64; timeout gate requires at most12"
           ],
-          "reason": "Owner requests resolving concurrency bottleneck; preserve frozen scientific runs and require measured gain",
-          "next_action": "Helper tests bounded benchmark; coordinator checks remaining cost/deadline before admission",
-          "updated_at": "2026-10-24T02:22:42.124706+00:00"
+          "reason": "Root5 E timeout gate fails; wait for full frozen report and complete recovery before final branch decision",
+          "next_action": "Review completed paired report, then verify storage and acknowledged lease for prepared follow-up",
+          "updated_at": "2026-10-24T02:30:14.235835+00:00"
         },
         "fresh": true
       }

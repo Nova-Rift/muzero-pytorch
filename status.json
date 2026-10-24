@@ -35,7 +35,7 @@
     "updated_at": "2026-10-24T00:53:36.791923+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:53:36.848160-07:00",
+    "measured_at": "2026-10-23T17:53:50.768435-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T00:53:36.791923+00:00",
-        "elapsed_seconds": 362,
+        "elapsed_seconds": 375,
         "completed": 64,
         "total": null,
         "task": "Fresh640 vs F1024",
-        "eta_seconds": 112,
+        "eta_seconds": 99,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -82,19 +82,19 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1350,
+    "elapsed_seconds": 1364,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792803213.818444,
+    "active_loops": 1,
+    "updated_at": 1792803217.588401,
     "fresh": true,
     "loops": [
       {
         "id": "loop-b",
         "stage": "evaluate",
-        "state": "active",
+        "state": "done",
         "job_id": "Fresh640-FreshInitial"
       },
       {

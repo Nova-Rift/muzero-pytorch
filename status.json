@@ -165,7 +165,7 @@
     "updated_at": "2026-10-24T01:47:37.234389+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:51:26.846815-07:00",
+    "measured_at": "2026-10-23T18:52:29.074049-07:00",
     "steps": [
       {
         "step": 1,
@@ -193,7 +193,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T01:47:37.234389+00:00",
-        "elapsed_seconds": 2273,
+        "elapsed_seconds": 2335,
         "completed": null,
         "total": null,
         "task": "Implement frozen replay gradient diagnostic",
@@ -212,14 +212,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3217,
+    "elapsed_seconds": 3279,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1792806645.875134,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -383,7 +383,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -403,7 +403,7 @@
           "next_action": "Freeze exact sampled tensors, measure baseline and root5 gradients, and record finite/parity checks.",
           "updated_at": "2026-10-24T01:50:45.875134+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:35:43.321691-07:00",
+    "measured_at": "2026-10-23T19:36:47.314995-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 323,
+        "elapsed_seconds": 387,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 151,
+        "eta_seconds": 87,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,36 +76,48 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1954,
+    "elapsed_seconds": 2018,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792808913.4805565,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792809402.157912,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792809054.9091687,
-        "job_id": "iteration-24-evidence-finalization",
-        "fresh": false
+        "stage": "evaluate",
+        "state": "pending",
+        "updated_at": 1792809406.538044,
+        "job_id": "first-transition-Baseline2048-E1024",
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792808913.4805565,
-        "job_id": "iteration-24-readout",
-        "fresh": false
+        "updated_at": 1792809402.157912,
+        "job_id": "iteration-24-next-replication-plan",
+        "decision": {
+          "reviewing": "What independent replication is ready if the current candidate passes development?",
+          "options": [
+            "Freeze a fresh paired seed and six balanced comparisons"
+          ],
+          "evidence": [
+            "Current first-transition training is active; its source/runtime and resume checks passed"
+          ],
+          "reason": "Prepare the next scientifically required GPU task before current results; no promotion from one seed",
+          "next_action": "Helper validates protocol, source and reusable-runner admission requirements without allocating",
+          "updated_at": "2026-10-24T02:36:42.157912+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792809160.810402,
+        "state": "pending",
+        "updated_at": 1792809380.0580173,
         "job_id": "iteration-24-overlap-failure-review",
         "decision": {
           "reviewing": "Why did the bounded overlap diagnostic fail before training?",
@@ -119,13 +131,13 @@
           "next_action": "Helper publishes tested correction; coordinator reviews before any future GPU admission",
           "updated_at": "2026-10-24T02:32:40.810402+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792809341.4867067,
+        "updated_at": 1792809406.538044,
         "job_id": "first-transition-FirstTransition2048",
         "fresh": true
       }

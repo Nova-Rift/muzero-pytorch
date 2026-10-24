@@ -40,7 +40,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:48:45.886686-07:00",
+    "measured_at": "2026-10-23T19:49:52.311712-07:00",
     "steps": [
       {
         "step": 1,
@@ -57,7 +57,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:46:29.591145+00:00",
-        "elapsed_seconds": 705,
+        "elapsed_seconds": 771,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
@@ -87,7 +87,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2737,
+    "elapsed_seconds": 2803,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -102,7 +102,7 @@
         "state": "pending",
         "updated_at": 1792810088.2822711,
         "job_id": "iteration-24-first-transition-audit",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -143,7 +143,7 @@
           "next_action": "Verify final recovery, release pod, archive all candidate evidence and save next-action report",
           "updated_at": "2026-10-24T02:48:40.404826+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -151,7 +151,7 @@
         "state": "pending",
         "updated_at": 1792810088.2822711,
         "job_id": "iteration-24-candidate-review",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

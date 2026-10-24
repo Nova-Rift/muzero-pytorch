@@ -4,38 +4,38 @@
   "iteration": 22,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 28,
+  "wins": 35,
   "evaluation_games": 64,
-  "timeouts": 3,
-  "title": "F baseline complete; depth candidate running",
+  "timeouts": 8,
+  "title": "Depth comparison completed",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
-  "result": "Final64 games:28 wins,33 losses,0 draws,3 cutoffs. Final64-simulation F batch running.",
-  "candidate": "M2048-s32",
-  "evaluation_label": "M2048-s32 vs F1024",
-  "updated_at": "2026-10-24T00:41:42.495698+00:00",
+  "result": "Final64 games:35 wins,21 losses,0 draws,8 cutoffs. Candidate fails frozen promotion gate; no promotion.",
+  "candidate": "M2048-s64",
+  "evaluation_label": "M2048-s64 vs F1024",
+  "updated_at": "2026-10-24T00:43:30.572010+00:00",
   "matchup": {
-    "challenger": "M2048-s32",
+    "challenger": "M2048-s64",
     "opponent": "F1024",
-    "opponent_wins": 33,
+    "opponent_wins": 21,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 22,
-    "candidate": "M2048-s32",
-    "evaluation_label": "M2048-s32 vs F1024",
-    "wins": 28,
+    "candidate": "M2048-s64",
+    "evaluation_label": "M2048-s64 vs F1024",
+    "wins": 35,
     "evaluation_games": 64,
-    "timeouts": 3,
+    "timeouts": 8,
     "matchup": {
-      "challenger": "M2048-s32",
+      "challenger": "M2048-s64",
       "opponent": "F1024",
-      "opponent_wins": 33,
+      "opponent_wins": 21,
       "draws": 0
     },
-    "updated_at": "2026-10-24T00:41:42.495698+00:00"
+    "updated_at": "2026-10-24T00:43:30.572010+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:42:48.316722-07:00",
+    "measured_at": "2026-10-23T17:43:30.622461-07:00",
     "steps": [
       {
         "step": 1,
@@ -51,12 +51,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-24T00:41:42.495698+00:00",
-        "elapsed_seconds": 216,
+        "updated_at": "2026-10-24T00:43:30.572010+00:00",
+        "elapsed_seconds": 259,
         "completed": 64,
         "total": null,
-        "task": "M2048-s32 vs F1024",
-        "eta_seconds": 258,
+        "task": "M2048-s64 vs F1024",
+        "eta_seconds": 215,
         "eta_basis": "10 previous iteration(s)"
       },
       {
@@ -82,38 +82,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 701,
-    "eta_seconds": 57,
+    "elapsed_seconds": 744,
+    "eta_seconds": 14,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792802563.8977544,
+    "active_loops": 2,
+    "updated_at": 1792802610.5969143,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "evaluate",
-        "state": "done",
-        "job_id": "M2048-s64-F1024"
-      },
-      {
-        "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "job_id": "i22-recovery-preparation",
-        "decision": {
-          "reviewing": "Can immutable retention finish cleanly at a checkpoint boundary?",
-          "options": [
-            "Fix a confirmed duplicate-final-save defect in isolated source"
-          ],
-          "evidence": [
-            "Trainer calls save at512-game boundaries and again at exit; writer rejects an existing milestone"
-          ],
-          "reason": "Resolve correctness before attempting long training or claiming recoverability",
-          "next_action": "Helper reproduces the defect and tests a minimal fix",
-          "updated_at": "2026-10-24T00:40:11.907498+00:00"
-        },
+        "job_id": "i22-depth-results-review",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -123,12 +105,36 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Prepare checkpoint recovery engineering gate",
-          "change": "Reviewing prerequisites for the prepared GPU comparison",
-          "result": "Native helper preparing a bounded full-size serialization/recovery test and CPU checks. Long training remains gated; no training started.",
+          "title": "Analyze complete depth comparison",
+          "change": "One registered H100; remote SSH readiness reached.",
+          "result": "All256 development games recovered. Candidate64sim failed E gate; reviewing paired outcomes and publishing source-bound result.",
           "candidate": "MuZero fixed-root depth comparison",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T00:38:52.384686+00:00",
+          "updated_at": "2026-10-24T00:43:30.596898+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        }
+      },
+      {
+        "id": "loop-b",
+        "stage": "train",
+        "state": "active",
+        "job_id": "fresh640-retention-engineering",
+        "details": {
+          "schema": 1,
+          "stage": "train",
+          "iteration": 22,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Fresh640-game retention engineering run",
+          "change": "Reviewing prerequisites for the prepared GPU comparison",
+          "result": "Queued on the same H100 after evaluation. Fresh seed52400000; intended full states at512 and640. Not a completed2048 replication.",
+          "candidate": "MuZero fixed-root depth comparison",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-24T00:43:30.596898+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

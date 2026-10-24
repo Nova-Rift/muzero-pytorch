@@ -29,7 +29,7 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:31:50.395815-07:00",
+    "measured_at": "2026-10-23T19:32:30.692752-07:00",
     "steps": [
       {
         "step": 1,
@@ -46,11 +46,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T02:31:50.342707+00:00",
-        "elapsed_seconds": 90,
+        "elapsed_seconds": 130,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": 384,
+        "eta_seconds": 344,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -76,12 +76,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1721,
+    "elapsed_seconds": 1761,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 2,
     "updated_at": 1792808913.4805565,
     "fresh": false,
     "loops": [
@@ -91,7 +91,7 @@
         "state": "active",
         "updated_at": 1792809054.9091687,
         "job_id": "iteration-24-evidence-finalization",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -102,20 +102,20 @@
         "fresh": false
       },
       {
-        "id": "loop-c",
+        "id": "loop-d",
         "stage": "test",
-        "state": "pending",
-        "updated_at": 1792809110.3619192,
-        "job_id": "first-transition-candidate-gpu-resume",
+        "state": "done",
+        "updated_at": 1792809144.8714244,
+        "job_id": "serial-overlap-benchmark",
         "fresh": true
       },
       {
-        "id": "loop-d",
+        "id": "loop-c",
         "stage": "test",
-        "state": "pending",
-        "updated_at": 1792808995.7575045,
-        "job_id": "serial-overlap-benchmark",
-        "fresh": false
+        "state": "done",
+        "updated_at": 1792809144.8714244,
+        "job_id": "first-transition-candidate-gpu-resume",
+        "fresh": true
       }
     ]
   },

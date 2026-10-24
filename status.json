@@ -35,7 +35,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T17:55:56.321583-07:00",
+    "measured_at": "2026-10-23T17:56:58.567318-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,7 +52,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T00:54:04.152782+00:00",
-        "elapsed_seconds": 501,
+        "elapsed_seconds": 563,
         "completed": 64,
         "total": null,
         "task": "Fresh640 vs FreshInitial",
@@ -82,14 +82,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1489,
+    "elapsed_seconds": 1552,
     "eta_seconds": 0,
     "eta_basis": "17 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1792803352.5868096,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",

@@ -57,7 +57,7 @@ class VerifyTests(unittest.TestCase):
 
     def test_intended_contracts_verified_in_existing_decode(self):
         from verify_compressed_states import restore
-        for contract in ('baseline', 'root5-mass-v1'):
+        for contract in ('baseline', 'root5-mass-v1', 'first-transition1-v1'):
             with self.subTest(contract=contract):
                 self.set_contract(contract)
                 with patch('verify_compressed_states.restore', wraps=restore) as decode:
@@ -71,6 +71,14 @@ class VerifyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Manifest objective differs'):
             verify(self.root, self.source, 'entry', 'arm', [4], 'root5-mass-v1')
         self.assertFalse(list(self.root.glob('.verify-state-*')))
+
+    def test_first_transition_wrong_but_consistent_and_cleanup(self):
+        for intended,actual in [('first-transition1-v1','baseline'),('baseline','first-transition1-v1')]:
+            with self.subTest(intended=intended,actual=actual):
+                self.set_contract(actual)
+                with self.assertRaisesRegex(ValueError, 'Manifest objective differs'):
+                    verify(self.root, self.source, 'entry', 'arm', [4], intended)
+                self.assertFalse(list(self.root.glob('.verify-state-*')))
 
     def test_corrupt_compressed(self):
         path = next((self.root / 'compressed').glob('*.gz'))

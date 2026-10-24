@@ -93,7 +93,7 @@ def main():
     p.add_argument('--entrypoint', required=True)
     p.add_argument('--arm', required=True)
     p.add_argument('--expected', type=int, nargs='+', default=[512, 1024, 1536, 2048])
-    p.add_argument('--expected-loss-contract', choices=['baseline', 'root5-mass-v1'])
+    p.add_argument('--expected-loss-contract', choices=['baseline', 'root5-mass-v1', 'first-transition1-v1'])
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
     try:

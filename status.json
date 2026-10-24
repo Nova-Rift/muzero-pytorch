@@ -163,7 +163,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:58:47.326127-07:00",
+    "measured_at": "2026-10-23T20:59:50.741181-07:00",
     "steps": [
       {
         "step": 1,
@@ -191,7 +191,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-24T03:58:41.829313+00:00",
-        "elapsed_seconds": 367,
+        "elapsed_seconds": 430,
         "completed": null,
         "total": null,
         "task": "All384 development games complete; continuation gate failed",
@@ -210,7 +210,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1442,
+    "elapsed_seconds": 1506,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -225,7 +225,7 @@
         "state": "active",
         "updated_at": 1792814306.6372442,
         "job_id": "iteration26-resource-review",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -233,7 +233,7 @@
         "state": "active",
         "updated_at": 1792814289.54727,
         "job_id": "iteration26-final-readout",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -274,7 +274,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 21.332491731574137,
+    "remaining_usd": 23.06110500102639,
     "reserved_usd": 18.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }

@@ -2,22 +2,22 @@
   "schema": 1,
   "stage": "train",
   "iteration": 26,
-  "completed_games": 2944,
+  "completed_games": 3328,
   "target_games": 4096,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
   "title": "Baseline4096 exact continuation",
   "change": "CUDA resume equality passed; unchanged source continues original2048state.",
-  "result": "Recovered896new training games;2944cumulative. Frozen comparisons follow; no strength claim.",
+  "result": "Recovered1280new training games;3328cumulative. Frozen comparisons queued; recovery validator and conditional follow-up prepared.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:50:01.959801+00:00",
+  "updated_at": "2026-10-24T03:51:10.606409+00:00",
   "training_metrics": {
     "iteration": 26,
     "run_id": "Baseline4096",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-24T03:50:01.932472+00:00",
+    "reported_at": "2026-10-24T03:51:10.580630+00:00",
     "points": [
       {
         "optimizer_updates": 2176,
@@ -67,6 +67,27 @@
         "elapsed_seconds": 194.1978091080091,
         "loss": 2.52939772605896,
         "search_entropy": 1.0378407568205148
+      },
+      {
+        "optimizer_updates": 3072,
+        "games": 3072,
+        "elapsed_seconds": 217.98685763700632,
+        "loss": 2.4884819984436035,
+        "search_entropy": 1.3868438045028597
+      },
+      {
+        "optimizer_updates": 3200,
+        "games": 3200,
+        "elapsed_seconds": 243.66448444599519,
+        "loss": 2.175624370574951,
+        "search_entropy": 1.3325351574458182
+      },
+      {
+        "optimizer_updates": 3328,
+        "games": 3328,
+        "elapsed_seconds": 268.1186432620161,
+        "loss": 2.4948456287384033,
+        "search_entropy": 1.4103460488840938
       }
     ]
   },
@@ -94,17 +115,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:51:07.324909-07:00",
+    "measured_at": "2026-10-23T20:51:10.667020-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-24T03:50:01.959801+00:00",
-        "elapsed_seconds": 251,
-        "completed": 2944,
+        "updated_at": "2026-10-24T03:51:10.606409+00:00",
+        "elapsed_seconds": 254,
+        "completed": 3328,
         "total": 4096,
         "task": "Baseline4096 exact continuation",
-        "eta_seconds": 98,
+        "eta_seconds": 59,
         "eta_basis": "observed training rate"
       },
       {
@@ -141,8 +162,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 982,
-    "eta_seconds": 108,
+    "elapsed_seconds": 985,
+    "eta_seconds": 105,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "train",
   "iteration": 26,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "CUDA resume validation running",
-  "change": "419 remote files verified; setup completed in366.43seconds. Hash-bound1.015GB full-state restore passed in2.17seconds.",
-  "result": "CUDA split-resume correctness gate active before Baseline4096 training; no new scientific training or evaluation completed yet.",
+  "title": "Baseline4096 continuation training active",
+  "change": "Remote full-state restore and CUDA split-resume equality passed; unchanged trainer now continues frozen2048endpoint to4096.",
+  "result": "One active GPU training job; comparisons queued serially. Four full-state milestones scheduled; conditional follow-up artifacts prepared.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:46:38.097837+00:00",
+  "updated_at": "2026-10-24T03:46:56.601266+00:00",
   "latest_comparison": {
     "iteration": 24,
     "loop": "loop-c",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:46:45.810289-07:00",
+    "measured_at": "2026-10-23T20:46:56.659141-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-24T03:46:56.601266+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Baseline4096 continuation training active",
+        "eta_seconds": 443,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -74,18 +74,18 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-24T03:46:38.097837+00:00",
-        "elapsed_seconds": 359,
+        "state": "finished",
+        "updated_at": "2026-10-24T03:46:56.601266+00:00",
+        "elapsed_seconds": 370,
         "completed": null,
         "total": null,
         "task": "CUDA resume validation running",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 721,
-    "eta_seconds": 369,
+    "elapsed_seconds": 731,
+    "eta_seconds": 359,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,7 +97,7 @@
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792813601.3109233,
+        "updated_at": 1792813616.02489,
         "job_id": "Baseline4096",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "loop-b",
         "stage": "evaluate",
         "state": "pending",
-        "updated_at": 1792813601.3109233,
+        "updated_at": 1792813616.02489,
         "job_id": "Baseline2048-E1024",
         "fresh": true
       },

@@ -35,7 +35,7 @@
     "updated_at": "2026-10-24T01:44:18.139048+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:44:18.204979-07:00",
+    "measured_at": "2026-10-23T18:45:10.570907-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,11 +52,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-24T01:44:18.139048+00:00",
-        "elapsed_seconds": 76,
+        "elapsed_seconds": 129,
         "completed": 64,
         "total": null,
         "task": "Own initial control",
-        "eta_seconds": 449,
+        "eta_seconds": 396,
         "eta_basis": "11 previous iteration(s)"
       },
       {
@@ -82,14 +82,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2788,
+    "elapsed_seconds": 2840,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792806241.928983,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -253,7 +253,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -417,7 +417,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

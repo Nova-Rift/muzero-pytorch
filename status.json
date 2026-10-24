@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "paused",
   "iteration": 25,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "H100 allocated; verify exact continuation runtime",
+  "title": "Paused by owner",
   "change": "Frozen188.7MB payload uploading through shared setup deadline; remote source/runtime/restore and GPU resume checks precede training.",
   "result": "Pod registered at3.99/hour. Initial2424-second planning estimate2.6866dollars. No scientific training games completed in this session yet.",
   "candidate": "Baseline4096-continuation",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T03:31:52.896756+00:00",
+  "updated_at": "2026-10-24T03:34:36.761144+00:00",
   "revision": {
     "summary": "Keep baseline behavior unchanged and test longer training",
     "reason": "Both prior gradient revisions failed development gates; exact full-state continuation isolates additional training.",
@@ -47,7 +47,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-23T20:34:32.505883-07:00",
+    "measured_at": "2026-10-23T20:34:36.820248-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,18 +84,18 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-24T03:31:52.896756+00:00",
-        "elapsed_seconds": 160,
+        "state": "interrupted",
+        "updated_at": "2026-10-24T03:34:36.761144+00:00",
+        "elapsed_seconds": 164,
         "completed": null,
         "total": null,
         "task": "H100 allocated; verify exact continuation runtime",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 618,
-    "eta_seconds": 472,
+    "elapsed_seconds": 623,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -158,7 +158,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 21.53144746123155,
+    "remaining_usd": 24.332491731574137,
     "reserved_usd": 15.0,
     "reset_at": "2026-10-24T07:00:00+00:00"
   }

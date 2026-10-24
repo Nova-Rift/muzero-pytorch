@@ -29,18 +29,18 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:32:22.562354-07:00",
+    "measured_at": "2026-10-23T18:33:29.806110-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-24T01:31:53.246726+00:00",
-        "elapsed_seconds": 29,
+        "elapsed_seconds": 97,
         "completed": 2048,
         "total": 4096,
         "task": "Paired fresh2048 training on one H100",
-        "eta_seconds": 400,
-        "eta_basis": "6 previous iteration(s)"
+        "eta_seconds": 97,
+        "eta_basis": "observed training rate"
       },
       {
         "step": 2,
@@ -76,48 +76,48 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2072,
+    "elapsed_seconds": 2140,
     "eta_seconds": 0,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792805513.279474,
+    "updated_at": 1792805561.783242,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "train",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792805513.279474,
-        "job_id": "Baseline2048",
+        "updated_at": 1792805561.783242,
+        "job_id": "iteration-23-baseline-recovery",
         "decision": {
-          "reviewing": "Continue the baseline toward its frozen2048 endpoint?",
+          "reviewing": "Is the complete baseline2048 recovery ready for archival and exact future resume?",
           "options": [
-            "Complete the prepared paired comparison without changing settings"
+            "Verify all four saved milestones before further selection"
           ],
           "evidence": [
-            "1920 games and1920 optimizer updates observed;512/1024/1536 encoded milestones recovered with matching hashes."
+            "Supervisor reports Baseline2048 done and Q2048 active; three early encoded milestones already hash verified."
           ],
-          "reason": "Measured throughput fits the remaining lease; loss trend is not a strength claim.",
-          "next_action": "Complete baseline, validate its full-state chain while the queued Q arm trains.",
-          "updated_at": "2026-10-24T01:31:53.279474+00:00"
+          "reason": "Recovery integrity is independent of playing strength.",
+          "next_action": "Complete local recovery and run the tested full-state verifier.",
+          "updated_at": "2026-10-24T01:32:41.783242+00:00"
         },
         "details": {
           "schema": 1,
-          "stage": "train",
+          "stage": "test",
           "iteration": 23,
           "completed_games": 2048,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Baseline fresh2048 training",
-          "change": "Same seed and settings across paired arms; original search baseline first.",
-          "result": "Observed 2048 training games and 2048 optimizer updates. Strength remains unmeasured.",
+          "title": "Verify baseline full-state recovery",
+          "change": "Baseline training completed; check all four compressed states and final weights.",
+          "result": "Recovery is in progress while Q2048 trains on the same pod.",
           "candidate": "Baseline2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:31:37.407275+00:00",
+          "updated_at": "2026-10-24T01:32:41.716964+00:00",
           "training_metrics": {
             "iteration": 23,
             "run_id": "Baseline2048",
@@ -247,23 +247,59 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792805537.4013567,
+        "updated_at": 1792805607.347564,
         "job_id": "Q2048",
+        "progress": {
+          "job_id": "Q2048",
+          "completed": 384,
+          "total": 2048,
+          "unit": "games",
+          "updated_at": 1792805593.168302
+        },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 23,
-          "completed_games": 0,
+          "completed_games": 384,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Queued Q-completion training",
+          "title": "Q-completion fresh2048 training",
           "change": "Recovery verifier and paired readout are tested and ready.",
-          "result": "Waiting for serial baseline completion; release condition is successful Baseline2048 job. No helper remains active.",
+          "result": "Observed 384 training games and 384 optimizer updates. Strength remains unmeasured.",
           "candidate": "Q2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:30:08.390415+00:00",
+          "updated_at": "2026-10-24T01:33:13.168302+00:00",
+          "training_metrics": {
+            "iteration": 23,
+            "run_id": "Q2048",
+            "loss_definition": "last_update_batch_mean",
+            "reported_at": "2026-10-24T01:33:13.168302+00:00",
+            "points": [
+              {
+                "optimizer_updates": 128,
+                "games": 128,
+                "elapsed_seconds": 31.42276402999414,
+                "loss": 4.845115661621094,
+                "search_entropy": 0.968941505998373
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 57.25735433003865,
+                "loss": 4.9677734375,
+                "search_entropy": 1.2187657350665526
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 86.79315404203953,
+                "loss": 4.941828727722168,
+                "search_entropy": 1.3789989701472223
+              }
+            ]
+          },
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

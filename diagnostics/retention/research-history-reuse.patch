@@ -1,0 +1,109 @@
+--- a/tools/research-loop/history.py
++++ b/tools/research-loop/history.py
+@@ -6,6 +6,21 @@
+ ARCHIVE = ROOT / '.local/research-history'
+ SKIP = re.compile(r'(^\.git$|^\.env|credential|api.key|token|secret|^id_rsa|^id_ed25519|^node_modules$|^__pycache__$)', re.I)
+ 
++def _identity(st):
++    return (st.st_dev,st.st_ino,st.st_size,st.st_mtime_ns,st.st_ctime_ns)
++
++def _verified_hash(path, cache):
++    if path.is_symlink() or not path.is_file(): raise ValueError('Regular archive artifact required')
++    before=path.stat(); key=_identity(before)
++    # Mutable files must be hashed even if a filesystem clock tick has not advanced.
++    if key not in cache or before.st_mode & 0o222:
++        digest=hashlib.sha256()
++        with path.open('rb') as source:
++            while chunk:=source.read(1024*1024):digest.update(chunk)
++        if _identity(path.stat())!=key:raise RuntimeError(f'Artifact changed during snapshot: {path}')
++        cache[key]=digest.hexdigest()
++    return cache[key],before
++
+ def snapshot(label, paths, archive=ARCHIVE):
+     if not re.fullmatch(r'[\w.-]{1,120}', label):
+         raise ValueError('Use a short research ID')
+@@ -13,7 +28,7 @@
+     archive.mkdir(parents=True, exist_ok=True, mode=0o700)
+     objects = archive / 'objects'; objects.mkdir(exist_ok=True, mode=0o700)
+     records = archive / 'records'; records.mkdir(exist_ok=True, mode=0o700)
+-    files, omitted = [], []
++    files, omitted, verified = [], [], {}
+     for source in paths:
+         source = Path(source).absolute()
+         if not source.exists(): raise FileNotFoundError(source)
+@@ -23,7 +38,14 @@
+                 omitted.append(str(path)); continue
+             if not path.is_file(): continue
+             if path.resolve().is_relative_to(archive.resolve()): raise ValueError('Cannot archive the archive')
+-            before = path.stat()
++            sha,before = _verified_hash(path, verified)
++            dest = objects / sha
++            if dest.exists() or dest.is_symlink():
++                existing,_ = _verified_hash(dest, verified)
++                if existing!=sha:raise ValueError(f'Corrupt archive object: {dest}; never overwrite')
++                if _identity(path.stat())!=_identity(before):raise RuntimeError(f'Artifact changed during snapshot: {path}')
++                files.append({'path':str(path),'sha256':sha,'bytes':before.st_size})
++                continue
+             digest = hashlib.sha256()
+             fd, tmp = tempfile.mkstemp(dir=objects)
+             try:
+@@ -32,11 +54,12 @@
+                         digest.update(chunk); out.write(chunk)
+                     out.flush(); os.fsync(out.fileno())
+                 after = path.stat()
+-                if (before.st_size, before.st_mtime_ns) != (after.st_size, after.st_mtime_ns):
++                if _identity(before)!=_identity(after) or digest.hexdigest()!=sha:
+                     raise RuntimeError(f'Artifact changed during snapshot: {path}; retry at a safe boundary')
+-                sha = digest.hexdigest(); dest = objects / sha
+                 try: os.link(tmp, dest)
+-                except FileExistsError: pass
++                except FileExistsError:
++                    existing,_=_verified_hash(dest,verified)
++                    if existing!=sha:raise ValueError(f'Corrupt concurrent archive object: {dest}')
+                 files.append({'path':str(path),'sha256':sha,'bytes':after.st_size})
+             finally: Path(tmp).unlink(missing_ok=True)
+     data = {'schema':1,'id':label,'files':files,'omitted':sorted(set(omitted))}
+--- /dev/null
++++ b/tools/research-loop/test_history_reuse.py
+@@ -0,0 +1,41 @@
++import hashlib,json,os,tempfile,unittest
++from pathlib import Path
++from unittest.mock import patch
++import history
++
++class HistoryReuseTests(unittest.TestCase):
++ def test_repeat_snapshot_never_creates_payload_temp(self):
++  with tempfile.TemporaryDirectory() as d:
++   root=Path(d);source=root/'data';source.write_bytes(b'payload');archive=root/'archive'
++   first=history.snapshot('id',[source],archive)
++   with patch.object(history.tempfile,'mkstemp',side_effect=AssertionError('No duplicate copy allowed')):
++    self.assertEqual(first,history.snapshot('id',[source],archive))
++ def test_corrupt_object_rejected_not_overwritten(self):
++  with tempfile.TemporaryDirectory() as d:
++   root=Path(d);source=root/'data';source.write_bytes(b'payload');archive=root/'archive'
++   history.snapshot('id',[source],archive)
++   obj=archive/'objects'/hashlib.sha256(b'payload').hexdigest();obj.write_bytes(b'corrupt')
++   with self.assertRaises(ValueError):history.snapshot('id',[source],archive)
++   self.assertEqual(obj.read_bytes(),b'corrupt')
++ def test_object_symlink_rejected(self):
++  with tempfile.TemporaryDirectory() as d:
++   root=Path(d);source=root/'data';source.write_bytes(b'payload');archive=root/'archive'
++   history.snapshot('id',[source],archive)
++   obj=archive/'objects'/hashlib.sha256(b'payload').hexdigest();obj.unlink();obj.symlink_to(source)
++   with self.assertRaises(ValueError):history.snapshot('id',[source],archive)
++ def test_changed_source_before_copy_preserved_and_rejected(self):
++  with tempfile.TemporaryDirectory() as d:
++   root=Path(d);source=root/'data';source.write_bytes(b'payload');archive=root/'archive'
++   original=history.tempfile.mkstemp
++   def change(*args,**kwargs):
++    source.write_bytes(b'changed');return original(*args,**kwargs)
++   with patch.object(history.tempfile,'mkstemp',side_effect=change):
++    with self.assertRaises(RuntimeError):history.snapshot('id',[source],archive)
++   self.assertEqual(source.read_bytes(),b'changed');self.assertEqual(list((archive/'objects').iterdir()),[])
++ def test_cache_shared_inode_and_mutation_invalidates(self):
++  with tempfile.TemporaryDirectory() as d:
++   p=Path(d)/'a';p.write_bytes(b'one');q=Path(d)/'b';os.link(p,q);cache={}
++   first,_=history._verified_hash(p,cache);history._verified_hash(q,cache);self.assertEqual(len(cache),1)
++   p.write_bytes(b'two');second,_=history._verified_hash(q,cache);self.assertNotEqual(first,second)
++
++if __name__=='__main__':unittest.main()

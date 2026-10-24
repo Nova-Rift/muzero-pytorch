@@ -7,21 +7,22 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Testing lossless checkpoint recovery",
+  "title": "Preparing single-change search experiment",
   "change": "Prepared32 versus64 simulations with fixed eight roots and frozen weights.",
   "result": "Validate storage-safe immutable checkpoint recovery/archive capacity and interrupted-resume equivalence before further paid long training. No new allocation until these prerequisites and a frozen costed plan are ready.",
   "candidate": "Fresh640",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T01:02:29.700130+00:00",
+  "updated_at": "2026-10-24T01:08:10.704931+00:00",
   "revision": {
-    "summary": "Proposed standalone lossless checkpoint compression diagnostic",
-    "reason": "Two recovered full states exceed2GB; duplicate recovery and archive copies limit safe longer training.",
+    "summary": "Proposed isolated reference Q-completion candidate",
+    "reason": "The one-rule diagnostic changed8 of32 top actions on frozen histories; playing strength remains unmeasured.",
     "changes": [
-      "diagnostics/retention/compressed_checkpoint.py: bounded streaming gzip and restored-content verification",
-      "diagnostics/retention/test_compressed_checkpoint.py: exact roundtrip, corruption and immutable destination checks"
+      "batched_search_qcompletion.py: zero unvisited Q after normalization",
+      "arena/train_qcompletion.py: explicit candidate entry point using unchanged trainer and loss",
+      "tests/test_qcompletion.py: source isolation, legal masks, batch/static parity"
     ],
-    "test_plan": "Run small corruption and roundtrip tests, then measure a real recovered state; this does not test playing strength or GPU resume equivalence.",
-    "updated_at": "2026-10-24T01:02:29.700125+00:00"
+    "test_plan": "Run correctness and tiny split-resume checks, then a costed paired fresh-training comparison only after recovery and runtime gates pass.",
+    "updated_at": "2026-10-24T01:08:10.704927+00:00"
   },
   "latest_comparison": {
     "iteration": 22,
@@ -39,7 +40,7 @@
     "updated_at": "2026-10-24T00:54:04.152782+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T18:07:21.811499-07:00",
+    "measured_at": "2026-10-23T18:08:10.761229-07:00",
     "steps": [
       {
         "step": 1,
@@ -66,11 +67,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-24T01:02:29.700130+00:00",
-        "elapsed_seconds": 572,
+        "updated_at": "2026-10-24T01:08:10.704931+00:00",
+        "elapsed_seconds": 621,
         "completed": null,
         "total": null,
-        "task": "Testing lossless checkpoint recovery",
+        "task": "Preparing single-change search experiment",
         "eta_seconds": 0,
         "eta_basis": "18 previous iteration(s)"
       },
@@ -86,14 +87,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 572,
-    "eta_seconds": 352,
+    "elapsed_seconds": 621,
+    "eta_seconds": 303,
     "eta_basis": "18 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792803917.028492,
-    "fresh": false,
+    "updated_at": 1792804038.983092,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
@@ -160,10 +161,10 @@
           "timeouts": 0,
           "title": "Testing root and recurrent gradient weights",
           "change": "Native helper prepares CPU autograd comparison against pinned Google learner.",
-          "result": "Reference difference identified; causal impact unmeasured.",
+          "result": "Helper reports5 passing CPU autograd checks; source-bound weighting differs. Adapter is not native TensorFlow parity; handoff requested.",
           "candidate": "Fresh640",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-24T01:05:16.955610+00:00",
+          "updated_at": "2026-10-24T01:07:25.785643+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         }

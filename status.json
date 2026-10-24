@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "evaluate",
   "iteration": 24,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "First-transition candidate training on reused H100",
+  "title": "First-transition development gate failed",
   "change": "Reuse exact source/runtime validation; cost storage and lease for conditional independent paired seed.",
-  "result": "1408 of2048 games and updates observed. Fresh candidate, unchanged original loss and game/reward; exact CUDA resume passed. No strength claim before frozen comparisons.",
+  "result": "Fresh baseline E17/33/0/14,F34/25/0/5; FirstTransition E12/29/0/23,F25/31/0/8. Each64 games: wins/opponent wins/draws/timeouts. Both win comparisons fail and Etimeouts exceed12. No promotion or replication; final initial control finishing.",
   "candidate": "Baseline2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-24T02:39:49.267199+00:00",
+  "updated_at": "2026-10-24T02:46:29.591145+00:00",
   "revision": {
     "summary": "First-transition gradient candidate is isolated and training",
     "reason": "Pinned source audit identified first recurrent hidden-state gradient attenuation; this experiment changes only that backward factor while preserving original objective.",
@@ -40,29 +40,29 @@
     "updated_at": "2026-10-24T01:53:15.458498+00:00"
   },
   "timing": {
-    "measured_at": "2026-10-23T19:45:27.314525-07:00",
+    "measured_at": "2026-10-23T19:46:29.660647-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-24T02:39:49.267199+00:00",
-        "elapsed_seconds": 338,
+        "state": "finished",
+        "updated_at": "2026-10-24T02:46:29.591145+00:00",
+        "elapsed_seconds": 400,
         "completed": 0,
         "total": null,
         "task": "First-transition candidate training on reused H100",
-        "eta_seconds": 105,
-        "eta_basis": "7 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-24T02:39:49.267199+00:00",
-        "elapsed_seconds": 568,
+        "state": "active",
+        "updated_at": "2026-10-24T02:46:29.591145+00:00",
+        "elapsed_seconds": 569,
         "completed": 0,
         "total": null,
         "task": "No new evaluation",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "eta_seconds": 0,
+        "eta_basis": "12 previous iteration(s)"
       },
       {
         "step": 3,
@@ -87,12 +87,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2538,
+    "elapsed_seconds": 2600,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 4,
     "updated_at": 1792809787.5279417,
     "fresh": false,
     "loops": [
@@ -107,38 +107,39 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
-        "updated_at": 1792809641.0841997,
-        "job_id": "iteration-24-next-replication-plan",
+        "state": "active",
+        "updated_at": 1792809967.093981,
+        "job_id": "iteration-24-baseline-continuation",
         "decision": {
-          "reviewing": "What independent replication is ready if the current candidate passes development?",
+          "reviewing": "Is exact baseline continuation justified after two failed gradient revisions?",
           "options": [
-            "Freeze a fresh paired seed and six balanced comparisons"
+            "Review full-state continuation from2048 to4096 with fresh comparisons",
+            "Defer if storage/source/deadline prerequisites do not fit"
           ],
           "evidence": [
-            "Current first-transition training is active; its source/runtime and resume checks passed"
+            "Root5 and first-transition failed frozen development gates; baseline beat its initial control41 to15 with8timeouts"
           ],
-          "reason": "Prepare the next scientifically required GPU task before current results; no promotion from one seed",
-          "next_action": "Helper validates protocol, source and reusable-runner admission requirements without allocating",
-          "updated_at": "2026-10-24T02:36:42.157912+00:00"
+          "reason": "Prefer evidence-backed next work over another unmotivated edit; preserve exact-resume and resource guards",
+          "next_action": "Helper checks source/state contract and bounded continuation requirements",
+          "updated_at": "2026-10-24T02:46:07.093981+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792809865.5664558,
-        "job_id": "iteration-24-representative-overlap-plan",
-        "fresh": false
+        "updated_at": 1792809989.1250157,
+        "job_id": "first-transition-overlap-v2",
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792809924.4826756,
-        "job_id": "first-transition-FirstTransition2048-OwnInitial",
-        "fresh": true
+        "updated_at": 1792809865.5664558,
+        "job_id": "first-transition-FirstTransition2048-E1024",
+        "fresh": false
       }
     ]
   },

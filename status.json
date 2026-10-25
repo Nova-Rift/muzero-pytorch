@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "train",
   "iteration": 36,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 36: reviewing evidence",
-  "change": "Reviewing the previous research evidence",
-  "result": "No new result yet",
-  "candidate": "Not selected",
+  "title": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
+  "change": "Admitted the frozen independent-seed replication of EGO2048 (lane rep, one H100). Helpers stage EGO-POOL2048 plus EGO2048 ladder bouts, a third replication seed, and an exploration variant EGO-EXPLORE2048.",
+  "result": "Pod allocated; setup in progress. No new strength result yet.",
+  "candidate": "EGO2048-S2 (seed 73142017)",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T09:38:05.343239+00:00",
+  "updated_at": "2026-10-25T09:50:31.464498+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:49:29.219084-07:00",
+    "measured_at": "2026-10-25T02:50:31.538512-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T09:50:31.464498+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
+        "eta_seconds": 443,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T09:38:05.343239+00:00",
-        "elapsed_seconds": 715,
+        "state": "finished",
+        "updated_at": "2026-10-25T09:50:31.464498+00:00",
+        "elapsed_seconds": 777,
         "completed": null,
         "total": null,
         "task": "Iteration 36: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -84,118 +84,106 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 715,
-    "eta_seconds": 375,
+    "elapsed_seconds": 777,
+    "eta_seconds": 313,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792921054.488184,
-    "fresh": false,
+    "updated_at": 1792921831.3035095,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792921054.488184,
-        "job_id": "iteration-36-planning-1",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 36,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T09:37:34.488184+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
+        "updated_at": 1792921831.524942,
+        "job_id": "iteration36-pool-lane-staging",
+        "decision": {
+          "reviewing": "How to break the symmetric single-action self-play equilibrium without changing the objective",
+          "options": [
+            "H2 EGO-POOL2048: frozen own-checkpoint partner pool for half of the self-play games (default-off flag, commit ddc76c53, 78+24+103+7 tests pass)"
+          ],
+          "evidence": [
+            "Self-play collapsed to one action by game 1920 with the policy target at the 25/32 search floor; replay then lacks states produced by foreign opponents"
+          ],
+          "reason": "Implemented and validated last session; the remaining step is staging a hash-verified lane payload that also carries the EGO2048 ladder bouts so one pod yields both",
+          "next_action": "Helper emits payload, merged 26-job plan, validation and storage bounds; coordinator runs storage gate, preflight and launches lane pool",
+          "updated_at": "2026-10-25T09:50:31.524942+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1792921054.488184,
-        "job_id": "iteration-36-planning-2",
+        "updated_at": 1792921831.495115,
+        "job_id": "rep35-runtime",
+        "decision": {
+          "reviewing": "Is EGO2048's 53% vs E1024 / 85% vs F1024 result seed-stable?",
+          "options": [
+            "Train the same frozen recipe with an independent seed (73142017) and a paired fresh Baseline control, then the seven development bouts"
+          ],
+          "evidence": [
+            "EGO2048 passed development and held-out gates from one training seed only; EGO4096 continuation failed its gate, so replication is the required next gate"
+          ],
+          "reason": "Cheapest, code-free, and required before any promotion; also tells whether the single-action self-play collapse is a recipe property or a seed accident",
+          "next_action": "Supervisor runs the 17-job chain; readout applies the preregistered H1 gate (strict wins over Baseline vs both E1024 and F1024, cutoffs <= 12/64)",
+          "updated_at": "2026-10-25T09:50:31.495115+00:00"
+        },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "train",
           "iteration": 36,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "EGO2048-S2 independent-seed replication (seed 73142017) on lane rep, pod allocated",
+          "change": "17-job chain on one H100: runtime gate, initializer gate, paired fresh-seed trainings (EGO recipe vs Baseline), recovery, seven development bouts vs E1024/F1024/OwnInitial, readout with the preregistered H1 gate.",
+          "result": "Pod dpozliqn2z376x allocated at $3.99/h (AP-IN-1); setup and payload upload in progress; supervisor reports live once started.",
+          "candidate": "EGO2048-S2",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T09:37:34.488184+00:00",
+          "updated_at": "2026-10-25T09:50:31+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792921054.488184,
-        "job_id": "iteration-36-planning-3",
+        "updated_at": 1792921831.3035095,
+        "job_id": "iteration35-rep-seed3-package",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 36,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "EGO2048-S3 third-seed replication package for the same lane rep pod",
+          "change": "Helper audits a fresh training seed and fresh development-bout seeds, builds the follow-up chain (training, paired control, recovery, bouts, readout) appended after the S2 chain, validates with the supervisor and bounds storage/runtime.",
+          "result": "Package in progress; appended to lane rep only after the S2 chain and a fresh same-pod storage assessment.",
+          "candidate": "EGO2048-S3",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T09:37:34.488184+00:00",
+          "updated_at": "2026-10-25T09:50:31+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792921054.488184,
-        "job_id": "iteration-36-planning-4",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 36,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T09:37:34.488184+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792921831.3035095,
+        "job_id": "iteration36-explore-trainer",
+        "fresh": true
       }
     ]
   },

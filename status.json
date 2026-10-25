@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 27: reviewing evidence",
-  "change": "Completed384-game comparison rejected longer continuation. Three helpers now validate UPG2 diagnostic support, package fresh controls, and verify archived duplicate capacity.",
-  "result": "Pod deleted; no paid work or new result claimed. Next experiment is fresh2048games with2updates/game under unchanged trainer/objective, pending tests/source/storage/admission.",
-  "candidate": "Baseline4096-continuation",
+  "title": "Preparing UPG2 source and admission checks",
+  "change": "Two attached helpers finish strict diagnostic support and the frozen experiment package.",
+  "result": "No GPU allocated. Drive migration verified; exact-job storage, source tests and cost admission remain required.",
+  "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T01:31:48.967958+00:00",
+  "updated_at": "2026-10-25T01:36:16.907759+00:00",
   "latest_comparison": {
     "iteration": 26,
     "loop": "loop-b",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:36:10.067534-07:00",
+    "measured_at": "2026-10-24T18:36:16.978410-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,11 +64,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T01:31:48.967958+00:00",
-        "elapsed_seconds": 261,
+        "updated_at": "2026-10-25T01:36:16.907759+00:00",
+        "elapsed_seconds": 268,
         "completed": null,
         "total": null,
-        "task": "Iteration 27: reviewing evidence",
+        "task": "Preparing UPG2 source and admission checks",
         "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 261,
-    "eta_seconds": 829,
+    "elapsed_seconds": 268,
+    "eta_seconds": 822,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,8 +97,21 @@
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792892134.92474,
+        "updated_at": 1792892173.96643,
         "job_id": "iteration27-admission-review",
+        "decision": {
+          "reviewing": "Can UPG2 proceed under current archive and source gates?",
+          "options": [
+            "Fresh 2048-game UPG2 restart after diagnostic and package validation"
+          ],
+          "evidence": [
+            "Iteration26 frozen continuation failed development gate; no promotion occurred.",
+            "Drive setup records migration complete; current exact-job capacity still requires assessment."
+          ],
+          "reason": "Reuse completed scientific preparation and finish only missing source, runner and admission dependencies.",
+          "next_action": "Review helper diagnostic commit and exact-job storage/runtime plan before paid admission.",
+          "updated_at": "2026-10-25T01:36:13.966430+00:00"
+        },
         "fresh": true
       },
       {
@@ -124,6 +137,18 @@
         "blocked": true,
         "updated_at": 1792892134.92474,
         "job_id": "iteration27-helper-closure-gate",
+        "decision": {
+          "reviewing": "Helper ownership gate",
+          "options": [
+            "Wait for the recorded prerequisites"
+          ],
+          "evidence": [
+            "Historical ready helper absent from broker; close rejected. Need verified closure/reclaim or current helper completion to free ledger capacity. Old hardlink cleanup superseded by Drive migration."
+          ],
+          "reason": "Historical ready helper absent from broker; close rejected. Need verified closure/reclaim or current helper completion to free ledger capacity. Old hardlink cleanup superseded by Drive migration.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-25T01:35:34.924740+00:00"
+        },
         "fresh": true
       }
     ]

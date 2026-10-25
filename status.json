@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:52:40.726712-07:00",
+    "measured_at": "2026-10-25T02:53:48.287267-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T09:50:31.464498+00:00",
-        "elapsed_seconds": 129,
+        "elapsed_seconds": 197,
         "completed": 0,
         "total": null,
         "task": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
-        "eta_seconds": 314,
+        "eta_seconds": 246,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 906,
-    "eta_seconds": 184,
+    "elapsed_seconds": 974,
+    "eta_seconds": 116,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,7 +97,7 @@
         "id": "rep",
         "stage": "test",
         "state": "failed",
-        "updated_at": 1792921959.2187443,
+        "updated_at": 1792922024.3516173,
         "job_id": "rep35-paired-collection",
         "fresh": true
       },

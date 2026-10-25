@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "paused",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 24,
   "evaluation_games": 64,
   "timeouts": 0,
-  "title": "EGO4096 failed the development gate; EGO2048 remains the candidate",
+  "title": "Paused by owner",
   "change": "Seven paired development bouts on lane cont2: EGO4096 tied EGO2048 vs E1024 (34 vs 34), trailed vs F1024 (51 vs 55) and lost head-to-head 24 to 38. No confirmation appended.",
   "result": "Longer unchanged training did not help; pod released after recovery. Next: EGO2048 independent-seed replication, blocked by host disk space (7.7 GB free vs 9.55 GB measured need); regression analysis and roster preparation continue.",
   "candidate": "EGO2048",
   "evaluation_label": "EGO4096 vs EGO2048",
-  "updated_at": "2026-10-25T08:59:52.224493+00:00",
+  "updated_at": "2026-10-25T09:32:06.131251+00:00",
   "matchup": {
     "challenger": "EGO4096",
     "opponent": "EGO2048",
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:31:28.646109-07:00",
+    "measured_at": "2026-10-25T02:32:06.203547-07:00",
     "steps": [
       {
         "step": 1,
@@ -69,14 +69,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 2888,
+        "state": "interrupted",
+        "updated_at": "2026-10-25T09:32:06.131251+00:00",
+        "elapsed_seconds": 2926,
         "completed": null,
         "total": null,
         "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -90,8 +90,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4372,
-    "eta_seconds": 0,
+    "elapsed_seconds": 4409,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

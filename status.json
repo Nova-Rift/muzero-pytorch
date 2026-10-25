@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "train",
   "iteration": 30,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 30: reviewing evidence",
-  "change": "Gate fix verified but moot: timeout bootstrap changes collection targets, so CB2048 cannot pass first-block parity and will run as a direct arm like D99. Helpers: merged three-arm package, three-arm readout, cutoff diagnosis.",
-  "result": "Pod cleanup runs now; the worker verifies provider inventory before any automatic continuation.",
-  "candidate": "D99_2048, CB2048, REP2048",
+  "title": "Allocating one H100 for the D99_2048 arm; two more arms queued to append",
+  "change": "Session 29 was a packaging failure. Session 30 admits the unchanged D99_2048 arm first (discount 0.99, Baseline2048 recipe) while helpers package the ungated CB2048 arm and the REP2048 replication for the same pod.",
+  "result": "Fresh quote: ten single-H100 regions, no two-GPU H100. Storage gate passed for the initial arm. Preflight approved; launching.",
+  "candidate": "D99_2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T05:59:43.845837+00:00",
+  "updated_at": "2026-10-25T06:05:13.032147+00:00",
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:04:51.228270-07:00",
+    "measured_at": "2026-10-24T23:05:13.109209-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T06:05:13.032147+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Allocating one H100 for the D99_2048 arm; two more arms queued to append",
+        "eta_seconds": 443,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T05:59:43.845837+00:00",
-        "elapsed_seconds": 307,
+        "state": "finished",
+        "updated_at": "2026-10-25T06:05:13.032147+00:00",
+        "elapsed_seconds": 329,
         "completed": null,
         "total": null,
         "task": "Iteration 30: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 307,
-    "eta_seconds": 783,
+    "elapsed_seconds": 329,
+    "eta_seconds": 761,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

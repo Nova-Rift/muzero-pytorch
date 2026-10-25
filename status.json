@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:43:11.220983-07:00",
+    "measured_at": "2026-10-24T22:44:17.649737-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,7 +76,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T05:43:03.631474+00:00",
-        "elapsed_seconds": 170,
+        "elapsed_seconds": 237,
         "completed": null,
         "total": null,
         "task": "H100 allocated for two serial candidate arms; setup and correctness gates first",
@@ -84,8 +84,8 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 262,
-    "eta_seconds": 828,
+    "elapsed_seconds": 328,
+    "eta_seconds": 762,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -133,7 +133,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -159,7 +159,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",

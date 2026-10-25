@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 27,
   "completed_games": 0,
   "target_games": 0,
@@ -12,7 +12,18 @@
   "result": "No GPU allocated. Drive migration verified; exact-job storage, source tests and cost admission remain required.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T01:36:16.907759+00:00",
+  "updated_at": "2026-10-25T01:36:31.814219+00:00",
+  "revision": {
+    "summary": "Validate diagnostic support for two updates per game",
+    "reason": "UPG2 uses 2048 games and 4096 updates; existing diagnostic assumptions tied those counters together.",
+    "changes": [
+      "Evaluator checks explicit game and update counts.",
+      "Recovery validates the frozen update ratio and source contract.",
+      "Resume gate verifies actual partial, full and resumed counters."
+    ],
+    "test_plan": "Strict rejection tests and bounded CPU split-resume; production CUDA gate remains required before training.",
+    "updated_at": "2026-10-25T01:36:31.814215+00:00"
+  },
   "latest_comparison": {
     "iteration": 26,
     "loop": "loop-b",
@@ -37,7 +48,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:36:16.978410-07:00",
+    "measured_at": "2026-10-24T18:36:31.879134-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,29 +74,29 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T01:36:16.907759+00:00",
-        "elapsed_seconds": 268,
+        "state": "finished",
+        "updated_at": "2026-10-25T01:36:31.814219+00:00",
+        "elapsed_seconds": 283,
         "completed": null,
         "total": null,
         "task": "Preparing UPG2 source and admission checks",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T01:36:31.814219+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Preparing UPG2 source and admission checks",
+        "eta_seconds": 115,
+        "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 268,
-    "eta_seconds": 822,
+    "elapsed_seconds": 283,
+    "eta_seconds": 807,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

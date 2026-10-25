@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "review",
   "iteration": 28,
   "completed_games": 2048,
   "target_games": 2048,
   "wins": 22,
   "evaluation_games": 64,
   "timeouts": 34,
-  "title": "UPG2 chain: done 10/10 jobs; active none; failed none",
-  "change": "Supervisor jobs: done 10/10 jobs; active none; failed none. GPU utilization sample {'0': 0}.",
-  "result": "Observed 2048 training games and 4096 optimizer updates. Strength is unmeasured until the frozen evaluations complete.",
+  "title": "UPG2 development gate failed; releasing pod",
+  "change": "All 384 frozen games complete. Wins/losses/cutoffs of 64: Baseline2048 vs E 26/32/6, vs F 30/15/19; UPG2_2048 vs E 25/20/19, vs F 11/17/36. OwnInitial: 31/15/18 vs 22/8/34.",
+  "result": "Gate needs strictly more wins vs E and F with at most 12 cutoffs; UPG2 fails both. Fewer losses but far more stalled games. No confirmation, replication or promotion. Four full states verified.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "UPG2_2048 vs OwnInitial",
-  "updated_at": "2026-10-25T04:06:19.064605+00:00",
+  "updated_at": "2026-10-25T04:07:47.203071+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:07:01.187881-07:00",
+    "measured_at": "2026-10-24T21:07:47.264727-07:00",
     "steps": [
       {
         "step": 1,
@@ -201,35 +201,35 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T03:48:51.215153+00:00",
+        "state": "active",
+        "updated_at": "2026-10-25T04:07:47.203071+00:00",
         "elapsed_seconds": 605,
         "completed": null,
         "total": null,
-        "task": "Iteration 28: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "UPG2 development gate failed; releasing pod",
+        "eta_seconds": 0,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-25T04:06:19.064605+00:00",
-        "elapsed_seconds": 319,
+        "state": "finished",
+        "updated_at": "2026-10-25T04:07:47.203071+00:00",
+        "elapsed_seconds": 365,
         "completed": null,
         "total": null,
         "task": "UPG2 chain: done 10/10 jobs; active none; failed none",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1695,
+    "elapsed_seconds": 1741,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792900977.529633,
-    "fresh": false,
+    "updated_at": 1792901267.247723,
+    "fresh": true,
     "loops": [
       {
         "id": "upg2",
@@ -243,22 +243,22 @@
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792900977.529633,
+        "updated_at": 1792901267.247723,
         "job_id": "iteration28-upg2-admission",
         "decision": {
-          "reviewing": "Can the tested UPG2 package be admitted now that the storage policy changed?",
+          "reviewing": "Does two updates per game beat the ratio-1 baseline under the frozen development gate?",
           "options": [
-            "Admit the unchanged ten-job UPG2 chain on one H100 through the guarded launcher",
-            "Keep waiting for helper capacity to add a second GPU arm"
+            "Reject UPG2 under the preregistered gate and release the pod",
+            "Run confirmation or replication anyway"
           ],
           "evidence": [
-            "Exact-job storage gate now passes: 5.34 GB required against 19.17 GB free, 12 GiB cache limit; Drive quota check passed.",
-            "Fresh 52-region quote: H100 80GB at 3.99/h in ten regions; daily budget untouched today (30 remaining).",
-            "Payload rebuilt with current supervisor/watchdog; all 430 experiment files match the session-27 tested manifest; runner 28 passed 25 checks."
+            "UPG2_2048 vs E1024 25 wins/20 losses/19 cutoffs against baseline 26/32/6; vs F1024 11/17/36 against 30/15/19; OwnInitial 22/8/34 vs 31/15/18.",
+            "Paired block-bootstrap win-fraction difference E -0.016 (95% -0.14 to 0.11), F -0.297 (-0.44 to -0.16).",
+            "Correctness held: first block matched the ratio-1 reference exactly; four compressed full states verified; 2048 games, 4096 updates."
           ],
-          "reason": "The only remaining blocker was storage policy, which is resolved. A second GPU arm would need new packaging without a helper and saves little time on a serial chain.",
-          "next_action": "Record budget snapshot, build fresh preflight for one H100, approve, and launch through launch.py; publish per-job progress.",
-          "updated_at": "2026-10-25T03:48:13.934097+00:00"
+          "reason": "The gate fails on both opponents, so confirmation is not authorized. The candidate loses less but stalls far more, pointing at the cutoff objective rather than update count.",
+          "next_action": "Release the pod, archive all evidence, write the session report; next hypothesis needs implementation capacity (helper-capable transport or owner instruction).",
+          "updated_at": "2026-10-25T04:07:47.247723+00:00"
         },
         "details": {
           "schema": 1,
@@ -278,7 +278,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",

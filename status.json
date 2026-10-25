@@ -12,7 +12,7 @@
   "result": "No training or evaluation this session. Helper fixing the gate allowlist with tests; seed audit clear; replication package ready. Next guarded session re-admits both arms.",
   "candidate": "CB2048 and D99_2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T05:48:16.671374+00:00",
+  "updated_at": "2026-10-25T05:53:53.040535+00:00",
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:52:57.029473-07:00",
+    "measured_at": "2026-10-24T22:53:53.103121-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,8 +64,8 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T05:48:16.671374+00:00",
-        "elapsed_seconds": 527,
+        "updated_at": "2026-10-25T05:53:53.040535+00:00",
+        "elapsed_seconds": 583,
         "completed": null,
         "total": null,
         "task": "Arm A failed at the parity gate before training; pod deleted; gate fix delegated",
@@ -84,12 +84,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 848,
-    "eta_seconds": 242,
+    "elapsed_seconds": 904,
+    "eta_seconds": 186,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 1,
     "updated_at": 1792907296.639412,
     "fresh": false,
     "loops": [
@@ -176,9 +176,24 @@
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792907296.639439,
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792907633.010265,
         "job_id": "iteration29-ladder-export",
+        "decision": {
+          "reviewing": "Is the export/ladder path ready for the next gated winner, and should anything be published now?",
+          "options": [
+            "Keep the verified dry run as readiness evidence; publish nothing",
+            "Publish Baseline2048 to the roster now"
+          ],
+          "evidence": [
+            "Dry-run ONNX hashes match the helper report; WASM parity max error 7e-7; sites checkout clean; ledger check reports ranking evidence already published",
+            "Baseline2048 lost the strict paired readout versus F1024 and is the reference arm, not a gate winner; its training completion instant is not recorded"
+          ],
+          "reason": "Publishing a non-winning reference would not advance the ladder goal; readiness is complete and reusable",
+          "next_action": "Hold loop-d until a candidate passes the development gate; then recover the save instant, export with the muzero-selfplay- prefix and publish with inspector metadata",
+          "updated_at": "2026-10-25T05:53:53.010265+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "review",
@@ -188,16 +203,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: export environment and ladder readiness (running)",
-          "change": "Claude helper is locating or building an onnx-capable environment, dry-running the MuZero export on archived Baseline2048 weights and computing ladder standings with the real roster.",
-          "result": "Deliverable pending: tested export command, parity fixture, standings JSON, publish checklist.",
+          "title": "Export/ladder readiness verified; waiting for a gated winner",
+          "change": "Helper delivered a pinned onnx environment, a Baseline2048 dry-run export (WASM parity error 7e-7, exact search visits), verified live ledger standings and a publish checklist. Hashes and clean checkout verified by the coordinator.",
+          "result": "Nothing published: Baseline2048 is the reference arm, not a gate winner, and its training completion instant is not recorded. Release: a candidate passes the development gate; then export, add inspector/date metadata and publish.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:48:16.639439+00:00",
+          "updated_at": "2026-10-25T05:53:52.980653+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

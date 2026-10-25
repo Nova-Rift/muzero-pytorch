@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:50:31.538512-07:00",
+    "measured_at": "2026-10-25T02:50:33.554241-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T09:50:31.464498+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 2,
         "completed": 0,
         "total": null,
         "task": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
-        "eta_seconds": 443,
+        "eta_seconds": 441,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,13 +84,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 777,
-    "eta_seconds": 313,
+    "elapsed_seconds": 779,
+    "eta_seconds": 311,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792921831.3035095,
+    "updated_at": 1792921831.495115,
     "fresh": true,
     "loops": [
       {
@@ -155,8 +155,20 @@
         "id": "loop-c",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792921831.3035095,
+        "updated_at": 1792921831.555673,
         "job_id": "iteration35-rep-seed3-package",
+        "decision": {
+          "reviewing": "Which follow-up to append to the replication pod after the S2 chain",
+          "options": [
+            "EGO2048-S3: a third audited training seed with the same frozen recipe and paired control, so seed stability rests on two independent replications"
+          ],
+          "evidence": [
+            "Promotion rules require independent training-seed replication; the lane rep pod and payload already carry the recipe, so the marginal cost is about 0.68 dollars plus bouts"
+          ],
+          "reason": "Reuses the live pod and frozen inputs; no new code",
+          "next_action": "Helper validates the follow-up chain and seed audit; coordinator appends it after a fresh same-pod storage assessment",
+          "updated_at": "2026-10-25T09:50:31.555673+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "edit",
@@ -181,8 +193,20 @@
         "id": "loop-d",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792921831.3035095,
+        "updated_at": 1792921831.587165,
         "job_id": "iteration36-explore-trainer",
+        "decision": {
+          "reviewing": "Is there a second independent lever against the self-play collapse besides the partner pool",
+          "options": [
+            "EGO-EXPLORE2048: root exploration noise / temperature in self-play acting only, default-off flags, byte-identical reproduction when off"
+          ],
+          "evidence": [
+            "The root policy target sat at the 25/32 floor from game 1920 onward and hits per game stayed flat at 4.1; exploration in acting changes the replay distribution without touching reward, environment or evaluator"
+          ],
+          "reason": "Independent of H2 and needs no owner approval, unlike reward shaping (H3)",
+          "next_action": "Helper implements, tests, pushes the branch and builds a paired development package with a preregistered gate",
+          "updated_at": "2026-10-25T09:50:31.587165+00:00"
+        },
         "fresh": true
       }
     ]

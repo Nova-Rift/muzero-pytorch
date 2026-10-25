@@ -22,28 +22,28 @@
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
-    "job_id": "ego-Baseline2048-conf-E1024-for-EGO2048",
-    "protocol_sha256": "c2922cd3d1a53c4151f0733d2e86d779ed25b0e04f3bb46386447165d01fca52",
+    "job_id": "ego-Baseline2048-conf-F1024-for-EGO2048",
+    "protocol_sha256": "d72cfa06b9a2aec8893fbc32fecfb31ac21b7ba41d6eeffc0db8198a9865d9f2",
     "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
-    "result_id": "5badcf915052089e515b88c51e66f988dbf6dc01f6d4eaa8e61c2881fc7a6fb7",
+    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "result_id": "7956d735262cdb39fa6a4cbceea3c4aa79d5efb42f3c5840e16dd3e00f651e9c",
     "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs E1024",
-    "wins": 26,
+    "evaluation_label": "Baseline2048 vs F1024",
+    "wins": 29,
     "evaluation_games": 64,
-    "timeouts": 9,
+    "timeouts": 17,
     "matchup": {
       "challenger": "Baseline2048",
-      "opponent": "E1024",
-      "opponent_wins": 29,
+      "opponent": "F1024",
+      "opponent_wins": 18,
       "draws": 0
     },
-    "updated_at": "2026-10-25T07:57:06.007944+00:00",
-    "evidence_sha256": "f1c61f576cd22b3c0bdfa3287b25f7f6bf91763bb21bc716d29558aa6aca8b1f",
+    "updated_at": "2026-10-25T07:57:52.167933+00:00",
+    "evidence_sha256": "d5a75cce5cae8743ac896846a0852c727ef788cca31822441a3014a6ce1e7a37",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:57:34.334349-07:00",
+    "measured_at": "2026-10-25T00:58:04.235963-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,11 +60,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:57:34.251564+00:00",
-        "elapsed_seconds": 453,
+        "elapsed_seconds": 483,
         "completed": 64,
         "total": null,
         "task": "Baseline2048-OwnInitial",
-        "eta_seconds": 21,
+        "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,22 +90,22 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1925,
+    "elapsed_seconds": 1955,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792914963.901095,
+    "updated_at": 1792914961.7872937,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792915051.7636697,
-        "job_id": "ego-Baseline2048-conf-F1024-for-EGO2048",
-        "fresh": true
+        "updated_at": 1792914961.7872937,
+        "job_id": "ego-EGO2048-conf-F1024-for-EGO2048",
+        "fresh": false
       },
       {
         "id": "loop-b",

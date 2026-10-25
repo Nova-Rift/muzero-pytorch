@@ -4,46 +4,46 @@
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 34,
+  "wins": 51,
   "evaluation_games": 64,
-  "timeouts": 10,
+  "timeouts": 4,
   "title": "Lane cont2 allocated: EGO4096 development bouts rerun",
   "change": "Repaired runner template (partial rsync tolerated) regenerated as lane cont2; payload carries the recovered EGO4096 weights and Baseline2048. Ten jobs: runtime gate, staging, seven paired development bouts, readout.",
   "result": "Pod mre0p6o7o2ly59 in AP-IN-1 at 3.99 per hour; storage gate and preflight passed; hard bound 1320 s. Held-out confirmation appends only if the preregistered gate passes.",
   "candidate": "EGO4096",
-  "evaluation_label": "EGO2048 vs E1024",
+  "evaluation_label": "EGO4096 vs F1024",
   "updated_at": "2026-10-25T08:47:47.847913+00:00",
   "matchup": {
-    "challenger": "EGO2048",
-    "opponent": "E1024",
-    "opponent_wins": 20,
-    "draws": 0
+    "challenger": "EGO4096",
+    "opponent": "F1024",
+    "opponent_wins": 8,
+    "draws": 1
   },
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
-    "job_id": "ego4096-EGO2048-E1024",
-    "protocol_sha256": "1e6aeaf43f88f8eba4990e2fe57962d7b76eb01a89f44e19febe0dcec5052d73",
-    "challenger_sha256": "0e263ee21ce56721dad3479648136a725b512138e1be4c73e30e689d6e49cf08",
-    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
-    "result_id": "0b93152baabb75153aa763f9b947d59150b2662a6e61c74e4ada88dfe52aaf41",
-    "candidate": "EGO2048",
-    "evaluation_label": "EGO2048 vs E1024",
-    "wins": 34,
+    "job_id": "ego4096-EGO4096-F1024",
+    "protocol_sha256": "43a9d9a3e8d465c61cb78e202cf7882607b3c8cc861bb24be54915f43382e768",
+    "challenger_sha256": "8adb32bc67a8265bfc2ac671b92229544533713699ea097ca0f8e373ba34f7d1",
+    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "result_id": "3e073eff937d23b8c02c2bf96449f4b9126bff2cac4db871b68b5ebbe1bb85aa",
+    "candidate": "EGO4096",
+    "evaluation_label": "EGO4096 vs F1024",
+    "wins": 51,
     "evaluation_games": 64,
-    "timeouts": 10,
+    "timeouts": 4,
     "matchup": {
-      "challenger": "EGO2048",
-      "opponent": "E1024",
-      "opponent_wins": 20,
-      "draws": 0
+      "challenger": "EGO4096",
+      "opponent": "F1024",
+      "opponent_wins": 8,
+      "draws": 1
     },
-    "updated_at": "2026-10-25T08:54:31.327918+00:00",
-    "evidence_sha256": "a6ba5198ff9c1174b2509ddd54f7d0c9f336c11ef25ea373dde9b18048683d87",
+    "updated_at": "2026-10-25T08:55:17.885129+00:00",
+    "evidence_sha256": "42df1f5a06ff1021417ff54ca906d6673d39c1e8f7f97543760ee7e387d8fc8d",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:54:51.297208-07:00",
+    "measured_at": "2026-10-25T01:55:53.805020-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,11 +60,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T08:47:47.847913+00:00",
-        "elapsed_seconds": 423,
+        "elapsed_seconds": 486,
         "completed": 64,
         "total": null,
-        "task": "EGO2048 vs E1024",
-        "eta_seconds": 51,
+        "task": "EGO4096 vs F1024",
+        "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2174,
+    "elapsed_seconds": 2237,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -132,8 +132,8 @@
         "id": "loop-c",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792918487.9219704,
-        "job_id": "ego4096-EGO4096-F1024",
+        "updated_at": 1792918552.9991913,
+        "job_id": "ego4096-EGO2048-F1024",
         "fresh": true
       },
       {
@@ -142,7 +142,7 @@
         "state": "active",
         "updated_at": 1792918478.142421,
         "job_id": "iteration35-ego2048-roster-metadata",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

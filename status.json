@@ -12,7 +12,7 @@
   "result": "Prepared UPG2 work is blocked by verified cache/free-reserve admission. Retain all evidence; reviewed capacity resolution and owner resume required before fresh guarded admission.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T03:39:39.870004+00:00",
+  "updated_at": "2026-10-25T03:40:17.278878+00:00",
   "latest_comparison": {
     "iteration": 26,
     "loop": "loop-b",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:39:51.171558-07:00",
+    "measured_at": "2026-10-24T20:40:17.342736-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,12 +64,12 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T03:39:39.870004+00:00",
-        "elapsed_seconds": 65,
+        "updated_at": "2026-10-25T03:40:17.278878+00:00",
+        "elapsed_seconds": 92,
         "completed": null,
         "total": null,
         "task": "Iteration 28: reviewing evidence",
-        "eta_seconds": 140,
+        "eta_seconds": 113,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 65,
-    "eta_seconds": 1025,
+    "elapsed_seconds": 92,
+    "eta_seconds": 998,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

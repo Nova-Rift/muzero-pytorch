@@ -1,143 +1,34 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "train",
   "iteration": 30,
   "completed_games": 2048,
   "target_games": 2048,
   "wins": 23,
   "evaluation_games": 64,
   "timeouts": 8,
-  "title": "Three-arm chain: done 5/21 jobs; active D99_2048-OwnInitial; failed none",
-  "change": "Supervisor jobs: done 5/21 jobs; active D99_2048-OwnInitial; failed none. GPU utilization sample {'0': 97}.",
-  "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
-  "candidate": "CB2048, D99_2048 and REP2048",
-  "evaluation_label": "D99_2048 vs F1024 completed",
-  "updated_at": "2026-10-25T06:16:48.910609+00:00",
+  "title": "D99_2048 trained and in paired bouts; CB2048 and REP2048 queued; aim diagnosis complete",
+  "change": "Cutoff diagnosis: candidates fire constantly but aim at chance relative to the opponent, because every decision in a game shares one 1-or-0 target. Next permitted variant: opponent-relative aim decoding (in implementation).",
+  "result": "D99_2048 finished 2048 games; E1024 bout done, F1024 bout running. Hit-credit targets would be reward shaping and await owner approval.",
+  "candidate": "D99_2048",
+  "evaluation_label": "D99_2048 vs F1024",
+  "updated_at": "2026-10-25T06:17:16.628089+00:00",
+  "revision": {
+    "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
+    "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry",
+    "changes": [
+      "Trainer controller: --aim-decoding relative (absolute default, byte-identical when off)",
+      "Paired evaluator: bind the decoding mode per model from its manifest so opponents stay unchanged",
+      "Tests: decoder mapping from both seats, absolute-mode regression, tiny CPU training smoke, evaluator binding"
+    ],
+    "test_plan": "CPU unit and smoke tests before any admission; then the strict paired protocol versus E1024 and F1024 with secondary aim and hit readouts",
+    "updated_at": "2026-10-25T06:17:16.628083+00:00"
+  },
   "matchup": {
     "challenger": "D99_2048",
     "opponent": "F1024",
     "opponent_wins": 33,
     "draws": 0
-  },
-  "training_metrics": {
-    "iteration": 30,
-    "run_id": "D99_2048",
-    "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-25T06:15:04.044783+00:00",
-    "points": [
-      {
-        "optimizer_updates": 128,
-        "games": 128,
-        "elapsed_seconds": 28.869907177984715,
-        "loss": 5.217130661010742,
-        "search_entropy": 3.465735912322998
-      },
-      {
-        "optimizer_updates": 256,
-        "games": 256,
-        "elapsed_seconds": 55.830654493009206,
-        "loss": 5.39846658706665,
-        "search_entropy": 1.027756935218349
-      },
-      {
-        "optimizer_updates": 384,
-        "games": 384,
-        "elapsed_seconds": 80.19096570299007,
-        "loss": 5.329601287841797,
-        "search_entropy": 2.0519125731661916
-      },
-      {
-        "optimizer_updates": 512,
-        "games": 512,
-        "elapsed_seconds": 103.7632309839828,
-        "loss": 4.65986442565918,
-        "search_entropy": 2.0479645086452365
-      },
-      {
-        "optimizer_updates": 640,
-        "games": 640,
-        "elapsed_seconds": 127.63244820898399,
-        "loss": 5.209660053253174,
-        "search_entropy": 2.0014917054213583
-      },
-      {
-        "optimizer_updates": 768,
-        "games": 768,
-        "elapsed_seconds": 151.16842329798965,
-        "loss": 5.241543769836426,
-        "search_entropy": 2.0237865108065307
-      },
-      {
-        "optimizer_updates": 896,
-        "games": 896,
-        "elapsed_seconds": 174.23289370397106,
-        "loss": 5.194883823394775,
-        "search_entropy": 2.068443632684648
-      },
-      {
-        "optimizer_updates": 1024,
-        "games": 1024,
-        "elapsed_seconds": 197.18115999898873,
-        "loss": 5.257922172546387,
-        "search_entropy": 1.6630351233761758
-      },
-      {
-        "optimizer_updates": 1152,
-        "games": 1152,
-        "elapsed_seconds": 221.12789950397564,
-        "loss": 5.040407180786133,
-        "search_entropy": 1.4601903620641679
-      },
-      {
-        "optimizer_updates": 1280,
-        "games": 1280,
-        "elapsed_seconds": 244.30997116299113,
-        "loss": 5.277284622192383,
-        "search_entropy": 1.8643133528530598
-      },
-      {
-        "optimizer_updates": 1408,
-        "games": 1408,
-        "elapsed_seconds": 267.1386424640077,
-        "loss": 5.226049423217773,
-        "search_entropy": 1.8186417240649462
-      },
-      {
-        "optimizer_updates": 1536,
-        "games": 1536,
-        "elapsed_seconds": 290.63896924001165,
-        "loss": 5.180513381958008,
-        "search_entropy": 1.5717876669950783
-      },
-      {
-        "optimizer_updates": 1664,
-        "games": 1664,
-        "elapsed_seconds": 314.96849103900604,
-        "loss": 4.977832794189453,
-        "search_entropy": 1.2040928422939032
-      },
-      {
-        "optimizer_updates": 1792,
-        "games": 1792,
-        "elapsed_seconds": 338.8000487340032,
-        "loss": 5.165640830993652,
-        "search_entropy": 1.4577216166071594
-      },
-      {
-        "optimizer_updates": 1920,
-        "games": 1920,
-        "elapsed_seconds": 362.54854017699836,
-        "loss": 5.0673675537109375,
-        "search_entropy": 1.4235970522277057
-      },
-      {
-        "optimizer_updates": 2048,
-        "games": 2048,
-        "elapsed_seconds": 385.64745836897055,
-        "loss": 5.126552581787109,
-        "search_entropy": 1.1826716107316315
-      }
-    ]
   },
   "latest_comparison": {
     "iteration": 30,
@@ -163,29 +54,29 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:16:56.157833-07:00",
+    "measured_at": "2026-10-24T23:17:16.706131-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "finished",
-        "updated_at": "2026-10-25T06:15:18.720660+00:00",
+        "state": "active",
+        "updated_at": "2026-10-25T06:17:16.628089+00:00",
         "elapsed_seconds": 606,
         "completed": 2048,
         "total": 2048,
-        "task": "Three-arm chain: done 2/21 jobs; active D99_2048; failed none",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "D99_2048 trained and in paired bouts; CB2048 and REP2048 queued; aim diagnosis complete",
+        "eta_seconds": 0,
+        "eta_basis": "observed training rate"
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-25T06:16:48.910609+00:00",
-        "elapsed_seconds": 97,
+        "state": "finished",
+        "updated_at": "2026-10-25T06:17:16.628089+00:00",
+        "elapsed_seconds": 118,
         "completed": 64,
         "total": null,
-        "task": "D99_2048 vs F1024 completed",
-        "eta_seconds": 377,
-        "eta_basis": "12 previous iteration(s)"
+        "task": "D99_2048 vs F1024",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
@@ -210,8 +101,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1032,
-    "eta_seconds": 58,
+    "elapsed_seconds": 1053,
+    "eta_seconds": 37,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -223,7 +114,7 @@
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792909011.3798556,
+        "updated_at": 1792909032.5435896,
         "job_id": "D99_2048-OwnInitial",
         "details": {
           "schema": 1,
@@ -375,7 +266,7 @@
         "id": "loop-a",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792909011.3798556,
+        "updated_at": 1792909032.5435896,
         "job_id": "a-runtime",
         "decision": {
           "reviewing": "Can the CB2048 arm be appended to the live pod safely?",
@@ -415,8 +306,24 @@
         "id": "loop-c",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792909011.3798556,
+        "updated_at": 1792909036.594468,
         "job_id": "c-runtime",
+        "decision": {
+          "reviewing": "Why do harder-trained candidates stall, and which variant should follow the three queued arms?",
+          "options": [
+            "Hit-credit training target (reward shaping; needs owner approval)",
+            "Opponent-relative aim decoding (action representation change; permitted)",
+            "Seat-mirrored training data (augmentation; permitted)"
+          ],
+          "evidence": [
+            "Self-play traces: agents fire on 90-100 percent of decisions but relative aim stays at chance (0.17-0.26 within one bin of 16); training sharpens an absolute west habit",
+            "Seat asymmetry: candidates win 34 percent at seat 0 vs 44 percent at seat 1 over 2816 games; the frozen objective gives every decision of a game the same 1 or 0 target",
+            "Identical Baseline2048 weights vary 4 to 19 cutoffs per 64 games across seed sets, so single-bout differences under about 10 are noise"
+          ],
+          "reason": "Hit credit is the most direct fix but is reward shaping, which the owner's boundary forbids without approval; relative aim decoding attacks the same failure without touching rewards",
+          "next_action": "Helper implements relative aim decoding with per-model evaluator binding and tests on branch egocentric-aim; owner asked about hit credit; REP2048 runs as planned",
+          "updated_at": "2026-10-25T06:17:16.594468+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "test",

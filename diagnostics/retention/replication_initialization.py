@@ -4,13 +4,17 @@ This tool imports the immutable trainer's model factory, but never calls its mai
 collector, optimizer, or search. It freezes a NEW contract, never edits a template.
 """
 import argparse
+import ast
+from dataclasses import asdict
+import importlib
+import io
+from types import SimpleNamespace
 import copy
 from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
 import platform
-import subprocess
 import sys
 
 import replication_contract as rc
@@ -51,25 +55,111 @@ def validate_artifact(contract, receipt, initial, template_sha256=None):
     return receipt
 
 
+# Reviewed statements from frozen train_loss.py main, before optimizer/Pool/search.
+# Only these AST-equal statements may execute; main itself is never invoked.
+PREFIX = """torch.set_num_threads(1);torch.manual_seed(a.seed);rng=np.random.default_rng(a.seed)
+torch.backends.cuda.matmul.allow_tf32=a.tf32
+model=model_class(a.loss_contract)(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=a.discount,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
+"""
+EXPORT = """initial=restored['initial'] if restored else {k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+np.savez_compressed(out/'initial.npz',**{k:v.numpy() for k,v in initial.items()})
+"""
+
+
+def audited_statements(source):
+    tree=ast.parse((source/'arena/train_loss.py').read_text())
+    main=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
+    expected=ast.parse(PREFIX).body
+    matches=[main.body[i:i+len(expected)] for i in range(len(main.body))
+             if [ast.dump(n) for n in main.body[i:i+len(expected)]]==[ast.dump(n) for n in expected]]
+    rc.require(len(matches)==1, 'Frozen trainer initialization sequence differs')
+    export=ast.parse(EXPORT).body
+    matches_export=[n.body[:2] for n in main.body if isinstance(n,ast.Try)
+                    and [ast.dump(x) for x in n.body[:2]]==[ast.dump(x) for x in export]]
+    rc.require(len(matches_export)==1, 'Frozen trainer initial export sequence differs')
+    return ast.Module(body=matches[0],type_ignores=[])
+
+
+def frozen_factory(source):
+    """Reject cached imports from another checkout instead of silently mixing code."""
+    source=source.resolve()
+    for name,module in list(sys.modules.items()):
+        if name=='model' or name=='arena' or name.startswith('arena.'):
+            path=getattr(module,'__file__',None)
+            if path is not None:
+                rc.require(Path(path).resolve().is_relative_to(source), 'Foreign cached trainer module: '+name)
+            else:
+                locations=list(getattr(module,'__path__',[]))
+                rc.require(locations and all(Path(p).resolve().is_relative_to(source) for p in locations),
+                           'Foreign cached trainer namespace: '+name)
+    sys.path.insert(0,str(source))
+    model=importlib.import_module('model')
+    factory=importlib.import_module('arena.rootweighted')
+    rc.require(Path(model.__file__).resolve()==source/'model.py' and
+               Path(factory.__file__).resolve()==source/'arena/rootweighted.py', 'Factory import escaped frozen source')
+    return model.Config,factory.model_class
+
+
+def initialize_and_check(source, device):
+    """CPU is diagnostic only. Production caller enforces frozen CUDA runtime.
+
+    Compare our constructor with the exact audited trainer AST prefix, including
+    post-construction RNG state. Never construct optimizer, Pool or Search.
+    """
+    import torch
+    import numpy as np
+    prefix=audited_statements(source)
+    Config,model_class=frozen_factory(source)
+    def snapshot(model,rng):
+        return ({k:v.detach().cpu().clone() for k,v in model.state_dict().items()},
+                torch.get_rng_state().clone(),copy.deepcopy(rng.bit_generator.state),
+                [v.clone() for v in torch.cuda.get_rng_state_all()] if device=='cuda' else [])
+    torch.set_num_threads(1);torch.manual_seed(rc.TRAINING_SEED)
+    rng=np.random.default_rng(rc.TRAINING_SEED)
+    torch.backends.cuda.matmul.allow_tf32=rc.RECIPE['tf32']
+    model=model_class(rc.RECIPE['loss_contract'])(Config(**rc.CONFIG)).to(device)
+    rc.require(asdict(model.config)==rc.CONFIG, 'Model config differs')
+    rc.require(sum(p.numel() for p in model.parameters())==RUNTIME['parameters'],'Parameter count differs')
+    state,cpu_rng,numpy_rng,cuda_rng=snapshot(model,rng)
+    scope=dict(torch=torch,np=np,Config=Config,model_class=model_class,
+               a=SimpleNamespace(**{**rc.RECIPE,'device':device}))
+    exec(compile(prefix,str(source/'arena/train_loss.py'),'exec'),scope)
+    reference,ref_cpu,ref_numpy,ref_cuda=snapshot(scope['model'],scope['rng'])
+    rc.require(list(state)==list(reference), 'Initial tensor keys/order differ')
+    for key,value in state.items():
+        other=reference[key]
+        rc.require(value.dtype==other.dtype and value.shape==other.shape and
+                   value.numpy().tobytes()==other.numpy().tobytes(), 'Initial tensor differs: '+key)
+    rc.require(torch.equal(cpu_rng,ref_cpu) and numpy_rng==ref_numpy and
+               len(cuda_rng)==len(ref_cuda) and all(torch.equal(a,b) for a,b in zip(cuda_rng,ref_cuda)),
+               'Post-initialization RNG differs')
+    def encoded(values):
+        stream=io.BytesIO();np.savez_compressed(stream,**{k:v.numpy() for k,v in values.items()})
+        return stream.getvalue()
+    payload=encoded(state)
+    rc.require(payload==encoded(reference), 'Initial NPZ export bytes differ')
+    return payload,dict(schema=1,kind='frozen-trainer-initial-prefix-parity-v1',
+        device=device,torch=str(torch.__version__),python=platform.python_version(),
+        source_commit=rc.SOURCE_COMMIT,generator_sha256=rc.digest(Path(__file__)),
+        trainer_sha256=rc.digest(source/'arena/train_loss.py'),
+        initial_sha256=hashlib.sha256(payload).hexdigest(),tensor_count=len(state),
+        tensor_bytes_equal=True,npz_bytes_equal=True,rng_states_equal=True,
+        trainer_main_invoked=False,actual_trainer_export_verified=False,
+        limitation='Exact audited prefix only; compare actual trainer initial.npz before accepting endpoints.')
+
+
 def generate(template_path, expected_template, source, output):
     rc.require(rc.digest(template_path)==expected_template, 'Predeclared template digest differs')
     template=json.loads(template_path.read_text());validate_template(template)
     bind_source({'source_provenance':template['source'],'source_commit':rc.SOURCE_COMMIT},source,('replication',))
     started=now()
-    # Source path wins over the adapter checkout for all trainer dependencies.
-    sys.path.insert(0,str(source.resolve()))
     import torch
-    import numpy as np
-    from arena.train_loss import model_class, Config
     rc.require(str(torch.__version__)==RUNTIME['torch'] and platform.python_version()==RUNTIME['python'], 'Frozen CUDA/Python runtime required')
     rc.require(torch.cuda.is_available(), 'CUDA unavailable; CPU hash cannot freeze this gate')
-    torch.set_num_threads(1);torch.manual_seed(rc.TRAINING_SEED)
-    torch.backends.cuda.matmul.allow_tf32=True
-    model=model_class('baseline')(Config(**rc.CONFIG)).to('cuda')
-    rc.require(sum(p.numel() for p in model.parameters())==RUNTIME['parameters'],'Parameter count differs')
-    state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+    payload,parity=initialize_and_check(source,'cuda')
     output.mkdir(parents=True,exist_ok=False)
-    np.savez_compressed(output/'initial.npz',**{k:v.numpy() for k,v in state.items()})
+    (output/'initial.npz').write_bytes(payload)
+    (output/'initial-parity.json').write_text(json.dumps(parity,indent=2)+'\n')
     contract=copy.deepcopy(template);contract['initial_sha256']=rc.digest(output/'initial.npz')
     rc.validate_contract(contract)
     (output/'contract.json').write_text(json.dumps(contract,indent=2)+'\n')

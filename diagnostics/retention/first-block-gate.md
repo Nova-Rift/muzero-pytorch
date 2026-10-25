@@ -35,6 +35,50 @@ python DIAGNOSTICS/first_block_gate.py --source FROZEN_SOURCE --baseline ARCHIVE
 
 Do not pass `--output` again after `--`. Run the candidate command inside the
 existing checkpoint encoder/supervisor, using the same candidate output binding.
+
+## Argument allowlist (`--allow-arg NAME`, candidate mode only)
+
+By default the candidate's training arguments must equal the archived baseline's
+and the reference's except the operational set (site, output, resume_state, games,
+max_seconds) and `updates_per_game`. `--allow-arg NAME` (repeatable) excludes NAME
+from that one comparison through `validate_continuation(..., allowed_arguments=...)`.
+The accepted names are the fixed set `evaluate_endpoint.ALLOWED_ARGUMENTS`:
+`timeout_bootstrap` and `discount`; any other name, or any allowlist in reference
+mode, is rejected before the archive is bound. Nothing else is relaxed: source file
+hashes, `config`, environment, torch/python, clean provenance (dirty=False), games
+2048, ratio, seed 52731415, batch 256, loss contract `baseline`, resume_state None,
+initial tensors, the reference receipt binding and every array/aggregate comparison
+remain strict. The candidate receipt `first-block-gate.json` records
+`argument_allowlist` and `tolerated_argument_differences` (candidate/baseline/
+reference values of each allowed argument that actually differed), so the evidence
+shows exactly what was tolerated.
+
+Only arguments that provably do not change collection before the first update can
+yield first-block parity; the allowlist does not make an argument neutral. Evidence
+from the frozen trainer `2e67c2b9b7652ccbe75dbed249708356f38c3608`:
+
+* `timeout_bootstrap` is passed into `collect` (arena/train_loss.py:215) and used
+  inside it (lines 108–114): with `continue` and any unfinished game at the horizon,
+  `values[length]` is filled from `model.initial` for alive agents of cutoff games,
+  and that bootstrap enters `targets` (lines 116–121; with `--return-mode episode`
+  through `arena/returns.py:7`). Observations, actions, policies, rewards, valid and
+  absorbing masks, replay indices and every non-timing aggregate are unchanged
+  (`completed_search_return_mse` averages only over finished games). The archived
+  baseline first block records 17 cutoffs of 128 games, so a `continue` candidate
+  passes the argument comparison with `--allow-arg timeout_bootstrap` but is then
+  expected to fail `Array differs: targets` against the zero-bootstrap reference.
+  That failure is correct: the block differs. The flag is collection-neutral only
+  for a block with zero cutoffs.
+* `discount` reaches collection through the model config (train_loss.py:176), the
+  MCTS backups (batched_search_exploration.py:47,72,79,82) and the target weights
+  (train_loss.py:119,121). The CLI accepts it for the argument relaxation only; the
+  strict `config` comparison still rejects a changed discount, and search parity
+  would fail regardless.
+
+The receipt's `diagnostic_sha256` binds the gate file itself, so a reference
+produced by an older gate revision is rejected by a candidate run with this
+revision (`Invalid reference completion receipt`); run the reference with the same
+gate file.
 The reference is a prerequisite job; candidate depends on successful reference
 exit and on the separate CUDA resume gate. Archive the reference receipt, full
 block, initial weights and manifest, plus candidate gate receipt. Receipts bind
@@ -62,6 +106,8 @@ job storage plan, outstanding obligations and headroom; never silently count zer
 
 Tests cover stop-before-update, full unsaved-game/indices differences, initial
 mismatch, archive/reference corruption, aggregate mismatch, dtype/keys/nonfinite
-failures, source-validation failure, repeat-call behavior and unchanged NumPy RNG.
+failures, source-validation failure, repeat-call behavior, unchanged NumPy RNG,
+allowlist pass-through and receipt recording, unknown `--allow-arg` and reference-
+mode rejection, and that the allowlist never relaxes array parity.
 Mock tests do not establish actual production CUDA equality. Both production gates
 must still run and pass on the admitted intended runtime.

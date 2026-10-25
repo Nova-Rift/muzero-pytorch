@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from evaluate_endpoint import catalog
+from evaluate_endpoint import ALLOWED_ARGUMENTS, UPG2_TRAINER, catalog, validate_continuation
 
 
 class EndpointTests(unittest.TestCase):
@@ -185,6 +185,68 @@ class UPG2Tests(ContinuationTests):
         with patch('sys.argv',args), patch.object(evaluate_endpoint.subprocess,'run') as run:
             evaluate_endpoint.main()
         self.assertEqual(run.call_args.args[0][1],str(self.source/'tournament/run.py'))
+
+class Upg2AllowlistTests(unittest.TestCase):
+    """validate_continuation(upg2=True) with the explicit argument allowlist."""
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+        self.root=Path(self.temp.name);self.baseline=self.root/'baseline';self.source=self.root/'source'
+        for p in (self.baseline,self.source):p.mkdir()
+        (self.source/'train.py').write_text('frozen trainer')
+        sha=hashlib.sha256((self.source/'train.py').read_bytes()).hexdigest()
+        provenance=dict(commit=UPG2_TRAINER,dirty=False,files={'train.py':sha})
+        (self.source/'.source-provenance.json').write_text(json.dumps(provenance))
+        arguments=dict(loss_contract='baseline',site='/s',output='/o',resume_state=None,games=2048,
+                       simulations=32,batch=256,seed=52731415,timeout_bootstrap='zero',discount=1.0,
+                       updates_per_game=1,max_seconds=650.0)
+        base=dict(config={'simulations':32,'discount':1.0},environment={'physics':'hash'},torch='2.8',python='3.12',
+                  source_commit=UPG2_TRAINER,source_provenance=provenance,arguments=arguments)
+        (self.baseline/'manifest.json').write_text(json.dumps(base))
+        self.candidate=json.loads(json.dumps(base))
+        self.candidate['arguments'].update(updates_per_game=2,output='/candidate',max_seconds=700.0)
+
+    def validate(self,**kwargs):
+        return validate_continuation(self.candidate,self.baseline,self.source,upg2=True,**kwargs)
+
+    def test_identical_arguments_pass_with_and_without_allowlist(self):
+        self.validate();self.validate(allowed_arguments=('timeout_bootstrap',))
+
+    def test_allowed_timeout_bootstrap_difference_passes_only_with_allowlist(self):
+        self.candidate['arguments']['timeout_bootstrap']='continue'
+        with self.assertRaisesRegex(ValueError,'training arguments differ'):self.validate()
+        self.validate(allowed_arguments=('timeout_bootstrap',))
+        self.validate(allowed_arguments=['timeout_bootstrap','discount'])
+
+    def test_non_allowed_difference_still_fails_with_allowlist(self):
+        self.candidate['arguments']['timeout_bootstrap']='continue'
+        for field,value in [('simulations',8),('seed',42),('batch',32),('loss_contract','root5-mass-v1'),
+                            ('games',4096),('resume_state','state.pt'),('updates_per_game',1)]:
+            with self.subTest(field=field):
+                old=self.candidate['arguments'][field];self.candidate['arguments'][field]=value
+                with self.assertRaises(ValueError):self.validate(allowed_arguments=('timeout_bootstrap','discount'))
+                self.candidate['arguments'][field]=old
+
+    def test_unknown_allowlist_name_rejected_even_when_arguments_match(self):
+        for names in (('seed',),('simulations',),('timeout_bootstrap','updates_per_game'),('timeout-bootstrap',)):
+            with self.subTest(names=names), self.assertRaisesRegex(ValueError,'Unsupported argument allowlist'):
+                self.validate(allowed_arguments=names)
+        self.assertEqual(ALLOWED_ARGUMENTS,frozenset({'timeout_bootstrap','discount'}))
+
+    def test_discount_relaxation_never_relaxes_config(self):
+        self.candidate['arguments']['discount']=.99
+        with self.assertRaises(ValueError):self.validate()
+        self.validate(allowed_arguments=('discount',))
+        self.candidate['config']['discount']=.99
+        with self.assertRaisesRegex(ValueError,'config'):self.validate(allowed_arguments=('discount',))
+
+    def test_allowlist_never_relaxes_source_or_provenance(self):
+        self.candidate['arguments']['timeout_bootstrap']='continue'
+        (self.source/'train.py').write_text('changed')
+        with self.assertRaisesRegex(ValueError,'Frozen training source changed'):
+            self.validate(allowed_arguments=('timeout_bootstrap',))
+        (self.source/'train.py').write_text('frozen trainer')
+        self.candidate['source_provenance']=dict(self.candidate['source_provenance'],dirty=True)
+        with self.assertRaisesRegex(ValueError,'dirty'):self.validate(allowed_arguments=('timeout_bootstrap',))
 
 
 if __name__=='__main__':unittest.main()

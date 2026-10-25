@@ -30,6 +30,20 @@ ratio-one defaults remain. New explicit bindings:
   saved states and reports must match the requested games, update ratio and batch8
   example count. Successful ratio2 output reports games4, updates8, examples64.
 
+* `first_block_gate.py --mode candidate --allow-arg NAME` (repeatable) excludes
+  NAME from the training-argument comparison only, via
+  `validate_continuation(..., allowed_arguments=...)`. Accepted names are exactly
+  `timeout_bootstrap` and `discount`; others and reference-mode use are rejected.
+  Source, config, environment, runtime, provenance, games/ratio/seed/batch/loss
+  contract, initial tensors and all array/aggregate parity checks stay strict, and
+  the receipt records the allowlist with the tolerated values. Only arguments that
+  provably leave collection unchanged before the first update can yield parity:
+  `timeout_bootstrap` alters `targets` inside `collect` for cutoff games
+  (train_loss.py:108–121) and the archived first block has 17 cutoffs, so a
+  `continue` candidate is expected to fail array parity against the zero-bootstrap
+  reference; `discount` changes search backups and remains bound by `config`.
+  See first-block-gate.md. The endpoint evaluator (`catalog`) passes no allowlist.
+
 The CUDA resume gate uses hidden448/context64/simulations32 and CUDA graphs/TF32,
 but only parallel2, batch8 and an eight-step horizon. It is a bounded numerical
 resume check, **not** a production first128-game parity check, throughput benchmark

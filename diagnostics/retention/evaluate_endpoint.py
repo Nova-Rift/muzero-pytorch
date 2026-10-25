@@ -8,12 +8,26 @@ import sys
 
 
 UPG2_TRAINER = "2e67c2b9b7652ccbe75dbed249708356f38c3608"
+# Names that callers may exclude from the argument comparison ONLY. Every other
+# binding (source files, config, environment, torch/python, provenance, games,
+# ratio, resume_state, seed, batch, loss_contract) stays enforced. The fixed set
+# is the complete menu; validate_continuation rejects any other name.
+ALLOWED_ARGUMENTS = frozenset({'timeout_bootstrap', 'discount'})
 
 
-def validate_continuation(manifest, paired, source, upg2=False):
-    """Bind the new endpoint to its frozen training source and original run."""
+def validate_continuation(manifest, paired, source, upg2=False, allowed_arguments=()):
+    """Bind the new endpoint to its frozen training source and original run.
+
+    ``allowed_arguments`` extends the operational exclusion set for the training
+    argument comparison only; names outside ALLOWED_ARGUMENTS raise. Relaxing an
+    argument never relaxes ``config`` (so ``discount`` stays bound through the
+    model config) or any array/evidence comparison performed by callers.
+    """
     if source is None:
         raise ValueError('Continuation requires frozen training source')
+    allowed=set(allowed_arguments)
+    if not allowed<=ALLOWED_ARGUMENTS:
+        raise ValueError('Unsupported argument allowlist: '+', '.join(sorted(allowed-ALLOWED_ARGUMENTS)))
     original=json.loads((paired/'manifest.json').read_text())
     for field in ('config', 'environment', 'torch', 'python', 'source_commit'):
         if not manifest.get(field) or manifest[field]!=original.get(field):
@@ -29,6 +43,7 @@ def validate_continuation(manifest, paired, source, upg2=False):
     operational={'site','output','resume_state','games','max_seconds'}
     if upg2:
         operational.add('updates_per_game')
+    operational|=allowed
     arguments=manifest.get('arguments', {})
     old_arguments=original.get('arguments', {})
     if (not arguments or not old_arguments or

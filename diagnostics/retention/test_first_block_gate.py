@@ -7,6 +7,7 @@ import unittest
 from unittest.mock import patch
 import numpy as np
 import first_block_gate as gate
+import sys
 
 
 class FirstBlockTests(unittest.TestCase):
@@ -19,7 +20,7 @@ class FirstBlockTests(unittest.TestCase):
         self.stats = {'games':128, 'hits':4, 'search':1.2}
         for directory, ratio in ((self.base,1),(self.ref,1),(self.out,2)):
             directory.mkdir()
-            (directory/'manifest.json').write_text(json.dumps({'arguments':{'updates_per_game':ratio},'gpu':'H100'}))
+            (directory/'manifest.json').write_text(json.dumps({'arguments':{'updates_per_game':ratio,'timeout_bootstrap':'zero','discount':1.0},'gpu':'H100'}))
             np.savez_compressed(directory/'initial.npz', w=np.ones(2,np.float32))
         np.savez_compressed(self.base/'trace-0.npz', observation=self.block['observation'][:,:22])
         (self.base/'metrics.jsonl').write_text(json.dumps({'batch_seconds':self.stats})+'\n')
@@ -35,10 +36,15 @@ class FirstBlockTests(unittest.TestCase):
         with self.assertRaises(gate.ReferenceComplete):trainer.collect()
         return trainer
 
-    def candidate(self, block=None, stats=None):
+    def candidate(self, block=None, stats=None, allowed=()):
         trainer=self.trainer(block,stats)
-        checked=gate.install_gate(trainer,self.root,self.out,self.base,self.ref,'candidate')
+        checked=gate.install_gate(trainer,self.root,self.out,self.base,self.ref,'candidate',allowed)
         return trainer,checked
+
+    def set_candidate_argument(self, name, value):
+        manifest=json.loads((self.out/'manifest.json').read_text())
+        manifest['arguments'][name]=value
+        (self.out/'manifest.json').write_text(json.dumps(manifest))
 
     def test_reference_stops_before_update(self):
         trainer=self.trainer(); gate.install_gate(trainer,self.root,self.ref,self.base,self.ref,'reference')
@@ -93,6 +99,64 @@ class FirstBlockTests(unittest.TestCase):
         with patch.object(gate,'validate_continuation',side_effect=ValueError('source')):
             trainer,_=self.candidate()
             with self.assertRaisesRegex(ValueError,'source'):trainer.collect()
+
+    def test_default_allowlist_empty_and_recorded(self):
+        self.reference(); trainer,checked=self.candidate(); trainer.collect()
+        for call in gate.validate_continuation.call_args_list[-2:]:
+            self.assertEqual(call.kwargs['allowed_arguments'],())
+        receipt=json.loads((self.out/'first-block-gate.json').read_text())
+        self.assertEqual(receipt['argument_allowlist'],[])
+        self.assertEqual(receipt['tolerated_argument_differences'],{})
+
+    def test_receipt_records_allowlist_and_actual_difference(self):
+        self.reference(); self.set_candidate_argument('timeout_bootstrap','continue')
+        trainer,checked=self.candidate(allowed=['timeout_bootstrap']); trainer.collect()
+        calls=gate.validate_continuation.call_args_list[-2:]
+        self.assertEqual(len(calls),2)
+        for call in calls:
+            self.assertEqual(call.kwargs['allowed_arguments'],('timeout_bootstrap',))
+            self.assertTrue(call.kwargs['upg2'])
+        receipt=json.loads((self.out/'first-block-gate.json').read_text())
+        self.assertEqual(receipt['argument_allowlist'],['timeout_bootstrap'])
+        self.assertEqual(receipt['tolerated_argument_differences'],
+                         {'timeout_bootstrap':{'candidate':'continue','baseline':'zero','reference':'zero'}})
+        self.assertEqual(checked[0]['argument_allowlist'],['timeout_bootstrap'])
+        self.assertTrue(receipt['full_128_trajectory_parity'])
+
+    def test_allowlist_does_not_relax_array_parity(self):
+        self.reference(); self.set_candidate_argument('timeout_bootstrap','continue')
+        block=copy.deepcopy(self.block); block['observation'][0,1400,0]=1
+        trainer,_=self.candidate(block,allowed=('timeout_bootstrap',))
+        with self.assertRaisesRegex(ValueError,'Array differs'):trainer.collect()
+        self.assertFalse((self.out/'first-block-gate.json').exists())
+
+    def test_reference_mode_rejects_allowlist(self):
+        trainer=self.trainer()
+        with self.assertRaisesRegex(ValueError,'Reference mode accepts no argument allowlist'):
+            gate.install_gate(trainer,self.root,self.ref,self.base,self.ref,'reference',('timeout_bootstrap',))
+        self.assertEqual(gate.resolve_allowlist((),'reference'),())
+
+    def test_resolve_allowlist_rejects_unknown_names(self):
+        self.assertEqual(gate.resolve_allowlist(['discount','timeout_bootstrap','discount'],'candidate'),('discount','timeout_bootstrap'))
+        for names in (['seed'],['simulations'],['timeout_bootstrap','updates_per_game'],['timeout-bootstrap']):
+            with self.subTest(names=names), self.assertRaisesRegex(ValueError,'Unsupported --allow-arg'):
+                gate.resolve_allowlist(names,'candidate')
+
+    def test_cli_rejects_unknown_allow_arg_before_archive_binding(self):
+        argv=['first_block_gate.py','--source',str(self.root),'--baseline',str(self.base),'--output',str(self.out),
+              '--mode','candidate','--reference',str(self.ref),'--allow-arg','seed','--','--games','2048']
+        with patch.object(sys,'argv',argv), patch.object(gate,'bind_archive') as bind:
+            with self.assertRaisesRegex(ValueError,'Unsupported --allow-arg: seed'):gate.main()
+        bind.assert_not_called()
+        argv[argv.index('seed')]='timeout_bootstrap'; argv[argv.index('candidate')]='reference'; argv[argv.index('--output')+1]=str(self.ref)
+        with patch.object(sys,'argv',argv), patch.object(gate,'bind_archive') as bind:
+            with self.assertRaisesRegex(ValueError,'Reference mode accepts no argument allowlist'):gate.main()
+        bind.assert_not_called()
+
+    def test_tolerated_differences_lists_only_changed_allowed_values(self):
+        recorded=gate.tolerated_differences(('discount','timeout_bootstrap'),{'timeout_bootstrap':'continue','discount':1.0},
+                                            baseline={'timeout_bootstrap':'zero','discount':1.0},reference={'timeout_bootstrap':'zero','discount':1.0})
+        self.assertEqual(recorded,{'timeout_bootstrap':{'candidate':'continue','baseline':'zero','reference':'zero'}})
 
 
 if __name__=='__main__':unittest.main()

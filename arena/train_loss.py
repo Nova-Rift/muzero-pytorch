@@ -21,6 +21,7 @@ from arena.returns import episode_returns
 from arena.provenance import capture_source
 from arena.state_history import save_milestone
 from arena.aim_decoding import MODES as AIM_MODES,wire_offset
+from arena.mirror import ACTION as MIRROR_ACTION,mirror_observation,mirror_policy
 
 
 class Search:
@@ -60,13 +61,20 @@ class Search:
         return full_actions,full_policies,full_values
 
 
-def history(observations,actions,times,agents,context):
+def history(observations,actions,times,agents,context,mirror=None):
     # One observation history and previous-action history per selected agent.
     indices=times[:,None]-np.arange(context-1,-1,-1)[None]
     mask=indices>=0;safe=np.maximum(indices,0)
-    obs=observations[safe,agents[:,None]]*mask[...,None]
-    ai=times[:,None]-np.arange(context-1,0,-1)[None]
-    previous=actions[np.maximum(ai,0),agents[:,None]]*(ai>=0)/153.
+    if mirror is None:
+        obs=observations[safe,agents[:,None]]*mask[...,None]
+        ai=times[:,None]-np.arange(context-1,0,-1)[None]
+        previous=actions[np.maximum(ai,0),agents[:,None]]*(ai>=0)/153.
+    else:
+        # --mirror-augment: mirror selected samples before padding, so padding frames stay zero.
+        flag=np.asarray(mirror,bool)[:,None,None]
+        obs=observations[safe,agents[:,None]];obs=np.where(flag,mirror_observation(obs),obs)*mask[...,None]
+        ai=times[:,None]-np.arange(context-1,0,-1)[None]
+        previous=actions[np.maximum(ai,0),agents[:,None]];previous=np.where(flag[...,0],MIRROR_ACTION[previous],previous)*(ai>=0)/153.
     return np.concatenate((obs.reshape(len(times),-1),previous),-1).astype(np.float32)
 
 
@@ -133,10 +141,10 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_
     return block,stats
 
 
-def replay_batch(block,rng,batch,context,unroll,device):
+def replay_batch(block,rng,batch,context,unroll,device,mirror=False):
     picks=block['indices'][rng.integers(len(block['indices']),size=batch)]
     times,agents=picks[:,0],picks[:,1];length=len(block['actions'])
-    x=history(block['observation'],block['actions'],times,agents,context)
+    if not mirror:x=history(block['observation'],block['actions'],times,agents,context)
     positions=times[:,None]+np.arange(unroll+1)
     safe=positions.clip(max=length)
     v=block['targets'][safe,agents[:,None]]
@@ -148,6 +156,12 @@ def replay_batch(block,rng,batch,context,unroll,device):
     positions=positions[:,:-1];safe=positions.clip(max=length-1)
     a=block['actions'][safe,agents[:,None]]
     a=np.where(absorbing[:,:-1],rng.integers(153,size=a.shape),a)
+    if mirror:
+        # --mirror-augment: half of each batch (per-sample coin drawn after every frozen RNG draw) is the
+        # east-west mirror of the sampled transition; batch size, update count and targets are unchanged.
+        flags=rng.integers(2,size=batch).astype(bool)
+        x=history(block['observation'],block['actions'],times,agents,context,flags)
+        a=np.where(flags[:,None],MIRROR_ACTION[a],a);p=np.where(flags[:,None,None],mirror_policy(p),p)
     r=block['rewards'][safe,agents[:,None]]*(positions<length)
     return tuple(torch.from_numpy(np.ascontiguousarray(z)).to(device) for z in (x,a,r,v,p,valid.astype(np.float32),value_valid.astype(np.float32),reward_valid.astype(np.float32)))
 
@@ -166,6 +180,7 @@ def main():
     p.add_argument('--timeout-bootstrap',choices=['continue','zero'],default='continue',help='zero uses the finite collection horizon; default preserves historical continuing targets')
     p.add_argument('--root-candidates',type=int,default=0)
     p.add_argument('--aim-decoding',choices=list(AIM_MODES),default='absolute',help='relative interprets aim bins as offsets from the bearing to the nearest live opponent; default keeps historical absolute angles')
+    p.add_argument('--mirror-augment',action='store_true',help='training-only east-west mirror of half of every replay batch (arena/mirror.py); off reproduces the frozen trainer exactly')
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
@@ -221,7 +236,7 @@ def main():
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):
                 chosen=replay[int(rng.integers(len(replay)))]
-                tensors=replay_batch(chosen,rng,a.batch,a.context,a.unroll,a.device)
+                tensors=replay_batch(chosen,rng,a.batch,a.context,a.unroll,a.device,a.mirror_augment)
                 if a.policy_floor:
                     tensors=list(tensors);tensors[4]=(1-a.policy_floor)*tensors[4]+a.policy_floor/model.config.actions
                 loss=model.loss(*tensors).mean()

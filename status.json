@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:33:11.238503-07:00",
+    "measured_at": "2026-10-25T00:34:15.239960-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,7 +76,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T07:31:13.201121+00:00",
-        "elapsed_seconds": 118,
+        "elapsed_seconds": 182,
         "completed": null,
         "total": null,
         "task": "EGO and MIR launch processes started",
@@ -84,8 +84,8 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 462,
-    "eta_seconds": 628,
+    "elapsed_seconds": 526,
+    "eta_seconds": 564,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -95,10 +95,10 @@
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1792913586.9403758,
-        "job_id": "ego-a-runtime",
+        "updated_at": 1792913652.0781069,
+        "job_id": "ego-EGO2048",
         "fresh": true
       },
       {

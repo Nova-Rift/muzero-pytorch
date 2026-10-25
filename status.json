@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:53:53.103121-07:00",
+    "measured_at": "2026-10-24T22:54:01.175395-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T05:53:53.040535+00:00",
-        "elapsed_seconds": 583,
+        "elapsed_seconds": 591,
         "completed": null,
         "total": null,
         "task": "Arm A failed at the parity gate before training; pod deleted; gate fix delegated",
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 904,
-    "eta_seconds": 186,
+    "elapsed_seconds": 912,
+    "eta_seconds": 178,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

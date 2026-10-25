@@ -1,18 +1,75 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "train",
   "iteration": 34,
-  "completed_games": 0,
-  "target_games": 0,
+  "completed_games": 896,
+  "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "EGO and MIR launch processes started",
-  "change": "Fresh repaired runners passed checks and storage admission. Staging is serialized before allocation; independent GPU lanes may compute concurrently afterward.",
-  "result": "No training result yet; required CUDA runtime and resume gates precede production.",
+  "title": "EGO and MIR training on separate GPUs",
+  "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
+  "result": "No strength conclusion yet. Matched frozen development evaluations remain required.",
   "candidate": "EGO2048 and MIR2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T07:31:13.201121+00:00",
+  "updated_at": "2026-10-25T07:36:41.341810+00:00",
+  "training_metrics": {
+    "iteration": 34,
+    "run_id": "ego-EGO2048",
+    "loss_definition": "last_update_batch_mean",
+    "reported_at": "2026-10-25T07:36:41.309098+00:00",
+    "points": [
+      {
+        "optimizer_updates": 128,
+        "games": 128,
+        "elapsed_seconds": 27.965403432026505,
+        "loss": 5.323472023010254,
+        "search_entropy": 3.465735912322998
+      },
+      {
+        "optimizer_updates": 256,
+        "games": 256,
+        "elapsed_seconds": 52.29470833297819,
+        "loss": 4.937044143676758,
+        "search_entropy": 0.9545971609186381
+      },
+      {
+        "optimizer_updates": 384,
+        "games": 384,
+        "elapsed_seconds": 76.58088116103318,
+        "loss": 5.50154972076416,
+        "search_entropy": 1.247743386309594
+      },
+      {
+        "optimizer_updates": 512,
+        "games": 512,
+        "elapsed_seconds": 100.74823031201959,
+        "loss": 5.133694648742676,
+        "search_entropy": 1.59551309235394
+      },
+      {
+        "optimizer_updates": 640,
+        "games": 640,
+        "elapsed_seconds": 125.82674897898687,
+        "loss": 5.144387245178223,
+        "search_entropy": 1.1908792178146541
+      },
+      {
+        "optimizer_updates": 768,
+        "games": 768,
+        "elapsed_seconds": 146.49507628998253,
+        "loss": 4.718132495880127,
+        "search_entropy": 1.1660140622848583
+      },
+      {
+        "optimizer_updates": 896,
+        "games": 896,
+        "elapsed_seconds": 165.59756926400587,
+        "loss": 4.789949417114258,
+        "search_entropy": 0.9509927498666864
+      }
+    ]
+  },
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,18 +94,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:36:28.230710-07:00",
+    "measured_at": "2026-10-25T00:36:41.415253-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T07:36:41.341810+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
-        "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "completed": 896,
+        "total": 2048,
+        "task": "EGO and MIR training on separate GPUs",
+        "eta_seconds": 443,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -74,18 +131,18 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-25T07:31:13.201121+00:00",
-        "elapsed_seconds": 315,
+        "state": "finished",
+        "updated_at": "2026-10-25T07:36:41.341810+00:00",
+        "elapsed_seconds": 328,
         "completed": null,
         "total": null,
         "task": "EGO and MIR launch processes started",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 659,
-    "eta_seconds": 431,
+    "elapsed_seconds": 672,
+    "eta_seconds": 418,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,7 +154,7 @@
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792913786.651532,
+        "updated_at": 1792913796.7823436,
         "job_id": "ego-EGO2048",
         "fresh": true
       },
@@ -105,7 +162,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792913783.9348674,
+        "updated_at": 1792913799.0430522,
         "job_id": "mir-MIR2048",
         "fresh": true
       },

@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:43:03.701289-07:00",
+    "measured_at": "2026-10-24T22:43:11.220983-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,7 +76,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T05:43:03.631474+00:00",
-        "elapsed_seconds": 163,
+        "elapsed_seconds": 170,
         "completed": null,
         "total": null,
         "task": "H100 allocated for two serial candidate arms; setup and correctness gates first",
@@ -84,20 +84,20 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 254,
-    "eta_seconds": 836,
+    "elapsed_seconds": 262,
+    "eta_seconds": 828,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792906821.092972,
+    "updated_at": 1792906821.092977,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792906944.806317,
+        "updated_at": 1792906991.128996,
         "job_id": "iteration29-arm-a-admission",
         "decision": {
           "reviewing": "How to run the two candidate arms when no two-GPU H100 pod is offered?",
@@ -124,12 +124,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Admitting arm A: CB2048 (timeout_bootstrap=continue) on device 1",
-          "change": "Runner 29 generated; prepared two-arm job graph and payload hashes verified. Fresh two-GPU quote, exact-job storage approval and preflight precede the guarded launch.",
-          "result": "No GPU allocated yet. Gate on the pod: runtime, ratio-1 resume, first-block parity, then training and six frozen bouts.",
+          "title": "Arm A admitted: CB2048 chain on the H100 (supervisor loop loop-a)",
+          "change": "Pod nufncmbfvuz9s1 registered at 3.99/hour; payload setup under the shared deadline. Gates: runtime, ratio-1 resume, frozen first-block reference, candidate parity before first update.",
+          "result": "Then CB2048 training (2048 games) and six frozen bouts (Baseline2048 and CB2048 vs E1024, F1024, OwnInitial). Lease renews automatically while progress is observable.",
           "candidate": "CB2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:40:21.092954+00:00",
+          "updated_at": "2026-10-25T05:43:11.128996+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -139,7 +139,7 @@
         "id": "loop-b",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792906821.092972,
+        "updated_at": 1792906991.129039,
         "job_id": "iteration29-arm-b-admission",
         "details": {
           "schema": 1,
@@ -150,16 +150,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Admitting arm B: D99_2048 (discount=0.99) on device 2",
-          "change": "Shares the pod and payload with arm A; runs on the second H100 under the supervisor plan gpu_count=2 within the 10 dollars/hour ceiling.",
-          "result": "No GPU allocated yet. Gate on the pod: runtime and ratio-1 resume, then training and three frozen bouts paired to the baseline seeds.",
+          "title": "Arm B admitted: D99_2048 chain on the same H100 (supervisor loop loop-b)",
+          "change": "No two-GPU H100 offer existed, so arm B shares the device serially: runtime and ratio-1 resume gates, D99_2048 training, three frozen bouts paired to the baseline seeds.",
+          "result": "Expected whole plan about 3294 s for both arms. Readout uses the discount-tolerant paired audit prepared in session 28.",
           "candidate": "D99_2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:40:21.092972+00:00",
+          "updated_at": "2026-10-25T05:43:11.129039+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",

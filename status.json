@@ -94,17 +94,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:37:31.225281-07:00",
+    "measured_at": "2026-10-25T00:38:38.226954-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T07:36:41.341810+00:00",
-        "elapsed_seconds": 50,
+        "elapsed_seconds": 117,
         "completed": 896,
         "total": 2048,
         "task": "EGO and MIR training on separate GPUs",
-        "eta_seconds": 64,
+        "eta_seconds": 150,
         "eta_basis": "observed training rate"
       },
       {
@@ -141,8 +141,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 722,
-    "eta_seconds": 368,
+    "elapsed_seconds": 789,
+    "eta_seconds": 301,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -154,7 +154,7 @@
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792913846.7280657,
+        "updated_at": 1792913916.7080297,
         "job_id": "ego-EGO2048",
         "fresh": true
       },
@@ -162,7 +162,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792913849.0178263,
+        "updated_at": 1792913914.0245984,
         "job_id": "mir-MIR2048",
         "fresh": true
       },
@@ -178,9 +178,9 @@
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792913665.7685738,
-        "job_id": "iteration34-source-history",
-        "fresh": false
+        "updated_at": 1792913906.4141414,
+        "job_id": "iteration34-evaluation-admission",
+        "fresh": true
       }
     ]
   },

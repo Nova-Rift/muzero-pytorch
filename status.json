@@ -12,7 +12,7 @@
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "CB2048 vs OwnInitial",
-  "updated_at": "2026-10-25T06:32:35.168792+00:00",
+  "updated_at": "2026-10-25T06:33:06.047784+00:00",
   "revision": {
     "summary": "Two tested variants pushed; evaluator needs an explicit declared-difference mode before they can be scored",
     "reason": "Readout: D99_2048 lost to Baseline2048 on both opponents; CB2048 beat it against E1024 (+0.23, 9 cutoffs) but lost against F1024 (-0.20, 32 cutoffs), so neither passes. The paired evaluator rejects any candidate from a new trainer commit, which blocks the egocentric-aim and mirror-augment arms.",
@@ -174,13 +174,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:32:35.238718-07:00",
+    "measured_at": "2026-10-24T23:33:15.975260-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T06:32:35.168792+00:00",
-        "elapsed_seconds": 1163,
+        "updated_at": "2026-10-25T06:33:06.047784+00:00",
+        "elapsed_seconds": 1204,
         "completed": 2048,
         "total": 2048,
         "task": "Three-arm chain: done 17/21 jobs; active REP2048; failed none",
@@ -221,188 +221,62 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1971,
+    "elapsed_seconds": 2012,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792909294.4530952,
+    "updated_at": 1792909595.168608,
     "fresh": false,
     "loops": [
       {
         "id": "loop-b",
-        "stage": "edit",
-        "state": "active",
-        "updated_at": 1792909294.4530952,
+        "stage": "test",
+        "state": "pending",
+        "updated_at": 1792909955.9911306,
         "job_id": "iteration30-mirror-augment",
-        "details": {
-          "schema": 1,
-          "stage": "edit",
-          "iteration": 30,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 86,
-          "evaluation_games": 192,
-          "timeouts": 37,
-          "title": "D99_2048 failed the cutoff limit; helper building the seat-mirror variant",
-          "change": "D99_2048 (discount 0.99): E1024 20-19-25, F1024 29-27-8, own initial 37-23-4 (wins-losses-cutoffs, provisional). 25 cutoffs versus E1024 exceed the 12 of 64 limit; no confirmation stage.",
-          "result": "Next experiment: training-only seat mirroring (flag --mirror-augment) on branch mirror-augment with CPU tests; arm MIR2048 proposed for the same pod or next session after payload rebuild.",
-          "candidate": "D99_2048",
-          "evaluation_label": "Development bouts complete (provisional)",
-          "updated_at": "2026-10-25T06:20:17.772674+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
-      },
-      {
-        "id": "loop-a",
-        "stage": "evaluate",
-        "state": "done",
-        "updated_at": 1792909950.8392568,
-        "job_id": "CB2048-OwnInitial",
         "details": {
           "schema": 1,
           "stage": "test",
           "iteration": 30,
           "completed_games": 2048,
           "target_games": 2048,
-          "wins": 23,
-          "evaluation_games": 64,
-          "timeouts": 29,
-          "title": "loop-a CB2048: done 9/9; active none; failed none",
-          "change": "Supervisor jobs for CB2048: done 9/9; active none; failed none.",
-          "result": "Latest completed bout CB2048 vs OwnInitial completed: 23 wins, 12 losses, 0 draws, 29 cutoffs of 64.",
+          "wins": 66,
+          "evaluation_games": 192,
+          "timeouts": 37,
+          "title": "MIR2048 packaged; waiting for the evaluator relaxation and a staged payload",
+          "change": "Mirror-augment branch 273d72a9 pushed: flag-off byte-identical to the frozen trainer, 9 new tests, CPU smoke through the exact wrapper in both modes. D99_2048 failed (E1024 12 vs 15 wins, 25 cutoffs; F1024 23 vs 30).",
+          "result": "Release condition: trainer-variants branch verified and payload staged; then MIR2048 launches on the second pod lane with Baseline2048 recipe plus --mirror-augment.",
+          "candidate": "D99_2048",
+          "evaluation_label": "Development gate failed",
+          "updated_at": "2026-10-25T06:32:35.141566+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
+      },
+      {
+        "id": "loop-a",
+        "stage": "edit",
+        "state": "active",
+        "updated_at": 1792909955.9911306,
+        "job_id": "iteration30-variants-eval",
+        "details": {
+          "schema": 1,
+          "stage": "edit",
+          "iteration": 30,
+          "completed_games": 2048,
+          "target_games": 2048,
+          "wins": 70,
+          "evaluation_games": 192,
+          "timeouts": 70,
+          "title": "CB2048 mixed result; helper merging variants and relaxing the paired evaluator",
+          "change": "CB2048 (timeout bootstrap continue): versus E1024 30 wins to the baseline 15 (+0.23, interval 0.06 to 0.41, 9 cutoffs); versus F1024 17 to 30 (-0.20, 32 cutoffs). Gate needs both, so failed.",
+          "result": "Egocentric-aim branch a781576 pushed (tests pass). Blocker: paired evaluator rejects a new source commit; helper adds an explicit declared-difference mode on branch trainer-variants, then EGO2048 runs.",
           "candidate": "CB2048",
-          "evaluation_label": "CB2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T06:32:05.927491+00:00",
-          "matchup": {
-            "challenger": "CB2048",
-            "opponent": "OwnInitial",
-            "opponent_wins": 12,
-            "draws": 0
-          },
-          "training_metrics": {
-            "iteration": 30,
-            "run_id": "CB2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:24:58.036759+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 27.61126175703248,
-                "loss": 5.570812702178955,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 53.14979365403997,
-                "loss": 5.167527198791504,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 78.67186988104368,
-                "loss": 5.668338775634766,
-                "search_entropy": 1.0578267453238368
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 105.03656562702963,
-                "loss": 5.187586307525635,
-                "search_entropy": 1.4133156156167388
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 132.95208982704207,
-                "loss": 5.009067058563232,
-                "search_entropy": 1.3520796657539904
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 160.00221758399857,
-                "loss": 5.179931640625,
-                "search_entropy": 1.1608183551579714
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 186.55248384503648,
-                "loss": 5.227812767028809,
-                "search_entropy": 1.00302464957349
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 211.94195133203175,
-                "loss": 4.710259914398193,
-                "search_entropy": 0.9516122848726809
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 239.02744657901349,
-                "loss": 4.492376327514648,
-                "search_entropy": 1.1991610238328576
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 265.8684865250252,
-                "loss": 4.435437202453613,
-                "search_entropy": 1.2335368511267006
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 290.54580223199446,
-                "loss": 4.393158435821533,
-                "search_entropy": 1.2726309882833602
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 305.54130809602793,
-                "loss": 3.860759735107422,
-                "search_entropy": 1.237156996803899
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 331.7986811680021,
-                "loss": 3.7764642238616943,
-                "search_entropy": 1.4361348755626757
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 359.03055528603727,
-                "loss": 3.9677062034606934,
-                "search_entropy": 1.4338782434351742
-              },
-              {
-                "optimizer_updates": 1920,
-                "games": 1920,
-                "elapsed_seconds": 386.3499252840411,
-                "loss": 4.592374801635742,
-                "search_entropy": 1.4986552717164159
-              },
-              {
-                "optimizer_updates": 2048,
-                "games": 2048,
-                "elapsed_seconds": 412.64760688203387,
-                "loss": 4.550553798675537,
-                "search_entropy": 1.7648827345110476
-              }
-            ]
-          },
+          "evaluation_label": "Development gate failed (mixed)",
+          "updated_at": "2026-10-25T06:32:35.141566+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -412,35 +286,28 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792909950.8392568,
+        "updated_at": 1792909990.2357132,
         "job_id": "REP2048",
-        "progress": {
-          "job_id": "REP2048",
-          "completed": 512,
-          "total": 2048,
-          "unit": "games",
-          "updated_at": 1792909929.418468
-        },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 30,
-          "completed_games": 512,
+          "completed_games": 640,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "loop-c REP2048: done 2/6; active REP2048; failed none",
           "change": "Supervisor jobs for REP2048: done 2/6; active REP2048; failed none.",
-          "result": "Observed 512 training games and 512 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 640 training games and 640 optimizer updates for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:32:09.418468+00:00",
+          "updated_at": "2026-10-25T06:33:06.046855+00:00",
           "training_metrics": {
             "iteration": 30,
             "run_id": "REP2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:32:09.418468+00:00",
+            "reported_at": "2026-10-25T06:32:36.732006+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -469,6 +336,13 @@
                 "elapsed_seconds": 107.24872191698523,
                 "loss": 5.408191204071045,
                 "search_entropy": 1.086314158514142
+              },
+              {
+                "optimizer_updates": 640,
+                "games": 640,
+                "elapsed_seconds": 134.5570810670033,
+                "loss": 5.08848762512207,
+                "search_entropy": 2.041474824771285
               }
             ]
           },

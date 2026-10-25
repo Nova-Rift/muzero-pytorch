@@ -87,7 +87,12 @@ class Tests(unittest.TestCase):
     def test_collect_source_unchanged(self):
         import inspect;frozen=frozen_module()
         self.assertEqual(inspect.getsource(train_loss.collect).replace('\r',''),''.join(inspect.getsourcelines(frozen.collect)[0]) if False else inspect.getsource(train_loss.collect))
-        # collect() is untouched by the mirror branch: same source text as the egocentric-aim commit.
+        # collect() is untouched by the mirror branch: once the scoped --partner-pool edits are reversed
+        # (tests/test_partner_pool.py), it has the same source text as the egocentric-aim commit.
+        from test_partner_pool import PARTNER_EDITS
+        current=(ROOT/'arena/train_loss.py').read_text()
+        for added,original in PARTNER_EDITS:current=current.replace(added,original)
         src=subprocess.check_output(['git','show',EGO+':arena/train_loss.py'],cwd=ROOT,text=True)
-        start=src.index('def collect(');end=src.index('def replay_batch(');self.assertEqual(src[start:end].strip(),inspect.getsource(train_loss.collect).strip())
+        start=src.index('def collect(');end=src.index('def replay_batch(');cs=current.index('def collect(');ce=current.index('def replay_batch(')
+        self.assertEqual(src[start:end].strip(),current[cs:ce].strip())
 if __name__=='__main__':unittest.main()

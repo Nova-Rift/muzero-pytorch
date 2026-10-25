@@ -25,8 +25,9 @@ from arena.mirror import ACTION as MIRROR_ACTION,mirror_observation,mirror_polic
 
 
 class Search:
-    def __init__(self,model,count,graph=False,agents=2,root_candidates=0):
-        self.indices=torch.tensor([g*11+a for g in range(count//11) for a in range(agents)],device=next(model.parameters()).device)
+    def __init__(self,model,count,graph=False,agents=2,root_candidates=0,slots=None):
+        # slots: explicit root slot list (--partner-pool); default keeps the historical per-game agent layout.
+        self.indices=torch.tensor([g*11+a for g in range(count//11) for a in range(agents)] if slots is None else list(slots),dtype=torch.long,device=next(model.parameters()).device)
         self.candidates=torch.zeros((len(self.indices),root_candidates),dtype=torch.long,device=self.indices.device) if root_candidates else None
         self.total=count
         count=len(self.indices)
@@ -61,6 +62,40 @@ class Search:
         return full_actions,full_policies,full_values
 
 
+class PartnerPool:
+    """--partner-pool: frozen copies of this run's OWN earlier weights (initial.npz / checkpoint-N.npz) play agent 1 in a
+    seeded fraction of every block's games. Their slots are traced but never enter the replay indices; the gate opponents
+    E1024/F1024/OwnInitial are foreign weights and can never be members (only own-run files are accepted)."""
+    def __init__(self,model,directories,members,fraction,root_candidates=0):
+        import copy
+        self.model=copy.deepcopy(model).eval()
+        for parameter in self.model.parameters():parameter.requires_grad_(False)
+        self.directories=[Path(d) for d in directories];self.members=members;self.fraction=fraction;self.root_candidates=root_candidates
+    def files(self):
+        # Members whose file exists yet (before checkpoint-N.npz is written the pool is initial.npz only).
+        found=[]
+        for member in self.members:
+            name='initial.npz' if member=='initial' else f'checkpoint-{member}.npz'
+            for directory in self.directories:
+                if (directory/name).exists():found.append((member,directory/name));break
+        return found
+    def assign(self,games,seed):
+        # Dedicated generator seeded by the block's first game seed: no shared RNG state to save, identical on resume.
+        prng=np.random.default_rng(seed);files=self.files();member=np.full(games*11,-1,np.int16)
+        chosen=np.sort(prng.choice(games,int(round(self.fraction*games)),replace=False))
+        member[chosen*11+1]=prng.integers(len(files),size=len(chosen))
+        return member,files
+    def __call__(self,x,member,files):
+        count=len(member);actions=np.zeros(count,np.int64);policies=np.zeros((count,self.model.config.actions),np.float32);values=np.zeros(count,np.float32)
+        for index,(_,path) in enumerate(files):
+            slots=np.flatnonzero(member==index)
+            if not len(slots):continue
+            with np.load(path) as z:self.model.load_state_dict({k:torch.from_numpy(z[k]) for k in z.files})
+            act,pol,value=Search(self.model,count,root_candidates=self.root_candidates,slots=slots)(x)
+            actions[slots],policies[slots],values[slots]=act[slots],pol[slots],value[slots]
+        return actions,policies,values
+
+
 def history(observations,actions,times,agents,context,mirror=None):
     # One observation history and previous-action history per selected agent.
     indices=times[:,None]-np.arange(context-1,-1,-1)[None]
@@ -78,10 +113,13 @@ def history(observations,actions,times,agents,context,mirror=None):
     return np.concatenate((obs.reshape(len(times),-1),previous),-1).astype(np.float32)
 
 
-def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep",timeout_bootstrap="continue",aim_decoding="absolute"):
+def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep",timeout_bootstrap="continue",aim_decoding="absolute",partner=None):
     # Recorded actions stay model indices (0..152); only the command sent to the bridge carries the decoding offset.
     aim_offset=wire_offset(aim_decoding)
     state=pool.reset(seeds);games=len(seeds);count=games*11
+    # --partner-pool: member[slot]>=0 marks a frozen pool agent; learner marks the slots that may enter replay.
+    member,files=partner.assign(games,int(seeds[0])) if partner else (None,[])
+    learner=np.ones(count,bool) if member is None else member<0
     obs=np.zeros((limit+1,count,64),np.float32)
     actions=np.zeros((limit,count),np.int64)
     rewards=np.zeros((limit,count),np.float32)
@@ -101,9 +139,11 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_
         x=cache.observe(obs[t]) if cache else torch.from_numpy(history(obs,actions,np.full(count,t),np.arange(count),context)).to(device)
         timings['history']+=time.perf_counter()-start;start=time.perf_counter()
         act,pol,value=searcher(x)
+        if member is not None:
+            pa,pp,pv=partner(x,member,files);act[~learner],pol[~learner],value[~learner]=pa[~learner],pp[~learner],pv[~learner]
         if cache:cache.acted(act)
         timings['search']+=time.perf_counter()-start
-        action_counts+=np.bincount(act[valid[t]],minlength=153)
+        action_counts+=np.bincount(act[valid[t]&learner],minlength=153)
         actions[t],policies[t],values[t]=act,pol,value
         commands=(act+aim_offset).reshape(games,11);commands[finished]=-1
         start=time.perf_counter();following=pool.step(commands);timings['environment']+=time.perf_counter()-start
@@ -131,13 +171,15 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_
         targets[t]+=weight*values[end]
     actual_returns=episode_returns(rewards[:length],terminal[:length],values[length],model.config.discount)
     if return_mode=='episode':targets[:length]=actual_returns[:length]
-    completed=valid[:length]&np.repeat(finished,11)[None]
+    completed=valid[:length]&learner[None]&np.repeat(finished,11)[None]
     search_return_mse=float(np.mean((values[:length][completed]-actual_returns[:length][completed])**2)) if completed.any() else None
     absorbing=np.zeros_like(valid)
     absorbing[1:length+1]=np.maximum.accumulate(terminal[:length],axis=0)
-    indices=np.argwhere(valid[:length])
+    indices=np.argwhere((valid&learner[None])[:length])
     block=dict(observation=obs[:length+1],actions=actions[:length],rewards=rewards[:length],policies=policies[:length+1],targets=targets[:length+1],valid=valid[:length+1],absorbing=absorbing[:length+1],indices=indices)
-    stats=dict(collection_steps=length,padded_search_roots=length*len(searcher.indices),action_counts=action_counts.tolist(),hits=round(hits),movement_pixels=movement,completed_search_return_mse=search_return_mse,games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
+    if member is not None:block['partner']=np.repeat(member[None],length+1,0)
+    stats=dict(partner_games=int((~learner).sum()),partner_members={name:int((member==i).sum()) for i,(name,_) in enumerate(files)}) if member is not None else {}
+    stats.update(collection_steps=length,padded_search_roots=length*len(searcher.indices),action_counts=action_counts.tolist(),hits=round(hits),movement_pixels=movement,completed_search_return_mse=search_return_mse,games=games,natural_terminal=int(finished.sum()),cutoffs=int((~finished).sum()),joint_steps=joint_steps,active_transitions=int(valid.sum()),**timings)
     return block,stats
 
 
@@ -181,6 +223,8 @@ def main():
     p.add_argument('--root-candidates',type=int,default=0)
     p.add_argument('--aim-decoding',choices=list(AIM_MODES),default='absolute',help='relative interprets aim bins as offsets from the bearing to the nearest live opponent; default keeps historical absolute angles')
     p.add_argument('--mirror-augment',action='store_true',help='training-only east-west mirror of half of every replay batch (arena/mirror.py); off reproduces the frozen trainer exactly')
+    p.add_argument('--partner-pool',default='',help='comma-separated OWN-run weights (initial or checkpoint game counts, e.g. initial,512,1024) that play agent 1 in --partner-fraction of each block\'s games; empty keeps the frozen trainer')
+    p.add_argument('--partner-fraction',type=float,default=0.0,help='seeded fraction of parallel games whose agent 1 is a frozen pool member; 0 reproduces the frozen trainer exactly')
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
@@ -189,7 +233,11 @@ def main():
     p.add_argument('--seed',type=int,default=28000000);p.add_argument('--max-seconds',type=float,default=600)
     p.add_argument('--device',default='cuda' if torch.cuda.is_available() else 'cpu')
     p.add_argument('--device-history',action='store_true');p.add_argument('--cuda-graph',action='store_true');p.add_argument('--tf32',action='store_true')
-    a=p.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
+    a=p.parse_args()
+    members=[m for m in a.partner_pool.split(',') if m]
+    if any(m!='initial' and not m.isdigit() for m in members):raise ValueError('--partner-pool accepts initial or own checkpoint game counts only')
+    if not 0<=a.partner_fraction<=1 or (a.partner_fraction and not members):raise ValueError('--partner-fraction requires a pool and lies in [0,1]')
+    out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     torch.set_num_threads(1);torch.manual_seed(a.seed);rng=np.random.default_rng(a.seed)
     torch.backends.cuda.matmul.allow_tf32=a.tf32
     model=model_class(a.loss_contract)(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=a.discount,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
@@ -206,7 +254,7 @@ def main():
     if restored and (restored['source_files']!=provenance['files'] or restored['torch_version']!=str(torch.__version__)):
         raise ValueError('Resume requires identical source and PyTorch version')
     arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(a).items()}
-    manifest=dict(arguments=arguments,config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
+    manifest=dict(arguments=arguments,config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None,partner_pool=dict(members=members,fraction=a.partner_fraction))
     if restored and restored['environment']!=source:raise ValueError('Resume environment changed')
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
     pool=Pool(a.site,a.workers,agents=a.agents,cadence=a.cadence);replay=deque(maxlen=a.replay_blocks);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
@@ -214,6 +262,7 @@ def main():
         initial=restored['initial'] if restored else {k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
         np.savez_compressed(out/'initial.npz',**{k:v.numpy() for k,v in initial.items()})
         searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents,a.root_candidates);setup=time.perf_counter()-started
+        partner=PartnerPool(model,[out]+([a.resume_state.parent,a.resume_state.parent.parent] if a.resume_state else []),members,a.partner_fraction,a.root_candidates) if a.partner_fraction else None
         if restored:
             totals.update(restored['totals'])
             replay.extend({k:v.numpy() for k,v in b.items()} for b in restored['replay'])
@@ -231,7 +280,7 @@ def main():
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
             if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
-            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode,a.timeout_bootstrap,a.aim_decoding)
+            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode,a.timeout_bootstrap,a.aim_decoding,partner)
             np.savez_compressed(out/f'trace-{offset}.npz',**{k:v[:,:22] for k,v in block.items() if k!='indices'})
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):

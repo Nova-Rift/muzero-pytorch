@@ -49,7 +49,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:49:34.673083-07:00",
+    "measured_at": "2026-10-24T20:50:41.185237-07:00",
     "steps": [
       {
         "step": 1,
@@ -88,22 +88,22 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T03:48:51.215153+00:00",
-        "elapsed_seconds": 43,
+        "elapsed_seconds": 110,
         "completed": null,
         "total": null,
         "task": "UPG2 admission: storage gate released, binding tested package",
-        "eta_seconds": 72,
+        "eta_seconds": 5,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 649,
-    "eta_seconds": 441,
+    "elapsed_seconds": 715,
+    "eta_seconds": 375,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1792900147.844753,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -144,7 +144,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -171,7 +171,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -198,7 +198,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -225,7 +225,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },
@@ -237,8 +237,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 30.0,
-    "reserved_usd": 0,
+    "remaining_usd": 27.0,
+    "reserved_usd": 3.0,
     "reset_at": "2026-10-25T07:00:00+00:00"
   }
 }

@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
-  "iteration": 31,
+  "stage": "review",
+  "iteration": 32,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Pilot stopped: previous iteration needs review",
+  "title": "Iteration 32: reviewing evidence",
   "change": "Supervisor jobs: done 17/21 jobs; active REP2048; failed none. GPU utilization sample {'0': 20}.",
   "result": "failed to fetch codex rate limits: error sending request for url (https://chatgpt.com/backend-api/wham/usage)",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T06:40:15.106480+00:00",
+  "updated_at": "2026-10-25T06:42:15.998869+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:42:15.965837-07:00",
+    "measured_at": "2026-10-24T23:43:21.222207-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "interrupted",
-        "updated_at": "2026-10-25T06:38:10.770351+00:00",
-        "elapsed_seconds": 2,
+        "state": "active",
+        "updated_at": "2026-10-25T06:42:15.998869+00:00",
+        "elapsed_seconds": 65,
         "completed": null,
         "total": null,
-        "task": "Iteration 31: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 32: reviewing evidence",
+        "eta_seconds": 140,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
@@ -84,25 +84,25 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 247,
-    "eta_seconds": null,
+    "elapsed_seconds": 65,
+    "eta_seconds": 1025,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792910288.757687,
+    "updated_at": 1792910536.006917,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910288.757687,
-        "job_id": "iteration-31-planning-1",
+        "updated_at": 1792910536.006917,
+        "job_id": "iteration-32-planning-1",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 31,
+          "iteration": 32,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
@@ -113,7 +113,7 @@
           "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:38:08.757687+00:00",
+          "updated_at": "2026-10-25T06:42:16.006917+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -123,12 +123,12 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910288.757687,
-        "job_id": "iteration-31-planning-2",
+        "updated_at": 1792910536.006917,
+        "job_id": "iteration-32-planning-2",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 31,
+          "iteration": 32,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
@@ -139,7 +139,7 @@
           "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:38:08.757687+00:00",
+          "updated_at": "2026-10-25T06:42:16.006917+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -149,12 +149,12 @@
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910288.757687,
-        "job_id": "iteration-31-planning-3",
+        "updated_at": 1792910536.006917,
+        "job_id": "iteration-32-planning-3",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 31,
+          "iteration": 32,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
@@ -165,7 +165,7 @@
           "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:38:08.757687+00:00",
+          "updated_at": "2026-10-25T06:42:16.006917+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -175,12 +175,12 @@
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910288.757687,
-        "job_id": "iteration-31-planning-4",
+        "updated_at": 1792910536.006917,
+        "job_id": "iteration-32-planning-4",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 31,
+          "iteration": 32,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
@@ -191,7 +191,7 @@
           "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:38:08.757687+00:00",
+          "updated_at": "2026-10-25T06:42:16.006917+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

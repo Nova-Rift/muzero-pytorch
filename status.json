@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:20:41.247885-07:00",
+    "measured_at": "2026-10-25T02:21:48.285247-07:00",
     "steps": [
       {
         "step": 1,
@@ -71,7 +71,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 2241,
+        "elapsed_seconds": 2308,
         "completed": null,
         "total": null,
         "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
@@ -90,21 +90,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3724,
+    "elapsed_seconds": 3791,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792918830.7832117,
+    "active_loops": 4,
+    "updated_at": 1792919054.2473493,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792918830.7832117,
-        "job_id": "iteration35-session-record",
+        "updated_at": 1792920107.2305937,
+        "job_id": "iteration35-session-evidence-record",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -114,37 +114,24 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Session 35 evidence record and EGO2048 replication readiness",
-          "change": "Development gate applied to EGO4096 (failed; readout-ego4096-dev.json with paired intervals). Confirmation package retained unused.",
-          "result": "Coordinator writes the session 35 iteration record and keeps the replication lane ready (payload 35caf910, corrected cwds) for admission once host free space reaches the measured 9.55 GB requirement.",
+          "title": "Compiling the session 35 evidence record",
+          "change": "EGO4096 gate applied (failed); regression analysis and three hypotheses recorded.",
+          "result": "Helper compiles the schema-2 record draft, report and artifact manifest from lane cont/cont2 evidence, decisions, reservations and helper handoffs for coordinator finalization.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-25T08:18:37.123117+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792918424.675189,
-        "job_id": "iteration35-replication-admission",
-        "decision": {
-          "reviewing": "Admitting lane rep: EGO independent-seed replication (seed 73142017)",
-          "options": [
-            "Wait for the recorded prerequisites"
-          ],
-          "evidence": [
-            "BLOCKED by host disk space: measured exact-job requirement 9.55 GB (recovered 2.04, archive 2.04, scratch 1.02, outstanding 0.15, headroom 4.29) vs 7.55 GB free after archiving EGO4096. Policy-permitted regenerable space is only 0.39 GB. Release condition: free space at or above 9.55 GB (owner-side cleanup of about 2 GB outside the research lab, or a smaller measured plan). Payload (35caf910), runner and corrected job cwds are staged."
-          ],
-          "reason": "BLOCKED by host disk space: measured exact-job requirement 9.55 GB (recovered 2.04, archive 2.04, scratch 1.02, outstanding 0.15, headroom 4.29) vs 7.55 GB free after archiving EGO4096. Policy-permitted regenerable space is only 0.39 GB. Release condition: free space at or above 9.55 GB (owner-side cleanup of about 2 GB outside the research lab, or a smaller measured plan). Payload (35caf910), runner and corrected job cwds are staged.",
-          "next_action": "Resolve the recorded prerequisites before admitting this task.",
-          "updated_at": "2026-10-25T08:53:44.675189+00:00"
-        },
-        "fresh": false
+        "state": "active",
+        "updated_at": 1792920107.2305937,
+        "job_id": "iteration35-rep-admission-readiness",
+        "fresh": true
       },
       {
         "id": "loop-c",

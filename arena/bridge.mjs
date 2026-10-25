@@ -20,6 +20,14 @@ function respond(){
  const bytes=Buffer.from(result.buffer),header=Buffer.alloc(4);header.writeUInt32LE(bytes.length)
  process.stdout.write(header);process.stdout.write(bytes)
 }
+// Bearing (radians, atan2 convention of the arena: +x east, +y south) from fighter `id` to the nearest live
+// opponent by Euclidean pixel distance; ties keep the lowest fighter id. Recomputed from the current world
+// state at every simulated frame. With no live opponent the offset is applied to bearing 0 (absolute decoding).
+function bearing(w,id){
+ const self=w.fighters[id];let best=null,bestDistance=Infinity
+ for(const other of w.fighters){if(other.id===id||other.hp<=0)continue;const d=Math.hypot(other.x-self.x,other.y-self.y);if(d<bestDistance){bestDistance=d;best=other}}
+ return best?Math.atan2(best.y-self.y,best.x-self.x):0
+}
 function request(bytes){
  const operation=bytes.readInt32LE(0),count=bytes.readInt32LE(4)
  if(operation===0){
@@ -30,8 +38,10 @@ function request(bytes){
   worlds.forEach((w,i)=>{
    const actions=Array.from({length:11},(_,j)=>bytes.readInt32LE(8+(i*11+j)*4))
    if(actions[0]===-1)return
-   if(actions.some(a=>a<0||a>=153))throw Error('Invalid action')
-   const controller=(_,id)=>{const a=actions[id],move=a%9,aim=Math.floor(a/9),angle=(aim-1)*Math.PI/8;return {dx:move%3-1,dy:Math.floor(move/3)-1,fire:aim>0,aimX:Math.cos(angle),aimY:Math.sin(angle)}}
+   if(actions.some(a=>a<0||a>=306))throw Error('Invalid action')
+   // Wire actions 0..152 decode exactly as before (absolute aim). Wire actions 153..305 are the same
+   // 153 model indices with egocentric aim: the aim bin is an offset from the bearing to the nearest live opponent.
+   const controller=(w,id)=>{const wire=actions[id],relative=wire>=153,a=relative?wire-153:wire,move=a%9,aim=Math.floor(a/9);let angle=(aim-1)*Math.PI/8;if(relative&&aim>0)angle+=bearing(w,id);return {dx:move%3-1,dy:Math.floor(move/3)-1,fire:aim>0,aimX:Math.cos(angle),aimY:Math.sin(angle)}}
    if(cadence==='homepage'){
     w.decisionClock=0
     for(let frame=0;frame<5;frame++)stepWorld(w,.05,0,0,controller,true)

@@ -22,6 +22,28 @@ class EndpointTests(unittest.TestCase):
             (b/'initial.npz').write_bytes(b'initial');report['games']=1024;(a/'report.json').write_text(json.dumps(report))
             with self.assertRaises(ValueError):catalog(a,b,opponent,'candidate')
 
+    def test_aim_decoding_bound_from_candidate_manifest_only(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);a=root/'a';b=root/'b';a.mkdir();b.mkdir()
+            for p in [a,b]:(p/'initial.npz').write_bytes(b'initial')
+            (a/'weights.npz').write_bytes(b'weights');opp=root/'opponent.npz';opp.write_bytes(b'opp')
+            sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+            report=dict(requested_run_completed=True,games=2048,optimizer_updates=2048,checkpoint_sha256=sha(a/'weights.npz'))
+            (a/'report.json').write_text(json.dumps(report))
+            opponent=dict(id='E1024',checkpoint=str(opp),sha256=sha(opp),config={'simulations':32})
+            # Historical manifests (no aim_decoding argument) and explicit absolute runs: catalog unchanged, no key.
+            for arguments in ({},{'aim_decoding':'absolute'}):
+                (a/'manifest.json').write_text(json.dumps({'config':{'simulations':32},'arguments':arguments}))
+                result=catalog(a,b,opponent,'candidate')
+                self.assertNotIn('aim_decoding',result['models'][0]);self.assertEqual(result['models'][1],opponent)
+            # Relative run: only the candidate entry carries its decoder; the opponent entry is untouched.
+            (a/'manifest.json').write_text(json.dumps({'config':{'simulations':32},'arguments':{'aim_decoding':'relative'}}))
+            result=catalog(a,b,opponent,'EGO2048')
+            self.assertEqual(result['models'][0]['aim_decoding'],'relative');self.assertEqual(result['models'][1],opponent)
+            self.assertNotIn('aim_decoding',result['models'][1])
+            (a/'manifest.json').write_text(json.dumps({'config':{'simulations':32},'arguments':{'aim_decoding':'mirror'}}))
+            with self.assertRaises(ValueError):catalog(a,b,opponent,'candidate')
+
 
 
 

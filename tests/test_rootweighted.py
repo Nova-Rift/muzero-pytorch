@@ -123,8 +123,14 @@ class RootWeightedTests(unittest.TestCase):
                         train_loss.main()
 
     def test_trainer_only_three_scoped_changes(self):
+        # Three loss-contract changes plus the explicit aim-decoding flag (egocentric-aim branch); nothing else.
         source = (ROOT/'arena/train_loss.py').read_text()
         source = source.replace('from arena.rootweighted import model_class\n', '')
+        source = source.replace('from arena.aim_decoding import MODES as AIM_MODES,wire_offset\n', '')
+        source = source.replace(',aim_decoding="absolute"):\n    # Recorded actions stay model indices (0..152); only the command sent to the bridge carries the decoding offset.\n    aim_offset=wire_offset(aim_decoding)\n', '):\n')
+        source = source.replace('        commands=(act+aim_offset).reshape(games,11);commands[finished]=-1\n', '        commands=act.reshape(games,11).copy();commands[finished]=-1\n')
+        source = source.replace("    p.add_argument('--aim-decoding',choices=list(AIM_MODES),default='absolute',help='relative interprets aim bins as offsets from the bearing to the nearest live opponent; default keeps historical absolute angles')\n", '')
+        source = source.replace('a.return_mode,a.timeout_bootstrap,a.aim_decoding)', 'a.return_mode,a.timeout_bootstrap)')
         source = source.replace("    p.add_argument('--loss-contract',choices=['baseline','root5-mass-v1'],default='baseline')\n", '')
         source = source.replace('model_class(a.loss_contract)(Config(', 'MuZero(Config(')
         self.assertEqual(source, (ROOT/'arena/train_selfplay.py').read_text())

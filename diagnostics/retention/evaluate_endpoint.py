@@ -8,6 +8,7 @@ import sys
 
 
 UPG2_TRAINER = "2e67c2b9b7652ccbe75dbed249708356f38c3608"
+AIM_DECODINGS = ("absolute", "relative")  # mirrors arena/aim_decoding.py MODES
 
 
 def validate_continuation(manifest, paired, source, upg2=False):
@@ -88,8 +89,16 @@ def catalog(training,paired,opponent,label,expected_endpoint_games=2048,source=N
     weights=training/'weights.npz'
     if sha(weights)!=report['checkpoint_sha256']:raise ValueError('Final checkpoint differs from report')
     if sha(Path(opponent['checkpoint']))!=opponent['sha256']:raise ValueError('Frozen opponent changed')
-    return {'models':[dict(id=label,family='independent_muzero',checkpoint=str(weights),sha256=sha(weights),
-                           config=manifest['config'],root_candidates=8,trained=True),opponent]}
+    entry=dict(id=label,family='independent_muzero',checkpoint=str(weights),sha256=sha(weights),
+               config=manifest['config'],root_candidates=8,trained=True)
+    # Bind the candidate's own action decoding from its training manifest. Absolute runs produce the
+    # historical catalog byte-for-byte; a relative run carries aim_decoding so tournament/run.py decodes
+    # only this model's actions egocentrically while the opponent keeps its own (absent = absolute).
+    decoding=manifest.get('arguments',{}).get('aim_decoding','absolute')
+    if decoding not in AIM_DECODINGS:raise ValueError('Unknown aim decoding in manifest')
+    if decoding!='absolute':entry['aim_decoding']=decoding
+    if opponent.get('aim_decoding','absolute') not in AIM_DECODINGS:raise ValueError('Unknown opponent aim decoding')
+    return {'models':[entry,opponent]}
 
 
 def main():

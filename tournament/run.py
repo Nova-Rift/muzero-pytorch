@@ -5,6 +5,7 @@ import numpy as np,torch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from tournament.controllers import load_model,controller
 from arena.environment import Pool
+from arena.aim_decoding import check_mode,wire_offset
 
 def wilson(w,n):
  z=1.96;p=w/n;den=1+z*z/n;c=(p+z*z/(2*n))/den;d=z*math.sqrt(p*(1-p)/n+z*z/(4*n*n))/den
@@ -14,6 +15,8 @@ def play(site,entries,models,seeds,game_offset,workers,limit,lana_microbatch=32)
  pool=Pool(site,workers=min(workers,len(seeds)),agents=2,cadence='homepage')
  seats=(np.arange(len(seeds))+game_offset)%2
  labels=[[(int(seed),int(seats[i] if side==0 else 1-seats[i])) for i,seed in enumerate(seeds)] for side in (0,1)]
+ # Per-model aim decoding bound from the catalog entry; absent means the historical absolute decoding (offset 0).
+ offsets=[wire_offset(e.get('aim_decoding','absolute')) for e in entries]
  started=time.perf_counter();controllers=[controller(e,m,l,site,lana_microbatch) for e,m,l in zip(entries,models,labels)]
  setup=time.perf_counter()-started;state=pool.reset(seeds);finished=np.zeros(len(seeds),bool);steps=np.zeros(len(seeds),int)
  inference=0.;environment=0.;rollout=time.perf_counter()
@@ -22,7 +25,7 @@ def play(site,entries,models,seeds,game_offset,workers,limit,lana_microbatch=32)
    actions=np.zeros((len(seeds),11),np.int64);tick=time.perf_counter()
    for side,c in enumerate(controllers):
     ids=seats if side==0 else 1-seats;rows=np.arange(len(seeds))
-    actions[rows,ids]=c.decide(state['observation'][rows,ids].tolist(),(state['alive'][rows,ids]&~finished).tolist())
+    actions[rows,ids]=np.asarray(c.decide(state['observation'][rows,ids].tolist(),(state['alive'][rows,ids]&~finished).tolist()),np.int64)+offsets[side]
    inference+=time.perf_counter()-tick;actions[finished]=-1;steps+=~finished
    tick=time.perf_counter();state=pool.step(actions);environment+=time.perf_counter()-tick
    finished|=state['finished']
@@ -40,6 +43,7 @@ def main():
  if len(entries)<2:raise ValueError('Need two models')
  for e in entries:
   if hashlib.sha256(Path(e['checkpoint']).read_bytes()).hexdigest()!=e['sha256']:raise ValueError('Changed checkpoint')
+  check_mode(e.get('aim_decoding','absolute'))
  a.output.mkdir(parents=True,exist_ok=True)
  protocol=dict(catalog_sha256=hashlib.sha256(a.catalog.read_bytes()).hexdigest(),models=[{k:v for k,v in e.items() if k!='checkpoint'} for e in entries],games=a.games,parallel=a.parallel,lana_microbatch=a.lana_microbatch,workers=a.workers,limit=a.limit,seed=a.seed,device=a.device,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),controller_sha256=hashlib.sha256(Path(__file__).with_name('controllers.py').read_bytes()).hexdigest(),environment={f:hashlib.sha256((Path(a.site)/f).read_bytes()).hexdigest() for f in ['src/sandboxCombat.ts','src/sandboxMotion.ts','src/lana/observation.ts']},cadence='five .05s frames per decision',sampling='independent PCG64 per game and seat; no root noise',scope='two active agents, fixed spawn geometry; seeds vary policy sampling, not worlds')
  protocol['lana_batch_adapter_sha256']=hashlib.sha256(Path(__file__).with_name('lana_batch.py').read_bytes()).hexdigest()

@@ -20,6 +20,7 @@ from arena.history import DeviceHistory
 from arena.returns import episode_returns
 from arena.provenance import capture_source
 from arena.state_history import save_milestone
+from arena.aim_decoding import MODES as AIM_MODES,wire_offset
 
 
 class Search:
@@ -69,7 +70,9 @@ def history(observations,actions,times,agents,context):
     return np.concatenate((obs.reshape(len(times),-1),previous),-1).astype(np.float32)
 
 
-def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep",timeout_bootstrap="continue"):
+def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_mode="nstep",timeout_bootstrap="continue",aim_decoding="absolute"):
+    # Recorded actions stay model indices (0..152); only the command sent to the bridge carries the decoding offset.
+    aim_offset=wire_offset(aim_decoding)
     state=pool.reset(seeds);games=len(seeds);count=games*11
     obs=np.zeros((limit+1,count,64),np.float32)
     actions=np.zeros((limit,count),np.int64)
@@ -94,7 +97,7 @@ def collect(pool,model,seeds,limit,context,searcher,device_history=False,return_
         timings['search']+=time.perf_counter()-start
         action_counts+=np.bincount(act[valid[t]],minlength=153)
         actions[t],policies[t],values[t]=act,pol,value
-        commands=act.reshape(games,11).copy();commands[finished]=-1
+        commands=(act+aim_offset).reshape(games,11);commands[finished]=-1
         start=time.perf_counter();following=pool.step(commands);timings['environment']+=time.perf_counter()-start
         rewards[t]=following['reward'].reshape(-1)*valid[t]
         hits+=float(np.maximum(0,state['observation'][:,:,2]-following['observation'][:,:,2]).sum()*3)
@@ -162,6 +165,7 @@ def main():
     p.add_argument('--return-mode',choices=['nstep','episode'],default='nstep')
     p.add_argument('--timeout-bootstrap',choices=['continue','zero'],default='continue',help='zero uses the finite collection horizon; default preserves historical continuing targets')
     p.add_argument('--root-candidates',type=int,default=0)
+    p.add_argument('--aim-decoding',choices=list(AIM_MODES),default='absolute',help='relative interprets aim bins as offsets from the bearing to the nearest live opponent; default keeps historical absolute angles')
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
@@ -212,7 +216,7 @@ def main():
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
             if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
-            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode,a.timeout_bootstrap)
+            block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode,a.timeout_bootstrap,a.aim_decoding)
             np.savez_compressed(out/f'trace-{offset}.npz',**{k:v[:,:22] for k,v in block.items() if k!='indices'})
             replay.append(block);updates=0;train_start=time.perf_counter()
             for _ in range(count*a.updates_per_game):

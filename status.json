@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:01:18.461359-07:00",
+    "measured_at": "2026-10-25T01:02:21.190850-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,7 +60,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:57:34.251564+00:00",
-        "elapsed_seconds": 677,
+        "elapsed_seconds": 740,
         "completed": 64,
         "total": null,
         "task": "Baseline2048-OwnInitial",
@@ -90,30 +90,30 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2149,
+    "elapsed_seconds": 2212,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792914963.901095,
+    "active_loops": 4,
+    "updated_at": 1792914963.901096,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "evaluate",
-        "state": "done",
-        "updated_at": 1792915276.781035,
-        "job_id": "ego-EGO2048-conf-F1024-for-EGO2048",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792915315.706284,
+        "job_id": "iteration34-replication-admission",
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792914963.901095,
-        "job_id": "iteration34-mir-closure",
-        "fresh": false
+        "updated_at": 1792915315.7062855,
+        "job_id": "iteration34-ego-continuation-package",
+        "fresh": true
       },
       {
         "id": "loop-c",
@@ -125,11 +125,11 @@
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792914963.901097,
-        "job_id": "iteration34-heldout-readout",
-        "fresh": false
+        "updated_at": 1792915315.7062862,
+        "job_id": "iteration34-ego-export-preparation",
+        "fresh": true
       }
     ]
   },

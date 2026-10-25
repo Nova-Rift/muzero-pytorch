@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:29:31.707551-07:00",
+    "measured_at": "2026-10-25T01:30:49.289083-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T08:26:31.587243+00:00",
-        "elapsed_seconds": 180,
+        "elapsed_seconds": 258,
         "completed": 0,
         "total": null,
         "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
-        "eta_seconds": 263,
+        "eta_seconds": 185,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 655,
-    "eta_seconds": 435,
+    "elapsed_seconds": 732,
+    "eta_seconds": 358,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,7 +97,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792916964.1778188,
+        "updated_at": 1792917045.7543716,
         "job_id": "ego4096-train",
         "fresh": true
       },

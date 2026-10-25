@@ -12,7 +12,7 @@
   "result": "Owner rule; research resumes at the provider reset (2026-10-25T11:59:59+00:00)",
   "candidate": "EGO4096",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T08:31:37.537363+00:00",
+  "updated_at": "2026-10-25T08:32:05.305834+00:00",
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:31:55.720148-07:00",
+    "measured_at": "2026-10-25T01:33:01.304419-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 799,
+    "elapsed_seconds": 864,
     "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -97,7 +97,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792917110.8059657,
+        "updated_at": 1792917180.8750346,
         "job_id": "ego4096-train",
         "fresh": true
       },

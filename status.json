@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:05:13.109209-07:00",
+    "measured_at": "2026-10-24T23:05:55.538772-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T06:05:13.032147+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 43,
         "completed": 0,
         "total": null,
         "task": "Allocating one H100 for the D99_2048 arm; two more arms queued to append",
-        "eta_seconds": 443,
+        "eta_seconds": 400,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,73 +84,87 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 329,
-    "eta_seconds": 761,
+    "elapsed_seconds": 372,
+    "eta_seconds": 718,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792907983.849876,
-    "fresh": false,
+    "updated_at": 1792908352.078428,
+    "fresh": true,
     "loops": [
       {
-        "id": "loop-a",
-        "stage": "review",
+        "id": "loop-b",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1792907983.849876,
-        "job_id": "iteration-30-planning-1",
+        "updated_at": 1792908352.106553,
+        "job_id": "D99_2048",
+        "decision": {
+          "reviewing": "Which arm trains first on the single H100 and why admit before the merged package exists?",
+          "options": [
+            "Admit the unchanged D99_2048 arm now; append CB2048 and REP2048 to the same pod",
+            "Wait for the merged three-arm package"
+          ],
+          "evidence": [
+            "Session-29 D99 jobs are unchanged and were part of the validated plan; fresh quote shows ten single-H100 regions and no two-GPU H100",
+            "The runner now retains the pod on job failure and accepts appended jobs with new ids"
+          ],
+          "reason": "Owner priority is GPU busy within minutes; waiting for packaging would idle the GPU for no scientific gain",
+          "next_action": "Monitor setup and the runtime/resume gates; append the other arms after their package and storage gates",
+          "updated_at": "2026-10-25T06:05:52.106553+00:00"
+        },
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "train",
           "iteration": 30,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "D99_2048 arm: pod allocation in progress",
+          "change": "Baseline2048 recipe with discount 0.99 (direct trainer, four compressed full states), then paired bouts versus E1024, F1024 and its own initial weights.",
+          "result": "One H100 (AP-IN-1) requested; first 3-dollar segment covers runtime/resume gates, training and bouts. Launch log is being monitored.",
+          "candidate": "D99_2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:59:43.849876+00:00",
+          "updated_at": "2026-10-25T06:05:52.078428+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
-        "id": "loop-b",
-        "stage": "review",
+        "id": "loop-a",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792907983.849876,
-        "job_id": "iteration-30-planning-2",
+        "updated_at": 1792908352.078428,
+        "job_id": "iteration30-package",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 30,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "Helper: packaging the ungated CB2048 arm to append to the live pod",
+          "change": "CB2048 (timeout bootstrap continue) runs as a direct trainer arm like D99: first-block parity cannot pass because the flag changes collection targets. Gate allowlist revision bc29037 kept as history only.",
+          "result": "Deliverable pending: append job list, storage bounds, publisher, exact append steps. Then a same-pod storage assessment and submission.",
+          "candidate": "CB2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:59:43.849876+00:00",
+          "updated_at": "2026-10-25T06:05:52.078428+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792907983.849876,
-        "job_id": "iteration-30-planning-3",
+        "updated_at": 1792908352.078428,
+        "job_id": "iteration30-cutoff-analysis",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -160,42 +174,42 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "Helper: diagnosing why harder-trained candidates stall into cutoffs",
+          "change": "Archived paired bouts (Baseline2048, UPG2, E1024/F1024) tabulated for cutoff rates, lengths and in-game behaviour; up to three anti-stall variant proposals.",
+          "result": "REP2048 replication (seed 61837209) is packaged for appending after CB2048; its result bounds seed noise for all arms.",
+          "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:59:43.849876+00:00",
+          "updated_at": "2026-10-25T06:05:52.078428+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792907983.849876,
-        "job_id": "iteration-30-planning-4",
+        "updated_at": 1792908352.078428,
+        "job_id": "iteration30-readout-3arm",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 30,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
+          "title": "Helper: three-arm strict paired readout with recipe parity",
+          "change": "Generalizes the two-arm readout to D99_2048, CB2048 and REP2048 with manifest-diff parity per arm and the adjacent-block bootstrap.",
+          "result": "Export/ladder path verified in session 29 (dry-run ONNX, parity 7e-7); publication waits for a gated winner.",
+          "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:59:43.849876+00:00",
+          "updated_at": "2026-10-25T06:05:52.078428+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },
@@ -207,8 +221,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 28.610982448361316,
-    "reserved_usd": 6.0,
+    "remaining_usd": 25.610982448361316,
+    "reserved_usd": 9.0,
     "reset_at": "2026-10-25T07:00:00+00:00"
   }
 }

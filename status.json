@@ -48,7 +48,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:43:49.858674-07:00",
+    "measured_at": "2026-10-24T18:44:56.153106-07:00",
     "steps": [
       {
         "step": 1,
@@ -87,7 +87,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T01:36:31.814219+00:00",
-        "elapsed_seconds": 438,
+        "elapsed_seconds": 504,
         "completed": null,
         "total": null,
         "task": "Preparing UPG2 source and admission checks",
@@ -95,20 +95,20 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 721,
-    "eta_seconds": 369,
+    "elapsed_seconds": 787,
+    "eta_seconds": 303,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792892401.1051106,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792892666.235575,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792892539.760865,
+        "updated_at": 1792892666.235575,
         "job_id": "iteration27-admission-review",
         "decision": {
           "reviewing": "Ten-minute preparation checkpoint: shortest remaining admission path",
@@ -122,57 +122,57 @@
           "next_action": "Verify final helper handoffs, retain source history and archive manifests, and record exact capacity release condition.",
           "updated_at": "2026-10-25T01:42:19.760865+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792892565.111538,
-        "job_id": "iteration27-firstblock-gate",
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792892666.235575,
+        "job_id": "iteration27-capacity-block-b",
         "decision": {
-          "reviewing": "Verify full first-block parity before optimizer updates",
+          "reviewing": "Diagnostics complete; capacity blocked",
           "options": [
-            "Source-bound collection-only reference then checked candidate continuation"
+            "Wait for the recorded prerequisites"
           ],
           "evidence": [
-            "Historical trace stores only2 of128 games; it cannot prove full128 trajectory parity.",
-            "Helper reports78 retention tests pass; strict full-block wrapper publication and handoff pending."
+            "Diagnostic and full-block check source/test work complete and archived; real CUDA validation requires admissible storage."
           ],
-          "reason": "Keep the complete parity requirement explicit; archived subset checks alone are insufficient.",
-          "next_action": "Verify pinned wrapper and account for698351616bytes of extra reference recovery/archive before admission.",
-          "updated_at": "2026-10-25T01:42:45.111538+00:00"
+          "reason": "Diagnostic and full-block check source/test work complete and archived; real CUDA validation requires admissible storage.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-25T01:44:26.235575+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792892401.1051106,
-        "job_id": "iteration27-upg2-package",
-        "fresh": false
+        "updated_at": 1792892666.235575,
+        "job_id": "iteration27-upg2-integrate",
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792892134.92474,
-        "job_id": "iteration27-helper-closure-gate",
+        "updated_at": 1792892666.235575,
+        "job_id": "iteration27-capacity-block-d",
         "decision": {
-          "reviewing": "Helper ownership gate",
+          "reviewing": "No independent ready prerequisite",
           "options": [
             "Wait for the recorded prerequisites"
           ],
           "evidence": [
-            "Historical ready helper absent from broker; close rejected. Need verified closure/reclaim or current helper completion to free ledger capacity. Old hardlink cleanup superseded by Drive migration."
+            "Independent alternatives checked: full2048 and smaller1024 exceed cache; old duplicate cleanup obsolete; closure maintenance not research work."
           ],
-          "reason": "Historical ready helper absent from broker; close rejected. Need verified closure/reclaim or current helper completion to free ledger capacity. Old hardlink cleanup superseded by Drive migration.",
+          "reason": "Independent alternatives checked: full2048 and smaller1024 exceed cache; old duplicate cleanup obsolete; closure maintenance not research work.",
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
-          "updated_at": "2026-10-25T01:35:34.924740+00:00"
+          "updated_at": "2026-10-25T01:44:26.235575+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

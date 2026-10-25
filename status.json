@@ -4,15 +4,15 @@
   "iteration": 28,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 30,
+  "wins": 25,
   "evaluation_games": 64,
   "timeouts": 19,
-  "title": "UPG2 chain: done 6/10 jobs; active Baseline2048-OwnInitial; failed none",
-  "change": "Supervisor jobs: done 6/10 jobs; active Baseline2048-OwnInitial; failed none. GPU utilization sample {'0': 95}.",
+  "title": "UPG2 chain: done 8/10 jobs; active UPG2_2048-F1024; failed none",
+  "change": "Supervisor jobs: done 8/10 jobs; active UPG2_2048-F1024; failed none. GPU utilization sample {'0': 0}.",
   "result": "Observed 2048 training games and 4096 optimizer updates. Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "Baseline-UPG2-2048",
-  "evaluation_label": "Baseline2048 vs F1024 completed",
-  "updated_at": "2026-10-25T04:03:40.842179+00:00",
+  "evaluation_label": "UPG2_2048 vs E1024 completed",
+  "updated_at": "2026-10-25T04:04:39.483743+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -26,9 +26,9 @@
     "updated_at": "2026-10-25T03:48:51.215148+00:00"
   },
   "matchup": {
-    "challenger": "Baseline2048",
-    "opponent": "F1024",
-    "opponent_wins": 15,
+    "challenger": "UPG2_2048",
+    "opponent": "E1024",
+    "opponent_wins": 20,
     "draws": 0
   },
   "training_metrics": {
@@ -154,28 +154,28 @@
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
-    "job_id": "Baseline2048-OwnInitial",
-    "protocol_sha256": "febb7a933f6336046a9db10af620fb828f9b23b906e0f710fb9f61bc88301c3c",
-    "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "8f16736f6e2549fcc16e4174e70e62957ede93e0a1da8f2a5a78e7eece050887",
-    "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs OwnInitial",
-    "wins": 31,
+    "job_id": "UPG2_2048-E1024",
+    "protocol_sha256": "f94c4263a1bb5162c0d552ca17abc258494e77d64933d9715a861189eb899096",
+    "challenger_sha256": "923788327859dd7d89c6d80deb852efdccf1be9106e41c8224e2f7e651c0338d",
+    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "result_id": "36dc385ea40af8cff2779bf9c3ca4397fde000d3e0ae611ea9dcac3429bc1db3",
+    "candidate": "UPG2_2048",
+    "evaluation_label": "UPG2_2048 vs E1024",
+    "wins": 25,
     "evaluation_games": 64,
-    "timeouts": 18,
+    "timeouts": 19,
     "matchup": {
-      "challenger": "Baseline2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 15,
+      "challenger": "UPG2_2048",
+      "opponent": "E1024",
+      "opponent_wins": 20,
       "draws": 0
     },
-    "updated_at": "2026-10-25T04:03:41.105486+00:00",
-    "evidence_sha256": "8c0602cb2963cba194d0d112888d8630679b34d32474de9a8fdec6ea6f01385d",
+    "updated_at": "2026-10-25T04:04:27.172704+00:00",
+    "evidence_sha256": "6439e54af5622ce27535f84cfef67b039ad37d85e38b3ef39606a656a83bc120",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:03:48.028581-07:00",
+    "measured_at": "2026-10-24T21:04:51.181475-07:00",
     "steps": [
       {
         "step": 1,
@@ -191,12 +191,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T04:03:40.842179+00:00",
-        "elapsed_seconds": 144,
+        "updated_at": "2026-10-25T04:04:39.483743+00:00",
+        "elapsed_seconds": 207,
         "completed": 64,
         "total": null,
-        "task": "Baseline2048 vs F1024 completed",
-        "eta_seconds": 330,
+        "task": "UPG2_2048 vs E1024 completed",
+        "eta_seconds": 267,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -222,21 +222,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1502,
+    "elapsed_seconds": 1565,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792900977.529633,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "upg2",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792901024.78658,
-        "job_id": "UPG2_2048-E1024",
+        "updated_at": 1792901089.7714887,
+        "job_id": "UPG2_2048-F1024",
         "fresh": true
       },
       {
@@ -278,7 +278,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",

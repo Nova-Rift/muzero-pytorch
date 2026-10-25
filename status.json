@@ -8,11 +8,11 @@
   "evaluation_games": 64,
   "timeouts": 4,
   "title": "Three-arm chain: done 8/21 jobs; active CB2048; failed none",
-  "change": "Supervisor jobs: done 8/21 jobs; active CB2048; failed none. GPU utilization sample {'0': 96}.",
+  "change": "Supervisor jobs: done 8/21 jobs; active CB2048; failed none. GPU utilization sample {'0': 97}.",
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "D99_2048 vs OwnInitial",
-  "updated_at": "2026-10-25T06:18:49.198896+00:00",
+  "updated_at": "2026-10-25T06:19:49.334069+00:00",
   "revision": {
     "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
     "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry. A hit-credit training target would be reward shaping and awaits owner approval.",
@@ -174,13 +174,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:19:08.177550-07:00",
+    "measured_at": "2026-10-24T23:20:17.917540-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T06:18:49.198896+00:00",
-        "elapsed_seconds": 657,
+        "updated_at": "2026-10-25T06:19:49.334069+00:00",
+        "elapsed_seconds": 727,
         "completed": 2048,
         "total": 2048,
         "task": "Three-arm chain: done 8/21 jobs; active CB2048; failed none",
@@ -221,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1164,
+    "elapsed_seconds": 1234,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -234,8 +234,22 @@
         "id": "loop-b",
         "stage": "evaluate",
         "state": "done",
-        "updated_at": 1792909146.5002797,
+        "updated_at": 1792909216.479116,
         "job_id": "D99_2048-OwnInitial",
+        "decision": {
+          "reviewing": "Did the D99_2048 arm pass the development gate, and what is loop-b's next experiment?",
+          "options": [
+            "Append confirmation bouts for D99_2048",
+            "Record the result and move loop-b to the seat-mirroring variant"
+          ],
+          "evidence": [
+            "Provisional counts from pod records: versus E1024 20 wins, 19 losses, 25 cutoffs; versus F1024 29-27-8; versus own initial weights 37-23-4",
+            "Gate requires at most 12 of 64 cutoffs per opponent; 25 cutoffs versus E1024 fails it regardless of the paired baseline comparison, matching the cutoff analysis prediction"
+          ],
+          "reason": "A confirmation stage would spend GPU time on an arm that already failed; the paired baseline readout still completes for the record when loop-a reference bouts finish",
+          "next_action": "Helper implements seat-mirrored training data behind a flag on branch mirror-augment with tests; coordinator reads the full paired readout when Baseline2048 bouts land",
+          "updated_at": "2026-10-25T06:19:51.520683+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "test",
@@ -250,7 +264,7 @@
           "result": "Latest completed bout D99_2048 vs OwnInitial completed: 31 wins, 29 losses, 0 draws, 4 cutoffs of 64.",
           "candidate": "D99_2048",
           "evaluation_label": "D99_2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T06:18:49.198066+00:00",
+          "updated_at": "2026-10-25T06:19:49.333335+00:00",
           "matchup": {
             "challenger": "D99_2048",
             "opponent": "OwnInitial",
@@ -386,28 +400,35 @@
         "id": "loop-a",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792909146.5002797,
+        "updated_at": 1792909216.479116,
         "job_id": "CB2048",
+        "progress": {
+          "job_id": "CB2048",
+          "completed": 512,
+          "total": 2048,
+          "unit": "games",
+          "updated_at": 1792909190.226961
+        },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 30,
-          "completed_games": 256,
+          "completed_games": 512,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "loop-a CB2048: done 2/9; active CB2048; failed none",
           "change": "Supervisor jobs for CB2048: done 2/9; active CB2048; failed none.",
-          "result": "Observed 256 training games and 256 optimizer updates. Strength remains unmeasured.",
+          "result": "Observed 512 training games and 512 optimizer updates. Strength remains unmeasured.",
           "candidate": "CB2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:18:58.342838+00:00",
+          "updated_at": "2026-10-25T06:19:50.226961+00:00",
           "training_metrics": {
             "iteration": 30,
             "run_id": "CB2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:18:58.342838+00:00",
+            "reported_at": "2026-10-25T06:19:50.226961+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -422,6 +443,20 @@
                 "elapsed_seconds": 53.14979365403997,
                 "loss": 5.167527198791504,
                 "search_entropy": 0.9509891271591187
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 78.67186988104368,
+                "loss": 5.668338775634766,
+                "search_entropy": 1.0578267453238368
+              },
+              {
+                "optimizer_updates": 512,
+                "games": 512,
+                "elapsed_seconds": 105.03656562702963,
+                "loss": 5.187586307525635,
+                "search_entropy": 1.4133156156167388
               }
             ]
           },
@@ -434,7 +469,7 @@
         "id": "loop-c",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792909146.5002797,
+        "updated_at": 1792909216.479116,
         "job_id": "c-runtime",
         "decision": {
           "reviewing": "Why do harder-trained candidates stall, and which variant should follow the three queued arms?",
@@ -466,7 +501,7 @@
           "result": "Observed no training games yet for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:18:49.198099+00:00",
+          "updated_at": "2026-10-25T06:19:49.333371+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

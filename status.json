@@ -7,12 +7,12 @@
   "wins": 22,
   "evaluation_games": 64,
   "timeouts": 34,
-  "title": "Session 28 handing off: two-arm parallel plan prepared for the helper-enabled next session",
-  "change": "Owner asked for a parallel loop aimed at the Elo top. Plan: flag-only candidates timeout_bootstrap=continue and discount=0.99 on 2 x H100, plus seed replication and ladder/export readiness.",
-  "result": "UPG2 rejected and archived; pod deleted. Next action review: the next session loads the queued Claude helper runtime at this idle zero-pod boundary and packages the arms in parallel.",
+  "title": "Session 28 done; research turn cannot complete until the Claude transport is fixed or the deadline interrupts it",
+  "change": "Report, archive and pod release are complete (next action review). The transport counts one result per user message, but steers that arrive mid-turn are merged into the running turn, so its outstanding count never reaches zero.",
+  "result": "Worker waits on turn completion; session deadline 06:38 UTC will interrupt it, then the queued helper runtime loads and session 29 starts. Fix: count results per assistant turn, not per steer.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "UPG2_2048 vs OwnInitial",
-  "updated_at": "2026-10-25T04:17:53.509708+00:00",
+  "updated_at": "2026-10-25T04:28:59.127914+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:28:41.181704-07:00",
+    "measured_at": "2026-10-24T21:28:59.188683-07:00",
     "steps": [
       {
         "step": 1,
@@ -202,11 +202,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T04:17:53.509708+00:00",
-        "elapsed_seconds": 1859,
+        "updated_at": "2026-10-25T04:28:59.127914+00:00",
+        "elapsed_seconds": 1877,
         "completed": null,
         "total": null,
-        "task": "Session 28 handing off: two-arm parallel plan prepared for the helper-enabled next session",
+        "task": "Session 28 done; research turn cannot complete until the Claude transport is fixed or the deadline interrupts it",
         "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
@@ -222,7 +222,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2995,
+    "elapsed_seconds": 3013,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

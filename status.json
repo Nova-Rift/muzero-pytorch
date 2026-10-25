@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:46:26.684163-07:00",
+    "measured_at": "2026-10-24T22:47:30.749954-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T05:45:42.312807+00:00",
-        "elapsed_seconds": 136,
+        "elapsed_seconds": 200,
         "completed": null,
         "total": null,
         "task": "Two-arm chain: done 3/16 jobs; active none; failed ['CB2048']",
-        "eta_seconds": 69,
+        "eta_seconds": 5,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 457,
-    "eta_seconds": 633,
+    "elapsed_seconds": 521,
+    "eta_seconds": 569,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -141,7 +141,7 @@
         "state": "pending",
         "updated_at": 1792907126.771706,
         "job_id": "b-runtime",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",

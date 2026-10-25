@@ -4,15 +4,15 @@
   "iteration": 30,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 42,
+  "wins": 30,
   "evaluation_games": 64,
-  "timeouts": 12,
-  "title": "Three-arm chain: done 12/21 jobs; active CB2048-E1024; failed none",
-  "change": "Supervisor jobs: done 12/21 jobs; active CB2048-E1024; failed none. GPU utilization sample {'0': 95}.",
+  "timeouts": 9,
+  "title": "Three-arm chain: done 13/21 jobs; active CB2048-F1024; failed none",
+  "change": "Supervisor jobs: done 13/21 jobs; active CB2048-F1024; failed none. GPU utilization sample {'0': 92}.",
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
-  "evaluation_label": "Baseline2048 vs OwnInitial completed",
-  "updated_at": "2026-10-25T06:27:35.304821+00:00",
+  "evaluation_label": "CB2048 vs E1024 completed",
+  "updated_at": "2026-10-25T06:28:35.429807+00:00",
   "revision": {
     "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
     "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry. A hit-credit training target would be reward shaping and awaits owner approval.",
@@ -25,9 +25,9 @@
     "updated_at": "2026-10-25T06:17:41.483384+00:00"
   },
   "matchup": {
-    "challenger": "Baseline2048",
-    "opponent": "OwnInitial",
-    "opponent_wins": 10,
+    "challenger": "CB2048",
+    "opponent": "E1024",
+    "opponent_wins": 25,
     "draws": 0
   },
   "training_metrics": {
@@ -153,28 +153,28 @@
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
-    "job_id": "Baseline2048-OwnInitial",
-    "protocol_sha256": "8d395518082bd162e830025cb8eeea18d7a3004d54651f7e84f3991c7802e631",
-    "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "8c01f607b73a2e4cd9ba7af2d25a33d6da73f79945b665ae59565578080202e9",
-    "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs OwnInitial",
-    "wins": 42,
+    "job_id": "CB2048-E1024",
+    "protocol_sha256": "0bc576b6739e89b3bc2f905f54717b07edac3e57aab0893e108e7bf89a52ecb6",
+    "challenger_sha256": "afdfae6ec24ad198c47cb6331430a0b0e31be9c572863c5cad91634c25081456",
+    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "result_id": "97cb0e988fb65d3bea1ae86c073372a275aea8f408644ab368be271b2576df43",
+    "candidate": "CB2048",
+    "evaluation_label": "CB2048 vs E1024",
+    "wins": 30,
     "evaluation_games": 64,
-    "timeouts": 12,
+    "timeouts": 9,
     "matchup": {
-      "challenger": "Baseline2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 10,
+      "challenger": "CB2048",
+      "opponent": "E1024",
+      "opponent_wins": 25,
       "draws": 0
     },
-    "updated_at": "2026-10-25T06:27:27.496233+00:00",
-    "evidence_sha256": "aae85adc8fa593e38ede067b73803880fc2e497e83c250815cfd6c389abd77cd",
+    "updated_at": "2026-10-25T06:28:14.310441+00:00",
+    "evidence_sha256": "4acd14210b9c9c9444420d505f0ff75c9b5852abe9fc63b7feb5c6963a64e248",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:27:51.213192-07:00",
+    "measured_at": "2026-10-24T23:28:57.198752-07:00",
     "steps": [
       {
         "step": 1,
@@ -190,12 +190,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T06:27:35.304821+00:00",
-        "elapsed_seconds": 284,
+        "updated_at": "2026-10-25T06:28:35.429807+00:00",
+        "elapsed_seconds": 350,
         "completed": 64,
         "total": null,
-        "task": "Baseline2048 vs OwnInitial completed",
-        "eta_seconds": 190,
+        "task": "CB2048 vs E1024 completed",
+        "eta_seconds": 124,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -221,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1687,
+    "elapsed_seconds": 1753,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -260,27 +260,27 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792909668.8323047,
-        "job_id": "CB2048-E1024",
+        "updated_at": 1792909734.088874,
+        "job_id": "CB2048-F1024",
         "details": {
           "schema": 1,
           "stage": "evaluate",
           "iteration": 30,
           "completed_games": 2048,
           "target_games": 2048,
-          "wins": 42,
+          "wins": 30,
           "evaluation_games": 64,
-          "timeouts": 12,
-          "title": "loop-a CB2048: done 6/9; active CB2048-E1024; failed none",
-          "change": "Supervisor jobs for CB2048: done 6/9; active CB2048-E1024; failed none.",
-          "result": "Latest completed bout Baseline2048 vs OwnInitial completed: 42 wins, 10 losses, 0 draws, 12 cutoffs of 64.",
+          "timeouts": 9,
+          "title": "loop-a CB2048: done 7/9; active CB2048-F1024; failed none",
+          "change": "Supervisor jobs for CB2048: done 7/9; active CB2048-F1024; failed none.",
+          "result": "Latest completed bout CB2048 vs E1024 completed: 30 wins, 25 losses, 0 draws, 9 cutoffs of 64.",
           "candidate": "CB2048",
-          "evaluation_label": "Baseline2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T06:27:35.303937+00:00",
+          "evaluation_label": "CB2048 vs E1024 completed",
+          "updated_at": "2026-10-25T06:28:35.428932+00:00",
           "matchup": {
-            "challenger": "Baseline2048",
-            "opponent": "OwnInitial",
-            "opponent_wins": 10,
+            "challenger": "CB2048",
+            "opponent": "E1024",
+            "opponent_wins": 25,
             "draws": 0
           },
           "training_metrics": {
@@ -412,7 +412,7 @@
         "id": "loop-c",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792909668.8323047,
+        "updated_at": 1792909734.088874,
         "job_id": "c-runtime",
         "decision": {
           "reviewing": "Why do harder-trained candidates stall, and which variant should follow the three queued arms?",
@@ -444,7 +444,7 @@
           "result": "Observed no training games yet for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:27:35.303949+00:00",
+          "updated_at": "2026-10-25T06:28:35.428944+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

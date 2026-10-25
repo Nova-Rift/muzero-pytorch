@@ -104,6 +104,7 @@ def initializer_plan(spec,bindings,reviewed,cwd,deadline,session_deadline):
     rc.require(type(deadline) in (int,float) and type(session_deadline) in (int,float) and
                0<deadline<=session_deadline,'Invalid lease/session deadlines')
     command=render(spec,'no-update-initialization',bindings,reviewed)[0]
+    command=[bindings['python'],'-c','import subprocess,sys; subprocess.run(sys.argv[1:],check=True,timeout=60)',*command]
     return dict(schema=1,max_parallel_loops=1,gpu_count=1,deadline=deadline,
         session_deadline=session_deadline,jobs=[dict(id='replication-no-update-initialization',
         loop='replication-initialization',stage='test',resource='gpu',cwd=str(Path(cwd).resolve()),

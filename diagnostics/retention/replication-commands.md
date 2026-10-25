@@ -44,7 +44,9 @@ straight to workload_supervisor or fill unknown hashes with invented values.
    rejection. Only explicit PASS permits the four confirmation bouts/readout.
    No automatic model promotion.
 
-For workload_supervisor convert only the currently admitted frontier to schema1
+`initializer_plan()` wraps the initializer in a Python standard-library60s
+subprocess timeout and returns a single-job supervisor plan after externally
+verified prerequisites. It never launches or approves it. For workload_supervisor convert only the currently admitted frontier to schema1
 jobs: `command` is one rendered argv, `cwd` is an existing isolated per-loop work
 folder, stage/resource reflect actual work, gpu_count1, max_parallel_loops1 for
 serial execution, exact current lease/session deadlines. If retaining prior jobs,

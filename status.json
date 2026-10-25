@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:24:21.222072-07:00",
+    "measured_at": "2026-10-24T22:25:28.145785-07:00",
     "steps": [
       {
         "step": 1,
@@ -203,7 +203,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T04:41:31.524312+00:00",
-        "elapsed_seconds": 5199,
+        "elapsed_seconds": 5266,
         "completed": null,
         "total": null,
         "task": "Two-arm package ready for session 29 (CB2048 and D99_2048 on 2 x H100); turn awaits transport fix or deadline",
@@ -222,7 +222,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 6335,
+    "elapsed_seconds": 6402,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

@@ -48,7 +48,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:36:31.879134-07:00",
+    "measured_at": "2026-10-24T18:37:21.179608-07:00",
     "steps": [
       {
         "step": 1,
@@ -87,22 +87,22 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T01:36:31.814219+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 49,
         "completed": null,
         "total": null,
         "task": "Preparing UPG2 source and admission checks",
-        "eta_seconds": 115,
+        "eta_seconds": 66,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 283,
-    "eta_seconds": 807,
+    "elapsed_seconds": 332,
+    "eta_seconds": 758,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792892134.92474,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -123,7 +123,7 @@
           "next_action": "Review helper diagnostic commit and exact-job storage/runtime plan before paid admission.",
           "updated_at": "2026-10-25T01:36:13.966430+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -131,7 +131,7 @@
         "state": "active",
         "updated_at": 1792892134.92474,
         "job_id": "iteration27-upg2-validation",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -139,7 +139,7 @@
         "state": "active",
         "updated_at": 1792892134.92474,
         "job_id": "iteration27-upg2-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -160,7 +160,7 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T01:35:34.924740+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

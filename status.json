@@ -1,155 +1,18 @@
 {
   "schema": 1,
-  "stage": "train",
-  "iteration": 30,
-  "completed_games": 2048,
-  "target_games": 2048,
-  "wins": 23,
-  "evaluation_games": 64,
-  "timeouts": 29,
-  "title": "Three-arm chain: done 17/21 jobs; active REP2048; failed none",
-  "change": "Supervisor jobs: done 17/21 jobs; active REP2048; failed none. GPU utilization sample {'0': 96}.",
-  "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
+  "stage": "blocked",
+  "iteration": 31,
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Assistant research turn did not complete",
+  "change": "Supervisor jobs: done 17/21 jobs; active REP2048; failed none. GPU utilization sample {'0': 20}.",
+  "result": "Pod cleanup runs now; the worker verifies provider inventory before any automatic continuation.",
   "candidate": "CB2048, D99_2048 and REP2048",
-  "evaluation_label": "CB2048 vs OwnInitial",
-  "updated_at": "2026-10-25T06:37:06.614816+00:00",
-  "revision": {
-    "summary": "Two tested variants pushed; evaluator needs an explicit declared-difference mode before they can be scored",
-    "reason": "Readout: D99_2048 lost to Baseline2048 on both opponents; CB2048 beat it against E1024 (+0.23, 9 cutoffs) but lost against F1024 (-0.20, 32 cutoffs), so neither passes. The paired evaluator rejects any candidate from a new trainer commit, which blocks the egocentric-aim and mirror-augment arms.",
-    "changes": [
-      "Branch egocentric-aim a781576: --aim-decoding relative with per-model evaluator binding; 63 + 79 tests pass",
-      "Branch mirror-augment 273d72a9: --mirror-augment half-mirrored replay about the arena centre; 9 new tests, flag-off byte-identical",
-      "Proposed branch trainer-variants: merge both and add --declared-difference to the paired evaluator (candidate commit must equal the running source; only declared keys may differ)"
-    ],
-    "test_plan": "CPU suites and tiny wrapped smokes on the merged branch; then EGO2048 and MIR2048 under the strict paired protocol on two pod lanes with Baseline2048 reference bouts re-run under the same evaluator",
-    "updated_at": "2026-10-25T06:32:35.168787+00:00"
-  },
-  "matchup": {
-    "challenger": "CB2048",
-    "opponent": "OwnInitial",
-    "opponent_wins": 12,
-    "draws": 0
-  },
-  "training_metrics": {
-    "iteration": 30,
-    "run_id": "D99_2048",
-    "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-25T06:15:04.044783+00:00",
-    "points": [
-      {
-        "optimizer_updates": 128,
-        "games": 128,
-        "elapsed_seconds": 28.869907177984715,
-        "loss": 5.217130661010742,
-        "search_entropy": 3.465735912322998
-      },
-      {
-        "optimizer_updates": 256,
-        "games": 256,
-        "elapsed_seconds": 55.830654493009206,
-        "loss": 5.39846658706665,
-        "search_entropy": 1.027756935218349
-      },
-      {
-        "optimizer_updates": 384,
-        "games": 384,
-        "elapsed_seconds": 80.19096570299007,
-        "loss": 5.329601287841797,
-        "search_entropy": 2.0519125731661916
-      },
-      {
-        "optimizer_updates": 512,
-        "games": 512,
-        "elapsed_seconds": 103.7632309839828,
-        "loss": 4.65986442565918,
-        "search_entropy": 2.0479645086452365
-      },
-      {
-        "optimizer_updates": 640,
-        "games": 640,
-        "elapsed_seconds": 127.63244820898399,
-        "loss": 5.209660053253174,
-        "search_entropy": 2.0014917054213583
-      },
-      {
-        "optimizer_updates": 768,
-        "games": 768,
-        "elapsed_seconds": 151.16842329798965,
-        "loss": 5.241543769836426,
-        "search_entropy": 2.0237865108065307
-      },
-      {
-        "optimizer_updates": 896,
-        "games": 896,
-        "elapsed_seconds": 174.23289370397106,
-        "loss": 5.194883823394775,
-        "search_entropy": 2.068443632684648
-      },
-      {
-        "optimizer_updates": 1024,
-        "games": 1024,
-        "elapsed_seconds": 197.18115999898873,
-        "loss": 5.257922172546387,
-        "search_entropy": 1.6630351233761758
-      },
-      {
-        "optimizer_updates": 1152,
-        "games": 1152,
-        "elapsed_seconds": 221.12789950397564,
-        "loss": 5.040407180786133,
-        "search_entropy": 1.4601903620641679
-      },
-      {
-        "optimizer_updates": 1280,
-        "games": 1280,
-        "elapsed_seconds": 244.30997116299113,
-        "loss": 5.277284622192383,
-        "search_entropy": 1.8643133528530598
-      },
-      {
-        "optimizer_updates": 1408,
-        "games": 1408,
-        "elapsed_seconds": 267.1386424640077,
-        "loss": 5.226049423217773,
-        "search_entropy": 1.8186417240649462
-      },
-      {
-        "optimizer_updates": 1536,
-        "games": 1536,
-        "elapsed_seconds": 290.63896924001165,
-        "loss": 5.180513381958008,
-        "search_entropy": 1.5717876669950783
-      },
-      {
-        "optimizer_updates": 1664,
-        "games": 1664,
-        "elapsed_seconds": 314.96849103900604,
-        "loss": 4.977832794189453,
-        "search_entropy": 1.2040928422939032
-      },
-      {
-        "optimizer_updates": 1792,
-        "games": 1792,
-        "elapsed_seconds": 338.8000487340032,
-        "loss": 5.165640830993652,
-        "search_entropy": 1.4577216166071594
-      },
-      {
-        "optimizer_updates": 1920,
-        "games": 1920,
-        "elapsed_seconds": 362.54854017699836,
-        "loss": 5.0673675537109375,
-        "search_entropy": 1.4235970522277057
-      },
-      {
-        "optimizer_updates": 2048,
-        "games": 2048,
-        "elapsed_seconds": 385.64745836897055,
-        "loss": 5.126552581787109,
-        "search_entropy": 1.1826716107316315
-      }
-    ]
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-25T06:38:10.770351+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -174,241 +37,135 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:37:31.257413-07:00",
+    "measured_at": "2026-10-24T23:38:33.597289-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-25T06:37:06.614816+00:00",
-        "elapsed_seconds": 1459,
-        "completed": 2048,
-        "total": 2048,
-        "task": "Three-arm chain: done 17/21 jobs; active REP2048; failed none",
-        "eta_seconds": 0,
-        "eta_basis": "observed training rate"
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
+        "total": null,
+        "task": "Not started",
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-25T06:30:05.635319+00:00",
-        "elapsed_seconds": 419,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "CB2048 vs OwnInitial",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T06:05:13.032147+00:00",
-        "elapsed_seconds": 329,
+        "state": "interrupted",
+        "updated_at": "2026-10-25T06:38:10.770351+00:00",
+        "elapsed_seconds": 2,
         "completed": null,
         "total": null,
-        "task": "Iteration 30: reviewing evidence",
+        "task": "Iteration 31: reviewing evidence",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-25T06:30:35.697272+00:00",
-        "elapsed_seconds": 60,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Three-arm chain: done 16/21 jobs; active c-resume; failed none",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2267,
-    "eta_seconds": 0,
+    "elapsed_seconds": 25,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792909955.9911306,
-    "fresh": false,
+    "active_loops": 4,
+    "updated_at": 1792910288.757687,
+    "fresh": true,
     "loops": [
       {
-        "id": "loop-b",
-        "stage": "test",
-        "state": "pending",
-        "updated_at": 1792909955.9911306,
-        "job_id": "iteration30-mirror-augment",
-        "details": {
-          "schema": 1,
-          "stage": "test",
-          "iteration": 30,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 66,
-          "evaluation_games": 192,
-          "timeouts": 37,
-          "title": "MIR2048 packaged; waiting for the evaluator relaxation and a staged payload",
-          "change": "Mirror-augment branch 273d72a9 pushed: flag-off byte-identical to the frozen trainer, 9 new tests, CPU smoke through the exact wrapper in both modes. D99_2048 failed (E1024 12 vs 15 wins, 25 cutoffs; F1024 23 vs 30).",
-          "result": "Release condition: trainer-variants branch verified and payload staged; then MIR2048 launches on the second pod lane with Baseline2048 recipe plus --mirror-augment.",
-          "candidate": "D99_2048",
-          "evaluation_label": "Development gate failed",
-          "updated_at": "2026-10-25T06:32:35.141566+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
-      },
-      {
         "id": "loop-a",
-        "stage": "edit",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792909955.9911306,
-        "job_id": "iteration30-variants-eval",
+        "updated_at": 1792910288.757687,
+        "job_id": "iteration-31-planning-1",
         "details": {
           "schema": 1,
-          "stage": "edit",
-          "iteration": 30,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 70,
-          "evaluation_games": 192,
-          "timeouts": 70,
-          "title": "CB2048 mixed result; helper merging variants and relaxing the paired evaluator",
-          "change": "CB2048 (timeout bootstrap continue): versus E1024 30 wins to the baseline 15 (+0.23, interval 0.06 to 0.41, 9 cutoffs); versus F1024 17 to 30 (-0.20, 32 cutoffs). Gate needs both, so failed.",
-          "result": "Egocentric-aim branch a781576 pushed (tests pass). Blocker: paired evaluator rejects a new source commit; helper adds an explicit declared-difference mode on branch trainer-variants, then EGO2048 runs.",
-          "candidate": "CB2048",
-          "evaluation_label": "Development gate failed (mixed)",
-          "updated_at": "2026-10-25T06:32:35.141566+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
-      },
-      {
-        "id": "loop-c",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1792910248.961524,
-        "job_id": "REP2048",
-        "details": {
-          "schema": 1,
-          "stage": "train",
-          "iteration": 30,
-          "completed_games": 1792,
-          "target_games": 2048,
+          "stage": "review",
+          "iteration": 31,
+          "completed_games": 0,
+          "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "loop-c REP2048: done 2/6; active REP2048; failed none",
-          "change": "Supervisor jobs for REP2048: done 2/6; active REP2048; failed none.",
-          "result": "Observed 1792 training games and 1792 optimizer updates for REP2048. Strength is unmeasured until the frozen evaluations complete.",
-          "candidate": "REP2048",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:37:06.613825+00:00",
-          "training_metrics": {
-            "iteration": 30,
-            "run_id": "REP2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:36:38.142925+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 28.663647398992907,
-                "loss": 5.38275146484375,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 54.59772218199214,
-                "loss": 4.970066547393799,
-                "search_entropy": 1.2299302564933896
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 81.65512889798265,
-                "loss": 5.527007102966309,
-                "search_entropy": 1.279471035581082
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 107.24872191698523,
-                "loss": 5.408191204071045,
-                "search_entropy": 1.086314158514142
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 134.5570810670033,
-                "loss": 5.08848762512207,
-                "search_entropy": 2.041474824771285
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 160.99897824699292,
-                "loss": 5.37761116027832,
-                "search_entropy": 1.7640913259238005
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 187.8350026109838,
-                "loss": 5.279433250427246,
-                "search_entropy": 1.9263894599862397
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 214.5335373209673,
-                "loss": 5.3081464767456055,
-                "search_entropy": 1.582775411196053
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 241.61113368096994,
-                "loss": 5.004673004150391,
-                "search_entropy": 1.9102106136269867
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 268.33515803696355,
-                "loss": 4.948746204376221,
-                "search_entropy": 1.9236571048386395
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 294.3197696720017,
-                "loss": 5.277814865112305,
-                "search_entropy": 1.7423329707235098
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 321.41628271498485,
-                "loss": 5.333552837371826,
-                "search_entropy": 1.5061143804341555
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 349.0236266179709,
-                "loss": 5.32330322265625,
-                "search_entropy": 1.4632037305273116
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 375.76239947101567,
-                "loss": 5.202247619628906,
-                "search_entropy": 1.6188772385939956
-              }
-            ]
-          },
+          "updated_at": "2026-10-25T06:38:08.757687+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
+      },
+      {
+        "id": "loop-b",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792910288.757687,
+        "job_id": "iteration-31-planning-2",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 31,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T06:38:08.757687+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
+      },
+      {
+        "id": "loop-c",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792910288.757687,
+        "job_id": "iteration-31-planning-3",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 31,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T06:38:08.757687+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -418,27 +175,27 @@
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910076.2726643,
-        "job_id": "iteration30-session31-plan",
+        "updated_at": 1792910288.757687,
+        "job_id": "iteration-31-planning-4",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 30,
+          "iteration": 31,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: session-31 two-lane batch plan",
-          "change": "Payload stager delivered and verified (9 tests; dry run byte-identical to the frozen payload; found the admission tar stale against newly edited infrastructure, so lane b uses a freshly staged payload).",
-          "result": "Next: ordered arms per pod lane for the six-hour session (egocentric aim, seat mirror, combined, CB2048 second seed, conditional hit-credit), fresh seeds for audit, job lists and gate checklist.",
-          "candidate": "Not selected",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:34:22.436987+00:00",
+          "updated_at": "2026-10-25T06:38:08.757687+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },
@@ -450,7 +207,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 25.610982448361316,
+    "remaining_usd": 26.448671236920354,
     "reserved_usd": 9.0,
     "reset_at": "2026-10-25T07:00:00+00:00"
   }

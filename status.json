@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:55:58.296550-07:00",
+    "measured_at": "2026-10-25T02:57:01.305995-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T09:50:31.464498+00:00",
-        "elapsed_seconds": 327,
+        "elapsed_seconds": 390,
         "completed": 0,
         "total": null,
         "task": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
-        "eta_seconds": 116,
+        "eta_seconds": 53,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1104,
+    "elapsed_seconds": 1167,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792921831.524942,
-    "fresh": false,
+    "active_loops": 4,
+    "updated_at": 1792922192.8190362,
+    "fresh": true,
     "loops": [
       {
         "id": "rep",
         "stage": "test",
         "state": "failed",
-        "updated_at": 1792922154.4160345,
+        "updated_at": 1792922219.4665778,
         "job_id": "rep35-paired-collection",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792921831.524942,
+        "updated_at": 1792922192.8190362,
         "job_id": "iteration36-pool-lane-staging",
         "decision": {
           "reviewing": "How to break the symmetric single-action self-play equilibrium without changing the objective",
@@ -119,51 +119,42 @@
           "next_action": "Helper emits payload, merged 26-job plan, validation and storage bounds; coordinator runs storage gate, preflight and launches lane pool",
           "updated_at": "2026-10-25T09:50:31.524942+00:00"
         },
-        "fresh": false
+        "fresh": true
+      },
+      {
+        "id": "loop-b",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792922192.854212,
+        "job_id": "iteration36-rep-chain-repair",
+        "decision": {
+          "reviewing": "Why the replication collection gate failed and the cheapest honest repair",
+          "options": [
+            "Append a corrected rep36 chain to the same pod: first job rewrites the receipt label and rebinds hashes, then the 17 stages rerun under a new directory",
+            "Release the pod and rebuild the lane payload locally (loses about 10 minutes of setup and the passed gates)"
+          ],
+          "evidence": [
+            "Pinned receipt kind frozen-reviewed-trainer vs trainer-written verified-cache-receipt; commit 14fece12 and 277 file hashes identical; 5 gates passed before the failure"
+          ],
+          "reason": "Only a label differs, so the scientific inputs are unchanged; same-pod append avoids a relaunch while the stall guard keeps the idle bound honest",
+          "next_action": "Verify the helper's append file and local proof, then append it to desired-plan.json",
+          "updated_at": "2026-10-25T09:56:32.854212+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792921831.555673,
-        "job_id": "iteration35-rep-seed3-package",
-        "decision": {
-          "reviewing": "Which follow-up to append to the replication pod after the S2 chain",
-          "options": [
-            "EGO2048-S3: a third audited training seed with the same frozen recipe and paired control, so seed stability rests on two independent replications"
-          ],
-          "evidence": [
-            "Promotion rules require independent training-seed replication; the lane rep pod and payload already carry the recipe, so the marginal cost is about 0.68 dollars plus bouts"
-          ],
-          "reason": "Reuses the live pod and frozen inputs; no new code",
-          "next_action": "Helper validates the follow-up chain and seed audit; coordinator appends it after a fresh same-pod storage assessment",
-          "updated_at": "2026-10-25T09:50:31.555673+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "edit",
-          "iteration": 36,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "EGO2048-S3 third-seed replication package for the same lane rep pod",
-          "change": "Helper audits a fresh training seed and fresh development-bout seeds, builds the follow-up chain (training, paired control, recovery, bouts, readout) appended after the S2 chain, validates with the supervisor and bounds storage/runtime.",
-          "result": "Package in progress; appended to lane rep only after the S2 chain and a fresh same-pod storage assessment.",
-          "candidate": "EGO2048-S3",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T09:50:31+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792922192.8190362,
+        "job_id": "iteration36-rep-seed3-package-2",
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792921831.587165,
+        "updated_at": 1792922192.8190362,
         "job_id": "iteration36-explore-trainer",
         "decision": {
           "reviewing": "Is there a second independent lever against the self-play collapse besides the partner pool",
@@ -177,7 +168,7 @@
           "next_action": "Helper implements, tests, pushes the branch and builds a paired development package with a preregistered gate",
           "updated_at": "2026-10-25T09:50:31.587165+00:00"
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

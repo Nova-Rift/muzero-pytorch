@@ -12,17 +12,17 @@
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "CB2048 vs OwnInitial",
-  "updated_at": "2026-10-25T06:32:05.928429+00:00",
+  "updated_at": "2026-10-25T06:32:35.168792+00:00",
   "revision": {
-    "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
-    "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry. A hit-credit training target would be reward shaping and awaits owner approval.",
+    "summary": "Two tested variants pushed; evaluator needs an explicit declared-difference mode before they can be scored",
+    "reason": "Readout: D99_2048 lost to Baseline2048 on both opponents; CB2048 beat it against E1024 (+0.23, 9 cutoffs) but lost against F1024 (-0.20, 32 cutoffs), so neither passes. The paired evaluator rejects any candidate from a new trainer commit, which blocks the egocentric-aim and mirror-augment arms.",
     "changes": [
-      "Trainer controller: --aim-decoding relative (absolute default, byte-identical when off)",
-      "Paired evaluator: bind the decoding mode per model from its manifest so opponents stay unchanged",
-      "Tests: decoder mapping from both seats, absolute-mode regression, tiny CPU training smoke, evaluator binding"
+      "Branch egocentric-aim a781576: --aim-decoding relative with per-model evaluator binding; 63 + 79 tests pass",
+      "Branch mirror-augment 273d72a9: --mirror-augment half-mirrored replay about the arena centre; 9 new tests, flag-off byte-identical",
+      "Proposed branch trainer-variants: merge both and add --declared-difference to the paired evaluator (candidate commit must equal the running source; only declared keys may differ)"
     ],
-    "test_plan": "CPU unit and smoke tests before any admission; then the strict paired protocol versus E1024 and F1024 with secondary aim and hit readouts",
-    "updated_at": "2026-10-25T06:17:41.483384+00:00"
+    "test_plan": "CPU suites and tiny wrapped smokes on the merged branch; then EGO2048 and MIR2048 under the strict paired protocol on two pod lanes with Baseline2048 reference bouts re-run under the same evaluator",
+    "updated_at": "2026-10-25T06:32:35.168787+00:00"
   },
   "matchup": {
     "challenger": "CB2048",
@@ -174,13 +174,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:32:11.151475-07:00",
+    "measured_at": "2026-10-24T23:32:35.238718-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T06:32:05.928429+00:00",
-        "elapsed_seconds": 1139,
+        "updated_at": "2026-10-25T06:32:35.168792+00:00",
+        "elapsed_seconds": 1163,
         "completed": 2048,
         "total": 2048,
         "task": "Three-arm chain: done 17/21 jobs; active REP2048; failed none",
@@ -221,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1947,
+    "elapsed_seconds": 1971,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -260,7 +260,7 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "done",
-        "updated_at": 1792909929.7174325,
+        "updated_at": 1792909950.8392568,
         "job_id": "CB2048-OwnInitial",
         "details": {
           "schema": 1,
@@ -412,7 +412,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792909929.7174325,
+        "updated_at": 1792909950.8392568,
         "job_id": "REP2048",
         "progress": {
           "job_id": "REP2048",

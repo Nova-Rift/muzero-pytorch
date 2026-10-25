@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "evaluate",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Lane cont: EGO4096 training complete and recovered; runner lost the pod before development bouts",
-  "change": "EGO2048 to 4096 continuation finished 2048 further updates and its full state, weights and milestones were recovered locally. A later artifact rsync returned partial-transfer exit 24 and the runner treated it as fatal, releasing the pod.",
-  "result": "Seven development bouts not run (about 12 minutes of pod time, roughly 0.80 dollars). Verifying recovered artifacts, preparing a tested runner fix and a bouts-only re-admission; replication lane blocked by local disk space (9.8 GB free).",
+  "title": "Lane cont2 allocated: EGO4096 development bouts rerun",
+  "change": "Repaired runner template (partial rsync tolerated) regenerated as lane cont2; payload carries the recovered EGO4096 weights and Baseline2048. Ten jobs: runtime gate, staging, seven paired development bouts, readout.",
+  "result": "Pod mre0p6o7o2ly59 in AP-IN-1 at 3.99 per hour; storage gate and preflight passed; hard bound 1320 s. Held-out confirmation appends only if the preregistered gate passes.",
   "candidate": "EGO4096",
-  "evaluation_label": "Development bouts pending re-admission",
-  "updated_at": "2026-10-25T08:39:10.548308+00:00",
+  "evaluation_label": "Development bouts running on lane cont2",
+  "updated_at": "2026-10-25T08:47:47.847913+00:00",
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:47:18.610913-07:00",
+    "measured_at": "2026-10-25T01:47:47.942168-07:00",
     "steps": [
       {
         "step": 1,
@@ -52,25 +52,25 @@
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T08:47:47.847913+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Development bouts running on lane cont2",
+        "eta_seconds": 474,
+        "eta_basis": "12 previous iteration(s)"
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T08:39:10.548308+00:00",
-        "elapsed_seconds": 963,
+        "state": "finished",
+        "updated_at": "2026-10-25T08:47:47.847913+00:00",
+        "elapsed_seconds": 992,
         "completed": null,
         "total": null,
         "task": "Lane cont: EGO4096 training complete and recovered; runner lost the pod before development bouts",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1721,
+    "elapsed_seconds": 1751,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792917999.7311687,
         "job_id": "iteration35-ego4096-gate-review",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -112,8 +112,8 @@
       {
         "id": "loop-c",
         "stage": "evaluate",
-        "state": "pending",
-        "updated_at": 1792917999.7311687,
+        "state": "done",
+        "updated_at": 1792917392.9081812,
         "job_id": "ego4096-runtime",
         "details": {
           "schema": 1,
@@ -126,14 +126,14 @@
           "timeouts": 0,
           "title": "Admitting lane cont2: EGO4096 development bouts rerun",
           "change": "Repaired runner template (rsync 23/24 tolerated) regenerated as lane cont2; payload carries recovered EGO4096 weights (sha 8adb32bc) and Baseline2048; 10 jobs: runtime gate, staging, seven paired bouts, readout.",
-          "result": "Storage gate, fresh quote and preflight in progress; hard bound 1320 s (about 1.46 dollars).",
+          "result": "Pod mre0p6o7o2ly59 (AP-IN-1, 3.99/h) allocated; setup uploading the 169 MB payload. Runtime gate, staging, seven paired bouts and readout follow (hard bound 1320 s).",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-25T08:18:37.123117+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -153,8 +153,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 23.784040001680452,
-    "reserved_usd": 21.0,
+    "remaining_usd": 20.784040001680452,
+    "reserved_usd": 24.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

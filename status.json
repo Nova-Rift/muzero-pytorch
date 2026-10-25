@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "review",
   "iteration": 29,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Two-arm chain: done 2/16 jobs; active a-first-block-reference; failed none",
-  "change": "Supervisor jobs: done 2/16 jobs; active a-first-block-reference; failed none. GPU utilization sample {'0': 95}.",
+  "title": "Two-arm chain: done 3/16 jobs; active none; failed ['CB2048']",
+  "change": "Supervisor jobs: done 3/16 jobs; active none; failed ['CB2048']. GPU utilization sample None.",
   "result": "Observed no training games yet. Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048 and D99_2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T05:45:15.632602+00:00",
+  "updated_at": "2026-10-25T05:45:42.312807+00:00",
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:45:21.213701-07:00",
+    "measured_at": "2026-10-24T22:46:26.684163-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
-        "completed": null,
+        "state": "finished",
+        "updated_at": "2026-10-25T05:45:42.312807+00:00",
+        "elapsed_seconds": 15,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
+        "task": "Two-arm chain: done 3/16 jobs; active CB2048; failed none",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -63,29 +63,29 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T05:40:21.123261+00:00",
-        "elapsed_seconds": 92,
+        "state": "active",
+        "updated_at": "2026-10-25T05:45:42.312807+00:00",
+        "elapsed_seconds": 136,
         "completed": null,
         "total": null,
-        "task": "Iteration 29: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Two-arm chain: done 3/16 jobs; active none; failed ['CB2048']",
+        "eta_seconds": 69,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-25T05:45:15.632602+00:00",
-        "elapsed_seconds": 300,
+        "state": "finished",
+        "updated_at": "2026-10-25T05:45:27.624738+00:00",
+        "elapsed_seconds": 307,
         "completed": null,
         "total": null,
         "task": "Two-arm chain: done 2/16 jobs; active a-first-block-reference; failed none",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 392,
-    "eta_seconds": 698,
+    "elapsed_seconds": 457,
+    "eta_seconds": 633,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,15 +97,49 @@
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792907117.5848129,
-        "job_id": "a-first-block-reference",
-        "fresh": true
+        "updated_at": 1792906991.128996,
+        "job_id": "iteration29-arm-a-admission",
+        "decision": {
+          "reviewing": "How to run the two candidate arms when no two-GPU H100 pod is offered?",
+          "options": [
+            "One H100, both arms serial in separate supervisor loops (about 3200 s, 3.55 dollars, one lease renewal)",
+            "Wait for a two-GPU H100 offer",
+            "Two cheaper GPUs (A100 at 1.79/h each)"
+          ],
+          "evidence": [
+            "52 regions quoted: ten single-H100 offers at 3.99/h (low stock), zero two-GPU H100 offers under the 10/h ceiling.",
+            "Arm A first-block parity needs the baseline runtime (H100, cu128); other GPU types have no throughput or parity evidence.",
+            "Exact-job storage gate passed for the two-arm bounds: 7.87 GB required, 17.47 GB free."
+          ],
+          "reason": "Serial on the validated GPU type keeps both hypotheses honest and starts now; waiting has no release signal and cheaper GPUs would void the parity gate.",
+          "next_action": "Launch through the guarded launcher; publish per-job progress; helpers continue seed audit and export readiness.",
+          "updated_at": "2026-10-25T05:42:24.806317+00:00"
+        },
+        "details": {
+          "schema": 1,
+          "stage": "test",
+          "iteration": 29,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Arm A admitted: CB2048 chain on the H100 (supervisor loop loop-a)",
+          "change": "Pod nufncmbfvuz9s1 registered at 3.99/hour; payload setup under the shared deadline. Gates: runtime, ratio-1 resume, frozen first-block reference, candidate parity before first update.",
+          "result": "Then CB2048 training (2048 games) and six frozen bouts (Baseline2048 and CB2048 vs E1024, F1024, OwnInitial). Lease renews automatically while progress is observable.",
+          "candidate": "CB2048",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T05:43:11.128996+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": false
       },
       {
         "id": "loop-b",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792907117.5848129,
+        "updated_at": 1792907126.771706,
         "job_id": "b-runtime",
         "fresh": true
       },
@@ -171,7 +205,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 25.811174268823862,
+    "remaining_usd": 28.610982448361316,
     "reserved_usd": 6.0,
     "reset_at": "2026-10-25T07:00:00+00:00"
   }

@@ -12,7 +12,7 @@
   "result": "invalid syntax (claude_transport.py, line 13)",
   "candidate": "EGO2048",
   "evaluation_label": "EGO4096 vs EGO2048",
-  "updated_at": "2026-10-25T09:32:24.019801+00:00",
+  "updated_at": "2026-10-25T09:32:59.132977+00:00",
   "matchup": {
     "challenger": "EGO4096",
     "opponent": "EGO2048",
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:32:27.165437-07:00",
+    "measured_at": "2026-10-25T02:33:29.291909-07:00",
     "steps": [
       {
         "step": 1,
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4430,
+    "elapsed_seconds": 4492,
     "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },

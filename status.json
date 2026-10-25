@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "blocked",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
+  "title": "Coordinator usage 5% remaining, below the 6% floor: shutting down GPU pods and helpers",
   "change": "EGO2048 (relative aim) passed development and held-out gates in session 34. Session 35 continues it to 4096 updates from the recovered full state and prepares independent-seed replication.",
-  "result": "Fresh quote: eleven single-H100 regions, no two-GPU H100. Storage gate passed; preflight approved; lane cont launching (about 3.71 dollars bound).",
+  "result": "Owner rule; research resumes at the provider reset (2026-10-25T11:59:59+00:00)",
   "candidate": "EGO4096",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T08:26:31.587243+00:00",
+  "updated_at": "2026-10-25T08:31:37.537363+00:00",
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:30:49.289083-07:00",
+    "measured_at": "2026-10-25T01:31:55.720148-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-25T08:26:31.587243+00:00",
-        "elapsed_seconds": 258,
+        "state": "interrupted",
+        "updated_at": "2026-10-25T08:31:37.529041+00:00",
+        "elapsed_seconds": 306,
         "completed": 0,
         "total": null,
         "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
-        "eta_seconds": 185,
-        "eta_basis": "7 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 732,
-    "eta_seconds": 358,
+    "elapsed_seconds": 799,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,7 +97,7 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792917045.7543716,
+        "updated_at": 1792917110.8059657,
         "job_id": "ego4096-train",
         "fresh": true
       },

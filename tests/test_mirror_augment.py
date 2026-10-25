@@ -7,6 +7,9 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from arena.mirror import ACTION,mirror_aim,mirror_move,mirror_observation,mirror_policy
 from arena import train_loss
 FROZEN='2e67c2b9b7652ccbe75dbed249708356f38c3608'
+# egocentric-aim (a781576) changed collect()'s command encoding and bridge.mjs (wire 153..305); its absolute-mode
+# regression test (tests/test_aim_decoding.py) pins those to the frozen behaviour, so the pins below use that commit.
+EGO='a78157696b459221fb0fa504f7a8fa3628413cdb'
 
 def frozen_module():
     source=subprocess.check_output(['git','show',FROZEN+':arena/train_loss.py'],cwd=ROOT,text=True)
@@ -65,8 +68,8 @@ class Tests(unittest.TestCase):
             old=frozen.replay_batch(b,np.random.default_rng(seed),16,4,3,'cpu');new=train_loss.replay_batch(b,np.random.default_rng(seed),16,4,3,'cpu')
             self.assertEqual(len(old),len(new))
             for u,v in zip(old,new):self.assertTrue(torch.equal(u,v))
-        self.assertIs(train_loss.collect,train_loss.collect)  # collect() is untouched: same source text as frozen
-        self.assertEqual(subprocess.check_output(['git','show',FROZEN+':arena/bridge.mjs'],cwd=ROOT),(ROOT/'arena/bridge.mjs').read_bytes())
+        # bridge.mjs is untouched by the mirror branch: identical to the egocentric-aim commit it is merged with.
+        self.assertEqual(subprocess.check_output(['git','show',EGO+':arena/bridge.mjs'],cwd=ROOT),(ROOT/'arena/bridge.mjs').read_bytes())
     def test_flag_on_mirrors_half_consistently(self):
         rng=np.random.default_rng(4);b=synthetic_block(rng)
         plain=train_loss.replay_batch(b,np.random.default_rng(7),64,4,3,'cpu');mirrored=train_loss.replay_batch(b,np.random.default_rng(7),64,4,3,'cpu',mirror=True)
@@ -84,6 +87,7 @@ class Tests(unittest.TestCase):
     def test_collect_source_unchanged(self):
         import inspect;frozen=frozen_module()
         self.assertEqual(inspect.getsource(train_loss.collect).replace('\r',''),''.join(inspect.getsourcelines(frozen.collect)[0]) if False else inspect.getsource(train_loss.collect))
-        src=subprocess.check_output(['git','show',FROZEN+':arena/train_loss.py'],cwd=ROOT,text=True)
+        # collect() is untouched by the mirror branch: same source text as the egocentric-aim commit.
+        src=subprocess.check_output(['git','show',EGO+':arena/train_loss.py'],cwd=ROOT,text=True)
         start=src.index('def collect(');end=src.index('def replay_batch(');self.assertEqual(src[start:end].strip(),inspect.getsource(train_loss.collect).strip())
 if __name__=='__main__':unittest.main()

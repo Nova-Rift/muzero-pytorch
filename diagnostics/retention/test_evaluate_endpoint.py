@@ -209,4 +209,182 @@ class UPG2Tests(ContinuationTests):
         self.assertEqual(run.call_args.args[0][1],str(self.source/'tournament/run.py'))
 
 
+
+
+class DeclaredDifferenceTests(unittest.TestCase):
+    """--declared-difference: fresh 2048 and continuation paths, flag-absent byte identity."""
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+        self.root=Path(self.temp.name);self.a=self.root/'a';self.b=self.root/'b'
+        self.source=self.root/'source';self.paired_source=self.root/'paired-source'
+        for p in (self.a,self.b,self.source,self.paired_source):p.mkdir()
+        for p in (self.a,self.b):(p/'initial.npz').write_bytes(b'initial')
+        for p in (self.a,self.b):(p/'weights.npz').write_bytes(b'weights-'+p.name.encode())
+        self.opp=self.root/'opponent.npz';self.opp.write_bytes(b'opponent')
+        self.sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+        self.opponent=dict(checkpoint=str(self.opp),sha256=self.sha(self.opp))
+        (self.paired_source/'train.py').write_text('frozen trainer')
+        (self.source/'train.py').write_text('trainer with a new flag')
+        self.paired_provenance=dict(commit='a'*40,dirty=False,files={'train.py':self.sha(self.paired_source/'train.py')})
+        self.provenance=dict(commit='c'*40,dirty=False,files={'train.py':self.sha(self.source/'train.py')})
+        (self.source/'.source-provenance.json').write_text(json.dumps(self.provenance))
+        (self.paired_source/'.source-provenance.json').write_text(json.dumps(self.paired_provenance))
+        common=dict(games=2048,updates_per_game=1,seed=52731415,resume_state=None,batch=256,loss_contract='baseline',output='x')
+        self.original=dict(config={'simulations':32},environment={'physics':'hash'},torch='2.8',python='3.12',
+                           source_commit='a'*40,source_provenance=self.paired_provenance,arguments=dict(common))
+        self.manifest=dict(config={'simulations':32},environment={'physics':'hash'},torch='2.8',python='3.12',
+                           source_commit='c'*40,source_provenance=self.provenance,
+                           arguments=dict(common,output='y',aim_decoding='relative',mirror_augment=False))
+        self.report=dict(requested_run_completed=True,games=2048,optimizer_updates=2048,checkpoint_sha256=self.sha(self.a/'weights.npz'))
+        self.contract=dict(schema=1,mode='restart',candidate={k:self.provenance[k] for k in ('commit','files')},
+                           paired={k:self.paired_provenance[k] for k in ('commit','files')},
+                           arguments={k:dict(candidate=self.manifest['arguments'].get(k),paired={'aim_decoding':'absolute','mirror_augment':False}.get(k,self.original['arguments'].get(k)))
+                                      for k in ('aim_decoding','mirror_augment')})
+        self.save()
+
+    def save(self):
+        (self.a/'manifest.json').write_text(json.dumps(self.manifest));(self.a/'report.json').write_text(json.dumps(self.report))
+        (self.b/'manifest.json').write_text(json.dumps(self.original))
+        (self.b/'report.json').write_text(json.dumps(dict(self.report,checkpoint_sha256=self.sha(self.b/'weights.npz'))))
+
+    def evaluate(self,declared=('aim_decoding','mirror_augment'),source=None,**kw):
+        return catalog(self.a,self.b,self.opponent,'EGO2048',2048,self.source if source is None else source,2048,declared,kw.pop("source_contract", self.contract),**kw)
+
+    def test_declared_candidate_bound_to_running_source(self):
+        result=self.evaluate()
+        self.assertEqual(result['models'][0]['sha256'],self.report['checkpoint_sha256'])
+        self.assertEqual(result['models'][0]['aim_decoding'],'relative')
+        self.assertNotIn('aim_decoding',result['models'][1])
+        self.assertEqual(result['declared_differences'],['aim_decoding','mirror_augment'])
+        self.assertEqual(result['declared_values'],{'aim_decoding':{'candidate':'relative','paired':'absolute'},
+                                                    'mirror_augment':{'candidate':False,'paired':False}})
+        self.assertEqual(result['candidate_source_commit'],'c'*40);self.assertEqual(result['paired_source_commit'],'a'*40)
+
+    def test_flag_absent_catalog_is_unchanged(self):
+        # Historical fresh-2048 path: no paired-manifest comparison, no provenance keys in the catalog.
+        plain=catalog(self.a,self.b,self.opponent,'EGO2048',2048,self.source,2048)
+        self.assertEqual(sorted(plain),['models']);self.assertEqual(len(plain['models']),2)
+        self.manifest['arguments']['seed']=1;self.save()  # undeclared difference is invisible without the flag (historical)
+        self.assertEqual(sorted(catalog(self.a,self.b,self.opponent,'EGO2048',2048,self.source,2048)),['models'])
+
+    def test_undeclared_difference_rejected(self):
+        self.manifest['arguments']['seed']=1;self.save()
+        with self.assertRaisesRegex(ValueError,'objective differs'):self.evaluate()
+        self.manifest['arguments']['seed']=52731415;self.save()
+        with self.assertRaisesRegex(ValueError,'declared arguments'):self.evaluate(declared=('aim_decoding',))  # mirror_augment key undeclared
+        with self.assertRaisesRegex(ValueError,'Undeclarable'):self.evaluate(declared=('aim_decoding','mirror_augment','seed'))
+        with self.assertRaisesRegex(ValueError,'Duplicate'):self.evaluate(declared=('aim_decoding','aim_decoding','mirror_augment'))
+
+    def test_candidate_commit_must_match_source_checkout(self):
+        # The paired source's receipt/commit does not satisfy the binding; the candidate's does.
+        with self.assertRaises(ValueError):self.evaluate(source=self.paired_source)
+        self.manifest['source_commit']='d'*40;self.manifest['source_provenance']=dict(self.provenance,commit='d'*40);self.save()
+        with self.assertRaisesRegex(ValueError,'Source contract differs'):self.evaluate()
+
+    def test_dirty_or_tampered_source_rejected(self):
+        (self.source/'.source-provenance.json').write_text(json.dumps(dict(self.provenance,dirty=True)))
+        with self.assertRaises(ValueError):self.evaluate()
+        (self.source/'.source-provenance.json').write_text(json.dumps(self.provenance))
+        (self.source/'train.py').write_text('edited after training')
+        with self.assertRaisesRegex(ValueError,'source changed'):self.evaluate()
+        with self.assertRaises(ValueError):self.evaluate(source=None) if False else catalog(self.a,self.b,self.opponent,'EGO2048',2048,None,2048,('aim_decoding','mirror_augment'))
+
+    def test_config_environment_still_bound(self):
+        for field,value in [('config',{'simulations':33}),('environment',{'physics':'changed'}),('torch','other'),('python','other')]:
+            with self.subTest(field=field):
+                old=self.manifest[field];self.manifest[field]=value;self.save()
+                with self.assertRaisesRegex(ValueError,field):self.evaluate()
+                self.manifest[field]=old
+
+    def test_git_checkout_without_receipt_must_be_clean(self):
+        import subprocess
+        repo=self.root/'repo';repo.mkdir()
+        subprocess.run(['git','init','-q',str(repo)],check=True)
+        (repo/'train.py').write_text('trainer with a new flag')
+        env=dict(GIT_AUTHOR_NAME='t',GIT_AUTHOR_EMAIL='t@t',GIT_COMMITTER_NAME='t',GIT_COMMITTER_EMAIL='t@t')
+        import os;env={**os.environ,**env}
+        subprocess.run(['git','-C',str(repo),'add','train.py'],check=True);subprocess.run(['git','-C',str(repo),'commit','-q','-m','x'],check=True,env=env)
+        commit=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip()
+        self.manifest['source_commit']=commit;self.manifest['source_provenance']=dict(self.provenance,commit=commit)
+        self.contract['candidate']['commit']=commit;self.save()
+        self.assertEqual(self.evaluate(source=repo)['candidate_source_commit'],commit)
+        (repo/'train.py').write_text('trainer with a new flag')  # same bytes: still clean
+        self.assertEqual(self.evaluate(source=repo)['candidate_source_commit'],commit)
+        (repo/'other.py').write_text('tracked edit');subprocess.run(['git','-C',str(repo),'add','other.py'],check=True)
+        with self.assertRaisesRegex(ValueError,'dirty'):self.evaluate(source=repo)
+
+    def test_cross_source_continuation_rejected(self):
+        self.manifest['arguments'].update(games=4096,resume_state='state-2048.pt')
+        self.report.update(games=4096,optimizer_updates=4096);self.save()
+        with self.assertRaisesRegex(ValueError,'restart'):
+            catalog(self.a,self.b,self.opponent,'c',4096,self.source,4096,('aim_decoding','mirror_augment'),self.contract)
+
+    def test_cli_flag_repeatable(self):
+        from unittest.mock import patch
+        import evaluate_endpoint
+        opponent=self.root/'opponent.json';opponent.write_text(json.dumps(self.opponent));output=self.root/'evaluation'
+        args=['evaluate_endpoint.py','--training',str(self.a),'--paired-training',str(self.b),'--opponent',str(opponent),'--label','EGO2048',
+              '--output',str(output),'--source',str(self.source),'--site',str(self.root/'site'),'--seed','95010000',
+              '--expected-endpoint-games','2048','--expected-endpoint-updates','2048','--declared-difference','aim_decoding','--declared-difference','mirror_augment']
+        contract_path=self.root/'contract.json';contract_path.write_text(json.dumps(self.contract))
+        args += ['--source-contract',str(contract_path)]
+        with patch('sys.argv',args), patch.object(evaluate_endpoint.subprocess,'run') as run:evaluate_endpoint.main()
+        written=json.loads((output/'catalog.json').read_text())
+        self.assertEqual(written['declared_differences'],['aim_decoding','mirror_augment']);self.assertEqual(written['models'][0]['aim_decoding'],'relative')
+        self.assertEqual(run.call_args.args[0][1],str(self.source/'tournament/run.py'))
+
+    def test_missing_and_tampered_contract_rejected(self):
+        import copy
+        with self.assertRaisesRegex(ValueError,'source contract'):self.evaluate(source_contract=None)
+        for side in ('candidate','paired'):
+            for field in ('commit','files'):
+                bad=copy.deepcopy(self.contract);bad[side][field]='tampered'
+                with self.assertRaisesRegex(ValueError,'Source contract differs'):self.evaluate(source_contract=bad)
+        bad=copy.deepcopy(self.contract);bad['arguments']['aim_decoding']['candidate']='absolute'
+        with self.assertRaisesRegex(ValueError,'argument value'):self.evaluate(source_contract=bad)
+
+    def test_mirror_positive_and_combination_rejected(self):
+        self.manifest['arguments'].update(aim_decoding='absolute',mirror_augment=True)
+        self.contract['arguments']['aim_decoding']['candidate']='absolute'
+        self.contract['arguments']['mirror_augment']['candidate']=True;self.save()
+        result=self.evaluate();self.assertNotIn('aim_decoding',result['models'][0])
+        self.manifest['arguments']['aim_decoding']='relative'
+        self.contract['arguments']['aim_decoding']['candidate']='relative';self.save()
+        with self.assertRaisesRegex(ValueError,'Combined'):self.evaluate()
+
+    def test_only_actual_variant_requires_declaration(self):
+        self.contract['arguments'].pop('mirror_augment')
+        result=self.evaluate(declared=('aim_decoding',))
+        self.assertEqual(result['declared_values'],{'aim_decoding':{'candidate':'relative','paired':'absolute'}})
+
+    def test_malformed_contracts_rejected(self):
+        import copy
+        for key,value in [('schema',True),('mode','resume'),('arguments',[]),('extra','unreviewed')]:
+            bad=copy.deepcopy(self.contract);bad[key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):self.evaluate(source_contract=bad)
+        bad=copy.deepcopy(self.contract);bad['arguments']['mirror_augment']['candidate']=0
+        with self.assertRaises(ValueError):self.evaluate(source_contract=bad)
+        for name,digest in [('../outside','a'*64),('/absolute','a'*64),('train.py','bad')]:
+            bad=copy.deepcopy(self.contract)
+            # Matching malicious provenance still cannot make an unsafe map valid.
+            bad['candidate']['files']={name:digest}
+            old=self.manifest['source_provenance']['files']
+            self.manifest['source_provenance']['files']={name:digest};self.save()
+            with self.assertRaises(ValueError):self.evaluate(source_contract=bad)
+            self.manifest['source_provenance']['files']=old
+        self.save()
+
+    def test_reward_and_object_and_initial_checks_remain(self):
+        for field in ('reward_scale','timeout_bootstrap','discount'):
+            self.manifest['arguments'][field]='changed';self.save()
+            with self.assertRaisesRegex(ValueError,'beyond declared'):self.evaluate()
+            del self.manifest['arguments'][field]
+        self.save()
+        for path in (self.a/'weights.npz',self.b/'initial.npz',self.opp):
+            old=path.read_bytes();path.write_bytes(b'changed')
+            with self.assertRaises(ValueError):self.evaluate()
+            path.write_bytes(old)
+        self.manifest['arguments']['resume_state']='other-source.pt';self.save()
+        with self.assertRaisesRegex(ValueError,'restart'):self.evaluate()
+
 if __name__=='__main__':unittest.main()

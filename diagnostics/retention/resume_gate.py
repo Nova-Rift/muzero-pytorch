@@ -64,6 +64,18 @@ def validate_upg2_source(source, entrypoint, loss_contract):
     return provenance
 
 
+def variant_flags(entrypoint, aim_decoding='absolute', mirror_augment=False):
+    if aim_decoding not in ('absolute','relative') or type(mirror_augment) is not bool:
+        raise ValueError('Invalid variant flags')
+    if aim_decoding == 'relative' and mirror_augment:
+        raise ValueError('Combined relative aim and mirror augmentation is not validated')
+    if entrypoint != 'train_loss.py':
+        if aim_decoding != 'absolute' or mirror_augment:
+            raise ValueError('Variant flags require train_loss.py')
+        return []
+    return (['--aim-decoding', aim_decoding] if aim_decoding != 'absolute' else []) + (['--mirror-augment'] if mirror_augment else [])
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True)
     p.add_argument('--site',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
@@ -71,7 +83,10 @@ def main():
     p.add_argument('--entrypoint',choices=['train_selfplay.py','train_qcompletion.py','train_loss.py','train_rootweighted.py'],default='train_qcompletion.py')
     p.add_argument('--updates-per-game',type=int,choices=[1,2],default=1)
     p.add_argument('--loss-contract',choices=['baseline','root5-mass-v1'],default='baseline')
+    p.add_argument('--aim-decoding',choices=['absolute','relative'],default='absolute')
+    p.add_argument('--mirror-augment',action='store_true')
     p.add_argument('--seconds',type=int,default=120);a=p.parse_args()
+    flags=variant_flags(a.entrypoint,a.aim_decoding,a.mirror_augment)
     if a.updates_per_game == 2:
         validate_upg2_source(a.source, a.entrypoint, a.loss_contract)
     a.output.mkdir(parents=True,exist_ok=False);started=time.monotonic();deadline=started+a.seconds
@@ -81,7 +96,7 @@ def main():
           '--simulations',str(32 if large else 2),'--batch','8','--unroll','5','--limit','8','--agents','2',
           '--return-mode','episode','--timeout-bootstrap','zero','--root-candidates',str(8 if large else 2),
           '--discount','1','--seed','23002','--device',a.device,'--max-seconds','60']
-    base+=['--updates-per-game',str(a.updates_per_game)]
+    base+=['--updates-per-game',str(a.updates_per_game)] + flags
     if a.entrypoint == 'train_loss.py': base+=['--loss-contract',a.loss_contract]
     if large:base+=['--device-history','--cuda-graph','--tf32']
     for name,games in [('full',4),('partial',2),('resumed',4)]:
@@ -100,10 +115,14 @@ def main():
     for name,games in [('full',4),('partial',2),('resumed',4)]:
         saved=torch.load(a.output/name/'resume-state.pt',map_location='cpu',weights_only=True)
         validate_counts(saved,json.loads((a.output/name/'report.json').read_text()),games,a.updates_per_game)
+        if (saved['arguments'].get('aim_decoding','absolute') != a.aim_decoding or
+                type(saved['arguments'].get('mirror_augment',False)) is not bool or
+                saved['arguments'].get('mirror_augment',False) != a.mirror_augment):
+            raise ValueError('Resume gate trainer did not record requested variant flags')
     states=[torch.load(a.output/name/'resume-state.pt',map_location='cpu',weights_only=True) for name in ['full','resumed']]
     result=dict(verified=True,device=a.device,entrypoint=a.entrypoint,transport=transport,torch_version=str(torch.__version__),counts=compare(*states),
                 elapsed_seconds=time.monotonic()-started,games=4,updates=4*a.updates_per_game,
-                training_examples=4*a.updates_per_game*8,updates_per_game=a.updates_per_game,loss_contract=a.loss_contract,
+                training_examples=4*a.updates_per_game*8,updates_per_game=a.updates_per_game,loss_contract=a.loss_contract,aim_decoding=a.aim_decoding,mirror_augment=a.mirror_augment,
                 scope='Tiny real trainer split-resume with complete state equality; no full-workload scaling or strength claim')
     (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 

@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:59:10.254346-07:00",
+    "measured_at": "2026-10-25T01:00:15.233270-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,7 +60,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:57:34.251564+00:00",
-        "elapsed_seconds": 549,
+        "elapsed_seconds": 614,
         "completed": 64,
         "total": null,
         "task": "Baseline2048-OwnInitial",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2021,
+    "elapsed_seconds": 2086,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -103,7 +103,7 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "done",
-        "updated_at": 1792915146.7415996,
+        "updated_at": 1792915211.740112,
         "job_id": "ego-EGO2048-conf-F1024-for-EGO2048",
         "fresh": true
       },

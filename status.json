@@ -49,7 +49,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:51:01.284584-07:00",
+    "measured_at": "2026-10-24T20:51:44.573270-07:00",
     "steps": [
       {
         "step": 1,
@@ -88,7 +88,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T03:51:01.226150+00:00",
-        "elapsed_seconds": 130,
+        "elapsed_seconds": 173,
         "completed": null,
         "total": null,
         "task": "H100 allocated; setup and correctness gates before UPG2 training",
@@ -96,8 +96,8 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 735,
-    "eta_seconds": 355,
+    "elapsed_seconds": 779,
+    "eta_seconds": 311,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

@@ -48,7 +48,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:45:38.651301-07:00",
+    "measured_at": "2026-10-24T18:46:01.168164-07:00",
     "steps": [
       {
         "step": 1,
@@ -87,7 +87,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T01:45:38.591678+00:00",
-        "elapsed_seconds": 547,
+        "elapsed_seconds": 569,
         "completed": null,
         "total": null,
         "task": "Finalizing tested UPG2 preparation",
@@ -95,8 +95,8 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 830,
-    "eta_seconds": 260,
+    "elapsed_seconds": 852,
+    "eta_seconds": 238,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

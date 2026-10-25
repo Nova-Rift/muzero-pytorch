@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Two-arm chain: done 3/16 jobs; active none; failed ['CB2048']",
-  "change": "Supervisor jobs: done 3/16 jobs; active none; failed ['CB2048']. GPU utilization sample None.",
-  "result": "Observed no training games yet. Strength is unmeasured until the frozen evaluations complete.",
+  "title": "Arm A failed at the parity gate before training; pod deleted; gate fix delegated",
+  "change": "CB2048 was rejected by the first-block gate validator, which tolerates only an updates-per-game difference, not timeout_bootstrap. Runtime, resume and reference gates passed. Runner failure deleted the pod (about 0.20 dollars).",
+  "result": "No training or evaluation this session. Helper fixing the gate allowlist with tests; seed audit clear; replication package ready. Next guarded session re-admits both arms.",
   "candidate": "CB2048 and D99_2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T05:45:42.312807+00:00",
+  "updated_at": "2026-10-25T05:47:49.640459+00:00",
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:47:30.749954-07:00",
+    "measured_at": "2026-10-24T22:47:49.708322-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,12 +64,12 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T05:45:42.312807+00:00",
-        "elapsed_seconds": 200,
+        "updated_at": "2026-10-25T05:47:49.640459+00:00",
+        "elapsed_seconds": 219,
         "completed": null,
         "total": null,
-        "task": "Two-arm chain: done 3/16 jobs; active none; failed ['CB2048']",
-        "eta_seconds": 5,
+        "task": "Arm A failed at the parity gate before training; pod deleted; gate fix delegated",
+        "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 521,
-    "eta_seconds": 569,
+    "elapsed_seconds": 540,
+    "eta_seconds": 550,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

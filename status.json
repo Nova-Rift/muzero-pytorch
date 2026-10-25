@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:50:33.554241-07:00",
+    "measured_at": "2026-10-25T02:51:35.956900-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T09:50:31.464498+00:00",
-        "elapsed_seconds": 2,
+        "elapsed_seconds": 64,
         "completed": 0,
         "total": null,
         "task": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
-        "eta_seconds": 441,
+        "eta_seconds": 379,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,15 +84,23 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 779,
-    "eta_seconds": 311,
+    "elapsed_seconds": 842,
+    "eta_seconds": 248,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792921831.495115,
-    "fresh": true,
+    "updated_at": 1792921831.524942,
+    "fresh": false,
     "loops": [
+      {
+        "id": "rep",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792921893.4090266,
+        "job_id": "rep35-paired-resume",
+        "fresh": true
+      },
       {
         "id": "loop-a",
         "stage": "test",
@@ -111,45 +119,7 @@
           "next_action": "Helper emits payload, merged 26-job plan, validation and storage bounds; coordinator runs storage gate, preflight and launches lane pool",
           "updated_at": "2026-10-25T09:50:31.524942+00:00"
         },
-        "fresh": true
-      },
-      {
-        "id": "loop-b",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1792921831.495115,
-        "job_id": "rep35-runtime",
-        "decision": {
-          "reviewing": "Is EGO2048's 53% vs E1024 / 85% vs F1024 result seed-stable?",
-          "options": [
-            "Train the same frozen recipe with an independent seed (73142017) and a paired fresh Baseline control, then the seven development bouts"
-          ],
-          "evidence": [
-            "EGO2048 passed development and held-out gates from one training seed only; EGO4096 continuation failed its gate, so replication is the required next gate"
-          ],
-          "reason": "Cheapest, code-free, and required before any promotion; also tells whether the single-action self-play collapse is a recipe property or a seed accident",
-          "next_action": "Supervisor runs the 17-job chain; readout applies the preregistered H1 gate (strict wins over Baseline vs both E1024 and F1024, cutoffs <= 12/64)",
-          "updated_at": "2026-10-25T09:50:31.495115+00:00"
-        },
-        "details": {
-          "schema": 1,
-          "stage": "train",
-          "iteration": 36,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "EGO2048-S2 independent-seed replication (seed 73142017) on lane rep, pod allocated",
-          "change": "17-job chain on one H100: runtime gate, initializer gate, paired fresh-seed trainings (EGO recipe vs Baseline), recovery, seven development bouts vs E1024/F1024/OwnInitial, readout with the preregistered H1 gate.",
-          "result": "Pod dpozliqn2z376x allocated at $3.99/h (AP-IN-1); setup and payload upload in progress; supervisor reports live once started.",
-          "candidate": "EGO2048-S2",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T09:50:31+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -187,7 +157,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -207,7 +177,7 @@
           "next_action": "Helper implements, tests, pushes the branch and builds a paired development package with a preregistered gate",
           "updated_at": "2026-10-25T09:50:31.587165+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

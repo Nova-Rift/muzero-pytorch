@@ -2,17 +2,46 @@
   "schema": 1,
   "stage": "train",
   "iteration": 30,
-  "completed_games": 0,
-  "target_games": 0,
+  "completed_games": 384,
+  "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Allocating one H100 for the D99_2048 arm; two more arms queued to append",
-  "change": "Session 29 was a packaging failure. Session 30 admits the unchanged D99_2048 arm first (discount 0.99, Baseline2048 recipe) while helpers package the ungated CB2048 arm and the REP2048 replication for the same pod.",
-  "result": "Fresh quote: ten single-H100 regions, no two-GPU H100. Storage gate passed for the initial arm. Preflight approved; launching.",
-  "candidate": "D99_2048",
+  "title": "Three-arm chain: done 2/21 jobs; active D99_2048; failed none",
+  "change": "Supervisor jobs: done 2/21 jobs; active D99_2048; failed none. GPU utilization sample {'0': 96}.",
+  "result": "Observed 384 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
+  "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T06:05:13.032147+00:00",
+  "updated_at": "2026-10-25T06:10:18.038290+00:00",
+  "training_metrics": {
+    "iteration": 30,
+    "run_id": "D99_2048",
+    "loss_definition": "last_update_batch_mean",
+    "reported_at": "2026-10-25T06:09:58.391917+00:00",
+    "points": [
+      {
+        "optimizer_updates": 128,
+        "games": 128,
+        "elapsed_seconds": 28.869907177984715,
+        "loss": 5.217130661010742,
+        "search_entropy": 3.465735912322998
+      },
+      {
+        "optimizer_updates": 256,
+        "games": 256,
+        "elapsed_seconds": 55.830654493009206,
+        "loss": 5.39846658706665,
+        "search_entropy": 1.027756935218349
+      },
+      {
+        "optimizer_updates": 384,
+        "games": 384,
+        "elapsed_seconds": 80.19096570299007,
+        "loss": 5.329601287841797,
+        "search_entropy": 2.0519125731661916
+      }
+    ]
+  },
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,18 +66,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:09:11.221771-07:00",
+    "measured_at": "2026-10-24T23:10:21.211465-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T06:05:13.032147+00:00",
-        "elapsed_seconds": 238,
-        "completed": 0,
-        "total": null,
-        "task": "Allocating one H100 for the D99_2048 arm; two more arms queued to append",
-        "eta_seconds": 205,
-        "eta_basis": "7 previous iteration(s)"
+        "updated_at": "2026-10-25T06:10:18.038290+00:00",
+        "elapsed_seconds": 308,
+        "completed": 384,
+        "total": 2048,
+        "task": "Three-arm chain: done 2/21 jobs; active D99_2048; failed none",
+        "eta_seconds": 1335,
+        "eta_basis": "observed training rate"
       },
       {
         "step": 2,
@@ -84,12 +113,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 567,
-    "eta_seconds": 523,
+    "elapsed_seconds": 637,
+    "eta_seconds": 453,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
+    "active_loops": 2,
     "updated_at": 1792908352.078428,
     "fresh": false,
     "loops": [
@@ -97,7 +126,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792908548.7147143,
+        "updated_at": 1792908618.7922626,
         "job_id": "D99_2048",
         "decision": {
           "reviewing": "Which arm trains first on the single H100 and why admit before the merged package exists?",
@@ -117,17 +146,46 @@
           "schema": 1,
           "stage": "train",
           "iteration": 30,
-          "completed_games": 0,
-          "target_games": 0,
+          "completed_games": 384,
+          "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "D99_2048 arm: pod allocation in progress",
-          "change": "Baseline2048 recipe with discount 0.99 (direct trainer, four compressed full states), then paired bouts versus E1024, F1024 and its own initial weights.",
-          "result": "One H100 (AP-IN-1) requested; first 3-dollar segment covers runtime/resume gates, training and bouts. Launch log is being monitored.",
+          "title": "loop-b D99_2048: done 2/6; active D99_2048; failed none",
+          "change": "Supervisor jobs for D99_2048: done 2/6; active D99_2048; failed none.",
+          "result": "Observed 384 training games and 384 optimizer updates for D99_2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "D99_2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:05:52.078428+00:00",
+          "updated_at": "2026-10-25T06:10:18.037700+00:00",
+          "training_metrics": {
+            "iteration": 30,
+            "run_id": "D99_2048",
+            "loss_definition": "last_update_batch_mean",
+            "reported_at": "2026-10-25T06:09:58.391917+00:00",
+            "points": [
+              {
+                "optimizer_updates": 128,
+                "games": 128,
+                "elapsed_seconds": 28.869907177984715,
+                "loss": 5.217130661010742,
+                "search_entropy": 3.465735912322998
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 55.830654493009206,
+                "loss": 5.39846658706665,
+                "search_entropy": 1.027756935218349
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 80.19096570299007,
+                "loss": 5.329601287841797,
+                "search_entropy": 2.0519125731661916
+              }
+            ]
+          },
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -135,55 +193,55 @@
       },
       {
         "id": "loop-a",
-        "stage": "edit",
-        "state": "active",
-        "updated_at": 1792908352.078428,
-        "job_id": "iteration30-package",
+        "stage": "test",
+        "state": "pending",
+        "updated_at": 1792908618.7922626,
+        "job_id": "a-runtime",
         "details": {
           "schema": 1,
-          "stage": "edit",
+          "stage": "test",
           "iteration": 30,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: packaging the ungated CB2048 arm to append to the live pod",
-          "change": "CB2048 (timeout bootstrap continue) runs as a direct trainer arm like D99: first-block parity cannot pass because the flag changes collection targets. Gate allowlist revision bc29037 kept as history only.",
-          "result": "Deliverable pending: append job list, storage bounds, publisher, exact append steps. Then a same-pod storage assessment and submission.",
+          "title": "loop-a CB2048: done 0/9; active none; failed none",
+          "change": "Supervisor jobs for CB2048: done 0/9; active none; failed none.",
+          "result": "Observed no training games yet for CB2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "CB2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:05:52.078428+00:00",
+          "updated_at": "2026-10-25T06:10:18.037716+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792908352.078428,
-        "job_id": "iteration30-cutoff-analysis",
+        "stage": "test",
+        "state": "pending",
+        "updated_at": 1792908618.7922626,
+        "job_id": "c-runtime",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "test",
           "iteration": 30,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: diagnosing why harder-trained candidates stall into cutoffs",
-          "change": "Archived paired bouts (Baseline2048, UPG2, E1024/F1024) tabulated for cutoff rates, lengths and in-game behaviour; up to three anti-stall variant proposals.",
-          "result": "REP2048 replication (seed 61837209) is packaged for appending after CB2048; its result bounds seed noise for all arms.",
+          "title": "loop-c REP2048: done 0/6; active none; failed none",
+          "change": "Supervisor jobs for REP2048: done 0/6; active none; failed none.",
+          "result": "Observed no training games yet for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:05:52.078428+00:00",
+          "updated_at": "2026-10-25T06:10:18.037730+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",

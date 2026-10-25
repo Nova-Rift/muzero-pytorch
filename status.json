@@ -4,14 +4,14 @@
   "iteration": 34,
   "completed_games": 896,
   "target_games": 2048,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
+  "wins": 31,
+  "evaluation_games": 64,
+  "timeouts": 6,
   "title": "EGO and MIR training on separate GPUs",
   "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
   "result": "No strength conclusion yet. Matched frozen development evaluations remain required.",
   "candidate": "EGO2048 and MIR2048",
-  "evaluation_label": "No new evaluation",
+  "evaluation_label": "MIR2048 vs E1024",
   "updated_at": "2026-10-25T07:36:41.341810+00:00",
   "training_metrics": {
     "iteration": 34,
@@ -70,41 +70,47 @@
       }
     ]
   },
+  "matchup": {
+    "challenger": "MIR2048",
+    "opponent": "E1024",
+    "opponent_wins": 27,
+    "draws": 0
+  },
   "latest_comparison": {
-    "iteration": 30,
-    "loop": "loop-a",
-    "job_id": "CB2048-OwnInitial",
-    "protocol_sha256": "4beab52499eb41fb595de33bc9431569aea6f7cd2047466bc2e1dba7252fb310",
-    "challenger_sha256": "afdfae6ec24ad198c47cb6331430a0b0e31be9c572863c5cad91634c25081456",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "c0fc1a65699d2876d54041304e3b4e01ea754d593f52f53bd92ca37fe941ec4c",
-    "candidate": "CB2048",
-    "evaluation_label": "CB2048 vs OwnInitial",
-    "wins": 23,
+    "iteration": 34,
+    "loop": "loop-b",
+    "job_id": "mir-MIR2048-E1024",
+    "protocol_sha256": "3f6e6ba42056530963de25f640602ea90e100a8b5f41957a59b7921dd8db74b6",
+    "challenger_sha256": "c24396402466ea93a547d58d70e7911a4084f1cce411362a599b2db17e4bfb20",
+    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "result_id": "473ce7d15f7cfb032bc85e183f90b166ee952c55c47810cb9debb096d07881ed",
+    "candidate": "MIR2048",
+    "evaluation_label": "MIR2048 vs E1024",
+    "wins": 31,
     "evaluation_games": 64,
-    "timeouts": 29,
+    "timeouts": 6,
     "matchup": {
-      "challenger": "CB2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 12,
+      "challenger": "MIR2048",
+      "opponent": "E1024",
+      "opponent_wins": 27,
       "draws": 0
     },
-    "updated_at": "2026-10-25T06:29:48.176855+00:00",
-    "evidence_sha256": "053d2b6ce8d7169d0fa44f1a9ef86473c008d092f16adaef097f2407e45c6e40",
+    "updated_at": "2026-10-25T07:49:01.907149+00:00",
+    "evidence_sha256": "c4f35f69261f3c472ab36c8cacf19eb6d359a7a82f1155912f87389caa64d711",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:48:31.187694-07:00",
+    "measured_at": "2026-10-25T00:49:35.620925-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T07:36:41.341810+00:00",
-        "elapsed_seconds": 710,
+        "elapsed_seconds": 774,
         "completed": 896,
         "total": 2048,
         "task": "EGO and MIR training on separate GPUs",
-        "eta_seconds": 913,
+        "eta_seconds": 995,
         "eta_basis": "observed training rate"
       },
       {
@@ -141,7 +147,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1382,
+    "elapsed_seconds": 1446,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -154,16 +160,16 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914506.7265189,
-        "job_id": "ego-EGO2048-E1024",
+        "updated_at": 1792914571.7123384,
+        "job_id": "ego-EGO2048-F1024",
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914510.2630827,
-        "job_id": "mir-MIR2048-E1024",
+        "updated_at": 1792914570.373638,
+        "job_id": "mir-MIR2048-F1024",
         "fresh": true
       },
       {
@@ -176,24 +182,11 @@
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792914385.843582,
-        "job_id": "iteration34-evaluation-admission",
-        "decision": {
-          "reviewing": "Can the frozen evaluations proceed within storage and current leases?",
-          "options": [
-            "Append the prepared six evaluations to each existing GPU lane after exact storage admission"
-          ],
-          "evidence": [
-            "Both variants completed2048games and2048updates; collection gates and four-state encoding complete.",
-            "Fresh storage assessment failed after recovery grew local usage; a helper is checking remaining bytes."
-          ],
-          "reason": "Training throughput is measured; strength remains unknown until balanced frozen evaluation.",
-          "next_action": "Verify storage evidence and append unchanged evaluations if guards pass; otherwise recover and release paid lanes.",
-          "updated_at": "2026-10-25T07:46:25.843582+00:00"
-        },
-        "fresh": false
+        "updated_at": 1792914543.7028127,
+        "job_id": "iteration34-variant-recovery-verify",
+        "fresh": true
       }
     ]
   },

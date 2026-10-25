@@ -4,15 +4,15 @@
   "iteration": 28,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
-  "title": "UPG2 chain: done 4/10 jobs; active Baseline2048-E1024; failed none",
-  "change": "Supervisor jobs: done 4/10 jobs; active Baseline2048-E1024; failed none. GPU utilization sample {'0': 0}.",
+  "wins": 26,
+  "evaluation_games": 64,
+  "timeouts": 6,
+  "title": "UPG2 chain: done 5/10 jobs; active Baseline2048-F1024; failed none",
+  "change": "Supervisor jobs: done 5/10 jobs; active Baseline2048-F1024; failed none. GPU utilization sample {'0': 89}.",
   "result": "Observed 2048 training games and 4096 optimizer updates. Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "Baseline-UPG2-2048",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T04:01:24.166074+00:00",
+  "evaluation_label": "Baseline2048 vs E1024 completed",
+  "updated_at": "2026-10-25T04:02:32.444833+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -24,6 +24,12 @@
     ],
     "test_plan": "Development gate: candidate strictly more wins than Baseline2048 against both E1024 and F1024 with at most 12/64 timeouts each; OwnInitial is descriptive. Passing only earns a later fresh held-out confirmation and independent-seed replication, not promotion.",
     "updated_at": "2026-10-25T03:48:51.215148+00:00"
+  },
+  "matchup": {
+    "challenger": "Baseline2048",
+    "opponent": "E1024",
+    "opponent_wins": 32,
+    "draws": 0
   },
   "training_metrics": {
     "iteration": 28,
@@ -146,30 +152,30 @@
     ]
   },
   "latest_comparison": {
-    "iteration": 26,
-    "loop": "loop-b",
-    "job_id": "Baseline2048-OwnInitial",
-    "protocol_sha256": "d8f291392957c00842fcbccdc89ed5de2829a5090e27ec93ecf6ec4384f33218",
+    "iteration": 28,
+    "loop": "upg2",
+    "job_id": "Baseline2048-E1024",
+    "protocol_sha256": "e7d127889e52357cbebe0ae9d1ec0ac969f717ddc9aae5bfafaa5f9c2ea159ef",
     "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "2dd26ce3d9b0c285c7a909b35be9e53797e9d5c942139cc67df62d9b73237ee0",
+    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "result_id": "e67c0c5b3fc7816d5ac4915cedd87b562c9602d9dd646f718c4a8ffc18c16d40",
     "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs OwnInitial",
-    "wins": 33,
+    "evaluation_label": "Baseline2048 vs E1024",
+    "wins": 26,
     "evaluation_games": 64,
-    "timeouts": 11,
+    "timeouts": 6,
     "matchup": {
       "challenger": "Baseline2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 20,
+      "opponent": "E1024",
+      "opponent_wins": 32,
       "draws": 0
     },
-    "updated_at": "2026-10-24T03:57:56.753695+00:00",
-    "evidence_sha256": "8136508d52a5cfaa93581a180628ce164b456ee2030a8e37e141bb22f1e02900",
+    "updated_at": "2026-10-25T04:02:08.286069+00:00",
+    "evidence_sha256": "f2588c52851a281bade37f4eef60988236a3f1925696e4163d9917b7a71b381f",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:01:31.222221-07:00",
+    "measured_at": "2026-10-24T21:02:40.532689-07:00",
     "steps": [
       {
         "step": 1,
@@ -185,12 +191,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T04:01:24.166074+00:00",
-        "elapsed_seconds": 7,
-        "completed": 0,
+        "updated_at": "2026-10-25T04:02:32.444833+00:00",
+        "elapsed_seconds": 76,
+        "completed": 64,
         "total": null,
-        "task": "No new evaluation",
-        "eta_seconds": 467,
+        "task": "Baseline2048 vs E1024 completed",
+        "eta_seconds": 398,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -216,7 +222,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1365,
+    "elapsed_seconds": 1435,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -229,8 +235,8 @@
         "id": "upg2",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792900888.2652235,
-        "job_id": "Baseline2048-E1024",
+        "updated_at": 1792900959.712806,
+        "job_id": "Baseline2048-F1024",
         "fresh": true
       },
       {

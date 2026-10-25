@@ -4,40 +4,46 @@
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 0,
-  "evaluation_games": 0,
-  "timeouts": 0,
+  "wins": 34,
+  "evaluation_games": 64,
+  "timeouts": 10,
   "title": "Lane cont2 allocated: EGO4096 development bouts rerun",
   "change": "Repaired runner template (partial rsync tolerated) regenerated as lane cont2; payload carries the recovered EGO4096 weights and Baseline2048. Ten jobs: runtime gate, staging, seven paired development bouts, readout.",
   "result": "Pod mre0p6o7o2ly59 in AP-IN-1 at 3.99 per hour; storage gate and preflight passed; hard bound 1320 s. Held-out confirmation appends only if the preregistered gate passes.",
   "candidate": "EGO4096",
-  "evaluation_label": "Development bouts running on lane cont2",
+  "evaluation_label": "EGO2048 vs E1024",
   "updated_at": "2026-10-25T08:47:47.847913+00:00",
+  "matchup": {
+    "challenger": "EGO2048",
+    "opponent": "E1024",
+    "opponent_wins": 20,
+    "draws": 0
+  },
   "latest_comparison": {
-    "iteration": 34,
-    "loop": "loop-a",
-    "job_id": "ego-Baseline2048-conf-F1024-for-EGO2048",
-    "protocol_sha256": "d72cfa06b9a2aec8893fbc32fecfb31ac21b7ba41d6eeffc0db8198a9865d9f2",
-    "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
-    "result_id": "7956d735262cdb39fa6a4cbceea3c4aa79d5efb42f3c5840e16dd3e00f651e9c",
-    "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs F1024",
-    "wins": 29,
+    "iteration": 35,
+    "loop": "loop-c",
+    "job_id": "ego4096-EGO2048-E1024",
+    "protocol_sha256": "1e6aeaf43f88f8eba4990e2fe57962d7b76eb01a89f44e19febe0dcec5052d73",
+    "challenger_sha256": "0e263ee21ce56721dad3479648136a725b512138e1be4c73e30e689d6e49cf08",
+    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "result_id": "0b93152baabb75153aa763f9b947d59150b2662a6e61c74e4ada88dfe52aaf41",
+    "candidate": "EGO2048",
+    "evaluation_label": "EGO2048 vs E1024",
+    "wins": 34,
     "evaluation_games": 64,
-    "timeouts": 17,
+    "timeouts": 10,
     "matchup": {
-      "challenger": "Baseline2048",
-      "opponent": "F1024",
-      "opponent_wins": 18,
+      "challenger": "EGO2048",
+      "opponent": "E1024",
+      "opponent_wins": 20,
       "draws": 0
     },
-    "updated_at": "2026-10-25T07:57:52.167933+00:00",
-    "evidence_sha256": "d5a75cce5cae8743ac896846a0852c727ef788cca31822441a3014a6ce1e7a37",
+    "updated_at": "2026-10-25T08:54:31.327918+00:00",
+    "evidence_sha256": "a6ba5198ff9c1174b2509ddd54f7d0c9f336c11ef25ea373dde9b18048683d87",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:53:46.285772-07:00",
+    "measured_at": "2026-10-25T01:54:51.297208-07:00",
     "steps": [
       {
         "step": 1,
@@ -54,11 +60,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T08:47:47.847913+00:00",
-        "elapsed_seconds": 358,
-        "completed": 0,
+        "elapsed_seconds": 423,
+        "completed": 64,
         "total": null,
-        "task": "Development bouts running on lane cont2",
-        "eta_seconds": 116,
+        "task": "EGO2048 vs E1024",
+        "eta_seconds": 51,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -84,13 +90,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2109,
+    "elapsed_seconds": 2174,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792917669.3944304,
+    "active_loops": 3,
+    "updated_at": 1792917999.7311687,
     "fresh": false,
     "loops": [
       {
@@ -120,41 +126,23 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T08:53:44.675189+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
         "stage": "evaluate",
-        "state": "interrupted",
-        "updated_at": 1792917392.9081812,
-        "job_id": "ego4096-EGO4096-E1024",
-        "details": {
-          "schema": 1,
-          "stage": "evaluate",
-          "iteration": 35,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Admitting lane cont2: EGO4096 development bouts rerun",
-          "change": "Repaired runner template (rsync 23/24 tolerated) regenerated as lane cont2; payload carries recovered EGO4096 weights (sha 8adb32bc) and Baseline2048; 10 jobs: runtime gate, staging, seven paired bouts, readout.",
-          "result": "Pod mre0p6o7o2ly59 running the bouts chain; current job ego4096-EGO4096-E1024. Readout then gate review.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T08:18:37.123117+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "state": "active",
+        "updated_at": 1792918487.9219704,
+        "job_id": "ego4096-EGO4096-F1024",
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792917669.3944304,
-        "job_id": "iteration35-rep-storage-measured",
-        "fresh": false
+        "updated_at": 1792918478.142421,
+        "job_id": "iteration35-ego2048-roster-metadata",
+        "fresh": true
       }
     ]
   },

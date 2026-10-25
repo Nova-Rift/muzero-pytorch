@@ -94,17 +94,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:45:15.567616-07:00",
+    "measured_at": "2026-10-25T00:46:21.233764-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T07:36:41.341810+00:00",
-        "elapsed_seconds": 514,
+        "elapsed_seconds": 580,
         "completed": 896,
         "total": 2048,
         "task": "EGO and MIR training on separate GPUs",
-        "eta_seconds": 661,
+        "eta_seconds": 746,
         "eta_basis": "observed training rate"
       },
       {
@@ -141,29 +141,30 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1186,
+    "elapsed_seconds": 1252,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792913906.4141414,
+    "active_loops": 3,
+    "updated_at": 1792914254.3603048,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "train",
-        "state": "done",
-        "updated_at": 1792914312.110622,
-        "job_id": "ego-EGO2048",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792914331.0895114,
+        "job_id": "iteration34-evaluation-storage",
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "train",
-        "state": "done",
-        "updated_at": 1792914315.1967459,
-        "job_id": "mir-MIR2048",
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792914331.089513,
+        "job_id": "iteration34-evaluation-admission-mir",
         "fresh": true
       },
       {
@@ -178,9 +179,9 @@
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792913906.4141414,
+        "updated_at": 1792914331.089514,
         "job_id": "iteration34-evaluation-admission",
-        "fresh": false
+        "fresh": true
       }
     ]
   },

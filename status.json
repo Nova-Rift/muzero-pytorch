@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:12:28.172633-07:00",
+    "measured_at": "2026-10-24T21:13:31.170417-07:00",
     "steps": [
       {
         "step": 1,
@@ -203,7 +203,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T04:11:23.462301+00:00",
-        "elapsed_seconds": 886,
+        "elapsed_seconds": 949,
         "completed": null,
         "total": null,
         "task": "UPG2 rejected; pod deleted; evidence archived; waiting for implementation capacity",
@@ -222,7 +222,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2022,
+    "elapsed_seconds": 2085,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

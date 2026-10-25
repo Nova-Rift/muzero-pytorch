@@ -8,11 +8,11 @@
   "evaluation_games": 64,
   "timeouts": 29,
   "title": "Three-arm chain: done 17/21 jobs; active REP2048; failed none",
-  "change": "Supervisor jobs: done 17/21 jobs; active REP2048; failed none. GPU utilization sample {'0': 95}.",
+  "change": "Supervisor jobs: done 17/21 jobs; active REP2048; failed none. GPU utilization sample {'0': 97}.",
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "CB2048 vs OwnInitial",
-  "updated_at": "2026-10-25T06:31:05.764671+00:00",
+  "updated_at": "2026-10-25T06:32:05.928429+00:00",
   "revision": {
     "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
     "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry. A hit-credit training target would be reward shaping and awaits owner approval.",
@@ -174,13 +174,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:31:08.226576-07:00",
+    "measured_at": "2026-10-24T23:32:11.151475-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T06:31:05.764671+00:00",
-        "elapsed_seconds": 1076,
+        "updated_at": "2026-10-25T06:32:05.928429+00:00",
+        "elapsed_seconds": 1139,
         "completed": 2048,
         "total": 2048,
         "task": "Three-arm chain: done 17/21 jobs; active REP2048; failed none",
@@ -221,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1884,
+    "elapsed_seconds": 1947,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -260,7 +260,7 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "done",
-        "updated_at": 1792909865.7695348,
+        "updated_at": 1792909929.7174325,
         "job_id": "CB2048-OwnInitial",
         "details": {
           "schema": 1,
@@ -276,7 +276,7 @@
           "result": "Latest completed bout CB2048 vs OwnInitial completed: 23 wins, 12 losses, 0 draws, 29 cutoffs of 64.",
           "candidate": "CB2048",
           "evaluation_label": "CB2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T06:31:05.763699+00:00",
+          "updated_at": "2026-10-25T06:32:05.927491+00:00",
           "matchup": {
             "challenger": "CB2048",
             "opponent": "OwnInitial",
@@ -412,28 +412,35 @@
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792909865.7695348,
+        "updated_at": 1792909929.7174325,
         "job_id": "REP2048",
+        "progress": {
+          "job_id": "REP2048",
+          "completed": 512,
+          "total": 2048,
+          "unit": "games",
+          "updated_at": 1792909929.418468
+        },
         "details": {
           "schema": 1,
           "stage": "train",
           "iteration": 30,
-          "completed_games": 128,
+          "completed_games": 512,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "loop-c REP2048: done 2/6; active REP2048; failed none",
           "change": "Supervisor jobs for REP2048: done 2/6; active REP2048; failed none.",
-          "result": "Observed 128 training games and 128 optimizer updates for REP2048. Strength is unmeasured until the frozen evaluations complete.",
+          "result": "Observed 512 training games and 512 optimizer updates. Strength remains unmeasured.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:31:05.763716+00:00",
+          "updated_at": "2026-10-25T06:32:09.418468+00:00",
           "training_metrics": {
             "iteration": 30,
             "run_id": "REP2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:30:50.867795+00:00",
+            "reported_at": "2026-10-25T06:32:09.418468+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -441,6 +448,27 @@
                 "elapsed_seconds": 28.663647398992907,
                 "loss": 5.38275146484375,
                 "search_entropy": 3.465735912322998
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 54.59772218199214,
+                "loss": 4.970066547393799,
+                "search_entropy": 1.2299302564933896
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 81.65512889798265,
+                "loss": 5.527007102966309,
+                "search_entropy": 1.279471035581082
+              },
+              {
+                "optimizer_updates": 512,
+                "games": 512,
+                "elapsed_seconds": 107.24872191698523,
+                "loss": 5.408191204071045,
+                "search_entropy": 1.086314158514142
               }
             ]
           },

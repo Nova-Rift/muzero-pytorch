@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:00:30.183994-07:00",
+    "measured_at": "2026-10-24T23:01:35.128463-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T05:59:43.845837+00:00",
-        "elapsed_seconds": 46,
+        "elapsed_seconds": 111,
         "completed": null,
         "total": null,
         "task": "Iteration 30: reviewing evidence",
-        "eta_seconds": 159,
+        "eta_seconds": 94,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 46,
-    "eta_seconds": 1044,
+    "elapsed_seconds": 111,
+    "eta_seconds": 979,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792907983.849876,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -117,7 +117,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -143,7 +143,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -169,7 +169,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -195,7 +195,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

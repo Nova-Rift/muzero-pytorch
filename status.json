@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:56:11.220213-07:00",
+    "measured_at": "2026-10-24T23:57:21.235478-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T06:51:35.293527+00:00",
-        "elapsed_seconds": 395,
+        "elapsed_seconds": 465,
         "completed": null,
         "total": null,
         "task": "MuZero parallel variant admission",
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 395,
-    "eta_seconds": 695,
+    "elapsed_seconds": 465,
+    "eta_seconds": 625,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

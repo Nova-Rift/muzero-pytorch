@@ -126,7 +126,7 @@ class RootWeightedTests(unittest.TestCase):
         # Three loss-contract changes plus the explicit aim-decoding flag (egocentric-aim branch); nothing else.
         source = (ROOT/'arena/train_loss.py').read_text()
         # Reverse the scoped --partner-pool edits first (tests/test_partner_pool.py pins them against 14fece12).
-        from test_partner_pool import PARTNER_EDITS
+        sys.path.insert(0,str(ROOT/'tests'));from test_partner_pool import PARTNER_EDITS
         for added, original in PARTNER_EDITS:
             self.assertEqual(source.count(added), 1, added[:80])
             source = source.replace(added, original)

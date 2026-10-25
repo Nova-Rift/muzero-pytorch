@@ -89,7 +89,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(inspect.getsource(train_loss.collect).replace('\r',''),''.join(inspect.getsourcelines(frozen.collect)[0]) if False else inspect.getsource(train_loss.collect))
         # collect() is untouched by the mirror branch: once the scoped --partner-pool edits are reversed
         # (tests/test_partner_pool.py), it has the same source text as the egocentric-aim commit.
-        from test_partner_pool import PARTNER_EDITS
+        sys.path.insert(0,str(ROOT/'tests'));from test_partner_pool import PARTNER_EDITS
         current=(ROOT/'arena/train_loss.py').read_text()
         for added,original in PARTNER_EDITS:current=current.replace(added,original)
         src=subprocess.check_output(['git','show',EGO+':arena/train_loss.py'],cwd=ROOT,text=True)

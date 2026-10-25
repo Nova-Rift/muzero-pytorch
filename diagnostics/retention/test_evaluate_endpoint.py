@@ -279,7 +279,7 @@ class DeclaredDifferenceTests(unittest.TestCase):
         # EGO-POOL2048 (research/iteration35-partner-pool) vs EGO2048 (14fece12): the paired manifest predates the flags,
         # so the contract carries their defaults ('' / 0.0); undeclared pool flags are still rejected.
         self.manifest['arguments'].update(partner_pool='initial,512,1024',partner_fraction=0.5);self.save()
-        with self.assertRaisesRegex(ValueError,'declared arguments'):self.evaluate()
+        with self.assertRaisesRegex(ValueError,'beyond declared differences'):self.evaluate()
         declared=('aim_decoding','mirror_augment','partner_pool','partner_fraction')
         contract=dict(self.contract,arguments=dict(self.contract['arguments'],partner_pool=dict(candidate='initial,512,1024',paired=''),partner_fraction=dict(candidate=0.5,paired=0.0)))
         result=self.evaluate(declared=declared,source_contract=contract)

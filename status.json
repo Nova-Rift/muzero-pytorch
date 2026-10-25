@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:08:07.314765-07:00",
+    "measured_at": "2026-10-24T23:09:11.221771-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T06:05:13.032147+00:00",
-        "elapsed_seconds": 174,
+        "elapsed_seconds": 238,
         "completed": 0,
         "total": null,
         "task": "Allocating one H100 for the D99_2048 arm; two more arms queued to append",
-        "eta_seconds": 269,
+        "eta_seconds": 205,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 503,
-    "eta_seconds": 587,
+    "elapsed_seconds": 567,
+    "eta_seconds": 523,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,7 +97,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792908352.106553,
+        "updated_at": 1792908548.7147143,
         "job_id": "D99_2048",
         "decision": {
           "reviewing": "Which arm trains first on the single H100 and why admit before the merged package exists?",
@@ -131,7 +131,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-a",

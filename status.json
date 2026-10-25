@@ -12,7 +12,7 @@
   "result": "No training or evaluation this session. Helper fixing the gate allowlist with tests; seed audit clear; replication package ready. Next guarded session re-admits both arms.",
   "candidate": "CB2048 and D99_2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T05:47:49.640459+00:00",
+  "updated_at": "2026-10-25T05:48:16.671374+00:00",
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:47:49.708322-07:00",
+    "measured_at": "2026-10-24T22:48:16.744919-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,8 +64,8 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T05:47:49.640459+00:00",
-        "elapsed_seconds": 219,
+        "updated_at": "2026-10-25T05:48:16.671374+00:00",
+        "elapsed_seconds": 246,
         "completed": null,
         "total": null,
         "task": "Arm A failed at the parity gate before training; pod deleted; gate fix delegated",
@@ -84,70 +84,74 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 540,
-    "eta_seconds": 550,
+    "elapsed_seconds": 567,
+    "eta_seconds": 523,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792906821.092977,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792907296.639412,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792906991.128996,
-        "job_id": "iteration29-arm-a-admission",
-        "decision": {
-          "reviewing": "How to run the two candidate arms when no two-GPU H100 pod is offered?",
-          "options": [
-            "One H100, both arms serial in separate supervisor loops (about 3200 s, 3.55 dollars, one lease renewal)",
-            "Wait for a two-GPU H100 offer",
-            "Two cheaper GPUs (A100 at 1.79/h each)"
-          ],
-          "evidence": [
-            "52 regions quoted: ten single-H100 offers at 3.99/h (low stock), zero two-GPU H100 offers under the 10/h ceiling.",
-            "Arm A first-block parity needs the baseline runtime (H100, cu128); other GPU types have no throughput or parity evidence.",
-            "Exact-job storage gate passed for the two-arm bounds: 7.87 GB required, 17.47 GB free."
-          ],
-          "reason": "Serial on the validated GPU type keeps both hypotheses honest and starts now; waiting has no release signal and cheaper GPUs would void the parity gate.",
-          "next_action": "Launch through the guarded launcher; publish per-job progress; helpers continue seed audit and export readiness.",
-          "updated_at": "2026-10-25T05:42:24.806317+00:00"
-        },
+        "updated_at": 1792907296.639412,
+        "job_id": "iteration29-gate-allowlist",
         "details": {
           "schema": 1,
-          "stage": "test",
+          "stage": "edit",
           "iteration": 29,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Arm A admitted: CB2048 chain on the H100 (supervisor loop loop-a)",
-          "change": "Pod nufncmbfvuz9s1 registered at 3.99/hour; payload setup under the shared deadline. Gates: runtime, ratio-1 resume, frozen first-block reference, candidate parity before first update.",
-          "result": "Then CB2048 training (2048 games) and six frozen bouts (Baseline2048 and CB2048 vs E1024, F1024, OwnInitial). Lease renews automatically while progress is observable.",
+          "title": "Arm A failed at the parity gate; helper fixing the gate allowlist",
+          "change": "CB2048 was rejected before training: the first-block gate reuses a continuation validator that only tolerates updates_per_game differences, not timeout_bootstrap. Runtime, resume and reference gates had passed.",
+          "result": "Helper adds an explicit --allow-arg allowlist (tested, pushed to branch gate-flag-allowlist) so the parity check can run on flag-only candidates. Pod deleted after the runner failure (about 0.20 dollars).",
           "candidate": "CB2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:43:11.128996+00:00",
+          "updated_at": "2026-10-25T05:48:16.639412+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "test",
+        "stage": "review",
         "state": "pending",
-        "updated_at": 1792907126.771706,
-        "job_id": "b-runtime",
-        "fresh": false
+        "blocked": true,
+        "updated_at": 1792907296.639431,
+        "job_id": "iteration29-arm-b-admission",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 29,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Arm B not run: plan aborted after arm A failure",
+          "change": "D99_2048 jobs were queued behind arm A on the single H100 and never ran. The package is unchanged and still valid.",
+          "result": "Release: next guarded session re-admits D99_2048 (direct trainer, no parity gate) together with the fixed arm A; if no two-GPU offer, arm B should run first.",
+          "candidate": "D99_2048",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T05:48:16.639431+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792906821.092977,
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792907296.639436,
         "job_id": "iteration29-seed-audit",
         "details": {
           "schema": 1,
@@ -158,22 +162,22 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: seed-collision audit and independent-seed replication package",
-          "change": "Claude helper audits the proposed confirmation/development seed ranges against the immutable archive and prepares a validated replication job list for a free device.",
-          "result": "Deliverable: audit JSON plus validated jobs in an isolated workspace; coordinator verifies before any admission.",
-          "candidate": "Not selected",
+          "title": "Seed audit clear; replication job list ready (REP2048, seed 61837209)",
+          "change": "Helper scanned 8253 archived JSON objects and 9563 local files: zero prior hits for the development and confirmation seed ranges (positive control 275). Six-job replication list validated; differs from baseline only by seed.",
+          "result": "Open issue: REP2048 must self-pair in evaluate_endpoint (new seed changes initial weights), so recipe parity is checked by manifest diff at readout. Release: next session, free device.",
+          "candidate": "REP2048 (packaged)",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:40:21.092977+00:00",
+          "updated_at": "2026-10-25T05:48:16.639436+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792906821.092981,
+        "updated_at": 1792907296.639439,
         "job_id": "iteration29-ladder-export",
         "details": {
           "schema": 1,
@@ -184,16 +188,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: export environment and ladder readiness",
-          "change": "Claude helper locates or builds an isolated environment with the onnx module, dry-runs the MuZero export on archived Baseline2048 weights, and computes ladder standings with the real roster.",
-          "result": "Deliverable: tested export command, parity fixture, standings JSON; no public asset or roster change.",
+          "title": "Helper: export environment and ladder readiness (running)",
+          "change": "Claude helper is locating or building an onnx-capable environment, dry-running the MuZero export on archived Baseline2048 weights and computing ladder standings with the real roster.",
+          "result": "Deliverable pending: tested export command, parity fixture, standings JSON, publish checklist.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T05:40:21.092981+00:00",
+          "updated_at": "2026-10-25T05:48:16.639439+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

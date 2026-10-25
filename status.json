@@ -4,19 +4,19 @@
   "iteration": 34,
   "completed_games": 896,
   "target_games": 2048,
-  "wins": 54,
+  "wins": 15,
   "evaluation_games": 64,
-  "timeouts": 2,
-  "title": "EGO2048 vs F1024 completed",
+  "timeouts": 20,
+  "title": "Baseline2048 vs E1024 completed",
   "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
   "result": "Complete balanced matchup; raw records retained. Confirmation and replication are separate gates.",
-  "candidate": "EGO2048",
-  "evaluation_label": "ego-EGO2048-conf-F1024-for-EGO2048",
-  "updated_at": "2026-10-25T07:57:28.653843+00:00",
+  "candidate": "Baseline2048",
+  "evaluation_label": "Baseline2048-E1024",
+  "updated_at": "2026-10-25T07:57:30.481126+00:00",
   "matchup": {
-    "challenger": "EGO2048",
-    "opponent": "F1024",
-    "opponent_wins": 8,
+    "challenger": "Baseline2048",
+    "opponent": "E1024",
+    "opponent_wins": 29,
     "draws": 0
   },
   "latest_comparison": {
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:57:28.735596-07:00",
+    "measured_at": "2026-10-25T00:57:30.562245-07:00",
     "steps": [
       {
         "step": 1,
@@ -59,12 +59,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T07:57:28.653843+00:00",
-        "elapsed_seconds": 447,
+        "updated_at": "2026-10-25T07:57:30.481126+00:00",
+        "elapsed_seconds": 449,
         "completed": 64,
         "total": null,
-        "task": "ego-EGO2048-conf-F1024-for-EGO2048",
-        "eta_seconds": 27,
+        "task": "Baseline2048-E1024",
+        "eta_seconds": 25,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1919,
+    "elapsed_seconds": 1921,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

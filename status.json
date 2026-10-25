@@ -22,28 +22,28 @@
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-b",
-    "job_id": "mir-Baseline2048-F1024",
-    "protocol_sha256": "6830113d8cef47162090a6f6cb7cf02b7a978974b645080ac43a45d57d1b7827",
+    "job_id": "mir-Baseline2048-OwnInitial",
+    "protocol_sha256": "66ee618c9b512e141413d17cba64ebbbfbbf790cbcf29b00bd89e49eefd1a875",
     "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
-    "result_id": "827e11c6ea632171509b1726a382bff865dbaad18bb9afe013c9d453d7b8e666",
+    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
+    "result_id": "1261f881c6f317367dcc9d25e309eb4a10215d262fa387ebde4c3223c219ad97",
     "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs F1024",
-    "wins": 30,
+    "evaluation_label": "Baseline2048 vs OwnInitial",
+    "wins": 42,
     "evaluation_games": 64,
     "timeouts": 12,
     "matchup": {
       "challenger": "Baseline2048",
-      "opponent": "F1024",
-      "opponent_wins": 22,
+      "opponent": "OwnInitial",
+      "opponent_wins": 10,
       "draws": 0
     },
-    "updated_at": "2026-10-25T07:52:04.372831+00:00",
-    "evidence_sha256": "1923b0d1bd14719f141692e7b25d054492635e6b96ccd9cafc3f95201de5f96b",
+    "updated_at": "2026-10-25T07:52:50.002001+00:00",
+    "evidence_sha256": "bcdac7bf5c7c5e57c109f82a99cba0a8ee974f79a30cc82c447c176ba915bac7",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:52:48.177039-07:00",
+    "measured_at": "2026-10-25T00:53:51.235801-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,11 +60,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:51:18.825123+00:00",
-        "elapsed_seconds": 167,
+        "elapsed_seconds": 230,
         "completed": 64,
         "total": null,
         "task": "MIR2048 vs OwnInitial",
-        "eta_seconds": 307,
+        "eta_seconds": 244,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1639,
+    "elapsed_seconds": 1702,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -103,17 +103,17 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914766.8374083,
-        "job_id": "ego-Baseline2048-OwnInitial",
-        "fresh": true
+        "updated_at": 1792914596.6887681,
+        "job_id": "ego-EGO2048-OwnInitial",
+        "fresh": false
       },
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914765.273205,
-        "job_id": "mir-Baseline2048-OwnInitial",
-        "fresh": true
+        "updated_at": 1792914600.301887,
+        "job_id": "mir-MIR2048-OwnInitial",
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -125,10 +125,10 @@
       },
       {
         "id": "loop-d",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792914543.7028127,
-        "job_id": "iteration34-variant-recovery-verify",
+        "updated_at": 1792914770.4794676,
+        "job_id": "iteration34-variant-dev-readout",
         "fresh": false
       }
     ]
@@ -141,7 +141,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 23.075762595492602,
+    "remaining_usd": 24.714501282308497,
     "reserved_usd": 12.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

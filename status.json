@@ -7,12 +7,12 @@
   "wins": 22,
   "evaluation_games": 64,
   "timeouts": 34,
-  "title": "UPG2 rejected; pod deleted; evidence archived; waiting for implementation capacity",
-  "change": "Two updates per game did not beat the ratio-1 baseline: fewer losses but far more stalled games (cutoffs 19 and 36 of 64 vs limit 12). All six bouts, four full states and the source-bound run are archived.",
-  "result": "Pod deletion verified; about 1.19 dollars at 3.99/hour, no renewal. Next experiment needs packaging that this coordinator transport cannot delegate; release: helper-capable provider or owner instruction.",
+  "title": "Session 28 handing off: two-arm parallel plan prepared for the helper-enabled next session",
+  "change": "Owner asked for a parallel loop aimed at the Elo top. Plan: flag-only candidates timeout_bootstrap=continue and discount=0.99 on 2 x H100, plus seed replication and ladder/export readiness.",
+  "result": "UPG2 rejected and archived; pod deleted. Next action review: the next session loads the queued Claude helper runtime at this idle zero-pod boundary and packages the arms in parallel.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "UPG2_2048 vs OwnInitial",
-  "updated_at": "2026-10-25T04:11:23.462301+00:00",
+  "updated_at": "2026-10-25T04:17:53.509708+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:17:51.171953-07:00",
+    "measured_at": "2026-10-24T21:17:53.575357-07:00",
     "steps": [
       {
         "step": 1,
@@ -202,11 +202,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T04:11:23.462301+00:00",
-        "elapsed_seconds": 1209,
+        "updated_at": "2026-10-25T04:17:53.509708+00:00",
+        "elapsed_seconds": 1212,
         "completed": null,
         "total": null,
-        "task": "UPG2 rejected; pod deleted; evidence archived; waiting for implementation capacity",
+        "task": "Session 28 handing off: two-arm parallel plan prepared for the helper-enabled next session",
         "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
@@ -222,21 +222,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2345,
+    "elapsed_seconds": 2348,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792901447.2377126,
-    "fresh": false,
+    "updated_at": 1792901872.1822402,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792901447.237814,
+        "updated_at": 1792901872.18234,
         "job_id": "iteration28-upg2-admission",
         "decision": {
           "reviewing": "Does two updates per game beat the ratio-1 baseline under the frozen development gate?",
@@ -262,23 +262,23 @@
           "wins": 22,
           "evaluation_games": 64,
           "timeouts": 34,
-          "title": "Blocked after completed cycle: next experiment needs implementation capacity",
-          "change": "UPG2 rejected under the frozen gate (details in iteration-28-report.md). Planning done: candidate direction is the cutoff/timeout objective, since rejected revisions lose less but stall more.",
-          "result": "Release: coordinator provider with helpers, or owner instruction permitting direct coordinator implementation. Alternatives checked: no prepared package, no unverified evidence left to analyze.",
-          "candidate": "Baseline-UPG2-2048",
+          "title": "Planned: candidate CB2048 (timeout_bootstrap=continue), GPU arm 1 next session",
+          "change": "Flag-only variant of the Baseline2048 recipe targeting the recurring stall/cutoff pattern; fresh restart, seed 52731415, 2048 games, frozen E/F gate. Plan: iteration28-next-plan/plan.md.",
+          "result": "Release: next session starts (helpers enabled) and packages the arm. Alternatives checked: serial packaging now would delay the parallel runtime.",
+          "candidate": "CB2048 (planned)",
           "evaluation_label": "UPG2_2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T04:10:47.237814+00:00",
+          "updated_at": "2026-10-25T04:17:52.182340+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792901385.2619,
+        "updated_at": 1792901872.182358,
         "job_id": "iteration28-upg2-replication-wait",
         "details": {
           "schema": 1,
@@ -289,23 +289,23 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Blocked: no prepared experiment; implementation capacity unavailable",
-          "change": "UPG2 was rejected, so independent-seed replication is moot. Next candidate direction: a cutoff-aware objective, still unpackaged.",
-          "result": "Release: coordinator provider with helpers (OpenAI) or owner instruction permitting the coordinator to implement. Alternatives checked: no prepared package or pending analysis exists.",
-          "candidate": "Not selected",
+          "title": "Planned: candidate D99-2048 (discount=0.99), GPU arm 2 next session",
+          "change": "E1024/F1024, which beat our baselines, trained at discount 0.99; the frozen trainer supports it as a flag. Same seed, games and gate as arm 1; runs on the second H100.",
+          "result": "Release: next session packages and admits with gpu_count=2 within the 10 dollars/hour ceiling. Alternatives checked: no code change needed.",
+          "candidate": "D99-2048 (planned)",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T04:09:45.261900+00:00",
+          "updated_at": "2026-10-25T04:17:52.182358+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792901385.26197,
+        "updated_at": 1792901872.182361,
         "job_id": "iteration28-upg2-confirmation-wait",
         "details": {
           "schema": 1,
@@ -316,23 +316,23 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Blocked: confirmation not authorized (gate failed)",
-          "change": "The frozen plan allows held-out confirmation only after a development pass; UPG2 failed on both opponents.",
-          "result": "Release: a future candidate passes its development gate. Alternatives checked: no independent analysis target with a concrete deliverable.",
+          "title": "Planned: independent-seed baseline replication or held-out confirmation",
+          "change": "Replication measures training-seed variance of the gate and adds a second ladder entrant; confirmation uses new frozen seed ranges only after a pass.",
+          "result": "Release: next session; device free or gate passed. Alternatives checked: UPG2 replication dropped because UPG2 failed its gate.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T04:09:45.261970+00:00",
+          "updated_at": "2026-10-25T04:17:52.182361+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792901447.237831,
+        "updated_at": 1792901872.182364,
         "job_id": "iteration28-upg2-readout-wait",
         "details": {
           "schema": 1,
@@ -343,16 +343,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Blocked: readout complete, no further analysis target",
-          "change": "Strict paired audit, development gate and four-state verification recorded; evidence snapshotted to the immutable archive.",
-          "result": "Release: a new experiment produces results to read out. Alternatives checked: earlier sessions already read out and archived.",
-          "candidate": "Baseline-UPG2-2048",
+          "title": "Planned: ladder standings, ONNX export and roster readiness",
+          "change": "Compute current standings with arena-ladder-next.mjs on the verified ledger; export best checkpoints; parity, training dates, inspector metadata; publish-arena-ladder --check.",
+          "result": "Release: next session. Publication still requires the promotion gates and replication. Alternatives checked: none pending now.",
+          "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T04:10:47.237831+00:00",
+          "updated_at": "2026-10-25T04:17:52.182364+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

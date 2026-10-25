@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:29:20.303765-07:00",
+    "measured_at": "2026-10-25T02:30:24.294585-07:00",
     "steps": [
       {
         "step": 1,
@@ -71,7 +71,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 2760,
+        "elapsed_seconds": 2824,
         "completed": null,
         "total": null,
         "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4243,
+    "elapsed_seconds": 4307,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -174,7 +174,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 23.01542816864848,
+    "remaining_usd": 23.013404046580693,
     "reserved_usd": 24.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

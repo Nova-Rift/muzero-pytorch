@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
+  "stage": "paused",
   "iteration": 34,
   "completed_games": 896,
   "target_games": 2048,
   "wins": 29,
   "evaluation_games": 64,
   "timeouts": 17,
-  "title": "Coordinator unavailable (provider limit or outage); GPU pods retained while their runners continue",
+  "title": "Paused by owner",
   "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
   "result": "{\"message\": \"You\\u2019ve hit your usage limit. Visit https://chatgpt.com/settings/usage to purchase more credits or try again at Oct 31st, 2026 11:36 PM.\", \"codexErrorInfo\": \"usageLimitExceeded\", \"additionalDetails\": null, \"misalignment\": n",
   "candidate": "Baseline2048",
   "evaluation_label": "Baseline2048 vs F1024",
-  "updated_at": "2026-10-25T08:14:04.700224+00:00",
+  "updated_at": "2026-10-25T08:18:31.729057+00:00",
   "matchup": {
     "challenger": "Baseline2048",
     "opponent": "F1024",
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:18:29.187288-07:00",
+    "measured_at": "2026-10-25T01:18:31.806445-07:00",
     "steps": [
       {
         "step": 1,
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3180,
+    "elapsed_seconds": 3183,
     "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -141,7 +141,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 18.7145012823085,
+    "remaining_usd": 24.568514566530784,
     "reserved_usd": 18.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

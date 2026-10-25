@@ -49,7 +49,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:48:51.284288-07:00",
+    "measured_at": "2026-10-24T20:49:34.673083-07:00",
     "steps": [
       {
         "step": 1,
@@ -88,28 +88,28 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T03:48:51.215153+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 43,
         "completed": null,
         "total": null,
         "task": "UPG2 admission: storage gate released, binding tested package",
-        "eta_seconds": 115,
+        "eta_seconds": 72,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 605,
-    "eta_seconds": 485,
+    "elapsed_seconds": 649,
+    "eta_seconds": 441,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792900093.934097,
+    "updated_at": 1792900147.844753,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792900093.934097,
+        "updated_at": 1792900147.844753,
         "job_id": "iteration28-upg2-admission",
         "decision": {
           "reviewing": "Can the tested UPG2 package be admitted now that the storage policy changed?",
@@ -126,6 +126,24 @@
           "next_action": "Record budget snapshot, build fresh preflight for one H100, approve, and launch through launch.py; publish per-job progress.",
           "updated_at": "2026-10-25T03:48:13.934097+00:00"
         },
+        "details": {
+          "schema": 1,
+          "stage": "test",
+          "iteration": 28,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "UPG2 admission: storage gate released, binding tested package",
+          "change": "Policy now 12 GiB cache / 4 GiB reserve: exact-job storage gate passes. Runner 28 generated (25 checks); payload rebuilt with current supervisor files, experiment content byte-identical.",
+          "result": "No GPU allocated yet. Fresh offer, budget and preflight approval precede the guarded launch; runtime, ratio-2 resume and first-block parity gates run on the pod before training.",
+          "candidate": "Baseline-UPG2-2048",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T03:49:07.844753+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
@@ -133,7 +151,7 @@
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792900051.669491,
+        "updated_at": 1792900147.844753,
         "job_id": "iteration28-upg2-replication-wait",
         "details": {
           "schema": 1,
@@ -145,22 +163,22 @@
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Blocked: replication depends on UPG2 development result",
-          "change": "No work assigned; dependency is the pending UPG2 development gate (strictly more wins than Baseline2048 vs E1024 and F1024, timeouts <=12/64).",
-          "result": "Release condition: UPG2 development gate passes AND a helper-capable transport or owner instruction to package the replication. Alternatives checked: no completed-but-unanalyzed evidence, no unrun prepared package exists for this loop.",
+          "change": "No work assigned. Dependency: pending UPG2 development gate (more wins than Baseline2048 vs E1024 and F1024, timeouts at most 12/64).",
+          "result": "Release: development gate passes AND helper capacity (OpenAI provider) or owner instruction. Alternatives checked: no unanalyzed evidence or unrun prepared package exists for this loop.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:47:31.669491+00:00",
+          "updated_at": "2026-10-25T03:49:07.844753+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792900051.669491,
+        "updated_at": 1792900147.844753,
         "job_id": "iteration28-upg2-confirmation-wait",
         "details": {
           "schema": 1,
@@ -172,22 +190,22 @@
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Blocked: confirmation depends on UPG2 development gate",
-          "change": "No work assigned; the frozen plan forbids using current confirmation seeds for tuning, so a new audited protocol is needed only after a pass.",
-          "result": "Release condition: UPG2 development gate passes AND helper capacity (OpenAI provider) or owner instruction. Alternatives checked: no independent CPU analysis with a concrete deliverable is pending for this loop.",
+          "change": "No work assigned. The frozen plan forbids tuning on current confirmation seeds, so a new audited protocol is needed only after a pass.",
+          "result": "Release: development gate passes AND helper capacity or owner instruction. Alternatives checked: no independent CPU analysis with a concrete deliverable is pending for this loop.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:47:31.669491+00:00",
+          "updated_at": "2026-10-25T03:49:07.844753+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792900051.669491,
+        "updated_at": 1792900147.844753,
         "job_id": "iteration28-upg2-readout-wait",
         "details": {
           "schema": 1,
@@ -199,15 +217,15 @@
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "Blocked: readout waits for the UPG2 run",
-          "change": "Coordinator will read out recovered results, publish final matchup totals and snapshot evidence after the GPU chain completes.",
-          "result": "Release condition: supervisor reports the ten-job chain complete and artifacts are recovered. Alternatives checked: prior sessions evidence already archived and read out; no new independent analysis target.",
+          "change": "Coordinator will read out recovered results, publish final matchup totals and snapshot evidence after the ten-job chain completes.",
+          "result": "Release: supervisor reports the chain complete and artifacts recovered. Alternatives checked: earlier sessions are already archived and read out; no new independent analysis target.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:47:31.669491+00:00",
+          "updated_at": "2026-10-25T03:49:07.844753+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

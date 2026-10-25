@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "paused",
   "iteration": 32,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "MuZero independent variant admission",
+  "title": "Stopped by owner",
   "change": "Three execution helpers validate EGO/MIR, package independent GPU lanes and investigate REP recovery.",
   "result": "CB2048 and D99 failed development gates. No session32 GPU job admitted yet.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T06:49:03.954412+00:00",
+  "updated_at": "2026-10-25T06:49:24.340071+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:49:04.025321-07:00",
+    "measured_at": "2026-10-24T23:49:24.418109-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T06:49:03.954412+00:00",
-        "elapsed_seconds": 408,
+        "state": "interrupted",
+        "updated_at": "2026-10-25T06:49:24.340071+00:00",
+        "elapsed_seconds": 428,
         "completed": null,
         "total": null,
         "task": "MuZero independent variant admission",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 408,
-    "eta_seconds": 682,
+    "elapsed_seconds": 428,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

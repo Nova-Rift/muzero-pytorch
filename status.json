@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:10:18.176681-07:00",
+    "measured_at": "2026-10-24T21:11:21.219507-07:00",
     "steps": [
       {
         "step": 1,
@@ -203,7 +203,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T04:07:47.203071+00:00",
-        "elapsed_seconds": 756,
+        "elapsed_seconds": 819,
         "completed": null,
         "total": null,
         "task": "UPG2 development gate failed; releasing pod",
@@ -222,20 +222,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1892,
+    "elapsed_seconds": 1955,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792901385.2617736,
+    "updated_at": 1792901447.2377126,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "done",
-        "updated_at": 1792901385.261878,
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792901447.237814,
         "job_id": "iteration28-upg2-admission",
         "decision": {
           "reviewing": "Does two updates per game beat the ratio-1 baseline under the frozen development gate?",
@@ -261,12 +262,12 @@
           "wins": 22,
           "evaluation_games": 64,
           "timeouts": 34,
-          "title": "UPG2 cycle complete: development gate failed; pod released",
-          "change": "Six frozen bouts audited. UPG2_2048 vs E1024 25/20/0 cutoffs 19 (baseline 26/32/0/6); vs F1024 11/17/0/36 (baseline 30/15/0/19); OwnInitial 22/8/0/34 (31/15/0/18).",
-          "result": "Gate: strictly more wins vs E and F with cutoffs at most 12; failed on both. Four full states verified; pod deleted (verified). Report: iteration-28-report.md. No promotion.",
+          "title": "Blocked after completed cycle: next experiment needs implementation capacity",
+          "change": "UPG2 rejected under the frozen gate (details in iteration-28-report.md). Planning done: candidate direction is the cutoff/timeout objective, since rejected revisions lose less but stall more.",
+          "result": "Release: coordinator provider with helpers, or owner instruction permitting direct coordinator implementation. Alternatives checked: no prepared package, no unverified evidence left to analyze.",
           "candidate": "Baseline-UPG2-2048",
           "evaluation_label": "UPG2_2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T04:09:45.261878+00:00",
+          "updated_at": "2026-10-25T04:10:47.237814+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -297,7 +298,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -324,13 +325,14 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "done",
-        "updated_at": 1792901385.261974,
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792901447.237831,
         "job_id": "iteration28-upg2-readout-wait",
         "details": {
           "schema": 1,
@@ -341,12 +343,12 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Readout complete: strict paired audit and chain verification done",
-          "change": "Audited 384 games with the unchanged public readout; paired bootstrap E -0.016 (-0.14..0.11), F -0.297 (-0.44..-0.16). Four compressed states verified.",
-          "result": "Evidence in iteration28-admission (readout28.json, development-gate28.json, upg2-recovery28.json) and the session report. Archive snapshot follows.",
+          "title": "Blocked: readout complete, no further analysis target",
+          "change": "Strict paired audit, development gate and four-state verification recorded; evidence snapshotted to the immutable archive.",
+          "result": "Release: a new experiment produces results to read out. Alternatives checked: earlier sessions already read out and archived.",
           "candidate": "Baseline-UPG2-2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T04:09:45.261974+00:00",
+          "updated_at": "2026-10-25T04:10:47.237831+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

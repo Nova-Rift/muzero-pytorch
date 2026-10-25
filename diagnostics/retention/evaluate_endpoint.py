@@ -7,7 +7,10 @@ import subprocess
 import sys
 
 
-def validate_continuation(manifest, paired, source):
+UPG2_TRAINER = "2e67c2b9b7652ccbe75dbed249708356f38c3608"
+
+
+def validate_continuation(manifest, paired, source, upg2=False):
     """Bind the new endpoint to its frozen training source and original run."""
     if source is None:
         raise ValueError('Continuation requires frozen training source')
@@ -24,14 +27,24 @@ def validate_continuation(manifest, paired, source):
     if files!=original['source_provenance']['files']:
         raise ValueError('Continuation source files differ')
     operational={'site','output','resume_state','games','max_seconds'}
+    if upg2:
+        operational.add('updates_per_game')
     arguments=manifest.get('arguments', {})
     old_arguments=original.get('arguments', {})
     if (not arguments or not old_arguments or
             {k:v for k,v in arguments.items() if k not in operational}!=
             {k:v for k,v in old_arguments.items() if k not in operational} or
-            arguments.get('games')!=4096 or arguments.get('updates_per_game')!=1 or
-            not arguments.get('resume_state') or old_arguments.get('games')!=2048):
+            arguments.get('games')!=(2048 if upg2 else 4096) or
+            type(arguments.get('updates_per_game')) is not int or
+            arguments.get('updates_per_game')!=(2 if upg2 else 1) or
+            (bool(arguments.get('resume_state')) if upg2 else not arguments.get('resume_state')) or
+            old_arguments.get('games')!=2048):
         raise ValueError('Continuation training arguments differ')
+    if upg2 and (manifest['source_commit'] != UPG2_TRAINER or
+            old_arguments.get('updates_per_game') != 1 or type(old_arguments.get('updates_per_game')) is not int or
+            old_arguments.get('resume_state') or arguments.get('loss_contract') != 'baseline' or
+            arguments.get('batch') != 256 or arguments.get('seed') != 52731415):
+        raise ValueError('UPG2 fresh baseline training contract differs')
     source=Path(source).resolve()
     for name, expected in files.items():
         path=(source/name).resolve()
@@ -49,20 +62,29 @@ def validate_continuation(manifest, paired, source):
         raise ValueError('Frozen source commit differs')
 
 
-def catalog(training,paired,opponent,label,expected_endpoint_games=2048,source=None):
+def catalog(training,paired,opponent,label,expected_endpoint_games=2048,source=None,expected_endpoint_updates=None):
     report=json.loads((training/'report.json').read_text())
     if type(expected_endpoint_games) is not int or expected_endpoint_games not in (2048,4096):
         raise ValueError('Supported endpoints are 2048 and 4096')
+    if expected_endpoint_updates is None:
+        expected_endpoint_updates = expected_endpoint_games
+    if (type(expected_endpoint_updates) is not int or
+            (expected_endpoint_games, expected_endpoint_updates) not in ((2048,2048),(4096,4096),(2048,4096))):
+        raise ValueError('Unsupported frozen game/update pair')
+    upg2 = (expected_endpoint_games, expected_endpoint_updates) == (2048,4096)
     if (report['requested_run_completed'] is not True or
             type(report['games']) is not int or report['games']!=expected_endpoint_games or
-            type(report['optimizer_updates']) is not int or report['optimizer_updates']!=expected_endpoint_games):
+            type(report['optimizer_updates']) is not int or report['optimizer_updates']!=expected_endpoint_updates):
         raise ValueError(f'Frozen{expected_endpoint_games} endpoint incomplete')
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     if sha(training/'initial.npz')!=sha(paired/'initial.npz'):
         raise ValueError('Paired initialization differs')
     manifest=json.loads((training/'manifest.json').read_text())
-    if expected_endpoint_games==4096:
-        validate_continuation(manifest,paired,source)
+    if expected_endpoint_games==4096 or upg2:
+        validate_continuation(manifest,paired,source,upg2)
+    if upg2 and (type(report.get('training_examples')) is not int or
+            report['training_examples'] != 4096*256):
+        raise ValueError('UPG2 training example count differs')
     weights=training/'weights.npz'
     if sha(weights)!=report['checkpoint_sha256']:raise ValueError('Final checkpoint differs from report')
     if sha(Path(opponent['checkpoint']))!=opponent['sha256']:raise ValueError('Frozen opponent changed')
@@ -76,9 +98,10 @@ def main():
     p.add_argument('--label',required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--source',type=Path,required=True);p.add_argument('--site',type=Path,required=True)
     p.add_argument('--expected-endpoint-games',type=int,choices=(2048,4096),default=2048)
+    p.add_argument('--expected-endpoint-updates',type=int)
     p.add_argument('--seed',type=int,required=True);a=p.parse_args()
     a.output.mkdir(parents=True,exist_ok=False)
-    frozen=catalog(a.training,a.paired_training,json.loads(a.opponent.read_text()),a.label,a.expected_endpoint_games,a.source)
+    frozen=catalog(a.training,a.paired_training,json.loads(a.opponent.read_text()),a.label,a.expected_endpoint_games,a.source,a.expected_endpoint_updates)
     path=a.output/'catalog.json';path.write_text(json.dumps(frozen,indent=2)+'\n')
     subprocess.run([sys.executable,str(a.source/'tournament/run.py'),'--catalog',str(path),
                     '--site',str(a.site),'--output',str(a.output/'results'),'--device','cuda',

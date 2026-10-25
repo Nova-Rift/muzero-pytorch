@@ -119,4 +119,72 @@ class ContinuationTests(unittest.TestCase):
                          self.report['checkpoint_sha256'])
 
 
+
+
+class UPG2Tests(ContinuationTests):
+    def setUp(self):
+        super().setUp()
+        from evaluate_endpoint import UPG2_TRAINER
+        self.manifest['source_commit'] = UPG2_TRAINER
+        self.manifest['source_provenance']['commit'] = UPG2_TRAINER
+        (self.source/'.source-provenance.json').write_text(json.dumps(self.manifest['source_provenance']))
+        self.manifest['arguments'].update(games=2048, updates_per_game=2, resume_state=None,
+                                         batch=256, loss_contract='baseline')
+        original=json.loads(json.dumps(self.manifest));original['arguments']['updates_per_game']=1
+        (self.b/'manifest.json').write_text(json.dumps(original))
+        self.report.update(games=2048, optimizer_updates=4096, training_examples=1048576)
+        self.save()
+
+    def evaluate(self):
+        return catalog(self.a,self.b,self.opponent,'UPG2',2048,self.source,4096)
+
+    def test_valid_upg2(self):
+        self.assertEqual(self.evaluate()['models'][0]['sha256'],self.report['checkpoint_sha256'])
+
+    def test_argument_contract(self):
+        for field,value in [('seed',42),('resume_state','state.pt'),('games',4096),
+                            ('updates_per_game',1),('loss_contract','root5-mass-v1'),('batch',128)]:
+            with self.subTest(field=field):
+                old=self.manifest['arguments'][field];self.manifest['arguments'][field]=value;self.save()
+                with self.assertRaises(ValueError):self.evaluate()
+                self.manifest['arguments'][field]=old
+
+    def test_wrong_counts_and_incomplete(self):
+        for key,value in [('games',4096),('optimizer_updates',2048),('training_examples',524288),
+                          ('requested_run_completed',False),('games',2048.0)]:
+            with self.subTest(key=key,value=value):
+                old=self.report[key];self.report[key]=value;self.save()
+                with self.assertRaises(ValueError):self.evaluate()
+                self.report[key]=old
+
+    def test_consistently_wrong_source_and_objective(self):
+        for field,value in [('source_commit','b'*40),('loss_contract','first-transition1-v1')]:
+            original=json.loads((self.b/'manifest.json').read_text())
+            if field=='loss_contract':
+                original['arguments'][field]=value;self.manifest['arguments'][field]=value
+            else:
+                original[field]=value;self.manifest[field]=value
+                original['source_provenance']['commit']=value;self.manifest['source_provenance']['commit']=value
+            (self.b/'manifest.json').write_text(json.dumps(original));self.save()
+            with self.assertRaises(ValueError):self.evaluate()
+
+    def test_arbitrary_count_override_rejected(self):
+        for updates in (2047,4095,4096.0,True):
+            with self.assertRaises(ValueError):
+                catalog(self.a,self.b,self.opponent,'UPG2',2048,self.source,updates)
+
+    def test_cli_uses_separate_frozen_source(self):
+        from unittest.mock import patch
+        import evaluate_endpoint
+        opponent=self.root/'opponent.json';opponent.write_text(json.dumps(self.opponent))
+        output=self.root/'evaluation'
+        args=['evaluate_endpoint.py','--training',str(self.a),'--paired-training',str(self.b),
+              '--opponent',str(opponent),'--label','UPG2','--output',str(output),
+              '--source',str(self.source),'--site',str(self.root/'site'),'--seed','93020000',
+              '--expected-endpoint-games','2048','--expected-endpoint-updates','4096']
+        with patch('sys.argv',args), patch.object(evaluate_endpoint.subprocess,'run') as run:
+            evaluate_endpoint.main()
+        self.assertEqual(run.call_args.args[0][1],str(self.source/'tournament/run.py'))
+
+
 if __name__=='__main__':unittest.main()

@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
-  "iteration": 32,
+  "stage": "review",
+  "iteration": 33,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
+  "title": "Iteration 33: reviewing evidence",
   "change": "Three execution helpers validate EGO/MIR, package independent GPU lanes and investigate REP recovery.",
   "result": "CB2048 and D99 failed development gates. No session32 GPU job admitted yet.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T06:49:24.340071+00:00",
+  "updated_at": "2026-10-25T06:49:36.200873+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:49:24.418109-07:00",
+    "measured_at": "2026-10-24T23:49:40.312112-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "interrupted",
-        "updated_at": "2026-10-25T06:49:24.340071+00:00",
-        "elapsed_seconds": 428,
+        "state": "active",
+        "updated_at": "2026-10-25T06:49:36.200873+00:00",
+        "elapsed_seconds": 4,
         "completed": null,
         "total": null,
-        "task": "MuZero independent variant admission",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 33: reviewing evidence",
+        "eta_seconds": 201,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
@@ -84,45 +84,117 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 428,
-    "eta_seconds": null,
+    "elapsed_seconds": 4,
+    "eta_seconds": 1086,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792910943.9257874,
+    "updated_at": 1792910976.2104714,
     "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910943.9257874,
-        "job_id": "iteration32-admission-review",
+        "updated_at": 1792910976.2104714,
+        "job_id": "iteration-33-planning-1",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 33,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T06:49:36.210471+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792910943.9257874,
-        "job_id": "iteration32-variant-validation",
+        "updated_at": 1792910976.2104714,
+        "job_id": "iteration-33-planning-2",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 33,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T06:49:36.210471+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "edit",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792910943.9257874,
-        "job_id": "iteration32-variant-package",
+        "updated_at": 1792910976.2104714,
+        "job_id": "iteration-33-planning-3",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 33,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T06:49:36.210471+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792910943.9257874,
-        "job_id": "iteration32-rep-recovery",
+        "updated_at": 1792910976.2104714,
+        "job_id": "iteration-33-planning-4",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 33,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T06:49:36.210471+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       }
     ]

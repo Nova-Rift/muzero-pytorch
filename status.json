@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:52:56.219867-07:00",
+    "measured_at": "2026-10-24T23:54:01.221724-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T06:51:35.293527+00:00",
-        "elapsed_seconds": 200,
+        "elapsed_seconds": 265,
         "completed": null,
         "total": null,
         "task": "MuZero parallel variant admission",
-        "eta_seconds": 5,
+        "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 200,
-    "eta_seconds": 890,
+    "elapsed_seconds": 265,
+    "eta_seconds": 825,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -97,9 +97,23 @@
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792911095.264881,
+        "updated_at": 1792911183.06569,
         "job_id": "iteration33-admission-review",
-        "fresh": false
+        "decision": {
+          "reviewing": "Which frozen MuZero experiment can be admitted next?",
+          "options": [
+            "Opponent-relative aim decoding, tested separately from mirror replay augmentation.",
+            "Recover REP artifacts and avoid rerunning completed CB/D99 work."
+          ],
+          "evidence": [
+            "CB improved E wins but regressed F and cutoffs; D99 failed the frozen development gate.",
+            "EGO and MIR source revisions exist; strict changed-source evaluator and per-variant resume checks are still being completed."
+          ],
+          "reason": "Test distinct declared hypotheses from a common frozen recipe while retaining failed results and all admission guards.",
+          "next_action": "Verify returned source/tests and storage, refresh offers, then admit independent GPU lanes within the shared ceiling.",
+          "updated_at": "2026-10-25T06:53:03.065690+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-b",

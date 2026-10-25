@@ -4,46 +4,46 @@
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 53,
+  "wins": 24,
   "evaluation_games": 64,
-  "timeouts": 3,
+  "timeouts": 0,
   "title": "Lane cont2 allocated: EGO4096 development bouts rerun",
   "change": "Repaired runner template (partial rsync tolerated) regenerated as lane cont2; payload carries the recovered EGO4096 weights and Baseline2048. Ten jobs: runtime gate, staging, seven paired development bouts, readout.",
   "result": "Pod mre0p6o7o2ly59 in AP-IN-1 at 3.99 per hour; storage gate and preflight passed; hard bound 1320 s. Held-out confirmation appends only if the preregistered gate passes.",
   "candidate": "EGO4096",
-  "evaluation_label": "EGO2048 vs OwnInitial",
+  "evaluation_label": "EGO4096 vs EGO2048",
   "updated_at": "2026-10-25T08:47:47.847913+00:00",
   "matchup": {
-    "challenger": "EGO2048",
-    "opponent": "OwnInitial",
-    "opponent_wins": 8,
-    "draws": 0
+    "challenger": "EGO4096",
+    "opponent": "EGO2048",
+    "opponent_wins": 38,
+    "draws": 2
   },
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
-    "job_id": "ego4096-EGO2048-OwnInitial",
-    "protocol_sha256": "247720e5f4e6d88c06c3b84747238be1550e78609281409ce31e733f204272bb",
-    "challenger_sha256": "0e263ee21ce56721dad3479648136a725b512138e1be4c73e30e689d6e49cf08",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "2f32dee7f200144991a84f0ba70acc538b98623278091ce6659ea5189eeb42ae",
-    "candidate": "EGO2048",
-    "evaluation_label": "EGO2048 vs OwnInitial",
-    "wins": 53,
+    "job_id": "ego4096-EGO4096-EGO2048",
+    "protocol_sha256": "3bad652425cce92d3f0b514068c9944ab2944639591fa78eb4894bcacbc47d5f",
+    "challenger_sha256": "8adb32bc67a8265bfc2ac671b92229544533713699ea097ca0f8e373ba34f7d1",
+    "opponent_sha256": "0e263ee21ce56721dad3479648136a725b512138e1be4c73e30e689d6e49cf08",
+    "result_id": "6e26be52dc36ec8dee274bbe77d776bba6d090a3579e942b82108aa971e2bef4",
+    "candidate": "EGO4096",
+    "evaluation_label": "EGO4096 vs EGO2048",
+    "wins": 24,
     "evaluation_games": 64,
-    "timeouts": 3,
+    "timeouts": 0,
     "matchup": {
-      "challenger": "EGO2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 8,
-      "draws": 0
+      "challenger": "EGO4096",
+      "opponent": "EGO2048",
+      "opponent_wins": 38,
+      "draws": 2
     },
-    "updated_at": "2026-10-25T08:57:37.751758+00:00",
-    "evidence_sha256": "5a0c8e7653328e81cfaca517506ba982676f37534ca6ecb3e9f9a92f9899c3b9",
+    "updated_at": "2026-10-25T08:58:14.491135+00:00",
+    "evidence_sha256": "098ad7d025039c11440fcbe6ac1d10ecb3a9ec2e9648d8dcf75a6c31adf123e3",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:58:05.680057-07:00",
+    "measured_at": "2026-10-25T01:59:11.539784-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,10 +60,10 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T08:47:47.847913+00:00",
-        "elapsed_seconds": 618,
+        "elapsed_seconds": 684,
         "completed": 64,
         "total": null,
-        "task": "EGO2048 vs OwnInitial",
+        "task": "EGO4096 vs EGO2048",
         "eta_seconds": 0,
         "eta_basis": "12 previous iteration(s)"
       },
@@ -90,12 +90,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2369,
+    "elapsed_seconds": 2434,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 2,
     "updated_at": 1792917999.7311687,
     "fresh": false,
     "loops": [
@@ -130,10 +130,10 @@
       },
       {
         "id": "loop-c",
-        "stage": "evaluate",
-        "state": "active",
-        "updated_at": 1792918682.8583877,
-        "job_id": "ego4096-EGO4096-EGO2048",
+        "stage": "review",
+        "state": "done",
+        "updated_at": 1792918738.02591,
+        "job_id": "ego4096-dev-readout",
         "fresh": true
       },
       {
@@ -154,7 +154,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 20.784040001680452,
+    "remaining_usd": 23.015724588731924,
     "reserved_usd": 24.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

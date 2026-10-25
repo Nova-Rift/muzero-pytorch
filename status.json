@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Session 29: admitting two parallel candidate arms; helpers on seed audit and ladder export",
-  "change": "Runner 29 generated. Two-arm package (CB2048 timeout_bootstrap=continue; D99_2048 discount=0.99) verified. Fresh two-GPU quote and preflight next.",
-  "result": "No GPU allocated yet. Two Claude helpers run independent CPU preparation for loops C and D.",
+  "title": "H100 allocated for two serial candidate arms; setup and correctness gates first",
+  "change": "Pod registered in US-MO-1 at 3.99/hour under a 3 dollar segment. 50 MB payload uploading; arm A runs runtime, ratio-1 resume and first-block parity gates before training, arm B runtime and resume gates.",
+  "result": "First segment 2699 s (2.99 dollars); whole plan about 3294 s (3.65 dollars) with one automatic renewal. No scientific training or evaluation completed yet.",
   "candidate": "CB2048 and D99_2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T05:40:21.123261+00:00",
+  "updated_at": "2026-10-25T05:43:03.631474+00:00",
   "latest_comparison": {
     "iteration": 28,
     "loop": "upg2",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:42:05.168924-07:00",
+    "measured_at": "2026-10-24T22:43:03.701289-07:00",
     "steps": [
       {
         "step": 1,
@@ -75,30 +75,46 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-25T05:40:21.123261+00:00",
-        "elapsed_seconds": 104,
+        "updated_at": "2026-10-25T05:43:03.631474+00:00",
+        "elapsed_seconds": 163,
         "completed": null,
         "total": null,
-        "task": "Session 29: admitting two parallel candidate arms; helpers on seed audit and ladder export",
-        "eta_seconds": 11,
+        "task": "H100 allocated for two serial candidate arms; setup and correctness gates first",
+        "eta_seconds": 0,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 196,
-    "eta_seconds": 894,
+    "elapsed_seconds": 254,
+    "eta_seconds": 836,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792906821.092954,
+    "updated_at": 1792906821.092972,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792906821.092954,
+        "updated_at": 1792906944.806317,
         "job_id": "iteration29-arm-a-admission",
+        "decision": {
+          "reviewing": "How to run the two candidate arms when no two-GPU H100 pod is offered?",
+          "options": [
+            "One H100, both arms serial in separate supervisor loops (about 3200 s, 3.55 dollars, one lease renewal)",
+            "Wait for a two-GPU H100 offer",
+            "Two cheaper GPUs (A100 at 1.79/h each)"
+          ],
+          "evidence": [
+            "52 regions quoted: ten single-H100 offers at 3.99/h (low stock), zero two-GPU H100 offers under the 10/h ceiling.",
+            "Arm A first-block parity needs the baseline runtime (H100, cu128); other GPU types have no throughput or parity evidence.",
+            "Exact-job storage gate passed for the two-arm bounds: 7.87 GB required, 17.47 GB free."
+          ],
+          "reason": "Serial on the validated GPU type keeps both hypotheses honest and starts now; waiting has no release signal and cheaper GPUs would void the parity gate.",
+          "next_action": "Launch through the guarded launcher; publish per-job progress; helpers continue seed audit and export readiness.",
+          "updated_at": "2026-10-25T05:42:24.806317+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "test",
@@ -117,7 +133,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
@@ -207,8 +223,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 28.811174268823862,
-    "reserved_usd": 3.0,
+    "remaining_usd": 25.811174268823862,
+    "reserved_usd": 6.0,
     "reset_at": "2026-10-25T07:00:00+00:00"
   }
 }

@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:58:03.767607-07:00",
+    "measured_at": "2026-10-25T02:59:07.002367-07:00",
     "steps": [
       {
         "step": 1,
@@ -99,7 +99,7 @@
         "state": "failed",
         "updated_at": 1792922254.3484437,
         "job_id": "rep35-paired-collection",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-a",

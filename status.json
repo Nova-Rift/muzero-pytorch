@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:02:21.190850-07:00",
+    "measured_at": "2026-10-25T01:03:24.304169-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,7 +60,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:57:34.251564+00:00",
-        "elapsed_seconds": 740,
+        "elapsed_seconds": 803,
         "completed": 64,
         "total": null,
         "task": "Baseline2048-OwnInitial",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2212,
+    "elapsed_seconds": 2275,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -105,7 +105,7 @@
         "state": "active",
         "updated_at": 1792915315.706284,
         "job_id": "iteration34-replication-admission",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -113,7 +113,7 @@
         "state": "active",
         "updated_at": 1792915315.7062855,
         "job_id": "iteration34-ego-continuation-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -129,7 +129,7 @@
         "state": "active",
         "updated_at": 1792915315.7062862,
         "job_id": "iteration34-ego-export-preparation",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

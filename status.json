@@ -94,17 +94,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:47:25.572238-07:00",
+    "measured_at": "2026-10-25T00:48:31.187694-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T07:36:41.341810+00:00",
-        "elapsed_seconds": 644,
+        "elapsed_seconds": 710,
         "completed": 896,
         "total": 2048,
         "task": "EGO and MIR training on separate GPUs",
-        "eta_seconds": 828,
+        "eta_seconds": 913,
         "eta_basis": "observed training rate"
       },
       {
@@ -141,31 +141,30 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1316,
+    "elapsed_seconds": 1382,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 4,
     "updated_at": 1792914254.3603048,
     "fresh": false,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914331.0895114,
-        "job_id": "iteration34-evaluation-storage",
-        "fresh": false
+        "updated_at": 1792914506.7265189,
+        "job_id": "ego-EGO2048-E1024",
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792914331.089513,
-        "job_id": "iteration34-evaluation-admission-mir",
-        "fresh": false
+        "stage": "evaluate",
+        "state": "active",
+        "updated_at": 1792914510.2630827,
+        "job_id": "mir-MIR2048-E1024",
+        "fresh": true
       },
       {
         "id": "loop-c",
@@ -194,7 +193,7 @@
           "next_action": "Verify storage evidence and append unchanged evaluations if guards pass; otherwise recover and release paid lanes.",
           "updated_at": "2026-10-25T07:46:25.843582+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

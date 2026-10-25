@@ -4,15 +4,15 @@
   "iteration": 30,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 31,
+  "wins": 15,
   "evaluation_games": 64,
-  "timeouts": 4,
-  "title": "Three-arm chain: done 9/21 jobs; active Baseline2048-E1024; failed none",
-  "change": "Supervisor jobs: done 9/21 jobs; active Baseline2048-E1024; failed none. GPU utilization sample {'0': 96}.",
+  "timeouts": 20,
+  "title": "Three-arm chain: done 10/21 jobs; active Baseline2048-F1024; failed none",
+  "change": "Supervisor jobs: done 10/21 jobs; active Baseline2048-F1024; failed none. GPU utilization sample {'0': 95}.",
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
-  "evaluation_label": "D99_2048 vs OwnInitial completed",
-  "updated_at": "2026-10-25T06:25:34.999927+00:00",
+  "evaluation_label": "Baseline2048 vs E1024 completed",
+  "updated_at": "2026-10-25T06:26:35.159155+00:00",
   "revision": {
     "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
     "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry. A hit-credit training target would be reward shaping and awaits owner approval.",
@@ -25,8 +25,8 @@
     "updated_at": "2026-10-25T06:17:41.483384+00:00"
   },
   "matchup": {
-    "challenger": "D99_2048",
-    "opponent": "OwnInitial",
+    "challenger": "Baseline2048",
+    "opponent": "E1024",
     "opponent_wins": 29,
     "draws": 0
   },
@@ -152,29 +152,29 @@
   },
   "latest_comparison": {
     "iteration": 30,
-    "loop": "loop-b",
-    "job_id": "D99_2048-OwnInitial",
-    "protocol_sha256": "9a5230db487e117ba0a38f8d53dfdf607ada0006ac5b07e9b99d8427e2b6c828",
-    "challenger_sha256": "c8c355cfe591783c2c469bd289b5a57aa9cf06619c97af24a2598d69cdb9e8af",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "3320a6326055ca2cba86782eab1a5f934b3f380353df09cd87b3712af5029968",
-    "candidate": "D99_2048",
-    "evaluation_label": "D99_2048 vs OwnInitial",
-    "wins": 31,
+    "loop": "loop-a",
+    "job_id": "Baseline2048-F1024",
+    "protocol_sha256": "4a520ddca6afe4f05a37da0a247df2b23fdd2de838ce777a2db8c33b83db8e98",
+    "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
+    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "result_id": "986d60aec67e4f5e114cbf3cd366f515d9d621e956ecea822f997568415b30b5",
+    "candidate": "Baseline2048",
+    "evaluation_label": "Baseline2048 vs F1024",
+    "wins": 30,
     "evaluation_games": 64,
-    "timeouts": 4,
+    "timeouts": 12,
     "matchup": {
-      "challenger": "D99_2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 29,
+      "challenger": "Baseline2048",
+      "opponent": "F1024",
+      "opponent_wins": 22,
       "draws": 0
     },
-    "updated_at": "2026-10-25T06:17:32.494289+00:00",
-    "evidence_sha256": "2a8376f5396b7841abc436eff5dc51cc7863a4fa4102f4cab99c0fb37f211616",
+    "updated_at": "2026-10-25T06:26:40.709023+00:00",
+    "evidence_sha256": "62c310e9e96fbcbf3b841f7379461b5e7c998a88823917db7575a950af4c9dea",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:25:41.201409-07:00",
+    "measured_at": "2026-10-24T23:26:44.223928-07:00",
     "steps": [
       {
         "step": 1,
@@ -190,12 +190,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T06:25:34.999927+00:00",
-        "elapsed_seconds": 154,
+        "updated_at": "2026-10-25T06:26:35.159155+00:00",
+        "elapsed_seconds": 217,
         "completed": 64,
         "total": null,
-        "task": "D99_2048 vs OwnInitial completed",
-        "eta_seconds": 320,
+        "task": "Baseline2048 vs E1024 completed",
+        "eta_seconds": 257,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -221,13 +221,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1557,
+    "elapsed_seconds": 1620,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792908777.816058,
+    "updated_at": 1792909294.4530952,
     "fresh": false,
     "loops": [
       {
@@ -260,153 +260,15 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792909536.254221,
-        "job_id": "Baseline2048-E1024",
-        "details": {
-          "schema": 1,
-          "stage": "evaluate",
-          "iteration": 30,
-          "completed_games": 2048,
-          "target_games": 2048,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "loop-a CB2048: done 3/9; active Baseline2048-E1024; failed none",
-          "change": "Supervisor jobs for CB2048: done 3/9; active Baseline2048-E1024; failed none.",
-          "result": "Observed 2048 training games and 2048 optimizer updates for CB2048. Strength is unmeasured until the frozen evaluations complete.",
-          "candidate": "CB2048",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:25:34.998955+00:00",
-          "training_metrics": {
-            "iteration": 30,
-            "run_id": "CB2048",
-            "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:24:58.036759+00:00",
-            "points": [
-              {
-                "optimizer_updates": 128,
-                "games": 128,
-                "elapsed_seconds": 27.61126175703248,
-                "loss": 5.570812702178955,
-                "search_entropy": 3.465735912322998
-              },
-              {
-                "optimizer_updates": 256,
-                "games": 256,
-                "elapsed_seconds": 53.14979365403997,
-                "loss": 5.167527198791504,
-                "search_entropy": 0.9509891271591187
-              },
-              {
-                "optimizer_updates": 384,
-                "games": 384,
-                "elapsed_seconds": 78.67186988104368,
-                "loss": 5.668338775634766,
-                "search_entropy": 1.0578267453238368
-              },
-              {
-                "optimizer_updates": 512,
-                "games": 512,
-                "elapsed_seconds": 105.03656562702963,
-                "loss": 5.187586307525635,
-                "search_entropy": 1.4133156156167388
-              },
-              {
-                "optimizer_updates": 640,
-                "games": 640,
-                "elapsed_seconds": 132.95208982704207,
-                "loss": 5.009067058563232,
-                "search_entropy": 1.3520796657539904
-              },
-              {
-                "optimizer_updates": 768,
-                "games": 768,
-                "elapsed_seconds": 160.00221758399857,
-                "loss": 5.179931640625,
-                "search_entropy": 1.1608183551579714
-              },
-              {
-                "optimizer_updates": 896,
-                "games": 896,
-                "elapsed_seconds": 186.55248384503648,
-                "loss": 5.227812767028809,
-                "search_entropy": 1.00302464957349
-              },
-              {
-                "optimizer_updates": 1024,
-                "games": 1024,
-                "elapsed_seconds": 211.94195133203175,
-                "loss": 4.710259914398193,
-                "search_entropy": 0.9516122848726809
-              },
-              {
-                "optimizer_updates": 1152,
-                "games": 1152,
-                "elapsed_seconds": 239.02744657901349,
-                "loss": 4.492376327514648,
-                "search_entropy": 1.1991610238328576
-              },
-              {
-                "optimizer_updates": 1280,
-                "games": 1280,
-                "elapsed_seconds": 265.8684865250252,
-                "loss": 4.435437202453613,
-                "search_entropy": 1.2335368511267006
-              },
-              {
-                "optimizer_updates": 1408,
-                "games": 1408,
-                "elapsed_seconds": 290.54580223199446,
-                "loss": 4.393158435821533,
-                "search_entropy": 1.2726309882833602
-              },
-              {
-                "optimizer_updates": 1536,
-                "games": 1536,
-                "elapsed_seconds": 305.54130809602793,
-                "loss": 3.860759735107422,
-                "search_entropy": 1.237156996803899
-              },
-              {
-                "optimizer_updates": 1664,
-                "games": 1664,
-                "elapsed_seconds": 331.7986811680021,
-                "loss": 3.7764642238616943,
-                "search_entropy": 1.4361348755626757
-              },
-              {
-                "optimizer_updates": 1792,
-                "games": 1792,
-                "elapsed_seconds": 359.03055528603727,
-                "loss": 3.9677062034606934,
-                "search_entropy": 1.4338782434351742
-              },
-              {
-                "optimizer_updates": 1920,
-                "games": 1920,
-                "elapsed_seconds": 386.3499252840411,
-                "loss": 4.592374801635742,
-                "search_entropy": 1.4986552717164159
-              },
-              {
-                "optimizer_updates": 2048,
-                "games": 2048,
-                "elapsed_seconds": 412.64760688203387,
-                "loss": 4.550553798675537,
-                "search_entropy": 1.7648827345110476
-              }
-            ]
-          },
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
+        "updated_at": 1792909602.0014274,
+        "job_id": "Baseline2048-OwnInitial",
         "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792909536.254221,
+        "updated_at": 1792909602.0014274,
         "job_id": "c-runtime",
         "decision": {
           "reviewing": "Why do harder-trained candidates stall, and which variant should follow the three queued arms?",
@@ -438,7 +300,7 @@
           "result": "Observed no training games yet for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:25:34.998967+00:00",
+          "updated_at": "2026-10-25T06:26:35.158128+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -446,43 +308,29 @@
       },
       {
         "id": "loop-d",
-        "stage": "review",
+        "stage": "edit",
         "state": "active",
-        "updated_at": 1792908777.816058,
-        "job_id": "iteration30-publication-prereqs",
-        "decision": {
-          "reviewing": "What remains between a gate-passing arm and a roster publication?",
-          "options": [
-            "Prepare J inspector metadata and the training-date evidence procedure now",
-            "Wait until an arm passes"
-          ],
-          "evidence": [
-            "Readout script verified: 11/11 cases, exact session-28 reproduction",
-            "Session-29 export helper found the live J entry lacks inspector metadata and Baseline2048 has no recorded completion instant; both block any roster revision"
-          ],
-          "reason": "These prerequisites are independent of which arm wins and would otherwise delay publication by a session",
-          "next_action": "Helper drafts source-backed inspector blocks and the date-recovery procedure; coordinator verifies before any publication",
-          "updated_at": "2026-10-25T06:12:57.816058+00:00"
-        },
+        "updated_at": 1792909595.168608,
+        "job_id": "iteration30-payload-stager",
         "details": {
           "schema": 1,
-          "stage": "review",
+          "stage": "edit",
           "iteration": 30,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Helper: publication prerequisites (J inspector metadata, training dates)",
-          "change": "Three-arm readout delivered and verified: exact session-28 reproduction, 11/11 synthetic cases, per-arm manifest parity, replication seed-noise comparison.",
-          "result": "Next: source-backed inspector block for the live J roster entry and the exact training-completion evidence procedure, so a gate winner can be published without delay. Nothing is published.",
+          "title": "Helper: payload stager for new model commits (egocentric aim, seat mirror)",
+          "change": "Publication prerequisites delivered and verified: J inspector draft from source commit 75c7b9b (ONNX inspected), Baseline2048 completion 2026-10-24T02:19:19Z from the pod save instant; nothing published.",
+          "result": "Next: one-command payload staging from a pushed model commit with byte-identity checks for untouched subtrees and the infrastructure hash gate, so the next arms can be admitted quickly.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:12:25.893954+00:00",
+          "updated_at": "2026-10-25T06:26:24.391077+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

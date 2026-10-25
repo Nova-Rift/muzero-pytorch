@@ -2,22 +2,22 @@
   "schema": 1,
   "stage": "train",
   "iteration": 30,
-  "completed_games": 384,
+  "completed_games": 768,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
   "title": "Three-arm chain: done 2/21 jobs; active D99_2048; failed none",
-  "change": "Supervisor jobs: done 2/21 jobs; active D99_2048; failed none. GPU utilization sample {'0': 96}.",
-  "result": "Observed 384 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
+  "change": "Supervisor jobs: done 2/21 jobs; active D99_2048; failed none. GPU utilization sample {'0': 13}.",
+  "result": "Observed 768 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T06:10:18.038290+00:00",
+  "updated_at": "2026-10-25T06:11:18.182601+00:00",
   "training_metrics": {
     "iteration": 30,
     "run_id": "D99_2048",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-25T06:09:58.391917+00:00",
+    "reported_at": "2026-10-25T06:11:09.360725+00:00",
     "points": [
       {
         "optimizer_updates": 128,
@@ -39,6 +39,27 @@
         "elapsed_seconds": 80.19096570299007,
         "loss": 5.329601287841797,
         "search_entropy": 2.0519125731661916
+      },
+      {
+        "optimizer_updates": 512,
+        "games": 512,
+        "elapsed_seconds": 103.7632309839828,
+        "loss": 4.65986442565918,
+        "search_entropy": 2.0479645086452365
+      },
+      {
+        "optimizer_updates": 640,
+        "games": 640,
+        "elapsed_seconds": 127.63244820898399,
+        "loss": 5.209660053253174,
+        "search_entropy": 2.0014917054213583
+      },
+      {
+        "optimizer_updates": 768,
+        "games": 768,
+        "elapsed_seconds": 151.16842329798965,
+        "loss": 5.241543769836426,
+        "search_entropy": 2.0237865108065307
       }
     ]
   },
@@ -66,17 +87,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:10:21.211465-07:00",
+    "measured_at": "2026-10-24T23:11:28.176301-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T06:10:18.038290+00:00",
-        "elapsed_seconds": 308,
-        "completed": 384,
+        "updated_at": "2026-10-25T06:11:18.182601+00:00",
+        "elapsed_seconds": 375,
+        "completed": 768,
         "total": 2048,
         "task": "Three-arm chain: done 2/21 jobs; active D99_2048; failed none",
-        "eta_seconds": 1335,
+        "eta_seconds": 625,
         "eta_basis": "observed training rate"
       },
       {
@@ -113,8 +134,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 637,
-    "eta_seconds": 453,
+    "elapsed_seconds": 704,
+    "eta_seconds": 386,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -126,7 +147,7 @@
         "id": "loop-b",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792908618.7922626,
+        "updated_at": 1792908683.8905272,
         "job_id": "D99_2048",
         "decision": {
           "reviewing": "Which arm trains first on the single H100 and why admit before the merged package exists?",
@@ -146,22 +167,22 @@
           "schema": 1,
           "stage": "train",
           "iteration": 30,
-          "completed_games": 384,
+          "completed_games": 768,
           "target_games": 2048,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
           "title": "loop-b D99_2048: done 2/6; active D99_2048; failed none",
           "change": "Supervisor jobs for D99_2048: done 2/6; active D99_2048; failed none.",
-          "result": "Observed 384 training games and 384 optimizer updates for D99_2048. Strength is unmeasured until the frozen evaluations complete.",
+          "result": "Observed 768 training games and 768 optimizer updates for D99_2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "D99_2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:10:18.037700+00:00",
+          "updated_at": "2026-10-25T06:11:18.182026+00:00",
           "training_metrics": {
             "iteration": 30,
             "run_id": "D99_2048",
             "loss_definition": "last_update_batch_mean",
-            "reported_at": "2026-10-25T06:09:58.391917+00:00",
+            "reported_at": "2026-10-25T06:11:09.360725+00:00",
             "points": [
               {
                 "optimizer_updates": 128,
@@ -183,6 +204,27 @@
                 "elapsed_seconds": 80.19096570299007,
                 "loss": 5.329601287841797,
                 "search_entropy": 2.0519125731661916
+              },
+              {
+                "optimizer_updates": 512,
+                "games": 512,
+                "elapsed_seconds": 103.7632309839828,
+                "loss": 4.65986442565918,
+                "search_entropy": 2.0479645086452365
+              },
+              {
+                "optimizer_updates": 640,
+                "games": 640,
+                "elapsed_seconds": 127.63244820898399,
+                "loss": 5.209660053253174,
+                "search_entropy": 2.0014917054213583
+              },
+              {
+                "optimizer_updates": 768,
+                "games": 768,
+                "elapsed_seconds": 151.16842329798965,
+                "loss": 5.241543769836426,
+                "search_entropy": 2.0237865108065307
               }
             ]
           },
@@ -195,8 +237,22 @@
         "id": "loop-a",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792908618.7922626,
+        "updated_at": 1792908683.8905272,
         "job_id": "a-runtime",
+        "decision": {
+          "reviewing": "Can the CB2048 arm be appended to the live pod safely?",
+          "options": [
+            "Append the verified package now so the GPU stays busy after D99_2048",
+            "Wait for a separate session"
+          ],
+          "evidence": [
+            "Package validated at gpu_count 1 and 2; CB2048 is the D99 job shape with timeout_bootstrap continue and discount 1; run directories created on the pod; remote supervisor lists 21 jobs",
+            "Follow-up storage assessment: 6.29 GB required, 16.8 GB free, cache policy ready"
+          ],
+          "reason": "Appending avoids a second allocation and setup cost; failed jobs now retain the pod",
+          "next_action": "Supervisor runs a-runtime, a-resume, CB2048 and its bouts after the D99 chain; readout by the three-arm script",
+          "updated_at": "2026-10-25T06:10:56.312278+00:00"
+        },
         "details": {
           "schema": 1,
           "stage": "test",
@@ -211,7 +267,7 @@
           "result": "Observed no training games yet for CB2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "CB2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:10:18.037716+00:00",
+          "updated_at": "2026-10-25T06:11:18.182045+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -221,7 +277,7 @@
         "id": "loop-c",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792908618.7922626,
+        "updated_at": 1792908683.8905272,
         "job_id": "c-runtime",
         "details": {
           "schema": 1,
@@ -237,7 +293,7 @@
           "result": "Observed no training games yet for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:10:18.037730+00:00",
+          "updated_at": "2026-10-25T06:11:18.182058+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },

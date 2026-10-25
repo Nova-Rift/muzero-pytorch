@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:51:49.181630-07:00",
+    "measured_at": "2026-10-24T23:52:56.219867-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T06:51:35.293527+00:00",
-        "elapsed_seconds": 133,
+        "elapsed_seconds": 200,
         "completed": null,
         "total": null,
         "task": "MuZero parallel variant admission",
-        "eta_seconds": 72,
+        "eta_seconds": 5,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 133,
-    "eta_seconds": 957,
+    "elapsed_seconds": 200,
+    "eta_seconds": 890,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792911095.264881,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792911095.264881,
         "job_id": "iteration33-admission-review",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1792911095.264881,
         "job_id": "iteration33-variant-validation",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1792911095.264881,
         "job_id": "iteration33-variant-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -123,7 +123,7 @@
         "state": "active",
         "updated_at": 1792911095.264881,
         "job_id": "iteration33-rep-recovery",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

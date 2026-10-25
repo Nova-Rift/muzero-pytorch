@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:58:28.249602-07:00",
+    "measured_at": "2026-10-24T23:59:31.219809-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T06:51:35.293527+00:00",
-        "elapsed_seconds": 532,
+        "elapsed_seconds": 595,
         "completed": null,
         "total": null,
         "task": "MuZero parallel variant admission",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 532,
-    "eta_seconds": 558,
+    "elapsed_seconds": 595,
+    "eta_seconds": 495,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792911465.556127,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -113,7 +113,7 @@
           "next_action": "Verify returned source/tests and storage, refresh offers, then admit independent GPU lanes within the shared ceiling.",
           "updated_at": "2026-10-25T06:53:03.065690+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -121,7 +121,7 @@
         "state": "active",
         "updated_at": 1792911465.556127,
         "job_id": "iteration33-variant-recovery",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -129,7 +129,7 @@
         "state": "active",
         "updated_at": 1792911465.556127,
         "job_id": "iteration33-variant-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -137,7 +137,7 @@
         "state": "active",
         "updated_at": 1792911465.556127,
         "job_id": "iteration33-variant-readout",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

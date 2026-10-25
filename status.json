@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:22:21.187944-07:00",
+    "measured_at": "2026-10-25T00:23:24.421012-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T07:17:36.885496+00:00",
-        "elapsed_seconds": 1317,
+        "elapsed_seconds": 1380,
         "completed": null,
         "total": null,
         "task": "Preserve setup failure and hand off repaired admission",
@@ -84,22 +84,22 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1965,
+    "elapsed_seconds": 2028,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792912656.6297226,
-    "fresh": false,
+    "active_loops": 0,
+    "updated_at": 1792912958.2187927,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792912656.6297226,
+        "state": "done",
+        "updated_at": 1792912958.2187927,
         "job_id": "iteration33-session-evidence",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",

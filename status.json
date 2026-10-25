@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "review",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
-  "change": "EGO2048 (relative aim) passed development and held-out gates in session 34. Session 35 continues it to 4096 updates from the recovered full state and prepares independent-seed replication.",
-  "result": "Fresh quote: eleven single-H100 regions, no two-GPU H100. Storage gate passed; preflight approved; lane cont launching (about 3.71 dollars bound).",
+  "title": "Lane cont: EGO4096 training complete and recovered; runner lost the pod before development bouts",
+  "change": "EGO2048 to 4096 continuation finished 2048 further updates and its full state, weights and milestones were recovered locally. A later artifact rsync returned partial-transfer exit 24 and the runner treated it as fatal, releasing the pod.",
+  "result": "Seven development bouts not run (about 12 minutes of pod time, roughly 0.80 dollars). Verifying recovered artifacts, preparing a tested runner fix and a bouts-only re-admission; replication lane blocked by local disk space (9.8 GB free).",
   "candidate": "EGO4096",
-  "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T08:33:14.804180+00:00",
+  "evaluation_label": "Development bouts pending re-admission",
+  "updated_at": "2026-10-25T08:39:10.548308+00:00",
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:38:38.296884-07:00",
+    "measured_at": "2026-10-25T01:39:10.628862-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-25T08:33:14.804180+00:00",
-        "elapsed_seconds": 629,
+        "state": "finished",
+        "updated_at": "2026-10-25T08:39:10.548308+00:00",
+        "elapsed_seconds": 662,
         "completed": 0,
         "total": null,
         "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
-        "eta_seconds": 0,
-        "eta_basis": "7 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T08:26:31.587243+00:00",
-        "elapsed_seconds": 474,
+        "state": "active",
+        "updated_at": "2026-10-25T08:39:10.548308+00:00",
+        "elapsed_seconds": 475,
         "completed": null,
         "total": null,
-        "task": "Iteration 35: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Lane cont: EGO4096 training complete and recovered; runner lost the pod before development bouts",
+        "eta_seconds": 0,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
@@ -84,23 +84,15 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1201,
+    "elapsed_seconds": 1234,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 4,
     "updated_at": 1792917206.0382466,
     "fresh": false,
     "loops": [
-      {
-        "id": "loop-c",
-        "stage": "evaluate",
-        "state": "interrupted",
-        "updated_at": 1792917392.9081812,
-        "job_id": "ego4096-EGO4096-E1024",
-        "fresh": false
-      },
       {
         "id": "loop-a",
         "stage": "review",
@@ -131,27 +123,17 @@
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792917206.0382466,
+        "updated_at": 1792917550.5776525,
         "job_id": "iteration35-replication-admission",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 35,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Admitting lane rep: EGO independent-seed replication (seed 73142017)",
-          "change": "Helper package verified (17 jobs, initial-jobs SHA 520e7604..., supervisor validation accepted). Coordinator now sets deadlines, storage readiness, quote, payload staging and launch as the second pod lane.",
-          "result": "Bound 6156 s, about 6.82 dollars at 3.99/h; needs renewal coverage within the 10 dollars/hour ceiling alongside lane cont.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T08:18:37.123117+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "fresh": true
+      },
+      {
+        "id": "loop-c",
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792917550.5776525,
+        "job_id": "iteration35-ego4096-recovery-review",
+        "fresh": true
       },
       {
         "id": "loop-d",

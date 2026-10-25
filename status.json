@@ -4,19 +4,19 @@
   "iteration": 34,
   "completed_games": 896,
   "target_games": 2048,
-  "wins": 34,
+  "wins": 31,
   "evaluation_games": 64,
-  "timeouts": 10,
-  "title": "EGO2048 vs E1024 completed",
+  "timeouts": 6,
+  "title": "MIR2048 vs E1024 completed",
   "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
   "result": "Frozen balanced development matchup; strength/promotion gates remain incomplete.",
-  "candidate": "EGO2048",
-  "evaluation_label": "EGO2048 vs E1024",
-  "updated_at": "2026-10-25T07:50:01.433101+00:00",
+  "candidate": "MIR2048",
+  "evaluation_label": "MIR2048 vs E1024",
+  "updated_at": "2026-10-25T07:50:03.370143+00:00",
   "matchup": {
-    "challenger": "EGO2048",
+    "challenger": "MIR2048",
     "opponent": "E1024",
-    "opponent_wins": 20,
+    "opponent_wins": 27,
     "draws": 0
   },
   "latest_comparison": {
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:50:01.516484-07:00",
+    "measured_at": "2026-10-25T00:50:03.444889-07:00",
     "steps": [
       {
         "step": 1,
@@ -59,12 +59,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T07:50:01.433101+00:00",
-        "elapsed_seconds": 0,
+        "updated_at": "2026-10-25T07:50:03.370143+00:00",
+        "elapsed_seconds": 2,
         "completed": 64,
         "total": null,
-        "task": "EGO2048 vs E1024",
-        "eta_seconds": 474,
+        "task": "MIR2048 vs E1024",
+        "eta_seconds": 472,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1472,
+    "elapsed_seconds": 1474,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -103,7 +103,7 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914596.6887681,
+        "updated_at": 1792914602.0293732,
         "job_id": "ego-EGO2048-OwnInitial",
         "fresh": true
       },

@@ -1,24 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
-  "iteration": 35,
+  "stage": "review",
+  "iteration": 36,
   "completed_games": 0,
   "target_games": 0,
-  "wins": 24,
-  "evaluation_games": 64,
+  "wins": 0,
+  "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Assistant unavailable; retrying automatically",
-  "change": "Seven paired development bouts on lane cont2: EGO4096 tied EGO2048 vs E1024 (34 vs 34), trailed vs F1024 (51 vs 55) and lost head-to-head 24 to 38. No confirmation appended.",
-  "result": "invalid syntax (claude_transport.py, line 13)",
-  "candidate": "EGO2048",
-  "evaluation_label": "EGO4096 vs EGO2048",
-  "updated_at": "2026-10-25T09:35:34.110025+00:00",
-  "matchup": {
-    "challenger": "EGO4096",
-    "opponent": "EGO2048",
-    "opponent_wins": 38,
-    "draws": 2
-  },
+  "title": "Iteration 36: reviewing evidence",
+  "change": "Reviewing the previous research evidence",
+  "result": "No new result yet",
+  "candidate": "Not selected",
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-25T09:37:34.301366+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -43,40 +37,40 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:36:38.294894-07:00",
+    "measured_at": "2026-10-25T02:37:41.292440-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "finished",
-        "updated_at": "2026-10-25T08:39:10.548308+00:00",
-        "elapsed_seconds": 662,
-        "completed": 0,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 724,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "EGO4096 vs EGO2048",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "interrupted",
-        "updated_at": "2026-10-25T09:32:06.131251+00:00",
-        "elapsed_seconds": 2926,
+        "state": "active",
+        "updated_at": "2026-10-25T09:37:34.301366+00:00",
+        "elapsed_seconds": 7,
         "completed": null,
         "total": null,
-        "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 36: reviewing evidence",
+        "eta_seconds": 198,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
@@ -90,79 +84,118 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4681,
-    "eta_seconds": null,
+    "elapsed_seconds": 7,
+    "eta_seconds": 1083,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792919576.553111,
-    "fresh": false,
+    "updated_at": 1792921054.488184,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792920107.2305937,
-        "job_id": "iteration35-session-evidence-record",
+        "updated_at": 1792921054.488184,
+        "job_id": "iteration-36-planning-1",
         "details": {
           "schema": 1,
           "stage": "review",
-          "iteration": 35,
+          "iteration": 36,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Compiling the session 35 evidence record",
-          "change": "EGO4096 gate applied (failed); regression analysis and three hypotheses recorded.",
-          "result": "Helper compiles the schema-2 record draft, report and artifact manifest from lane cont/cont2 evidence, decisions, reservations and helper handoffs for coordinator finalization.",
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T08:18:37.123117+00:00",
+          "updated_at": "2026-10-25T09:37:34.488184+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792920107.2305937,
-        "job_id": "iteration35-rep-admission-readiness",
-        "fresh": false
+        "updated_at": 1792921054.488184,
+        "job_id": "iteration-36-planning-2",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 36,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T09:37:34.488184+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792919576.553111,
-        "job_id": "iteration35-partner-pool-trainer",
-        "decision": {
-          "reviewing": "Which next candidate to build after EGO4096 failed",
-          "options": [
-            "H1 EGO2048 independent-seed replication (staged lane rep; admits when storage clears)",
-            "H2 partner pool in self-play (implementing now; default-off flag; paired dev gate vs EGO2048)",
-            "H3 within-game hit credit (reward shaping; requires owner approval before any admission)"
-          ],
-          "evidence": [
-            "EGO2048 self-play collapsed to a single action by game 1920; root policy target pinned at 25/32; hits per game flat at 4.1; value MSE flat at 0.2",
-            "EGO4096 dev bouts: no improvement on any opponent; both EGO arms win about 25 percent at seat 0 and 82 percent at seat 1 vs E1024"
-          ],
-          "reason": "The data support a degenerate symmetric self-play equilibrium rather than under-training; a partner pool attacks that mechanism without changing the objective, while replication tests seed stability.",
-          "next_action": "Admit lane rep when free space reaches 9.55 GB; review and admit EGO-POOL2048 after its tests and pushed commit are verified; ask the owner about H3.",
-          "updated_at": "2026-10-25T09:12:56.553111+00:00"
+        "updated_at": 1792921054.488184,
+        "job_id": "iteration-36-planning-3",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 36,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T09:37:34.488184+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792920173.904329,
-        "job_id": "iteration35-ladder-bouts-package",
-        "fresh": false
+        "updated_at": 1792921054.488184,
+        "job_id": "iteration-36-planning-4",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 36,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T09:37:34.488184+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       }
     ]
   },

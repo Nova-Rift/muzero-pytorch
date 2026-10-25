@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:39:41.285235-07:00",
+    "measured_at": "2026-10-25T01:40:47.553680-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T08:39:10.548308+00:00",
-        "elapsed_seconds": 505,
+        "elapsed_seconds": 571,
         "completed": null,
         "total": null,
         "task": "Lane cont: EGO4096 training complete and recovered; runner lost the pod before development bouts",
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1264,
+    "elapsed_seconds": 1330,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -99,24 +99,6 @@
         "state": "active",
         "updated_at": 1792917206.0382466,
         "job_id": "iteration35-ego4096-confirmation",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 35,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Preparing EGO4096 held-out confirmation successor package",
-          "change": "Helper assembles paired held-out bouts (EGO4096 and Baseline2048 vs E1024/F1024, fresh seeds), readout and exact-job storage inputs for same-pod append on lane cont.",
-          "result": "Conditional on the EGO4096 development gate; package only, no GPU admission yet.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T08:18:37.123117+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
         "fresh": false
       },
       {
@@ -125,7 +107,7 @@
         "state": "active",
         "updated_at": 1792917550.5776525,
         "job_id": "iteration35-replication-admission",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -147,7 +129,7 @@
           "next_action": "Verify manifest hashes; helper patches runner_template with tests; helper emits bouts-only jobs; then storage, quote, preflight and launch.",
           "updated_at": "2026-10-25T08:39:10.661594+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -155,24 +137,6 @@
         "state": "active",
         "updated_at": 1792917206.0382466,
         "job_id": "iteration35-ego-adapter-integration",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 35,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Integrating EGO relative-aim arena adapter onto current Site source",
-          "change": "Helper integrates adapter c6bdf4a1 and export artifacts b0a2b0b2 onto the published Site main in an isolated checkout with adapter, decoder and roster tests.",
-          "result": "Publication prerequisite only: no deploy or roster change; roster promotion remains gated on replication.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T08:18:37.123117+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
         "fresh": false
       }
     ]

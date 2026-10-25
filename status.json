@@ -1,155 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
-  "iteration": 26,
-  "completed_games": 4096,
-  "target_games": 4096,
-  "wins": 33,
-  "evaluation_games": 64,
-  "timeouts": 11,
-  "title": "Stopped by owner",
+  "stage": "review",
+  "iteration": 27,
+  "completed_games": 0,
+  "target_games": 0,
+  "wins": 0,
+  "evaluation_games": 0,
+  "timeouts": 0,
+  "title": "Iteration 27: reviewing evidence",
   "change": "Completed384-game comparison rejected longer continuation. Three helpers now validate UPG2 diagnostic support, package fresh controls, and verify archived duplicate capacity.",
   "result": "Pod deleted; no paid work or new result claimed. Next experiment is fresh2048games with2updates/game under unchanged trainer/objective, pending tests/source/storage/admission.",
   "candidate": "Baseline4096-continuation",
-  "evaluation_label": "Baseline2048 vs OwnInitial",
-  "updated_at": "2026-10-24T04:06:09.799395+00:00",
-  "revision": {
-    "summary": "Prepare explicit support for2048games/4096updates in evaluation and recovery checks",
-    "reason": "Longer continuation failed frozen E/F gate. The next hypothesis tests update-to-new-data ratio separately, without treating extra updates as extra games.",
-    "changes": [
-      "Proposed isolated evaluator expected-update binding",
-      "Proposed recovery ratio/count/example checks",
-      "Unchanged trainer/model/objective; fresh restart required"
-    ],
-    "test_plan": "Reject mismatched ratio, counters, source and objective; preserve baseline compatibility; run bounded CPU smoke and freeze fresh balanced evaluation seeds before any allocation.",
-    "updated_at": "2026-10-24T04:04:29.804962+00:00"
-  },
-  "training_metrics": {
-    "iteration": 26,
-    "run_id": "Baseline4096",
-    "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-24T03:54:10.887425+00:00",
-    "points": [
-      {
-        "optimizer_updates": 2176,
-        "games": 2176,
-        "elapsed_seconds": 27.937544249987695,
-        "loss": 5.192619323730469,
-        "search_entropy": 1.4446992445737123
-      },
-      {
-        "optimizer_updates": 2304,
-        "games": 2304,
-        "elapsed_seconds": 55.61194803798571,
-        "loss": 5.052398204803467,
-        "search_entropy": 1.9222327312454581
-      },
-      {
-        "optimizer_updates": 2432,
-        "games": 2432,
-        "elapsed_seconds": 83.59619809797732,
-        "loss": 5.235454082489014,
-        "search_entropy": 1.2374479121062905
-      },
-      {
-        "optimizer_updates": 2560,
-        "games": 2560,
-        "elapsed_seconds": 111.39597410202259,
-        "loss": 4.457821369171143,
-        "search_entropy": 0.9636559344362468
-      },
-      {
-        "optimizer_updates": 2688,
-        "games": 2688,
-        "elapsed_seconds": 140.20180113002425,
-        "loss": 3.2536115646362305,
-        "search_entropy": 0.952308876439929
-      },
-      {
-        "optimizer_updates": 2816,
-        "games": 2816,
-        "elapsed_seconds": 168.38948749401607,
-        "loss": 3.052152633666992,
-        "search_entropy": 0.9788255589082837
-      },
-      {
-        "optimizer_updates": 2944,
-        "games": 2944,
-        "elapsed_seconds": 194.1978091080091,
-        "loss": 2.52939772605896,
-        "search_entropy": 1.0378407568205148
-      },
-      {
-        "optimizer_updates": 3072,
-        "games": 3072,
-        "elapsed_seconds": 217.98685763700632,
-        "loss": 2.4884819984436035,
-        "search_entropy": 1.3868438045028597
-      },
-      {
-        "optimizer_updates": 3200,
-        "games": 3200,
-        "elapsed_seconds": 243.66448444599519,
-        "loss": 2.175624370574951,
-        "search_entropy": 1.3325351574458182
-      },
-      {
-        "optimizer_updates": 3328,
-        "games": 3328,
-        "elapsed_seconds": 268.1186432620161,
-        "loss": 2.4948456287384033,
-        "search_entropy": 1.4103460488840938
-      },
-      {
-        "optimizer_updates": 3456,
-        "games": 3456,
-        "elapsed_seconds": 292.60962464503245,
-        "loss": 2.8190813064575195,
-        "search_entropy": 1.353530694032088
-      },
-      {
-        "optimizer_updates": 3584,
-        "games": 3584,
-        "elapsed_seconds": 317.0670254389988,
-        "loss": 2.518935203552246,
-        "search_entropy": 1.3726750777568668
-      },
-      {
-        "optimizer_updates": 3712,
-        "games": 3712,
-        "elapsed_seconds": 342.2557307400275,
-        "loss": 2.618237018585205,
-        "search_entropy": 1.2983107066247612
-      },
-      {
-        "optimizer_updates": 3840,
-        "games": 3840,
-        "elapsed_seconds": 366.72239302803064,
-        "loss": 2.337238311767578,
-        "search_entropy": 1.426522983238101
-      },
-      {
-        "optimizer_updates": 3968,
-        "games": 3968,
-        "elapsed_seconds": 391.2873718669871,
-        "loss": 2.881831407546997,
-        "search_entropy": 1.3304326576180756
-      },
-      {
-        "optimizer_updates": 4096,
-        "games": 4096,
-        "elapsed_seconds": 415.15322960302,
-        "loss": 2.783813953399658,
-        "search_entropy": 1.2351394372526556
-      }
-    ]
-  },
-  "matchup": {
-    "challenger": "Baseline2048",
-    "opponent": "OwnInitial",
-    "opponent_wins": 20,
-    "draws": 0
-  },
+  "evaluation_label": "No new evaluation",
+  "updated_at": "2026-10-25T01:31:48.967958+00:00",
   "latest_comparison": {
     "iteration": 26,
     "loop": "loop-b",
@@ -174,105 +37,165 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:30:59.679858-07:00",
+    "measured_at": "2026-10-24T18:31:50.639911-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "finished",
-        "updated_at": "2026-10-24T03:54:10.919197+00:00",
-        "elapsed_seconds": 434,
-        "completed": 4096,
-        "total": 4096,
-        "task": "Baseline4096 exact continuation",
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
+        "total": null,
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "finished",
-        "updated_at": "2026-10-24T03:58:41.829313+00:00",
-        "elapsed_seconds": 271,
-        "completed": 64,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Baseline2048 vs OwnInitial",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "interrupted",
-        "updated_at": "2026-10-24T04:06:09.799395+00:00",
-        "elapsed_seconds": 809,
+        "state": "active",
+        "updated_at": "2026-10-25T01:31:48.967958+00:00",
+        "elapsed_seconds": 2,
         "completed": null,
         "total": null,
-        "task": "Preparing the next frozen update-ratio experiment",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 27: reviewing evidence",
+        "eta_seconds": 203,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-24T03:46:56.601266+00:00",
-        "elapsed_seconds": 370,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "CUDA resume validation running",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 78974,
-    "eta_seconds": null,
+    "elapsed_seconds": 2,
+    "eta_seconds": 1088,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792814635.964068,
-    "fresh": false,
+    "updated_at": 1792891908.9800942,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792814669.836456,
-        "job_id": "iteration26-next-admission-review",
-        "decision": {
-          "reviewing": "Whether the prepared update-ratio hypothesis merits bounded validation",
-          "options": [
-            "Fresh2048games with2updates/game and matched frozen baseline"
-          ],
-          "evidence": [
-            "Longer continuation: E wins26to17; F31to31; E timeouts15above12. Historical batch256 failure is counterevidence, not proof this ratio helps."
-          ],
-          "reason": "A single settings intervention is falsifiable; unchanged source/objective and fresh restart distinguish it from exact continuation. No improvement claim before matched evaluation.",
-          "next_action": "Review scoped diagnostic tests, frozen package and verified storage manifest; next allocation only through new guarded session.",
-          "updated_at": "2026-10-24T04:04:29.836456+00:00"
+        "updated_at": 1792891908.9800942,
+        "job_id": "iteration-27-planning-1",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 27,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T01:31:48.980094+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792814635.964068,
-        "job_id": "iteration26-upg2-validation",
-        "fresh": false
+        "updated_at": 1792891908.9800942,
+        "job_id": "iteration-27-planning-2",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 27,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T01:31:48.980094+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792814636.0073597,
-        "job_id": "iteration26-upg2-package",
-        "fresh": false
+        "updated_at": 1792891908.9800942,
+        "job_id": "iteration-27-planning-3",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 27,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T01:31:48.980094+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792814636.0561862,
-        "job_id": "iteration26-closed-artifact-capacity",
-        "fresh": false
+        "updated_at": 1792891908.9800942,
+        "job_id": "iteration-27-planning-4",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 27,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T01:31:48.980094+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       }
     ]
   },

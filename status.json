@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:40:21.188681-07:00",
+    "measured_at": "2026-10-24T22:41:01.201421-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,16 +76,16 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T05:40:21.123261+00:00",
-        "elapsed_seconds": 0,
+        "elapsed_seconds": 40,
         "completed": null,
         "total": null,
         "task": "Session 29: admitting two parallel candidate arms; helpers on seed audit and ladder export",
-        "eta_seconds": 115,
+        "eta_seconds": 75,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 92,
-    "eta_seconds": 998,
+    "elapsed_seconds": 132,
+    "eta_seconds": 958,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

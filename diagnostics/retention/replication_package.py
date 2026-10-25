@@ -1,7 +1,7 @@
 """Stage a non-executable replication package. Never admit, select, or run jobs.
 
 The graph is a specification, not a workload_supervisor plan. Unknown runtime
-bindings and the dedicated collection guard intentionally remain unresolved.
+bindings and real CUDA collection results intentionally remain unresolved.
 """
 import argparse
 import copy
@@ -20,7 +20,7 @@ INPUTS = ('protocol.json', 'source-receipt.json', 'seed-audit.json',
 ADAPTERS = ('replication_package.py', 'replication_contract.py', 'replication_initialization.py',
             'evaluate_replication.py', 'readout_replication.py', 'evaluate_endpoint.py',
             'resume_gate.py', 'compressed_checkpoint.py', 'check_contract.py', 'verify_training_states.py',
-            'train_compressed.py', 'verify_compressed_states.py')
+            'train_compressed.py', 'verify_compressed_states.py', 'replication_collection.py', 'replication_recovery.py')
 SEED_AUDIT = '333ed93a68ff026c940a5daee6152c9108c8ca721c3530df263d06489d978c39'
 
 
@@ -46,13 +46,16 @@ def graph():
         deps=[side+'-resume'] + (['paired-collection'] if side=='candidate' else [])
         add(side+'-collection', side, 'test', deps, 300,
             'Dedicated source-bound fresh-seed collection-only guard REQUIRED. Validate actual trainer initial.npz before collection; zero updates; preserve full128-game first block/aggregates. MIR compares exact paired first block; EGO records changed-policy collection without a false equality claim.',
-            implementation=None)
+            implementation='replication_collection.py --mode reference', implementation_sha256=rc.digest(Path(__file__).with_name('replication_collection.py')))
         add(side+'-fresh2048', side, 'train', [side+'-collection','initialization-review'], 980,
             'Fresh actual trainer invocation, same frozen initialization and seed73142017; in-process guard rejects initial mismatch before first collect/update and rechecks first block against own collection-only receipt. Encode/recover full-state milestones; no resume or training recipe changes.',
             recipe=copy.deepcopy(rc.RECIPE), intervention={} if side=='paired' else None,
-            trainer_max_seconds=850, encoder_max_seconds=960, max_encoded_bytes=600000000)
+            trainer_max_seconds=850, encoder_max_seconds=960, max_encoded_bytes=600000000,
+            implementation='replication_collection.py --mode train', implementation_sha256=rc.digest(Path(__file__).with_name('replication_collection.py')))
     add('exact-pair-and-recovery', 'pair', 'test', ['paired-fresh2048','candidate-fresh2048'], 180,
-        'Verify replication_contract, both actual initial exports, all endpoint counters, source and full-state encoded/raw hashes. Preserve supervisor chronology proving init-review before both trainer starts. Recover/decode checkpoint and optimizer/replay/RNG evidence.')
+        'Verify replication_contract, both actual initial exports, all endpoint counters, source and full-state encoded/raw hashes. Preserve supervisor chronology proving init-review before both trainer starts. Recover/decode checkpoint and optimizer/replay/RNG evidence.',
+        implementation='replication_recovery.py for each side plus replication_contract.py',
+        implementation_sha256=rc.digest(Path(__file__).with_name('replication_recovery.py')))
     for phase in ('development', 'confirmation'):
         gate='exact-pair-and-recovery' if phase=='development' else 'development-pass-review'
         evaluations=[]
@@ -140,7 +143,7 @@ def stage(prerequisites, output):
     (output/'conditional-jobgraph.json').write_bytes(encode(value))
     (output/'runtime-storage-plan.json').write_bytes(encode(estimates(value)))
     unresolved=dict(original_selection=None, frozen_cuda_initialization=None, actual_trainer_initial_exports=None,
-        collection_guard_implementation=None, collection_guard_cuda_results=None, exact_execution_commands=None,
+        collection_guard_implementation=rc.digest(Path(__file__).with_name('replication_collection.py')), collection_guard_cuda_results=None, initialization_review=None, recovery_cuda_results=None, exact_execution_commands=None,
         evaluation_environment=None, opponent_entries=None, evaluator_runtime_results=None, readout_request=None,
         source_publication=None, refreshed_seed_audit=None, storage_admission=None, budget_quote_lease=None,
         note='Null bindings deliberately block execution. Do not modify templates, substitute CPU hashes, reuse original-seed collection evidence, invent successful runtime receipts or infer scientific pass from exit code0.')

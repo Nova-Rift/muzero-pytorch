@@ -66,8 +66,8 @@ class PackageTests(unittest.TestCase):
         with self.assertRaises(ValueError):package.validate_graph(changed)
 
     def test_unresolved_collection_and_operational_bindings(self):
-        self.assertIsNone(self.jobs['paired-collection']['implementation'])
-        self.assertIsNone(self.jobs['candidate-collection']['implementation'])
+        self.assertEqual(self.jobs['paired-collection']['implementation'],'replication_collection.py --mode reference')
+        self.assertEqual(self.jobs['candidate-collection']['implementation'],'replication_collection.py --mode reference')
         self.assertIsNone(self.jobs['candidate-fresh2048']['intervention'])
         self.assertEqual(self.jobs['paired-fresh2048']['recipe'],rc.RECIPE)
         estimate=package.estimates(self.graph)
@@ -91,7 +91,7 @@ class PackageTests(unittest.TestCase):
                 template=json.loads((out/'inputs'/f'contract-{variant}.template.json').read_text())
                 self.assertIsNone(template['initial_sha256']);init.validate_template(template)
                 with self.assertRaises(ValueError):rc.validate_contract(template)
-            for script in ('replication_package.py','readout_replication.py','evaluate_replication.py','replication_initialization.py'):
+            for script in ('replication_package.py','readout_replication.py','evaluate_replication.py','replication_initialization.py','replication_collection.py','replication_recovery.py'):
                 subprocess.run([sys.executable,str(out/'diagnostics'/'retention'/script),'--help'],
                                check=True,capture_output=True,timeout=10)
             self.assertFalse((out/'initial.npz').exists())

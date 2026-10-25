@@ -8,13 +8,25 @@ The graph is intentionally **not** workload-supervisor input: `executable:false`
 
 The critical chain is original development AND heldout arm selection → conditional admission → no-update frozen CUDA initialization → initialization evidence review → each lane's runtime/resume/collection gate → matched fresh2048 training → exact pair and recovery validation → six balanced development bouts → explicit development pass → four balanced confirmation bouts → confirmation readout. Each device job uses one device; parallel speedup is not assumed. Logical lanes do not request extra pods.
 
-## Missing collection guard is an actual blocker
+## Dedicated collection and recovery adapters
 
-The historical `variant_collection_gate.py` hard-binds original seed52731415 and archived Baseline2048. It cannot validate this independent seed. The conditional graph leaves the replication collection implementation null and does not stage or invoke that historical wrapper.
+The graph now binds `replication_collection.py` reference/train modes and
+`replication_recovery.py` by exact source hashes. See [replication-collection.md](replication-collection.md)
+for review JSON, hash-bound input/receipt contracts and collection-versus-training
+semantics. The historical `variant_collection_gate.py` remains ineligible: it
+hard-binds original seed52731415 and the old Baseline2048 archive.
 
-A separately owned follow-up must implement/test a source-bound, no-update first-collection guard for seed73142017, both exact recipes and frozen initialization. It must compare the actual trainer initial export before first collection/update, preserve the paired full128-game block/aggregates, compare MIR against that paired block, and explicitly distinguish EGO's changed-action trajectories. Each full-training invocation needs an in-process initial/first-block check; a collection-only probe cannot alone prove the later invocation. Keep the frozen trainer unmodified. Bind receipts to source, generator, contract, exact invocation and chronology; preserve full-state recovery. Do not silently reuse old source/collection contracts or relax the fresh-seed endpoint validator.
+The new wrapper checks each actual trainer initialization before collection,
+retains complete128-game arrays/aggregates, compares each training invocation
+with its own no-update reference, requires paired MIR equality and explicitly
+excludes paired EGO equality. Frozen trainer source is unchanged. The dedicated
+recovery binding validates seed73142017 and each side's complete recipe before
+using the unchanged compressed-chain verifier for512/1024/1536/2048 milestones.
+Synthetic CPU fixtures validate these bindings, not production CUDA behavior.
 
-The package includes existing compression/recovery utilities as frozen inputs, not as proof that their historical recipe contracts accept the new seed. The follow-up must explicitly validate the full-state recovery contract against this replication recipe before creating executable commands.
+Real CUDA initializer, collection, full-state recovery and runtime evidence,
+coordinator initialization-review artifact, original-selection decision and
+executable commands remain unresolved. Implemented adapters do not admit jobs.
 
 ## Admission and evidence
 

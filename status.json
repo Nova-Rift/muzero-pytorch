@@ -12,7 +12,7 @@
   "result": "No new result yet",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T09:37:34.301366+00:00",
+  "updated_at": "2026-10-25T09:38:05.343239+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:37:41.292440-07:00",
+    "measured_at": "2026-10-25T02:38:05.417577-07:00",
     "steps": [
       {
         "step": 1,
@@ -64,12 +64,12 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T09:37:34.301366+00:00",
-        "elapsed_seconds": 7,
+        "updated_at": "2026-10-25T09:38:05.343239+00:00",
+        "elapsed_seconds": 31,
         "completed": null,
         "total": null,
         "task": "Iteration 36: reviewing evidence",
-        "eta_seconds": 198,
+        "eta_seconds": 174,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 7,
-    "eta_seconds": 1083,
+    "elapsed_seconds": 31,
+    "eta_seconds": 1059,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

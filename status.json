@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Preparing UPG2 source and admission checks",
+  "title": "Finalizing tested UPG2 preparation",
   "change": "Two attached helpers finish strict diagnostic support and the frozen experiment package.",
-  "result": "No GPU allocated. Drive migration verified; exact-job storage, source tests and cost admission remain required.",
+  "result": "Allocation blocked by recovery/archive cache capacity. Required diagnostics are published; final package checks are running. No GPU allocated or reserved.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T01:36:31.814219+00:00",
+  "updated_at": "2026-10-25T01:45:38.591678+00:00",
   "revision": {
     "summary": "Validate diagnostic support for two updates per game",
     "reason": "UPG2 uses 2048 games and 4096 updates; existing diagnostic assumptions tied those counters together.",
@@ -48,7 +48,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:44:56.153106-07:00",
+    "measured_at": "2026-10-24T18:45:38.651301-07:00",
     "steps": [
       {
         "step": 1,
@@ -86,41 +86,42 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-25T01:36:31.814219+00:00",
-        "elapsed_seconds": 504,
+        "updated_at": "2026-10-25T01:45:38.591678+00:00",
+        "elapsed_seconds": 547,
         "completed": null,
         "total": null,
-        "task": "Preparing UPG2 source and admission checks",
+        "task": "Finalizing tested UPG2 preparation",
         "eta_seconds": 0,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 787,
-    "eta_seconds": 303,
+    "elapsed_seconds": 830,
+    "eta_seconds": 260,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792892666.235575,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792892666.235575,
+        "updated_at": 1792892738.562111,
         "job_id": "iteration27-admission-review",
         "decision": {
-          "reviewing": "Ten-minute preparation checkpoint: shortest remaining admission path",
+          "reviewing": "Final source-bound admission review",
           "options": [
-            "Complete required first-block wrapper and preserve ready package pending cache capacity"
+            "Retain tested UPG2 package and wait for verified capacity resolution"
           ],
           "evidence": [
-            "2048 package and smaller1024 alternative both fail conservative cache bounds; no provider allocation attempted."
+            "Strict gate integrated as10serial jobs; source and frozen seeds preserved.",
+            "Updated conservative package deficit2064218008bytes against5GiB cache; authenticated provider inventory shows zero pods."
           ],
-          "reason": "Source and storage gates remain real dependencies. Paid compute would not resolve local recovery capacity.",
-          "next_action": "Verify final helper handoffs, retain source history and archive manifests, and record exact capacity release condition.",
-          "updated_at": "2026-10-25T01:42:19.760865+00:00"
+          "reason": "A paid run cannot safely retain its required recovery/archive evidence under current storage policy. Smaller1024 option also failed.",
+          "next_action": "Verify final integration handoff, archive all evidence and record resource-blocked session with no training/evaluation claimed.",
+          "updated_at": "2026-10-25T01:45:38.562111+00:00"
         },
         "fresh": true
       },
@@ -143,7 +144,7 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T01:44:26.235575+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -151,7 +152,7 @@
         "state": "active",
         "updated_at": 1792892666.235575,
         "job_id": "iteration27-upg2-integrate",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -172,7 +173,7 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T01:44:26.235575+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

@@ -22,28 +22,28 @@
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-b",
-    "job_id": "mir-MIR2048-OwnInitial",
-    "protocol_sha256": "0c43ca2c9ef98612315b977e1e0a34e2bf2068a0b00eab52bd1ed40fd51d1ed5",
-    "challenger_sha256": "c24396402466ea93a547d58d70e7911a4084f1cce411362a599b2db17e4bfb20",
-    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
-    "result_id": "8f146bb9807909f8a7d623f33cd9cc619b3b24f4f7b267dde136a609c143c966",
-    "candidate": "MIR2048",
-    "evaluation_label": "MIR2048 vs OwnInitial",
-    "wins": 26,
+    "job_id": "mir-Baseline2048-E1024",
+    "protocol_sha256": "31e5e9964625cf59998eb6c477cb70304196d4d8bfeb03a8da8d3e45c8887aad",
+    "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
+    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
+    "result_id": "c5fac6b440c1c05566b7d7f01215a1eb904a73f5e1badde8849e1a268e1deef0",
+    "candidate": "Baseline2048",
+    "evaluation_label": "Baseline2048 vs E1024",
+    "wins": 15,
     "evaluation_games": 64,
-    "timeouts": 24,
+    "timeouts": 20,
     "matchup": {
-      "challenger": "MIR2048",
-      "opponent": "OwnInitial",
-      "opponent_wins": 14,
+      "challenger": "Baseline2048",
+      "opponent": "E1024",
+      "opponent_wins": 29,
       "draws": 0
     },
-    "updated_at": "2026-10-25T07:50:33.140490+00:00",
-    "evidence_sha256": "e353130ef3c26953426552209227893ede06fa22a145423769d58d5f9d357c45",
+    "updated_at": "2026-10-25T07:51:18.735661+00:00",
+    "evidence_sha256": "8b04686c038963d162aa51167135a743c067d6aae7f5672055cafe3c3926d768",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:51:19.198349-07:00",
+    "measured_at": "2026-10-25T00:51:46.097459-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,11 +60,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:51:18.825123+00:00",
-        "elapsed_seconds": 78,
+        "elapsed_seconds": 105,
         "completed": 64,
         "total": null,
         "task": "MIR2048 vs OwnInitial",
-        "eta_seconds": 396,
+        "eta_seconds": 369,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1550,
+    "elapsed_seconds": 1577,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -103,16 +103,16 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914676.6753318,
-        "job_id": "ego-Baseline2048-E1024",
+        "updated_at": 1792914701.7620652,
+        "job_id": "ego-Baseline2048-F1024",
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914675.229508,
-        "job_id": "mir-Baseline2048-E1024",
+        "updated_at": 1792914705.2716758,
+        "job_id": "mir-Baseline2048-F1024",
         "fresh": true
       },
       {

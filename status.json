@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:12:06.711144-07:00",
+    "measured_at": "2026-10-25T02:13:11.247848-07:00",
     "steps": [
       {
         "step": 1,
@@ -71,7 +71,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 1726,
+        "elapsed_seconds": 1791,
         "completed": null,
         "total": null,
         "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3210,
+    "elapsed_seconds": 3274,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -150,24 +150,24 @@
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792918851.822441,
-        "job_id": "iteration35-ego4096-regression-analysis",
+        "updated_at": 1792919576.553111,
+        "job_id": "iteration35-partner-pool-trainer",
         "decision": {
-          "reviewing": "Why unchanged longer training (EGO2048 to EGO4096) did not improve play, and what the next bounded candidate should be",
+          "reviewing": "Which next candidate to build after EGO4096 failed",
           "options": [
-            "Egocentric recipe variants informed by the regression analysis (new frozen plan, dev gate first)",
-            "Hit-credit objective (needs owner approval; reward-shaping boundary)",
-            "Hold new training until EGO2048 replication can run (storage-blocked)"
+            "H1 EGO2048 independent-seed replication (staged lane rep; admits when storage clears)",
+            "H2 partner pool in self-play (implementing now; default-off flag; paired dev gate vs EGO2048)",
+            "H3 within-game hit credit (reward shaping; requires owner approval before any admission)"
           ],
           "evidence": [
-            "Dev bouts: EGO4096 vs E1024 34 vs 34 (diff 0.0, CI -0.109..0.109); vs F1024 51 vs 55 (diff -0.0625, CI -0.1875..0.0625); head-to-head EGO4096 24, EGO2048 38",
-            "Cutoffs stayed low (7, 4, 0); 64-game samples cannot resolve differences under about 0.1"
+            "EGO2048 self-play collapsed to a single action by game 1920; root policy target pinned at 25/32; hits per game flat at 4.1; value MSE flat at 0.2",
+            "EGO4096 dev bouts: no improvement on any opponent; both EGO arms win about 25 percent at seat 0 and 82 percent at seat 1 vs E1024"
           ],
-          "reason": "Preregistered gate failed; no checkpoint reselection. The analysis helper reads training metrics 2048-4096 and bout records before any new plan is frozen.",
-          "next_action": "Review the helper's analysis and hypotheses; freeze at most one new candidate plan with a dev gate; replication remains the promotion prerequisite.",
-          "updated_at": "2026-10-25T09:00:51.822441+00:00"
+          "reason": "The data support a degenerate symmetric self-play equilibrium rather than under-training; a partner pool attacks that mechanism without changing the objective, while replication tests seed stability.",
+          "next_action": "Admit lane rep when free space reaches 9.55 GB; review and admit EGO-POOL2048 after its tests and pushed commit are verified; ask the owner about H3.",
+          "updated_at": "2026-10-25T09:12:56.553111+00:00"
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",

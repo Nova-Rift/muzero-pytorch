@@ -22,28 +22,28 @@
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
-    "job_id": "ego-EGO2048-conf-E1024-for-EGO2048",
-    "protocol_sha256": "e1e59d5725b312e9eacd7070347a9478c227bdfaec4862319dca7673f08c755e",
+    "job_id": "ego-EGO2048-conf-F1024-for-EGO2048",
+    "protocol_sha256": "5f3448e1bad810b2bbfc811600faba13712add59fffa1a6f3fdd7e703f7bc9d6",
     "challenger_sha256": "0e263ee21ce56721dad3479648136a725b512138e1be4c73e30e689d6e49cf08",
-    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
-    "result_id": "5b8496ee30dfdb689e50fd1d654c2f715b336c69378f70ebbe72d54974e4b148",
+    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "result_id": "b9a8aa40faa3f6baa48588c2031d9ccade01de1000d5ff64b5dd54b6ea0949ba",
     "candidate": "EGO2048",
-    "evaluation_label": "EGO2048 vs E1024",
-    "wins": 33,
+    "evaluation_label": "EGO2048 vs F1024",
+    "wins": 54,
     "evaluation_games": 64,
-    "timeouts": 10,
+    "timeouts": 2,
     "matchup": {
       "challenger": "EGO2048",
-      "opponent": "E1024",
-      "opponent_wins": 21,
+      "opponent": "F1024",
+      "opponent_wins": 8,
       "draws": 0
     },
-    "updated_at": "2026-10-25T07:55:34.619944+00:00",
-    "evidence_sha256": "e9f5a36bae780f7abf636885564bb2e5107b378c9b00a0923f67f9638cdc5327",
+    "updated_at": "2026-10-25T07:56:20.232946+00:00",
+    "evidence_sha256": "445332baca01c926d8439e401fcdc75465e95f28d6aa8e1f44ec0c208bbdfcd8",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:55:59.225837-07:00",
+    "measured_at": "2026-10-25T00:57:01.904120-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,11 +60,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:51:18.825123+00:00",
-        "elapsed_seconds": 358,
+        "elapsed_seconds": 420,
         "completed": 64,
         "total": null,
         "task": "MIR2048 vs OwnInitial",
-        "eta_seconds": 116,
+        "eta_seconds": 54,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,46 +90,46 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1830,
+    "elapsed_seconds": 1893,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792914254.3603048,
-    "fresh": false,
+    "updated_at": 1792914963.901095,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914956.7012258,
-        "job_id": "ego-EGO2048-conf-F1024-for-EGO2048",
+        "updated_at": 1792915016.7817085,
+        "job_id": "ego-Baseline2048-conf-E1024-for-EGO2048",
         "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "evaluate",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792914600.301887,
-        "job_id": "mir-MIR2048-OwnInitial",
-        "fresh": false
+        "updated_at": 1792914963.901095,
+        "job_id": "iteration34-mir-closure",
+        "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "edit",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792914254.3603048,
-        "job_id": "iteration34-replication-collection",
-        "fresh": false
+        "updated_at": 1792914963.901096,
+        "job_id": "iteration34-replication-finalize",
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792914770.4794676,
-        "job_id": "iteration34-variant-dev-readout",
-        "fresh": false
+        "updated_at": 1792914963.901097,
+        "job_id": "iteration34-heldout-readout",
+        "fresh": true
       }
     ]
   },

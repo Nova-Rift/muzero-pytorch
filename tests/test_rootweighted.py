@@ -125,6 +125,11 @@ class RootWeightedTests(unittest.TestCase):
     def test_trainer_only_three_scoped_changes(self):
         # Three loss-contract changes plus the explicit aim-decoding flag (egocentric-aim branch); nothing else.
         source = (ROOT/'arena/train_loss.py').read_text()
+        # Reverse the scoped exploration-temperature edits first (tests/test_root_temperature.py pins them against 14fece12).
+        sys.path.insert(0,str(ROOT/'tests'));from test_root_temperature import EXPLORE_EDITS
+        for added, original in EXPLORE_EDITS:
+            self.assertEqual(source.count(added), 1, added[:80])
+            source = source.replace(added, original)
         # Reverse the scoped --mirror-augment edits (arena/mirror.py; tests/test_mirror_augment.py pins their behaviour).
         mirror_edits = [
             ('from arena.mirror import ACTION as MIRROR_ACTION,mirror_observation,mirror_policy\n', ''),

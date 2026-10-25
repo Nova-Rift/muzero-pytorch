@@ -25,7 +25,9 @@ from arena.mirror import ACTION as MIRROR_ACTION,mirror_observation,mirror_polic
 
 
 class Search:
-    def __init__(self,model,count,graph=False,agents=2,root_candidates=0):
+    def __init__(self,model,count,graph=False,agents=2,root_candidates=0,root_temperature=1.0,action_temperature=1.0):
+        # --root-prior-temperature / --action-temperature (self-play only; 1.0 reproduces the frozen trainer exactly).
+        self.root_temperature=root_temperature;self.action_temperature=action_temperature
         self.indices=torch.tensor([g*11+a for g in range(count//11) for a in range(agents)],device=next(model.parameters()).device)
         self.candidates=torch.zeros((len(self.indices),root_candidates),dtype=torch.long,device=self.indices.device) if root_candidates else None
         self.total=count
@@ -37,11 +39,11 @@ class Search:
             if self.input.device.type!='cuda':raise ValueError('CUDA graph requires CUDA')
             stream=torch.cuda.Stream();stream.wait_stream(torch.cuda.current_stream())
             with torch.cuda.stream(stream):
-                for _ in range(2):search_batch(model,self.input,root_noise=self.noise,static=True,root_candidates=self.candidates)
+                for _ in range(2):search_batch(model,self.input,root_noise=self.noise,static=True,root_candidates=self.candidates,root_temperature=root_temperature)
             torch.cuda.current_stream().wait_stream(stream)
             self.graph=torch.cuda.CUDAGraph()
             with torch.cuda.graph(self.graph):
-                self.result=search_batch(model,self.input,root_noise=self.noise,static=True,root_candidates=self.candidates)
+                self.result=search_batch(model,self.input,root_noise=self.noise,static=True,root_candidates=self.candidates,root_temperature=root_temperature)
 
     @torch.no_grad()
     def __call__(self,inputs):
@@ -49,12 +51,13 @@ class Search:
         self.noise.copy_(torch.distributions.Dirichlet(torch.full_like(self.noise,self.model.config.dirichlet_alpha)).sample())
         if self.candidates is not None:
             _,logits,_=self.model.initial(self.input)
-            prior=(1-self.model.config.exploration_fraction)*logits.softmax(-1)+self.model.config.exploration_fraction*self.noise
+            prior=(1-self.model.config.exploration_fraction)*(logits.softmax(-1) if self.root_temperature==1.0 else (logits/self.root_temperature).softmax(-1))+self.model.config.exploration_fraction*self.noise
             self.candidates.copy_(torch.multinomial(prior,self.candidates.shape[1],replacement=False))
         if self.graph:
             self.graph.replay();policies,values=self.result
-        else:policies,values=search_batch(self.model,self.input,root_noise=self.noise,root_candidates=self.candidates)
-        actions=torch.multinomial(policies,1).squeeze(-1)
+        else:policies,values=search_batch(self.model,self.input,root_noise=self.noise,root_candidates=self.candidates,root_temperature=self.root_temperature)
+        # Acting temperature reshapes only the sampled self-play action; the recorded policy target stays the visit distribution.
+        actions=torch.multinomial(policies if self.action_temperature==1.0 else policies**(1/self.action_temperature),1).squeeze(-1)
         full_actions=np.zeros(self.total,dtype=np.int64);full_policies=np.zeros((self.total,self.model.config.actions),dtype=np.float32);full_values=np.zeros(self.total,dtype=np.float32)
         ids=self.indices.cpu().numpy();full_actions[ids]=actions.cpu().numpy();full_policies[ids]=policies.cpu().numpy();full_values[ids]=values.cpu().numpy()
         self.entropies.append(float(-(policies*policies.clamp_min(1e-30).log()).sum(-1).mean()))
@@ -184,12 +187,15 @@ def main():
     p.add_argument('--cadence',choices=['legacy','homepage'],default='homepage')
     p.add_argument('--agents',type=int,default=2,choices=range(2,11));p.add_argument('--policy-floor',type=float,default=0.0)
     p.add_argument('--noise-fraction',type=float,default=.25)
+    p.add_argument('--root-prior-temperature',type=float,default=1.0,help='self-play only: softmax(logits/T) for the root prior used by candidate sampling and root PUCT; 1.0 reproduces the frozen trainer exactly')
+    p.add_argument('--action-temperature',type=float,default=1.0,help='self-play only: sample actions from visits**(1/T); the recorded policy target is unchanged; 1.0 reproduces the frozen trainer exactly')
     p.add_argument('--discount',type=float,default=.99,choices=[.99,1.0])
     p.add_argument('--limit',type=int,default=256);p.add_argument('--updates-per-game',type=int,default=1)
     p.add_argument('--seed',type=int,default=28000000);p.add_argument('--max-seconds',type=float,default=600)
     p.add_argument('--device',default='cuda' if torch.cuda.is_available() else 'cpu')
     p.add_argument('--device-history',action='store_true');p.add_argument('--cuda-graph',action='store_true');p.add_argument('--tf32',action='store_true')
     a=p.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
+    if not (a.root_prior_temperature>0 and a.action_temperature>0):raise ValueError('Temperatures must be positive')
     torch.set_num_threads(1);torch.manual_seed(a.seed);rng=np.random.default_rng(a.seed)
     torch.backends.cuda.matmul.allow_tf32=a.tf32
     model=model_class(a.loss_contract)(Config(observations=64*a.context+a.context-1,actions=153,hidden=a.hidden,simulations=a.simulations,discount=a.discount,support=10,exploration_fraction=a.noise_fraction)).to(a.device)
@@ -206,14 +212,14 @@ def main():
     if restored and (restored['source_files']!=provenance['files'] or restored['torch_version']!=str(torch.__version__)):
         raise ValueError('Resume requires identical source and PyTorch version')
     arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(a).items()}
-    manifest=dict(arguments=arguments,config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
+    manifest=dict(arguments=arguments,exploration=dict(root_prior_temperature=a.root_prior_temperature,action_temperature=a.action_temperature),config=asdict(model.config),parameters=sum(x.numel() for x in model.parameters()),torch=str(torch.__version__),python=platform.python_version(),environment=source,source_commit=provenance['commit'],source_provenance=provenance,gpu=torch.cuda.get_device_name() if a.device=='cuda' else None)
     if restored and restored['environment']!=source:raise ValueError('Resume environment changed')
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
     pool=Pool(a.site,a.workers,agents=a.agents,cadence=a.cadence);replay=deque(maxlen=a.replay_blocks);started=time.perf_counter();totals=dict(games=0,natural_terminal=0,cutoffs=0,joint_steps=0,active_transitions=0,optimizer_updates=0,training_examples=0)
     try:
         initial=restored['initial'] if restored else {k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
         np.savez_compressed(out/'initial.npz',**{k:v.numpy() for k,v in initial.items()})
-        searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents,a.root_candidates);setup=time.perf_counter()-started
+        searcher=Search(model,11*a.parallel,a.cuda_graph,a.agents,a.root_candidates,a.root_prior_temperature,a.action_temperature);setup=time.perf_counter()-started
         if restored:
             totals.update(restored['totals'])
             replay.extend({k:v.numpy() for k,v in b.items()} for b in restored['replay'])
@@ -230,7 +236,7 @@ def main():
         for offset in range(totals['games'],a.games,a.parallel):
             if time.perf_counter()-started>=a.max_seconds:break
             count=min(a.parallel,a.games-offset)
-            if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates)
+            if count!=a.parallel:searcher=Search(model,11*count,a.cuda_graph,a.agents,a.root_candidates,a.root_prior_temperature,a.action_temperature)
             block,stats=collect(pool,model,range(a.seed+offset,a.seed+offset+count),a.limit,a.context,searcher,a.device_history,a.return_mode,a.timeout_bootstrap,a.aim_decoding)
             np.savez_compressed(out/f'trace-{offset}.npz',**{k:v[:,:22] for k,v in block.items() if k!='indices'})
             replay.append(block);updates=0;train_start=time.perf_counter()

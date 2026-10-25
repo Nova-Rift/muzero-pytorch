@@ -12,8 +12,10 @@ UPG2_TRAINER = "2e67c2b9b7652ccbe75dbed249708356f38c3608"
 AIM_DECODINGS = ("absolute", "relative")  # mirrors arena/aim_decoding.py MODES
 # Names of training arguments that --declared-difference may name. The menu is the set of
 # trainer flags added behind defaults on top of the frozen trainer; anything else is rejected.
-DECLARABLE_ARGUMENTS = frozenset({'aim_decoding', 'mirror_augment', 'timeout_bootstrap', 'discount'})
-ARGUMENT_DEFAULTS = {'aim_decoding': 'absolute', 'mirror_augment': False}
+DECLARABLE_ARGUMENTS = frozenset({'aim_decoding', 'mirror_augment', 'timeout_bootstrap', 'discount', 'root_prior_temperature', 'action_temperature'})
+# Flag defaults for manifests written before a flag existed; --root-prior-temperature/--action-temperature
+# (research/iteration36-explore) default to 1.0, which the trainer test pins as byte-identical to the frozen trainer.
+ARGUMENT_DEFAULTS = {'aim_decoding': 'absolute', 'mirror_augment': False, 'root_prior_temperature': 1.0, 'action_temperature': 1.0}
 
 
 def normalized_arguments(arguments):

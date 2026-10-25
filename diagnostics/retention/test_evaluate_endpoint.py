@@ -275,6 +275,20 @@ class DeclaredDifferenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Undeclarable'):self.evaluate(declared=('aim_decoding','mirror_augment','seed'))
         with self.assertRaisesRegex(ValueError,'Duplicate'):self.evaluate(declared=('aim_decoding','aim_decoding','mirror_augment'))
 
+    def test_temperature_flags_declarable_against_flag_absent_paired_manifest(self):
+        # EGO-EXPLORE2048 (research/iteration36-explore) vs EGO2048 (14fece12): the paired manifest predates the flags,
+        # so the contract carries their defaults (1.0); undeclared temperature flags are still rejected.
+        self.manifest['arguments'].update(root_prior_temperature=2.0,action_temperature=1.0);self.save()
+        with self.assertRaisesRegex(ValueError,'beyond declared differences'):self.evaluate()
+        declared=('aim_decoding','mirror_augment','root_prior_temperature','action_temperature')
+        contract=dict(self.contract,arguments=dict(self.contract['arguments'],root_prior_temperature=dict(candidate=2.0,paired=1.0),action_temperature=dict(candidate=1.0,paired=1.0)))
+        result=self.evaluate(declared=declared,source_contract=contract)
+        self.assertEqual(result['declared_values']['root_prior_temperature'],{'candidate':2.0,'paired':1.0})
+        self.assertEqual(result['declared_values']['action_temperature'],{'candidate':1.0,'paired':1.0})
+        wrong=dict(contract,arguments=dict(contract['arguments'],root_prior_temperature=dict(candidate=2.0,paired=None)))
+        with self.assertRaisesRegex(ValueError,'argument value differs'):self.evaluate(declared=declared,source_contract=wrong)
+        with self.assertRaisesRegex(ValueError,'Undeclarable'):self.evaluate(declared=declared+('seed',),source_contract=contract)
+
     def test_candidate_commit_must_match_source_checkout(self):
         # The paired source's receipt/commit does not satisfy the binding; the candidate's does.
         with self.assertRaises(ValueError):self.evaluate(source=self.paired_source)

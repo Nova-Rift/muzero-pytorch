@@ -9,7 +9,7 @@ from model import scalar
 
 
 @torch.no_grad()
-def search_batch(model, observations, *, explore=False, legal=None, root_noise=None, static=False, root_candidates=None):
+def search_batch(model, observations, *, explore=False, legal=None, root_noise=None, static=False, root_candidates=None, root_temperature=1.0):
     c = model.config
     batch, device = len(observations), observations.device
     rows = torch.arange(batch, device=device)
@@ -24,7 +24,8 @@ def search_batch(model, observations, *, explore=False, legal=None, root_noise=N
     if legal is not None:
         if not legal.any(-1).all(): raise ValueError('Empty legal action mask')
         policy = policy.masked_fill(~legal.bool(), -torch.inf)
-    priors[:,0] = policy.softmax(-1)
+    # root_temperature>1 flattens the ROOT prior only (self-play exploration flag); 1.0 is the exact historical path.
+    priors[:,0] = policy.softmax(-1) if root_temperature==1.0 else (policy/root_temperature).softmax(-1)
     if explore or root_noise is not None:
         concentration = torch.full_like(priors[:,0],c.dirichlet_alpha)
         noise = torch.distributions.Dirichlet(concentration).sample() if root_noise is None else root_noise

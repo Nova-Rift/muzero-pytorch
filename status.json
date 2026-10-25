@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "train",
   "iteration": 28,
   "completed_games": 0,
-  "target_games": 0,
+  "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "H100 allocated; setup and correctness gates before UPG2 training",
-  "change": "Pod registered at 3.99/hour in US-MO-1 under a 3 dollar lease segment. 50 MB payload uploading; runtime, ratio-2 CUDA resume and first-block parity gates must pass before training.",
-  "result": "Planning estimate 2376 seconds, 2.6334 dollars at the quoted rate. No scientific training or evaluation completed yet in this session.",
+  "title": "UPG2 gates: CUDA runtime and ratio-2 split-resume passed; frozen first-block reference running",
+  "change": "Runtime and ratio-2 exact split-resume gates done on the H100. The ratio-1 full 128-game reference collection is running before the candidate starts.",
+  "result": "No training games counted yet. The candidate starts only if its first block matches the reference arrays exactly. Strength remains unmeasured.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T03:51:01.226150+00:00",
+  "updated_at": "2026-10-25T03:53:28.444600+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -49,18 +49,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:52:51.180127-07:00",
+    "measured_at": "2026-10-24T20:54:01.179858-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
-        "completed": null,
-        "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "state": "active",
+        "updated_at": "2026-10-25T03:53:28.444600+00:00",
+        "elapsed_seconds": 33,
+        "completed": 0,
+        "total": 2048,
+        "task": "UPG2 gates: CUDA runtime and ratio-2 split-resume passed; frozen first-block reference running",
+        "eta_seconds": 410,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -86,38 +86,38 @@
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-25T03:51:01.226150+00:00",
-        "elapsed_seconds": 240,
+        "state": "finished",
+        "updated_at": "2026-10-25T03:53:28.444600+00:00",
+        "elapsed_seconds": 277,
         "completed": null,
         "total": null,
         "task": "H100 allocated; setup and correctness gates before UPG2 training",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 845,
-    "eta_seconds": 245,
+    "elapsed_seconds": 915,
+    "eta_seconds": 175,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
-    "updated_at": 1792900147.844753,
-    "fresh": false,
+    "updated_at": 1792900415.464768,
+    "fresh": true,
     "loops": [
       {
         "id": "upg2",
-        "stage": "test",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1792900369.0585797,
-        "job_id": "upg2-first-block-reference",
+        "updated_at": 1792900437.6616168,
+        "job_id": "UPG2_2048",
         "fresh": true
       },
       {
         "id": "loop-a",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792900147.844753,
+        "updated_at": 1792900415.464768,
         "job_id": "iteration28-upg2-admission",
         "decision": {
           "reviewing": "Can the tested UPG2 package be admitted now that the storage policy changed?",
@@ -143,16 +143,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "UPG2 admission: storage gate released, binding tested package",
-          "change": "Policy now 12 GiB cache / 4 GiB reserve: exact-job storage gate passes. Runner 28 generated (25 checks); payload rebuilt with current supervisor files, experiment content byte-identical.",
-          "result": "No GPU allocated yet. Fresh offer, budget and preflight approval precede the guarded launch; runtime, ratio-2 resume and first-block parity gates run on the pod before training.",
+          "title": "UPG2 chain running on the H100 (supervisor loop upg2)",
+          "change": "Runtime and ratio-2 exact split-resume gates passed. Frozen ratio-1 first-block reference is collecting; the candidate then checks full-array parity before its first update.",
+          "result": "Pod 5q4cfd3mkfo268 registered, lease to 04:35 UTC with automatic renewal while progress is observable. Follow-ups prepared as conditional branches in loops B-D; no promotion claim.",
           "candidate": "Baseline-UPG2-2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:49:07.844753+00:00",
+          "updated_at": "2026-10-25T03:53:35.464768+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",

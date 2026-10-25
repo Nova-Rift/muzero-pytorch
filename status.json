@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:30:24.294585-07:00",
+    "measured_at": "2026-10-25T02:31:28.646109-07:00",
     "steps": [
       {
         "step": 1,
@@ -71,7 +71,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 2824,
+        "elapsed_seconds": 2888,
         "completed": null,
         "total": null,
         "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4307,
+    "elapsed_seconds": 4372,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:28:25.290586-07:00",
+    "measured_at": "2026-10-25T01:29:31.707551-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-25T08:26:31.587243+00:00",
-        "elapsed_seconds": 114,
+        "elapsed_seconds": 180,
         "completed": 0,
         "total": null,
         "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
-        "eta_seconds": 329,
+        "eta_seconds": 263,
         "eta_basis": "7 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 588,
-    "eta_seconds": 502,
+    "elapsed_seconds": 655,
+    "eta_seconds": 435,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -93,6 +93,14 @@
     "updated_at": 1792916317.1231172,
     "fresh": false,
     "loops": [
+      {
+        "id": "loop-c",
+        "stage": "train",
+        "state": "active",
+        "updated_at": 1792916964.1778188,
+        "job_id": "ego4096-train",
+        "fresh": true
+      },
       {
         "id": "loop-a",
         "stage": "review",
@@ -125,32 +133,6 @@
         "state": "active",
         "updated_at": 1792916317.1231172,
         "job_id": "iteration-35-planning-2",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 35,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T08:18:37.123117+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
-      },
-      {
-        "id": "loop-c",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792916317.1231172,
-        "job_id": "iteration-35-planning-3",
         "details": {
           "schema": 1,
           "stage": "review",

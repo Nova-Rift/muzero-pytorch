@@ -48,7 +48,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:40:35.422294-07:00",
+    "measured_at": "2026-10-24T18:41:41.174218-07:00",
     "steps": [
       {
         "step": 1,
@@ -87,7 +87,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T01:36:31.814219+00:00",
-        "elapsed_seconds": 244,
+        "elapsed_seconds": 309,
         "completed": null,
         "total": null,
         "task": "Preparing UPG2 source and admission checks",
@@ -95,8 +95,8 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 526,
-    "eta_seconds": 564,
+    "elapsed_seconds": 592,
+    "eta_seconds": 498,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -108,20 +108,20 @@
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792892401.1051106,
+        "updated_at": 1792892454.107744,
         "job_id": "iteration27-admission-review",
         "decision": {
-          "reviewing": "Does the exact UPG2 package fit cloud-backed cache admission?",
+          "reviewing": "Can a smaller equal-games UPG2 comparison fit existing storage limits?",
           "options": [
-            "Retain complete full-state recovery and archive bounds"
+            "Preserve2048-game plan as blocked and assess a separately registered1024-game comparison",
+            "Finish preparation without paid allocation if full evidence retention cannot fit"
           ],
           "evidence": [
-            "Diagnostic revision ba0c543 passed68 tests and tiny CPU exact resume; production checks remain separate.",
-            "Fresh cache2646465724bytes plus conservative growth3202428800bytes exceeds5GiB by480185404bytes before final package allowance."
+            "Finalized2048 plan exceeds cache limit by1135544660bytes, including payload and full recovery/archive copies."
           ],
-          "reason": "Free disk alone does not satisfy the separately bounded cache. No allocation while exact-job storage fails.",
-          "next_action": "Review finalized package bounds and remaining first-block gate; preserve evidence rather than lowering bounds without support.",
-          "updated_at": "2026-10-25T01:39:30.628062+00:00"
+          "reason": "A smaller predeclared endpoint may answer the same update-ratio question without dropping checkpoints or raising storage limits; feasibility is unverified.",
+          "next_action": "Ask package helper for separate baseline1024 provenance and storage feasibility; do not alter or admit frozen2048 plan.",
+          "updated_at": "2026-10-25T01:40:54.107744+00:00"
         },
         "fresh": true
       },
@@ -139,7 +139,7 @@
         "state": "active",
         "updated_at": 1792892401.1051106,
         "job_id": "iteration27-upg2-package",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",

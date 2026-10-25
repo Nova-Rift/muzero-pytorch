@@ -39,7 +39,7 @@ class SourcePinTests(unittest.TestCase):
             self.assertEqual(source.count(added),1,added[:80]);source=source.replace(added,original)
         self.assertEqual(source,subprocess.check_output(['git','show',FROZEN+':arena/train_loss.py'],cwd=ROOT,text=True))
         # Untouched by this branch: environment, bridge, evaluator, search, model, returns, decoding.
-        for name in ('arena/environment.py','arena/bridge.mjs','arena/aim_decoding.py','arena/returns.py','arena/history.py','model.py','batched_search_exploration.py','tournament/run.py','diagnostics/retention/evaluate_endpoint.py','diagnostics/retention/resume_gate.py'):
+        for name in ('arena/environment.py','arena/bridge.mjs','arena/aim_decoding.py','arena/returns.py','arena/history.py','model.py','batched_search_exploration.py','tournament/run.py','diagnostics/retention/resume_gate.py','diagnostics/retention/train_compressed.py','diagnostics/retention/verify_compressed_states.py'):
             self.assertEqual(subprocess.check_output(['git','show',FROZEN+':'+name],cwd=ROOT),(ROOT/name).read_bytes(),name)
 
 @unittest.skipUnless(SITE,'Set ARENA_SITE to canonical website checkout')

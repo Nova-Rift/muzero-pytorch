@@ -275,6 +275,21 @@ class DeclaredDifferenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Undeclarable'):self.evaluate(declared=('aim_decoding','mirror_augment','seed'))
         with self.assertRaisesRegex(ValueError,'Duplicate'):self.evaluate(declared=('aim_decoding','aim_decoding','mirror_augment'))
 
+    def test_partner_pool_flags_declarable_against_flag_absent_paired_manifest(self):
+        # EGO-POOL2048 (research/iteration35-partner-pool) vs EGO2048 (14fece12): the paired manifest predates the flags,
+        # so the contract carries their defaults ('' / 0.0); undeclared pool flags are still rejected.
+        self.manifest['arguments'].update(partner_pool='initial,512,1024',partner_fraction=0.5);self.save()
+        with self.assertRaisesRegex(ValueError,'declared arguments'):self.evaluate()
+        declared=('aim_decoding','mirror_augment','partner_pool','partner_fraction')
+        contract=dict(self.contract,arguments=dict(self.contract['arguments'],partner_pool=dict(candidate='initial,512,1024',paired=''),partner_fraction=dict(candidate=0.5,paired=0.0)))
+        result=self.evaluate(declared=declared,source_contract=contract)
+        self.assertEqual(result['declared_values']['partner_pool'],{'candidate':'initial,512,1024','paired':''})
+        self.assertEqual(result['declared_values']['partner_fraction'],{'candidate':0.5,'paired':0.0})
+        self.assertEqual(result['candidate_source_commit'],'c'*40);self.assertEqual(result['paired_source_commit'],'a'*40)
+        wrong=dict(contract,arguments=dict(contract['arguments'],partner_fraction=dict(candidate=0.5,paired=None)))
+        with self.assertRaisesRegex(ValueError,'argument value differs'):self.evaluate(declared=declared,source_contract=wrong)
+        with self.assertRaisesRegex(ValueError,'Undeclarable'):self.evaluate(declared=declared+('seed',),source_contract=contract)
+
     def test_candidate_commit_must_match_source_checkout(self):
         # The paired source's receipt/commit does not satisfy the binding; the candidate's does.
         with self.assertRaises(ValueError):self.evaluate(source=self.paired_source)

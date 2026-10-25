@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:18:01.188211-07:00",
+    "measured_at": "2026-10-25T00:19:07.192520-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T07:17:36.885496+00:00",
-        "elapsed_seconds": 1057,
+        "elapsed_seconds": 1123,
         "completed": null,
         "total": null,
         "task": "Preserve setup failure and hand off repaired admission",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1705,
+    "elapsed_seconds": 1771,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1792912656.6297226,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792912656.6297226,
         "job_id": "iteration33-session-evidence",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -120,7 +120,7 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T07:17:36.629723+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -141,7 +141,7 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T07:17:36.629723+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -162,7 +162,7 @@
           "next_action": "Resolve the recorded prerequisites before admitting this task.",
           "updated_at": "2026-10-25T07:17:36.629723+00:00"
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

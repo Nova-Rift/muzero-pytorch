@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Assistant research turn did not complete",
+  "title": "Pilot stopped: previous iteration needs review",
   "change": "Supervisor jobs: done 17/21 jobs; active REP2048; failed none. GPU utilization sample {'0': 20}.",
-  "result": "Pod cleanup runs now; the worker verifies provider inventory before any automatic continuation.",
+  "result": "failed to fetch codex rate limits: error sending request for url (https://chatgpt.com/backend-api/wham/usage)",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T06:38:10.770351+00:00",
+  "updated_at": "2026-10-25T06:40:15.106480+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:39:44.316641-07:00",
+    "measured_at": "2026-10-24T23:40:54.047646-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 96,
+    "elapsed_seconds": 165,
     "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },

@@ -4,15 +4,15 @@
   "iteration": 30,
   "completed_games": 2048,
   "target_games": 2048,
-  "wins": 15,
+  "wins": 42,
   "evaluation_games": 64,
-  "timeouts": 20,
-  "title": "Three-arm chain: done 10/21 jobs; active Baseline2048-F1024; failed none",
-  "change": "Supervisor jobs: done 10/21 jobs; active Baseline2048-F1024; failed none. GPU utilization sample {'0': 95}.",
+  "timeouts": 12,
+  "title": "Three-arm chain: done 12/21 jobs; active CB2048-E1024; failed none",
+  "change": "Supervisor jobs: done 12/21 jobs; active CB2048-E1024; failed none. GPU utilization sample {'0': 95}.",
   "result": "Observed 2048 training games (D99_2048). Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "CB2048, D99_2048 and REP2048",
-  "evaluation_label": "Baseline2048 vs E1024 completed",
-  "updated_at": "2026-10-25T06:26:35.159155+00:00",
+  "evaluation_label": "Baseline2048 vs OwnInitial completed",
+  "updated_at": "2026-10-25T06:27:35.304821+00:00",
   "revision": {
     "summary": "Proposed: opponent-relative aim decoding behind a flag (default off)",
     "reason": "Trace analysis shows trained agents never learn the mapping from relative position to absolute aim bin; decoding aim as an offset from the bearing to the nearest opponent removes that mapping and should also remove most of the seat asymmetry. A hit-credit training target would be reward shaping and awaits owner approval.",
@@ -26,8 +26,8 @@
   },
   "matchup": {
     "challenger": "Baseline2048",
-    "opponent": "E1024",
-    "opponent_wins": 29,
+    "opponent": "OwnInitial",
+    "opponent_wins": 10,
     "draws": 0
   },
   "training_metrics": {
@@ -153,28 +153,28 @@
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
-    "job_id": "Baseline2048-F1024",
-    "protocol_sha256": "4a520ddca6afe4f05a37da0a247df2b23fdd2de838ce777a2db8c33b83db8e98",
+    "job_id": "Baseline2048-OwnInitial",
+    "protocol_sha256": "8d395518082bd162e830025cb8eeea18d7a3004d54651f7e84f3991c7802e631",
     "challenger_sha256": "c020c0b129f50ffa894108d51ae51c82e10563d4a822d06204e7bc9530c51241",
-    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
-    "result_id": "986d60aec67e4f5e114cbf3cd366f515d9d621e956ecea822f997568415b30b5",
+    "opponent_sha256": "ef8ed2fb76948db444f838d3a769870af89528f5861df43d63a327b76ee5fc0a",
+    "result_id": "8c01f607b73a2e4cd9ba7af2d25a33d6da73f79945b665ae59565578080202e9",
     "candidate": "Baseline2048",
-    "evaluation_label": "Baseline2048 vs F1024",
-    "wins": 30,
+    "evaluation_label": "Baseline2048 vs OwnInitial",
+    "wins": 42,
     "evaluation_games": 64,
     "timeouts": 12,
     "matchup": {
       "challenger": "Baseline2048",
-      "opponent": "F1024",
-      "opponent_wins": 22,
+      "opponent": "OwnInitial",
+      "opponent_wins": 10,
       "draws": 0
     },
-    "updated_at": "2026-10-25T06:26:40.709023+00:00",
-    "evidence_sha256": "62c310e9e96fbcbf3b841f7379461b5e7c998a88823917db7575a950af4c9dea",
+    "updated_at": "2026-10-25T06:27:27.496233+00:00",
+    "evidence_sha256": "aae85adc8fa593e38ede067b73803880fc2e497e83c250815cfd6c389abd77cd",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:26:44.223928-07:00",
+    "measured_at": "2026-10-24T23:27:51.213192-07:00",
     "steps": [
       {
         "step": 1,
@@ -190,12 +190,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T06:26:35.159155+00:00",
-        "elapsed_seconds": 217,
+        "updated_at": "2026-10-25T06:27:35.304821+00:00",
+        "elapsed_seconds": 284,
         "completed": 64,
         "total": null,
-        "task": "Baseline2048 vs E1024 completed",
-        "eta_seconds": 257,
+        "task": "Baseline2048 vs OwnInitial completed",
+        "eta_seconds": 190,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -221,7 +221,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1620,
+    "elapsed_seconds": 1687,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -260,15 +260,159 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792909602.0014274,
-        "job_id": "Baseline2048-OwnInitial",
+        "updated_at": 1792909668.8323047,
+        "job_id": "CB2048-E1024",
+        "details": {
+          "schema": 1,
+          "stage": "evaluate",
+          "iteration": 30,
+          "completed_games": 2048,
+          "target_games": 2048,
+          "wins": 42,
+          "evaluation_games": 64,
+          "timeouts": 12,
+          "title": "loop-a CB2048: done 6/9; active CB2048-E1024; failed none",
+          "change": "Supervisor jobs for CB2048: done 6/9; active CB2048-E1024; failed none.",
+          "result": "Latest completed bout Baseline2048 vs OwnInitial completed: 42 wins, 10 losses, 0 draws, 12 cutoffs of 64.",
+          "candidate": "CB2048",
+          "evaluation_label": "Baseline2048 vs OwnInitial completed",
+          "updated_at": "2026-10-25T06:27:35.303937+00:00",
+          "matchup": {
+            "challenger": "Baseline2048",
+            "opponent": "OwnInitial",
+            "opponent_wins": 10,
+            "draws": 0
+          },
+          "training_metrics": {
+            "iteration": 30,
+            "run_id": "CB2048",
+            "loss_definition": "last_update_batch_mean",
+            "reported_at": "2026-10-25T06:24:58.036759+00:00",
+            "points": [
+              {
+                "optimizer_updates": 128,
+                "games": 128,
+                "elapsed_seconds": 27.61126175703248,
+                "loss": 5.570812702178955,
+                "search_entropy": 3.465735912322998
+              },
+              {
+                "optimizer_updates": 256,
+                "games": 256,
+                "elapsed_seconds": 53.14979365403997,
+                "loss": 5.167527198791504,
+                "search_entropy": 0.9509891271591187
+              },
+              {
+                "optimizer_updates": 384,
+                "games": 384,
+                "elapsed_seconds": 78.67186988104368,
+                "loss": 5.668338775634766,
+                "search_entropy": 1.0578267453238368
+              },
+              {
+                "optimizer_updates": 512,
+                "games": 512,
+                "elapsed_seconds": 105.03656562702963,
+                "loss": 5.187586307525635,
+                "search_entropy": 1.4133156156167388
+              },
+              {
+                "optimizer_updates": 640,
+                "games": 640,
+                "elapsed_seconds": 132.95208982704207,
+                "loss": 5.009067058563232,
+                "search_entropy": 1.3520796657539904
+              },
+              {
+                "optimizer_updates": 768,
+                "games": 768,
+                "elapsed_seconds": 160.00221758399857,
+                "loss": 5.179931640625,
+                "search_entropy": 1.1608183551579714
+              },
+              {
+                "optimizer_updates": 896,
+                "games": 896,
+                "elapsed_seconds": 186.55248384503648,
+                "loss": 5.227812767028809,
+                "search_entropy": 1.00302464957349
+              },
+              {
+                "optimizer_updates": 1024,
+                "games": 1024,
+                "elapsed_seconds": 211.94195133203175,
+                "loss": 4.710259914398193,
+                "search_entropy": 0.9516122848726809
+              },
+              {
+                "optimizer_updates": 1152,
+                "games": 1152,
+                "elapsed_seconds": 239.02744657901349,
+                "loss": 4.492376327514648,
+                "search_entropy": 1.1991610238328576
+              },
+              {
+                "optimizer_updates": 1280,
+                "games": 1280,
+                "elapsed_seconds": 265.8684865250252,
+                "loss": 4.435437202453613,
+                "search_entropy": 1.2335368511267006
+              },
+              {
+                "optimizer_updates": 1408,
+                "games": 1408,
+                "elapsed_seconds": 290.54580223199446,
+                "loss": 4.393158435821533,
+                "search_entropy": 1.2726309882833602
+              },
+              {
+                "optimizer_updates": 1536,
+                "games": 1536,
+                "elapsed_seconds": 305.54130809602793,
+                "loss": 3.860759735107422,
+                "search_entropy": 1.237156996803899
+              },
+              {
+                "optimizer_updates": 1664,
+                "games": 1664,
+                "elapsed_seconds": 331.7986811680021,
+                "loss": 3.7764642238616943,
+                "search_entropy": 1.4361348755626757
+              },
+              {
+                "optimizer_updates": 1792,
+                "games": 1792,
+                "elapsed_seconds": 359.03055528603727,
+                "loss": 3.9677062034606934,
+                "search_entropy": 1.4338782434351742
+              },
+              {
+                "optimizer_updates": 1920,
+                "games": 1920,
+                "elapsed_seconds": 386.3499252840411,
+                "loss": 4.592374801635742,
+                "search_entropy": 1.4986552717164159
+              },
+              {
+                "optimizer_updates": 2048,
+                "games": 2048,
+                "elapsed_seconds": 412.64760688203387,
+                "loss": 4.550553798675537,
+                "search_entropy": 1.7648827345110476
+              }
+            ]
+          },
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "test",
         "state": "pending",
-        "updated_at": 1792909602.0014274,
+        "updated_at": 1792909668.8323047,
         "job_id": "c-runtime",
         "decision": {
           "reviewing": "Why do harder-trained candidates stall, and which variant should follow the three queued arms?",
@@ -300,7 +444,7 @@
           "result": "Observed no training games yet for REP2048. Strength is unmeasured until the frozen evaluations complete.",
           "candidate": "REP2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T06:26:35.158128+00:00",
+          "updated_at": "2026-10-25T06:27:35.303949+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
@@ -330,7 +474,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

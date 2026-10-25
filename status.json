@@ -2,17 +2,17 @@
   "schema": 1,
   "stage": "train",
   "iteration": 28,
-  "completed_games": 384,
+  "completed_games": 640,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
   "title": "UPG2 chain: done 3/10 jobs; active UPG2_2048; failed none",
-  "change": "Supervisor jobs: done 3/10 jobs; active UPG2_2048; failed none. GPU utilization sample {'0': 92}.",
-  "result": "Observed 384 training games and 768 optimizer updates. Strength is unmeasured until the frozen evaluations complete.",
+  "change": "Supervisor jobs: done 3/10 jobs; active UPG2_2048; failed none. GPU utilization sample {'0': 15}.",
+  "result": "Observed 640 training games and 1280 optimizer updates. Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T03:54:56.033241+00:00",
+  "updated_at": "2026-10-25T03:55:47.589789+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -29,7 +29,7 @@
     "iteration": 28,
     "run_id": "UPG2_2048",
     "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-25T03:54:38.545737+00:00",
+    "reported_at": "2026-10-25T03:55:42.068654+00:00",
     "points": [
       {
         "optimizer_updates": 256,
@@ -51,6 +51,20 @@
         "elapsed_seconds": 97.1154567199992,
         "loss": 5.586336135864258,
         "search_entropy": 1.9830741230398417
+      },
+      {
+        "optimizer_updates": 1024,
+        "games": 512,
+        "elapsed_seconds": 127.95423418498831,
+        "loss": 5.063093185424805,
+        "search_entropy": 1.9411553875543177
+      },
+      {
+        "optimizer_updates": 1280,
+        "games": 640,
+        "elapsed_seconds": 160.6487767189974,
+        "loss": 5.381028652191162,
+        "search_entropy": 1.6384286959655583
       }
     ]
   },
@@ -78,17 +92,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:55:08.225928-07:00",
+    "measured_at": "2026-10-24T20:56:11.184778-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T03:54:56.033241+00:00",
-        "elapsed_seconds": 100,
-        "completed": 384,
+        "updated_at": "2026-10-25T03:55:47.589789+00:00",
+        "elapsed_seconds": 163,
+        "completed": 640,
         "total": 2048,
         "task": "UPG2 chain: done 3/10 jobs; active UPG2_2048; failed none",
-        "eta_seconds": 433,
+        "eta_seconds": 359,
         "eta_basis": "observed training rate"
       },
       {
@@ -125,8 +139,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 982,
-    "eta_seconds": 108,
+    "elapsed_seconds": 1045,
+    "eta_seconds": 45,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -138,7 +152,7 @@
         "id": "upg2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792900507.706375,
+        "updated_at": 1792900567.8105514,
         "job_id": "UPG2_2048",
         "fresh": true
       },

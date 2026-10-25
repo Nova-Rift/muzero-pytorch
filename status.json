@@ -4,19 +4,19 @@
   "iteration": 34,
   "completed_games": 896,
   "target_games": 2048,
-  "wins": 15,
+  "wins": 30,
   "evaluation_games": 64,
-  "timeouts": 20,
-  "title": "Baseline2048 vs E1024 completed",
+  "timeouts": 12,
+  "title": "Baseline2048 vs F1024 completed",
   "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
   "result": "Complete balanced matchup; raw records retained. Confirmation and replication are separate gates.",
   "candidate": "Baseline2048",
-  "evaluation_label": "Baseline2048-E1024",
-  "updated_at": "2026-10-25T07:57:18.700526+00:00",
+  "evaluation_label": "Baseline2048-F1024",
+  "updated_at": "2026-10-25T07:57:20.926247+00:00",
   "matchup": {
     "challenger": "Baseline2048",
-    "opponent": "E1024",
-    "opponent_wins": 29,
+    "opponent": "F1024",
+    "opponent_wins": 22,
     "draws": 0
   },
   "latest_comparison": {
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:57:18.773057-07:00",
+    "measured_at": "2026-10-25T00:57:20.998465-07:00",
     "steps": [
       {
         "step": 1,
@@ -59,12 +59,12 @@
       {
         "step": 2,
         "state": "active",
-        "updated_at": "2026-10-25T07:57:18.700526+00:00",
-        "elapsed_seconds": 437,
+        "updated_at": "2026-10-25T07:57:20.926247+00:00",
+        "elapsed_seconds": 440,
         "completed": 64,
         "total": null,
-        "task": "Baseline2048-E1024",
-        "eta_seconds": 37,
+        "task": "Baseline2048-F1024",
+        "eta_seconds": 34,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1909,
+    "elapsed_seconds": 1912,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

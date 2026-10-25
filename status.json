@@ -1,128 +1,71 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "evaluate",
   "iteration": 34,
   "completed_games": 896,
   "target_games": 2048,
-  "wins": 31,
+  "wins": 34,
   "evaluation_games": 64,
-  "timeouts": 6,
-  "title": "EGO and MIR training on separate GPUs",
+  "timeouts": 10,
+  "title": "EGO2048 vs E1024 completed",
   "change": "Both lanes passed CUDA runtime/resume gates; real production counters recovered.",
-  "result": "No strength conclusion yet. Matched frozen development evaluations remain required.",
-  "candidate": "EGO2048 and MIR2048",
-  "evaluation_label": "MIR2048 vs E1024",
-  "updated_at": "2026-10-25T07:36:41.341810+00:00",
-  "training_metrics": {
-    "iteration": 34,
-    "run_id": "ego-EGO2048",
-    "loss_definition": "last_update_batch_mean",
-    "reported_at": "2026-10-25T07:36:41.309098+00:00",
-    "points": [
-      {
-        "optimizer_updates": 128,
-        "games": 128,
-        "elapsed_seconds": 27.965403432026505,
-        "loss": 5.323472023010254,
-        "search_entropy": 3.465735912322998
-      },
-      {
-        "optimizer_updates": 256,
-        "games": 256,
-        "elapsed_seconds": 52.29470833297819,
-        "loss": 4.937044143676758,
-        "search_entropy": 0.9545971609186381
-      },
-      {
-        "optimizer_updates": 384,
-        "games": 384,
-        "elapsed_seconds": 76.58088116103318,
-        "loss": 5.50154972076416,
-        "search_entropy": 1.247743386309594
-      },
-      {
-        "optimizer_updates": 512,
-        "games": 512,
-        "elapsed_seconds": 100.74823031201959,
-        "loss": 5.133694648742676,
-        "search_entropy": 1.59551309235394
-      },
-      {
-        "optimizer_updates": 640,
-        "games": 640,
-        "elapsed_seconds": 125.82674897898687,
-        "loss": 5.144387245178223,
-        "search_entropy": 1.1908792178146541
-      },
-      {
-        "optimizer_updates": 768,
-        "games": 768,
-        "elapsed_seconds": 146.49507628998253,
-        "loss": 4.718132495880127,
-        "search_entropy": 1.1660140622848583
-      },
-      {
-        "optimizer_updates": 896,
-        "games": 896,
-        "elapsed_seconds": 165.59756926400587,
-        "loss": 4.789949417114258,
-        "search_entropy": 0.9509927498666864
-      }
-    ]
-  },
+  "result": "Frozen balanced development matchup; strength/promotion gates remain incomplete.",
+  "candidate": "EGO2048",
+  "evaluation_label": "EGO2048 vs E1024",
+  "updated_at": "2026-10-25T07:50:01.433101+00:00",
   "matchup": {
-    "challenger": "MIR2048",
+    "challenger": "EGO2048",
     "opponent": "E1024",
-    "opponent_wins": 27,
+    "opponent_wins": 20,
     "draws": 0
   },
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-b",
-    "job_id": "mir-MIR2048-E1024",
-    "protocol_sha256": "3f6e6ba42056530963de25f640602ea90e100a8b5f41957a59b7921dd8db74b6",
+    "job_id": "mir-MIR2048-F1024",
+    "protocol_sha256": "ad84c22333cece76fd7fcd2df83be506055dce6a41d3953cdceb43f31d5e6c52",
     "challenger_sha256": "c24396402466ea93a547d58d70e7911a4084f1cce411362a599b2db17e4bfb20",
-    "opponent_sha256": "18c18151b820636ef3bf67ea52dbecd3cb47582d9ea6bf63ede36d6c2adb1532",
-    "result_id": "473ce7d15f7cfb032bc85e183f90b166ee952c55c47810cb9debb096d07881ed",
+    "opponent_sha256": "4de08ce08adef8344d6cf8707e22a74896c355008ffff18d3b10ce21ec1dcdb7",
+    "result_id": "c1af0835da60ae7bcab7c16c5242911173c3d497acf7b3b3fa144bbcea7be263",
     "candidate": "MIR2048",
-    "evaluation_label": "MIR2048 vs E1024",
-    "wins": 31,
+    "evaluation_label": "MIR2048 vs F1024",
+    "wins": 28,
     "evaluation_games": 64,
-    "timeouts": 6,
+    "timeouts": 16,
     "matchup": {
       "challenger": "MIR2048",
-      "opponent": "E1024",
-      "opponent_wins": 27,
+      "opponent": "F1024",
+      "opponent_wins": 20,
       "draws": 0
     },
-    "updated_at": "2026-10-25T07:49:01.907149+00:00",
-    "evidence_sha256": "c4f35f69261f3c472ab36c8cacf19eb6d359a7a82f1155912f87389caa64d711",
+    "updated_at": "2026-10-25T07:49:47.563318+00:00",
+    "evidence_sha256": "76aeeb9d21202d399b6e88a5c21b3134d2a42c0a4586e7bfb4f886d15f145838",
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:49:35.620925-07:00",
+    "measured_at": "2026-10-25T00:50:01.516484-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-25T07:36:41.341810+00:00",
-        "elapsed_seconds": 774,
+        "state": "finished",
+        "updated_at": "2026-10-25T07:50:01.433101+00:00",
+        "elapsed_seconds": 800,
         "completed": 896,
         "total": 2048,
         "task": "EGO and MIR training on separate GPUs",
-        "eta_seconds": 995,
-        "eta_basis": "observed training rate"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T07:50:01.433101+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 64,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "EGO2048 vs E1024",
+        "eta_seconds": 474,
+        "eta_basis": "12 previous iteration(s)"
       },
       {
         "step": 3,
@@ -147,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1446,
+    "elapsed_seconds": 1472,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -160,16 +103,16 @@
         "id": "loop-a",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914571.7123384,
-        "job_id": "ego-EGO2048-F1024",
+        "updated_at": 1792914596.6887681,
+        "job_id": "ego-EGO2048-OwnInitial",
         "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792914570.373638,
-        "job_id": "mir-MIR2048-F1024",
+        "updated_at": 1792914600.301887,
+        "job_id": "mir-MIR2048-OwnInitial",
         "fresh": true
       },
       {

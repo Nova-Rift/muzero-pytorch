@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:03:24.304169-07:00",
+    "measured_at": "2026-10-25T01:04:29.769779-07:00",
     "steps": [
       {
         "step": 1,
@@ -60,7 +60,7 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T07:57:34.251564+00:00",
-        "elapsed_seconds": 803,
+        "elapsed_seconds": 868,
         "completed": 64,
         "total": null,
         "task": "Baseline2048-OwnInitial",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2275,
+    "elapsed_seconds": 2340,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

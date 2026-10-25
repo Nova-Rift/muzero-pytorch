@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "test",
+  "stage": "review",
   "iteration": 33,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Setup failed before GPU training",
-  "change": "EGO transfer timed out at420seconds; runner cleanup deleted both lanes and interrupted MIR transfer.",
-  "result": "No CUDA runtime, training or evaluation completed. Preserve tested packages and verify cleanup before guarded recovery.",
+  "title": "Preserve setup failure and hand off repaired admission",
+  "change": "Both GPU lanes are deleted; all helper checkpoints verified and closed. No CUDA job ran.",
+  "result": "Finish session evidence; next guarded session uses fresh runners with serialized setup and capped background archive traffic.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T07:12:21.194935+00:00",
+  "updated_at": "2026-10-25T07:17:36.885496+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:16:58.194657-07:00",
+    "measured_at": "2026-10-25T00:17:36.959204-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,67 +63,106 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T07:06:48.755719+00:00",
+        "state": "active",
+        "updated_at": "2026-10-25T07:17:36.885496+00:00",
         "elapsed_seconds": 1033,
         "completed": null,
         "total": null,
-        "task": "MuZero parallel variant admission",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Preserve setup failure and hand off repaired admission",
+        "eta_seconds": 0,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "active",
-        "updated_at": "2026-10-25T07:12:21.194935+00:00",
-        "elapsed_seconds": 609,
+        "state": "finished",
+        "updated_at": "2026-10-25T07:17:36.885496+00:00",
+        "elapsed_seconds": 648,
         "completed": null,
         "total": null,
         "task": "Setup failed before GPU training",
-        "eta_seconds": 0,
-        "eta_basis": "15 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1642,
+    "elapsed_seconds": 1681,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792912341.1659331,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1792912656.6297226,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
-        "state": "failed",
-        "updated_at": 1792912341.1659331,
-        "job_id": "ego-a-runtime",
-        "fresh": false
+        "stage": "review",
+        "state": "active",
+        "updated_at": 1792912656.6297226,
+        "job_id": "iteration33-session-evidence",
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "test",
-        "state": "failed",
-        "updated_at": 1792912341.1659331,
-        "job_id": "mir-mir-runtime",
-        "fresh": false
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792912656.629723,
+        "job_id": "iteration33-mir-next-admission",
+        "decision": {
+          "reviewing": "MIR next-session admission",
+          "options": [
+            "Wait for the recorded prerequisites"
+          ],
+          "evidence": [
+            "Blocked: This lane was consumed and deleted during sibling setup failure; no CUDA work ran. Release: Fresh guarded session, repaired generated runner, fresh quote and exact-job storage admission."
+          ],
+          "reason": "Blocked: This lane was consumed and deleted during sibling setup failure; no CUDA work ran. Release: Fresh guarded session, repaired generated runner, fresh quote and exact-job storage admission.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-25T07:17:36.629723+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792912341.1659331,
-        "job_id": "iteration33-replication-integration",
-        "fresh": false
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792912656.629723,
+        "job_id": "iteration33-replication-checkpoint",
+        "decision": {
+          "reviewing": "Replication partial checkpoint preserved",
+          "options": [
+            "Wait for the recorded prerequisites"
+          ],
+          "evidence": [
+            "Blocked: Initialization/evaluator adapters checked; dedicated readout and real CUDA initialization remain unfinished. Session closure takes priority over optional preparation. Release: Next guarded session assigns a fresh exclusive helper for remaining readout while admitted EGO/MIR work runs."
+          ],
+          "reason": "Blocked: Initialization/evaluator adapters checked; dedicated readout and real CUDA initialization remain unfinished. Session closure takes priority over optional preparation. Release: Next guarded session assigns a fresh exclusive helper for remaining readout while admitted EGO/MIR work runs.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-25T07:17:36.629723+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792912341.1659331,
-        "job_id": "iteration33-ego-adapter",
-        "fresh": false
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792912656.629723,
+        "job_id": "iteration33-ego-checkpoint-parity",
+        "decision": {
+          "reviewing": "EGO adapter awaits a qualified checkpoint",
+          "options": [
+            "Wait for the recorded prerequisites"
+          ],
+          "evidence": [
+            "Blocked: Conditional adapter passes 25 tests and bridge parity; no checkpoint-specific ONNX/search parity or deployment. Release: Recovered qualified EGO checkpoint after frozen development and confirmation gates; then export and validate exact checkpoint."
+          ],
+          "reason": "Blocked: Conditional adapter passes 25 tests and bridge parity; no checkpoint-specific ONNX/search parity or deployment. Release: Recovered qualified EGO checkpoint after frozen development and confirmation gates; then export and validate exact checkpoint.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-25T07:17:36.629723+00:00"
+        },
+        "fresh": true
       }
     ]
   },

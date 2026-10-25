@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:09:11.171519-07:00",
+    "measured_at": "2026-10-24T21:10:18.176681-07:00",
     "steps": [
       {
         "step": 1,
@@ -203,7 +203,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T04:07:47.203071+00:00",
-        "elapsed_seconds": 689,
+        "elapsed_seconds": 756,
         "completed": null,
         "total": null,
         "task": "UPG2 development gate failed; releasing pod",
@@ -222,28 +222,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1825,
+    "elapsed_seconds": 1892,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792901267.247723,
-    "fresh": false,
+    "active_loops": 0,
+    "updated_at": 1792901385.2617736,
+    "fresh": true,
     "loops": [
       {
-        "id": "upg2",
-        "stage": "evaluate",
-        "state": "done",
-        "updated_at": 1792901212.689836,
-        "job_id": "UPG2_2048-OwnInitial",
-        "fresh": false
-      },
-      {
         "id": "loop-a",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792901267.247723,
+        "stage": "review",
+        "state": "done",
+        "updated_at": 1792901385.261878,
         "job_id": "iteration28-upg2-admission",
         "decision": {
           "reviewing": "Does two updates per game beat the ratio-1 baseline under the frozen development gate?",
@@ -262,30 +254,30 @@
         },
         "details": {
           "schema": 1,
-          "stage": "evaluate",
+          "stage": "review",
           "iteration": 28,
           "completed_games": 2048,
           "target_games": 2048,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "UPG2_2048 trained; six frozen 64-game evaluations running",
-          "change": "Candidate first block matched the ratio-1 reference arrays exactly before its first update. Endpoint: 2048 games, 4096 updates, 1048576 examples in 496 s; four compressed full states recovered.",
-          "result": "Evaluations run in frozen order: Baseline2048 then UPG2_2048 against E1024, F1024, OwnInitial. Gate: candidate strictly more wins vs E and F with at most 12/64 cutoffs. No promotion claim.",
+          "wins": 22,
+          "evaluation_games": 64,
+          "timeouts": 34,
+          "title": "UPG2 cycle complete: development gate failed; pod released",
+          "change": "Six frozen bouts audited. UPG2_2048 vs E1024 25/20/0 cutoffs 19 (baseline 26/32/0/6); vs F1024 11/17/0/36 (baseline 30/15/0/19); OwnInitial 22/8/0/34 (31/15/0/18).",
+          "result": "Gate: strictly more wins vs E and F with cutoffs at most 12; failed on both. Four full states verified; pod deleted (verified). Report: iteration-28-report.md. No promotion.",
           "candidate": "Baseline-UPG2-2048",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T04:02:57.529633+00:00",
+          "evaluation_label": "UPG2_2048 vs OwnInitial completed",
+          "updated_at": "2026-10-25T04:09:45.261878+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792900147.844753,
+        "updated_at": 1792901385.2619,
         "job_id": "iteration28-upg2-replication-wait",
         "details": {
           "schema": 1,
@@ -296,23 +288,23 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Blocked: replication depends on UPG2 development result",
-          "change": "No work assigned. Dependency: pending UPG2 development gate (more wins than Baseline2048 vs E1024 and F1024, timeouts at most 12/64).",
-          "result": "Release: development gate passes AND helper capacity (OpenAI provider) or owner instruction. Alternatives checked: no unanalyzed evidence or unrun prepared package exists for this loop.",
+          "title": "Blocked: no prepared experiment; implementation capacity unavailable",
+          "change": "UPG2 was rejected, so independent-seed replication is moot. Next candidate direction: a cutoff-aware objective, still unpackaged.",
+          "result": "Release: coordinator provider with helpers (OpenAI) or owner instruction permitting the coordinator to implement. Alternatives checked: no prepared package or pending analysis exists.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:49:07.844753+00:00",
+          "updated_at": "2026-10-25T04:09:45.261900+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "pending",
         "blocked": true,
-        "updated_at": 1792900147.844753,
+        "updated_at": 1792901385.26197,
         "job_id": "iteration28-upg2-confirmation-wait",
         "details": {
           "schema": 1,
@@ -323,23 +315,22 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Blocked: confirmation depends on UPG2 development gate",
-          "change": "No work assigned. The frozen plan forbids tuning on current confirmation seeds, so a new audited protocol is needed only after a pass.",
-          "result": "Release: development gate passes AND helper capacity or owner instruction. Alternatives checked: no independent CPU analysis with a concrete deliverable is pending for this loop.",
+          "title": "Blocked: confirmation not authorized (gate failed)",
+          "change": "The frozen plan allows held-out confirmation only after a development pass; UPG2 failed on both opponents.",
+          "result": "Release: a future candidate passes its development gate. Alternatives checked: no independent analysis target with a concrete deliverable.",
           "candidate": "Not selected",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:49:07.844753+00:00",
+          "updated_at": "2026-10-25T04:09:45.261970+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792900147.844753,
+        "state": "done",
+        "updated_at": 1792901385.261974,
         "job_id": "iteration28-upg2-readout-wait",
         "details": {
           "schema": 1,
@@ -350,16 +341,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Blocked: readout waits for the UPG2 run",
-          "change": "Coordinator will read out recovered results, publish final matchup totals and snapshot evidence after the ten-job chain completes.",
-          "result": "Release: supervisor reports the chain complete and artifacts recovered. Alternatives checked: earlier sessions are already archived and read out; no new independent analysis target.",
-          "candidate": "Not selected",
+          "title": "Readout complete: strict paired audit and chain verification done",
+          "change": "Audited 384 games with the unchanged public readout; paired bootstrap E -0.016 (-0.14..0.11), F -0.297 (-0.44..-0.16). Four compressed states verified.",
+          "result": "Evidence in iteration28-admission (readout28.json, development-gate28.json, upg2-recovery28.json) and the session report. Archive snapshot follows.",
+          "candidate": "Baseline-UPG2-2048",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T03:49:07.844753+00:00",
+          "updated_at": "2026-10-25T04:09:45.261974+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

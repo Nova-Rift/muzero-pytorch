@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T23:59:31.219809-07:00",
+    "measured_at": "2026-10-25T00:00:38.229419-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T06:51:35.293527+00:00",
-        "elapsed_seconds": 595,
+        "elapsed_seconds": 662,
         "completed": null,
         "total": null,
         "task": "MuZero parallel variant admission",
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 595,
-    "eta_seconds": 495,
+    "elapsed_seconds": 662,
+    "eta_seconds": 428,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -149,8 +149,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 26.448671236920354,
-    "reserved_usd": 9.0,
-    "reset_at": "2026-10-25T07:00:00+00:00"
+    "remaining_usd": 30.0,
+    "reserved_usd": 0,
+    "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

@@ -124,6 +124,21 @@ class RootWeightedTests(unittest.TestCase):
 
     def test_trainer_only_three_scoped_changes(self):
         source = (ROOT/'arena/train_loss.py').read_text()
+        # Reverse the scoped --mirror-augment edits (arena/mirror.py; tests/test_mirror_augment.py pins their behaviour).
+        mirror_edits = [
+            ('from arena.mirror import ACTION as MIRROR_ACTION,mirror_observation,mirror_policy\n', ''),
+            ('def history(observations,actions,times,agents,context,mirror=None):', 'def history(observations,actions,times,agents,context):'),
+            ("    if mirror is None:\n        obs=observations[safe,agents[:,None]]*mask[...,None]\n        ai=times[:,None]-np.arange(context-1,0,-1)[None]\n        previous=actions[np.maximum(ai,0),agents[:,None]]*(ai>=0)/153.\n    else:\n        # --mirror-augment: mirror selected samples before padding, so padding frames stay zero.\n        flag=np.asarray(mirror,bool)[:,None,None]\n        obs=observations[safe,agents[:,None]];obs=np.where(flag,mirror_observation(obs),obs)*mask[...,None]\n        ai=times[:,None]-np.arange(context-1,0,-1)[None]\n        previous=actions[np.maximum(ai,0),agents[:,None]];previous=np.where(flag[...,0],MIRROR_ACTION[previous],previous)*(ai>=0)/153.\n",
+             "    obs=observations[safe,agents[:,None]]*mask[...,None]\n    ai=times[:,None]-np.arange(context-1,0,-1)[None]\n    previous=actions[np.maximum(ai,0),agents[:,None]]*(ai>=0)/153.\n"),
+            ('def replay_batch(block,rng,batch,context,unroll,device,mirror=False):', 'def replay_batch(block,rng,batch,context,unroll,device):'),
+            ("    if not mirror:x=history(block['observation'],block['actions'],times,agents,context)\n", "    x=history(block['observation'],block['actions'],times,agents,context)\n"),
+            ("    if mirror:\n        # --mirror-augment: half of each batch (per-sample coin drawn after every frozen RNG draw) is the\n        # east-west mirror of the sampled transition; batch size, update count and targets are unchanged.\n        flags=rng.integers(2,size=batch).astype(bool)\n        x=history(block['observation'],block['actions'],times,agents,context,flags)\n        a=np.where(flags[:,None],MIRROR_ACTION[a],a);p=np.where(flags[:,None,None],mirror_policy(p),p)\n", ''),
+            ("    p.add_argument('--mirror-augment',action='store_true',help='training-only east-west mirror of half of every replay batch (arena/mirror.py); off reproduces the frozen trainer exactly')\n", ''),
+            ('replay_batch(chosen,rng,a.batch,a.context,a.unroll,a.device,a.mirror_augment)', 'replay_batch(chosen,rng,a.batch,a.context,a.unroll,a.device)'),
+        ]
+        for added, original in mirror_edits:
+            self.assertEqual(source.count(added), 1, added)
+            source = source.replace(added, original)
         source = source.replace('from arena.rootweighted import model_class\n', '')
         source = source.replace("    p.add_argument('--loss-contract',choices=['baseline','root5-mass-v1'],default='baseline')\n", '')
         source = source.replace('model_class(a.loss_contract)(Config(', 'MuZero(Config(')

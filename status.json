@@ -49,7 +49,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:51:44.573270-07:00",
+    "measured_at": "2026-10-24T20:52:51.180127-07:00",
     "steps": [
       {
         "step": 1,
@@ -88,7 +88,7 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T03:51:01.226150+00:00",
-        "elapsed_seconds": 173,
+        "elapsed_seconds": 240,
         "completed": null,
         "total": null,
         "task": "H100 allocated; setup and correctness gates before UPG2 training",
@@ -96,15 +96,23 @@
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 779,
-    "eta_seconds": 311,
+    "elapsed_seconds": 845,
+    "eta_seconds": 245,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
+    "active_loops": 2,
     "updated_at": 1792900147.844753,
     "fresh": false,
     "loops": [
+      {
+        "id": "upg2",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792900369.0585797,
+        "job_id": "upg2-first-block-reference",
+        "fresh": true
+      },
       {
         "id": "loop-a",
         "stage": "test",

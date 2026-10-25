@@ -7,12 +7,12 @@
   "wins": 22,
   "evaluation_games": 64,
   "timeouts": 34,
-  "title": "Session 28 done; research turn cannot complete until the Claude transport is fixed or the deadline interrupts it",
-  "change": "Report, archive and pod release are complete (next action review). The transport counts one result per user message, but steers that arrive mid-turn are merged into the running turn, so its outstanding count never reaches zero.",
-  "result": "Worker waits on turn completion; session deadline 06:38 UTC will interrupt it, then the queued helper runtime loads and session 29 starts. Fix: count results per assistant turn, not per steer.",
+  "title": "Two-arm package ready for session 29 (CB2048 and D99_2048 on 2 x H100); turn awaits transport fix or deadline",
+  "change": "Validated 16-job graph for two devices, payload reuse verified, tiny CPU smoke of both flags passed, discount-tolerant readout self-tested. Storage margins 1.59 GB cache and 6.2 GB free.",
+  "result": "Estimated 2196 s wall, about 4.87 dollars at 7.98/hour with one lease renewal. Admission belongs to the next guarded session; no allocation in this consumed session.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "UPG2_2048 vs OwnInitial",
-  "updated_at": "2026-10-25T04:28:59.127914+00:00",
+  "updated_at": "2026-10-25T04:41:31.524312+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T21:40:46.607298-07:00",
+    "measured_at": "2026-10-24T21:41:31.585626-07:00",
     "steps": [
       {
         "step": 1,
@@ -202,11 +202,11 @@
       {
         "step": 3,
         "state": "active",
-        "updated_at": "2026-10-25T04:28:59.127914+00:00",
-        "elapsed_seconds": 2585,
+        "updated_at": "2026-10-25T04:41:31.524312+00:00",
+        "elapsed_seconds": 2630,
         "completed": null,
         "total": null,
-        "task": "Session 28 done; research turn cannot complete until the Claude transport is fixed or the deadline interrupts it",
+        "task": "Two-arm package ready for session 29 (CB2048 and D99_2048 on 2 x H100); turn awaits transport fix or deadline",
         "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
@@ -222,66 +222,68 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3721,
+    "elapsed_seconds": 3766,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
-    "updated_at": 1792903001.041818,
-    "fresh": false,
+    "active_loops": 0,
+    "updated_at": 1792903291.495563,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "edit",
-        "state": "active",
-        "updated_at": 1792903001.041818,
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792903291.495664,
         "job_id": "iteration28-arm-a-packaging",
         "details": {
           "schema": 1,
-          "stage": "edit",
+          "stage": "review",
           "iteration": 28,
           "completed_games": 2048,
           "target_games": 2048,
           "wins": 22,
           "evaluation_games": 64,
           "timeouts": 34,
-          "title": "Packaging arm A: CB2048 (timeout_bootstrap=continue) two-loop job graph",
-          "change": "Coordinator builds the two-arm supervisor job graph from the verified session-28 package (owner-authorized direct preparation while the turn waits on the transport fix).",
-          "result": "Evaluator and verifier contracts accept flag-only ratio-1 candidates; first-block parity gate applies to this arm. Deliverable: validated initial-jobs for 2 GPUs plus storage/cost notes.",
-          "candidate": "CB2048 (packaging)",
+          "title": "Arm A packaged: CB2048 jobs validated, smoke passed; awaiting next-session admission",
+          "change": "Two-arm job graph validated for 2 GPUs (16 jobs). Tiny CPU smoke of timeout_bootstrap=continue passed; parity gate and shared baseline bouts included; payload reuse verified.",
+          "result": "Release: next session (helper runtime) generates runner 29, approves exact-job storage (margins 1.59 GB cache, 6.2 GB free), fresh 2 x H100 preflight, launch. One lease renewal expected.",
+          "candidate": "CB2048 (packaged)",
           "evaluation_label": "UPG2_2048 vs OwnInitial completed",
-          "updated_at": "2026-10-25T04:36:41.041818+00:00",
+          "updated_at": "2026-10-25T04:41:31.495664+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "edit",
-        "state": "active",
-        "updated_at": 1792903001.041833,
+        "stage": "review",
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792903291.495682,
         "job_id": "iteration28-arm-b-packaging",
         "details": {
           "schema": 1,
-          "stage": "edit",
+          "stage": "review",
           "iteration": 28,
           "completed_games": 0,
           "target_games": 0,
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Packaging arm B: D99-2048 (discount=0.99) chain on the second device",
-          "change": "Same package and tools; first-block parity is not applicable (search discount changes collection). Strict paired readout needs a documented variant allowing the candidate discount.",
-          "result": "Deliverable: arm B jobs in the same graph, paired bout seeds shared with arm A, readout variant note for the next session.",
-          "candidate": "D99-2048 (packaging)",
+          "title": "Arm B packaged: D99_2048 jobs validated, smoke passed; awaiting next-session admission",
+          "change": "discount=0.99 direct-trainer chain on device 2 with bouts paired to the baseline seeds. Readout variant tolerant of the config difference self-tested against session-28 data.",
+          "result": "Release: same admission as arm A. No parity gate by design (search discount changes collection); documented in plan.md.",
+          "candidate": "D99-2048 (packaged)",
           "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T04:36:41.041833+00:00",
+          "updated_at": "2026-10-25T04:41:31.495682+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",

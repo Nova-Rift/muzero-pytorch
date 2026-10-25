@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
+  "stage": "train",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Coordinator usage 5% remaining, below the 6% floor: shutting down GPU pods and helpers",
+  "title": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
   "change": "EGO2048 (relative aim) passed development and held-out gates in session 34. Session 35 continues it to 4096 updates from the recovered full state and prepares independent-seed replication.",
-  "result": "Owner rule; research resumes at the provider reset (2026-10-25T11:59:59+00:00)",
+  "result": "Fresh quote: eleven single-H100 regions, no two-GPU H100. Storage gate passed; preflight approved; lane cont launching (about 3.71 dollars bound).",
   "candidate": "EGO4096",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T08:32:05.305834+00:00",
+  "updated_at": "2026-10-25T08:33:14.804180+00:00",
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:33:01.304419-07:00",
+    "measured_at": "2026-10-25T01:34:07.829554-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "interrupted",
-        "updated_at": "2026-10-25T08:31:37.529041+00:00",
-        "elapsed_seconds": 306,
+        "state": "active",
+        "updated_at": "2026-10-25T08:33:14.804180+00:00",
+        "elapsed_seconds": 359,
         "completed": 0,
         "total": null,
         "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "eta_seconds": 84,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -84,29 +84,47 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 864,
-    "eta_seconds": null,
+    "elapsed_seconds": 931,
+    "eta_seconds": 159,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792916317.1231172,
-    "fresh": false,
+    "updated_at": 1792917206.0382466,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-c",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792917180.8750346,
+        "updated_at": 1792917245.7773433,
         "job_id": "ego4096-train",
+        "details": {
+          "schema": 1,
+          "stage": "train",
+          "iteration": 35,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "EGO2048 to 4096 unchanged continuation on lane cont",
+          "change": "Resumed from the exact recovered EGO2048 full state (trainer 14fece12, relative aim decoding); 2048 more updates then recovery and paired development bouts.",
+          "result": "Pod 4r2vbb5pz4457w US-CA-2; runtime, split-resume and input gates done; training active at 95 percent GPU utilization.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T08:18:37.123117+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
         "fresh": true
       },
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792916317.1231172,
-        "job_id": "iteration-35-planning-1",
+        "updated_at": 1792917206.0382466,
+        "job_id": "iteration35-ego4096-confirmation",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -116,23 +134,23 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "title": "Preparing EGO4096 held-out confirmation successor package",
+          "change": "Helper assembles paired held-out bouts (EGO4096 and Baseline2048 vs E1024/F1024, fresh seeds), readout and exact-job storage inputs for same-pod append on lane cont.",
+          "result": "Conditional on the EGO4096 development gate; package only, no GPU admission yet.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-25T08:18:37.123117+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792916317.1231172,
-        "job_id": "iteration-35-planning-2",
+        "updated_at": 1792917206.0382466,
+        "job_id": "iteration35-replication-admission",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -142,23 +160,23 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "title": "Admitting lane rep: EGO independent-seed replication (seed 73142017)",
+          "change": "Helper package verified (17 jobs, initial-jobs SHA 520e7604..., supervisor validation accepted). Coordinator now sets deadlines, storage readiness, quote, payload staging and launch as the second pod lane.",
+          "result": "Bound 6156 s, about 6.82 dollars at 3.99/h; needs renewal coverage within the 10 dollars/hour ceiling alongside lane cont.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-25T08:18:37.123117+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792916317.1231172,
-        "job_id": "iteration-35-planning-4",
+        "updated_at": 1792917206.0382466,
+        "job_id": "iteration35-ego-adapter-integration",
         "details": {
           "schema": 1,
           "stage": "review",
@@ -168,16 +186,16 @@
           "wins": 0,
           "evaluation_games": 0,
           "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "title": "Integrating EGO relative-aim arena adapter onto current Site source",
+          "change": "Helper integrates adapter c6bdf4a1 and export artifacts b0a2b0b2 onto the published Site main in an isolated checkout with adapter, decoder and roster tests.",
+          "result": "Publication prerequisite only: no deploy or roster change; roster promotion remains gated on replication.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-25T08:18:37.123117+00:00",
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

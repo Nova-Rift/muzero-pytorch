@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:07:09.198471-07:00",
+    "measured_at": "2026-10-25T00:08:16.189288-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,22 +76,22 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T07:06:48.755719+00:00",
-        "elapsed_seconds": 20,
+        "elapsed_seconds": 87,
         "completed": null,
         "total": null,
         "task": "EGO and MIR GPU lanes setting up",
-        "eta_seconds": 95,
+        "eta_seconds": 28,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 1053,
-    "eta_seconds": 37,
+    "elapsed_seconds": 1120,
+    "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792912008.646369,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792912008.646369,
         "job_id": "ego-a-runtime",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1792912008.646369,
         "job_id": "mir-mir-runtime",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1792912008.646369,
         "job_id": "iteration33-replication-prerequisite",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -123,7 +123,7 @@
         "state": "active",
         "updated_at": 1792912008.646369,
         "job_id": "iteration33-ego-adapter",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

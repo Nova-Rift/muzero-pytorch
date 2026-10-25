@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "evaluate",
+  "stage": "review",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 24,
   "evaluation_games": 64,
   "timeouts": 0,
-  "title": "Lane cont2 allocated: EGO4096 development bouts rerun",
-  "change": "Repaired runner template (partial rsync tolerated) regenerated as lane cont2; payload carries the recovered EGO4096 weights and Baseline2048. Ten jobs: runtime gate, staging, seven paired development bouts, readout.",
-  "result": "Pod mre0p6o7o2ly59 in AP-IN-1 at 3.99 per hour; storage gate and preflight passed; hard bound 1320 s. Held-out confirmation appends only if the preregistered gate passes.",
-  "candidate": "EGO4096",
+  "title": "EGO4096 failed the development gate; EGO2048 remains the candidate",
+  "change": "Seven paired development bouts on lane cont2: EGO4096 tied EGO2048 vs E1024 (34 vs 34), trailed vs F1024 (51 vs 55) and lost head-to-head 24 to 38. No confirmation appended.",
+  "result": "Longer unchanged training did not help; pod released after recovery. Next: EGO2048 independent-seed replication, blocked by host disk space (7.7 GB free vs 9.55 GB measured need); regression analysis and roster preparation continue.",
+  "candidate": "EGO2048",
   "evaluation_label": "EGO4096 vs EGO2048",
-  "updated_at": "2026-10-25T08:47:47.847913+00:00",
+  "updated_at": "2026-10-25T08:59:52.224493+00:00",
   "matchup": {
     "challenger": "EGO4096",
     "opponent": "EGO2048",
@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:59:11.539784-07:00",
+    "measured_at": "2026-10-25T01:59:52.299713-07:00",
     "steps": [
       {
         "step": 1,
@@ -58,25 +58,25 @@
       },
       {
         "step": 2,
-        "state": "active",
-        "updated_at": "2026-10-25T08:47:47.847913+00:00",
-        "elapsed_seconds": 684,
+        "state": "finished",
+        "updated_at": "2026-10-25T08:59:52.224493+00:00",
+        "elapsed_seconds": 724,
         "completed": 64,
         "total": null,
         "task": "EGO4096 vs EGO2048",
-        "eta_seconds": 0,
-        "eta_basis": "12 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T08:47:47.847913+00:00",
+        "state": "active",
+        "updated_at": "2026-10-25T08:59:52.224493+00:00",
         "elapsed_seconds": 992,
         "completed": null,
         "total": null,
-        "task": "Lane cont: EGO4096 training complete and recovered; runner lost the pod before development bouts",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
+        "eta_seconds": 0,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2434,
+    "elapsed_seconds": 2475,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },

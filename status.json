@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "train",
   "iteration": 35,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 35: reviewing evidence",
-  "change": "Reviewing the previous research evidence",
-  "result": "No new result yet",
-  "candidate": "Not selected",
+  "title": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
+  "change": "EGO2048 (relative aim) passed development and held-out gates in session 34. Session 35 continues it to 4096 updates from the recovered full state and prepares independent-seed replication.",
+  "result": "Fresh quote: eleven single-H100 regions, no two-GPU H100. Storage gate passed; preflight approved; lane cont launching (about 3.71 dollars bound).",
+  "candidate": "EGO4096",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T08:18:37.121594+00:00",
+  "updated_at": "2026-10-25T08:26:31.587243+00:00",
   "latest_comparison": {
     "iteration": 34,
     "loop": "loop-a",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:26:18.235981-07:00",
+    "measured_at": "2026-10-25T01:26:31.661368-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T08:26:31.587243+00:00",
         "elapsed_seconds": 0,
-        "completed": null,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Allocating lane cont: EGO2048 to 4096 continuation; replication lane being packaged",
+        "eta_seconds": 443,
+        "eta_basis": "7 previous iteration(s)"
       },
       {
         "step": 2,
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T08:18:37.121594+00:00",
-        "elapsed_seconds": 461,
+        "state": "finished",
+        "updated_at": "2026-10-25T08:26:31.587243+00:00",
+        "elapsed_seconds": 474,
         "completed": null,
         "total": null,
         "task": "Iteration 35: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 461,
-    "eta_seconds": 629,
+    "elapsed_seconds": 475,
+    "eta_seconds": 615,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

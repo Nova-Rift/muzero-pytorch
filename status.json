@@ -43,7 +43,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T02:01:21.324478-07:00",
+    "measured_at": "2026-10-25T02:02:26.263970-07:00",
     "steps": [
       {
         "step": 1,
@@ -71,7 +71,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T08:59:52.224493+00:00",
-        "elapsed_seconds": 1081,
+        "elapsed_seconds": 1146,
         "completed": null,
         "total": null,
         "task": "EGO4096 failed the development gate; EGO2048 remains the candidate",
@@ -90,7 +90,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2564,
+    "elapsed_seconds": 2629,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
@@ -123,7 +123,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -167,7 +167,7 @@
           "next_action": "Review the helper's analysis and hypotheses; freeze at most one new candidate plan with a dev gate; replication remains the promotion prerequisite.",
           "updated_at": "2026-10-25T09:00:51.822441+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",

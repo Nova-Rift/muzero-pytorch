@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T18:35:03.909490-07:00",
+    "measured_at": "2026-10-24T18:36:10.067534-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T01:31:48.967958+00:00",
-        "elapsed_seconds": 195,
+        "elapsed_seconds": 261,
         "completed": null,
         "total": null,
         "task": "Iteration 27: reviewing evidence",
-        "eta_seconds": 10,
+        "eta_seconds": 0,
         "eta_basis": "19 previous iteration(s)"
       },
       {
@@ -84,118 +84,47 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 195,
-    "eta_seconds": 895,
+    "elapsed_seconds": 261,
+    "eta_seconds": 829,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792891908.9800942,
-    "fresh": false,
+    "active_loops": 3,
+    "updated_at": 1792892134.92474,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792891908.9800942,
-        "job_id": "iteration-27-planning-1",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 27,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T01:31:48.980094+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792892134.92474,
+        "job_id": "iteration27-admission-review",
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792891908.9800942,
-        "job_id": "iteration-27-planning-2",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 27,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T01:31:48.980094+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792892134.92474,
+        "job_id": "iteration27-upg2-validation",
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792891908.9800942,
-        "job_id": "iteration-27-planning-3",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 27,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T01:31:48.980094+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792892134.92474,
+        "job_id": "iteration27-upg2-package",
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792891908.9800942,
-        "job_id": "iteration-27-planning-4",
-        "details": {
-          "schema": 1,
-          "stage": "review",
-          "iteration": 27,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "Overseer planning next task",
-          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
-          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
-          "candidate": "Research planning",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-25T01:31:48.980094+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792892134.92474,
+        "job_id": "iteration27-helper-closure-gate",
+        "fresh": true
       }
     ]
   },

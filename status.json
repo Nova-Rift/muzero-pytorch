@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "UPG2 admission: storage gate released, binding tested package",
-  "change": "Storage policy now 12 GiB cache / 4 GiB reserve: the session-27 plan passes. Runner 28 generated (25 checks); payload rebuilt with current supervisor files, experiment content byte-identical.",
-  "result": "No GPU allocated yet. Fresh offer, budget and preflight approval precede the guarded launch; CUDA runtime, ratio-2 resume and first-block parity gates run before training.",
+  "title": "H100 allocated; setup and correctness gates before UPG2 training",
+  "change": "Pod registered at 3.99/hour in US-MO-1 under a 3 dollar lease segment. 50 MB payload uploading; runtime, ratio-2 CUDA resume and first-block parity gates must pass before training.",
+  "result": "Planning estimate 2376 seconds, 2.6334 dollars at the quoted rate. No scientific training or evaluation completed yet in this session.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T03:48:51.215153+00:00",
+  "updated_at": "2026-10-25T03:51:01.226150+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -49,7 +49,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:50:41.185237-07:00",
+    "measured_at": "2026-10-24T20:51:01.284584-07:00",
     "steps": [
       {
         "step": 1,
@@ -87,17 +87,17 @@
       {
         "step": 4,
         "state": "active",
-        "updated_at": "2026-10-25T03:48:51.215153+00:00",
-        "elapsed_seconds": 110,
+        "updated_at": "2026-10-25T03:51:01.226150+00:00",
+        "elapsed_seconds": 130,
         "completed": null,
         "total": null,
-        "task": "UPG2 admission: storage gate released, binding tested package",
-        "eta_seconds": 5,
+        "task": "H100 allocated; setup and correctness gates before UPG2 training",
+        "eta_seconds": 0,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 715,
-    "eta_seconds": 375,
+    "elapsed_seconds": 735,
+    "eta_seconds": 355,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

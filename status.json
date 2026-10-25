@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
-  "iteration": 33,
+  "stage": "review",
+  "iteration": 34,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Assistant research turn did not complete",
+  "title": "Iteration 34: reviewing evidence",
   "change": "Both lanes deleted; zero pods independently verified. All real helpers closed and evidence archived locally for bounded Drive backup.",
   "result": "Pod cleanup runs now; the worker verifies provider inventory before any automatic continuation.",
   "candidate": "CB2048, D99_2048 and REP2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T07:23:39.459627+00:00",
+  "updated_at": "2026-10-25T07:25:29.302703+00:00",
   "latest_comparison": {
     "iteration": 30,
     "loop": "loop-a",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:24:27.231040-07:00",
+    "measured_at": "2026-10-25T00:25:31.236269-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,106 +63,139 @@
       },
       {
         "step": 3,
-        "state": "interrupted",
-        "updated_at": "2026-10-25T07:23:39.459627+00:00",
-        "elapsed_seconds": 1395,
+        "state": "active",
+        "updated_at": "2026-10-25T07:25:29.302703+00:00",
+        "elapsed_seconds": 2,
         "completed": null,
         "total": null,
-        "task": "Session33 setup failed; reviewed handoff ready",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 34: reviewing evidence",
+        "eta_seconds": 203,
+        "eta_basis": "19 previous iteration(s)"
       },
       {
         "step": 4,
-        "state": "finished",
-        "updated_at": "2026-10-25T07:17:36.885496+00:00",
-        "elapsed_seconds": 648,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Setup failed before GPU training",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2091,
-    "eta_seconds": null,
+    "elapsed_seconds": 2,
+    "eta_seconds": 1088,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792912958.2187927,
-    "fresh": false,
+    "active_loops": 4,
+    "updated_at": 1792913129.3107674,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
         "stage": "review",
-        "state": "done",
-        "updated_at": 1792912958.2187927,
-        "job_id": "iteration33-session-evidence",
-        "fresh": false
+        "state": "active",
+        "updated_at": 1792913129.3107674,
+        "job_id": "iteration-34-planning-1",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 34,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T07:25:29.310767+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792912656.629723,
-        "job_id": "iteration33-mir-next-admission",
-        "decision": {
-          "reviewing": "MIR next-session admission",
-          "options": [
-            "Wait for the recorded prerequisites"
-          ],
-          "evidence": [
-            "Blocked: This lane was consumed and deleted during sibling setup failure; no CUDA work ran. Release: Fresh guarded session, repaired generated runner, fresh quote and exact-job storage admission."
-          ],
-          "reason": "Blocked: This lane was consumed and deleted during sibling setup failure; no CUDA work ran. Release: Fresh guarded session, repaired generated runner, fresh quote and exact-job storage admission.",
-          "next_action": "Resolve the recorded prerequisites before admitting this task.",
-          "updated_at": "2026-10-25T07:17:36.629723+00:00"
+        "state": "active",
+        "updated_at": 1792913129.3107674,
+        "job_id": "iteration-34-planning-2",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 34,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T07:25:29.310767+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792912656.629723,
-        "job_id": "iteration33-replication-checkpoint",
-        "decision": {
-          "reviewing": "Replication partial checkpoint preserved",
-          "options": [
-            "Wait for the recorded prerequisites"
-          ],
-          "evidence": [
-            "Blocked: Initialization/evaluator adapters checked; dedicated readout and real CUDA initialization remain unfinished. Session closure takes priority over optional preparation. Release: Next guarded session assigns a fresh exclusive helper for remaining readout while admitted EGO/MIR work runs."
-          ],
-          "reason": "Blocked: Initialization/evaluator adapters checked; dedicated readout and real CUDA initialization remain unfinished. Session closure takes priority over optional preparation. Release: Next guarded session assigns a fresh exclusive helper for remaining readout while admitted EGO/MIR work runs.",
-          "next_action": "Resolve the recorded prerequisites before admitting this task.",
-          "updated_at": "2026-10-25T07:17:36.629723+00:00"
+        "state": "active",
+        "updated_at": 1792913129.3107674,
+        "job_id": "iteration-34-planning-3",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 34,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T07:25:29.310767+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
         "stage": "review",
-        "state": "pending",
-        "blocked": true,
-        "updated_at": 1792912656.629723,
-        "job_id": "iteration33-ego-checkpoint-parity",
-        "decision": {
-          "reviewing": "EGO adapter awaits a qualified checkpoint",
-          "options": [
-            "Wait for the recorded prerequisites"
-          ],
-          "evidence": [
-            "Blocked: Conditional adapter passes 25 tests and bridge parity; no checkpoint-specific ONNX/search parity or deployment. Release: Recovered qualified EGO checkpoint after frozen development and confirmation gates; then export and validate exact checkpoint."
-          ],
-          "reason": "Blocked: Conditional adapter passes 25 tests and bridge parity; no checkpoint-specific ONNX/search parity or deployment. Release: Recovered qualified EGO checkpoint after frozen development and confirmation gates; then export and validate exact checkpoint.",
-          "next_action": "Resolve the recorded prerequisites before admitting this task.",
-          "updated_at": "2026-10-25T07:17:36.629723+00:00"
+        "state": "active",
+        "updated_at": 1792913129.3107674,
+        "job_id": "iteration-34-planning-4",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 34,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-25T07:25:29.310767+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

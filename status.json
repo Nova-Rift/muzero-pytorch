@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "paused",
   "iteration": 28,
   "completed_games": 2048,
   "target_games": 2048,
   "wins": 22,
   "evaluation_games": 64,
   "timeouts": 34,
-  "title": "Two-arm package ready for session 29 (CB2048 and D99_2048 on 2 x H100); turn awaits transport fix or deadline",
+  "title": "Paused by owner",
   "change": "Validated 16-job graph for two devices, payload reuse verified, tiny CPU smoke of both flags passed, discount-tolerant readout self-tested. Storage margins 1.59 GB cache and 6.2 GB free.",
   "result": "Estimated 2196 s wall, about 4.87 dollars at 7.98/hour with one lease renewal. Admission belongs to the next guarded session; no allocation in this consumed session.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "UPG2_2048 vs OwnInitial",
-  "updated_at": "2026-10-25T04:41:31.524312+00:00",
+  "updated_at": "2026-10-25T05:37:52.462707+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -175,7 +175,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:37:24.218921-07:00",
+    "measured_at": "2026-10-24T22:37:52.524111-07:00",
     "steps": [
       {
         "step": 1,
@@ -201,14 +201,14 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T04:41:31.524312+00:00",
-        "elapsed_seconds": 5982,
+        "state": "interrupted",
+        "updated_at": "2026-10-25T05:37:52.462707+00:00",
+        "elapsed_seconds": 6011,
         "completed": null,
         "total": null,
         "task": "Two-arm package ready for session 29 (CB2048 and D99_2048 on 2 x H100); turn awaits transport fix or deadline",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
@@ -222,8 +222,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 7118,
-    "eta_seconds": 0,
+    "elapsed_seconds": 7147,
+    "eta_seconds": null,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {

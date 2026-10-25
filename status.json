@@ -1,18 +1,30 @@
 {
   "schema": 1,
-  "stage": "review",
+  "stage": "test",
   "iteration": 28,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 28: reviewing evidence",
-  "change": "Required diagnostics and integrated package tested, published where applicable, and archived. All session27 helpers closed.",
-  "result": "Prepared UPG2 work is blocked by verified cache/free-reserve admission. Retain all evidence; reviewed capacity resolution and owner resume required before fresh guarded admission.",
+  "title": "UPG2 admission: storage gate released, binding tested package",
+  "change": "Storage policy now 12 GiB cache / 4 GiB reserve: the session-27 plan passes. Runner 28 generated (25 checks); payload rebuilt with current supervisor files, experiment content byte-identical.",
+  "result": "No GPU allocated yet. Fresh offer, budget and preflight approval precede the guarded launch; CUDA runtime, ratio-2 resume and first-block parity gates run before training.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T03:40:17.278878+00:00",
+  "updated_at": "2026-10-25T03:48:51.215153+00:00",
+  "revision": {
+    "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
+    "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
+    "changes": [
+      "No model or trainer code change; updates_per_game 2 instead of 1",
+      "Strict ratio-2 CUDA split-resume gate before training",
+      "Frozen ratio-1 full-128-game reference collection and pre-update parity check of the candidate",
+      "Six frozen 64-game evaluations: Baseline2048 and UPG2_2048 vs E1024, F1024, OwnInitial"
+    ],
+    "test_plan": "Development gate: candidate strictly more wins than Baseline2048 against both E1024 and F1024 with at most 12/64 timeouts each; OwnInitial is descriptive. Passing only earns a later fresh held-out confirmation and independent-seed replication, not promotion.",
+    "updated_at": "2026-10-25T03:48:51.215148+00:00"
+  },
   "latest_comparison": {
     "iteration": 26,
     "loop": "loop-b",
@@ -37,7 +49,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:48:30.799962-07:00",
+    "measured_at": "2026-10-24T20:48:51.284288-07:00",
     "steps": [
       {
         "step": 1,
@@ -63,29 +75,29 @@
       },
       {
         "step": 3,
-        "state": "active",
-        "updated_at": "2026-10-25T03:40:17.278878+00:00",
-        "elapsed_seconds": 585,
+        "state": "finished",
+        "updated_at": "2026-10-25T03:48:51.215153+00:00",
+        "elapsed_seconds": 605,
         "completed": null,
         "total": null,
         "task": "Iteration 28: reviewing evidence",
-        "eta_seconds": 0,
-        "eta_basis": "19 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 4,
-        "state": "pending",
-        "updated_at": null,
+        "state": "active",
+        "updated_at": "2026-10-25T03:48:51.215153+00:00",
         "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "UPG2 admission: storage gate released, binding tested package",
+        "eta_seconds": 115,
+        "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 585,
-    "eta_seconds": 505,
+    "elapsed_seconds": 605,
+    "eta_seconds": 485,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
@@ -141,7 +153,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -168,7 +180,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -195,7 +207,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

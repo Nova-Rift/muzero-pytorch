@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T01:52:43.924456-07:00",
+    "measured_at": "2026-10-25T01:53:46.285772-07:00",
     "steps": [
       {
         "step": 1,
@@ -54,11 +54,11 @@
         "step": 2,
         "state": "active",
         "updated_at": "2026-10-25T08:47:47.847913+00:00",
-        "elapsed_seconds": 296,
+        "elapsed_seconds": 358,
         "completed": 0,
         "total": null,
         "task": "Development bouts running on lane cont2",
-        "eta_seconds": 178,
+        "eta_seconds": 116,
         "eta_basis": "12 previous iteration(s)"
       },
       {
@@ -84,13 +84,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2047,
+    "elapsed_seconds": 2109,
     "eta_seconds": 0,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
-    "updated_at": 1792917550.5776525,
+    "active_loops": 2,
+    "updated_at": 1792917669.3944304,
     "fresh": false,
     "loops": [
       {
@@ -104,17 +104,30 @@
       {
         "id": "loop-b",
         "stage": "review",
-        "state": "active",
-        "updated_at": 1792917550.5776525,
+        "state": "pending",
+        "blocked": true,
+        "updated_at": 1792918424.675189,
         "job_id": "iteration35-replication-admission",
-        "fresh": false
+        "decision": {
+          "reviewing": "Admitting lane rep: EGO independent-seed replication (seed 73142017)",
+          "options": [
+            "Wait for the recorded prerequisites"
+          ],
+          "evidence": [
+            "BLOCKED by host disk space: measured exact-job requirement 9.55 GB (recovered 2.04, archive 2.04, scratch 1.02, outstanding 0.15, headroom 4.29) vs 7.55 GB free after archiving EGO4096. Policy-permitted regenerable space is only 0.39 GB. Release condition: free space at or above 9.55 GB (owner-side cleanup of about 2 GB outside the research lab, or a smaller measured plan). Payload (35caf910), runner and corrected job cwds are staged."
+          ],
+          "reason": "BLOCKED by host disk space: measured exact-job requirement 9.55 GB (recovered 2.04, archive 2.04, scratch 1.02, outstanding 0.15, headroom 4.29) vs 7.55 GB free after archiving EGO4096. Policy-permitted regenerable space is only 0.39 GB. Release condition: free space at or above 9.55 GB (owner-side cleanup of about 2 GB outside the research lab, or a smaller measured plan). Payload (35caf910), runner and corrected job cwds are staged.",
+          "next_action": "Resolve the recorded prerequisites before admitting this task.",
+          "updated_at": "2026-10-25T08:53:44.675189+00:00"
+        },
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "evaluate",
-        "state": "done",
+        "state": "interrupted",
         "updated_at": 1792917392.9081812,
-        "job_id": "ego4096-runtime",
+        "job_id": "ego4096-EGO4096-E1024",
         "details": {
           "schema": 1,
           "stage": "evaluate",
@@ -126,7 +139,7 @@
           "timeouts": 0,
           "title": "Admitting lane cont2: EGO4096 development bouts rerun",
           "change": "Repaired runner template (rsync 23/24 tolerated) regenerated as lane cont2; payload carries recovered EGO4096 weights (sha 8adb32bc) and Baseline2048; 10 jobs: runtime gate, staging, seven paired bouts, readout.",
-          "result": "Pod mre0p6o7o2ly59 (AP-IN-1, 3.99/h) allocated; setup uploading the 169 MB payload. Runtime gate, staging, seven paired bouts and readout follow (hard bound 1320 s).",
+          "result": "Pod mre0p6o7o2ly59 running the bouts chain; current job ego4096-EGO4096-E1024. Readout then gate review.",
           "candidate": "Research planning",
           "evaluation_label": "No new evaluation",
           "updated_at": "2026-10-25T08:18:37.123117+00:00",

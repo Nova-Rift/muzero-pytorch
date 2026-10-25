@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T22:41:01.201421-07:00",
+    "measured_at": "2026-10-24T22:42:05.168924-07:00",
     "steps": [
       {
         "step": 1,
@@ -76,22 +76,22 @@
         "step": 4,
         "state": "active",
         "updated_at": "2026-10-25T05:40:21.123261+00:00",
-        "elapsed_seconds": 40,
+        "elapsed_seconds": 104,
         "completed": null,
         "total": null,
         "task": "Session 29: admitting two parallel candidate arms; helpers on seed audit and ladder export",
-        "eta_seconds": 75,
+        "eta_seconds": 11,
         "eta_basis": "15 previous iteration(s)"
       }
     ],
-    "elapsed_seconds": 132,
-    "eta_seconds": 958,
+    "elapsed_seconds": 196,
+    "eta_seconds": 894,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792906821.092954,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -117,7 +117,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -143,7 +143,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -169,7 +169,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -195,7 +195,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

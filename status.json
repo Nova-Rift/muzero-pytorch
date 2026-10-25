@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T00:04:57.869237-07:00",
+    "measured_at": "2026-10-25T00:06:01.231375-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,7 +65,7 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-25T06:51:35.293527+00:00",
-        "elapsed_seconds": 922,
+        "elapsed_seconds": 985,
         "completed": null,
         "total": null,
         "task": "MuZero parallel variant admission",
@@ -84,60 +84,46 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 922,
-    "eta_seconds": 168,
+    "elapsed_seconds": 985,
+    "eta_seconds": 105,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792911682.6347418,
-    "fresh": false,
+    "updated_at": 1792911955.7574668,
+    "fresh": true,
     "loops": [
       {
         "id": "loop-a",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792911682.6347418,
-        "job_id": "iteration33-admission-review",
-        "decision": {
-          "reviewing": "Which frozen MuZero experiment can be admitted next?",
-          "options": [
-            "Opponent-relative aim decoding, tested separately from mirror replay augmentation.",
-            "Recover REP artifacts and avoid rerunning completed CB/D99 work."
-          ],
-          "evidence": [
-            "CB improved E wins but regressed F and cutoffs; D99 failed the frozen development gate.",
-            "EGO and MIR source revisions exist; strict changed-source evaluator and per-variant resume checks are still being completed."
-          ],
-          "reason": "Test distinct declared hypotheses from a common frozen recipe while retaining failed results and all admission guards.",
-          "next_action": "Verify returned source/tests and storage, refresh offers, then admit independent GPU lanes within the shared ceiling.",
-          "updated_at": "2026-10-25T06:53:03.065690+00:00"
-        },
-        "fresh": false
+        "stage": "test",
+        "state": "pending",
+        "updated_at": 1792911955.7574668,
+        "job_id": "ego-a-runtime",
+        "fresh": true
       },
       {
         "id": "loop-b",
         "stage": "test",
-        "state": "active",
-        "updated_at": 1792911682.6347418,
-        "job_id": "iteration33-variant-recovery",
-        "fresh": false
+        "state": "pending",
+        "updated_at": 1792911955.7574668,
+        "job_id": "mir-mir-runtime",
+        "fresh": true
       },
       {
         "id": "loop-c",
         "stage": "edit",
         "state": "active",
-        "updated_at": 1792911682.6347418,
+        "updated_at": 1792911955.7574668,
         "job_id": "iteration33-replication-prerequisite",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792911682.6347418,
-        "job_id": "iteration33-variant-readout",
-        "fresh": false
+        "stage": "review",
+        "state": "pending",
+        "updated_at": 1792911955.7574668,
+        "job_id": "iteration33-ego-adapter",
+        "fresh": true
       }
     ]
   },

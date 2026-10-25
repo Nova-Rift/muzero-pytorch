@@ -2,17 +2,17 @@
   "schema": 1,
   "stage": "train",
   "iteration": 28,
-  "completed_games": 0,
+  "completed_games": 384,
   "target_games": 2048,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "UPG2 gates: CUDA runtime and ratio-2 split-resume passed; frozen first-block reference running",
-  "change": "Runtime and ratio-2 exact split-resume gates done on the H100. The ratio-1 full 128-game reference collection is running before the candidate starts.",
-  "result": "No training games counted yet. The candidate starts only if its first block matches the reference arrays exactly. Strength remains unmeasured.",
+  "title": "UPG2 chain: done 3/10 jobs; active UPG2_2048; failed none",
+  "change": "Supervisor jobs: done 3/10 jobs; active UPG2_2048; failed none. GPU utilization sample {'0': 92}.",
+  "result": "Observed 384 training games and 768 optimizer updates. Strength is unmeasured until the frozen evaluations complete.",
   "candidate": "Baseline-UPG2-2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T03:53:28.444600+00:00",
+  "updated_at": "2026-10-25T03:54:56.033241+00:00",
   "revision": {
     "summary": "Run the prepared UPG2 experiment: two optimizer updates per self-play game instead of one, fresh restart from the archived Baseline2048 initial weights, same seed 52731415, 2048 games.",
     "reason": "The longer Baseline4096 continuation failed its frozen development gate (17/64 vs 26/64 against E1024). UPG2 tests whether more learning per game helps at equal games; trainer code, model, game rules and reward are unchanged, so this is a settings hypothesis, not an architecture change.",
@@ -24,6 +24,35 @@
     ],
     "test_plan": "Development gate: candidate strictly more wins than Baseline2048 against both E1024 and F1024 with at most 12/64 timeouts each; OwnInitial is descriptive. Passing only earns a later fresh held-out confirmation and independent-seed replication, not promotion.",
     "updated_at": "2026-10-25T03:48:51.215148+00:00"
+  },
+  "training_metrics": {
+    "iteration": 28,
+    "run_id": "UPG2_2048",
+    "loss_definition": "last_update_batch_mean",
+    "reported_at": "2026-10-25T03:54:38.545737+00:00",
+    "points": [
+      {
+        "optimizer_updates": 256,
+        "games": 128,
+        "elapsed_seconds": 34.10038398799952,
+        "loss": 5.384023189544678,
+        "search_entropy": 3.465735912322998
+      },
+      {
+        "optimizer_updates": 512,
+        "games": 256,
+        "elapsed_seconds": 65.1100435340195,
+        "loss": 5.397363662719727,
+        "search_entropy": 0.9527230649255216
+      },
+      {
+        "optimizer_updates": 768,
+        "games": 384,
+        "elapsed_seconds": 97.1154567199992,
+        "loss": 5.586336135864258,
+        "search_entropy": 1.9830741230398417
+      }
+    ]
   },
   "latest_comparison": {
     "iteration": 26,
@@ -49,18 +78,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-24T20:54:01.179858-07:00",
+    "measured_at": "2026-10-24T20:55:08.225928-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-25T03:53:28.444600+00:00",
-        "elapsed_seconds": 33,
-        "completed": 0,
+        "updated_at": "2026-10-25T03:54:56.033241+00:00",
+        "elapsed_seconds": 100,
+        "completed": 384,
         "total": 2048,
-        "task": "UPG2 gates: CUDA runtime and ratio-2 split-resume passed; frozen first-block reference running",
-        "eta_seconds": 410,
-        "eta_basis": "7 previous iteration(s)"
+        "task": "UPG2 chain: done 3/10 jobs; active UPG2_2048; failed none",
+        "eta_seconds": 433,
+        "eta_basis": "observed training rate"
       },
       {
         "step": 2,
@@ -96,20 +125,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 915,
-    "eta_seconds": 175,
+    "elapsed_seconds": 982,
+    "eta_seconds": 108,
     "eta_basis": "19 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 2,
     "updated_at": 1792900415.464768,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "upg2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792900437.6616168,
+        "updated_at": 1792900507.706375,
         "job_id": "UPG2_2048",
         "fresh": true
       },
@@ -152,7 +181,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",

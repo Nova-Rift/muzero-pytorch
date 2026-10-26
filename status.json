@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "4 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 78 min queued per GPU",
   "change": "41 jobs finished today; planner idle",
-  "result": "$8.42 of today's budget left",
+  "result": "$32.78 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T03:33:33.977592+00:00",
+  "updated_at": "2026-10-26T03:34:44.330001+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T20:33:40.365972-07:00",
+    "measured_at": "2026-10-25T20:34:46.040737-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T03:33:33.977592+00:00",
-        "elapsed_seconds": 3936,
+        "updated_at": "2026-10-26T03:34:44.330001+00:00",
+        "elapsed_seconds": 4002,
         "completed": 0,
         "total": null,
         "task": "4 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 78 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 5223,
+    "elapsed_seconds": 5288,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792985604.4701593,
+    "updated_at": 1792985674.9420712,
     "fresh": true,
     "loops": [
       {
         "id": "farm7-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792985604.4701593,
+        "updated_at": 1792985674.9420712,
         "job_id": "ego2048-r4-bout",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm7-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792985604.4701593,
+        "updated_at": 1792985674.9420712,
         "job_id": "ego2048-r6-train",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm8-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792985604.9295962,
+        "updated_at": 1792985675.3478422,
         "job_id": "ego2048-r10-train",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm8-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792985604.9295962,
+        "updated_at": 1792985675.3478422,
         "job_id": "mirror2048-m10-train",
         "fresh": true
       }
@@ -135,7 +135,7 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 8.421,
+    "remaining_usd": 32.778146104569736,
     "reserved_usd": 41.579,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

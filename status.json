@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T21:39:30.371775-07:00",
+    "measured_at": "2026-10-25T21:40:36.352069-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-26T04:38:25.966566+00:00",
-        "elapsed_seconds": 7886,
+        "elapsed_seconds": 7952,
         "completed": 0,
         "total": null,
         "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 113 min queued per GPU",
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 9173,
+    "elapsed_seconds": 9239,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -127,7 +127,7 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 27.887646104569733,
+    "remaining_usd": 29.572392679148418,
     "reserved_usd": 46.4695,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

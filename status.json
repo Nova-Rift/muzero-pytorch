@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Setting up GeForce RTX 4090 \u00b7 247 min of work queued",
+  "title": "Setting up GeForce RTX 4090 \u00b7 124 min of work queued",
   "change": "72 jobs finished today; planner idle",
-  "result": "$28.22 of today's budget left",
+  "result": "$27.53 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T06:45:45.713283+00:00",
+  "updated_at": "2026-10-26T06:46:25.931484+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T23:45:54.480307-07:00",
+    "measured_at": "2026-10-25T23:47:00.683855-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,21 +84,29 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 16748,
+    "elapsed_seconds": 16788,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1792997145.707355,
+    "active_loops": 2,
+    "updated_at": 1792997185.925365,
     "fresh": true,
     "loops": [
       {
-        "id": "farm31-setup",
+        "id": "farm32-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792997145.707355,
-        "job_id": "setup-farm31",
+        "updated_at": 1792997185.925365,
+        "job_id": "setup-farm32",
+        "fresh": true
+      },
+      {
+        "id": "farm33-setup",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792997185.925365,
+        "job_id": "setup-farm33",
         "fresh": true
       }
     ]
@@ -111,8 +119,8 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 28.222629597884914,
-    "reserved_usd": 62.84479999999995,
+    "remaining_usd": 26.85210096992105,
+    "reserved_usd": 64.89169999999994,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

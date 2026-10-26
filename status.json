@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:36:23.384913-07:00",
+    "measured_at": "2026-10-25T18:37:00.358936-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 748,
+    "elapsed_seconds": 785,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792978528.0224938,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792978528.0224938,
         "job_id": "poolb-EGO-POOL2048",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1792978528.0224938,
         "job_id": "iteration38-pool-analysis",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -133,7 +133,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -159,7 +159,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

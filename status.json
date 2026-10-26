@@ -12,7 +12,7 @@
   "result": "$27.89 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T04:31:52.254386+00:00",
+  "updated_at": "2026-10-26T04:33:12.959772+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T21:32:01.231604-07:00",
+    "measured_at": "2026-10-25T21:33:13.091620-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T04:31:52.254386+00:00",
-        "elapsed_seconds": 7437,
+        "updated_at": "2026-10-26T04:33:12.959772+00:00",
+        "elapsed_seconds": 7509,
         "completed": 0,
         "total": null,
         "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 105 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 8723,
+    "elapsed_seconds": 8795,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792989103.121567,
+    "updated_at": 1792989183.6258426,
     "fresh": true,
     "loops": [
       {
         "id": "farm7-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792989103.121567,
+        "updated_at": 1792989183.6258426,
         "job_id": "ego2048-r13-train",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm8-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792989103.6526463,
+        "updated_at": 1792989184.0834858,
         "job_id": "ego2048-r11b-train",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm8-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792989103.6526463,
+        "updated_at": 1792989184.0834858,
         "job_id": "mirror2048-m11b-train",
         "fresh": true
       }

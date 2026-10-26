@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "paused",
   "iteration": 38,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Iteration 38: EGO-POOL2048 partner-pool candidate and EGO2048 ladder bouts on GPU; three candidates in preparation",
+  "title": "Paused by owner",
   "change": "Lane pool2 runs the partner-pool candidate against a paired EGO2048 control plus EGO2048 ladder bouts. Helpers repair the S2 replication, parameterise the S3 seed and package EGO-EXPLORE2048.",
   "result": "Pod allocated; setup in progress. No new strength result yet.",
   "candidate": "EGO-POOL2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T01:28:43.942219+00:00",
+  "updated_at": "2026-10-26T01:36:23.311908+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:35:57.167525-07:00",
+    "measured_at": "2026-10-25T18:36:23.384913-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-26T01:28:43.942219+00:00",
-        "elapsed_seconds": 433,
+        "state": "interrupted",
+        "updated_at": "2026-10-26T01:36:23.311908+00:00",
+        "elapsed_seconds": 459,
         "completed": 0,
         "total": null,
         "task": "Iteration 38: EGO-POOL2048 partner-pool candidate and EGO2048 ladder bouts on GPU; three candidates in preparation",
-        "eta_seconds": 2,
-        "eta_basis": "8 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 722,
-    "eta_seconds": 425,
+    "elapsed_seconds": 748,
+    "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
@@ -171,7 +171,7 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 16.421366124236087,
+    "remaining_usd": 18.837017279717823,
     "reserved_usd": 33.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }

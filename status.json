@@ -12,7 +12,7 @@
   "result": "$29.46 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T11:55:58.800040+00:00",
+  "updated_at": "2026-10-26T11:57:02.223930+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T04:56:00.398281-07:00",
+    "measured_at": "2026-10-26T04:57:06.960788-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T11:55:58.800040+00:00",
-        "elapsed_seconds": 29253,
+        "updated_at": "2026-10-26T11:57:02.223930+00:00",
+        "elapsed_seconds": 29319,
         "completed": 0,
         "total": null,
         "task": "19 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 61 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 35363,
+    "elapsed_seconds": 35429,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793015749.323118,
+    "updated_at": 1793015812.8566492,
     "fresh": true,
     "loops": [
       {
         "id": "farm32-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793015749.323118,
+        "updated_at": 1793015812.8566492,
         "job_id": "w2-s16",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm32-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793015749.323118,
+        "updated_at": 1793015812.8566492,
         "job_id": "warm32k-fb-3200000",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm32-3",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793015749.323118,
+        "updated_at": 1793015812.8566492,
         "job_id": "warm32k-fb-3200001",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm32-4",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793015749.323118,
+        "updated_at": 1793015812.8566492,
         "job_id": "xs2-s32",
         "fresh": true
       }

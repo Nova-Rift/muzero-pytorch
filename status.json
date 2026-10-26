@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
+  "stage": "queued",
   "iteration": 39,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
+  "title": "Setting up GeForce RTX 4090 \u00b7 124 min of work queued",
   "change": "72 jobs finished today; planner idle",
-  "result": "$29.57 of today's budget left",
+  "result": "$28.20 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T05:30:45.363658+00:00",
+  "updated_at": "2026-10-26T06:16:50.501097+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,11 +37,11 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T23:15:54.443753-07:00",
+    "measured_at": "2026-10-25T23:17:00.366696-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "interrupted",
+        "state": "finished",
         "updated_at": "2026-10-26T05:27:02.518531+00:00",
         "elapsed_seconds": 10738,
         "completed": 0,
@@ -84,15 +84,24 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 14957,
+    "elapsed_seconds": 15013,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 0,
-    "updated_at": 1792992639.054058,
-    "fresh": false,
-    "loops": []
+    "active_loops": 1,
+    "updated_at": 1792995410.496258,
+    "fresh": true,
+    "loops": [
+      {
+        "id": "farm9-setup",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1792995410.496258,
+        "job_id": "setup-farm9",
+        "fresh": true
+      }
+    ]
   },
   "session_limit": null,
   "max_iterations": 0,
@@ -102,8 +111,8 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 29.5618958221659,
-    "reserved_usd": 46.4695,
+    "remaining_usd": 28.197195822165902,
+    "reserved_usd": 47.834199999999996,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

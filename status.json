@@ -8,11 +8,11 @@
   "evaluation_games": 0,
   "timeouts": 0,
   "title": "15 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 105 min queued per GPU",
-  "change": "452 jobs finished today; planner idle",
+  "change": "453 jobs finished today; planner idle",
   "result": "$33.03 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T11:11:41.645451+00:00",
+  "updated_at": "2026-10-26T11:12:44.501631+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T04:11:48.279253-07:00",
+    "measured_at": "2026-10-26T04:12:53.432480-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T11:11:41.645451+00:00",
-        "elapsed_seconds": 26601,
+        "updated_at": "2026-10-26T11:12:44.501631+00:00",
+        "elapsed_seconds": 26666,
         "completed": 0,
         "total": null,
         "task": "15 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 105 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 32710,
+    "elapsed_seconds": 32776,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793013092.3569276,
+    "updated_at": 1793013155.2973301,
     "fresh": true,
     "loops": [
       {
         "id": "farm32-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793013092.3569276,
+        "updated_at": 1793013155.312468,
         "job_id": "mirror8k-fb-3200000",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm32-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793013092.3569276,
+        "updated_at": 1793013155.312468,
         "job_id": "xs2-s8",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm33-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793013092.4689264,
+        "updated_at": 1793013155.2973301,
         "job_id": "r13anchor-s1",
         "fresh": true
       },
@@ -121,8 +121,8 @@
         "id": "farm33-2",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793013092.4689264,
-        "job_id": "x32-confirm",
+        "updated_at": 1793013155.2973301,
+        "job_id": "x32-connect",
         "fresh": true
       }
     ]

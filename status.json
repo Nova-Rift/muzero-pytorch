@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "Choosing and renting GPUs",
   "change": "72 jobs finished today; planner idle",
-  "result": "$29.05 of today's budget left",
+  "result": "$29.04 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T06:32:40.523212+00:00",
+  "updated_at": "2026-10-26T06:33:50.815942+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T23:32:49.845244-07:00",
+    "measured_at": "2026-10-25T23:33:54.826936-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,13 +84,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 15963,
+    "elapsed_seconds": 16033,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792996360.5168722,
+    "updated_at": 1792996430.8082614,
     "fresh": true,
     "loops": []
   },
@@ -102,8 +102,8 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 28.371893687368594,
-    "reserved_usd": 50.56339999999999,
+    "remaining_usd": 28.362384423244492,
+    "reserved_usd": 51.245699999999985,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

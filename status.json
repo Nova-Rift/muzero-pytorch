@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
-  "iteration": 36,
+  "stage": "review",
+  "iteration": 37,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
-  "change": "Admitted the frozen independent-seed replication of EGO2048 (lane rep, one H100). Helpers stage EGO-POOL2048 plus EGO2048 ladder bouts, a third replication seed, and an exploration variant EGO-EXPLORE2048.",
-  "result": "Owner rule; research resumes at the provider reset (2026-10-25T11:59:59.545172+00:00)",
-  "candidate": "EGO2048-S2 (seed 73142017)",
+  "title": "Iteration 37: reviewing evidence",
+  "change": "Reviewing the previous research evidence",
+  "result": "No new result yet",
+  "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-25T10:07:38.352630+00:00",
+  "updated_at": "2026-10-26T01:08:28.703118+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:07:50.408665-07:00",
+    "measured_at": "2026-10-25T18:08:30.327438-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "interrupted",
-        "updated_at": "2026-10-25T09:57:37.142849+00:00",
-        "elapsed_seconds": 426,
-        "completed": 0,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Iteration 36: EGO2048-S2 replication training on lane rep; three candidates in preparation",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -63,14 +63,14 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-25T09:50:31.464498+00:00",
-        "elapsed_seconds": 777,
+        "state": "active",
+        "updated_at": "2026-10-26T01:08:28.703118+00:00",
+        "elapsed_seconds": 2,
         "completed": null,
         "total": null,
-        "task": "Iteration 36: reviewing evidence",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "Iteration 37: reviewing evidence",
+        "eta_seconds": 212,
+        "eta_basis": "20 previous iteration(s)"
       },
       {
         "step": 4,
@@ -84,91 +84,118 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 55816,
-    "eta_seconds": null,
-    "eta_basis": "19 previous completed iteration(s)"
+    "elapsed_seconds": 2,
+    "eta_seconds": 1145,
+    "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792922192.8190362,
-    "fresh": false,
+    "updated_at": 1792976908.9523273,
+    "fresh": true,
     "loops": [
       {
-        "id": "rep",
-        "stage": "test",
-        "state": "failed",
-        "updated_at": 1792922254.3484437,
-        "job_id": "rep35-paired-collection",
-        "fresh": false
-      },
-      {
         "id": "loop-a",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792922192.8190362,
-        "job_id": "iteration36-pool-lane-staging",
-        "decision": {
-          "reviewing": "How to break the symmetric single-action self-play equilibrium without changing the objective",
-          "options": [
-            "H2 EGO-POOL2048: frozen own-checkpoint partner pool for half of the self-play games (default-off flag, commit ddc76c53, 78+24+103+7 tests pass)"
-          ],
-          "evidence": [
-            "Self-play collapsed to one action by game 1920 with the policy target at the 25/32 search floor; replay then lacks states produced by foreign opponents"
-          ],
-          "reason": "Implemented and validated last session; the remaining step is staging a hash-verified lane payload that also carries the EGO2048 ladder bouts so one pod yields both",
-          "next_action": "Helper emits payload, merged 26-job plan, validation and storage bounds; coordinator runs storage gate, preflight and launches lane pool",
-          "updated_at": "2026-10-25T09:50:31.524942+00:00"
+        "updated_at": 1792976908.9523273,
+        "job_id": "iteration-37-planning-1",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 37,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-26T01:08:28.952327+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-b",
-        "stage": "test",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792922192.854212,
-        "job_id": "iteration36-rep-chain-repair",
-        "decision": {
-          "reviewing": "Why the replication collection gate failed and the cheapest honest repair",
-          "options": [
-            "Append a corrected rep36 chain to the same pod: first job rewrites the receipt label and rebinds hashes, then the 17 stages rerun under a new directory",
-            "Release the pod and rebuild the lane payload locally (loses about 10 minutes of setup and the passed gates)"
-          ],
-          "evidence": [
-            "Pinned receipt kind frozen-reviewed-trainer vs trainer-written verified-cache-receipt; commit 14fece12 and 277 file hashes identical; 5 gates passed before the failure"
-          ],
-          "reason": "Only a label differs, so the scientific inputs are unchanged; same-pod append avoids a relaunch while the stall guard keeps the idle bound honest",
-          "next_action": "Verify the helper's append file and local proof, then append it to desired-plan.json",
-          "updated_at": "2026-10-25T09:56:32.854212+00:00"
+        "updated_at": 1792976908.9523273,
+        "job_id": "iteration-37-planning-2",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 37,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-26T01:08:28.952327+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "loop-c",
-        "stage": "edit",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792922192.8190362,
-        "job_id": "iteration36-rep-seed3-package-2",
-        "fresh": false
+        "updated_at": 1792976908.9523273,
+        "job_id": "iteration-37-planning-3",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 37,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-26T01:08:28.952327+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
+        },
+        "fresh": true
       },
       {
         "id": "loop-d",
-        "stage": "edit",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1792922192.8190362,
-        "job_id": "iteration36-explore-trainer",
-        "decision": {
-          "reviewing": "Is there a second independent lever against the self-play collapse besides the partner pool",
-          "options": [
-            "EGO-EXPLORE2048: root exploration noise / temperature in self-play acting only, default-off flags, byte-identical reproduction when off"
-          ],
-          "evidence": [
-            "The root policy target sat at the 25/32 floor from game 1920 onward and hits per game stayed flat at 4.1; exploration in acting changes the replay distribution without touching reward, environment or evaluator"
-          ],
-          "reason": "Independent of H2 and needs no owner approval, unlike reward shaping (H3)",
-          "next_action": "Helper implements, tests, pushes the branch and builds a paired development package with a preregistered gate",
-          "updated_at": "2026-10-25T09:50:31.587165+00:00"
+        "updated_at": 1792976908.9523273,
+        "job_id": "iteration-37-planning-4",
+        "details": {
+          "schema": 1,
+          "stage": "review",
+          "iteration": 37,
+          "completed_games": 0,
+          "target_games": 0,
+          "wins": 0,
+          "evaluation_games": 0,
+          "timeouts": 0,
+          "title": "Overseer planning next task",
+          "change": "Reviewing the previous cycle and assigning the next task for this loop.",
+          "result": "Coordinator review is active. Execution and helper assignments will be reported when started.",
+          "candidate": "Research planning",
+          "evaluation_label": "No new evaluation",
+          "updated_at": "2026-10-26T01:08:28.952327+00:00",
+          "max_iterations": 0,
+          "pilot_gpu_cap_usd": 30
         },
-        "fresh": false
+        "fresh": true
       }
     ]
   },

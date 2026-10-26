@@ -12,7 +12,7 @@
   "result": "$18.36 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T02:18:13.911353+00:00",
+  "updated_at": "2026-10-26T02:19:14.025986+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T19:18:16.994216-07:00",
+    "measured_at": "2026-10-25T19:19:20.364223-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 696,
+    "elapsed_seconds": 756,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792981093.9072745,
+    "updated_at": 1792981154.0249567,
     "fresh": true,
     "loops": [
       {
         "id": "farm7-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792981093.9072745,
+        "updated_at": 1792981154.0249567,
         "job_id": "setup-farm7",
         "fresh": true
       }

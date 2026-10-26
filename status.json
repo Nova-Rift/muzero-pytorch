@@ -12,7 +12,7 @@
   "result": "$30.33 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T04:11:42.191324+00:00",
+  "updated_at": "2026-10-26T04:12:42.587299+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T21:11:46.331145-07:00",
+    "measured_at": "2026-10-25T21:12:50.410666-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T04:11:42.191324+00:00",
-        "elapsed_seconds": 6222,
+        "updated_at": "2026-10-26T04:12:42.587299+00:00",
+        "elapsed_seconds": 6286,
         "completed": 0,
         "total": null,
         "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 43 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 7509,
+    "elapsed_seconds": 7573,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792987892.7173223,
+    "updated_at": 1792987953.069354,
     "fresh": true,
     "loops": [
       {
         "id": "farm7-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792987892.7173223,
+        "updated_at": 1792987953.069354,
         "job_id": "rr12-mid-dev2",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm8-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792987893.132288,
+        "updated_at": 1792987953.5339148,
         "job_id": "mirror2048-seed-bout-800006",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm8-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792987893.132288,
+        "updated_at": 1792987953.5339148,
         "job_id": "mirror2048-seed-bout-800007",
         "fresh": true
       }

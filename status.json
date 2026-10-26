@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "Setting up GeForce RTX 4090 \u00b7 247 min of work queued",
   "change": "72 jobs finished today; planner idle",
-  "result": "$28.25 of today's budget left",
+  "result": "$28.24 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T06:43:35.091718+00:00",
+  "updated_at": "2026-10-26T06:44:45.411713+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T23:43:42.975336-07:00",
+    "measured_at": "2026-10-25T23:44:49.944698-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,21 +84,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 16617,
+    "elapsed_seconds": 16688,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792997015.0849166,
+    "updated_at": 1792997085.406212,
     "fresh": true,
     "loops": [
       {
-        "id": "farm28-setup",
+        "id": "farm29-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792997015.0849166,
-        "job_id": "setup-farm28",
+        "updated_at": 1792997085.406212,
+        "job_id": "setup-farm29",
         "fresh": true
       }
     ]
@@ -111,8 +111,8 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 28.25235119954861,
-    "reserved_usd": 60.797899999999956,
+    "remaining_usd": 28.242006516437232,
+    "reserved_usd": 61.480199999999954,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

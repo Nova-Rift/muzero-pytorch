@@ -12,7 +12,7 @@
   "result": "$46.62 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T07:30:09.398771+00:00",
+  "updated_at": "2026-10-26T07:31:10.588627+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T00:30:14.610319-07:00",
+    "measured_at": "2026-10-26T00:31:19.087286-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T07:30:09.398771+00:00",
-        "elapsed_seconds": 13307,
+        "updated_at": "2026-10-26T07:31:10.588627+00:00",
+        "elapsed_seconds": 13371,
         "completed": 0,
         "total": null,
         "task": "8 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 85 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 19417,
+    "elapsed_seconds": 19481,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1792999801.9718435,
+    "updated_at": 1792999862.7572374,
     "fresh": true,
     "loops": [
       {
         "id": "farm32-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792999801.9718435,
+        "updated_at": 1792999862.7572374,
         "job_id": "mirror2048-m26-train",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm32-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792999801.9718435,
+        "updated_at": 1792999862.7572374,
         "job_id": "mirror4096-m3b-train",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm33-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792999802.294251,
+        "updated_at": 1792999863.0222,
         "job_id": "cqmir2048-c5-bout",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm33-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792999802.294251,
+        "updated_at": 1792999863.0222,
         "job_id": "cqmir2048-c9-train",
         "fresh": true
       }

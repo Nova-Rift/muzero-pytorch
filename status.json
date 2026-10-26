@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:29:26.999293-07:00",
+    "measured_at": "2026-10-25T18:30:30.356068-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-26T01:28:43.942219+00:00",
-        "elapsed_seconds": 43,
+        "elapsed_seconds": 106,
         "completed": 0,
         "total": null,
         "task": "Iteration 38: EGO-POOL2048 partner-pool candidate and EGO2048 ladder bouts on GPU; three candidates in preparation",
-        "eta_seconds": 392,
+        "eta_seconds": 329,
         "eta_basis": "8 previous iteration(s)"
       },
       {
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 332,
-    "eta_seconds": 815,
+    "elapsed_seconds": 395,
+    "eta_seconds": 752,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1792978123.778823,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "loop-a",
@@ -111,7 +111,7 @@
           "next_action": "Readout applies the preregistered gate: strict wins over EGO2048 vs E1024 and F1024, cutoffs <= 12/64, direct bout non-losing",
           "updated_at": "2026-10-26T01:28:43.971710+00:00"
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-b",
@@ -119,7 +119,7 @@
         "state": "active",
         "updated_at": 1792978123.778823,
         "job_id": "iteration38-rep-repair",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-c",
@@ -145,7 +145,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "loop-d",
@@ -171,7 +171,7 @@
           "max_iterations": 0,
           "pilot_gpu_cap_usd": 30
         },
-        "fresh": true
+        "fresh": false
       }
     ]
   },

@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T21:38:26.601426-07:00",
+    "measured_at": "2026-10-25T21:39:30.371775-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-26T04:38:25.966566+00:00",
-        "elapsed_seconds": 7822,
+        "elapsed_seconds": 7886,
         "completed": 0,
         "total": null,
         "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 113 min queued per GPU",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 9109,
+    "elapsed_seconds": 9173,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
     "updated_at": 1792989496.7166686,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "farm7-1",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1792989496.7166686,
         "job_id": "ego2048-r14-train",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm8-1",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1792989497.1682487,
         "job_id": "mirror2048-m11b-train",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm8-2",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1792989497.1682487,
         "job_id": "rr4096-anchors",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

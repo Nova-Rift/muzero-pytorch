@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "0 GPU jobs on 1 GPU(s) (H100 80GB HBM3); queue 154 min/GPU",
   "change": "0 jobs finished today; planner idle",
-  "result": "$15.84 of today's budget left",
+  "result": "$0.84 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T02:12:48.731967+00:00",
+  "updated_at": "2026-10-26T02:13:48.871844+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T19:12:50.585490-07:00",
+    "measured_at": "2026-10-25T19:13:54.571843-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,13 +84,13 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 371,
+    "elapsed_seconds": 431,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 0,
-    "updated_at": 1792980768.7305925,
+    "updated_at": 1792980828.8708727,
     "fresh": true,
     "loops": []
   },
@@ -102,8 +102,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 12.837017279717823,
-    "reserved_usd": 39.0,
+    "remaining_usd": 3.357146104569736,
+    "reserved_usd": 51.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

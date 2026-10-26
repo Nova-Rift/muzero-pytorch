@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "0 GPU jobs on 1 GPU(s) (H100 80GB HBM3); queue 132 min/GPU",
+  "title": "0 GPU jobs on 1 GPU(s) (H100 80GB HBM3); queue 154 min/GPU",
   "change": "0 jobs finished today; planner working",
   "result": "$15.84 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T02:10:38.145924+00:00",
+  "updated_at": "2026-10-26T02:11:38.259899+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T19:10:40.361891-07:00",
+    "measured_at": "2026-10-25T19:11:46.404976-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 240,
+    "elapsed_seconds": 300,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -97,7 +97,7 @@
         "id": "farm1-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792980638.1438074,
+        "updated_at": 1792980698.256894,
         "job_id": "setup-farm1",
         "fresh": true
       },

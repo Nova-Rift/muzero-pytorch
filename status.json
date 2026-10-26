@@ -12,7 +12,7 @@
   "result": "$32.78 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T03:25:52.297799+00:00",
+  "updated_at": "2026-10-26T03:26:32.533038+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T20:25:57.314027-07:00",
+    "measured_at": "2026-10-25T20:26:59.753263-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T03:25:52.297799+00:00",
-        "elapsed_seconds": 3473,
+        "updated_at": "2026-10-26T03:26:32.533038+00:00",
+        "elapsed_seconds": 3536,
         "completed": 0,
         "total": null,
         "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 90 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 4760,
+    "elapsed_seconds": 4822,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 3,
-    "updated_at": 1792985142.821619,
+    "updated_at": 1792985183.0268219,
     "fresh": true,
     "loops": [
       {
         "id": "farm7-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792985142.821619,
+        "updated_at": 1792985183.0268219,
         "job_id": "mirror2048-m7-bout",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm8-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792985143.249861,
+        "updated_at": 1792985183.468503,
         "job_id": "ego2048-r9-train",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm8-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792985143.249861,
+        "updated_at": 1792985183.468503,
         "job_id": "mirror2048-m9-train",
         "fresh": true
       }

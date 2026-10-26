@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "blocked",
-  "iteration": 38,
+  "stage": "queued",
+  "iteration": 39,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Coordinator usage 0% remaining, below the 6% floor: shutting down GPU pods and helpers",
-  "change": "Lane pool2 runs the partner-pool candidate against a paired EGO2048 control plus EGO2048 ladder bouts. Helpers repair the S2 replication, parameterise the S3 seed and package EGO-EXPLORE2048.",
-  "result": "Owner rule; research resumes at the provider reset (1793514986)",
-  "candidate": "EGO-POOL2048",
+  "title": "0 GPU jobs on 1 GPU(s) (H100 80GB HBM3); queue 0 min/GPU",
+  "change": "0 jobs finished today; planner working",
+  "result": "$15.84 of today's budget left",
+  "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T01:56:10.426190+00:00",
+  "updated_at": "2026-10-26T02:07:17.832530+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T19:06:20.362761-07:00",
+    "measured_at": "2026-10-25T19:07:27.127022-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "interrupted",
-        "updated_at": "2026-10-26T01:36:23.311908+00:00",
-        "elapsed_seconds": 459,
-        "completed": 0,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "Iteration 38: EGO-POOL2048 partner-pool candidate and EGO2048 ladder bouts on GPU; three candidates in preparation",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -63,12 +63,12 @@
       },
       {
         "step": 3,
-        "state": "finished",
-        "updated_at": "2026-10-26T01:28:43.942219+00:00",
-        "elapsed_seconds": 289,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
         "completed": null,
         "total": null,
-        "task": "Iteration 38: reviewing evidence",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -84,82 +84,30 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2545,
+    "elapsed_seconds": 40,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792978528.0224938,
-    "fresh": false,
+    "active_loops": 2,
+    "updated_at": 1792980397.7813811,
+    "fresh": true,
     "loops": [
       {
-        "id": "loop-a",
-        "stage": "train",
+        "id": "farm1-setup",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792978528.0224938,
-        "job_id": "poolb-EGO-POOL2048",
-        "fresh": false
+        "updated_at": 1792980437.8321757,
+        "job_id": "setup-farm1",
+        "fresh": true
       },
       {
-        "id": "loop-b",
+        "id": "planner",
         "stage": "review",
         "state": "active",
-        "updated_at": 1792978528.0224938,
-        "job_id": "iteration38-pool-analysis",
-        "fresh": false
-      },
-      {
-        "id": "loop-c",
-        "stage": "edit",
-        "state": "active",
-        "updated_at": 1792978528.0224938,
-        "job_id": "iteration38-s3-seedparam",
-        "details": {
-          "schema": 1,
-          "stage": "edit",
-          "iteration": 38,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "EGO2048-S3 third seed: seed-parameterised replication lane",
-          "change": "A helper makes the frozen replication adapters take the training and evaluation seeds from the contract (seed 25376667, audited fresh bout families) with tests, and builds a standalone lane with a local preflight.",
-          "result": "Implementation in progress.",
-          "candidate": "EGO2048-S3",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-26T01:28:43+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
-      },
-      {
-        "id": "loop-d",
-        "stage": "edit",
-        "state": "active",
-        "updated_at": 1792978528.0224938,
-        "job_id": "iteration38-explore",
-        "details": {
-          "schema": 1,
-          "stage": "edit",
-          "iteration": 38,
-          "completed_games": 0,
-          "target_games": 0,
-          "wins": 0,
-          "evaluation_games": 0,
-          "timeouts": 0,
-          "title": "EGO-EXPLORE2048: self-play exploration candidate package",
-          "change": "Trainer change is committed and pushed (root-prior and action temperature flags in self-play acting only, default off, tests pass). A helper builds the paired 15-job development lane against EGO2048 with fresh seeds and a local preflight.",
-          "result": "Package in progress; GPU admission follows a passing preflight.",
-          "candidate": "EGO-EXPLORE2048",
-          "evaluation_label": "No new evaluation",
-          "updated_at": "2026-10-26T01:28:43+00:00",
-          "max_iterations": 0,
-          "pilot_gpu_cap_usd": 30
-        },
-        "fresh": false
+        "updated_at": 1792980397.7813811,
+        "job_id": "planner",
+        "fresh": true
       }
     ]
   },
@@ -171,8 +119,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 18.837017279717823,
-    "reserved_usd": 33.0,
+    "remaining_usd": 15.837017279717823,
+    "reserved_usd": 36.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

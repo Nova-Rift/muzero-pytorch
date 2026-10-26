@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:32:40.319765-07:00",
+    "measured_at": "2026-10-25T18:33:47.121421-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-26T01:28:43.942219+00:00",
-        "elapsed_seconds": 236,
+        "elapsed_seconds": 303,
         "completed": 0,
         "total": null,
         "task": "Iteration 38: EGO-POOL2048 partner-pool candidate and EGO2048 ladder bouts on GPU; three candidates in preparation",
-        "eta_seconds": 199,
+        "eta_seconds": 132,
         "eta_basis": "8 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 525,
-    "eta_seconds": 622,
+    "elapsed_seconds": 592,
+    "eta_seconds": 555,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
@@ -95,23 +95,19 @@
     "loops": [
       {
         "id": "loop-a",
-        "stage": "train",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1792978123.97171,
-        "job_id": "pool2048-runtime",
-        "decision": {
-          "reviewing": "Does a frozen own-checkpoint partner pool break EGO2048's single-action self-play collapse and raise strength?",
-          "options": [
-            "EGO-POOL2048: half of self-play games against frozen initial/512/1024 checkpoints, objective unchanged"
-          ],
-          "evidence": [
-            "EGO2048 self-play collapsed to one action by game 1920; unchanged continuation to 4096 failed its gate"
-          ],
-          "reason": "Attacks the observed collapse mechanism without reward shaping; the same pod also yields ladder-grade EGO2048 bouts",
-          "next_action": "Readout applies the preregistered gate: strict wins over EGO2048 vs E1024 and F1024, cutoffs <= 12/64, direct bout non-losing",
-          "updated_at": "2026-10-26T01:28:43.971710+00:00"
-        },
-        "fresh": false
+        "updated_at": 1792978416.862379,
+        "job_id": "pool2048-split-resume",
+        "fresh": true
+      },
+      {
+        "id": "ladder",
+        "stage": "evaluate",
+        "state": "pending",
+        "updated_at": 1792978416.862379,
+        "job_id": "ladder-eq-A-frozen",
+        "fresh": true
       },
       {
         "id": "loop-b",

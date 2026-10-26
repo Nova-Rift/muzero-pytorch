@@ -12,7 +12,7 @@
   "result": "$43.79 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T08:47:59.735214+00:00",
+  "updated_at": "2026-10-26T08:48:40.480625+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T01:48:03.921223-07:00",
+    "measured_at": "2026-10-26T01:49:09.070883-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T08:47:59.735214+00:00",
-        "elapsed_seconds": 17976,
+        "updated_at": "2026-10-26T08:48:40.480625+00:00",
+        "elapsed_seconds": 18041,
         "completed": 0,
         "total": null,
         "task": "9 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 92 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 24086,
+    "elapsed_seconds": 24151,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793004471.1901932,
+    "updated_at": 1793004511.950231,
     "fresh": true,
     "loops": [
       {
         "id": "farm32-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793004472.5789945,
+        "updated_at": 1793004515.9736009,
         "job_id": "ego2048-r134-train",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm32-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793004472.5789945,
+        "updated_at": 1793004515.9736009,
         "job_id": "league2048-l2-train",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm32-3",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793004472.5789945,
+        "updated_at": 1793004515.9736009,
         "job_id": "league2048-l5-train",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm33-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793004471.1901932,
+        "updated_at": 1793004511.950231,
         "job_id": "ego2048-seed-bout6-3300004",
         "fresh": true
       }

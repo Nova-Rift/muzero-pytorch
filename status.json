@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T05:59:48.759644-07:00",
+    "measured_at": "2026-10-26T06:00:19.850313-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 39191,
+    "elapsed_seconds": 39222,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1793019551.0903375,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "farm34-1",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1793019551.0903375,
         "job_id": "warm32k-fb-3400000",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm34-2",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1793019551.0903375,
         "job_id": "warm32k-fb-3400001",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm35-1",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1793019551.5918798,
         "job_id": "warm32k-fb-3500001",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm35-2",
@@ -123,7 +123,7 @@
         "state": "active",
         "updated_at": 1793019551.5918798,
         "job_id": "warm32k-fb-3500002",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

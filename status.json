@@ -12,7 +12,7 @@
   "result": "$28.35 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T06:34:51.090152+00:00",
+  "updated_at": "2026-10-26T06:35:21.927398+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T23:34:59.076406-07:00",
+    "measured_at": "2026-10-25T23:35:22.017724-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,21 +84,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 16093,
+    "elapsed_seconds": 16124,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792996491.0833347,
+    "updated_at": 1792996511.1763725,
     "fresh": true,
     "loops": [
       {
-        "id": "farm15-setup",
+        "id": "farm16-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792996491.0833347,
-        "job_id": "setup-farm15",
+        "updated_at": 1792996511.1763725,
+        "job_id": "setup-farm16",
         "fresh": true
       }
     ]
@@ -111,8 +111,8 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 29.029091098297137,
-    "reserved_usd": 51.92799999999998,
+    "remaining_usd": 28.346791098297135,
+    "reserved_usd": 52.61029999999998,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:27:14.702927-07:00",
+    "measured_at": "2026-10-25T18:28:20.335409-07:00",
     "steps": [
       {
         "step": 1,
@@ -65,11 +65,11 @@
         "step": 3,
         "state": "active",
         "updated_at": "2026-10-26T01:27:12.575427+00:00",
-        "elapsed_seconds": 200,
+        "elapsed_seconds": 265,
         "completed": null,
         "total": null,
         "task": "Iteration 38: reviewing evidence",
-        "eta_seconds": 14,
+        "eta_seconds": 0,
         "eta_basis": "20 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 200,
-    "eta_seconds": 947,
+    "elapsed_seconds": 265,
+    "eta_seconds": 882,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
@@ -207,8 +207,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 19.421366124236087,
-    "reserved_usd": 30.0,
+    "remaining_usd": 16.421366124236087,
+    "reserved_usd": 33.0,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

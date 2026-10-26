@@ -12,7 +12,7 @@
   "result": "$46.62 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T07:44:10.317602+00:00",
+  "updated_at": "2026-10-26T07:45:21.976076+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T00:44:20.370408-07:00",
+    "measured_at": "2026-10-26T00:45:26.468868-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T07:44:10.317602+00:00",
-        "elapsed_seconds": 14153,
+        "updated_at": "2026-10-26T07:45:21.976076+00:00",
+        "elapsed_seconds": 14219,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 120 min queued per GPU",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 20263,
+    "elapsed_seconds": 20329,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1793000611.9454916,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "farm32-1",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1793000622.4034853,
         "job_id": "ego2048-r17c-train",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm32-2",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1793000622.4034853,
         "job_id": "mirsim64-2048-s2-train",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm33-1",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1793000622.759905,
         "job_id": "cqpol2048-q6-bout",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm34-1",
@@ -123,7 +123,7 @@
         "state": "active",
         "updated_at": 1793000611.9454916,
         "job_id": "cqmir2048-c1-bout",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

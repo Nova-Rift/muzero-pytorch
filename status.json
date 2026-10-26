@@ -37,17 +37,17 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:33:47.121421-07:00",
+    "measured_at": "2026-10-25T18:34:50.356793-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-26T01:28:43.942219+00:00",
-        "elapsed_seconds": 303,
+        "elapsed_seconds": 366,
         "completed": 0,
         "total": null,
         "task": "Iteration 38: EGO-POOL2048 partner-pool candidate and EGO2048 ladder bouts on GPU; three candidates in preparation",
-        "eta_seconds": 132,
+        "eta_seconds": 69,
         "eta_basis": "8 previous iteration(s)"
       },
       {
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 592,
-    "eta_seconds": 555,
+    "elapsed_seconds": 655,
+    "eta_seconds": 492,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
@@ -95,18 +95,26 @@
     "loops": [
       {
         "id": "loop-a",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1792978416.862379,
-        "job_id": "pool2048-split-resume",
+        "stage": "train",
+        "state": "failed",
+        "updated_at": 1792978486.8811653,
+        "job_id": "EGO-POOL2048",
         "fresh": true
       },
       {
         "id": "ladder",
         "stage": "evaluate",
+        "state": "active",
+        "updated_at": 1792978486.8811653,
+        "job_id": "ladder-eq-B-14fece12",
+        "fresh": true
+      },
+      {
+        "id": "pool-b",
+        "stage": "train",
         "state": "pending",
-        "updated_at": 1792978416.862379,
-        "job_id": "ladder-eq-A-frozen",
+        "updated_at": 1792978486.8811653,
+        "job_id": "poolb-EGO-POOL2048",
         "fresh": true
       },
       {

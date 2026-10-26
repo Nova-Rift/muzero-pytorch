@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
+  "stage": "blocked",
   "iteration": 38,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
+  "title": "Coordinator usage 0% remaining, below the 6% floor: shutting down GPU pods and helpers",
   "change": "Lane pool2 runs the partner-pool candidate against a paired EGO2048 control plus EGO2048 ladder bouts. Helpers repair the S2 replication, parameterise the S3 seed and package EGO-EXPLORE2048.",
-  "result": "Pod allocated; setup in progress. No new strength result yet.",
+  "result": "Owner rule; research resumes at the provider reset (1793514986)",
   "candidate": "EGO-POOL2048",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T01:37:55.367961+00:00",
+  "updated_at": "2026-10-26T01:56:10.426190+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T18:55:26.051818-07:00",
+    "measured_at": "2026-10-25T18:56:30.371028-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1891,
+    "elapsed_seconds": 1955,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },

@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "12 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 72 min queued per GPU",
-  "change": "417 jobs finished today; planner idle",
+  "title": "12 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 71 min queued per GPU",
+  "change": "422 jobs finished today; planner idle",
   "result": "$33.92 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T10:53:08.238716+00:00",
+  "updated_at": "2026-10-26T10:54:21.464752+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T03:53:18.300087-07:00",
+    "measured_at": "2026-10-26T03:54:24.034076-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T10:53:08.238716+00:00",
-        "elapsed_seconds": 25491,
+        "updated_at": "2026-10-26T10:54:21.464752+00:00",
+        "elapsed_seconds": 25556,
         "completed": 0,
         "total": null,
-        "task": "12 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 72 min queued per GPU",
+        "task": "12 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 71 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "8 previous iteration(s)"
       },
@@ -84,44 +84,44 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 31601,
+    "elapsed_seconds": 31666,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793011947.7931466,
+    "updated_at": 1793012052.1308458,
     "fresh": true,
     "loops": [
       {
         "id": "farm32-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793011947.7931466,
-        "job_id": "ego2048-r182-bout",
+        "updated_at": 1793012052.1324644,
+        "job_id": "r13warmp-b1",
         "fresh": true
       },
       {
         "id": "farm32-2",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793011947.7931466,
+        "updated_at": 1793012052.1324644,
         "job_id": "scale-net",
         "fresh": true
       },
       {
         "id": "farm33-1",
-        "stage": "evaluate",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1793011958.122913,
-        "job_id": "ego2048-r189-bout",
+        "updated_at": 1793012052.1308458,
+        "job_id": "ego2048-seed-bout7-3300006",
         "fresh": true
       },
       {
         "id": "farm33-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793011958.122913,
+        "updated_at": 1793012052.1308458,
         "job_id": "r13anchor-s1",
         "fresh": true
       }

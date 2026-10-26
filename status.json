@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "0 GPU jobs on 1 GPU(s) (H100 80GB HBM3); queue 154 min/GPU",
+  "title": "0 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 77 min queued per GPU",
   "change": "0 jobs finished today; planner idle",
-  "result": "$18.36 of today's budget left",
+  "result": "$17.67 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T02:20:04.096534+00:00",
+  "updated_at": "2026-10-26T02:21:24.053521+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T19:20:23.317466-07:00",
+    "measured_at": "2026-10-25T19:21:28.527281-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,21 +84,21 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 806,
+    "elapsed_seconds": 886,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
-    "updated_at": 1792981204.0952013,
+    "updated_at": 1792981284.0524817,
     "fresh": true,
     "loops": [
       {
-        "id": "farm7-setup",
+        "id": "farm8-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1792981204.0952013,
-        "job_id": "setup-farm7",
+        "updated_at": 1792981284.0524817,
+        "job_id": "setup-farm8",
         "fresh": true
       }
     ]
@@ -111,8 +111,8 @@
   },
   "pilot_gpu_cap_usd": 30,
   "daily_budget": {
-    "remaining_usd": 18.357146104569736,
-    "reserved_usd": 36.0,
+    "remaining_usd": 17.674846104569735,
+    "reserved_usd": 36.6823,
     "reset_at": "2026-10-26T07:00:00+00:00"
   }
 }

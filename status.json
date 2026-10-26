@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 119 min queued per GPU",
-  "change": "65 jobs finished today; planner working",
+  "title": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 122 min queued per GPU",
+  "change": "65 jobs finished today; planner idle",
   "result": "$28.34 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T04:19:05.647982+00:00",
+  "updated_at": "2026-10-26T04:19:56.024957+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-25T21:19:09.645914-07:00",
+    "measured_at": "2026-10-25T21:20:12.333863-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T04:19:05.647982+00:00",
-        "elapsed_seconds": 6665,
+        "updated_at": "2026-10-26T04:19:56.024957+00:00",
+        "elapsed_seconds": 6728,
         "completed": 0,
         "total": null,
-        "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 119 min queued per GPU",
+        "task": "3 jobs running on 2 GPUs (GeForce RTX 4090, H100 80GB HBM3) \u00b7 122 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "8 previous iteration(s)"
       },
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 7952,
+    "elapsed_seconds": 8015,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1792988224.68858,
-    "fresh": false,
+    "active_loops": 3,
+    "updated_at": 1792988387.0701554,
+    "fresh": true,
     "loops": [
       {
         "id": "farm7-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1792988336.5298507,
+        "updated_at": 1792988387.0701554,
         "job_id": "rr12-mid-dev2",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm8-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792988336.9685192,
+        "updated_at": 1792988387.4745731,
         "job_id": "mirror2048-seed-bout-800008",
         "fresh": true
       },
@@ -113,17 +113,9 @@
         "id": "farm8-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1792988336.9685192,
+        "updated_at": 1792988387.4745731,
         "job_id": "mirror2048-seed-bout-800009",
         "fresh": true
-      },
-      {
-        "id": "planner",
-        "stage": "review",
-        "state": "active",
-        "updated_at": 1792988224.68858,
-        "job_id": "planner",
-        "fresh": false
       }
     ]
   },

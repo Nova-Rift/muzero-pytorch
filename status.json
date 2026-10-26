@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "14 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 54 min queued per GPU",
-  "change": "383 jobs finished today; planner idle",
+  "title": "13 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 54 min queued per GPU",
+  "change": "385 jobs finished today; planner idle",
   "result": "$36.17 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-26T10:34:46.862021+00:00",
+  "updated_at": "2026-10-26T10:35:49.815623+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T03:34:55.204162-07:00",
+    "measured_at": "2026-10-26T03:36:00.346857-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-26T10:34:46.862021+00:00",
-        "elapsed_seconds": 24388,
+        "updated_at": "2026-10-26T10:35:49.815623+00:00",
+        "elapsed_seconds": 24453,
         "completed": 0,
         "total": null,
-        "task": "14 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 54 min queued per GPU",
+        "task": "13 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 54 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "8 previous iteration(s)"
       },
@@ -84,36 +84,36 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 30497,
+    "elapsed_seconds": 30563,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793010877.631939,
+    "updated_at": 1793010951.0659795,
     "fresh": true,
     "loops": [
       {
         "id": "farm32-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793010877.740221,
+        "updated_at": 1793010951.0659795,
         "job_id": "ego2048-seed-bout7-3200003",
         "fresh": true
       },
       {
         "id": "farm32-2",
-        "stage": "evaluate",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1793010877.740221,
-        "job_id": "r167-net",
+        "updated_at": 1793010951.0659795,
+        "job_id": "ego2048-seed-bout7-3200004",
         "fresh": true
       },
       {
         "id": "farm33-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793010877.631939,
+        "updated_at": 1793010952.1539092,
         "job_id": "ego2048-seed-bout7-3300002",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm33-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793010877.631939,
+        "updated_at": 1793010952.1539092,
         "job_id": "ego2048-seed-bout7-3300003",
         "fresh": true
       }

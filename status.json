@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "9 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 61 min queued per GPU",
-  "change": "1238 jobs finished today; planner idle",
+  "title": "9 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 59 min queued per GPU",
+  "change": "1240 jobs finished today; planner idle",
   "result": "$39.38 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-27T07:52:31.776185+00:00",
+  "updated_at": "2026-10-27T07:53:41.240904+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-27T00:52:42.749957-07:00",
+    "measured_at": "2026-10-27T00:53:47.971192-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-27T07:52:31.776185+00:00",
-        "elapsed_seconds": 27451,
+        "updated_at": "2026-10-27T07:53:41.240904+00:00",
+        "elapsed_seconds": 27517,
         "completed": 0,
         "total": null,
-        "task": "9 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 61 min queued per GPU",
+        "task": "9 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 59 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "9 previous iteration(s)"
       },
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 28066,
+    "elapsed_seconds": 28131,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1793087542.158601,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "farm2-1",
@@ -99,30 +99,30 @@
         "state": "active",
         "updated_at": 1793087542.158601,
         "job_id": "sb2-s24k",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793087542.1796098,
+        "updated_at": 1793087565.3551037,
         "job_id": "ldb-s24k",
-        "fresh": true
-      },
-      {
-        "id": "farm3-2",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1793087542.1796098,
-        "job_id": "n15c2-s16k",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm4-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793087542.2879248,
+        "updated_at": 1793087611.009168,
         "job_id": "n15b-s24k",
+        "fresh": true
+      },
+      {
+        "id": "farm4-2",
+        "stage": "train",
+        "state": "active",
+        "updated_at": 1793087611.009168,
+        "job_id": "n15d-s16k",
         "fresh": true
       }
     ]

@@ -12,7 +12,7 @@
   "result": "$29.93 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-27T10:10:23.961813+00:00",
+  "updated_at": "2026-10-27T10:11:30.891155+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-27T03:10:27.300679-07:00",
+    "measured_at": "2026-10-27T03:11:31.901616-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-27T10:10:23.961813+00:00",
-        "elapsed_seconds": 35716,
+        "updated_at": "2026-10-27T10:11:30.891155+00:00",
+        "elapsed_seconds": 35781,
         "completed": 0,
         "total": null,
         "task": "9 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 20 min queued per GPU",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 36330,
+    "elapsed_seconds": 36395,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1793095814.047345,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "farm2-1",
@@ -99,13 +99,13 @@
         "state": "active",
         "updated_at": 1793095814.047345,
         "job_id": "pldb5-s40k",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793095814.0689754,
+        "updated_at": 1793095881.1749356,
         "job_id": "c1p-s40k",
         "fresh": true
       },
@@ -113,16 +113,16 @@
         "id": "farm3-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793095814.0689754,
+        "updated_at": 1793095881.1749356,
         "job_id": "p2-s24k",
         "fresh": true
       },
       {
         "id": "farm4-1",
-        "stage": "train",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793095814.3286948,
-        "job_id": "ldh-s32k",
+        "updated_at": 1793095881.2546968,
+        "job_id": "ldh-b32k",
         "fresh": true
       }
     ]

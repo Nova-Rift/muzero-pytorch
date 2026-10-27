@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "0 jobs running on 1 GPU (GeForce RTX 4090) \u00b7 291 min queued per GPU",
-  "change": "537 jobs finished today; planner working",
-  "result": "$26.87 of today's budget left",
+  "title": "0 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 58 min queued per GPU",
+  "change": "537 jobs finished today; planner idle",
+  "result": "$24.14 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-27T00:13:14.911143+00:00",
+  "updated_at": "2026-10-27T00:14:18.328216+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-26T17:13:22.371864-07:00",
+    "measured_at": "2026-10-26T17:14:26.302329-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,22 +84,46 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 498,
+    "elapsed_seconds": 561,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 1,
-    "updated_at": 1793059496.8219736,
-    "fresh": false,
+    "active_loops": 4,
+    "updated_at": 1793060058.2945936,
+    "fresh": true,
     "loops": [
       {
-        "id": "planner",
-        "stage": "review",
+        "id": "farm2-setup",
+        "stage": "test",
         "state": "active",
-        "updated_at": 1793059496.8219736,
-        "job_id": "planner",
-        "fresh": false
+        "updated_at": 1793060058.2945936,
+        "job_id": "setup-farm2",
+        "fresh": true
+      },
+      {
+        "id": "farm3-setup",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1793060058.2945936,
+        "job_id": "setup-farm3",
+        "fresh": true
+      },
+      {
+        "id": "farm4-setup",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1793060058.2945936,
+        "job_id": "setup-farm4",
+        "fresh": true
+      },
+      {
+        "id": "farm5-setup",
+        "stage": "test",
+        "state": "active",
+        "updated_at": 1793060058.2945936,
+        "job_id": "setup-farm5",
+        "fresh": true
       }
     ]
   },
@@ -111,8 +135,8 @@
   },
   "pilot_gpu_cap_usd": 50.0,
   "daily_budget": {
-    "remaining_usd": 26.185254309298095,
-    "reserved_usd": 26.369999999999994,
+    "remaining_usd": 24.13835430929809,
+    "reserved_usd": 28.416899999999995,
     "reset_at": "2026-10-27T07:00:00+00:00"
   }
 }

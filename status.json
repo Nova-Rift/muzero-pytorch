@@ -12,7 +12,7 @@
   "result": "$32.17 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-27T09:40:12.499108+00:00",
+  "updated_at": "2026-10-27T09:41:12.829702+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-27T02:40:18.850262-07:00",
+    "measured_at": "2026-10-27T02:41:24.300924-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-27T09:40:12.499108+00:00",
-        "elapsed_seconds": 33908,
+        "updated_at": "2026-10-27T09:41:12.829702+00:00",
+        "elapsed_seconds": 33973,
         "completed": 0,
         "total": null,
         "task": "14 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 105 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 34522,
+    "elapsed_seconds": 34587,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793094002.2599254,
+    "updated_at": 1793094062.5014055,
     "fresh": true,
     "loops": [
       {
         "id": "farm2-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793094002.2599254,
+        "updated_at": 1793094062.5056643,
         "job_id": "pldb24f-s32k",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm2-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793094002.2599254,
+        "updated_at": 1793094062.5056643,
         "job_id": "pldb5-s40k",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm2-3",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793094002.2599254,
+        "updated_at": 1793094062.5056643,
         "job_id": "pldb8-s16k",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm3-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793094002.2708142,
+        "updated_at": 1793094062.5014055,
         "job_id": "ldi-b32k",
         "fresh": true
       }

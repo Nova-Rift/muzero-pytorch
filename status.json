@@ -8,11 +8,11 @@
   "evaluation_games": 0,
   "timeouts": 0,
   "title": "11 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 101 min queued per GPU",
-  "change": "1340 jobs finished today; planner idle",
+  "change": "1343 jobs finished today; planner idle",
   "result": "$34.85 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-27T09:01:13.008866+00:00",
+  "updated_at": "2026-10-27T09:02:24.424685+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-27T02:01:24.614865-07:00",
+    "measured_at": "2026-10-27T02:02:30.342693-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-27T09:01:13.008866+00:00",
-        "elapsed_seconds": 31573,
+        "updated_at": "2026-10-27T09:02:24.424685+00:00",
+        "elapsed_seconds": 31639,
         "completed": 0,
         "total": null,
         "task": "11 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 101 min queued per GPU",
@@ -84,28 +84,28 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 32188,
+    "elapsed_seconds": 32253,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793091651.5779772,
+    "updated_at": 1793091710.2640264,
     "fresh": true,
     "loops": [
       {
         "id": "farm2-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793091651.5779772,
-        "job_id": "ldc-b32k",
+        "updated_at": 1793091734.5387456,
+        "job_id": "ldc-c32k",
         "fresh": true
       },
       {
         "id": "farm2-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793091651.5779772,
+        "updated_at": 1793091734.5387456,
         "job_id": "pldb5-s40k",
         "fresh": true
       },
@@ -113,16 +113,16 @@
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793091674.8242376,
+        "updated_at": 1793091710.2640264,
         "job_id": "ldi-s8k",
         "fresh": true
       },
       {
         "id": "farm3-2",
-        "stage": "evaluate",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1793091674.8242376,
-        "job_id": "p3-h16k",
+        "updated_at": 1793091710.2640264,
+        "job_id": "p3-s24k",
         "fresh": true
       }
     ]

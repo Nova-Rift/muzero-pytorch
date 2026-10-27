@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "8 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 26 min queued per GPU",
+  "title": "7 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 26 min queued per GPU",
   "change": "1462 jobs finished today; planner idle",
   "result": "$27.66 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-27T10:41:49.453743+00:00",
+  "updated_at": "2026-10-27T10:42:12.668780+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-27T03:41:50.179458-07:00",
+    "measured_at": "2026-10-27T03:42:54.259897-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-27T10:41:49.453743+00:00",
-        "elapsed_seconds": 37599,
+        "updated_at": "2026-10-27T10:42:12.668780+00:00",
+        "elapsed_seconds": 37663,
         "completed": 0,
         "total": null,
-        "task": "8 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 26 min queued per GPU",
+        "task": "7 jobs running on 5 GPUs (GeForce RTX 4090) \u00b7 26 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "9 previous iteration(s)"
       },
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 38213,
+    "elapsed_seconds": 38277,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -97,15 +97,7 @@
         "id": "farm2-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793097700.0458798,
-        "job_id": "ldn-s16k",
-        "fresh": true
-      },
-      {
-        "id": "farm2-2",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1793097700.0458798,
+        "updated_at": 1793097722.9059122,
         "job_id": "pldb5f-s48k",
         "fresh": true
       },
@@ -124,6 +116,14 @@
         "updated_at": 1793097480.6199145,
         "job_id": "p2-s24k",
         "fresh": false
+      },
+      {
+        "id": "farm4-1",
+        "stage": "train",
+        "state": "active",
+        "updated_at": 1793097723.043619,
+        "job_id": "ldp-s16k",
+        "fresh": true
       }
     ]
   },

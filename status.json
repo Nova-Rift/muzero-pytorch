@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "5 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 90 min queued per GPU",
-  "change": "1508 jobs finished today; planner idle",
-  "result": "$63.91 of today's budget left",
+  "title": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 88 min queued per GPU",
+  "change": "1509 jobs finished today; planner idle",
+  "result": "$63.02 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-28T08:20:19.677113+00:00",
+  "updated_at": "2026-10-28T08:21:19.939437+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-28T01:20:25.049843-07:00",
+    "measured_at": "2026-10-28T01:21:28.243847-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-28T08:20:19.677113+00:00",
-        "elapsed_seconds": 6930,
+        "updated_at": "2026-10-28T08:21:19.939437+00:00",
+        "elapsed_seconds": 6993,
         "completed": 0,
         "total": null,
-        "task": "5 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 90 min queued per GPU",
+        "task": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 88 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "10 previous iteration(s)"
       },
@@ -84,45 +84,45 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 7233,
+    "elapsed_seconds": 7296,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793175608.180285,
+    "updated_at": 1793175668.3464289,
     "fresh": true,
     "loops": [
       {
         "id": "farm1-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793175608.180285,
-        "job_id": "chess-b13bx",
+        "updated_at": 1793175668.34849,
+        "job_id": "chess-rr-fb-100000",
         "fresh": true
       },
       {
         "id": "farm2-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793175608.2156386,
+        "updated_at": 1793175668.3464289,
         "job_id": "chess-rr-fb-200002",
+        "fresh": true
+      },
+      {
+        "id": "farm2-2",
+        "stage": "evaluate",
+        "state": "active",
+        "updated_at": 1793175668.3464289,
+        "job_id": "chess-rr-fb-200003",
         "fresh": true
       },
       {
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793175608.2882905,
+        "updated_at": 1793175668.49647,
         "job_id": "ma-s1",
-        "fresh": true
-      },
-      {
-        "id": "farm3-2",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1793175608.2882905,
-        "job_id": "mb-s1",
         "fresh": true
       }
     ]

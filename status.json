@@ -12,7 +12,7 @@
   "result": "$49.38 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-28T06:57:01.481701+00:00",
+  "updated_at": "2026-10-28T06:57:58.503040+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-27T23:57:11.024918-07:00",
+    "measured_at": "2026-10-27T23:58:14.372710-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-28T06:57:01.481701+00:00",
-        "elapsed_seconds": 1936,
+        "updated_at": "2026-10-28T06:57:58.503040+00:00",
+        "elapsed_seconds": 1999,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 104 min queued per GPU",
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2239,
+    "elapsed_seconds": 2303,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -105,7 +105,7 @@
         "id": "farm2-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793170609.7659318,
+        "updated_at": 1793170668.283749,
         "job_id": "ca-s1",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm2-2",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793170609.7659318,
+        "updated_at": 1793170668.283749,
         "job_id": "cd-s1",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm2-3",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793170609.7659318,
+        "updated_at": 1793170668.283749,
         "job_id": "chess-p2b",
         "fresh": true
       }

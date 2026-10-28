@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "train",
+  "stage": "paused",
   "iteration": 41,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "4 jobs running on 1 GPU (GeForce RTX 4090) \u00b7 110 min queued per GPU",
+  "title": "Stopped by owner",
   "change": "1559 jobs finished today; planner idle",
   "result": "$59.53 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-28T10:38:39.078041+00:00",
+  "updated_at": "2026-10-28T10:39:41.529625+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-28T03:39:32.247205-07:00",
+    "measured_at": "2026-10-28T03:39:41.712860-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "active",
-        "updated_at": "2026-10-28T10:38:39.078041+00:00",
-        "elapsed_seconds": 15277,
+        "state": "interrupted",
+        "updated_at": "2026-10-28T10:39:41.529625+00:00",
+        "elapsed_seconds": 15286,
         "completed": 0,
         "total": null,
         "task": "4 jobs running on 1 GPU (GeForce RTX 4090) \u00b7 110 min queued per GPU",
-        "eta_seconds": 0,
-        "eta_basis": "10 previous iteration(s)"
+        "eta_seconds": null,
+        "eta_basis": "unavailable"
       },
       {
         "step": 2,
@@ -84,8 +84,8 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 15580,
-    "eta_seconds": 0,
+    "elapsed_seconds": 15590,
+    "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
@@ -135,8 +135,8 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 59.526319606153166,
-    "reserved_usd": 12.802100000000003,
+    "remaining_usd": 60.55172055696779,
+    "reserved_usd": 12.802100000000001,
     "reset_at": "2026-10-29T07:00:00+00:00"
   }
 }

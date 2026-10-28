@@ -12,7 +12,7 @@
   "result": "$66.61 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-28T07:07:49.778792+00:00",
+  "updated_at": "2026-10-28T07:08:56.946718+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-28T00:07:59.300510-07:00",
+    "measured_at": "2026-10-28T00:09:06.412304-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-28T07:07:49.778792+00:00",
-        "elapsed_seconds": 2584,
+        "updated_at": "2026-10-28T07:08:56.946718+00:00",
+        "elapsed_seconds": 2651,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 118 min queued per GPU",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 2887,
+    "elapsed_seconds": 2955,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
     "updated_at": 1793171226.8525841,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "farm1-1",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1793171226.9058104,
         "job_id": "cb-s1",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm2-1",
@@ -107,7 +107,7 @@
         "state": "active",
         "updated_at": 1793171226.8525841,
         "job_id": "ca-s1",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm2-2",
@@ -115,13 +115,13 @@
         "state": "active",
         "updated_at": 1793171226.8525841,
         "job_id": "cd-s1",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793171259.3400784,
+        "updated_at": 1793171326.3331087,
         "job_id": "cc-s1",
         "fresh": true
       }

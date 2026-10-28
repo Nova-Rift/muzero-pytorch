@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 118 min queued per GPU",
+  "title": "7 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 115 min queued per GPU",
   "change": "1471 jobs finished today; planner idle",
   "result": "$66.61 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-28T07:13:13.598625+00:00",
+  "updated_at": "2026-10-28T07:14:21.212644+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-28T00:13:23.301802-07:00",
+    "measured_at": "2026-10-28T00:14:27.384927-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-28T07:13:13.598625+00:00",
-        "elapsed_seconds": 2908,
+        "updated_at": "2026-10-28T07:14:21.212644+00:00",
+        "elapsed_seconds": 2972,
         "completed": 0,
         "total": null,
-        "task": "6 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 118 min queued per GPU",
+        "task": "7 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 115 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "10 previous iteration(s)"
       },
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 3211,
+    "elapsed_seconds": 3276,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -121,7 +121,7 @@
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793171585.7810247,
+        "updated_at": 1793171650.296739,
         "job_id": "cc-s1",
         "fresh": true
       }

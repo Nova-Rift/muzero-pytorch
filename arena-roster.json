@@ -1,29 +1,820 @@
 {
-  "schema": 1,
-  "revision": "bundled-v69-J-training-date-20261024",
-  "entries": [
-    {
-      "slot": 9,
-      "name": "MuZero J \u00b7 2,048 games \u00b7 experimental",
-      "architecture": "MuZero",
-      "planner": {
-        "discount": 1,
-        "simulations": 32,
-        "rootCandidates": 8
-      },
-      "models": {
-        "initial": {
-          "bytes": 10186632,
-          "sha256": "150c59e0b7c2b735299286d218e17e561ff3433c9f3cb3cbabf5274abc985bdf",
-          "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/98ce41f760ab9c7e65a383a03eaecc69270e05b8/models/150c59e0b7c2b735299286d218e17e561ff3433c9f3cb3cbabf5274abc985bdf.onnx"
-        },
-        "recurrent": {
-          "bytes": 4656580,
-          "sha256": "262de5d10e2781fdc9de13f0458d9f035d97ba0e5659ecbde33176e54cc679d0",
-          "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/98ce41f760ab9c7e65a383a03eaecc69270e05b8/models/262de5d10e2781fdc9de13f0458d9f035d97ba0e5659ecbde33176e54cc679d0.onnx"
-        }
-      },
-      "training_completed_at": "2026-10-21"
+ "schema": 2,
+ "revision": "farm-top10-472075299e7f",
+ "exclusive": true,
+ "entries": [
+  {
+   "slot": 0,
+   "name": "EGO448LD-B-32K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/835a8ce86a4dde07a234304db1b70be82fe0840f173fed5a40ead33a0ec4c352.onnx",
+     "sha256": "835a8ce86a4dde07a234304db1b70be82fe0840f173fed5a40ead33a0ec4c352",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/84fa049eefed8aa147e9274242c07e9feff207909d5fe1e5642a9aeaebfdaa1b.onnx",
+     "sha256": "84fa049eefed8aa147e9274242c07e9feff207909d5fe1e5642a9aeaebfdaa1b",
+     "bytes": 4656580
     }
-  ]
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T08:12:20.687114Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 1,
+   "elo": 1125.8
+  },
+  {
+   "slot": 1,
+   "name": "EGO448LDP5-B-40K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/02c8b0708ac99716e336509e7e127914b59eef630610cf159097194cb5d8ede5.onnx",
+     "sha256": "02c8b0708ac99716e336509e7e127914b59eef630610cf159097194cb5d8ede5",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/e1885f042eaadc27817356b3a5cdf2a444fee2f640ab874b15de43f4e84da99d.onnx",
+     "sha256": "e1885f042eaadc27817356b3a5cdf2a444fee2f640ab874b15de43f4e84da99d",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 40960 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T10:15:53.590608Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 2,
+   "elo": 1110.3
+  },
+  {
+   "slot": 2,
+   "name": "EGO2048-R13W-48K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/7172a66ef1b6084dc1b9ebf36b110b375e9ffebf236c362e54304d35c49a7521.onnx",
+     "sha256": "7172a66ef1b6084dc1b9ebf36b110b375e9ffebf236c362e54304d35c49a7521",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/ade5fb9be5edcd3274cc5ef2885c40e05d85e8a968978be22ba01b40c5596690.onnx",
+     "sha256": "ade5fb9be5edcd3274cc5ef2885c40e05d85e8a968978be22ba01b40c5596690",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 49152 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-26T12:09:23.073987Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 3,
+   "elo": 1068.1
+  },
+  {
+   "slot": 3,
+   "name": "EGO896-B3-AVG-8.9M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/16c06bfee1feb08d6a3dca3fd3f2eecf862469c8afada979ed66aef10057d676.onnx",
+     "sha256": "16c06bfee1feb08d6a3dca3fd3f2eecf862469c8afada979ed66aef10057d676",
+     "bytes": 25183886
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/5da7cea0119af4bf22012d40ca44181eed7ec62f35373f6d4ae2ae5237844054.onnx",
+     "sha256": "5da7cea0119af4bf22012d40ca44181eed7ec62f35373f6d4ae2ae5237844054",
+     "bytes": 17331406
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "896-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 896-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T04:08:41.678994Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 4,
+   "elo": 1068.0
+  },
+  {
+   "slot": 4,
+   "name": "EGO448N15-A-24K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/459115b78f41e92ef434fbb9050b26fefed73c8b691a48d56d1b6e18151ac21c.onnx",
+     "sha256": "459115b78f41e92ef434fbb9050b26fefed73c8b691a48d56d1b6e18151ac21c",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/a6042e059fc1f907effb8bbf9cc8a0fb2f5825c3ffa234245acb6aa5a0c373ad.onnx",
+     "sha256": "a6042e059fc1f907effb8bbf9cc8a0fb2f5825c3ffa234245acb6aa5a0c373ad",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 24576 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T06:53:10.385937Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 5,
+   "elo": 1065.3
+  },
+  {
+   "slot": 5,
+   "name": "EGO448LD-G-32K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/2c426da94ca651ae233e8dd1ea76a1677eca7ab984cd9c64a42ccc56096dd459.onnx",
+     "sha256": "2c426da94ca651ae233e8dd1ea76a1677eca7ab984cd9c64a42ccc56096dd459",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/fe6e41407101ab01a80835ddb541232693eb08b5254e9f123455621ba8af4d03.onnx",
+     "sha256": "fe6e41407101ab01a80835ddb541232693eb08b5254e9f123455621ba8af4d03",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T10:15:02.814256Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 6,
+   "elo": 1061.1
+  },
+  {
+   "slot": 6,
+   "name": "EGO2048-X2-32K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/9e240dfdf6ababd34a3551f06bc86e059244d8ae82aca14f197cdc3afa0bbcb1.onnx",
+     "sha256": "9e240dfdf6ababd34a3551f06bc86e059244d8ae82aca14f197cdc3afa0bbcb1",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/11b6e4d36486f5a9faf3449d9f89246e290f2a4759506e5e9d04666d0417a3b5.onnx",
+     "sha256": "11b6e4d36486f5a9faf3449d9f89246e290f2a4759506e5e9d04666d0417a3b5",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-26T11:59:18.844657Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 7,
+   "elo": 1059.5
+  },
+  {
+   "slot": 7,
+   "name": "EGO896-B5-32K-8.9M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/8a6100417786b1e3ba927e3f458f60767c994943e5a58118ff1afde3691a7e86.onnx",
+     "sha256": "8a6100417786b1e3ba927e3f458f60767c994943e5a58118ff1afde3691a7e86",
+     "bytes": 25183886
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/cf0c9c32141dffdedbf47a0b21de7ebfd0bd018df8be00cd7f168d9691a68af4.onnx",
+     "sha256": "cf0c9c32141dffdedbf47a0b21de7ebfd0bd018df8be00cd7f168d9691a68af4",
+     "bytes": 17331406
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "896-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 896-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T04:29:54.119869Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 8,
+   "elo": 1053.8
+  },
+  {
+   "slot": 8,
+   "name": "EGO2048-R13W-32K-3.2M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/469c8feb831d3b8fc4a00e3a18782ab945a693d1d002cc85fee81479ef5c1d0a.onnx",
+     "sha256": "469c8feb831d3b8fc4a00e3a18782ab945a693d1d002cc85fee81479ef5c1d0a",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/fef18e1386343fe4a7539d28775b406354629b0db53aeac45f9f47e17885a291.onnx",
+     "sha256": "fef18e1386343fe4a7539d28775b406354629b0db53aeac45f9f47e17885a291",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 448-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-26T11:12:49.042883Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 9,
+   "elo": 1052.7
+  },
+  {
+   "slot": 9,
+   "name": "EGO896-B1-32K-8.9M",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/a4945fa7336cf46d6cb11c06684c37020833e939207f63eeeab8068e4b7e75fc.onnx",
+     "sha256": "a4945fa7336cf46d6cb11c06684c37020833e939207f63eeeab8068e4b7e75fc",
+     "bytes": 25183886
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/4fb598fad02bfaff255152dcd67a8978091a0ae5787f6cbd4c08c835878e76ef.onnx",
+     "sha256": "4fb598fad02bfaff255152dcd67a8978091a0ae5787f6cbd4c08c835878e76ef",
+     "bytes": 17331406
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "896-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations \u00b7 8 root candidates",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Independent MuZero: encodes the last 64 observations and 63 actions with a 896-unit MLP, predicts policy and value, and plans 32 MCTS simulations through learned latent dynamics from 8 prior-sampled root candidates (discount 1). Aim bins are relative to the nearest living opponent. Trained on the GPU farm in 32768 two-agent self-play games.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-27T03:25:14.927723Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "rank": 10,
+   "elo": 1052.3
+  },
+  {
+   "slot": 10,
+   "name": "v1 \u00b7 Our first MuZero",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "group": "milestone",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/8057a2f3c2251355ba99d9c49bb846576f36a1fc49f2666c22b6bea8104dd1ee.onnx",
+     "sha256": "8057a2f3c2251355ba99d9c49bb846576f36a1fc49f2666c22b6bea8104dd1ee",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/1438f864a847fc8c38618f5b052bf06735a888459e6819c62d9e7114275d57c9.onnx",
+     "sha256": "1438f864a847fc8c38618f5b052bf06735a888459e6819c62d9e7114275d57c9",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "absolute",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 8 simulations",
+      "phase": "thinking"
+     },
+     {
+      "label": "Move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Written from scratch in PyTorch for the arena, built for speed: hundreds of games at once on one GPU. Milestone 1 of our MuZero (2026-10-20): 8 MCTS simulations, absolute aim. Compare it in Diagram focus.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/51f835cb989eddee0cab1a3841b08db3752d756e/model.py"
+   },
+   "training_completed_at": "2026-10-21T00:46:54Z",
+   "planner": {
+    "discount": 0.99,
+    "simulations": 8,
+    "rootCandidates": 0
+   }
+  },
+  {
+   "slot": 11,
+   "name": "v2 \u00b7 Wider search, correct timing",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "group": "milestone",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/c0ca58ecc42b7d40ac89ccdf47758661f28216162e276e2ba8b20ca59b508444.onnx",
+     "sha256": "c0ca58ecc42b7d40ac89ccdf47758661f28216162e276e2ba8b20ca59b508444",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/a3cc630f3d5502d345df80536be8796735e7fe3442e07e2f1c72ad05ff15a7c5.onnx",
+     "sha256": "a3cc630f3d5502d345df80536be8796735e7fe3442e07e2f1c72ad05ff15a7c5",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "absolute",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations",
+      "phase": "thinking"
+     },
+     {
+      "label": "Move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "More search per decision and the game's real 5-frame timing. Milestone 2 of our MuZero (2026-10-21): 32 MCTS simulations, 8 root candidates, absolute aim. Compare it in Diagram focus.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/51188b5b0937c037d8ff38b632b4518d3fe9f539/model.py"
+   },
+   "training_completed_at": "2026-10-21T02:02:36Z",
+   "planner": {
+    "discount": 0.99,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "elo": 832.2
+  },
+  {
+   "slot": 12,
+   "name": "v3 \u00b7 No discount, 2,048 games",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "group": "milestone",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/150c59e0b7c2b735299286d218e17e561ff3433c9f3cb3cbabf5274abc985bdf.onnx",
+     "sha256": "150c59e0b7c2b735299286d218e17e561ff3433c9f3cb3cbabf5274abc985bdf",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/262de5d10e2781fdc9de13f0458d9f035d97ba0e5659ecbde33176e54cc679d0.onnx",
+     "sha256": "262de5d10e2781fdc9de13f0458d9f035d97ba0e5659ecbde33176e54cc679d0",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "absolute",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations",
+      "phase": "thinking"
+     },
+     {
+      "label": "Move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "A win is worth the same whenever it happens, and twice the training games. Milestone 3 of our MuZero (2026-10-21): 32 MCTS simulations, 8 root candidates, absolute aim. Compare it in Diagram focus.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/75c7b9b00b2de2525dc242bc4a021ce3372547a3/model.py"
+   },
+   "training_completed_at": "2026-10-21",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   }
+  },
+  {
+   "slot": 13,
+   "name": "v4 \u00b7 Honest time-limit targets \u00b7 3.2M params",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "group": "milestone",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/73f3e1cbc98517783828455ed593c4d2ce78b668d502d89335d9c973ebf0d50a.onnx",
+     "sha256": "73f3e1cbc98517783828455ed593c4d2ce78b668d502d89335d9c973ebf0d50a",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/0ad3b890b5d5b83195733e05a23ec781dee0ace656df1e71ae4d1f8dbdc18f89.onnx",
+     "sha256": "0ad3b890b5d5b83195733e05a23ec781dee0ace656df1e71ae4d1f8dbdc18f89",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "absolute",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations",
+      "phase": "thinking"
+     },
+     {
+      "label": "Move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "Value targets that match the real score: a timed-out game is worth 0. Milestone 4 of our MuZero (2026-10-24): 32 MCTS simulations, 8 root candidates, absolute aim. Compare it in Diagram focus.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/2e67c2b9b7652ccbe75dbed249708356f38c3608/model.py"
+   },
+   "training_completed_at": "2026-10-24T02:19:19Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   }
+  },
+  {
+   "slot": 14,
+   "name": "v5 \u00b7 Aim at the opponent \u00b7 3.2M params",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "group": "milestone",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/e6deae2a4e760ba385abae3fe019abdda5c635507ed7a1a572838302eedf0298.onnx",
+     "sha256": "e6deae2a4e760ba385abae3fe019abdda5c635507ed7a1a572838302eedf0298",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/4cff7cbd5a2f649d793ab3dcca495c159adc5c953fa0555b33b471e2a07b189a.onnx",
+     "sha256": "4cff7cbd5a2f649d793ab3dcca495c159adc5c953fa0555b33b471e2a07b189a",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "The breakthrough: fire directions are measured from the nearest opponent, so 'shoot at them' is one action. Milestone 5 of our MuZero (2026-10-25): 32 MCTS simulations, 8 root candidates, opponent-relative aim. Compare it in Diagram focus.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/14fece1209067004f4c3936a6171bc40da55577d/model.py"
+   },
+   "training_completed_at": "2026-10-25",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "elo": 855.8
+  },
+  {
+   "slot": 15,
+   "name": "v6 \u00b7 Seat-mirrored data (current best) \u00b7 3.2M params",
+   "architecture": "MuZero",
+   "family": "independent-muzero",
+   "group": "milestone",
+   "models": {
+    "initial": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/d2b5096c9067e0003e67e378fc53e3fae610e0bae5c7faaacf37e20c95f00ccf.onnx",
+     "sha256": "d2b5096c9067e0003e67e378fc53e3fae610e0bae5c7faaacf37e20c95f00ccf",
+     "bytes": 10186632
+    },
+    "recurrent": {
+     "url": "https://raw.githubusercontent.com/Nova-Rift/muzero-pytorch/144f4ea1500d6eb8709468cf0be408c4e23f2756/models/d4898378dd2da2e9417322558a65a43d60382c82df100ee54b518ad38f2a5303.onnx",
+     "sha256": "d4898378dd2da2e9417322558a65a43d60382c82df100ee54b518ad38f2a5303",
+     "bytes": 4656580
+    }
+   },
+   "aim_decoding": "relative",
+   "inspector": {
+    "stages": [
+     {
+      "label": "64-step observation/action history"
+     },
+     {
+      "label": "448-unit MLP encoder"
+     },
+     {
+      "label": "Learned dynamics, reward and value"
+     },
+     {
+      "label": "MCTS \u00b7 32 simulations",
+      "phase": "thinking"
+     },
+     {
+      "label": "Opponent-relative move / shoot",
+      "phase": "acting"
+     }
+    ],
+    "description": "EGO2048 plus a mirrored copy of every game, so both seats learn from each game. Top of the Elo ranking. Milestone 6 of our MuZero (2026-10-25): 32 MCTS simulations, 8 root candidates, opponent-relative aim. Compare it in Diagram focus.",
+    "detailsPath": "/#muzero-architecture",
+    "sourceUrl": "https://github.com/Nova-Rift/muzero-pytorch/blob/ddc76c53ff4a5b260095f2bece52da8dc1f3d058/model.py"
+   },
+   "training_completed_at": "2026-10-26T03:04:46Z",
+   "planner": {
+    "discount": 1,
+    "simulations": 32,
+    "rootCandidates": 8
+   },
+   "elo": 1037.5
+  }
+ ]
 }

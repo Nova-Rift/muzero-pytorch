@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "8 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 97 min queued per GPU",
-  "change": "1937 jobs finished today; planner idle",
+  "title": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 97 min queued per GPU",
+  "change": "1940 jobs finished today; planner idle",
   "result": "$53.00 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T10:05:26.262842+00:00",
+  "updated_at": "2026-10-30T10:06:44.421377+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T03:05:39.493341-07:00",
+    "measured_at": "2026-10-30T03:06:49.350796-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T10:05:26.262842+00:00",
-        "elapsed_seconds": 30544,
+        "updated_at": "2026-10-30T10:06:44.421377+00:00",
+        "elapsed_seconds": 30614,
         "completed": 0,
         "total": null,
-        "task": "8 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 97 min queued per GPU",
+        "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 97 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "11 previous iteration(s)"
       },
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 32295,
+    "elapsed_seconds": 32365,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793354710.9965248,
-    "fresh": true,
+    "updated_at": 1793354726.7053165,
+    "fresh": false,
     "loops": [
       {
         "id": "farm14-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793354725.3430963,
+        "updated_at": 1793354803.8201442,
         "job_id": "azdJ1B",
         "fresh": true
       },
@@ -105,24 +105,24 @@
         "id": "farm17-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793354710.9965248,
+        "updated_at": 1793354776.928047,
         "job_id": "azxK2i",
         "fresh": true
       },
       {
-        "id": "farm17-2",
+        "id": "farm19-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793354710.9965248,
-        "job_id": "azxP2k",
-        "fresh": true
+        "updated_at": 1793354726.7053165,
+        "job_id": "azyC3Li",
+        "fresh": false
       },
       {
-        "id": "farm17-3",
-        "stage": "evaluate",
+        "id": "farm20-1",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1793354710.9965248,
-        "job_id": "azzK2C2",
+        "updated_at": 1793354790.4562767,
+        "job_id": "azyD2",
         "fresh": true
       }
     ]

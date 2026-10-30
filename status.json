@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "0 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 0 min queued per GPU",
+  "title": "0 jobs running on 1 GPU (GeForce RTX 4090) \u00b7 0 min queued per GPU",
   "change": "1872 jobs finished today; planner working",
-  "result": "$59.86 of today's budget left",
+  "result": "$63.25 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T07:28:16.451789+00:00",
+  "updated_at": "2026-10-30T07:29:30.026351+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T00:28:29.688335-07:00",
+    "measured_at": "2026-10-30T00:29:33.502834-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 22852,
+    "elapsed_seconds": 22926,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -111,7 +111,7 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 59.86101393228968,
+    "remaining_usd": 63.249910672782526,
     "reserved_usd": 25.6021,
     "reset_at": "2026-10-31T07:00:00+00:00"
   }

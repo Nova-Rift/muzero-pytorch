@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "3 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 288 min queued per GPU",
   "change": "1753 jobs finished today; planner working",
-  "result": "$58.84 of today's budget left",
+  "result": "$57.95 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T03:09:21.518830+00:00",
+  "updated_at": "2026-10-30T03:10:36.823444+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T20:09:34.267357-07:00",
+    "measured_at": "2026-10-29T20:10:39.087670-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T03:09:21.518830+00:00",
-        "elapsed_seconds": 7083,
+        "updated_at": "2026-10-30T03:10:36.823444+00:00",
+        "elapsed_seconds": 7148,
         "completed": 0,
         "total": null,
         "task": "3 jobs running on 3 GPUs (GeForce RTX 4090) \u00b7 288 min queued per GPU",
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 7330,
+    "elapsed_seconds": 7395,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -97,7 +97,7 @@
         "id": "farm2-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793329762.9498658,
+        "updated_at": 1793329826.0761836,
         "job_id": "azB2zx",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm3-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793329763.1290634,
+        "updated_at": 1793329826.107474,
         "job_id": "azK1g",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm6-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793329763.0125556,
+        "updated_at": 1793329825.9576998,
         "job_id": "azJ2p",
         "fresh": true
       },
@@ -135,8 +135,8 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 58.84395424058106,
-    "reserved_usd": 13.082499999999998,
+    "remaining_usd": 57.94975424058106,
+    "reserved_usd": 13.9767,
     "reset_at": "2026-10-30T07:00:00+00:00"
   }
 }

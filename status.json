@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Choosing and renting GPUs",
+  "title": "0 jobs running on 1 GPU (GeForce RTX 4090) \u00b7 314 min queued per GPU",
   "change": "1872 jobs finished today; planner working",
-  "result": "$68.85 of today's budget left",
+  "result": "$68.17 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T07:33:49.148741+00:00",
+  "updated_at": "2026-10-30T07:34:46.024692+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T00:33:49.547274-07:00",
+    "measured_at": "2026-10-30T00:34:56.801736-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 23185,
+    "elapsed_seconds": 23242,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -111,8 +111,8 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 68.85158298735817,
-    "reserved_usd": 25.6021,
+    "remaining_usd": 68.16928298735817,
+    "reserved_usd": 26.2844,
     "reset_at": "2026-10-31T07:00:00+00:00"
   }
 }

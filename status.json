@@ -12,7 +12,7 @@
   "result": "$62.37 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T08:18:54.704077+00:00",
+  "updated_at": "2026-10-30T08:19:35.561693+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T01:19:02.760694-07:00",
+    "measured_at": "2026-10-30T01:20:06.886750-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T08:18:54.704077+00:00",
-        "elapsed_seconds": 24147,
+        "updated_at": "2026-10-30T08:19:35.561693+00:00",
+        "elapsed_seconds": 24212,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 131 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 25898,
+    "elapsed_seconds": 25962,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793348320.4728396,
+    "updated_at": 1793348361.7755263,
     "fresh": true,
     "loops": [
       {
         "id": "farm14-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793348320.4728396,
+        "updated_at": 1793348361.7755263,
         "job_id": "azxA2",
         "fresh": true
       },
@@ -105,7 +105,7 @@
         "id": "farm17-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793348321.6919055,
+        "updated_at": 1793348363.1334672,
         "job_id": "azwD1ip",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm19-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793348321.7523003,
+        "updated_at": 1793348363.133908,
         "job_id": "azwR128I",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm20-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793348321.8354783,
+        "updated_at": 1793348363.181198,
         "job_id": "azwTP",
         "fresh": true
       }

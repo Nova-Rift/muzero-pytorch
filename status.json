@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T03:42:23.131751-07:00",
+    "measured_at": "2026-10-30T03:43:28.740594-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
         "updated_at": "2026-10-30T10:41:49.902085+00:00",
-        "elapsed_seconds": 32748,
+        "elapsed_seconds": 32813,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 131 min queued per GPU",
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 34499,
+    "elapsed_seconds": 34564,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1793356894.1492493,
         "job_id": "azaQ1",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm17-1",
@@ -115,7 +115,7 @@
         "state": "active",
         "updated_at": 1793356895.260223,
         "job_id": "azyV1",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm20-1",
@@ -123,7 +123,7 @@
         "state": "active",
         "updated_at": 1793356895.68123,
         "job_id": "azxJ2",
-        "fresh": true
+        "fresh": false
       }
     ]
   },
@@ -135,7 +135,7 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 50.31606639167629,
+    "remaining_usd": 51.0998465517696,
     "reserved_usd": 44.25799999999999,
     "reset_at": "2026-10-31T07:00:00+00:00"
   }

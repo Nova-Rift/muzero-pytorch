@@ -12,7 +12,7 @@
   "result": "$56.14 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T09:25:27.246240+00:00",
+  "updated_at": "2026-10-30T09:26:10.549540+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T02:25:46.719575-07:00",
+    "measured_at": "2026-10-30T02:26:49.593344-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T09:25:27.246240+00:00",
-        "elapsed_seconds": 28151,
+        "updated_at": "2026-10-30T09:26:10.549540+00:00",
+        "elapsed_seconds": 28214,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 128 min queued per GPU",
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 29902,
+    "elapsed_seconds": 29965,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -97,17 +97,17 @@
         "id": "farm14-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793352326.925218,
+        "updated_at": 1793352340.941115,
         "job_id": "azyM1",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm17-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793352313.033411,
+        "updated_at": 1793352342.328724,
         "job_id": "azxK2",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm19-1",
@@ -121,9 +121,9 @@
         "id": "farm20-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793352313.2853394,
+        "updated_at": 1793352342.4767027,
         "job_id": "azyD2",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

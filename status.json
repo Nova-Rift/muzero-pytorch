@@ -12,7 +12,7 @@
   "result": "$53.45 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T09:57:46.892888+00:00",
+  "updated_at": "2026-10-30T09:59:03.701283+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T02:58:02.765303-07:00",
+    "measured_at": "2026-10-30T02:59:07.046525-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T09:57:46.892888+00:00",
-        "elapsed_seconds": 30088,
+        "updated_at": "2026-10-30T09:59:03.701283+00:00",
+        "elapsed_seconds": 30152,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 97 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 31838,
+    "elapsed_seconds": 31903,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793354267.2095532,
-    "fresh": true,
+    "updated_at": 1793354267.3199291,
+    "fresh": false,
     "loops": [
       {
         "id": "farm14-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793354281.2329795,
+        "updated_at": 1793354329.8188734,
         "job_id": "azdJ1B",
         "fresh": true
       },
@@ -107,13 +107,13 @@
         "state": "active",
         "updated_at": 1793354267.3199291,
         "job_id": "azxK2i",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm19-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793354267.2095532,
+        "updated_at": 1793354331.1177351,
         "job_id": "azdC1G",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm20-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793354267.3967834,
+        "updated_at": 1793354331.116162,
         "job_id": "azyD2",
         "fresh": true
       }

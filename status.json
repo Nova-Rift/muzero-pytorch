@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Setting up GeForce RTX 4090 \u00b7 32 min of work queued",
+  "title": "0 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 17 min queued per GPU",
   "change": "1559 jobs finished today; planner working",
   "result": "$68.64 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T01:10:10.614454+00:00",
+  "updated_at": "2026-10-30T01:11:06.948345+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T18:10:14.218528-07:00",
+    "measured_at": "2026-10-29T18:11:17.739172-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,28 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 166,
+    "elapsed_seconds": 222,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 3,
+    "active_loops": 2,
     "updated_at": 1793322444.2842603,
     "fresh": false,
     "loops": [
       {
-        "id": "farm2-setup",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1793322610.5120106,
-        "job_id": "setup-farm2",
-        "fresh": true
-      },
-      {
         "id": "farm3-setup",
         "stage": "test",
         "state": "active",
-        "updated_at": 1793322610.5120106,
+        "updated_at": 1793322666.7746274,
         "job_id": "setup-farm3",
         "fresh": true
       },

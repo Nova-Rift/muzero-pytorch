@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 79 min queued per GPU",
-  "change": "1572 jobs finished today; planner idle",
+  "title": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 62 min queued per GPU",
+  "change": "1577 jobs finished today; planner idle",
   "result": "$65.91 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T01:29:32.899029+00:00",
+  "updated_at": "2026-10-30T01:30:36.501148+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T18:29:38.740869-07:00",
+    "measured_at": "2026-10-29T18:30:43.929683-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T01:29:32.899029+00:00",
-        "elapsed_seconds": 1088,
+        "updated_at": "2026-10-30T01:30:36.501148+00:00",
+        "elapsed_seconds": 1153,
         "completed": 0,
         "total": null,
-        "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 79 min queued per GPU",
+        "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 62 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "11 previous iteration(s)"
       },
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1334,
+    "elapsed_seconds": 1399,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793323741.5795953,
+    "updated_at": 1793323813.227167,
     "fresh": true,
     "loops": [
       {
         "id": "farm2-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793323741.630177,
+        "updated_at": 1793323825.6620746,
         "job_id": "azB1",
         "fresh": true
       },
@@ -105,24 +105,24 @@
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793323741.5837219,
+        "updated_at": 1793323825.6116118,
         "job_id": "azA1",
         "fresh": true
       },
       {
         "id": "farm4-1",
-        "stage": "evaluate",
+        "stage": "train",
         "state": "active",
-        "updated_at": 1793323741.5806088,
-        "job_id": "chess-az-ru-fb-400001",
+        "updated_at": 1793323813.227167,
+        "job_id": "azE1",
         "fresh": true
       },
       {
         "id": "farm5-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793323741.5795953,
-        "job_id": "chess-az-ru-fb-500002",
+        "updated_at": 1793323826.830701,
+        "job_id": "chess-az-rr-fb-500000",
         "fresh": true
       }
     ]

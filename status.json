@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "1 job running on 6 GPUs (GeForce RTX 4090) \u00b7 49 min queued per GPU",
+  "title": "2 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 48 min queued per GPU",
   "change": "1872 jobs finished today; planner working",
   "result": "$64.76 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T07:42:25.734847+00:00",
+  "updated_at": "2026-10-30T07:43:16.298229+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T00:42:26.161448-07:00",
+    "measured_at": "2026-10-30T00:43:29.576826-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T07:42:25.734847+00:00",
-        "elapsed_seconds": 21951,
+        "updated_at": "2026-10-30T07:43:16.298229+00:00",
+        "elapsed_seconds": 22014,
         "completed": 0,
         "total": null,
-        "task": "1 job running on 6 GPUs (GeForce RTX 4090) \u00b7 49 min queued per GPU",
+        "task": "2 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 48 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "11 previous iteration(s)"
       },
@@ -84,12 +84,12 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 23702,
+    "elapsed_seconds": 23765,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
+    "active_loops": 3,
     "updated_at": 1793344646.055536,
     "fresh": false,
     "loops": [
@@ -97,24 +97,16 @@
         "id": "farm14-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793346144.6153555,
+        "updated_at": 1793346195.1152568,
         "job_id": "azwA1",
         "fresh": true
       },
       {
-        "id": "farm19-setup",
-        "stage": "test",
+        "id": "farm17-1",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793346145.2635677,
-        "job_id": "setup-farm19",
-        "fresh": true
-      },
-      {
-        "id": "farm21-setup",
-        "stage": "test",
-        "state": "active",
-        "updated_at": 1793346145.2635677,
-        "job_id": "setup-farm21",
+        "updated_at": 1793346175.361759,
+        "job_id": "azwRI",
         "fresh": true
       },
       {

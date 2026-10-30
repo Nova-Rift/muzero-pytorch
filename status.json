@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "0 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 11 min queued per GPU",
   "change": "1865 jobs finished today; planner working",
-  "result": "$60.76 of today's budget left",
+  "result": "$60.31 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T07:12:00.888105+00:00",
+  "updated_at": "2026-10-30T07:13:14.990262+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T00:12:13.756315-07:00",
+    "measured_at": "2026-10-30T00:13:17.441353-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 21876,
+    "elapsed_seconds": 21951,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },

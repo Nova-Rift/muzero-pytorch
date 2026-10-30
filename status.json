@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "paused",
-  "iteration": 41,
+  "stage": "queued",
+  "iteration": 42,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "Stopped by owner",
-  "change": "1559 jobs finished today; planner idle",
-  "result": "$59.53 of today's budget left",
+  "title": "Choosing and renting GPUs",
+  "change": "1559 jobs finished today; planner working",
+  "result": "$70.00 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-28T10:39:41.529625+00:00",
+  "updated_at": "2026-10-30T01:07:57.516189+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T18:07:03.402696-07:00",
+    "measured_at": "2026-10-29T18:08:05.846020-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "interrupted",
-        "updated_at": "2026-10-28T10:39:41.529625+00:00",
-        "elapsed_seconds": 15286,
-        "completed": 0,
+        "state": "pending",
+        "updated_at": null,
+        "elapsed_seconds": 0,
+        "completed": null,
         "total": null,
-        "task": "4 jobs running on 1 GPU (GeForce RTX 4090) \u00b7 110 min queued per GPU",
+        "task": "Not started",
         "eta_seconds": null,
         "eta_basis": "unavailable"
       },
@@ -84,46 +84,22 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 154032,
+    "elapsed_seconds": 33,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 4,
-    "updated_at": 1793183908.3514073,
-    "fresh": false,
+    "active_loops": 1,
+    "updated_at": 1793322444.2842603,
+    "fresh": true,
     "loops": [
       {
-        "id": "farm3-1",
-        "stage": "evaluate",
+        "id": "planner",
+        "stage": "review",
         "state": "active",
-        "updated_at": 1793183908.3514073,
-        "job_id": "c2x1h",
-        "fresh": false
-      },
-      {
-        "id": "farm3-2",
-        "stage": "evaluate",
-        "state": "active",
-        "updated_at": 1793183908.3514073,
-        "job_id": "c2x1r",
-        "fresh": false
-      },
-      {
-        "id": "farm3-3",
-        "stage": "train",
-        "state": "active",
-        "updated_at": 1793183908.3514073,
-        "job_id": "c2x3-s1",
-        "fresh": false
-      },
-      {
-        "id": "farm3-4",
-        "stage": "evaluate",
-        "state": "active",
-        "updated_at": 1793183908.3514073,
-        "job_id": "c2z1r",
-        "fresh": false
+        "updated_at": 1793322444.2842603,
+        "job_id": "planner",
+        "fresh": true
       }
     ]
   },
@@ -136,7 +112,7 @@
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
     "remaining_usd": 70.0,
-    "reserved_usd": 0,
+    "reserved_usd": 0.0,
     "reset_at": "2026-10-30T07:00:00+00:00"
   }
 }

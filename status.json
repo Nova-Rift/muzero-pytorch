@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "stage": "queued",
+  "stage": "train",
   "iteration": 42,
   "completed_games": 0,
   "target_games": 0,
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "0 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 17 min queued per GPU",
+  "title": "2 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 13 min queued per GPU",
   "change": "1559 jobs finished today; planner working",
   "result": "$68.64 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T01:11:06.948345+00:00",
+  "updated_at": "2026-10-30T01:12:19.372657+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,18 +37,18 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T18:11:17.739172-07:00",
+    "measured_at": "2026-10-29T18:12:24.518994-07:00",
     "steps": [
       {
         "step": 1,
-        "state": "pending",
-        "updated_at": null,
-        "elapsed_seconds": 0,
-        "completed": null,
+        "state": "active",
+        "updated_at": "2026-10-30T01:12:19.372657+00:00",
+        "elapsed_seconds": 53,
+        "completed": 0,
         "total": null,
-        "task": "Not started",
-        "eta_seconds": null,
-        "eta_basis": "unavailable"
+        "task": "2 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 13 min queued per GPU",
+        "eta_seconds": 518,
+        "eta_basis": "11 previous iteration(s)"
       },
       {
         "step": 2,
@@ -84,21 +84,29 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 222,
-    "eta_seconds": null,
+    "elapsed_seconds": 300,
+    "eta_seconds": 847,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
-    "active_loops": 2,
+    "active_loops": 3,
     "updated_at": 1793322444.2842603,
     "fresh": false,
     "loops": [
       {
-        "id": "farm3-setup",
-        "stage": "test",
+        "id": "farm2-1",
+        "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793322666.7746274,
-        "job_id": "setup-farm3",
+        "updated_at": 1793322716.122206,
+        "job_id": "c2s21r",
+        "fresh": true
+      },
+      {
+        "id": "farm3-1",
+        "stage": "evaluate",
+        "state": "active",
+        "updated_at": 1793322727.9071524,
+        "job_id": "chess-v2mm25b-fb-300000",
         "fresh": true
       },
       {

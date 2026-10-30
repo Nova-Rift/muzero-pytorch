@@ -8,11 +8,11 @@
   "evaluation_games": 0,
   "timeouts": 0,
   "title": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 46 min queued per GPU",
-  "change": "1789 jobs finished today; planner idle",
+  "change": "1790 jobs finished today; planner idle",
   "result": "$51.66 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T04:20:01.841328+00:00",
+  "updated_at": "2026-10-30T04:20:53.907270+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T21:20:05.104519-07:00",
+    "measured_at": "2026-10-29T21:21:09.542063-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T04:20:01.841328+00:00",
-        "elapsed_seconds": 11314,
+        "updated_at": "2026-10-30T04:20:53.907270+00:00",
+        "elapsed_seconds": 11379,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 46 min queued per GPU",
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 11561,
+    "elapsed_seconds": 11625,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793333965.7707062,
-    "fresh": true,
+    "updated_at": 1793333990.8816931,
+    "fresh": false,
     "loops": [
       {
         "id": "farm2-1",
@@ -99,13 +99,13 @@
         "state": "active",
         "updated_at": 1793333990.8816931,
         "job_id": "azB3wb",
-        "fresh": true
+        "fresh": false
       },
       {
         "id": "farm3-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793333990.7426302,
+        "updated_at": 1793334028.537687,
         "job_id": "azA4w",
         "fresh": true
       },
@@ -113,7 +113,7 @@
         "id": "farm10-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793333966.2681687,
+        "updated_at": 1793334041.104373,
         "job_id": "chess-az-j2b2-fb-1000000",
         "fresh": true
       },
@@ -121,7 +121,7 @@
         "id": "farm11-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793333965.7707062,
+        "updated_at": 1793334041.02067,
         "job_id": "azM1hd",
         "fresh": true
       }

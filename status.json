@@ -9,10 +9,10 @@
   "timeouts": 0,
   "title": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 128 min queued per GPU",
   "change": "1909 jobs finished today; planner idle",
-  "result": "$58.83 of today's budget left",
+  "result": "$58.38 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T09:03:43.315064+00:00",
+  "updated_at": "2026-10-30T09:05:22.170010+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,13 +37,13 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T02:04:17.577446-07:00",
+    "measured_at": "2026-10-30T02:05:23.610931-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T09:03:43.315064+00:00",
-        "elapsed_seconds": 26862,
+        "updated_at": "2026-10-30T09:05:22.170010+00:00",
+        "elapsed_seconds": 26928,
         "completed": 0,
         "total": null,
         "task": "6 jobs running on 6 GPUs (GeForce RTX 4090) \u00b7 128 min queued per GPU",
@@ -84,20 +84,20 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 28613,
+    "elapsed_seconds": 28679,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 4,
-    "updated_at": 1793350989.4280164,
-    "fresh": false,
+    "updated_at": 1793351106.929123,
+    "fresh": true,
     "loops": [
       {
         "id": "farm14-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793351023.0020914,
+        "updated_at": 1793351106.929123,
         "job_id": "azxA2",
         "fresh": true
       },
@@ -105,23 +105,23 @@
         "id": "farm17-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793350989.4280164,
+        "updated_at": 1793351108.2640705,
         "job_id": "azxK2",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "farm19-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793350989.568289,
+        "updated_at": 1793351108.2971141,
         "job_id": "azxE2",
-        "fresh": false
+        "fresh": true
       },
       {
         "id": "farm20-1",
         "stage": "train",
         "state": "active",
-        "updated_at": 1793351005.0264666,
+        "updated_at": 1793351108.3696702,
         "job_id": "azxJ1",
         "fresh": true
       }
@@ -135,8 +135,8 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 58.826966391676294,
-    "reserved_usd": 35.747099999999996,
+    "remaining_usd": 58.38106639167629,
+    "reserved_usd": 36.193,
     "reset_at": "2026-10-31T07:00:00+00:00"
   }
 }

@@ -7,12 +7,12 @@
   "wins": 0,
   "evaluation_games": 0,
   "timeouts": 0,
-  "title": "2 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 1 min queued per GPU",
-  "change": "1869 jobs finished today; planner working",
+  "title": "2 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 0 min queued per GPU",
+  "change": "1870 jobs finished today; planner working",
   "result": "$59.86 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T07:21:53.191927+00:00",
+  "updated_at": "2026-10-30T07:22:59.349716+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,16 +37,16 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-30T00:22:00.825549-07:00",
+    "measured_at": "2026-10-30T00:23:07.876742-07:00",
     "steps": [
       {
         "step": 1,
         "state": "active",
-        "updated_at": "2026-10-30T07:21:53.191927+00:00",
-        "elapsed_seconds": 21280,
+        "updated_at": "2026-10-30T07:22:59.349716+00:00",
+        "elapsed_seconds": 21347,
         "completed": 0,
         "total": null,
-        "task": "2 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 1 min queued per GPU",
+        "task": "2 jobs running on 2 GPUs (GeForce RTX 4090) \u00b7 0 min queued per GPU",
         "eta_seconds": 0,
         "eta_basis": "11 previous iteration(s)"
       },
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 22476,
+    "elapsed_seconds": 22543,
     "eta_seconds": 0,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -97,15 +97,15 @@
         "id": "farm2-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793344901.8777037,
-        "job_id": "azA5Pqh",
+        "updated_at": 1793344965.4510455,
+        "job_id": "azJ3b4",
         "fresh": true
       },
       {
         "id": "farm12-1",
         "stage": "evaluate",
         "state": "active",
-        "updated_at": 1793344902.096371,
+        "updated_at": 1793344965.6497853,
         "job_id": "azB4Ll4",
         "fresh": true
       },

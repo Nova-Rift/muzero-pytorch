@@ -12,7 +12,7 @@
   "result": "$70.00 of today's budget left",
   "candidate": "Not selected",
   "evaluation_label": "No new evaluation",
-  "updated_at": "2026-10-30T01:07:57.516189+00:00",
+  "updated_at": "2026-10-30T01:09:03.249923+00:00",
   "latest_comparison": {
     "iteration": 35,
     "loop": "loop-c",
@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-10-29T18:08:05.846020-07:00",
+    "measured_at": "2026-10-29T18:09:08.773239-07:00",
     "steps": [
       {
         "step": 1,
@@ -84,14 +84,14 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 33,
+    "elapsed_seconds": 99,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
   "workload_status": {
     "active_loops": 1,
     "updated_at": 1793322444.2842603,
-    "fresh": true,
+    "fresh": false,
     "loops": [
       {
         "id": "planner",
@@ -99,7 +99,7 @@
         "state": "active",
         "updated_at": 1793322444.2842603,
         "job_id": "planner",
-        "fresh": true
+        "fresh": false
       }
     ]
   },

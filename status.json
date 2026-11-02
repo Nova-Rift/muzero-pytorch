@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-11-01T19:59:58.024931-08:00",
+    "measured_at": "2026-11-01T20:01:02.914147-08:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 269554,
+    "elapsed_seconds": 269618,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -135,7 +135,7 @@
   },
   "pilot_gpu_cap_usd": 70.0,
   "daily_budget": {
-    "remaining_usd": 67.70988033618778,
+    "remaining_usd": 67.26257894653827,
     "reserved_usd": 0,
     "reset_at": "2026-11-02T08:00:00+00:00"
   }

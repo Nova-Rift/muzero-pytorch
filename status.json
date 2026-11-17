@@ -37,7 +37,7 @@
     "status": "completed"
   },
   "timing": {
-    "measured_at": "2026-11-16T23:59:30.287433-08:00",
+    "measured_at": "2026-11-17T00:00:36.413620-08:00",
     "steps": [
       {
         "step": 1,
@@ -84,7 +84,7 @@
         "eta_basis": "unavailable"
       }
     ],
-    "elapsed_seconds": 1579926,
+    "elapsed_seconds": 1579992,
     "eta_seconds": null,
     "eta_basis": "20 previous completed iteration(s)"
   },
@@ -137,6 +137,6 @@
   "daily_budget": {
     "remaining_usd": 70.0,
     "reserved_usd": 0,
-    "reset_at": "2026-11-17T08:00:00+00:00"
+    "reset_at": "2026-11-18T08:00:00+00:00"
   }
 }
